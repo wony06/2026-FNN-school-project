@@ -1,0 +1,17 @@
+{
+  "_status": "DRAFT - 실측 아님. 일반적인 조리 상식/표준 레시피 기준 1개당 중량을 Claude가 임의로 추정한 값입니다. 팀 실측 후 교체 필요.",
+  "units": [
+    { "item": "계란후라이", "g_per_unit": 50 },
+    { "item": "계란말이(한 토막)", "g_per_unit": 18 },
+    { "item": "만두/교자만두(1개)", "g_per_unit": 13 },
+    { "item": "비엔나소세지(1개)", "g_per_unit": 10 },
+    { "item": "옹심이(1개)", "g_per_unit": 8 },
+    { "item": "완자/동그랑땡(1개)", "g_per_unit": 15 },
+    { "item": "타코야끼(1개)", "g_per_unit": 20 },
+    { "item": "칵테일새우(1마리)", "g_per_unit": 5 },
+    { "item": "메추리알(1개)", "g_per_unit": 9 },
+    { "item": "꼬마돈까스(1조각)", "g_per_unit": 25 },
+    { "item": "새우튀김(1개)", "g_per_unit": 20 },
+    { "item": "꼬치어묵(1개)", "g_per_unit": 50 }
+  ]
+}

@@ -1,0 +1,12 @@
+# 원본 스크랩 사진(183MB) - fetch_missing_photos.py로 재생성 가능, 실제 사이트는 menu_photos_web만 사용
+menu_photos/
+
+# Python
+__pycache__/
+*.pyc
+
+# 개인 API 키 (config.example.py를 복사해서 config.py 만들 것)
+pipeline/config.py
+
+# 디버그/스크래치 산출물
+pipeline/_debug_*.json

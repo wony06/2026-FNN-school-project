@@ -1,0 +1,2297 @@
+[
+ {
+  "date": "2026-08-24",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxb2SJfQqy5mhbnEcuIg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "치즈닭갈비덮밥",
+  "sides": [
+   "메밀전병",
+   "고추잎무침",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxb4N9c2yeKNaU5xn8gw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "만두장칼국수",
+  "sides": [
+   "메밀전병",
+   "고추잎무침",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxb5-je_agoMWlu1wTcA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "고추장제육볶음",
+  "sides": [
+   "소고기미역국",
+   "한식잡채",
+   "볼어묵볶음",
+   "호박양파볶음",
+   "무생채",
+   "김치2종",
+   "잡곡밥/현미밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxnMEedEWhNY1pI16KMA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "조기구이",
+  "sides": [
+   "한마리",
+   "소고기미역국",
+   "한식잡채",
+   "볼어묵볶음",
+   "호박양파볶음",
+   "무생채",
+   "김치2종",
+   "잡곡밥/현미밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxnRhAcm6yqLfGKGpvCw/x.jpg",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "순살간장닭갈비",
+  "sides": [
+   "흑미밥",
+   "미역국",
+   "야채춘권*칠리소스",
+   "청포묵김무침",
+   "배추김치",
+   "매실차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxisfNcDChpkQ93J1ncg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-24",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "새우튀김카레라이스",
+  "sides": [
+   "미니쌀국수",
+   "바질크림떡볶이",
+   "푸실리샐러드",
+   "단무지무침",
+   "배추김치",
+   "매실차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxixXYdIyZr5bTjtOPFg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2d6I4ee--2FcSda66ZQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "주꾸미덮밥",
+  "sides": [
+   "교자만두",
+   "콘샐러드",
+   "김치",
+   "미소국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2d7nZdG6W1JPG4k4IPQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "로제부대찌개",
+  "sides": [
+   "교자만두",
+   "콘샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2d8-6dYWtj_4PG6wqRA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "불고기오븐도리아",
+  "sides": [
+   "우동장국",
+   "돈가스&소스",
+   "코울슬로",
+   "모닝빵,크로와상&버터,잼",
+   "오이피클&포기김치",
+   "샐러드&토핑&드레싱",
+   "요거트"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2t1BieqmiFcV7V4yoyw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "베이컨크림파스타",
+  "sides": [
+   "우동장국",
+   "돈가스&소스",
+   "코울슬로",
+   "모닝빵,크로와상&버터,잼",
+   "오이피클&포기김치",
+   "샐러드&토핑&드레싱",
+   "요거트"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2ta6YdPW7ttH6UfR-Xw/x.jpg",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈까스나베",
+  "sides": [
+   "흑미밥",
+   "콩나물국",
+   "맛살부추전",
+   "새우젓호박볶음",
+   "배추김치",
+   "식혜"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2snGYd9yRx7ws_NV3Gw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-25",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "돈육불고기덮밥",
+  "sides": [
+   "콩국수",
+   "쭈꾸미만두",
+   "마카로니샐러드",
+   "단무지무침",
+   "배추김치",
+   "식혜"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA2sgKTcDyp8QcXEeqNhw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "등심돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA7ptttdOG0BzYbnp7Udg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "치킨마요덮밥",
+  "sides": [
+   "비엔나케찹볶음",
+   "마카로니샐러드",
+   "김치",
+   "팽이우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA7pvJTcgO_qvV661cYeg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "삼겹살김치찌개",
+  "sides": [
+   "비엔나케찹볶음",
+   "마카로니샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA7pwkHf6SJHPYdnl-g_Q/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "이화수육개장",
+  "sides": [
+   "왕만두찜",
+   "사각어묵볶음",
+   "콩나물무침",
+   "양파간장절임",
+   "김치2종",
+   "잡곡밥/현미밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA7050Vc1ekleTCXhQF4w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육고추장찌개",
+  "sides": [
+   "흑미밥",
+   "야채튀김",
+   "건새우마늘쫑볶음",
+   "새송이볶음",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA70xi-dPiT5f99yJxITw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-26",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "마라로제닭살덮밥",
+  "sides": [
+   "냉우동",
+   "김말이튀김",
+   "단무지무침",
+   "요구르트",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaA703ZUdtSDJY9zOXLWdw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA0BGvc_eM5ANOFn6t9Q/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "제육볶음&쌈채소",
+  "sides": [
+   "청포묵무침",
+   "숙주나물",
+   "김치",
+   "얼갈이된장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA0CPVcyWHzRF0rKcocg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "디포리된장국수",
+  "sides": [
+   "청포묵무침",
+   "숙주나물",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA0Dclexa-WZv1d_-FeQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "불고기낙지전골",
+  "sides": [
+   "콩나물국",
+   "메추리알곤약조림",
+   "감자채볶음",
+   "고들뺴기무침",
+   "김치2종",
+   "잡곡밥/현미밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA_TyLe_SbWZDLlOJ8SA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "훈제오리야채찜",
+  "sides": [
+   "콩나물국",
+   "메추리알곤약조림",
+   "감자채볶음",
+   "고들뺴기무침",
+   "김치2종",
+   "잡곡밥/현미밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA_A8ucCOZoOOe3Z1uEg/x.jpg",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육김치찌개",
+  "sides": [
+   "흑미밥",
+   "꼬마돈까스*케찹",
+   "연두부*케찹",
+   "메추리알조림",
+   "배추김치",
+   "석류차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA600ffCSPQzDYBCJlRQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-27",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "봉골레파스타",
+  "sides": [
+   "후리가케밥",
+   "우동국물",
+   "소떡소떡꼬치",
+   "오이피클",
+   "배추김치",
+   "석류차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBA7AucfQGM9ca4Ldieaw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "생선까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGBS6tcPul78uQJfl4dA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "묵은지참치마요덮밥",
+  "sides": [
+   "데리야끼삼치구이",
+   "산고추지",
+   "김치",
+   "유부우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGBUGWd4qxqYmJdFRTFA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "몽글순두부찌개",
+  "sides": [
+   "데리야끼삼치구이",
+   "산고추지",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGBViZcrylkx1crz09Xg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "전골떡볶이",
+  "sides": [
+   "꼬치어묵국",
+   "모듬튀김",
+   "야채쫄면",
+   "김밥볶음밥",
+   "치킨무&포기김치",
+   "샐러드&토핑&드레싱",
+   "쿨피스"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGNESJdHy7LPervbrtAg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "닭곰탕*소면사리",
+  "sides": [
+   "흑미밥",
+   "떡갈비야채조림",
+   "브로콜리초회",
+   "도시락김",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGHL90cXKoq7tZt5iftA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-28",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "베이컨마늘볶음밥",
+  "sides": [
+   "냉짬뽕",
+   "맛초킹탕수육",
+   "옥수수콘샐러드",
+   "비트무피클",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBGHQZDcz6s-Y8qBdtw9w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-29",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "설렁탕",
+  "sides": [
+   "궁중고기구이",
+   "부추전",
+   "새송이브로콜리볶음",
+   "갓절임",
+   "부추무침",
+   "김치2종",
+   "잡곡밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-29",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육된장찌개",
+  "sides": [
+   "백미밥",
+   "치킨너겟*머스타드",
+   "마늘쫑야채볶음",
+   "명엽채볶음",
+   "배추김치"
+  ],
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVaZdueJSr_5ienxc9Kw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "참치야채비빔밥",
+  "sides": [
+   "물만두*초간장",
+   "숙주나물무침",
+   "김치",
+   "된장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVaasEf0uLS5pgPiEgmg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "햄고추장찌개",
+  "sides": [
+   "물만두*초간장",
+   "숙주나물무침",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVacwreNyIoUNWFjARqQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "뚝배기소불고기",
+  "sides": [
+   "미역국",
+   "도토리묵무침",
+   "감자채볶음",
+   "콩나물무침",
+   "김치2종",
+   "쌀밥/현미밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVqWM0cdqdNliAdph6sw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈등뼈감자탕",
+  "sides": [
+   "흑미밥",
+   "돈육강정",
+   "꽈리고추멸치볶음",
+   "오복지무침",
+   "배추김치",
+   "망고주스"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVlbJFcHqDXqvDhnARwA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "왕돈가스",
+  "sides": [
+   "후리가케밥",
+   "토마토스파게티",
+   "우동국물",
+   "단무지무침",
+   "배추김치",
+   "망고주스"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVlhAkdkajpYtVuYmMDA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBaniYTcIe11u5JP2Ssaw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "치킨마요덮밥",
+  "sides": [
+   "계란말이*케찹",
+   "마카로니샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBanjgacmmjKwvLjC0ZLQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "목살김치찌개",
+  "sides": [
+   "계란말이*케찹",
+   "마카로니샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBankoTf2CatBbPSjgsiQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "전복표고솥밥",
+  "sides": [
+   "미소장국",
+   "2종전",
+   "한식잡채",
+   "양념깻잎지",
+   "김치2종"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBayHXEe72g4huoCs5E-Q/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "부대찌개*라면사리",
+  "sides": [
+   "흑미밥",
+   "해물까스*타르소스",
+   "어묵잡채",
+   "무말랭이무침",
+   "배추김치",
+   "레몬홍차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBaxSIFd6WbI2t9bQ7Saw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "계란볶음밥",
+  "sides": [
+   "마제소바",
+   "우동국물",
+   "명란마요만두강정",
+   "단무지무침",
+   "레몬홍차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBaxWOAeHC2PlqlxkzOoQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "등심돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBfyN78eQaYrRjnDB6B3w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "비프하이라이스",
+  "sides": [],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBfyPnHfSOiY3zJykCK2w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "투움바크림파스타",
+  "sides": [],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBfyQw1fcKCb224qoYnPw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "황제해물짬뽕",
+  "sides": [
+   "후르츠탕수육",
+   "군만두",
+   "오이탕탕이",
+   "단무지&포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBf4wvFclas2rOO3Ooy9A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "고구마닭갈비",
+  "sides": [
+   "흑미밥",
+   "맑은감자국",
+   "오징어링튀김*머스타드",
+   "숙주나물",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBf2070eSqkpeRtdOGSCg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "고추잡채덮밥",
+  "sides": [
+   "미니우동",
+   "모닝빵*딸기잼",
+   "마카로니샐러드",
+   "요구르트",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBf25T_ecKstSkmlGtgQw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "통살치킨까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "대패삼겹덮밥",
+  "sides": [
+   "견과류멸치볶음",
+   "쫄깃단무지무침",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "차돌된장찌개",
+  "sides": [
+   "견과류멸치볶음",
+   "쫄깃단무지무침",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "치킨스테이크&그릴야채",
+  "sides": [
+   "양송이스프",
+   "감자튀김",
+   "코울슬로",
+   "무피클&포기김치",
+   "야채필라프"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBlANitfTiciS926qaZwQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "설렁탕*소면사리",
+  "sides": [
+   "흑미밥",
+   "미트볼떡볶음",
+   "쥐어채볶음",
+   "청경채겉절이",
+   "배추김치",
+   "유자차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBk_tAIe7WK3mlsOGJT7Q/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "로제함박스테이크",
+  "sides": [
+   "후리가케밥",
+   "알리오올리오",
+   "우동국물",
+   "오이피클",
+   "배추김치",
+   "유자차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBk_NxVeVW2uuM2rfRQPg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqGNBMfyCdxo4tfEzjug/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "크랩알밥",
+  "sides": [
+   "손만두",
+   "오그락지",
+   "김치",
+   "어묵국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqGOHBeyyc91dIo6EM7A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "들깨옹심이칼국수",
+  "sides": [
+   "손만두",
+   "오그락지",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqGPNldB-CZZ3tJkF5GQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "돼지갈비찜",
+  "sides": [
+   "뚝)청국장찌개",
+   "두부조림",
+   "호박새우젓볶음",
+   "오이도라지무침",
+   "김치2종",
+   "쌀밥/현미밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqKZFPdVeeybOmLkVMVw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육순두부찌개",
+  "sides": [
+   "흑미밥",
+   "치킨너겟*머스타드",
+   "메추리알조림",
+   "미역줄기볶음",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqMDNKekS0y4yh19jKiA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "장조림버터비빔밥",
+  "sides": [
+   "냉모밀",
+   "핫도그*케찹",
+   "비트무피클",
+   "요구르트",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqMydvdBm9pNm_IrAfGQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-05",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "왕떡만두국",
+  "sides": [
+   "명란떡갈비",
+   "우엉채볶음",
+   "숙주나물",
+   "아삭이고추무침",
+   "김치2종",
+   "잡곡밥"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-05",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "고추장닭갈비",
+  "sides": [
+   "미역국",
+   "백미밥",
+   "해물야채까스*타르소스",
+   "무말랭이무침",
+   "배추김치"
+  ],
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5h3HBcY-cX603xjdexQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "강된장열무비빔밥",
+  "sides": [
+   "떡고기산적조림",
+   "간장마늘지",
+   "깍두기",
+   "호박새우젓국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5h4rRdkO3hRpMzckrMg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "소고기우거지해장국",
+  "sides": [
+   "떡고기산적조림",
+   "간장마늘지",
+   "깍두기"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5h5_sce69WAL1fqRARQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "돈가스&새우튀김&브라운S",
+  "sides": [
+   "유부장국",
+   "메쉬드포테이토",
+   "쫄면",
+   "단무지&깍두기",
+   "쌀밥",
+   "요구르트"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "놀부부대찌개",
+  "sides": [
+   "계란말이",
+   "알감자조림",
+   "탕평채",
+   "포기김치",
+   "쌀밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5jskkdaCcNkR0XM8zhw/x.png",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "차돌김치찌개",
+  "sides": [
+   "흑미밥",
+   "청양마요미트볼",
+   "볼어묵볶음",
+   "오이무침",
+   "깍두기",
+   "망고주스"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5pACKdPmRoTwXh4Lgbg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-07",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "스팸마요덮밥",
+  "sides": [
+   "잔치국수",
+   "메밀전병",
+   "콘샐러드",
+   "단무지무침",
+   "배추김치",
+   "망고주스"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB5pEjEf_qi4Vjy4R6BdQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "등심돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-p_HddsagXKImBDMClA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "부타동",
+  "sides": [
+   "연두부*간장",
+   "해초샐러드",
+   "김치",
+   "미소국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-qAT8f-qnoqqL_UOMkQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "순살닭한마리",
+  "sides": [
+   "연두부*간장",
+   "해초샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-qB7Lcq20zVs3soJktA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "닭한마리전골",
+  "sides": [
+   "녹두빈대떡&양파간장",
+   "도토리묵&양념장",
+   "부추무침",
+   "김치2종",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-zoDBeB23w46Saei9Gw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "놀부부대찌개",
+  "sides": [
+   "계란말이",
+   "알감자조림",
+   "탕평채",
+   "포기김치",
+   "쌀밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB6rupucASRNg-c2xOAUw/x.png",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "숯불간장불고기",
+  "sides": [
+   "흑미밥",
+   "순두부김치국",
+   "생선까스*타르소스",
+   "미역줄기볶음",
+   "열무김치",
+   "석류차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-wKKmdXaUaKCeTcSkKw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-08",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "돈까스덮밥",
+  "sides": [
+   "냉우동",
+   "츄러스",
+   "마카로니샐러드",
+   "비트무피클",
+   "열무김치",
+   "석류차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB-wRt5cvK00AJHMAMZYg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD0gA3eTmwil232T1diA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "제육덮밥",
+  "sides": [
+   "피쉬볼볶음",
+   "숙주나물",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD0hImfduh2syrO6YcJg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "부대찌개",
+  "sides": [
+   "피쉬볼볶음",
+   "숙주나물",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD0iM6dZyA4FuF8Yye-g/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "비빔밥&계란후라이",
+  "sides": [
+   "뚝)된장찌개",
+   "제육볶음",
+   "도시락김",
+   "무말랭이무침",
+   "김치2종"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD5kIdchmx32Z799rSEw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "놀부부대찌개",
+  "sides": [
+   "계란말이",
+   "알감자조림",
+   "탕평채",
+   "포기김치",
+   "쌀밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB6r7iMcPyJmQfT4fsNhg/x.png",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "소고기육개장",
+  "sides": [
+   "흑미밥",
+   "데리야끼동그랑조림",
+   "감자버터구이",
+   "양파절임",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD3aaCfvSmFOCwD13dYw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-09",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "차돌분모자크림떡볶이",
+  "sides": [
+   "참치김가루밥",
+   "김말이강정",
+   "단무지무침",
+   "요구르트",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCD3iVVeTS1gzs7x7_J8A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCI-X4UcSm8bjCH9rekfA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "스팸마요덮밥",
+  "sides": [
+   "계란말이",
+   "브로콜리*초장",
+   "김치",
+   "팽이장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCI-ZGof_-dniGM9YLf6Q/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "삼겹살비지찌개",
+  "sides": [
+   "계란말이",
+   "브로콜리*초장",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCI-alAdhSJW-hyXTYP4w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "냄비우동",
+  "sides": [
+   "캘리포니아롤",
+   "생선가스&타르D",
+   "과일사라다",
+   "오이지무침",
+   "꼬들단무지&포기김치"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCJGoO7cpaBDzm1g0k9_A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "놀부부대찌개",
+  "sides": [
+   "계란말이",
+   "알감자조림",
+   "탕평채",
+   "포기김치",
+   "쌀밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB6sJtNeIezFmebgoLzRw/x.png",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "닭곰탕*소면사리",
+  "sides": [
+   "흑미밥",
+   "야채고로케*케찹",
+   "마늘쫑맛살볶음",
+   "숙주나물",
+   "열무김치",
+   "매실차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCJDf4Ee1CCRYiBEwlsMQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-10",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "새우튀김오므라이스",
+  "sides": [
+   "냉모밀",
+   "마약옥수수",
+   "푸실리샐러드",
+   "오이피클",
+   "배추김치",
+   "매실차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCJDktCc82sYQYetUPgHw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "생선까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCODORffzGx1SgcI7cg7g/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "황태무침비빔밥",
+  "sides": [
+   "비건만두",
+   "오그락지",
+   "김치",
+   "시래기된장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCODPzsc0qBlMrNq6yJuA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "바지락칼국수",
+  "sides": [
+   "비건만두",
+   "오그락지",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCODRSyfdqVOhd2W79J7w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "나주곰탕",
+  "sides": [
+   "돼지고기육전&파채",
+   "명엽채볶음",
+   "오그락지무침",
+   "김치2종",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCONESJfI2D_5ZXsMFURA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "놀부부대찌개",
+  "sides": [
+   "계란말이",
+   "알감자조림",
+   "탕평채",
+   "포기김치",
+   "쌀밥",
+   "샐러드&토핑&드레싱"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaB6sV86dMeucwbPFnnVGg/x.png",
+  "cat_idx": 1
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육고추장찌개",
+  "sides": [
+   "잡곡밥",
+   "오징어까스*타르소스",
+   "명엽채볶음",
+   "콩나물무침",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCOO5ILfbmvnU_OuVkgCw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-11",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "소고기쌀국수",
+  "sides": [
+   "추가밥",
+   "스프링롤*칠리소스",
+   "락교*초생강",
+   "요구르트",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCOO-zOck6SZqW57nNT3w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-12",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "목살김치전골",
+  "sides": [
+   "동그랑땡전",
+   "계란찜",
+   "연두부&양념장",
+   "호박새우젓볶음",
+   "김치2종",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-12",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육순두부찌개",
+  "sides": [
+   "백미밥",
+   "치킨너겟*머스타드",
+   "무말랭이무침",
+   "맛살야채볶음",
+   "배추김치"
+  ],
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "통살치킨까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdl3CAdLCmc8TDUSKO5w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "대패삼겹덮밥",
+  "sides": [
+   "가마보꼬어묵조림",
+   "콩나물무침",
+   "김치",
+   "미소장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdl41SdwyBiNb6fY828w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "우삼겹순두부찌개",
+  "sides": [
+   "가마보꼬어묵조림",
+   "콩나물무침",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdl6CgdaqzqDSTz29IYg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "묵은지우삼겹솥밥",
+  "sides": [
+   "맑은홍합탕",
+   "제육잡채",
+   "고추양파무침",
+   "김치2종",
+   "요구르트"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdt7dOc1-79IgVgZm1nA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "미나리돼지곰탕",
+  "sides": [
+   "흑미밥",
+   "치킨까스*머스타드",
+   "비엔나굴소스볶음",
+   "숙주나물",
+   "배추김치",
+   "망고주스"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdtfKJerKL78_wjapmbA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "베이컨마늘볶음밥",
+  "sides": [
+   "미니짬뽕",
+   "타코야끼",
+   "참치펜네샐러드",
+   "단무지무침",
+   "배추김치",
+   "망고주스"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCdtkQLcKSAgPxETax0Lg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "아쿠아돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCiroeIdMiyAvmD4_o5HQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "짜장밥",
+  "sides": [
+   "딤섬",
+   "단무지무침",
+   "김치",
+   "계란국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCirqG0dtusGAYNVSTRKQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "차돌짬뽕밥",
+  "sides": [
+   "딤섬",
+   "단무지무침",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCirra4f-K70RhbO_D6HA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "보쌈정식",
+  "sides": [
+   "아욱된장국",
+   "비빔막국수",
+   "상추쌈,풋고추&쌈장",
+   "무말랭이&배추겉절이",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCi5mLdeoSGGhycdcMtcg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "제육김치볶음",
+  "sides": [
+   "흑미밥",
+   "열무된장국",
+   "옥수수고로케*케찹",
+   "새송이볶음",
+   "깍두기",
+   "석류차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCiz6wFfE6yrSBb9QPAAg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "토마토커리덮밥",
+  "sides": [
+   "냉우동",
+   "새우볼*칠리소스",
+   "마카로니샐러드",
+   "비트무피클",
+   "배추김치",
+   "석류차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCi0D2EeOq8ZI0oP5u2GA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCn4UubcvW6f07GUX4New/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "찹스테이크덮밥",
+  "sides": [
+   "어니언링*케찹",
+   "푸실리샐러드",
+   "김치",
+   "크림스프"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCn4WJ_d_iLCFFGuJNAPw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "해장파스타",
+  "sides": [
+   "어니언링*케찹",
+   "푸실리샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCn4XcPcQWI8B7SHWIUyg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "돈코츠라멘",
+  "sides": [
+   "돈까스&브라운S",
+   "락교",
+   "단무지",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCoDAKdctKwtOaLJ7fPOg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "차돌된장찌개",
+  "sides": [
+   "흑미밥",
+   "생선까스*타르소스",
+   "느타리버섯볶음",
+   "양념고추지",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCoAFusemWJ8tXoosUc_A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "함박덮밥",
+  "sides": [
+   "우동국물",
+   "투움바파스타",
+   "설탕꽈배기",
+   "요구르트",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCoAKJge06Th45d7QRSMQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "새우튀김알밥",
+  "sides": [
+   "비엔나케찹볶음",
+   "콘샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtEGWkeXm7fOlQAPQjQw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "삼겹살김치찌개",
+  "sides": [
+   "비엔나케찹볶음",
+   "콘샐러드",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtEInkfNeE1KJNfKSRhw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "등심돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtEKa4cCS6nBDLUhXpag/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "소불고기전골",
+  "sides": [
+   "스크램블에그",
+   "도토리묵&양념장",
+   "무생채",
+   "김치2종",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtJ0h9cESuWWTVEm51Hg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "바지락순두부찌개",
+  "sides": [
+   "흑미밥",
+   "치킨너겟*머스타드",
+   "도토리묵야채무침",
+   "콩나물무침",
+   "배추김치",
+   "매실차"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtEyzudoOvwVBu4SmxZQ/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "지코바치킨덮밥",
+  "sides": [
+   "잔치국수",
+   "해쉬브라운*케찹",
+   "콘샐러드",
+   "단무지무침",
+   "배추김치",
+   "매실차"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCtE3ppekmz6fG9TWontA/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "치즈돈까스",
+  "sides": [
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyNe2VeyuRTiQTNAyo7w/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "참치마요덮밥",
+  "sides": [
+   "고기산적조림",
+   "오이생채",
+   "김치",
+   "유부된장국"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyNjfCcZeTdDhRP8Iykg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "햄고추장찌개&김가루밥",
+  "sides": [
+   "고기산적조림",
+   "오이생채",
+   "김치"
+  ],
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyNg6sd5--tibPZMwTJg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "트러플풍기파스타",
+  "sides": [
+   "미소시루",
+   "칠리핫도그",
+   "콘샐러드",
+   "오이피클&포기김치",
+   "콜라or사이다"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCySyMifZe_PDPqEQZYYg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "감자탕",
+  "sides": [
+   "흑미밥",
+   "맛쵸킹만두강정",
+   "팽이미역줄기볶음",
+   "새송이볶음",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyRF2BeEeZmfTzi4TiZg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "마라샹궈",
+  "sides": [
+   "추가밥",
+   "냉모밀",
+   "뿌링클탕수육",
+   "요구르트",
+   "배추김치",
+   "마카로니과자"
+  ],
+  "price": "6,500원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyRP7ld5SiJnPxlMgBfw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-19",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "장터국밥",
+  "sides": [
+   "멘치까스&브라운S",
+   "잡채어묵곤약조림",
+   "브로콜리,다시마&초장",
+   "고추장멸치볶음",
+   "김치2종",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-19",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "왕돈가스",
+  "sides": [
+   "우동국물",
+   "콘샐러드",
+   "요구르트",
+   "오이무침",
+   "배추김치"
+  ],
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0
+ }
+]

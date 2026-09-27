@@ -1,0 +1,29 @@
+{
+  "_status": "DRAFT - 레시피DB(RCP_NM) 검색으로 후보 존재 여부만 1차 확인함. 핵심재료 카테고리 및 비율은 팀 관능평가로 최종 검증 필요.",
+  "_method": "알고리즘 2단계 c-1~c-2에서 사용: 수식어로 레시피DB를 검색해 RCP_PARTS_DTLS에서 아래 core_categories에 해당하는 재료만 추출/합산한다.",
+  "modifiers": [
+    { "modifier": "로제", "core_categories": ["크림(생크림/우유)", "토마토(토마토소스/토마토페이스트)"], "recipe_db_candidates_found": 3, "note": "" },
+    { "modifier": "마늘", "core_categories": ["마늘"], "recipe_db_candidates_found": 9, "note": "" },
+    { "modifier": "고추장", "core_categories": ["고추장"], "recipe_db_candidates_found": 6, "note": "" },
+    { "modifier": "크림", "core_categories": ["생크림", "우유", "버터"], "recipe_db_candidates_found": 26, "note": "후보가 많아 파스타/디저트 등 이질적 맥락 섞일 수 있음 — 메뉴명 문맥(주식/반찬) 고려해 후보 재선별 권장" },
+    { "modifier": "카레", "core_categories": ["카레가루/카레루"], "recipe_db_candidates_found": 20, "note": "" },
+    { "modifier": "짜장", "core_categories": ["춘장", "전분"], "recipe_db_candidates_found": 0, "note": "이번 레시피DB에 후보 없음 — 팀 관능평가로 비율 결정 필요" },
+    { "modifier": "토마토", "core_categories": ["토마토(생과)", "토마토소스"], "recipe_db_candidates_found": 52, "note": "후보 매우 많음 — 메뉴명에 '스프/파스타/카프레제' 등 동반 단어로 후보 좁히기 권장" },
+    { "modifier": "불고기", "core_categories": ["간장", "설탕", "배즙/양파즙(양념육 베이스)"], "recipe_db_candidates_found": 10, "note": "" },
+    { "modifier": "데리야끼", "core_categories": ["간장", "미림", "설탕"], "recipe_db_candidates_found": 0, "note": "이번 레시피DB에 후보 없음 — 팀 관능평가로 비율 결정 필요" },
+    { "modifier": "강정", "core_categories": ["전분/튀김옷", "물엿/조청(단맛 소스)"], "recipe_db_candidates_found": 9, "note": "" },
+    { "modifier": "탕수", "core_categories": ["전분/튀김옷", "식초", "설탕"], "recipe_db_candidates_found": 9, "note": "" },
+    { "modifier": "깐풍", "core_categories": ["전분/튀김옷", "고추", "마늘"], "recipe_db_candidates_found": 3, "note": "" },
+    { "modifier": "유린", "core_categories": ["전분/튀김옷", "간장", "식초"], "recipe_db_candidates_found": 1, "note": "후보 1개뿐 — 신뢰도 낮음으로 표기 필요" },
+    { "modifier": "참깨", "core_categories": ["참깨", "참기름"], "recipe_db_candidates_found": 4, "note": "" },
+    { "modifier": "들깨", "core_categories": ["들깨가루", "들기름"], "recipe_db_candidates_found": 24, "note": "" },
+    { "modifier": "견과", "core_categories": ["견과류(아몬드/호두/땅콩 등)"], "recipe_db_candidates_found": 10, "note": "" },
+    { "modifier": "치즈", "core_categories": ["치즈(모짜렐라/체다 등)"], "recipe_db_candidates_found": 16, "note": "" },
+    { "modifier": "월남쌈", "core_categories": ["라이스페이퍼", "채소"], "recipe_db_candidates_found": 2, "note": "" },
+    { "modifier": "스팸", "core_categories": ["스팸(가공육)"], "recipe_db_candidates_found": 0, "note": "이번 레시피DB에 후보 없음 — 팀 관능평가로 비율 결정 필요" },
+    { "modifier": "명란", "core_categories": ["명란젓"], "recipe_db_candidates_found": 1, "note": "후보 1개뿐 — 신뢰도 낮음으로 표기 필요" },
+    { "modifier": "간장", "core_categories": ["간장"], "recipe_db_candidates_found": 7, "note": "" },
+    { "modifier": "매콤", "core_categories": ["고춧가루", "청양고추"], "recipe_db_candidates_found": null, "note": "미조사 — 맛 강도 표현이라 핵심재료 정의가 애매할 수 있음" },
+    { "modifier": "순한", "core_categories": [], "recipe_db_candidates_found": null, "note": "비핵심 수식어(맛 강도 표현) — 재료 비율 계산에서 제외 권장" }
+  ]
+}

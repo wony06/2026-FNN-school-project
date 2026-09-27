@@ -1,0 +1,17 @@
+{
+  "_status": "DRAFT - 실측 아님. menu_photos의 트레이 사진들(표준 학식 식기)을 시각적으로 비교해 Claude가 임의로 추정한 규격입니다. 팀 실측 후 교체 필요.",
+  "_method": "표준 급식 트레이(약 350x450mm)를 기준 스케일로 삼아 사진 속 그릇의 상대적 크기를 비교 추정함.",
+  "bowls": [
+    { "id": "main_plate_round_deep", "desc": "대형 원형 오목 접시 (덮밥/까스류 메인, 흰색)", "diameter_cm": 26, "depth_cm": 2.5, "typical_fill_ratio": 0.6, "est_volume_ml": 550, "used_for": ["덮밥", "까스+밥+반찬 플레이팅"] },
+    { "id": "side_dish_diamond_small", "desc": "정사각/다이아몬드형 소형 반찬접시 (김치, 계란말이, 나물 등)", "width_cm": 11, "depth_cm": 3, "typical_fill_ratio": 0.5, "est_volume_ml": 120, "used_for": ["김치", "나물무침", "장아찌", "볶음 소량"] },
+    { "id": "side_dish_round_small", "desc": "원형 소형 반찬접시/종지 (검정 또는 흰색)", "diameter_cm": 11, "depth_cm": 3, "typical_fill_ratio": 0.5, "est_volume_ml": 110, "used_for": ["나물", "젓갈", "조림"] },
+    { "id": "soup_bowl_small", "desc": "소형 국그릇 (미소장국 등 맑은국, 흰색 원형)", "diameter_cm": 11, "depth_cm": 5, "est_volume_ml": 250, "used_for": ["미소장국", "계란국", "맑은장국"] },
+    { "id": "stew_pot_medium", "desc": "즉석찌개/전골용 중형 냄비 (스텐/양은, 손잡이 2개)", "diameter_cm": 18, "depth_cm": 7, "typical_fill_ratio": 0.7, "est_volume_ml": 900, "used_for": ["순두부찌개", "김치찌개", "부대찌개", "연포탕"] },
+    { "id": "rice_bowl", "desc": "밥공기 (원형, 흰색 또는 스텐)", "diameter_cm": 11, "depth_cm": 6, "est_volume_ml": 220, "typical_weight_g": 210, "used_for": ["쌀밥", "잡곡밥", "흑미밥"] },
+    { "id": "hotstone_soup_bowl", "desc": "뚝배기/돌솥형 국그릇 (204 신소재공학관 정식류)", "diameter_cm": 15, "depth_cm": 7, "est_volume_ml": 450, "used_for": ["돼지곰탕", "육개장", "된장찌개"] },
+    { "id": "large_mixed_bowl", "desc": "대형 오목 볼 (비빔밥/볶음밥 등 일품류)", "diameter_cm": 25, "depth_cm": 6, "typical_fill_ratio": 0.55, "est_volume_ml": 650, "used_for": ["볶음밥", "비빔밥", "덮밥(볼形)"] },
+    { "id": "small_glass_bowl", "desc": "소형 유리/스텐 볼 (파스타류 사이드)", "diameter_cm": 10, "depth_cm": 5, "est_volume_ml": 150, "used_for": ["펜네파스타", "냉모밀 소량"] },
+    { "id": "mini_black_pot", "desc": "미니 국물요리용 사각/원형 뚝배기 (일품 곁들이 국물)", "diameter_cm": 12, "depth_cm": 6, "est_volume_ml": 300, "used_for": ["미니짬뽕", "우동국물"] },
+    { "id": "salad_bowl", "desc": "샐러드볼 (SELF 코너, 흰색 원형 볼)", "diameter_cm": 14, "depth_cm": 6, "note": "SELF 무제한 코너 - 1인분 표준량 산정 어려움, 기본 산정에서 제외 권장" }
+  ]
+}

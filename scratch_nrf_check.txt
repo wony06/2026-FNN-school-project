@@ -1,0 +1,178 @@
+{
+  "date": "2026-08-24",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "price": "4,800원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaAxb2SJfQqy5mhbnEcuIg/x.jpg",
+  "cat_idx": 0,
+  "구성요소_목록": [
+    "고구마치즈돈까스",
+    "쌀밥",
+    "샐러드",
+    "김치",
+    "우동국"
+  ],
+  "1인분_제공량_g": 608.0,
+  "kcal": 801.3,
+  "단백질_g": 31.7,
+  "지방_g": 28.7,
+  "탄수화물_g": 104.2,
+  "당류_g": 11.9,
+  "식이섬유_g": 1.5,
+  "칼슘_mg": 77.0,
+  "철_mg": 1.59,
+  "비타민A_ugRAE": 11.9,
+  "비타민C_mg": 3.3,
+  "포화지방_g": 5.19,
+  "나트륨_mg": 1878.2,
+  "NRF6.3": -31.3,
+  "역산검증_오차율": 0.1,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+    "샐러드",
+    "우동국"
+  ],
+  "결측_필드": [
+    "고구마치즈돈까스: vitA",
+    "쌀밥: vitA",
+    "샐러드: fiber,ca,fe,vitA,vitC",
+    "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "item_detail": [
+    {
+      "display": "고구마치즈돈까스",
+      "matched": true,
+      "weight_g": 150,
+      "weight_note": "일반 메인반찬 - 표준 150g",
+      "contrib": {
+        "kcal": 420.0,
+        "protein": 20.775,
+        "fat": 26.91,
+        "carb": 23.835,
+        "sugar": 7.485,
+        "fiber": 0.45,
+        "ca": 51.0,
+        "fe": 1.44,
+        "vitA": 0.0,
+        "vitC": 1.8,
+        "satFat": 4.74,
+        "na": 514.5
+      },
+      "missing": [
+        "vitA"
+      ],
+      "source": "food_db",
+      "db_name": "돈가스"
+    },
+    {
+      "display": "쌀밥",
+      "matched": true,
+      "weight_g": 190,
+      "weight_note": "밥 - 표준 190g",
+      "contrib": {
+        "kcal": 315.4,
+        "protein": 6.3839999999999995,
+        "fat": 0.6080000000000001,
+        "carb": 70.92699999999999,
+        "sugar": 0.038000000000000006,
+        "fiber": 0.19,
+        "ca": 11.4,
+        "fe": 0.0,
+        "vitA": 0.0,
+        "vitC": 0.30400000000000005,
+        "satFat": 0.19,
+        "na": 0.0
+      },
+      "missing": [
+        "vitA"
+      ],
+      "source": "food_db",
+      "db_name": "쌀밥"
+    },
+    {
+      "display": "샐러드",
+      "matched": true,
+      "weight_g": 34,
+      "weight_note": "105 공통 반찬그릇 실측(4.5x4.5x0.7cm) 기준 표준 34g",
+      "contrib": {
+        "kcal": 32.98,
+        "protein": 2.6792000000000002,
+        "fat": 1.0404,
+        "carb": 3.4135999999999997,
+        "sugar": 1.3702,
+        "fiber": 0.0,
+        "ca": 0.0,
+        "fe": 0.0,
+        "vitA": 0.0,
+        "vitC": 0.0,
+        "satFat": 0.23799999999999996,
+        "na": 138.38
+      },
+      "missing": [
+        "fiber",
+        "ca",
+        "fe",
+        "vitA",
+        "vitC"
+      ],
+      "source": "gagong_db",
+      "db_name": "샐러드"
+    },
+    {
+      "display": "김치",
+      "matched": true,
+      "weight_g": 34,
+      "weight_note": "105 공통 반찬그릇 실측(4.5x4.5x0.7cm) 기준 표준 34g",
+      "contrib": {
+        "kcal": 12.92,
+        "protein": 0.6731999999999999,
+        "fat": 0.1462,
+        "carb": 2.2066,
+        "sugar": 0.816,
+        "fiber": 0.85,
+        "ca": 14.62,
+        "fe": 0.1462,
+        "vitA": 11.9,
+        "vitC": 1.2206000000000001,
+        "satFat": 0.0238,
+        "na": 187.34
+      },
+      "missing": [],
+      "source": "food_db",
+      "db_name": "배추김치"
+    },
+    {
+      "display": "우동국",
+      "matched": true,
+      "weight_g": 200,
+      "weight_note": "국/탕류 사이드 - 표준 200g",
+      "contrib": {
+        "kcal": 20.0,
+        "protein": 1.2,
+        "fat": 0.0,
+        "carb": 3.8,
+        "sugar": 2.2,
+        "fiber": 0.0,
+        "ca": 0.0,
+        "fe": 0.0,
+        "vitA": 0.0,
+        "vitC": 0.0,
+        "satFat": 0.0,
+        "na": 1038.0
+      },
+      "missing": [
+        "fiber",
+        "ca",
+        "fe",
+        "vitA",
+        "vitC"
+      ],
+      "source": "gagong_db",
+      "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+    }
+  ]
+}

@@ -1,0 +1,810 @@
+<meta charset="UTF-8">
+<title>학식 영양표</title>
+<meta name="description" content="메뉴명으로 식약처 식품영양성분DB·조리식품 레시피DB를 검색해 영양성분표를 확인합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+<style>
+  :root{
+    --bg:#F5F6EF;
+    --surface:#FFFFFF;
+    --surface-alt:#EBEEE1;
+    --text:#1E2A1F;
+    --text-muted:#5C6B58;
+    --border:#D9DDC9;
+    --primary:#2F6F4E;
+    --primary-strong:#1F4D36;
+    --primary-soft:#E1EEE3;
+    --accent-warm:#B9540B;
+    --accent-warm-soft:#F5E4D2;
+    --shadow: 0 1px 2px rgba(30,42,31,0.06), 0 8px 24px rgba(30,42,31,0.06);
+    --focus: #1F4D36;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12160F;
+      --surface:#181F14;
+      --surface-alt:#20281A;
+      --text:#ECF1E3;
+      --text-muted:#9DAE92;
+      --border:#2D3624;
+      --primary:#74C393;
+      --primary-strong:#A3E0BC;
+      --primary-soft:#1E3126;
+      --accent-warm:#E48D48;
+      --accent-warm-soft:#3B2A18;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+      --focus: #A3E0BC;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12160F;
+    --surface:#181F14;
+    --surface-alt:#20281A;
+    --text:#ECF1E3;
+    --text-muted:#9DAE92;
+    --border:#2D3624;
+    --primary:#74C393;
+    --primary-strong:#A3E0BC;
+    --primary-soft:#1E3126;
+    --accent-warm:#E48D48;
+    --accent-warm-soft:#3B2A18;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    --focus: #A3E0BC;
+  }
+
+  *{box-sizing:border-box;}
+  html{color-scheme: light dark;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+    padding: 28px 20px 64px;
+  }
+  .wrap{max-width:1080px; margin:0 auto;}
+
+  header.top{
+    display:flex; flex-direction:column; gap:6px;
+    margin-bottom:24px;
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--primary-strong);
+    font-weight:600;
+  }
+  h1{
+    font-family:"Gowun Batang", serif;
+    font-weight:700;
+    font-size:clamp(28px,4vw,38px);
+    margin:0;
+    text-wrap:balance;
+    color:var(--text);
+  }
+  .sub{
+    color:var(--text-muted);
+    font-size:14.5px;
+    max-width:62ch;
+    line-height:1.6;
+    margin:2px 0 0;
+  }
+
+  .search-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:18px;
+    margin-bottom:22px;
+  }
+  .search-row{
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  #q{
+    flex:1 1 260px;
+    min-width:0;
+    font-family:inherit;
+    font-size:16px;
+    padding:12px 14px;
+    border-radius:9px;
+    border:1.5px solid var(--border);
+    background:var(--bg);
+    color:var(--text);
+  }
+  #q:focus{outline:2px solid var(--focus); outline-offset:1px; border-color:transparent;}
+  button.primary{
+    font-family:inherit;
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    background:var(--primary);
+    border:none;
+    border-radius:9px;
+    padding:0 22px;
+    cursor:pointer;
+    transition: background .15s ease;
+  }
+  button.primary:hover{background:var(--primary-strong);}
+  button.primary:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+
+  .examples{
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .examples span.label{color:var(--text-muted); font-size:12.5px; align-self:center; margin-right:2px;}
+  .chip{
+    font-family:inherit;
+    font-size:13px;
+    background:var(--surface-alt);
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:999px;
+    padding:6px 13px;
+    cursor:pointer;
+  }
+  .chip:hover{border-color:var(--primary);}
+  .chip:focus-visible{outline:2px solid var(--focus); outline-offset:1px;}
+
+  .note{
+    font-size:12.5px; color:var(--text-muted); margin-top:10px; line-height:1.6;
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: minmax(0,1fr);
+    gap:20px;
+  }
+  @media (min-width: 860px){
+    .layout{grid-template-columns: 360px minmax(0,1fr);}
+  }
+
+  .results h2, .detail h2{
+    font-family:"Gowun Batang", serif;
+    font-size:17px;
+    font-weight:700;
+    margin:0 0 4px;
+  }
+  .db-tag{
+    font-family:"Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.03em;
+    padding:2px 7px;
+    border-radius:5px;
+    display:inline-block;
+  }
+  .db-tag.food{background:var(--primary-soft); color:var(--primary-strong);}
+  .db-tag.recipe{background:var(--accent-warm-soft); color:var(--accent-warm);}
+
+  .result-group{margin-bottom:18px;}
+  .result-group .count{color:var(--text-muted); font-size:12.5px; margin:0 0 8px;}
+  .cardlist{
+    display:flex; flex-direction:column; gap:8px;
+    max-height: 620px;
+    overflow-y:auto;
+    padding-right:2px;
+  }
+  .rcard{
+    text-align:left;
+    width:100%;
+    background:var(--surface);
+    border:1.5px solid var(--border);
+    border-radius:10px;
+    padding:10px 12px;
+    cursor:pointer;
+    font-family:inherit;
+    color:var(--text);
+    display:flex; flex-direction:column; gap:5px;
+  }
+  .rcard:hover{border-color:var(--primary);}
+  .rcard.active{border-color:var(--primary); background:var(--primary-soft);}
+  .rcard:focus-visible{outline:2px solid var(--focus); outline-offset:1px;}
+  .rcard .name{font-weight:600; font-size:14.5px;}
+  .rcard .meta{display:flex; gap:6px; flex-wrap:wrap; font-size:11.5px; color:var(--text-muted);}
+  .badge{
+    background:var(--surface-alt);
+    border-radius:5px;
+    padding:1.5px 6px;
+    white-space:nowrap;
+  }
+  .rcard .kcal{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+  }
+  .empty{
+    color:var(--text-muted);
+    font-size:13.5px;
+    padding:14px;
+    border:1px dashed var(--border);
+    border-radius:10px;
+  }
+  .fusion-note{
+    background:var(--accent-warm-soft);
+    border:1px solid var(--accent-warm);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:12.5px;
+    line-height:1.6;
+    color:var(--text);
+    margin-bottom:10px;
+  }
+  .fusion-note b{color:var(--accent-warm);}
+
+  .detail{min-height:200px;}
+  .detail-empty{
+    display:flex; align-items:center; justify-content:center;
+    height:100%; min-height:300px;
+    color:var(--text-muted);
+    font-size:14px;
+    border:1px dashed var(--border);
+    border-radius:14px;
+  }
+
+  .label-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+  .label-head{
+    padding:16px 18px 12px;
+    border-bottom: 6px solid var(--text);
+  }
+  .label-head .title-row{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .label-head h3{
+    font-family:"Gowun Batang", serif;
+    font-size:20px;
+    margin:0;
+  }
+  .label-head .origin{font-size:12.5px; color:var(--text-muted);}
+  .label-meta-row{
+    display:flex; justify-content:space-between; font-size:12.5px; color:var(--text-muted);
+    margin-top:8px; flex-wrap:wrap; gap:6px;
+  }
+  .kcal-band{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:10px 18px;
+    border-bottom: 3px solid var(--text);
+    background:var(--surface-alt);
+  }
+  .kcal-band .lbl{font-size:14px; font-weight:600;}
+  .kcal-band .val{
+    font-family:"JetBrains Mono", monospace;
+    font-size:24px; font-weight:700;
+  }
+  table.nutri{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+  }
+  table.nutri td{
+    padding:8px 18px;
+    border-bottom:1px solid var(--border);
+  }
+  table.nutri tr.main td{font-weight:700;}
+  table.nutri tr.sub td:first-child{padding-left:32px; color:var(--text-muted); font-weight:400;}
+  table.nutri td.num{
+    text-align:right;
+    font-family:"JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    white-space:nowrap;
+  }
+  table.nutri td.pct{
+    text-align:right;
+    color:var(--text-muted);
+    font-family:"JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    width:64px;
+  }
+  .label-foot{
+    padding:10px 18px 14px;
+    font-size:11px;
+    color:var(--text-muted);
+    line-height:1.6;
+  }
+
+  .toggle-basis{
+    display:flex; gap:6px; padding:12px 18px 0;
+  }
+  .toggle-basis button{
+    font-family:inherit;
+    font-size:12px;
+    border:1px solid var(--border);
+    background:var(--surface-alt);
+    color:var(--text);
+    border-radius:7px;
+    padding:5px 10px;
+    cursor:pointer;
+  }
+  .toggle-basis button.on{background:var(--primary); color:#fff; border-color:var(--primary);}
+
+  .secondary-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+    margin-bottom:16px;
+  }
+  .secondary-card h4{
+    margin:0 0 10px; font-size:13px; letter-spacing:.03em;
+    color:var(--text-muted); text-transform:uppercase; font-family:"Pretendard Variable", "Pretendard", "Noto Sans KR", sans-serif; font-weight:600;
+  }
+  .micro-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(110px,1fr));
+    gap:10px 14px;
+  }
+  .micro-item .k{font-size:11.5px; color:var(--text-muted);}
+  .micro-item .v{
+    font-family:"JetBrains Mono", monospace;
+    font-size:14px; font-weight:600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .recipe-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:0;
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+  .recipe-head{
+    display:flex; gap:14px; padding:16px 18px;
+    border-bottom:1px solid var(--border);
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .recipe-head img{
+    width:88px; height:88px; object-fit:cover; border-radius:10px;
+    background:var(--surface-alt); flex:none;
+  }
+  .recipe-head h3{font-family:"Gowun Batang", serif; font-size:19px; margin:0 0 6px;}
+  .recipe-head .tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px;}
+  .recipe-nutri{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(90px,1fr));
+    gap:0;
+    border-bottom:1px solid var(--border);
+  }
+  .recipe-nutri .cell{
+    padding:12px 10px; text-align:center;
+    border-right:1px solid var(--border);
+  }
+  .recipe-nutri .cell:last-child{border-right:none;}
+  .recipe-nutri .cell .k{font-size:11px; color:var(--text-muted); margin-bottom:3px;}
+  .recipe-nutri .cell .v{
+    font-family:"JetBrains Mono", monospace; font-weight:700; font-size:16px;
+    font-variant-numeric: tabular-nums;
+  }
+  .recipe-body{padding:14px 18px;}
+  .recipe-body h5{margin:0 0 6px; font-size:13px; color:var(--text-muted); font-weight:600;}
+  .recipe-body pre{
+    white-space:pre-wrap; font-family:inherit; font-size:13.5px; margin:0 0 14px; line-height:1.65;
+  }
+  .na-tip{
+    background:var(--accent-warm-soft); color:var(--accent-warm);
+    border-radius:9px; padding:10px 12px; font-size:13px; line-height:1.55;
+  }
+
+  a{color:var(--primary-strong);}
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-thumb{background:var(--border); border-radius:9px;}
+
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">HYU 학식 · NRF Index 프로젝트</span>
+    <h1>학식 영양표</h1>
+    <p class="sub">메뉴명을 입력하면 식약처 <b>통합식품영양성분정보DB</b>와 <b>조리식품 레시피DB</b>에서 일치하는 항목을 찾아 영양성분표로 보여줍니다.</p>
+  </header>
+
+  <div class="search-card">
+    <div class="search-row">
+      <input id="q" type="text" placeholder="메뉴명을 입력하세요 (예: 제육볶음)" autocomplete="off">
+      <button class="primary" id="searchBtn">검색</button>
+    </div>
+    <div class="examples">
+      <span class="label">예시로 보기:</span>
+      <button class="chip" data-ex="닭강정">닭강정</button>
+      <button class="chip" data-ex="제육볶음">제육볶음</button>
+      <button class="chip" data-ex="된장찌개">된장찌개</button>
+      <button class="chip" data-ex="비빔밥">비빔밥</button>
+      <button class="chip" data-ex="잡채">잡채</button>
+    </div>
+    <p class="note" id="dbStatus">DB 불러오는 중…</p>
+  </div>
+
+  <div class="layout">
+    <div class="results" id="results"></div>
+    <div class="detail" id="detail">
+      <div class="detail-empty">왼쪽 목록에서 항목을 선택하면 영양성분표가 여기 표시됩니다.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // 2016 식약처 고시 "영양성분 기준치" (1일 기준) — %기준치 계산용
+  var REF = {
+    kcal: 2000, carb: 324, sugar: 100, fat: 54, satFat: 15, transFat: null,
+    cholesterol: 300, protein: 55, na: 2000, fiber: 25, ca: 700, fe: 12,
+    k: 3500, vitA: 700, vitC: 100, vitD: 10, thiamin: 1.2, riboflavin: 1.4, niacin: 15
+  };
+
+  var foodDB = [], recipeDB = [];
+  var modifierDict = []; // 퓨전 메뉴명 수식어 사전 (modifier_ingredient_dict.json)
+  var fusionInfoMap = {}; // "type:idx" -> fusion match info (검색 결과 렌더링마다 재구성)
+  var state = { selected: null, basis: "100" }; // basis: "100" | "serving"
+
+  var els = {
+    q: document.getElementById("q"),
+    searchBtn: document.getElementById("searchBtn"),
+    results: document.getElementById("results"),
+    detail: document.getElementById("detail"),
+    dbStatus: document.getElementById("dbStatus"),
+  };
+
+  function norm(s){ return (s||"").trim(); }
+  function noSpace(s){ return norm(s).replace(/\s+/g,""); }
+
+  function parseWeight(w){
+    // "250g" / "291.90ml" -> {value:250, unit:'g'}
+    if(!w) return null;
+    var m = String(w).match(/([\d.]+)\s*(g|ml)/i);
+    if(!m) return null;
+    return { value: parseFloat(m[1]), unit: m[2].toLowerCase() };
+  }
+
+  function fmt(v, digits){
+    if(v===null || v===undefined || isNaN(v)) return "-";
+    digits = digits===undefined ? 1 : digits;
+    var r = Math.round(v * Math.pow(10,digits)) / Math.pow(10,digits);
+    return (r % 1 === 0) ? String(Math.round(r)) : String(r);
+  }
+  function pct(v, ref){
+    if(v===null||v===undefined||!ref) return "";
+    return fmt(v/ref*100, 0) + "%";
+  }
+
+  function scaleNutrients(n, factor){
+    var out = {};
+    Object.keys(n).forEach(function(k){
+      out[k] = (n[k]===null || n[k]===undefined) ? null : n[k]*factor;
+    });
+    return out;
+  }
+
+  // ---------- 검색 ----------
+  function searchList(list, key, query){
+    var q = norm(query);
+    if(!q) return { exact: [], loose: [], similar: [] };
+    var qNo = noSpace(q);
+    var exact = list.filter(function(x){ return norm(x[key]) === q; });
+    var loose = exact.length ? [] : list.filter(function(x){ return noSpace(x[key]) === qNo; });
+    var already = exact.concat(loose);
+    var similar = [];
+    if(q.length >= 2){
+      similar = list.filter(function(x){
+        if(already.indexOf(x) !== -1) return false;
+        var name = norm(x[key]);
+        return name.indexOf(q) !== -1 || q.indexOf(name) !== -1;
+      });
+      similar.sort(function(a,b){ return norm(a[key]).length - norm(b[key]).length; });
+      similar = similar.slice(0, 24);
+    }
+    return { exact: exact, loose: loose, similar: similar };
+  }
+
+  // ---------- 퓨전 메뉴명 분해 (규칙/사전 기반, AI 호출 없음) ----------
+  // "로제 부대찌개"처럼 DB에 그대로 없는 메뉴명을, 수식어 사전(modifier_ingredient_dict.json)에
+  // 등록된 수식어를 떼어내 기본 메뉴명으로 재검색하는 방식. 수식어의 영양소 영향은 정량화된
+  // 데이터가 없어(팀 관능평가 전) 반영하지 않고, 대신 어떤 재료 카테고리가 더해질 수 있는지만 안내한다.
+  function findFusionMatch(q){
+    if(!modifierDict.length) return null;
+    var candidates = modifierDict.filter(function(m){
+      return m.modifier && q.indexOf(m.modifier) !== -1;
+    });
+    // 더 긴(구체적인) 수식어부터 시도
+    candidates.sort(function(a,b){ return b.modifier.length - a.modifier.length; });
+
+    for(var i=0;i<candidates.length;i++){
+      var m = candidates[i];
+      var baseName = q.split(m.modifier).join(" ").replace(/\s+/g," ").trim();
+      if(baseName.length < 2) continue;
+      var foodRes = searchList(foodDB, "name", baseName);
+      var recipeRes = searchList(recipeDB, "name", baseName);
+      var foodBase = foodRes.exact.length ? foodRes.exact : (foodRes.loose.length ? foodRes.loose : foodRes.similar);
+      var recipeBase = recipeRes.exact.length ? recipeRes.exact : (recipeRes.loose.length ? recipeRes.loose : recipeRes.similar);
+      if(foodBase.length || recipeBase.length){
+        return { modifier: m, baseName: baseName, food: foodBase, recipe: recipeBase };
+      }
+    }
+    return null;
+  }
+
+  function renderFusionGroup(query, fusion){
+    var catText = (fusion.modifier.core_categories && fusion.modifier.core_categories.length)
+      ? fusion.modifier.core_categories.join(", ") : null;
+    var out = '<div class="result-group">';
+    out += '<h2>🔀 퓨전 메뉴명 인식됨</h2>';
+    out += '<div class="fusion-note">' +
+      '입력하신 <b>"'+escapeHtml(query)+'"</b>에서 수식어 <b>"'+escapeHtml(fusion.modifier.modifier)+'"</b>를 인식해 ' +
+      '기본 메뉴 <b>"'+escapeHtml(fusion.baseName)+'"</b>로 재검색한 결과입니다. 아래 영양성분은 기본 메뉴 기준이며, ' +
+      (catText
+        ? '"'+escapeHtml(fusion.modifier.modifier)+'"로 추가되는 '+escapeHtml(catText)+' 재료의 영양소는 아직 정량 반영되지 않았습니다.'
+        : '"'+escapeHtml(fusion.modifier.modifier)+'"의 영양 영향은 데이터가 부족해 아직 반영되지 않았습니다.') +
+      '</div>';
+    out += '<p class="count">기본 메뉴 일치 항목 ' + (fusion.food.length + fusion.recipe.length) + '건</p>';
+    out += '<div class="cardlist">';
+    fusion.food.forEach(function(x){
+      var idx = foodDB.indexOf(x);
+      fusionInfoMap["food:"+idx] = fusion;
+      out += renderFoodCard(x);
+    });
+    fusion.recipe.forEach(function(x){
+      var idx = recipeDB.indexOf(x);
+      fusionInfoMap["recipe:"+idx] = fusion;
+      out += renderRecipeCard(x);
+    });
+    out += '</div></div>';
+    return out;
+  }
+
+  function runSearch(query){
+    var q = norm(query);
+    els.q.value = q;
+    if(!q){
+      els.results.innerHTML = '<p class="empty">메뉴명을 입력해 주세요.</p>';
+      showEmptyDetail();
+      return;
+    }
+    var foodRes = searchList(foodDB, "name", q);
+    var recipeRes = searchList(recipeDB, "name", q);
+
+    var foodMatches = foodRes.exact.length ? foodRes.exact : foodRes.loose;
+    var recipeMatches = recipeRes.exact.length ? recipeRes.exact : recipeRes.loose;
+
+    fusionInfoMap = {};
+    var fusion = null;
+    if(!foodMatches.length && !recipeMatches.length){
+      fusion = findFusionMatch(q);
+    }
+
+    var html = "";
+    if(fusion){
+      html += renderFusionGroup(q, fusion);
+    } else {
+      html += renderGroup("food", "식품영양성분DB", foodMatches, foodRes.similar, renderFoodCard);
+      html += renderGroup("recipe", "조리식품 레시피DB", recipeMatches, recipeRes.similar, renderRecipeCard);
+    }
+
+    els.results.innerHTML = html;
+    attachCardHandlers();
+
+    // 자동 선택: 정확히 일치하는 항목이 1개뿐이면 바로 상세 표시
+    var allExact = foodMatches.concat(recipeMatches);
+    if(fusion){
+      var firstType = fusion.food.length ? "food" : "recipe";
+      var firstItem = fusion.food.length ? fusion.food[0] : fusion.recipe[0];
+      var firstIdx = firstType === "food" ? foodDB.indexOf(firstItem) : recipeDB.indexOf(firstItem);
+      selectCard(firstType, firstIdx);
+    } else if(allExact.length){
+      var only = allExact[0];
+      var onlyType = foodMatches.indexOf(only) !== -1 ? "food" : "recipe";
+      var onlyIdx = onlyType === "food" ? foodDB.indexOf(only) : recipeDB.indexOf(only);
+      selectCard(onlyType, onlyIdx);
+    } else {
+      showEmptyDetail(foodRes.similar.length + recipeRes.similar.length > 0);
+    }
+  }
+
+  function renderGroup(type, label, matches, similar, cardFn){
+    var out = '<div class="result-group">';
+    out += '<h2>' + label + '</h2>';
+    if(matches.length){
+      out += '<p class="count">일치 항목 ' + matches.length + '건</p>';
+      out += '<div class="cardlist">' + matches.map(function(x){ return cardFn(x, type, true); }).join("") + '</div>';
+    } else if(similar.length){
+      out += '<p class="count">정확히 일치하는 항목 없음 · 비슷한 이름 ' + similar.length + '건</p>';
+      out += '<div class="cardlist">' + similar.map(function(x){ return cardFn(x, type, false); }).join("") + '</div>';
+    } else {
+      out += '<p class="empty">일치하는 항목이 없습니다.</p>';
+    }
+    out += '</div>';
+    return out;
+  }
+
+  function badge(text){ return text ? '<span class="badge">'+escapeHtml(text)+'</span>' : ""; }
+
+  function renderFoodCard(x){
+    var idx = foodDB.indexOf(x);
+    var metaBits = [x.origin, x.brand].filter(Boolean);
+    return '<button class="rcard" data-type="food" data-idx="'+idx+'">'+
+      '<span class="name">'+escapeHtml(x.name)+'</span>'+
+      '<span class="meta">'+metaBits.map(badge).join("")+'<span class="badge">'+escapeHtml(x.basis)+' 기준</span></span>'+
+      '<span class="kcal">'+fmt(x.n.kcal,0)+' kcal / '+x.basis+'</span>'+
+    '</button>';
+  }
+
+  function renderRecipeCard(x){
+    var idx = recipeDB.indexOf(x);
+    var metaBits = [x.cat, x.way].filter(Boolean);
+    return '<button class="rcard" data-type="recipe" data-idx="'+idx+'">'+
+      '<span class="name">'+escapeHtml(x.name)+'</span>'+
+      '<span class="meta">'+metaBits.map(badge).join("")+'</span>'+
+      '<span class="kcal">'+fmt(x.n.kcal,0)+' kcal (레시피 전체)</span>'+
+    '</button>';
+  }
+
+  function attachCardHandlers(){
+    Array.prototype.forEach.call(els.results.querySelectorAll(".rcard"), function(btn){
+      btn.addEventListener("click", function(){
+        selectCard(btn.getAttribute("data-type"), parseInt(btn.getAttribute("data-idx"),10));
+      });
+    });
+  }
+
+  function selectCard(type, idx){
+    state.selected = { type: type, idx: idx };
+    state.basis = "100";
+    Array.prototype.forEach.call(els.results.querySelectorAll(".rcard"), function(btn){
+      var match = btn.getAttribute("data-type")===type && parseInt(btn.getAttribute("data-idx"),10)===idx;
+      btn.classList.toggle("active", match);
+    });
+    renderDetail();
+  }
+
+  function showEmptyDetail(hasSimilar){
+    els.detail.innerHTML = '<div class="detail-empty">' +
+      (hasSimilar ? '정확히 일치하는 항목이 없습니다. 왼쪽의 비슷한 이름 후보를 선택해 보세요.' : '왼쪽 목록에서 항목을 선택하면 영양성분표가 여기 표시됩니다.') +
+    '</div>';
+  }
+
+  function renderDetail(){
+    if(!state.selected){ showEmptyDetail(); return; }
+    var item = state.selected.type === "food" ? foodDB[state.selected.idx] : recipeDB[state.selected.idx];
+    if(!item){ showEmptyDetail(); return; }
+
+    var fusion = fusionInfoMap[state.selected.type+":"+state.selected.idx];
+    var fusionHtml = "";
+    if(fusion){
+      var catText = (fusion.modifier.core_categories && fusion.modifier.core_categories.length)
+        ? fusion.modifier.core_categories.join(", ") : null;
+      fusionHtml = '<div class="fusion-note">' +
+        '"'+escapeHtml(fusion.modifier.modifier)+'" 수식어가 붙은 퓨전 메뉴로 인식되어 기본 메뉴 <b>"'+escapeHtml(item.name)+'"</b>의 영양성분을 표시 중입니다. ' +
+        (catText
+          ? '실제로는 '+escapeHtml(catText)+' 등의 재료가 더해져 아래 수치보다 지방·나트륨 등이 더 높을 수 있습니다.'
+          : '"'+escapeHtml(fusion.modifier.modifier)+'"의 영양 영향은 데이터가 부족해 아직 반영되지 않았습니다.') +
+        '</div>';
+    }
+
+    els.detail.innerHTML = fusionHtml + (state.selected.type === "food" ? foodDetailHtml(item) : recipeDetailHtml(item));
+    if(state.selected.type === "food"){
+      var b100 = els.detail.querySelector('[data-basis="100"]');
+      var bServ = els.detail.querySelector('[data-basis="serving"]');
+      if(b100) b100.addEventListener("click", function(){ state.basis="100"; renderDetail(); });
+      if(bServ) bServ.addEventListener("click", function(){ state.basis="serving"; renderDetail(); });
+    }
+  }
+
+  function foodDetailHtml(item){
+    var w = parseWeight(item.servingWeight);
+    var factor = (state.basis === "serving" && w) ? w.value/100 : 1;
+    var n = scaleNutrients(item.n, factor);
+    var basisLabel = (state.basis === "serving" && w) ? (fmt(w.value,1) + w.unit + " (1회 제공량)") : item.basis;
+
+    var micros = [
+      ["식이섬유","fiber","g"], ["칼슘","ca","mg"], ["철","fe","mg"], ["칼륨","k","mg"],
+      ["비타민A","vitA","μg RAE"], ["비타민C","vitC","mg"], ["비타민D","vitD","μg"],
+      ["티아민","thiamin","mg"], ["리보플라빈","riboflavin","mg"], ["니아신","niacin","mg"],
+      ["수분","water","g"], ["회분","ash","g"]
+    ];
+
+    return ''+
+    '<div class="label-card">'+
+      '<div class="label-head">'+
+        '<div class="title-row"><h3>'+escapeHtml(item.name)+'</h3><span class="db-tag food">식품영양성분DB</span></div>'+
+        '<div class="origin">'+escapeHtml(item.origin)+(item.brand ? ' · '+escapeHtml(item.brand) : '')+'</div>'+
+        '<div class="label-meta-row"><span>영양정보 · 기준: '+escapeHtml(basisLabel)+'</span><span>실제 1회 제공 중량 '+escapeHtml(item.servingWeight||'-')+'</span></div>'+
+      '</div>'+
+      '<div class="toggle-basis">'+
+        '<button data-basis="100" class="'+(state.basis==="100"?"on":"")+'">100'+(item.basis.indexOf("ml")>-1?"ml":"g")+'당</button>'+
+        (w ? '<button data-basis="serving" class="'+(state.basis==="serving"?"on":"")+'">1회 제공량('+item.servingWeight+') 기준</button>' : '')+
+      '</div>'+
+      '<div class="kcal-band"><span class="lbl">열량</span><span class="val">'+fmt(n.kcal,0)+' <small style="font-size:13px;font-weight:500;">kcal</small></span></div>'+
+      '<table class="nutri">'+
+        row("나트륨", n.na, "mg", REF.na, true)+
+        row("탄수화물", n.carb, "g", REF.carb, true)+
+        subrow("당류", n.sugar, "g", REF.sugar)+
+        row("지방", n.fat, "g", REF.fat, true)+
+        subrow("트랜스지방", n.transFat, "g", null)+
+        subrow("포화지방", n.satFat, "g", REF.satFat)+
+        row("콜레스테롤", n.cholesterol, "mg", REF.cholesterol, true)+
+        row("단백질", n.protein, "g", REF.protein, true)+
+      '</table>'+
+      '<div class="label-foot">%영양성분 기준치는 1일 영양성분 기준치(식약처 고시)에 대한 비율이며, 실제 섭취 필요량과 다를 수 있습니다.</div>'+
+    '</div>'+
+    '<div class="secondary-card">'+
+      '<h4>비타민 · 미네랄 · 기타</h4>'+
+      '<div class="micro-grid">'+
+        micros.map(function(m){
+          var val = n[m[1]];
+          return '<div class="micro-item"><div class="k">'+m[0]+'</div><div class="v">'+ (val===null||val===undefined ? "-" : fmt(val,2)+" "+m[2]) +'</div></div>';
+        }).join("")+
+      '</div>'+
+    '</div>';
+  }
+
+  function row(label, val, unit, ref, main){
+    return '<tr class="'+(main?"main":"")+'"><td>'+label+'</td><td class="num">'+fmt(val, unit==="mg"?1:2)+' '+unit+'</td><td class="pct">'+(ref?pct(val,ref):'')+'</td></tr>';
+  }
+  function subrow(label, val, unit, ref){
+    return '<tr class="sub"><td>'+label+'</td><td class="num">'+fmt(val, unit==="mg"?1:2)+' '+unit+'</td><td class="pct">'+(ref?pct(val,ref):'')+'</td></tr>';
+  }
+
+  function recipeDetailHtml(item){
+    var img = item.img ? '<img src="'+encodeURI(item.img)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">' : '';
+    return ''+
+    '<div class="recipe-card">'+
+      '<div class="recipe-head">'+
+        img+
+        '<div style="flex:1; min-width:180px;">'+
+          '<div class="title-row" style="display:flex; justify-content:space-between; gap:8px;"><h3>'+escapeHtml(item.name)+'</h3><span class="db-tag recipe">레시피DB</span></div>'+
+          '<div class="tags">'+badge(item.cat)+badge(item.way)+(item.weight?badge('총 '+fmt(item.weight,0)+'g'):'')+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="recipe-nutri">'+
+        cell("열량", item.n.kcal, "kcal", 0)+
+        cell("탄수화물", item.n.carb, "g", 1)+
+        cell("단백질", item.n.protein, "g", 1)+
+        cell("지방", item.n.fat, "g", 1)+
+        cell("나트륨", item.n.na, "mg", 0)+
+      '</div>'+
+      '<div class="recipe-body">'+
+        '<h5>재료 구성</h5><pre>'+escapeHtml(item.ingredients||"-")+'</pre>'+
+        (item.naTip ? '<div class="na-tip">💡 '+escapeHtml(item.naTip)+'</div>' : '')+
+      '</div>'+
+    '</div>';
+  }
+  function cell(label, val, unit, digits){
+    return '<div class="cell"><div class="k">'+label+'</div><div class="v">'+fmt(val,digits)+'</div><div class="k">'+unit+'</div></div>';
+  }
+
+  function escapeHtml(s){
+    return String(s==null?"":s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  // ---------- 이벤트 ----------
+  els.searchBtn.addEventListener("click", function(){ runSearch(els.q.value); });
+  els.q.addEventListener("keydown", function(e){ if(e.key==="Enter") runSearch(els.q.value); });
+  Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(btn){
+    btn.addEventListener("click", function(){ runSearch(btn.getAttribute("data-ex")); });
+  });
+
+  // ---------- 데이터 로드 ----------
+  Promise.all([
+    fetch("food_db.json").then(function(r){ return r.json(); }),
+    fetch("recipe_db.json").then(function(r){ return r.json(); }),
+    fetch("modifier_ingredient_dict.json").then(function(r){ return r.json(); })
+  ]).then(function(res){
+    foodDB = res[0]; recipeDB = res[1];
+    modifierDict = (res[2] && res[2].modifiers) ? res[2].modifiers.filter(function(m){ return m.modifier; }) : [];
+    els.dbStatus.textContent = "식품영양성분DB "+foodDB.length.toLocaleString()+"건 · 조리식품 레시피DB "+recipeDB.length.toLocaleString()+"건 로드 완료 (예시: 닭강정)";
+    runSearch("닭강정");
+  }).catch(function(err){
+    els.dbStatus.textContent = "DB 로드 실패: " + err;
+  });
+})();
+</script>
