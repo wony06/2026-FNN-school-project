@@ -149,18 +149,15 @@ def try_gagong_db(name):
         return None
     fmap = {"kcal": "에너지(kcal)", "protein": "단백질(g)", "fiber": "식이섬유(g)", "ca": "칼슘(mg)",
             "fe": "철(mg)", "vitA": "비타민 A(μg RAE)", "vitC": "비타민 C(mg)", "satFat": "포화지방산(g)",
-            "sugar": "당류(g)", "na": "나트륨(mg)"}
+            "sugar": "당류(g)", "na": "나트륨(mg)", "fat": "지방(g)", "carb": "탄수화물(g)"}
     import statistics
     per100 = {}
     for f, col in fmap.items():
         vals = [float(d[col]) for d in exact if d[col] not in (None, "")]
         per100[f] = round(statistics.median(vals), 2) if vals else None
-    # 지방/탄수화물은 이 CSV에 없음 -> None으로 남김(결측 처리됨). 필요시 별도 xlsx 조회로 보강 가능.
-    per100["fat"] = None
-    per100["carb"] = None
     return {"source": "gagong_db", "name": exact[0]["식품명"], "n_dup": len(exact), "per100": per100,
             "_codes": [d["식품코드"] for d in exact],
-            "note": "가공식품DB 중앙값(지방/탄수화물 컬럼은 NRF6.3 추출본에 없어 결측 처리됨 - 필요시 원본에서 보강 필요)"}
+            "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"}
 
 
 def try_recipe_decompose(name):
