@@ -23,10 +23,16 @@ def build_site_data():
         eu = r.get("식품교환단위")
         exchange_units = None
         if eu is not None:
+            src = eu.get("매칭DB", {})
             exchange_units = {
                 "grain": eu["곡류군"], "meat": eu["어육류군"], "veg": eu["채소군"],
                 "fat": eu["지방군"], "dairy": eu["우유군"], "fruit": eu["과일군"],
                 "unmatched": eu["미매칭_항목"],
+                "matchedDb": {
+                    "menugen": src.get("menugen", []),
+                    "recipeDb": src.get("recipe_db", []),
+                    "db104": src.get("db104_direct", []),
+                },
             }
 
         out.append({
@@ -40,6 +46,11 @@ def build_site_data():
             "nrf": r["NRF6.3"], "confidence": r["신뢰도"],
             "unmatched": r["미매칭_항목"], "gagongSourced": r["가공식품DB_출처_항목"],
             "components": r["구성요소_목록"],
+            "matchedDb": {
+                "foodDb": r["영양_매칭DB"].get("food_db", []),
+                "recipeDecompose": r["영양_매칭DB"].get("recipe_decompose", []),
+                "gagongDb": r["영양_매칭DB"].get("gagong_db", []),
+            },
             "exchangeUnits": exchange_units,
         })
 

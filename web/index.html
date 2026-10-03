@@ -265,6 +265,19 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 
 .footnote{font-size:11.5px; color:var(--ink-faint); line-height:1.6;}
 
+.tab-row{display:flex; gap:6px; border-bottom:1px solid var(--border); padding-bottom:0;}
+.tab-btn{
+  flex:1; padding:9px 4px; text-align:center; cursor:pointer;
+  font-size:13px; font-weight:600; color:var(--ink-muted);
+  background:none; border:none; border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+}
+.tab-btn.active{color:var(--accent); border-bottom-color:var(--accent);}
+.tab-panel{display:flex; flex-direction:column; gap:16px;}
+
+.src-group{margin-bottom:8px;}
+.src-group-label{font-size:11px; color:var(--ink-faint); margin-bottom:4px;}
+
 @media (prefers-reduced-motion: reduce){
   .sheet, .scrim, .card{transition:none;}
 }
@@ -398,30 +411,22 @@ function renderDay(){
   });
 }
 
-function openSheet(item){
-  const photoWrap = document.getElementById("sheetPhotoWrap");
-  if(item.photo){
-    photoWrap.innerHTML = `<img class="sheet-photo" src="menu_photos_web/${item.photo}" alt="${item.main}">`;
-  } else {
-    photoWrap.innerHTML = `<div class="sheet-photo-empty">사진 없음</div>`;
-  }
+function srcGroup(label, names){
+  if(!names || !names.length) return "";
+  return `<div class="src-group"><div class="src-group-label">${label}</div><div class="taglist">${names.map(u=>`<span class="tag src">${u}</span>`).join("")}</div></div>`;
+}
 
-  const warnTags = (item.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
-  const srcTags = (item.gagongSourced||[]).map(u=>`<span class="tag src">${u}</span>`).join("");
+function nutriTabHtml(item){
   const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
+  const warnTags = (item.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
+  const db = item.matchedDb || {};
+  const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
 
-  document.getElementById("sheetBody").innerHTML = `
-    <div class="sheet-head">
-      <div class="cat">${SHOP_LABEL[item.shop]} · ${item.category}</div>
-      <h2>${item.main || "(메뉴명 미상)"}</h2>
-      <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · 1인분 제공량 ${item.weight?item.weight.toFixed(0):"-"}g</div>
-    </div>
-
+  return `
     <div class="nrf-block">
       <div class="nrf-num" style="color:var(${item.nrf>=-5?'--good':item.nrf>=-25?'--caution':'--bad'})">${item.nrf.toFixed(1)}</div>
       <div class="nrf-label">NRF6.3 지수 (일일 권장량 기준)<br>신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
     </div>
-
     <table class="nutri-table">
       <tr><td>열량</td><td>${item.kcal.toFixed(0)} kcal</td></tr>
       <tr><td>탄수화물</td><td>${item.carb.toFixed(1)} g</td></tr>
@@ -436,24 +441,76 @@ function openSheet(item){
       <tr><td>비타민A</td><td>${item.vitA.toFixed(1)} ㎍RAE</td></tr>
       <tr><td>비타민C</td><td>${item.vitC.toFixed(1)} mg</td></tr>
     </table>
-
-    ${item.exchangeUnits ? `
-    <div class="section-title">식품교환단위</div>
-    <table class="nutri-table">
-      <tr><td>곡류군</td><td>${item.exchangeUnits.grain.toFixed(2)} 단위</td></tr>
-      <tr><td>어육류군</td><td>${item.exchangeUnits.meat.toFixed(2)} 단위</td></tr>
-      <tr><td>채소군</td><td>${item.exchangeUnits.veg.toFixed(2)} 단위</td></tr>
-      <tr><td>지방군</td><td>${item.exchangeUnits.fat.toFixed(2)} 단위</td></tr>
-      <tr><td>우유군</td><td>${item.exchangeUnits.dairy.toFixed(2)} 단위</td></tr>
-      <tr><td>과일군</td><td>${item.exchangeUnits.fruit.toFixed(2)} 단위</td></tr>
-    </table>
-    ${item.exchangeUnits.unmatched.length ? `<div class="taglist">${item.exchangeUnits.unmatched.map(u=>`<span class="tag warn">${u}</span>`).join("")}</div><div class="footnote">위 항목은 교환단위 계산용 레시피 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div>` : ""}
-    ` : ""}
-
     ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
-    ${srcTags ? `<div><div class="section-title">가공식품DB 매칭 항목</div><div class="taglist">${srcTags}</div></div>` : ""}
+    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
     ${warnTags ? `<div><div class="section-title">미매칭 구성요소</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 3개 영양DB(식약처 통합DB·가공식품DB·국가표준식품성분표) 어디에도 매칭되지 않아 전체 영양성분 합산에서 제외되었습니다. 실제 섭취 열량·영양소는 표시값보다 높을 수 있습니다.</div></div>` : ""}
   `;
+}
+
+function exchangeTabHtml(item){
+  const eu = item.exchangeUnits;
+  const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
+  const warnTags = (eu.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
+  const db = eu.matchedDb || {};
+  const srcHtml = srcGroup("MenuGen", db.menugen) + srcGroup("레시피DB", db.recipeDb) + srcGroup("원재료DB 직접매칭", db.db104);
+
+  return `
+    <table class="nutri-table">
+      <tr><td>곡류군</td><td>${eu.grain.toFixed(2)} 단위</td></tr>
+      <tr><td>어육류군</td><td>${eu.meat.toFixed(2)} 단위</td></tr>
+      <tr><td>채소군</td><td>${eu.veg.toFixed(2)} 단위</td></tr>
+      <tr><td>지방군</td><td>${eu.fat.toFixed(2)} 단위</td></tr>
+      <tr><td>우유군</td><td>${eu.dairy.toFixed(2)} 단위</td></tr>
+      <tr><td>과일군</td><td>${eu.fruit.toFixed(2)} 단위</td></tr>
+    </table>
+    ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
+    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
+    ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
+  `;
+}
+
+let sheetItem = null;
+let sheetTab = "nutri";
+
+function renderSheetTab(){
+  const panel = document.getElementById("sheetPanel");
+  panel.innerHTML = sheetTab === "nutri" ? nutriTabHtml(sheetItem) : exchangeTabHtml(sheetItem);
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === sheetTab));
+}
+
+function switchSheetTab(tab){
+  sheetTab = tab;
+  renderSheetTab();
+}
+
+function openSheet(item){
+  const photoWrap = document.getElementById("sheetPhotoWrap");
+  if(item.photo){
+    photoWrap.innerHTML = `<img class="sheet-photo" src="menu_photos_web/${item.photo}" alt="${item.main}">`;
+  } else {
+    photoWrap.innerHTML = `<div class="sheet-photo-empty">사진 없음</div>`;
+  }
+
+  sheetItem = item;
+  sheetTab = "nutri";
+
+  const tabsHtml = item.exchangeUnits ? `
+    <div class="tab-row">
+      <button class="tab-btn" data-tab="nutri" onclick="switchSheetTab('nutri')">영양소</button>
+      <button class="tab-btn" data-tab="exchange" onclick="switchSheetTab('exchange')">식품교환단위</button>
+    </div>
+  ` : "";
+
+  document.getElementById("sheetBody").innerHTML = `
+    <div class="sheet-head">
+      <div class="cat">${SHOP_LABEL[item.shop]} · ${item.category}</div>
+      <h2>${item.main || "(메뉴명 미상)"}</h2>
+      <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · 1인분 제공량 ${item.weight?item.weight.toFixed(0):"-"}g</div>
+    </div>
+    ${tabsHtml}
+    <div class="tab-panel" id="sheetPanel"></div>
+  `;
+  renderSheetTab();
 
   document.getElementById("scrim").classList.add("open");
   document.getElementById("sheet").classList.add("open");

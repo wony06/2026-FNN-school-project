@@ -542,6 +542,7 @@ def compute_tray(lunch, cache):
     missing_list = []
     unmatched_list = []
     gagong_list = []
+    nutri_source = {"food_db": [], "recipe_decompose": [], "gagong_db": []}
     for it in items:
         for f in NUT_FIELDS:
             total[f] += it["contrib"][f]
@@ -555,6 +556,8 @@ def compute_tray(lunch, cache):
             if it["source"] == "gagong_db":
                 n_gagong += 1
                 gagong_list.append(it["display"])
+            if it["source"] in nutri_source:
+                nutri_source[it["source"]].append(it["display"])
 
     recomputed = total["carb"] * 4 + total["protein"] * 4 + total["fat"] * 9
     diff_ratio = abs(recomputed - total["kcal"]) / total["kcal"] if total["kcal"] > 0 else 0
@@ -583,15 +586,19 @@ def compute_tray(lunch, cache):
     if shop == "105":
         exch_totals = {g: 0.0 for g in EXCHANGE_GROUPS}
         exch_unmatched = []
+        exch_source = {"menugen": [], "recipe_db": [], "db104_direct": []}
         for it in items:
             r = compute_exchange_units(it["display"], it["weight_g"])
             if r["matched"]:
                 for g in EXCHANGE_GROUPS:
                     exch_totals[g] += r["units"][g]
+                if r["source"] in exch_source:
+                    exch_source[r["source"]].append(it["display"])
             else:
                 exch_unmatched.append(it["display"])
         exchange_units = {g: round(v, 2) for g, v in exch_totals.items()}
         exchange_units["미매칭_항목"] = exch_unmatched
+        exchange_units["매칭DB"] = exch_source
 
     return {
         "date": lunch["date"], "shop": lunch["shop"], "shopName": lunch["shopName"],
@@ -608,6 +615,7 @@ def compute_tray(lunch, cache):
         "NRF6.3": nrf, "역산검증_오차율": round(diff_ratio * 100, 1), "역산검증_일치여부": reverse_ok,
         "신뢰도": confidence,
         "미매칭_항목": unmatched_list, "가공식품DB_출처_항목": gagong_list, "결측_필드": missing_list,
+        "영양_매칭DB": nutri_source,
         "식품교환단위": exchange_units,
         "item_detail": items,
     }
