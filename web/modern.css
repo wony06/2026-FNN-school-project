@@ -1,0 +1,160 @@
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{
+  --bg:#f7f8fa;--surface:#fff;--surface-2:#f3f5f7;--surface-3:#e8ebef;
+  --border:#e6e9ed;--ink:#18202a;--ink-muted:#657180;--ink-faint:#87919e;
+  --accent:#315ee8;--accent-strong:#234dd0;--accent-soft:#edf2ff;
+  --good:#315ee8;--good-soft:#edf2ff;--caution:#657180;--caution-soft:#f3f5f7;
+  --bad:#657180;--bad-soft:#f3f5f7;--shadow:none;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px}
+.mono,.display,.brand,.day-heading h1,.sheet-head h2{font-family:inherit}
+.topbar{position:relative;background:var(--surface);border:0}
+.topbar-inner,main{max-width:1080px;margin:auto;padding-left:24px;padding-right:24px}
+.topbar-inner{padding-top:46px;padding-bottom:30px}
+.eyebrow{display:block;color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.12em}
+.hero-copy{margin:10px 0 34px}
+.hero-copy h1{margin:0 0 8px;font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:-.05em;line-height:1.2}
+.hero-copy p{margin:0;color:var(--ink-muted);font-size:17px;line-height:1.5}
+.selection-panel{max-width:900px}
+.step-caption{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px}
+.step-caption strong{display:block;font-size:19px;letter-spacing:-.03em;line-height:1.25}
+.step-caption small{display:block;color:var(--ink-muted);font-size:13px;line-height:1.5;margin-top:5px}
+.step-number{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:700}
+.date-strip{gap:8px;padding:0 0 14px;margin:0;scrollbar-width:thin}
+.date-chip{border:0;border-radius:12px;background:var(--surface-2);color:var(--ink-muted);font-family:inherit;font-size:14px;font-weight:600;padding:10px 14px;min-width:70px;box-shadow:none}
+.date-chip .dow{font-size:12px;opacity:1;font-weight:400}
+.date-chip.active{background:var(--accent);color:white}
+.date-chip:hover{border:0;color:var(--accent)}
+.date-chip.active:hover{color:white}
+.shop-tabs{display:flex;gap:6px;width:max-content;max-width:100%;padding:5px;border-radius:14px;background:var(--surface-2);overflow-x:auto}
+.shop-tab{border:0;background:transparent;color:var(--ink-muted);border-radius:10px;padding:11px 18px;font-family:inherit;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
+.shop-tab[aria-selected="true"]{background:var(--surface);color:var(--accent);box-shadow:0 1px 4px rgba(26,40,70,.08)}
+.results-tabs{margin-bottom:20px}
+.shop-tab:focus-visible,.date-chip:focus-visible,.goal-option:focus-within,.diet-chip:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+main{padding-top:32px;padding-bottom:64px}
+.personal-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0}
+.input-card{background:var(--surface);border-radius:20px;padding:26px 28px;min-width:0}
+.input-card:first-child{grid-row:span 2}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:8px;color:var(--ink);font-weight:600;font-size:13px;min-width:0}
+.field-hint{display:inline;color:var(--ink-faint);font-weight:400}
+.form-field-wide{grid-column:span 2}
+.form-field input,.form-field select{width:100%;height:46px;padding:0 14px;border:1px solid var(--border);border-radius:11px;background:var(--surface);color:var(--ink);font-family:inherit;font-size:15px;font-weight:500;outline:none}
+.form-field input:focus,.form-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.form-field input::placeholder{color:var(--ink-faint)}
+.goal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.goal-option{cursor:pointer;min-width:0}
+.goal-option input,.diet-chip input{position:absolute;opacity:0;width:1px;height:1px}
+.goal-option span{display:flex;flex-direction:column;justify-content:center;min-height:93px;padding:14px;border:1px solid var(--border);border-radius:14px;background:var(--surface);transition:.15s}
+.goal-option strong{font-size:13px;line-height:1.35;letter-spacing:-.025em}
+.goal-option small{margin-top:5px;color:var(--ink-faint);font-size:11px;line-height:1.4}
+.goal-option input:checked+span{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.goal-option input:checked+span small{color:var(--ink-muted)}
+.dietary-chips{display:flex;flex-wrap:wrap;gap:8px}
+.diet-chip{cursor:pointer}
+.diet-chip span{display:block;padding:10px 16px;border:1px solid var(--border);border-radius:999px;color:var(--ink-muted);font-size:13px;font-weight:600}
+.diet-chip input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.form-actions{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding-top:2px}
+#personalSubmit{border:0;border-radius:14px;background:var(--accent);color:white;padding:15px 28px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;min-height:54px;white-space:nowrap}
+#personalSubmit:hover:not(:disabled){background:var(--accent-strong)}
+#personalSubmit:disabled{background:var(--surface-3);color:var(--ink-faint);cursor:wait}
+#personalStatus{font-size:13px;color:var(--ink-muted);line-height:1.5}
+.results-section{margin-top:55px;scroll-margin-top:22px}
+.day-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+.day-heading h2{font-size:28px;line-height:1.2;letter-spacing:-.04em;margin:8px 0 5px}
+.day-heading p{margin:0;color:var(--ink-muted);font-size:14px}
+.day-heading .count{font-size:12px;color:var(--ink-faint);text-align:right}
+.shop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:0;border-radius:20px;padding:20px;box-shadow:none;gap:0;display:block;min-width:0;transition:transform .14s}
+.card:hover{transform:translateY(-2px);border:0}
+.card.is-top{grid-column:1/-1;padding:24px}
+.card-main{display:flex;gap:18px;align-items:flex-start}
+.card-photo{flex:none;width:106px;height:106px;object-fit:cover;border-radius:15px;background:var(--surface-2)}
+.card.is-top .card-photo{width:158px;height:158px}
+.card-copy{min-width:0;flex:1}
+.card-top{align-items:center;margin-bottom:10px}
+.card-meta-left{display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0}
+.card-shop{font-size:11px;font-weight:700;color:var(--accent);white-space:nowrap}
+.card-cat{background:var(--surface-2);color:var(--ink-muted);border-radius:7px;padding:4px 8px;font-size:11px;letter-spacing:0}
+.card-price{font-family:inherit;font-size:12px;font-weight:500;color:var(--ink-faint)}
+.card-name{font-size:19px;line-height:1.4;letter-spacing:-.035em;word-break:keep-all}
+.card.is-top .card-name{font-size:23px}
+.rank-pill{display:inline-block;margin-right:7px;vertical-align:2px;border-radius:8px;background:var(--accent-soft);color:var(--accent);padding:4px 8px;font-size:12px;font-weight:700;white-space:nowrap}
+.card-reason{font-size:13px;color:var(--ink-muted);line-height:1.45;margin:8px 0 0}
+.score-line{display:flex;align-items:baseline;gap:8px;margin-top:14px}
+.score-line strong{font-size:25px;letter-spacing:-.04em;color:var(--accent);line-height:1}
+.score-line span{color:var(--ink-muted);font-size:12px}
+.card.is-top .score-line strong{font-size:33px}
+.nutrition-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:17px;padding:15px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.nutrition-mini div{min-width:0}
+.nutrition-mini small{display:block;color:var(--ink-faint);font-size:11px;white-space:nowrap}
+.nutrition-mini b{display:block;color:var(--ink);font-size:14px;font-weight:600;margin-top:4px;white-space:nowrap}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}
+.card-tags .badge{font-family:inherit;font-size:11px;font-weight:500;padding:5px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-muted)}
+.card-tags .condition-pass{background:var(--accent-soft);color:var(--accent)}
+.card.dietary-unmet{background:#eceff2;color:var(--ink)}
+.card.dietary-unmet .rank-pill,.card.dietary-unmet .condition-pass{background:#dfe3e8;color:#697584}
+.card.dietary-unmet .card-shop{color:#697584}
+.card.dietary-unmet .score-line strong{color:#6c7785}
+.card.dietary-unmet .nutrition-mini{border-color:#d9dde2}
+.card.dietary-unmet .card-tags .badge{background:#dfe3e8;color:#657180}
+.dietary-warning{font-size:12px;color:var(--ink-muted);margin-top:8px;line-height:1.5}
+.score-details{font-size:12px;color:var(--ink-muted);margin-top:13px}
+.score-details summary{cursor:pointer;color:var(--accent);font-weight:600;width:max-content}
+.score-details-content{display:flex;gap:18px;flex-wrap:wrap;padding:12px 0 4px;line-height:1.5}
+.card.dietary-unmet .score-details summary{color:var(--ink-muted)}
+.card-more{font-size:12px;color:var(--ink-faint);margin-top:12px}
+.empty-note{grid-column:1/-1;border:0;border-radius:16px;background:var(--surface);padding:32px;color:var(--ink-muted);font-size:14px}
+.data-notice{margin-top:30px;padding:18px 22px;background:var(--surface);border-radius:16px;color:var(--ink-muted);font-size:12px;line-height:1.7}
+.data-notice summary{cursor:pointer;font-weight:600;color:var(--ink-muted)}
+.data-notice p{margin:10px 0 0}
+.scrim{background:rgba(15,25,40,.44)}
+.sheet{border:0;box-shadow:-8px 0 32px rgba(17,30,50,.08);width:min(500px,100%)}
+.sheet-photo,.sheet-photo-empty{aspect-ratio:16/10}
+.sheet-body{padding:24px 28px 42px;gap:19px}
+.sheet-head h2{font-size:25px;font-weight:700;letter-spacing:-.04em}
+.sheet-head .cat{color:var(--accent)}
+.nrf-block{border-radius:14px;background:var(--surface-2);padding:16px}
+.nrf-num{color:var(--accent)!important}
+.nutri-table,.nutri-table tbody{display:block;width:100%}
+.nutri-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nutri-table tr{display:flex;justify-content:space-between;align-items:center;gap:8px;border:0;border-radius:10px;background:var(--surface-2);padding:10px}
+.nutri-table td{padding:0!important;font-size:12px}
+.nutri-table td:last-child{font-size:12px;white-space:nowrap}
+.tab-row{border-bottom-color:var(--border)}
+.tab-btn.active{color:var(--accent);border-color:var(--accent)}
+.tag{border:0;background:var(--surface-2);color:var(--ink-muted)}
+.tag.warn,.tag.src{border:0;background:var(--surface-2);color:var(--ink-muted)}
+.footnote{color:var(--ink-muted);font-size:12px;line-height:1.65}
+@media(max-width:900px){.personal-form{grid-template-columns:1fr}.input-card:first-child{grid-row:auto}}
+@media(max-width:680px){
+  .topbar-inner,main{padding-left:16px;padding-right:16px}
+  .topbar-inner{padding-top:31px}
+  .hero-copy{margin-bottom:27px}
+  .hero-copy p{font-size:15px}
+  .shop-tabs{width:100%}
+  .shop-tab{flex:1;padding:11px 8px;font-size:12px}
+  main{padding-top:20px}
+  .personal-form{gap:12px}
+  .input-card{padding:22px 20px;border-radius:18px}
+  .profile-grid{grid-template-columns:1fr}
+  .form-field-wide{grid-column:auto}
+  .goal-grid{grid-template-columns:1fr}
+  .goal-option span{min-height:auto;padding:13px 15px}
+  .goal-option small{margin-top:3px}
+  .form-actions{display:block}
+  #personalSubmit{width:100%}
+  #personalStatus{margin-top:10px}
+  .results-section{margin-top:42px}
+  .day-heading{display:block}
+  .day-heading .count{display:block;text-align:left;margin-top:9px}
+  .shop-grid{grid-template-columns:1fr}
+  .card.is-top{grid-column:auto;padding:20px}
+  .card-photo{width:94px;height:94px}
+  .card.is-top .card-photo{width:112px;height:112px}
+  .card-name{font-size:17px}.card.is-top .card-name{font-size:19px}
+  .nutrition-mini{grid-template-columns:repeat(4,1fr)}
+  .nutrition-mini b{font-size:12px}
+  .sheet-body{padding:21px 19px 34px}
+}
+@media(max-width:360px){.shop-tab{font-size:11px}.card-photo,.card.is-top .card-photo{width:80px;height:80px}}
