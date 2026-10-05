@@ -1,0 +1,542 @@
+<meta charset="UTF-8">
+<title>한양 트레이</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#eef1f0;
+  --surface:#ffffff;
+  --surface-2:#e2e8e6;
+  --surface-3:#d8e0dd;
+  --border:#cfd8d4;
+  --ink:#16211c;
+  --ink-muted:#5c6d66;
+  --ink-faint:#8b9891;
+  --accent:#1c4c86;
+  --accent-strong:#0f3564;
+  --accent-soft:#dce6f0;
+  --good:#217a4e;
+  --good-soft:#dcefe3;
+  --caution:#9a6b0c;
+  --caution-soft:#f3e7cc;
+  --bad:#b23f26;
+  --bad-soft:#f6e0da;
+  --shadow: 0 1px 2px rgba(22,33,28,.06), 0 8px 24px -12px rgba(22,33,28,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111613;
+    --surface:#1a211d;
+    --surface-2:#232b26;
+    --surface-3:#2c3630;
+    --border:#38443c;
+    --ink:#e9ede9;
+    --ink-muted:#9aa89f;
+    --ink-faint:#6c7972;
+    --accent:#5f9ad6;
+    --accent-strong:#8bb9e6;
+    --accent-soft:#20344a;
+    --good:#5cb989;
+    --good-soft:#1c3428;
+    --caution:#e0b355;
+    --caution-soft:#3a2f16;
+    --bad:#e2836b;
+    --bad-soft:#3d2620;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111613;
+  --surface:#1a211d;
+  --surface-2:#232b26;
+  --surface-3:#2c3630;
+  --border:#38443c;
+  --ink:#e9ede9;
+  --ink-muted:#9aa89f;
+  --ink-faint:#6c7972;
+  --accent:#5f9ad6;
+  --accent-strong:#8bb9e6;
+  --accent-soft:#20344a;
+  --good:#5cb989;
+  --good-soft:#1c3428;
+  --caution:#e0b355;
+  --caution-soft:#3a2f16;
+  --bad:#e2836b;
+  --bad-soft:#3d2620;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"IBM Plex Sans KR","Noto Sans KR",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;}
+.display{font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;}
+
+a{color:inherit;}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1180px; margin:0 auto; padding:18px 20px 0;
+}
+.brand-row{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+.brand{
+  font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;
+  font-size:26px; letter-spacing:.5px; color:var(--accent-strong);
+}
+.brand-sub{color:var(--ink-muted); font-size:13px;}
+
+.banner{
+  margin:12px 0 14px; padding:9px 12px;
+  background:var(--caution-soft); color:var(--caution);
+  border:1px solid var(--caution); border-color:color-mix(in srgb, var(--caution) 35%, transparent);
+  border-radius:6px; font-size:12.5px; line-height:1.5;
+}
+
+.date-strip{
+  display:flex; gap:6px; overflow-x:auto; padding:2px 0 14px;
+  scrollbar-width:thin;
+}
+.date-strip::-webkit-scrollbar{height:6px;}
+.date-strip::-webkit-scrollbar-thumb{background:var(--border); border-radius:3px;}
+.date-chip{
+  flex:0 0 auto;
+  font-family:"JetBrains Mono",monospace;
+  font-size:12.5px; font-weight:500;
+  padding:8px 11px;
+  border:1px solid var(--border); border-radius:7px;
+  background:var(--surface); color:var(--ink-muted);
+  cursor:pointer; text-align:center; line-height:1.3;
+  transition:background .12s, color .12s, border-color .12s;
+}
+.date-chip .dow{display:block; font-size:10px; opacity:.75;}
+.date-chip:hover{border-color:var(--accent); color:var(--ink);}
+.date-chip.active{
+  background:var(--accent); border-color:var(--accent); color:#fff;
+}
+
+/* ---------- main ---------- */
+main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
+
+.day-heading{display:flex; align-items:baseline; gap:10px; margin:2px 0 16px; flex-wrap:wrap;}
+.day-heading h1{
+  font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;
+  font-size:22px; margin:0; font-weight:400;
+}
+.day-heading .count{color:var(--ink-muted); font-size:13px;}
+
+.shop-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+@media (max-width:860px){ .shop-grid{grid-template-columns:1fr;} }
+
+.shop-col{display:flex; flex-direction:column; gap:10px;}
+.shop-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:2px 2px 6px; border-bottom:2px solid var(--surface-3);
+}
+.shop-name{font-weight:700; font-size:14.5px;}
+.shop-code{
+  font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--ink-faint);
+}
+
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:13px 14px; cursor:pointer; box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:8px;
+  transition:transform .12s, border-color .12s;
+}
+.card:hover{border-color:var(--accent); transform:translateY(-1px);}
+.card:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+.card-top{display:flex; justify-content:space-between; gap:8px; align-items:flex-start;}
+.card-cat{
+  font-size:10.5px; letter-spacing:.04em; color:var(--accent);
+  background:var(--accent-soft); padding:2px 7px; border-radius:4px; font-weight:600;
+}
+.card-price{font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--ink-faint);}
+.card-name{font-size:15px; font-weight:700; line-height:1.35;}
+
+.card-nutri{
+  display:flex; gap:10px; flex-wrap:wrap;
+  font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--ink-muted);
+}
+.card-nutri b{color:var(--ink); font-weight:600;}
+
+.card-foot{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+.badge{
+  font-size:10.5px; font-weight:600; padding:3px 8px; border-radius:20px;
+  font-family:"JetBrains Mono",monospace;
+}
+.badge-good{background:var(--good-soft); color:var(--good);}
+.badge-caution{background:var(--caution-soft); color:var(--caution);}
+.badge-bad{background:var(--bad-soft); color:var(--bad);}
+.flags{display:flex; gap:5px;}
+.flag-dot{
+  width:7px; height:7px; border-radius:50%; display:inline-block;
+}
+.flag-dot.warn{background:var(--caution);}
+.flag-dot.src{background:var(--accent);}
+
+.empty-note{
+  font-size:12.5px; color:var(--ink-faint); padding:14px 4px; border:1px dashed var(--border); border-radius:8px; text-align:center;
+}
+
+/* ---------- detail overlay ---------- */
+.scrim{
+  position:fixed; inset:0; background:rgba(10,14,12,.45);
+  opacity:0; pointer-events:none; transition:opacity .16s;
+  z-index:40;
+}
+.scrim.open{opacity:1; pointer-events:auto;}
+
+.sheet{
+  position:fixed; top:0; right:0; height:100%; width:min(460px,100%);
+  background:var(--surface); border-left:1px solid var(--border);
+  transform:translateX(100%); transition:transform .2s ease;
+  z-index:41; overflow-y:auto;
+  box-shadow:-12px 0 32px -16px rgba(0,0,0,.3);
+}
+.sheet.open{transform:translateX(0);}
+
+.sheet-photo{
+  width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--surface-2);
+  display:block;
+}
+.sheet-photo-empty{
+  width:100%; aspect-ratio:4/3; background:var(--surface-2);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ink-faint); font-size:12px; font-family:"JetBrains Mono",monospace;
+}
+.sheet-close{
+  position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%;
+  background:rgba(20,20,20,.55); color:#fff; border:none; font-size:16px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.sheet-body{padding:18px 20px 32px; display:flex; flex-direction:column; gap:16px;}
+.sheet-head .cat{
+  font-size:11px; color:var(--accent); font-weight:600; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"Black Han Sans","IBM Plex Sans KR",sans-serif;
+  font-weight:400; font-size:21px; margin:4px 0 2px;
+}
+.sheet-head .meta{
+  font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--ink-muted);
+}
+
+.nrf-block{
+  display:flex; align-items:center; gap:14px;
+  padding:12px 14px; border-radius:10px; background:var(--surface-2);
+}
+.nrf-num{font-family:"JetBrains Mono",monospace; font-size:26px; font-weight:700;}
+.nrf-label{font-size:11.5px; color:var(--ink-muted); line-height:1.5;}
+
+.nutri-table{width:100%; border-collapse:collapse; font-size:13px;}
+.nutri-table tr{border-bottom:1px solid var(--border);}
+.nutri-table tr:last-child{border-bottom:none;}
+.nutri-table td{padding:7px 2px;}
+.nutri-table td:first-child{color:var(--ink-muted);}
+.nutri-table td:last-child{
+  text-align:right; font-family:"JetBrains Mono",monospace; font-weight:600;
+}
+
+.section-title{
+  font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--ink-faint);
+  text-transform:uppercase; margin-bottom:2px;
+}
+.taglist{display:flex; flex-wrap:wrap; gap:6px;}
+.tag{
+  font-size:11.5px; padding:4px 9px; border-radius:20px; border:1px solid var(--border);
+  color:var(--ink-muted);
+}
+.tag.warn{border-color:color-mix(in srgb, var(--caution) 45%, transparent); color:var(--caution); background:var(--caution-soft);}
+.tag.src{border-color:color-mix(in srgb, var(--accent) 40%, transparent); color:var(--accent); background:var(--accent-soft);}
+
+.footnote{font-size:11.5px; color:var(--ink-faint); line-height:1.6;}
+
+.tab-row{display:flex; gap:6px; border-bottom:1px solid var(--border); padding-bottom:0;}
+.tab-btn{
+  flex:1; padding:9px 4px; text-align:center; cursor:pointer;
+  font-size:13px; font-weight:600; color:var(--ink-muted);
+  background:none; border:none; border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+}
+.tab-btn.active{color:var(--accent); border-bottom-color:var(--accent);}
+.tab-panel{display:flex; flex-direction:column; gap:16px;}
+
+.src-group{margin-bottom:8px;}
+.src-group-label{font-size:11px; color:var(--ink-faint); margin-bottom:4px;}
+
+@media (prefers-reduced-motion: reduce){
+  .sheet, .scrim, .card{transition:none;}
+}
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-row">
+      <span class="brand">한양 트레이</span>
+      <span class="brand-sub mono">HYU 학생식당 · 생활과학관식당 · 신소재공학관식당 · 중식(점심) 영양 대조</span>
+    </div>
+    <div class="banner">
+      전 항목은 표준 제공량(g) 기반 자동 추정치이며 실측값이 아닙니다. 식약처 통합식품영양성분DB · 가공식품DB · 국가표준식품성분표 10.4판을 우선순위에 따라 자동 매칭한 결과로, 매칭 신뢰도와 미매칭 구성요소는 항목 상세에서 확인할 수 있습니다.
+    </div>
+    <div id="dateStrip" class="date-strip"></div>
+  </div>
+</div>
+
+<main>
+  <div class="day-heading">
+    <h1 id="dayTitle">불러오는 중…</h1>
+    <span class="count" id="dayCount"></span>
+  </div>
+  <div class="shop-grid" id="shopGrid"></div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="sheet" aria-hidden="true">
+  <button class="sheet-close" id="sheetClose" aria-label="닫기">✕</button>
+  <div id="sheetPhotoWrap"></div>
+  <div class="sheet-body" id="sheetBody"></div>
+</aside>
+
+<script>
+const SHOP_ORDER = ["105","401","204"];
+const SHOP_LABEL = {"105":"학생식당","401":"생활과학관식당","204":"신소재공학관식당"};
+const DOW = ["일","월","화","수","목","금","토"];
+const DV = {protein:55, fiber:25, ca:700, fe:12, vitA:700, vitC:100, satFat:15, sugar:100, na:2000};
+
+let DATA = [];
+let byDate = {};
+let dates = [];
+let activeDate = null;
+
+function pct(v, dv){ return Math.min(100, (v/dv)*100); }
+
+function nrfBadgeClass(n){
+  if(n >= -5) return "badge-good";
+  if(n >= -25) return "badge-caution";
+  return "badge-bad";
+}
+function confBadgeClass(c){
+  if(c === "높음") return "badge-good";
+  if(c === "보통") return "badge-caution";
+  return "";
+}
+
+function fmtDate(d){
+  const [y,m,dd] = d.split("-").map(Number);
+  const dow = DOW[new Date(y,m-1,dd).getDay()];
+  return {label:`${m}/${dd}`, dow};
+}
+
+function renderDateStrip(){
+  const strip = document.getElementById("dateStrip");
+  strip.innerHTML = "";
+  dates.forEach(d=>{
+    const {label, dow} = fmtDate(d);
+    const el = document.createElement("div");
+    el.className = "date-chip" + (d===activeDate ? " active" : "");
+    el.innerHTML = `<span class="dow">${dow}</span>${label}`;
+    el.onclick = () => { activeDate = d; renderDateStrip(); renderDay(); };
+    strip.appendChild(el);
+  });
+}
+
+function itemCard(item){
+  const el = document.createElement("div");
+  el.className = "card";
+  el.tabIndex = 0;
+  const flags = [];
+  if(item.unmatched && item.unmatched.length) flags.push('<span class="flag-dot warn" title="미매칭 구성요소 있음"></span>');
+  if(item.gagongSourced && item.gagongSourced.length) flags.push('<span class="flag-dot src" title="가공식품DB 매칭 포함"></span>');
+  el.innerHTML = `
+    <div class="card-top">
+      <span class="card-cat">${item.category}</span>
+      <span class="card-price mono">${item.price||""}</span>
+    </div>
+    <div class="card-name">${item.main || "(메뉴명 미상)"}</div>
+    <div class="card-nutri">
+      <span><b>${item.kcal.toFixed(0)}</b> kcal</span>
+      <span>탄 <b>${item.carb.toFixed(0)}</b>g</span>
+      <span>단 <b>${item.protein.toFixed(0)}</b>g</span>
+      <span>지 <b>${item.fat.toFixed(0)}</b>g</span>
+    </div>
+    <div class="card-foot">
+      <span class="badge ${nrfBadgeClass(item.nrf)}">NRF ${item.nrf.toFixed(1)}</span>
+      <div class="flags">${flags.join("")}</div>
+    </div>
+  `;
+  el.onclick = () => openSheet(item);
+  el.onkeydown = (e) => { if(e.key==="Enter"||e.key===" ") openSheet(item); };
+  return el;
+}
+
+function renderDay(){
+  const rows = byDate[activeDate] || [];
+  const {label, dow} = fmtDate(activeDate);
+  document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow})`;
+  document.getElementById("dayCount").textContent = `중식 ${rows.length}종`;
+
+  const grid = document.getElementById("shopGrid");
+  grid.innerHTML = "";
+  SHOP_ORDER.forEach(shop=>{
+    const items = rows.filter(r=>r.shop===shop).sort((a,b)=> a.category.localeCompare(b.category,"ko"));
+    const col = document.createElement("div");
+    col.className = "shop-col";
+    const head = document.createElement("div");
+    head.className = "shop-head";
+    head.innerHTML = `<span class="shop-name">${SHOP_LABEL[shop]}</span><span class="shop-code mono">#${shop}</span>`;
+    col.appendChild(head);
+    if(items.length===0){
+      const note = document.createElement("div");
+      note.className = "empty-note";
+      note.textContent = "이 날짜 중식 운영 없음";
+      col.appendChild(note);
+    } else {
+      items.forEach(it => col.appendChild(itemCard(it)));
+    }
+    grid.appendChild(col);
+  });
+}
+
+function srcGroup(label, names){
+  if(!names || !names.length) return "";
+  return `<div class="src-group"><div class="src-group-label">${label}</div><div class="taglist">${names.map(u=>`<span class="tag src">${u}</span>`).join("")}</div></div>`;
+}
+
+function nutriTabHtml(item){
+  const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
+  const warnTags = (item.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
+  const db = item.matchedDb || {};
+  const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
+
+  return `
+    <div class="nrf-block">
+      <div class="nrf-num" style="color:var(${item.nrf>=-5?'--good':item.nrf>=-25?'--caution':'--bad'})">${item.nrf.toFixed(1)}</div>
+      <div class="nrf-label">NRF6.3 지수 (일일 권장량 기준)<br>신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
+    </div>
+    <table class="nutri-table">
+      <tr><td>열량</td><td>${item.kcal.toFixed(0)} kcal</td></tr>
+      <tr><td>탄수화물</td><td>${item.carb.toFixed(1)} g</td></tr>
+      <tr><td>단백질</td><td>${item.protein.toFixed(1)} g</td></tr>
+      <tr><td>지방</td><td>${item.fat.toFixed(1)} g</td></tr>
+      <tr><td>포화지방</td><td>${item.satFat.toFixed(1)} g</td></tr>
+      <tr><td>당류</td><td>${item.sugar.toFixed(1)} g</td></tr>
+      <tr><td>식이섬유</td><td>${item.fiber.toFixed(1)} g</td></tr>
+      <tr><td>나트륨</td><td>${item.na.toFixed(0)} mg</td></tr>
+      <tr><td>칼슘</td><td>${item.ca.toFixed(0)} mg</td></tr>
+      <tr><td>철</td><td>${item.fe.toFixed(2)} mg</td></tr>
+      <tr><td>비타민A</td><td>${item.vitA.toFixed(1)} ㎍RAE</td></tr>
+      <tr><td>비타민C</td><td>${item.vitC.toFixed(1)} mg</td></tr>
+    </table>
+    ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
+    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
+    ${warnTags ? `<div><div class="section-title">미매칭 구성요소</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 3개 영양DB(식약처 통합DB·가공식품DB·국가표준식품성분표) 어디에도 매칭되지 않아 전체 영양성분 합산에서 제외되었습니다. 실제 섭취 열량·영양소는 표시값보다 높을 수 있습니다.</div></div>` : ""}
+  `;
+}
+
+function exchangeTabHtml(item){
+  const eu = item.exchangeUnits;
+  const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
+  const warnTags = (eu.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
+  const db = eu.matchedDb || {};
+  const srcHtml = srcGroup("MenuGen", db.menugen) + srcGroup("레시피DB", db.recipeDb) + srcGroup("원재료DB 직접매칭", db.db104);
+  const externalHtml = (eu.externalRecipes||[]).map(r => `<div class="footnote"><a href="${r.url}" target="_blank" rel="noopener noreferrer">외부 대체 레시피: ${r.name}</a><br>${r.note}</div>`).join("");
+
+  return `
+    <table class="nutri-table">
+      <tr><td>곡류군</td><td>${eu.grain.toFixed(2)} 단위</td></tr>
+      <tr><td>어육류군</td><td>${eu.meat.toFixed(2)} 단위</td></tr>
+      <tr><td>채소군</td><td>${eu.veg.toFixed(2)} 단위</td></tr>
+      <tr><td>지방군</td><td>${eu.fat.toFixed(2)} 단위</td></tr>
+      <tr><td>우유군</td><td>${eu.dairy.toFixed(2)} 단위</td></tr>
+      <tr><td>과일군</td><td>${eu.fruit.toFixed(2)} 단위</td></tr>
+    </table>
+    ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
+    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
+    ${(eu.recipeNotes||[]).map(n=>`<div class="footnote">${n}</div>`).join("")}
+    ${externalHtml}
+    ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
+  `;
+}
+
+let sheetItem = null;
+let sheetTab = "nutri";
+
+function renderSheetTab(){
+  const panel = document.getElementById("sheetPanel");
+  panel.innerHTML = sheetTab === "nutri" ? nutriTabHtml(sheetItem) : exchangeTabHtml(sheetItem);
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === sheetTab));
+}
+
+function switchSheetTab(tab){
+  sheetTab = tab;
+  renderSheetTab();
+}
+
+function openSheet(item){
+  const photoWrap = document.getElementById("sheetPhotoWrap");
+  if(item.photo){
+    photoWrap.innerHTML = `<img class="sheet-photo" src="menu_photos_web/${item.photo}" alt="${item.main}">`;
+  } else {
+    photoWrap.innerHTML = `<div class="sheet-photo-empty">사진 없음</div>`;
+  }
+
+  sheetItem = item;
+  sheetTab = "nutri";
+
+  const tabsHtml = item.exchangeUnits ? `
+    <div class="tab-row">
+      <button class="tab-btn" data-tab="nutri" onclick="switchSheetTab('nutri')">영양소</button>
+      <button class="tab-btn" data-tab="exchange" onclick="switchSheetTab('exchange')">식품교환단위</button>
+    </div>
+  ` : "";
+
+  document.getElementById("sheetBody").innerHTML = `
+    <div class="sheet-head">
+      <div class="cat">${SHOP_LABEL[item.shop]} · ${item.category}</div>
+      <h2>${item.main || "(메뉴명 미상)"}</h2>
+      <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · 1인분 제공량 ${item.weight?item.weight.toFixed(0):"-"}g</div>
+    </div>
+    ${tabsHtml}
+    <div class="tab-panel" id="sheetPanel"></div>
+  `;
+  renderSheetTab();
+
+  document.getElementById("scrim").classList.add("open");
+  document.getElementById("sheet").classList.add("open");
+}
+
+function closeSheet(){
+  document.getElementById("scrim").classList.remove("open");
+  document.getElementById("sheet").classList.remove("open");
+}
+document.getElementById("scrim").onclick = closeSheet;
+document.getElementById("sheetClose").onclick = closeSheet;
+document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); });
+
+fetch("site_data.json", { cache: "no-store" }).then(r=>r.json()).then(data=>{
+  DATA = data;
+  dates = [...new Set(data.map(d=>d.date))].sort();
+  byDate = {};
+  dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
+  activeDate = dates[dates.length-1];
+  renderDateStrip();
+  renderDay();
+}).catch(err=>{
+  document.getElementById("dayTitle").textContent = "데이터를 불러오지 못했습니다";
+  console.error(err);
+});
+</script>
