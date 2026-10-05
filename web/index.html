@@ -297,6 +297,15 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </div>
 
 <main>
+  <form id="personalForm" style="padding:14px;margin-bottom:16px;border:1px solid #ddd;border-radius:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:end">
+    <label>성별<br><select name="sex" required><option value="">선택</option><option value="male">남성</option><option value="female">여성</option></select></label>
+    <label>만 나이(20세 이상)<br><input name="age" type="number" min="20" step="1" required style="width:75px"></label>
+    <label>키(cm)<br><input name="heightCm" type="number" min="0.1" step="any" required style="width:85px"></label>
+    <label>체중(kg)<br><input name="weightKg" type="number" min="0.1" step="any" required style="width:85px"></label>
+    <label>활동수준<br><select name="activity" required><option value="">선택</option><option value="0">비활동적</option><option value="1">저활동적</option><option value="2">활동적</option><option value="3">매우 활동적</option></select></label>
+    <button type="submit" id="personalSubmit" disabled>개인 추천 계산</button>
+    <div id="personalStatus" role="status" style="width:100%;font-size:13px">정보를 입력하면 식당별 개인 추천순위를 표시합니다. 입력값은 저장하거나 전송하지 않습니다.</div>
+  </form>
   <div class="day-heading">
     <h1 id="dayTitle">불러오는 중…</h1>
     <span class="count" id="dayCount"></span>
@@ -311,13 +320,16 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   <div class="sheet-body" id="sheetBody"></div>
 </aside>
 
+<script src="nrf-ranking.js"></script>
+<script src="personal-score.js"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
-const SHOP_LABEL = {"105":"학생식당","401":"생활과학관식당","204":"신소재공학관식당"};
+const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};
 const DOW = ["일","월","화","수","목","금","토"];
 const DV = {protein:55, fiber:25, ca:700, fe:12, vitA:700, vitC:100, satFat:15, sugar:100, na:2000};
 
 let DATA = [];
+let BASE_DATA = [], EXCHANGE_SNAPSHOT = null, TARGET_TABLE = null;
 let byDate = {};
 let dates = [];
 let activeDate = null;
@@ -359,24 +371,24 @@ function itemCard(item){
   el.className = "card";
   el.tabIndex = 0;
   const flags = [];
-  if(item.unmatched && item.unmatched.length) flags.push('<span class="flag-dot warn" title="미매칭 구성요소 있음"></span>');
-  if(item.gagongSourced && item.gagongSourced.length) flags.push('<span class="flag-dot src" title="가공식품DB 매칭 포함"></span>');
+  if(item.analysisMode) flags.push('<span class="badge badge-caution">추정</span>');
+  if(item.missingFields && item.missingFields.length) flags.push('<span class="badge badge-caution">결측 포함</span>');
   el.innerHTML = `
     <div class="card-top">
       <span class="card-cat">${item.category}</span>
       <span class="card-price mono">${item.price||""}</span>
     </div>
-    <div class="card-name">${item.main || "(메뉴명 미상)"}</div>
-    <div class="card-nutri">
-      <span><b>${item.kcal.toFixed(0)}</b> kcal</span>
-      <span>탄 <b>${item.carb.toFixed(0)}</b>g</span>
-      <span>단 <b>${item.protein.toFixed(0)}</b>g</span>
-      <span>지 <b>${item.fat.toFixed(0)}</b>g</span>
+    <div class="card-name">${item.personal.eligible ? `<span class="badge badge-good">${item.personal.rank}위</span> ` : '<span class="badge">추천점수 없음</span> '}${item.main || "(메뉴명 미상)"}</div>
+    <div style="font-size:13px;line-height:1.9;margin-top:10px">
+      <div>개인영양목표 ${item.personal.eligible ? item.personal.personalScore.toFixed(2)+' / 75점' : '—'}</div>
+      <div>NRF ${item.assessment.eligible ? item.assessment.nrfPoints.toFixed(2)+' / 25점' : '—'}</div>
+
     </div>
-    <div class="card-foot">
-      <span class="badge ${nrfBadgeClass(item.nrf)}">NRF ${item.nrf.toFixed(1)}</span>
-      <div class="flags">${flags.join("")}</div>
+    <div class="card-foot" style="margin-top:10px">
+      <div style="padding:10px 14px;border-radius:10px;background:var(--good-soft);color:var(--good);font-weight:700">총점 ${item.personal.eligible ? item.personal.finalScore.toFixed(2)+' / 100점' : '—'}</div>
+      <div class="flags">${flags.join('')}</div>
     </div>
+    ${!item.personal.eligible ? `<div class="footnote">${escapeText(item.personal.reason)}</div>` : ''}
   `;
   el.onclick = () => openSheet(item);
   el.onkeydown = (e) => { if(e.key==="Enter"||e.key===" ") openSheet(item); };
@@ -387,12 +399,12 @@ function renderDay(){
   const rows = byDate[activeDate] || [];
   const {label, dow} = fmtDate(activeDate);
   document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow})`;
-  document.getElementById("dayCount").textContent = `중식 ${rows.length}종`;
+  document.getElementById("dayCount").textContent = `중식 ${rows.length}종 · 개인 평가 가능 ${rows.filter(r=>r.personal.eligible).length}종 · 전체 기준집단 ${DATA[0]?.assessment.referenceSize||0}종`;
 
   const grid = document.getElementById("shopGrid");
   grid.innerHTML = "";
   SHOP_ORDER.forEach(shop=>{
-    const items = rows.filter(r=>r.shop===shop).sort((a,b)=> a.category.localeCompare(b.category,"ko"));
+    const items = rows.filter(r=>r.shop===shop).sort(PersonalScore.compareMenus);
     const col = document.createElement("div");
     col.className = "shop-col";
     const head = document.createElement("div");
@@ -402,7 +414,7 @@ function renderDay(){
     if(items.length===0){
       const note = document.createElement("div");
       note.className = "empty-note";
-      note.textContent = "이 날짜 중식 운영 없음";
+      note.textContent = "이 날짜에 분석된 중식 자료 없음";
       col.appendChild(note);
     } else {
       items.forEach(it => col.appendChild(itemCard(it)));
@@ -423,9 +435,31 @@ function nutriTabHtml(item){
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
 
   return `
+    ${item.analysisMode ? `<div class="footnote" style="margin-bottom:16px;color:var(--caution)"><b>기존 코드로 계산한 추정값</b><br>제공량은 표준·추정 중량입니다. 미매칭 항목은 합산에서 빠지고 결측 영양소는 0으로 처리됩니다. NRF는 100 kcal 기준이며 권장·제한 영양소 모두 기존 코드의 100% cap을 적용했습니다. 백분위 점수가 아닙니다.</div>
+    ${(item.missingFields||[]).length ? `<div class="section-title">결측 영양소 (0 처리)</div><div class="footnote">${item.missingFields.map(escapeText).join('<br>')}</div>` : ''}
+    ${(item.qualityFlags||[]).includes('MENU_ALTERNATIVES_REQUIRE_REVIEW') ? '<div class="footnote">선택 메뉴(or)는 기존 규칙에 따라 첫 번째 선택지만 계산했습니다. 실제 선택 조합 확인이 필요합니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('PORK_SOUP_SPLIT_260_40_ASSUMPTION_BASE_MAY_INCLUDE_MEAT') ? '<div class="footnote">얼큰수육국밥은 총 300g을 국밥 260g + 돼지고기 수육 40g으로 가정했습니다. 사진 실측값이 아니며 국밥 DB 자체에도 고기가 포함될 수 있습니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('MINI_PORTION_HALF_STANDARD_ASSUMPTION') ? '<div class="footnote">미니 메뉴는 이름에서 미니를 제외해 매칭했습니다. 면·국물류는 150g, 그 외 반찬류는 20g으로 가정했으며 사진 실측값이 아닙니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('ENERGY_ONLY_USER_VALUE_NRF_NUTRIENTS_MISSING') ? '<div class="footnote">사용자가 열량만 제공한 음식이 포함되어 있습니다. 해당 음식의 다른 영양소는 결측이며 표시된 NRF는 완전한 영양성분에 근거한 점수가 아닙니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('USER_RECIPE_WITH_EXPLICIT_PORTION_ASSUMPTIONS') ? '<div class="footnote">사용자 제공 재료 구성에 추정 제공량을 적용했습니다. 재료별 가정은 중간 계산 상세의 weight_note에 기록되어 있습니다. 차슈 라멘은 베이스 DB의 고명과 추가 차슈가 중복될 수 있습니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('PHOTO_CONFIRMED_RICE_BOWL_WEIGHT_ESTIMATED_200G') ? '<div class="footnote">해당 날짜 사진에서 별도 밥공기를 확인해 쌀밥을 추가했습니다. 200g은 사용자 지정 적용량이며 사진 실측값은 아닙니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('SOUP_DB_MAY_ALREADY_INCLUDE_RICE') ? '<div class="footnote">국밥 DB 자체에도 밥이 포함되어 있을 수 있어 별도 밥공기와의 중복 가능성을 확인해야 합니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('USER_CUTLET_SAUCE_30G_PASTA_30G') ? '<div class="footnote">사용자 지정 돈까스 동반 구성: 소스 30g 추정 적용, 토마토파스타는 30g 적용. 기존 소스·토마토파스타 항목은 중복 추가하지 않았습니다. 돈까스 DB 자체 소스 포함 여부는 추가 확인이 필요합니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('AQUA_RECIPE_HALF_BATCH_NO_CUTLET_SAUCE') ? '<div class="footnote">아쿠아돈까스는 사용자 레시피 절반(1덩어리), 이번 레시피의 1T=15g을 적용했습니다. 일반 돈까스소스는 제외하고 아쿠아소스 재료만 반영했습니다. 채소·돈까스 중량과 어린잎·새싹 종류는 추정이며 토마토파스타 30g은 유지합니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('RICE_PHOTO_MISSING_REVIEW') ? '<div class="footnote">즉석메뉴 사진이 없어 별도 밥 제공 여부를 확인하지 못했습니다. 밥을 임의 추가하지 않았습니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('USER_LABEL_PARTIAL_NUTRIENTS') ? '<div class="footnote">사용자 제공 영양표를 적용한 음식이 있습니다. 비엔나케찹볶음은 1소접시, 오복채무침은 100g, 해물가스 제품은 한 봉지 2500g 기준 영양표를 적용했습니다. g 기준 자료는 추정 제공량으로 비례 환산합니다. 미표기 영양소는 결측으로 유지하며 해물가스는 식이섬유도 미표기입니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('PORK_DB_ENERGY_SOURCE_REVIEW') ? '<div class="footnote">양념대패삼겹 DB의 열량이 100g당 14kcal로 기록되어 원자료 확인이 필요합니다. 임의 보정하지 않았으며 이 덮밥의 열량·NRF는 검토 전 잠정값입니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('UNSPECIFIED_RAMEN_SOYU_PROXY') ? '<div class="footnote">종류가 적혀 있지 않은 라멘은 DB의 소유라멘으로 잠정 대체했습니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('ML_INGREDIENT_NUTRIENTS_INCLUDED_MASS_NOT_IN_TOTAL_G') ? '<div class="footnote">ml 기준 재료는 100ml DB에 추정 부피를 적용했습니다. g으로 변환하지 않았으며 표시 총중량에는 해당 재료 질량이 포함되지 않습니다. 재료별 부피는 상세의 serving_amount에 있습니다.</div>' : ''}
+    ${(item.qualityFlags||[]).includes('LEGACY_PHOTO_RULE_NOT_REVALIDATED_FOR_THIS_DATE') ? '<div class="footnote">기존 사진 기반 중량 규칙을 재사용했습니다. 이 날짜 사진으로 개수를 다시 확인한 값은 아닙니다.</div>' : ''}
+    <details style="margin:12px 0"><summary>음식별 추정 중량·매칭·계산 내역</summary><pre style="white-space:pre-wrap;font-size:11px">${escapeText(JSON.stringify(item.itemDetails,null,2))}</pre></details>` : ''}
+    ${(item.matchingReview||[]).length ? `<details style="margin:12px 0"><summary>미매칭 음식과 대체 검토 후보 ${item.matchingReview.length}개</summary><p class="footnote">수식어 분해·유사 검색 결과입니다. 후보는 아직 영양성분 계산에 반영하지 않았습니다.</p>${item.matchingReview.map(r=>`<div style="margin-bottom:12px"><b>${escapeText(r.query)}</b><br>${r.direct_candidates.length ? r.direct_candidates.slice(0,6).map(c=>escapeText(c.name)+' ('+escapeText(c.source)+')').join('<br>') : '직접 검색 후보 없음'}${r.fusion ? '<br>수식어: '+escapeText(r.fusion.modifier)+' → 기본 메뉴: '+escapeText(r.fusion.base_name)+'<br>'+r.fusion.candidates.slice(0,6).map(c=>escapeText(c.name)).join(', ')+'<br><small>수식어 재료 영양소는 미반영</small>' : ''}</div>`).join('')}</details>` : ''}
+    ${item.sourceMenuText ? `<details style="margin:12px 0"><summary>수집한 원래 메뉴명</summary>${escapeText(item.sourceMenuText)}</details>` : ''}
+    <div class="footnote">${item.assessment.eligible ? `전체 백분위 ${item.assessment.percentile.toFixed(2)}점 · NRF 환산 ${item.assessment.nrfPoints.toFixed(2)} / 25점` : `평가 제외: ${item.assessment.exclusionReason}`}<br>기존에 확정한 3개 식당의 고정 ${item.assessment.referenceSize}개 메뉴 기준(새 메뉴는 기준분포에 추가하지 않음). 원점수 이하 메뉴 비율 × 100, 환산점수 = 백분위 × 0.25. NRF 기준분포는 고정이며 개인점수와 합산한 순위는 날짜·식당별로 표시합니다.</div>
+    <div class="footnote">${item.personal.eligible ? `식당 내 ${item.personal.rank}위 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점<br>EER ${item.personal.eer.toFixed(2)} → ${item.personal.roundedEer} kcal/day<br>Fit ${item.personal.fit.toFixed(2)} → 개인 ${item.personal.personalScore.toFixed(2)} / 75점 + NRF ${item.personal.nrfScore.toFixed(2)} / 25점<br>한 끼 목표(곡류·어육류·채소·지방): ${item.personal.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위: ${item.personal.actual.join(' / ')}` : escapeText(item.personal.reason)}</div>
     <div class="nrf-block">
       <div class="nrf-num" style="color:var(${item.nrf>=-5?'--good':item.nrf>=-25?'--caution':'--bad'})">${item.nrf.toFixed(1)}</div>
-      <div class="nrf-label">NRF6.3 지수 (일일 권장량 기준)<br>신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
+      <div class="nrf-label">NRF6.3 raw (100 kcal 기준)<br>코드 판정 신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
     </div>
     <table class="nutri-table">
       <tr><td>열량</td><td>${item.kcal.toFixed(0)} kcal</td></tr>
@@ -448,12 +482,11 @@ function nutriTabHtml(item){
 }
 
 function exchangeTabHtml(item){
-  const eu = item.exchangeUnits;
+  const eu = item.friendExchangeUnits;
   const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
   const warnTags = (eu.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
   const db = eu.matchedDb || {};
   const srcHtml = srcGroup("MenuGen", db.menugen) + srcGroup("레시피DB", db.recipeDb) + srcGroup("원재료DB 직접매칭", db.db104);
-  const externalHtml = (eu.externalRecipes||[]).map(r => `<div class="footnote"><a href="${r.url}" target="_blank" rel="noopener noreferrer">외부 대체 레시피: ${r.name}</a><br>${r.note}</div>`).join("");
 
   return `
     <table class="nutri-table">
@@ -466,8 +499,6 @@ function exchangeTabHtml(item){
     </table>
     ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
     ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
-    ${(eu.recipeNotes||[]).map(n=>`<div class="footnote">${n}</div>`).join("")}
-    ${externalHtml}
     ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
   `;
 }
@@ -497,7 +528,7 @@ function openSheet(item){
   sheetItem = item;
   sheetTab = "nutri";
 
-  const tabsHtml = item.exchangeUnits ? `
+  const tabsHtml = item.friendExchangeUnits ? `
     <div class="tab-row">
       <button class="tab-btn" data-tab="nutri" onclick="switchSheetTab('nutri')">영양소</button>
       <button class="tab-btn" data-tab="exchange" onclick="switchSheetTab('exchange')">식품교환단위</button>
@@ -508,7 +539,7 @@ function openSheet(item){
     <div class="sheet-head">
       <div class="cat">${SHOP_LABEL[item.shop]} · ${item.category}</div>
       <h2>${item.main || "(메뉴명 미상)"}</h2>
-      <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · 1인분 제공량 ${item.weight?item.weight.toFixed(0):"-"}g</div>
+      <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · ${item.analysisMode?'추정 제공량':'1인분 제공량'} ${item.weight?item.weight.toFixed(0):"-"}g</div>
     </div>
     ${tabsHtml}
     <div class="tab-panel" id="sheetPanel"></div>
@@ -517,24 +548,46 @@ function openSheet(item){
 
   document.getElementById("scrim").classList.add("open");
   document.getElementById("sheet").classList.add("open");
+  document.getElementById("sheet").setAttribute("aria-hidden", "false");
+  document.getElementById("sheet").scrollTop = 0;
 }
 
 function closeSheet(){
   document.getElementById("scrim").classList.remove("open");
   document.getElementById("sheet").classList.remove("open");
+  document.getElementById("sheet").setAttribute("aria-hidden", "true");
 }
 document.getElementById("scrim").onclick = closeSheet;
 document.getElementById("sheetClose").onclick = closeSheet;
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); });
 
-fetch("site_data.json", { cache: "no-store" }).then(r=>r.json()).then(data=>{
-  DATA = data;
+document.getElementById('personalForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const form=new FormData(e.currentTarget);
+  let target=null;
+  try {
+    target=PersonalScore.calculateTarget({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),weightKg:Number(form.get('weightKg')),activity:Number(form.get('activity'))},TARGET_TABLE);
+    document.getElementById('personalStatus').textContent=`EER ${target.eer.toFixed(2)} → ${target.roundedEer} kcal/day · 한 끼 목표(곡류 / 어육류 / 채소 / 지방): ${target.mealTarget.map(v=>v.toFixed(3)).join(' / ')}`;
+  } catch(error) { document.getElementById('personalStatus').textContent=error.message; }
+  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,target);
+  dates.forEach(d=>byDate[d]=DATA.filter(x=>x.date===d));
+  closeSheet();renderDay();
+});
+function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
+Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, reference, exchanges, targets])=>{
+  data = NrfRanking.scoreMenus(data, reference.scores);
+  BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets;
+  DATA = PersonalScore.scoreMenus(BASE_DATA, EXCHANGE_SNAPSHOT, null);
+  data = DATA;
+  document.getElementById("personalSubmit").disabled=false;
   dates = [...new Set(data.map(d=>d.date))].sort();
   byDate = {};
   dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
-  activeDate = dates[dates.length-1];
+  const requestedDate = new URLSearchParams(location.search).get('date');
+  activeDate = dates.includes(requestedDate) ? requestedDate : dates[dates.length-1];
   renderDateStrip();
   renderDay();
+
 }).catch(err=>{
   document.getElementById("dayTitle").textContent = "데이터를 불러오지 못했습니다";
   console.error(err);
