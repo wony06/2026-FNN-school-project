@@ -453,6 +453,7 @@ function exchangeTabHtml(item){
   const warnTags = (eu.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
   const db = eu.matchedDb || {};
   const srcHtml = srcGroup("MenuGen", db.menugen) + srcGroup("레시피DB", db.recipeDb) + srcGroup("원재료DB 직접매칭", db.db104);
+  const externalHtml = (eu.externalRecipes||[]).map(r => `<div class="footnote"><a href="${r.url}" target="_blank" rel="noopener noreferrer">외부 대체 레시피: ${r.name}</a><br>${r.note}</div>`).join("");
 
   return `
     <table class="nutri-table">
@@ -465,6 +466,8 @@ function exchangeTabHtml(item){
     </table>
     ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
     ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
+    ${(eu.recipeNotes||[]).map(n=>`<div class="footnote">${n}</div>`).join("")}
+    ${externalHtml}
     ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
   `;
 }
@@ -524,7 +527,7 @@ document.getElementById("scrim").onclick = closeSheet;
 document.getElementById("sheetClose").onclick = closeSheet;
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); });
 
-fetch("site_data.json").then(r=>r.json()).then(data=>{
+fetch("site_data.json", { cache: "no-store" }).then(r=>r.json()).then(data=>{
   DATA = data;
   dates = [...new Set(data.map(d=>d.date))].sort();
   byDate = {};

@@ -73,17 +73,23 @@ BOWL_WEIGHT_105_BANCHAN = 34         # 공통 반찬그릇(카테고리 무관)
 
 def classify_main_weight_105(category, name):
     if category == "즉석":
+        if name == "순살닭한마리":
+            return BOWL_WEIGHT_105_JEUKSEOK_MAIN, "105 즉석 동일 냄비 기준 표준 추정 790g"
         is_stew = any(w in name for w in ("찌개", "전골", "탕", "해장국", "국밥")) and "볶음" not in name
         is_noodle = any(w in name for w in ("면", "국수", "파스타", "우동", "라면", "스파게티", "냉모밀", "냉우동"))
         if is_stew or is_noodle:
             return BOWL_WEIGHT_105_JEUKSEOK_MAIN, "105 즉석 검정냄비 실측(18.5/10/6cm) 기준 표준 790g"
     if category == "한식":
+        if name in ("비프하이라이스", "비프 하이라이스"):
+            return BOWL_WEIGHT_105_HANSIK_MAIN, "105 한식 덮밥그릇 동일 확인(사용자) - 표준 추정 570g"
         if any(w in name for w in ("덮밥", "비빔밥", "볶음밥", "동", "솥밥", "오므라이스", "필라프", "카레라이스", "알밥")):
             return BOWL_WEIGHT_105_HANSIK_MAIN, "105 한식 덮밥그릇 실측(19/11/6.5cm) 기준 표준 570g"
     return classify_main_weight(name)
 
 
 def classify_side_weight_105(category, name):
+    if name in ("어니언링", "양파링"):
+        return 60, "[사진중량추정] 3개 × 20g = 60g(실측 아님)"
     if category == "즉석" and (name in RICE_WORDS or name.replace("/", "") in ("잡곡밥현미밥",)):
         return BOWL_WEIGHT_105_RICE_SIDE, "105 즉석 밥그릇 실측(10.5/7.5/6cm) 기준 표준 275g"
     if name in RICE_WORDS or name.replace("/", "") in ("잡곡밥현미밥",):
@@ -399,6 +405,8 @@ def resolve_or(name):
 def _special_weight(part):
     """소스/사리 단독 표기(& / * 분리든 단일 토큰이든 공통)의 표준 중량 판정.
     2026-09-27: 학식 소스는 전부 1회용 파우치 제공이라 실측 기준 9g으로 통일(기존 10g에서 수정)."""
+    if part.endswith("덮밥"):
+        return None
     if any(k in part for k in SARI_KEYWORDS):
         return 150, "사리 추가면 - 표준 150g(면류 표준 300g의 절반)"
     if any(k in part for k in SAUCE_KEYWORDS):
@@ -586,19 +594,98 @@ def compute_tray(lunch, cache):
     if shop == "105":
         exch_totals = {g: 0.0 for g in EXCHANGE_GROUPS}
         exch_unmatched = []
+        external_recipes = []
+        recipe_notes = []
         exch_source = {"menugen": [], "recipe_db": [], "db104_direct": []}
         for it in items:
-            r = compute_exchange_units(it["display"], it["weight_g"])
+            # 우동국 및 지정 조미료는 교환단위 계산에서 제외한다. 영양소 계산은 유지한다.
+            if it["display"] in ("우동국", "우동국물", "미소국", "미소장국", "케찹", "케첩", "간장", "초간장", "초장"):
+                continue
+            exchange_weight = (9.0 if "마요덮밥" in main else 12.0) if it["display"] == "마요네즈" else it["weight_g"]
+            r = compute_exchange_units(it["display"], exchange_weight)
+            if r.get("recipe_note"):
+                recipe_notes.append(r["recipe_note"])
+            if it["display"] in ("황태구이_양념", "황태구이 양념") and r["matched"]:
+                recipe_notes.append('황태구이_양념: MenuGen 북어구이(고추장)으로 대체 계산. 기존 사진 추정 제공량 80g 적용. 황태무침과 북어구이의 조리 방식·배합 차이는 미보정한 대체 추정값.')
+            if it["display"] in ("차돌된장찌개", "차돌 된장찌개") and r["matched"]:
+                recipe_notes.append('차돌된장찌개: MenuGen 차돌박이된장찌개로 대체 계산. 기존 제공량에 DB 재료 배합을 비례 환산한 추정값, 실제 배합과 조리수율 차이 미보정.')
+            if it["display"] in ("묵은지", "묵은 김치") and r["matched"]:
+                recipe_notes.append("묵은지를 배추김치 성분으로 대체하여 기존 추정 제공량 기준 교환단위 계산. 숙성 차이 미보정.")
+            if it["display"] == "부타동" and r["matched"]:
+                recipe_notes.append('부타동: 사진 비율에 따라 총 표준 추정량570g을 돼지고기 간장볶음220g + 쌀밥350g으로 배분(실측 아님). 볶음220g은 고기·채소·소스 합계이며 고기만의 중량 아님. MenuGen 삼겹살 기반 간장볶음 전체 배합 적용으로 사진에서 미확인된 양파·당근 등도 포함. 조리 수율 미보정. 영양소 탭은 기존 부타동 가공식품 DB 계산 유지.')
+            if it["display"] in ("비프하이라이스", "비프 하이라이스") and r["matched"]:
+                recipe_notes.append('비프하이라이스: MenuGen 소고기하이라이스로 대체 계산. 동일 덮밥그릇 사용자 확인에 따라 표준 추정 제공량 570g 적용. DB 재료 배합을 비례 환산한 추정값(생쌀 조리수율 미보정).')
+            if it["display"] in ("쌈채소", "쌈야채") and r["matched"]:
+                recipe_notes.append("쌈채소를 녹색 치마상추 생것으로 대체하여 기존 추정 제공량 기준 교환단위 계산.")
+            if it["display"] == "아쿠아돈까스" and r["matched"]:
+                recipe_notes.append('아쿠아돈까스 → 샐러드돈가스 대체 레시피로 교환단위 계산. 채소·소스 배합은 실제 식판과 다를 수 있음. 튀김기름 400g은 튀김용 기름 총량으로 보아 제공량·재료합계에서 제외. 흡수유 중량 미확인으로 추가 지방 미반영. 어린잎채소는 다채 어린잎 성분으로 근사. 조미료 정종·소금·후춧가루는 교환단위 미반영.')
+            if it["display"] in ("알밥", "알 밥") and r["matched"]:
+                recipe_notes.append('알밥: MenuGen 날치알밥 기준 대체 계산. DB 전체 재료 배합을 제공량에 비례 환산. 생쌀 조리수율 미보정, 실제 배합과 다를 수 있음.')
+            if it["display"] in ("옹심이", "찹쌀옹심이") and r["matched"]:
+                recipe_notes.append("찹쌀옹심이 대체 가정: 가공식품 DB 탄수화물 52g/100g으로 곡류군 환산. 실제 원재료 미확인, 제공량은 사진 기반 추정.")
+            if it["display"] in ("제육볶음", "제육 볶음") and r["matched"]:
+                recipe_notes.append('제육볶음: MenuGen 돼지고기볶음(고추장, 야채) 기준 대체 계산. 사진에서 양파·대파로 보이는 채소 확인. DB 전체 재료 배합을 제공량에 비례 환산한 추정값.')
+            if it["display"] == "주꾸미덮밥" and r["matched"]:
+                recipe_notes.append('주꾸미덮밥 → MenuGen 쭈꾸미볶음덮밥으로 대체 매칭. DB 레시피의 새우 등 전체 재료 유지. 제공량에 비례한 추정이며 생쌀 조리수율 미보정.')
+            if it["display"] == "스팸마요덮밥" and r["matched"]:
+                recipe_notes.append('스팸마요덮밥: MenuGen 치킨마요덮밥의 닭고기 25g을 통조림 돼지고기 햄(스팸 대체 성분) 25g으로 교체하고 나머지 재료 유지. 학생식당 덮밥 표준 추정량 570g으로 교환단위 환산(소스 9g 오분류 제외). 실제 배합·제공량 실측값 아님. 생쌀 조리수율 미보정. 마요네즈는 9g 고정, 영양소 탭의 덮밥 제공량 오분류도 수정.')
+            if it["display"] in ("크림스프", "크림수프", "스프(크림)"):
+                recipe_notes.append('크림스프 → 스프(크림): MenuGen DB 이름 연결 완료. 끓인 크림스프 완제품은 조리가공식품류로 분류되어 재료별 교환단위 계산 보류. 교환단위 0으로 확정한 것이 아니며 미매칭 목록에 유지.')
+            if it["display"] == "크랩알밥" and r["matched"]:
+                recipe_notes.append('크랩알밥: MenuGen 날치알밥 + 게맛살로 대체 매칭. 총 제공량 570g 중 게맛살은 DB 기준 30g으로 가정하고 날치알밥에 540g 배분. 실제 중량 실측값 아님. 날치알밥 DB 원재료 비율로 환산하며 생쌀 조리수율은 미보정. 영양소 탭은 기존 계산 유지.')
+            if it["display"] == "차돌짬뽕밥" and r["matched"]:
+                recipe_notes.append('차돌짬뽕밥: MenuGen 차돌박이짬뽕국 790g + 쌀밥 275g으로 분리하여 교환단위 계산. 국·밥 중량은 기존 학생식당 그릇 기반 표준 추정량이며 실제 음식 무게 실측값 아님. 영양소 탭은 기존 계산 유지.')
+            if it["display"] in ("참치야채비빔밥", "참치 야채비빔밥") and r["matched"]:
+                recipe_notes.append('참치야채비빔밥: MenuGen 참치생야채비빔밥 기준 대체 계산. 대체 레시피 사용으로 실제 채소·참치·양념 배합과 차이가 있을 수 있음.')
+            if it["display"] in ("계란지단", "달걀지단") and r["matched"]:
+                recipe_notes.append('계란지단: 원재료DB 달걀, 부침(달걀프라이) 기준 대체 추정. 난류 단백질로 어육류군 계산, 조리용 기름은 별도 지방군으로 분해하지 않음.')
+            if it["display"] in ("견과류멸치볶음", "견과류 멸치볶음") and r["matched"]:
+                recipe_notes.append('견과류멸치볶음: MenuGen 멸치볶음(견과류) 기준 대체 계산. 메뉴명을 정리하여 견과류 포함 레시피로 계산.')
+            if it["display"] in ("고기산적조림", "고기산적 조림") and r["matched"]:
+                recipe_notes.append('고기산적조림: MenuGen 퓨전떡갈비 기준 대체 계산. 대체 레시피 추정. 실제 패티 배합·곁들임 피망·조림 소스는 확인되지 않아 차이가 있을 수 있음.')
+            if it["display"] in ("고추잎무침", "고춧잎무침") and r["matched"]:
+                recipe_notes.append('고추잎무침: MenuGen 고춧잎나물 기준 대체 계산. 표기 차이를 정리하여 고춧잎나물 레시피로 계산.')
+            if it["display"] in ("단무지무침", "단무지 무침") and r["matched"]:
+                recipe_notes.append('단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영.')
+            if it["display"] in ("대패삼겹살", "대패 삼겹살") and r["matched"]:
+                recipe_notes.append('대패삼겹살: MenuGen 삼겹살구이 기준 대체 계산. 대패 형태를 기본 삼겹살구이로 대체한 추정치.')
+            if it["display"] == "딤섬" and r["matched"]:
+                recipe_notes.append('딤섬: 삼색딤섬 대체 레시피. 다진 소고기는 한우 살코기, 통깨는 흰 참깨로 근사. 색소 재료인 백년초가루·뽕잎가루·치자가루는 DB 매칭 불가로 계산에서 제외. 실제 피·속재료 배합과 차이가 있을 수 있음.')
+            if it["display"] in ("떡고기산적조림", "떡고기산적 조림") and r["matched"]:
+                recipe_notes.append('떡고기산적조림: MenuGen 퓨전떡갈비 기준 대체 계산. 대체 레시피 추정. 실제 패티 배합·곁들임 피망·조림 소스는 확인되지 않아 차이가 있을 수 있음.')
+            if it["display"] in ("마늘쫑장아찌", "마늘종장아찌") and r["matched"]:
+                recipe_notes.append("마늘쫑장아찌: MenuGen 마늘종 장아찌로 표기 통일하여 계산.")
+            if it["display"] == "마요네즈":
+                recipe_notes.append("마요덮밥의 마요네즈는 사용자 지정 9g으로 계산." if "마요덮밥" in main else "마요네즈 교환단위 제공량 12g: 9/1 사진의 파우치 표시 확인, 8/26 사용자 지정 동일량. 영양소 탭 기존 계산량은 유지.")
+            if it["display"] == "피쉬볼볶음" and r["matched"]:
+                recipe_notes.append('피쉬볼볶음: MenuGen 어묵볶음(양파)의 양파 30g을 제외하고 나머지 69g 기준으로 제공량에 비례 환산한 대체 레시피 추정. 사진의 피망·파프리카로 보이는 채소는 미반영.')
+            if it["display"] in ("쫄깃단무지무침", "쫄깃단무지 무침") and r["matched"]:
+                recipe_notes.append('쫄깃단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영.')
+            if it["display"] in ("어니언링", "양파링"):
+                recipe_notes.append('어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류.')
+            if it["display"] == "청포묵무침" and r["matched"]:
+                recipe_notes.append('청포묵무침: MenuGen 탕평채(D132066)의 소고기 30g을 제외하고 남은 재료 총중량 207.5g 기준으로 제공량에 비례 환산. 나머지 재료는 유지한 대체 레시피 추정.')
             if r["matched"]:
                 for g in EXCHANGE_GROUPS:
                     exch_totals[g] += r["units"][g]
+                if r.get("external_recipe"):
+                    external_recipes.append(r["external_recipe"])
                 if r["source"] in exch_source:
-                    exch_source[r["source"]].append(it["display"])
+                    if it["display"] == "부타동":
+                        exch_source[r["source"]].extend(["돼지고기 간장볶음", "쌀밥"])
+                    elif it["display"] == "크랩알밥":
+                        exch_source[r["source"]].extend(["날치알밥", "게맛살"])
+                    elif it["display"] == "차돌짬뽕밥":
+                        exch_source[r["source"]].extend(["차돌박이짬뽕국", "쌀밥"])
+                    else:
+                        exch_source[r["source"]].append(it["display"])
             else:
                 exch_unmatched.append(it["display"])
         exchange_units = {g: round(v, 2) for g, v in exch_totals.items()}
         exchange_units["미매칭_항목"] = exch_unmatched
         exchange_units["매칭DB"] = exch_source
+        exchange_units["externalRecipes"] = external_recipes
+        exchange_units["recipeNotes"] = recipe_notes
 
     return {
         "date": lunch["date"], "shop": lunch["shop"], "shopName": lunch["shopName"],

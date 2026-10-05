@@ -28,6 +28,8 @@ def build_site_data():
                 "grain": eu["곡류군"], "meat": eu["어육류군"], "veg": eu["채소군"],
                 "fat": eu["지방군"], "dairy": eu["우유군"], "fruit": eu["과일군"],
                 "unmatched": eu["미매칭_항목"],
+                "externalRecipes": eu.get("externalRecipes", []),
+                "recipeNotes": eu.get("recipeNotes", []),
                 "matchedDb": {
                     "menugen": src.get("menugen", []),
                     "recipeDb": src.get("recipe_db", []),

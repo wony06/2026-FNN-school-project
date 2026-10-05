@@ -107,7 +107,7 @@ def _nutrients_per100(record):
 
 def _add_ingredient(units, raw_group_name, db104_record, weight_g):
     """재료 하나를 식품군에 배정하고 단위수를 더한다. 매핑/기록 없으면 False."""
-    group = FOOD_GROUP_MAP.get(raw_group_name)
+    group = "지방군" if db104_record and db104_record.get("식품명", "").startswith("마요네즈") else FOOD_GROUP_MAP.get(raw_group_name)
     if group is None or db104_record is None:
         return False
     nut = _nutrients_per100(db104_record)
@@ -134,24 +134,39 @@ def _lookup_menugen(name):
 
 
 def _from_menugen(name, target_weight_g):
-    dish = _lookup_menugen(name)
+    spam_mayo = name == "스팸마요덮밥"
+    no_meat = name == "청포묵무침"
+    no_onion = name == "피쉬볼볶음"
+    dish = _lookup_menugen("치킨마요덮밥" if spam_mayo else "어묵볶음(양파)" if no_onion else ("탕평채" if no_meat else name))
     if dish is None:
         return None
     ingredients = dish.get("ingredients") or []
+    if spam_mayo:
+        ingredients = [dict(i, food_name="햄, 통조림, 돼지고기 함유", food_group="육류", food_code=None)
+                       if i.get("food_name", "").startswith("닭고기,") else i for i in ingredients]
+
+    if no_meat:
+        ingredients = [i for i in ingredients if i.get("food_group") not in ("육류", "육류 및 그 제품")]
+    if no_onion:
+        ingredients = [i for i in ingredients if not i.get("food_name", "").startswith("양파") ]
     if not ingredients:
         return None
     try:
         ref_weight = float(dish.get("weight_g") or 0)
     except (TypeError, ValueError):
         ref_weight = 0
+    if no_meat or no_onion:
+        ref_weight = sum(float(i.get("weight_g") or 0) for i in ingredients)
     scale = (target_weight_g / ref_weight) if ref_weight > 0 else 1.0
 
+    if spam_mayo:
+        scale = max(0.0, target_weight_g - 9.0) / (ref_weight - 2.0)
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
     any_used = False
     unresolved = []
     for ing in ingredients:
         try:
-            w = float(ing.get("weight_g") or 0) * scale
+            w = 9.0 if spam_mayo and ing.get("food_name") == "마요네즈" else float(ing.get("weight_g") or 0) * scale
         except (TypeError, ValueError):
             continue
         rec = DB104_BY_NAME.get(ing.get("food_name"))
@@ -172,6 +187,8 @@ def _from_recipe_db(name, target_weight_g):
         return None
     parsed = parse_ingredients(r["ingredients"])
     items = parsed["items"]
+    if name == "샐러드돈가스":
+        items = [i for i in items if i["name"] != "튀김기름"]
     if not items:
         return None
     ref_weight = sum(it["amount_g"] for it in items)
@@ -181,7 +198,20 @@ def _from_recipe_db(name, target_weight_g):
     any_used = False
     unresolved = []
     for ing in items:
-        m = match_ingredient_to_db104(ing["name"], r.get("way"))
+        ingredient_name = ing["name"]
+        if name == "샐러드돈가스":
+            ingredient_name = {"돼지등심": "돼지고기, 등심, 생것", "빵가루": "밀, 빵가루",
+                               "삶은 달걀": "달걀, 삶은것", "피클": "오이 피클",
+                               "방울토마토": "토마토, 방울토마토, 생것",
+                               "양상추": "상추, 결구(양상추), 녹색, 생것",
+                               "어린잎채소": "비타민채(다채), 어린잎, 생것"}.get(ingredient_name, ingredient_name)
+
+        if name == "펜네 파스타 샐러드":
+            ingredient_name = {'펜넬파스타': '스파게티면, 말린것', '청피망': '피망, 초록색, 생것', '홍피망': '피망, 빨간색, 생것', '완두콩': '완두, 삶은것', '블랙올리브': '올리브 절임, 완숙, 검은색', '토마토콩카세': '토마토, 생것', '파마산치즈': '치즈, 파르메산(파마산)'}.get(ingredient_name, ingredient_name)
+        if name == "삼색딤섬":
+            ingredient_name = {'다진 소고기': '소고기, 한우(1등급), 살코기, 생것', '후춧가루': '후추, 검은색, 가루', '통깨': '참깨, 흰색, 말린것'}.get(ingredient_name, ingredient_name)
+        exact_record = DB104_BY_NAME.get(ingredient_name)
+        m = {"record": exact_record} if exact_record is not None else match_ingredient_to_db104(ingredient_name, r.get("way"))
         if m is None:
             unresolved.append(ing["name"])
             continue
@@ -237,7 +267,41 @@ MENUGEN_MODIFIER_PREFIXES = [
 ]
 
 
-def _try_cascade(name, weight_g):
+def _from_external_recipe(name, target_weight_g):
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "external_exchange_recipes.json")
+    with open(path, encoding="utf-8") as f:
+        recipes = json.load(f)
+    dish = next((d for d in recipes if d["name"] == name), None)
+    if dish is None:
+        return None
+    units = {g: 0.0 for g in EXCHANGE_GROUPS}
+    scale = target_weight_g / dish["weight_g"]
+    for ing in dish["ingredients"]:
+        _add_ingredient(units, ing["food_group"], DB104_BY_NAME.get(ing["food_name"]), ing["weight_g"] * scale)
+    return {"units": units, "source": "external_recipe", "matched_name": name, "unresolved_ingredients": [],
+            "external_recipe": {"name": name, "url": dish["source_url"], "note": dish["assumptions"]}}
+
+
+def _from_custom_recipe(name, target_weight_g):
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "custom_exchange_recipes.json")
+    with open(path, encoding="utf-8") as f:
+        recipes = json.load(f)
+    dish = next((d for d in recipes if d["name"] == name), None)
+    if dish is None:
+        return None
+    units = {g: 0.0 for g in EXCHANGE_GROUPS}
+    scale = target_weight_g / dish["weight_g"]
+    unresolved = []
+    for ing in dish["ingredients"]:
+        record = DB104_BY_NAME.get(ing["food_name"])
+        if record is None and FOOD_GROUP_MAP.get(ing["food_group"]) is not None:
+            unresolved.append(ing["food_name"])
+        _add_ingredient(units, ing["food_group"], record, ing["weight_g"] * scale)
+    return {"units": units, "source": "custom_recipe", "matched_name": name,
+            "unresolved_ingredients": unresolved, "recipe_note": dish["assumptions"]}
+
+
+def _try_cascade_exact(name, weight_g):
     result = _from_menugen(name, weight_g)
     if result is None:
         result = _from_recipe_db(name, weight_g)
@@ -246,11 +310,141 @@ def _try_cascade(name, weight_g):
     return result
 
 
+def _try_cascade(name, weight_g):
+    variants = list(dict.fromkeys([name, name.replace("까스", "가스"), name.replace("가스", "까스")]))
+    for candidate in variants:
+        result = _try_cascade_exact(candidate, weight_g)
+        if result is not None:
+            return result
+    return None
+
+
 def compute_exchange_units(name, weight_g):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
-    result = _try_cascade(name, weight_g)
+    if name == "차돌짬뽕밥":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        for component, weight in (("차돌박이짬뽕국", 790.0), ("쌀밥", 275.0)):
+            result = _from_menugen(component, weight)
+            if result is None:
+                return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}
+            for group in EXCHANGE_GROUPS:
+                units[group] += result["units"][group]
+        return {"matched": True, "units": units, "source": "menugen",
+                "matched_name": "차돌박이짬뽕국 + 쌀밥", "unresolved_ingredients": []}
+    if name == "크랩알밥":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        for component, weight in (("날치알밥", max(0.0, weight_g - 30.0)), ("게맛살", 30.0)):
+            result = _from_menugen(component, weight)
+            if result is None:
+                return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}
+            for group in EXCHANGE_GROUPS:
+                units[group] += result["units"][group]
+        return {"matched": True, "units": units, "source": "menugen",
+                "matched_name": "날치알밥 + 게맛살", "unresolved_ingredients": []}
+    if name in ("크림스프", "크림수프", "스프(크림)"):
+        return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS},
+                "source": None, "matched_name": "스프(크림)",
+                "reason": "분말 제품 영양성분표 및 1인분 분말량 미확인으로 계산 보류(0 교환단위 아님)",
+                "recipe_note": '크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.',
+                "unresolved_ingredients": ["스프, 크림 스프, 가루, 끓인것"]}
+    if name == "스팸마요덮밥":
+        weight_g = 570.0
+    if name in ("옹심이", "찹쌀옹심이"):
+        # 사용자 지정 대체 가정: 가공식품 DB 탄수화물 52g/100g으로 곡류군 산출.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        units["곡류군"] = weight_g * 52.0 / 100.0 / 23.0
+        return {"matched": True, "units": units, "source": "gagong_estimate",
+                "matched_name": "찹쌀옹심이", "unresolved_ingredients": []}
+    if name in ("쌈채소", "쌈야채"):
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        record = DB104_BY_NAME.get("상추, 잎상추, 치마상추, 녹색, 생것")
+        if _add_ingredient(units, "채소류", record, weight_g):
+            return {"matched": True, "units": units, "source": "db104_direct",
+                    "matched_name": "상추, 잎상추, 치마상추, 녹색, 생것", "unresolved_ingredients": []}
+    if name == "부타동":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        for component, weight in (("돼지고기 간장볶음", 220.0), ("쌀밥", 350.0)):
+            result = _from_menugen(component, weight)
+            if result is None:
+                return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}
+            for group in EXCHANGE_GROUPS:
+                units[group] += result["units"][group]
+        return {"matched": True, "units": units, "source": "menugen",
+                "matched_name": "돼지고기 간장볶음 + 쌀밥", "unresolved_ingredients": []}
+    if name in ("묵은지", "묵은 김치"):
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        record = DB104_BY_NAME.get("김치, 배추 김치")
+        if _add_ingredient(units, "채소류", record, weight_g):
+            return {"matched": True, "units": units, "source": "db104_direct",
+                    "matched_name": "김치, 배추 김치", "unresolved_ingredients": []}
+    # 이름만 연결한다. 완제품의 채소류 분류로 튀김옷까지 계산하지 않도록 보류한다.
+    # 사용자 지정: 등심돈까스는 기본 돈가스 레시피로 계산한다.
+    if name in ("등심돈까스", "등심돈가스"):
+        name = "돈가스"
+    # 사용자 지정: 비엔나케찹볶음는 소시지볶음(토마토케첩, 야채) 레시피로 계산한다.
+    if name in ("비엔나케찹볶음", "비엔나케첩볶음"):
+        name = "소시지볶음(토마토케첩, 야채)"
+    # 사용자 지정: 오그락지는 무말랭이 무침 레시피로 계산한다.
+    if name in ("오그락지", "무말랭이무침"):
+        name = "무말랭이 무침"
+    # 사용자 지정: 산고추지는 고추장아찌로 계산한다.
+    if name == "산고추지":
+        name = "고추장아찌"
+    if name in ("숙주나물무침", "숙주나물 무침"):
+        name = "숙주나물"
+    if name in ("쫄깃단무지무침", "쫄깃단무지 무침"):
+        name = "단무지"
+    if name in ("마늘쫑장아찌", "마늘종장아찌"):
+        name = "마늘종 장아찌"
+    if name in ("떡고기산적조림", "떡고기산적 조림"):
+        name = "퓨전떡갈비"
+    if name == "딤섬":
+        name = "삼색딤섬"
+    if name == "통살치킨가스":
+        name = "통살치킨까스"
+    if name in ("대패삼겹살", "대패 삼겹살"):
+        name = "삼겹살구이"
+    if name in ("단무지무침", "단무지 무침"):
+        name = "단무지"
+    if name in ("고추잎무침", "고춧잎무침"):
+        name = "고춧잎나물"
+    if name in ("고기산적조림", "고기산적 조림"):
+        name = "퓨전떡갈비"
+    if name in ("견과류멸치볶음", "견과류 멸치볶음"):
+        name = "멸치볶음(견과류)"
+    if name in ("계란지단", "달걀지단"):
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        record = DB104_BY_NAME.get("달걀, 부침(달걀프라이)")
+        if _add_ingredient(units, "난류", record, weight_g):
+            return {"matched": True, "units": units, "source": "db104_direct",
+                    "matched_name": "달걀, 부침(달걀프라이)", "unresolved_ingredients": []}
+    if name in ("참치야채비빔밥", "참치 야채비빔밥"):
+        name = "참치생야채비빔밥"
+    if name == "주꾸미덮밥":
+        name = "쭈꾸미볶음덮밥"
+    if name in ("제육볶음", "제육 볶음"):
+        name = "돼지고기볶음(고추장, 야채)"
+    if name in ("알밥", "알 밥"):
+        name = "날치알밥"
+    if name == "아쿠아돈까스":
+        name = "샐러드돈가스"
+    if name in ("비프하이라이스", "비프 하이라이스"):
+        name = "소고기하이라이스"
+    if name in ("차돌된장찌개", "차돌 된장찌개"):
+        name = "차돌박이된장찌개"
+    if name in ("황태구이_양념", "황태구이 양념"):
+        name = "북어구이(고추장)"
+    if name in ("치즈돈가스", "고구마치즈돈가스"):
+        name = name.replace("돈가스", "돈까스")
+    if name == "양파링":
+        name = "어니언링"
+    result = _from_custom_recipe(name, weight_g)
+    if result is None:
+        result = _from_external_recipe(name, weight_g)
+    if result is None:
+        result = _try_cascade(name, weight_g)
     if result is None:
         for prefix in MENUGEN_MODIFIER_PREFIXES:
             if name.startswith(prefix) and len(name) > len(prefix):
