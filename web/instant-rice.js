@@ -1,6 +1,7 @@
 (function(root){
   'use strict';
   const RULE_FLAG='USER_POLICY_INSTANT_RICE_200G';
+  const RICE_SERVING_G=200;
   const NUTRIENTS=['kcal','protein','fat','carb','sugar','fiber','ca','fe','vitA','vitC','satFat','na'];
   const BENEFICIAL=[['protein',50],['fiber',28],['ca',1300],['fe',18],['vitA',900],['vitC',90]];
   const LIMITED=[['satFat',20],['sugar',125],['na',2300]];
@@ -16,9 +17,9 @@
     return round(BENEFICIAL.reduce((sum,entry)=>sum+contribution(entry),0)-LIMITED.reduce((sum,entry)=>sum+contribution(entry),0),1);
   }
   function apply(rows,snapshot){
-    const template=rows.filter(row=>row.shop==='105'&&row.category==='즉석')
-      .flatMap(row=>row.itemDetails||[]).find(item=>item.display==='쌀밥'&&item.weight_g===200);
-    if(!template) throw Error('즉석메뉴 200g 쌀밥 DB 기준 자료가 없습니다.');
+    const template=rows.flatMap(row=>row.itemDetails||[])
+      .find(item=>item.display==='쌀밥'&&item.source==='food_db'&&item.weight_g>0&&NUTRIENTS.every(field=>Number.isFinite(item.contrib?.[field])));
+    if(!template) throw Error('즉석메뉴에 사용할 쌀밥 DB 기준 자료가 없습니다.');
     const entries=new Map(snapshot.entries.map(entry=>[JSON.stringify(entry.key),entry]));
     const added=[];
     for(const row of rows){
@@ -30,11 +31,14 @@
       if(!entry) throw Error(`교환단위 자료 없음: ${key(row)}`);
       const rice=JSON.parse(JSON.stringify(template));
       delete rice.photo_evidence;
+      const ratio=RICE_SERVING_G/template.weight_g;
+      rice.weight_g=RICE_SERVING_G;
+      for(const field of NUTRIENTS) rice.contrib[field]=template.contrib[field]*ratio;
       rice.weight_note=NOTE;
       row.itemDetails.push(rice);
       row.components.push('쌀밥');
-      row.weight=round(row.itemDetails.reduce((sum,item)=>sum+item.weight_g,0),1);
-      const totals=Object.fromEntries(NUTRIENTS.map(field=>[field,row.itemDetails.reduce((sum,item)=>sum+item.contrib[field],0)]));
+      row.weight=round(row.weight+RICE_SERVING_G,1);
+      const totals=Object.fromEntries(NUTRIENTS.map(field=>[field,row[field]+rice.contrib[field]]));
       for(const field of NUTRIENTS) row[field]=round(totals[field],['fe','satFat'].includes(field)?2:1);
       row.nrf=nrf(totals);
       row.matchedDb.foodDb.push('쌀밥');

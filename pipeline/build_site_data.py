@@ -52,6 +52,7 @@ def build_site_data():
             "nrf": r["NRF6.3"], "confidence": r["신뢰도"],
             "unmatched": r["미매칭_항목"], "gagongSourced": r["가공식품DB_출처_항목"],
             "components": [LABELS.get(name,name) for name in r["구성요소_목록"]],
+            "itemDetails": r.get("item_detail", []),
             "matchedDb": {
                 "foodDb": r["영양_매칭DB"].get("food_db", []),
                 "recipeDecompose": r["영양_매칭DB"].get("recipe_decompose", []),
@@ -62,6 +63,9 @@ def build_site_data():
 
     out_path = os.path.join(PROJECT_DIR, "site_data.json")
     with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False)
+    web_path = os.path.join(PROJECT_DIR, "web", "site_data.json")
+    with open(web_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False)
     return out_path, len(out)
 
