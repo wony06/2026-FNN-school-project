@@ -309,7 +309,15 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
         <label class="form-field">만 나이 <span class="field-hint">20세 이상</span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
         <label class="form-field">키 <span class="field-hint">cm</span><input name="heightCm" type="number" min="0.1" step="any" placeholder="예: 170" required></label>
         <label class="form-field">체중 <span class="field-hint">kg</span><input name="weightKg" type="number" min="0.1" step="any" placeholder="예: 65" required></label>
-        <label class="form-field form-field-wide">활동수준<select name="activity" required><option value="">선택해 주세요</option><option value="0">비활동적</option><option value="1">저활동적</option><option value="2">활동적</option><option value="3">매우 활동적</option></select></label>
+        <div class="activity-field form-field-wide" role="radiogroup" aria-labelledby="activity-heading">
+          <div id="activity-heading" class="activity-heading">활동수준</div>
+          <div class="activity-options">
+            <label class="activity-option"><input type="radio" name="activity" value="0" required><span><strong>비활동적</strong><small>대부분 앉아서 생활하며 규칙적인 운동을 거의 하지 않는 경우</small></span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="1"><span><strong>저활동적</strong><small>통학·이동 등 가벼운 일상활동을 하는 일반적인 생활</small></span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="2"><span><strong>활동적</strong><small>일상생활에 더해 중강도 운동 하루 60분 이상 하는 경우</small></span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="3"><span><strong>매우 활동적</strong><small>일상생활에 더해 고강도 운동을 하루 2시간 이상 하는 경우</small></span></label>
+          </div>
+        </div>
       </div>
     </section>
     <section class="input-card">
@@ -343,6 +351,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   <div class="sheet-body" id="sheetBody"></div>
 </aside>
 
+<script src="instant-rice.js"></script>
 <script src="nrf-ranking.js"></script>
 <script src="personal-score.js"></script>
 <script src="recommendation-view.js"></script>
@@ -651,6 +660,7 @@ document.getElementById('personalForm').addEventListener('submit', e=>{
 });
 function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
 Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, reference, exchanges, targets, glycemicTargets])=>{
+  InstantRice.apply(data, exchanges);
   data = NrfRanking.scoreMenus(data, reference.scores);
   BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets; GLYCEMIC_TABLE = glycemicTargets;
   DATA = PersonalScore.scoreMenus(BASE_DATA, EXCHANGE_SNAPSHOT, null);
