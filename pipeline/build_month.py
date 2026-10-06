@@ -112,8 +112,9 @@ def classify_side_weight_105(category, name):
 #   흰색 단무지 접시그릇: 지름9·높1.5cm(사용자 지정) -> 95mL, 90% 충전
 #     -> 약 86mL x 0.75 = 약 64g (일반 반찬 기본값)
 #   흰색 소스그릇(초록띠): 윗9.5·밑6.5·높5.5cm -> 280mL, 60% 충전 -> 약 168mL x 1.0 = 약 168g
-#     (메뉴명에 "소스"로 쓰이는 품목이 없고 꼬치어묵국/미역국 등 국/탕류 사이드가 많아
-#     해당 용도로 잠정 적용 - 실제로 소스 서빙용이면 사용자 확인 필요)
+#     (2026-10-06 사용자 확인: 실제로 소스/양념장류와 우동국 계열에 쓰는 그릇. 미역국 등
+#     다른 국/탕류는 밥그릇보다 큰 별도 그릇이라 이 값으로 매칭하면 안 됨 - 아직 미실측이라
+#     해당 항목은 기존 classify_side_weight() 추정치(200g)로 유지)
 #   흰색 김치전 접시그릇: 지름13·높1.5cm(사용자 지정) -> 199mL, 85% 충전
 #     -> 약 169mL x 0.75 = 약 127g (동그랑땡전/부추전/2종전 등 "전"류 사이드에 적용)
 #   놋그릇 김치전 그릇: 윗14.5·아래14.5(사용자 확인: 위아래 거의 동일)·높1.5cm(사용자 지정)
@@ -133,6 +134,14 @@ BOWL_WEIGHT_401_JEON_BRASS = 158     # 놋그릇 김치전 그릇(현재 미사�
 BOWL_WEIGHT_401_KIMCHI = 48          # 놋그릇 김치그릇 - 김치류 사이드
 BOWL_WEIGHT_401_SALAD = 233          # 하얀색 샐러드 그릇(현재 미사용, 보관용)
 
+# 2026-10-06 사용자 확인: 흰색 소스그릇은 진짜 소스/양념장류와 우동국 계열 전용 그릇.
+# 미역국 등 다른 국/탕류는 밥그릇보다 큰 별도(미실측) 그릇이라 섞으면 안 됨.
+SAUCE_OR_UDON_401 = {
+    "소스", "양념장", "쌈장", "드레싱",
+    "우동국", "우동국물", "우동장국", "유부장국", "팽이장국", "팽이우동국",
+    "미소시루", "미소장국",
+}
+
 
 def classify_main_weight_401(category, name):
     is_stew = any(w in name for w in ("찌개", "전골", "탕", "해장국", "국밥")) and "볶음" not in name
@@ -146,8 +155,10 @@ def classify_side_weight_401(category, name):
         return BOWL_WEIGHT_401_RICE_WHITE, "401 흰색 밥그릇 실측(13/6/6cm) 기준 표준 320g"
     if "김치" in name and len(name) <= 6:
         return BOWL_WEIGHT_401_KIMCHI, "401 놋그릇 김치그릇 실측(지름8/높1.5cm) 기준 표준 48g"
+    if name in SAUCE_OR_UDON_401:
+        return BOWL_WEIGHT_401_SOUP_SIDE, "401 흰색 소스그릇 실측(9.5/6.5/5.5cm) 기준 소스/우동국물류 표준 168g"
     if any(name.endswith(w) or w in name for w in SOUP_HINTS) and len(name) <= 8:
-        return BOWL_WEIGHT_401_SOUP_SIDE, "401 흰색 소스그릇 실측(9.5/6.5/5.5cm) 기준 국/탕류 사이드 표준 168g(잠정 - 용도 확인 필요)"
+        return classify_side_weight(name)  # 미역국 등 다른 국/탕류는 별도(미실측) 큰 그릇 - 기존 200g 추정 유지
     if "전" in name and len(name) <= 6:
         return BOWL_WEIGHT_401_JEON, "401 흰색 김치전 접시그릇 실측(지름13/높1.5cm) 기준 표준 127g"
     if "샐러드" in name:
@@ -429,6 +440,9 @@ def expand_main(name, shop=None, category=None):
     if shop == "401":
         return expand_compound(name, lambda n: classify_main_weight_401(category, n))
     return expand_compound(name, classify_main_weight)
+# (401 사이드는 아래 expand_side에서 SAUCE_OR_UDON_401을 extra_special_names로 넘겨
+# "돈가스&소스"처럼 컴파운드 조각 중 하나로 섞인 소스/우동국류도 조각 단위로 흰색
+# 소스그릇(168g)이 적용되게 한다 - 안 그러면 전체를 반찬 몫으로 묶어 N등분해버림)
 
 
 def expand_side(name, shop=None, category=None):
@@ -437,7 +451,7 @@ def expand_side(name, shop=None, category=None):
     if shop == "105":
         return expand_compound(name, lambda n: classify_side_weight_105(category, n))
     if shop == "401":
-        return expand_compound(name, lambda n: classify_side_weight_401(category, n))
+        return expand_compound(name, lambda n: classify_side_weight_401(category, n), extra_special_names=SAUCE_OR_UDON_401)
     return expand_compound(name, classify_side_weight)
 
 
@@ -491,7 +505,7 @@ def _resolve_part(p, classify_fn):
     return [(p, w, note)]
 
 
-def expand_compound(name, classify_fn):
+def expand_compound(name, classify_fn, extra_special_names=None):
     """name을 (표시명, 중량g, 중량근거) 리스트로 분해.
     - '&' / ','(둘 다 순수 "그리고"): 분해 전에 ","를 "&"로 정규화해서 한 번에 같이 쪼갠다
       (2026-09-27 수정: "모닝빵,크로와상&버터,잼"처럼 "&" 안에 ","가 섞인 표기가 실제로 있는데,
@@ -519,6 +533,8 @@ def expand_compound(name, classify_fn):
         return _resolve_part(name, classify_fn)
 
     def is_special(p):
+        if extra_special_names and p in extra_special_names:
+            return True
         return p in DECOMPOSE_OVERRIDES or _special_weight(p) is not None
 
     has_special = any(is_special(p) for p in parts)
