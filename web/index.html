@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title>오늘 뭐 먹지? · 한양대 학식 추천</title>
+<title>HYU Menu Guide · 한양대 학식 추천</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
@@ -291,8 +291,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 
 <div class="topbar">
   <div class="topbar-inner">
-    <span class="eyebrow">HANYANG FOOD GUIDE</span>
-    <div class="hero-copy"><h1>오늘 뭐 먹지?</h1><p>내 영양목표에 맞는 한양대 학식을 찾아보세요.</p></div>
+    <span class="eyebrow">HANYANG UNIVERSITY</span>
+    <div class="hero-copy"><h1>HYU Menu Guide</h1><p>내 영양목표에 맞는 한양대 학식을 찾아보세요.</p></div>
     <div class="selection-panel">
       <div class="step-caption"><span class="step-number">01</span><div><strong>날짜 선택</strong><small>점심 메뉴를 확인할 날짜를 골라주세요.</small></div></div>
       <div id="dateStrip" class="date-strip" aria-label="날짜 선택"></div>
@@ -305,11 +305,12 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <section class="input-card">
       <div class="step-caption"><span class="step-number">02</span><div><strong>사용자 정보</strong><small>입력값은 추천 계산에만 사용하고 저장하지 않아요.</small></div></div>
       <div class="profile-grid">
-        <label class="form-field">성별<select name="sex" required><option value="">선택해 주세요</option><option value="male">남성</option><option value="female">여성</option></select></label>
-        <label class="form-field">만 나이 <span class="field-hint">20세 이상</span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
-        <label class="form-field">키 <span class="field-hint">cm</span><input name="heightCm" type="number" min="0.1" step="any" placeholder="예: 170" required></label>
-        <label class="form-field">체중 <span class="field-hint">kg</span><input name="weightKg" type="number" min="0.1" step="any" placeholder="예: 65" required></label>
-        <div class="activity-field form-field-wide" role="radiogroup" aria-labelledby="activity-heading">
+        <label class="form-field"><span class="field-label">성별</span><select name="sex" required><option value="">선택해 주세요</option><option value="male">남성</option><option value="female">여성</option></select></label>
+        <label class="form-field"><span class="field-label">만 나이 <span class="field-hint">20세 이상</span></span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
+        <label class="form-field"><span class="field-label">키 <span class="field-hint">cm</span></span><input name="heightCm" type="number" min="0.1" step="any" placeholder="예: 170" required></label>
+        <label class="form-field"><span class="field-label">체중 <span class="field-hint">kg</span></span><input name="weightKg" type="number" min="0.1" step="any" placeholder="예: 65" required></label>
+      </div>
+      <div class="activity-field" role="radiogroup" aria-labelledby="activity-heading">
           <div id="activity-heading" class="activity-heading">활동수준</div>
           <div class="activity-options">
             <label class="activity-option"><input type="radio" name="activity" value="0" required><span><strong>비활동적</strong><small>대부분 앉아서 생활하며 규칙적인 운동을 거의 하지 않는 경우</small></span></label>
@@ -317,7 +318,6 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
             <label class="activity-option"><input type="radio" name="activity" value="2"><span><strong>활동적</strong><small>일상생활에 더해 중강도 운동 하루 60분 이상 하는 경우</small></span></label>
             <label class="activity-option"><input type="radio" name="activity" value="3"><span><strong>매우 활동적</strong><small>일상생활에 더해 고강도 운동을 하루 2시간 이상 하는 경우</small></span></label>
           </div>
-        </div>
       </div>
     </section>
     <section class="input-card">
@@ -328,7 +328,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
         <label class="goal-option"><input type="radio" name="goal" value="glycemic"><span><strong>혈당관리</strong><small>혈당관리 교환단위 적용</small></span></label>
       </div>
     </section>
-    <section class="input-card">
+    <section class="input-card dietary-card">
       <div class="step-caption"><span class="step-number">04</span><div><strong>추가 식이조건</strong><small>여러 개를 선택하면 모두 충족하는 메뉴를 먼저 보여줘요.</small></div></div>
       <div class="dietary-chips"><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sodium"><span>저나트륨</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sugar"><span>저당</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="high_protein"><span>고단백</span></label></div>
     </section>
