@@ -2,6 +2,8 @@
 """month_lunch_trays.json(계산 완료된 전체 필드) -> 웹사이트가 fetch하는 슬림 site_data.json.
 run_pipeline.py의 마지막 단계로 자동 실행됨. 단독 실행도 가능."""
 import json, os
+from datetime import date
+from restore_menu_names import LABELS
 
 PIPELINE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
@@ -15,6 +17,8 @@ def build_site_data():
 
     out = []
     for r in trays:
+        if date.fromisoformat(r['date']).weekday() >= 5:
+            continue
         idx = r.get("cat_idx", 0)
         key = f"{r['date']}_{r['shop']}_{r['category']}"
         if idx:
@@ -39,7 +43,7 @@ def build_site_data():
 
         out.append({
             "date": r["date"], "shop": r["shop"], "shopName": r["shopName"],
-            "category": r["category"], "main": r["main"], "price": r["price"],
+            "category": r["category"], "main": r["main"], "calculationMain": r.get("calculationMain", r["main"]), "price": r["price"],
             "photo": photo_map.get(key),
             "weight": r["1인분_제공량_g"],
             "kcal": r["kcal"], "protein": r["단백질_g"], "fat": r["지방_g"], "carb": r["탄수화물_g"],
@@ -47,7 +51,7 @@ def build_site_data():
             "vitA": r["비타민A_ugRAE"], "vitC": r["비타민C_mg"], "satFat": r["포화지방_g"], "na": r["나트륨_mg"],
             "nrf": r["NRF6.3"], "confidence": r["신뢰도"],
             "unmatched": r["미매칭_항목"], "gagongSourced": r["가공식품DB_출처_항목"],
-            "components": r["구성요소_목록"],
+            "components": [LABELS.get(name,name) for name in r["구성요소_목록"]],
             "matchedDb": {
                 "foodDb": r["영양_매칭DB"].get("food_db", []),
                 "recipeDecompose": r["영양_매칭DB"].get("recipe_decompose", []),

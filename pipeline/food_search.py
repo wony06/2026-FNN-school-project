@@ -1,6 +1,7 @@
+import os
 import json, re, sys
 
-FOOD_DB_PATH = r"C:\Users\ST-USER\Desktop\2026 학술제\food_db.json"
+FOOD_DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'food_db.json')
 
 PRIORITY = [
     "산업체급식(재료량 기반 산출 함량)",

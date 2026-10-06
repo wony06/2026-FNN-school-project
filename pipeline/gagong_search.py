@@ -1,6 +1,7 @@
+import os
 import csv, re, sys
 
-GAGONG_PATH = r"C:\Users\ST-USER\Desktop\2026 학술제\gagong_db_nrf63.csv"
+GAGONG_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'gagong_db_nrf63.csv')
 
 def norm(s):
     if not s:

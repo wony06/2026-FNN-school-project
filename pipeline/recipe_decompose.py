@@ -6,13 +6,13 @@ import sys, os, json, re, statistics
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ingredient_parser import parse_ingredients
 
-with open(r"C:\Users\ST-USER\Desktop\2026 학술제\recipe_db_full.json", encoding="utf-8") as f:
+with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'recipe_db_full.json'), encoding="utf-8") as f:
     RECIPE = json.load(f)
 RECIPE_BY_NAME = {}
 for r in RECIPE:
     RECIPE_BY_NAME.setdefault(r["name"], r)
 
-with open(r"C:\Users\ST-USER\Desktop\2026 학술제\db104_raw_ingredients.json", encoding="utf-8") as f:
+with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'db104_raw_ingredients.json'), encoding="utf-8") as f:
     DB104 = json.load(f)
 
 DB104_MAP = {"kcal": "에너지", "protein": "단백질", "fat": "지방", "carb": "탄수화물", "sugar": "당류",

@@ -25,7 +25,7 @@ from auto_match import GENERAL_SYNONYMS, PREFIX_STRIP_RULES
 from ingredient_parser import parse_ingredients
 from recipe_decompose import RECIPE_BY_NAME, match_ingredient_to_db104, find_db104_candidates, pick_db104_state, _norm
 
-PROJECT_DIR = r"C:\Users\ST-USER\Desktop\2026 학술제"
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 with open(os.path.join(PROJECT_DIR, "db104_raw_ingredients.json"), encoding="utf-8") as f:
     DB104 = json.load(f)
@@ -279,7 +279,8 @@ def _from_external_recipe(name, target_weight_g):
     for ing in dish["ingredients"]:
         _add_ingredient(units, ing["food_group"], DB104_BY_NAME.get(ing["food_name"]), ing["weight_g"] * scale)
     return {"units": units, "source": "external_recipe", "matched_name": name, "unresolved_ingredients": [],
-            "external_recipe": {"name": name, "url": dish["source_url"], "note": dish["assumptions"]}}
+            "external_recipe": {"name": name, "url": dish["source_url"], "note": dish["assumptions"]},
+            "additional_direct_matches": dish.get("direct_db_additions", [])}
 
 
 def _from_custom_recipe(name, target_weight_g):
@@ -297,7 +298,8 @@ def _from_custom_recipe(name, target_weight_g):
         if record is None and FOOD_GROUP_MAP.get(ing["food_group"]) is not None:
             unresolved.append(ing["food_name"])
         _add_ingredient(units, ing["food_group"], record, ing["weight_g"] * scale)
-    return {"units": units, "source": "custom_recipe", "matched_name": name,
+    return {"units": units, "source": dish.get("calculation_source", "custom_recipe"), "matched_name": name,
+            "matched_ingredients": [i["food_name"] for i in dish["ingredients"]] if dish.get("calculation_source") == "db104_direct" else [],
             "unresolved_ingredients": unresolved, "recipe_note": dish["assumptions"]}
 
 
@@ -319,10 +321,81 @@ def _try_cascade(name, weight_g):
     return None
 
 
-def compute_exchange_units(name, weight_g):
+KIMCHI_PAIR_EXCLUDED_DATES = {"2026-08-29", "2026-09-05", "2026-09-12", "2026-09-19"}
+KIMCHI_PAIR_SECOND = {
+    **{date: "김치, 깍두기" for date in ("2026-08-26", "2026-08-31", "2026-09-11", "2026-09-14")},
+    "2026-09-08": "김치, 오이 소박이",
+    **{date: "김치, 열무 김치" for date in ("2026-08-24", "2026-08-27", "2026-09-01", "2026-09-04", "2026-09-09", "2026-09-17")},
+}
+
+def compute_kimchi_pair(date, weight_g):
+    second = KIMCHI_PAIR_SECOND.get(date)
+    if second is None:
+        return None
+    names = ["김치, 배추 김치", second]
+    units = {g: 0.0 for g in EXCHANGE_GROUPS}
+    for name in names:
+        record = DB104_BY_NAME[name]
+        if not _add_ingredient(units, record["식품군"], record, weight_g / 2):
+            raise ValueError(f"김치 원재료DB 연결 실패: {name}")
+    note = f"김치2종: 사용자 지정 사진별 매칭({date}). {names[0]} + {second}, 기존 추정 제공량 {weight_g:g}g을 각각 {weight_g/2:g}g씩 균등 배분. 실제 종류·제공량 실측값 아님. 메뉴 표시명과 기존 영양성분 계산 유지."
+    if second == "김치, 열무 김치":
+        note += " 사진의 잎·줄기 김치는 열무·갓 계열 구분이 불확실하여 열무김치로 대체 추정."
+    if second == "김치, 오이 소박이":
+        note += " 사진의 오이김치는 DB 오이소박이로 대체 추정하며 소의 배합 차이 미보정."
+    return {"matched": True, "units": units, "source": "db104_direct", "matched_name": " + ".join(names),
+            "matched_ingredients": names, "unresolved_ingredients": [], "recipe_note": note}
+
+def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "도시락김" and not use_plaza_servings:
+        record = DB104_BY_NAME["김, 조미김, 구운것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("도시락김 원재료DB 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"도시락김: 사용자 확인 대천김 미니도시락김 1봉 {weight_g:g}g을 원재료DB 김, 조미김, 구운것으로 대체 매칭. 제품 고유 성분표가 아닌 일반 조미김 성분 사용. 기존 계산기의 해조류 분류로 채소군 환산하며 완제품 기름을 별도 지방군으로 분해하지 않음. 식품교환단위 제공량만 사용자 확인 2g으로 수정하고 메뉴 표시명 및 영양소 탭 기존 계산은 유지."}
+    if name == "꼬치어묵":
+        record = DB104_BY_NAME["어묵"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("꼬치어묵 원재료DB 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "어묵", "matched_ingredients": ["어묵"],
+                "unresolved_ingredients": [],
+                "recipe_note": f"꼬치어묵: 사용자 지정에 따라 원재료DB 어묵으로 직접 매칭, 국물은 제외. 기존 추정 제공량 {weight_g:g}g 적용(1개 표준 추정 50g, 실측 아님). 실제 제품의 어육 함량·배합 차이 미보정. 메뉴 표시명과 기존 영양성분 계산값 유지, 식품교환단위만 재계산."}
+    original_name = name
+    alias_note = None
+    if not use_plaza_servings:
+        # Explicit equivalents; retain uncertainty when using a standard recipe.
+        aliases = {
+            "포기김치": "배추김치",
+            "소고기미역국": "미역국(소고기)",
+            "고추장제육볶음": "돼지고기볶음(고추장, 야채)",
+            "볼어묵볶음": "어묵볶음",
+            "메추리알조림": "메추리알장조림",
+            "고추장멸치볶음": "멸치볶음(고추장)",
+            "꼬들단무지": "단무지",
+            "놀부부대찌개": "부대찌개",
+            "소면사리": "소면",
+            "순대": "순대",
+            "마늘쫑": "마늘종",
+            "고들뺴기무침": "고들빼기김치",
+            "고들빼기무침": "고들빼기김치",
+        }
+        name = aliases.get(name, name)
+        if name not in MENUGEN_BY_NAME:
+            same = [n for n in MENUGEN_BY_NAME if _norm(n) == _norm(name)]
+            if len(same) == 1:
+                name = same[0]
+        if original_name != name:
+            alias_note = f"{original_name} → {name}: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 {weight_g:g}g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+            if name == "고들빼기김치":
+                alias_note = f"{original_name}: 사용자 지정에 따라 고들빼기김치로 대체 매칭. 8/27 식판 사진의 붉은 양념 잎채소를 근거로 한 대체 추정이며 발효 여부는 사진으로 확인되지 않음. 기존 추정 제공량 {weight_g:g}g 적용. 메뉴 표시명과 영양성분 탭 계산값은 유지하고 식품교환단위만 재계산."
     if name == "차돌짬뽕밥":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         for component, weight in (("차돌박이짬뽕국", 790.0), ("쌀밥", 275.0)):
@@ -349,7 +422,7 @@ def compute_exchange_units(name, weight_g):
                 "reason": "분말 제품 영양성분표 및 1인분 분말량 미확인으로 계산 보류(0 교환단위 아님)",
                 "recipe_note": '크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.',
                 "unresolved_ingredients": ["스프, 크림 스프, 가루, 끓인것"]}
-    if name == "스팸마요덮밥":
+    if name == "스팸마요덮밥" and use_plaza_servings:
         weight_g = 570.0
     if name in ("옹심이", "찹쌀옹심이"):
         # 사용자 지정 대체 가정: 가공식품 DB 탄수화물 52g/100g으로 곡류군 산출.
@@ -414,12 +487,13 @@ def compute_exchange_units(name, weight_g):
         name = "퓨전떡갈비"
     if name in ("견과류멸치볶음", "견과류 멸치볶음"):
         name = "멸치볶음(견과류)"
-    if name in ("계란지단", "달걀지단"):
+    if name in ("계란지단", "달걀지단", "계란후라이", "달걀후라이"):
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         record = DB104_BY_NAME.get("달걀, 부침(달걀프라이)")
         if _add_ingredient(units, "난류", record, weight_g):
             return {"matched": True, "units": units, "source": "db104_direct",
-                    "matched_name": "달걀, 부침(달걀프라이)", "unresolved_ingredients": []}
+                    "matched_name": "달걀, 부침(달걀프라이)", "unresolved_ingredients": [],
+                    "recipe_note": "달걀프라이 원재료DB 성분과 기존 추정 제공량으로 어육류군 환산. 완제품 성분을 사용하며 조리용 기름을 별도 지방군으로 분해하지 않음."}
     if name in ("참치야채비빔밥", "참치 야채비빔밥"):
         name = "참치생야채비빔밥"
     if name == "주꾸미덮밥":
@@ -454,6 +528,8 @@ def compute_exchange_units(name, weight_g):
     if result is None:
         return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS}, "source": None,
                 "unresolved_ingredients": []}
+    if alias_note:
+        result["recipe_note"] = alias_note
     return {"matched": True, **result}
 
 
