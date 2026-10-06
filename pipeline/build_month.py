@@ -99,6 +99,62 @@ def classify_side_weight_105(category, name):
     return BOWL_WEIGHT_105_BANCHAN, "105 공통 반찬그릇 실측(4.5x4.5x0.7cm) 기준 표준 34g"
 
 
+# 2026-10-06: 401(생활과학관식당) 실측 그릇 치수 기반 표준중량. 105와 동일한 절두원뿔 공식
+# V=(πh/3)(R²+Rr+r²)(지름만 주어진 접시류는 원기둥 V=πr²h)로 부피 계산, 사진으로 충전율을
+# 눈대중 확인, 105와 동일한 재료별 밀도(국물류1.0 / 밥0.65 / 반찬·전·샐러드0.75 g/mL)를 곱해
+# 무게 환산. 204는 아직 실측이 없어 기존 classify_main_weight/classify_side_weight 그대로 씀.
+#   전골그릇: 윗14·밑6.5·높10cm -> 862mL, 78%(105 즉석냄비와 동일 충전율 적용) 충전
+#     -> 약 672mL x 1.0 = 약 670g (나주곰탕/놀부부대찌개/전골류 등 찌개·탕 메인에 적용)
+#   흰색 밥그릇: 윗13·높6·아래6cm -> 445mL, 고봉 110% -> 약 489mL x 0.65 = 약 320g
+#   놋그릇 밥그릇: 윗11·아래11(사용자 확인: 위아래 거의 동일)·높5cm -> 475mL, 고봉 110%
+#     -> 약 523mL x 0.65 = 약 340g (실제 트레이 사진에서 흰 밥그릇만 확인돼 기본값은 흰색 채택,
+#     놋그릇 밥그릇 사용이 확인되면 이 값으로 교체 가능하도록 상수만 별도 보관)
+#   흰색 단무지 접시그릇: 지름9·높1.5cm(사용자 지정) -> 95mL, 90% 충전
+#     -> 약 86mL x 0.75 = 약 64g (일반 반찬 기본값)
+#   흰색 소스그릇(초록띠): 윗9.5·밑6.5·높5.5cm -> 280mL, 60% 충전 -> 약 168mL x 1.0 = 약 168g
+#     (메뉴명에 "소스"로 쓰이는 품목이 없고 꼬치어묵국/미역국 등 국/탕류 사이드가 많아
+#     해당 용도로 잠정 적용 - 실제로 소스 서빙용이면 사용자 확인 필요)
+#   흰색 김치전 접시그릇: 지름13·높1.5cm(사용자 지정) -> 199mL, 85% 충전
+#     -> 약 169mL x 0.75 = 약 127g (동그랑땡전/부추전/2종전 등 "전"류 사이드에 적용)
+#   놋그릇 김치전 그릇: 윗14.5·아래14.5(사용자 확인: 위아래 거의 동일)·높1.5cm(사용자 지정)
+#     -> 248mL, 85% 충전 -> 약 210mL x 0.75 = 약 158g (현재 미사용, 필요시 전용 상수로 보관)
+#   놋그릇 김치그릇: 지름8·높1.5cm(사용자 지정) -> 75mL, 85% 충전
+#     -> 약 64mL x 0.75 = 약 48g (포기김치 등 김치류 사이드에 적용)
+#   하얀색 샐러드 그릇: 윗13·높6·아래6cm(흰 밥그릇과 동일 치수) -> 445mL, 70% 충전
+#     -> 약 311mL x 0.75 = 약 233g ("샐러드&토핑&드레싱"은 SELF_KEYWORDS로 이미 제외돼
+#     현재는 미사용, 단독 "샐러드" 표기가 나올 경우를 대비해 보관)
+BOWL_WEIGHT_401_JEONGOL_MAIN = 670   # 전골그릇: 찌개/탕/전골류 메인
+BOWL_WEIGHT_401_RICE_WHITE = 320     # 흰색 밥그릇
+BOWL_WEIGHT_401_RICE_BRASS = 340     # 놋그릇 밥그릇(현재 미사용, 보관용)
+BOWL_WEIGHT_401_BANCHAN = 64         # 흰색 단무지 접시그릇 기준 - 일반 반찬
+BOWL_WEIGHT_401_SOUP_SIDE = 168      # 흰색 소스그릇 - 국/탕류 사이드로 잠정 적용
+BOWL_WEIGHT_401_JEON = 127           # 흰색 김치전 접시그릇 - "전"류 사이드
+BOWL_WEIGHT_401_JEON_BRASS = 158     # 놋그릇 김치전 그릇(현재 미사용, 보관용)
+BOWL_WEIGHT_401_KIMCHI = 48          # 놋그릇 김치그릇 - 김치류 사이드
+BOWL_WEIGHT_401_SALAD = 233          # 하얀색 샐러드 그릇(현재 미사용, 보관용)
+
+
+def classify_main_weight_401(category, name):
+    is_stew = any(w in name for w in ("찌개", "전골", "탕", "해장국", "국밥")) and "볶음" not in name
+    if is_stew:
+        return BOWL_WEIGHT_401_JEONGOL_MAIN, "401 전골그릇 실측(14/6.5/10cm) 기준 표준 670g"
+    return classify_main_weight(name)
+
+
+def classify_side_weight_401(category, name):
+    if name in RICE_WORDS or name.replace("/", "") in ("잡곡밥현미밥",):
+        return BOWL_WEIGHT_401_RICE_WHITE, "401 흰색 밥그릇 실측(13/6/6cm) 기준 표준 320g"
+    if "김치" in name and len(name) <= 6:
+        return BOWL_WEIGHT_401_KIMCHI, "401 놋그릇 김치그릇 실측(지름8/높1.5cm) 기준 표준 48g"
+    if any(name.endswith(w) or w in name for w in SOUP_HINTS) and len(name) <= 8:
+        return BOWL_WEIGHT_401_SOUP_SIDE, "401 흰색 소스그릇 실측(9.5/6.5/5.5cm) 기준 국/탕류 사이드 표준 168g(잠정 - 용도 확인 필요)"
+    if "전" in name and len(name) <= 6:
+        return BOWL_WEIGHT_401_JEON, "401 흰색 김치전 접시그릇 실측(지름13/높1.5cm) 기준 표준 127g"
+    if "샐러드" in name:
+        return BOWL_WEIGHT_401_SALAD, "401 하얀색 샐러드 그릇 실측(13/6/6cm) 기준 표준 233g"
+    return BOWL_WEIGHT_401_BANCHAN, "401 흰색 단무지 접시그릇 실측(지름9/높1.5cm) 기준 일반 반찬 표준 64g"
+
+
 # 2026-09-21: 어느 DB에도 그 이름 그대로 있는 콤보 상품이 없어 통째로 미매칭되는 메뉴/반찬은
 # 예외적으로 실제 재료 단위로 쪼갠다. 메인/반찬 어느 쪽에서 나오든 같은 방식으로 적용됨.
 # 케이스별로만 등록 - 새 이름이 나오면 여기 추가.
@@ -370,6 +426,8 @@ def expand_main(name, shop=None, category=None):
         return DECOMPOSE_OVERRIDES[name]
     if shop == "105":
         return expand_compound(name, lambda n: classify_main_weight_105(category, n))
+    if shop == "401":
+        return expand_compound(name, lambda n: classify_main_weight_401(category, n))
     return expand_compound(name, classify_main_weight)
 
 
@@ -378,6 +436,8 @@ def expand_side(name, shop=None, category=None):
         return DECOMPOSE_OVERRIDES[name]
     if shop == "105":
         return expand_compound(name, lambda n: classify_side_weight_105(category, n))
+    if shop == "401":
+        return expand_compound(name, lambda n: classify_side_weight_401(category, n))
     return expand_compound(name, classify_side_weight)
 
 
