@@ -570,43 +570,6 @@
   "cat_idx": 0
  },
  {
-  "date": "2026-08-29",
-  "shop": "401",
-  "shopName": "생활과학관식당",
-  "category": "중식 - Korean Dining",
-  "main": "설렁탕",
-  "sides": [
-   "궁중고기구이",
-   "부추전",
-   "새송이브로콜리볶음",
-   "갓절임",
-   "부추무침",
-   "김치2종",
-   "잡곡밥",
-   "샐러드&토핑&드레싱"
-  ],
-  "price": "12,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
-  "date": "2026-08-29",
-  "shop": "204",
-  "shopName": "신소재공학관식당",
-  "category": "정식",
-  "main": "돈육된장찌개",
-  "sides": [
-   "백미밥",
-   "치킨너겟*머스타드",
-   "마늘쫑야채볶음",
-   "명엽채볶음",
-   "배추김치"
-  ],
-  "price": "6,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
   "date": "2026-08-31",
   "shop": "105",
   "shopName": "학생식당",
@@ -1096,41 +1059,6 @@
   ],
   "price": "6,500원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqMydvdBm9pNm_IrAfGQ/x.jpg",
-  "cat_idx": 0
- },
- {
-  "date": "2026-09-05",
-  "shop": "401",
-  "shopName": "생활과학관식당",
-  "category": "중식 - Korean Dining",
-  "main": "왕떡만두국",
-  "sides": [
-   "명란떡갈비",
-   "우엉채볶음",
-   "숙주나물",
-   "아삭이고추무침",
-   "김치2종",
-   "잡곡밥"
-  ],
-  "price": "12,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
-  "date": "2026-09-05",
-  "shop": "204",
-  "shopName": "신소재공학관식당",
-  "category": "정식",
-  "main": "고추장닭갈비",
-  "sides": [
-   "미역국",
-   "백미밥",
-   "해물야채까스*타르소스",
-   "무말랭이무침",
-   "배추김치"
-  ],
-  "price": "6,000원",
-  "img": null,
   "cat_idx": 0
  },
  {
@@ -1725,41 +1653,6 @@
   "cat_idx": 0
  },
  {
-  "date": "2026-09-12",
-  "shop": "401",
-  "shopName": "생활과학관식당",
-  "category": "중식 - Korean Dining",
-  "main": "목살김치전골",
-  "sides": [
-   "동그랑땡전",
-   "계란찜",
-   "연두부&양념장",
-   "호박새우젓볶음",
-   "김치2종",
-   "쌀밥"
-  ],
-  "price": "12,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
-  "date": "2026-09-12",
-  "shop": "204",
-  "shopName": "신소재공학관식당",
-  "category": "정식",
-  "main": "돈육순두부찌개",
-  "sides": [
-   "백미밥",
-   "치킨너겟*머스타드",
-   "무말랭이무침",
-   "맛살야채볶음",
-   "배추김치"
-  ],
-  "price": "6,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
   "date": "2026-09-14",
   "shop": "105",
   "shopName": "학생식당",
@@ -2257,41 +2150,6 @@
   ],
   "price": "6,500원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCyRP7ld5SiJnPxlMgBfw/x.jpg",
-  "cat_idx": 0
- },
- {
-  "date": "2026-09-19",
-  "shop": "401",
-  "shopName": "생활과학관식당",
-  "category": "중식 - Korean Dining",
-  "main": "장터국밥",
-  "sides": [
-   "멘치까스&브라운S",
-   "잡채어묵곤약조림",
-   "브로콜리,다시마&초장",
-   "고추장멸치볶음",
-   "김치2종",
-   "쌀밥"
-  ],
-  "price": "12,000원",
-  "img": null,
-  "cat_idx": 0
- },
- {
-  "date": "2026-09-19",
-  "shop": "204",
-  "shopName": "신소재공학관식당",
-  "category": "정식",
-  "main": "왕돈가스",
-  "sides": [
-   "우동국물",
-   "콘샐러드",
-   "요구르트",
-   "오이무침",
-   "배추김치"
-  ],
-  "price": "6,000원",
-  "img": null,
   "cat_idx": 0
  }
 ]

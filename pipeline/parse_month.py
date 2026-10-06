@@ -2,6 +2,7 @@
 """hanyang_menu_month.json(스크래핑 원본) -> 중식(점심)만 골라 main/sides로 분해.
 새 날짜가 스크래핑돼서 hanyang_menu_month.json에 추가되면 이 스크립트를 다시 돌리면 됨."""
 import json, re, os
+from datetime import date as _date
 
 PIPELINE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
@@ -90,6 +91,11 @@ def parse_month_lunches(hanyang_menu_month_path=None):
     lunches = []
     for day in data["days"]:
         date = day["date"]
+        # 2026-10-06: 사용자 지시로 주말 메뉴는 아예 안 쓰기로 함 - 이후 전체 파이프라인에
+        # 들어가지 않도록 파싱 단계에서부터 평일만 남긴다(build_site_data.py의 주말 필터와
+        # 별개로, 여기서 걸러야 미매칭 집계 등 중간 산출물에도 주말이 안 섞인다).
+        if _date.fromisoformat(date).weekday() >= 5:
+            continue
         for skey, shopnum in (("s105", "105"), ("s401", "401"), ("s204", "204")):
             shop = day.get(skey)
             if not shop:
