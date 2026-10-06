@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title>한양 트레이</title>
+<title>오늘 뭐 먹지? · 한양대 학식 추천</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
@@ -158,6 +158,11 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 }
 .card:hover{border-color:var(--accent); transform:translateY(-1px);}
 .card:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+.card.dietary-unmet{background:var(--surface-2);border-color:var(--border);color:var(--ink-muted);}
+.card.dietary-unmet:hover{border-color:var(--ink-muted);}
+.card.dietary-unmet .card-name,.card.dietary-unmet .card-nutri b{color:var(--ink);}
+.card.dietary-unmet .badge-good,.card.dietary-unmet .total-score{background:var(--surface-3);color:var(--ink-muted);}
+.total-score{padding:10px 14px;border-radius:10px;background:var(--good-soft);color:var(--good);font-weight:700;}
 
 .card-top{display:flex; justify-content:space-between; gap:8px; align-items:flex-start;}
 .card-cat{
@@ -282,35 +287,53 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   .sheet, .scrim, .card{transition:none;}
 }
 </style>
+<link rel="stylesheet" href="modern.css">
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="brand-row">
-      <span class="brand">한양 트레이</span>
-      <span class="brand-sub mono">HYU 학생식당 · 생활과학관식당 · 신소재공학관식당 · 중식(점심) 영양 대조</span>
+    <span class="eyebrow">HANYANG FOOD GUIDE</span>
+    <div class="hero-copy"><h1>오늘 뭐 먹지?</h1><p>내 영양목표에 맞는 한양대 학식을 찾아보세요.</p></div>
+    <div class="selection-panel">
+      <div class="step-caption"><span class="step-number">01</span><div><strong>날짜 선택</strong><small>점심 메뉴를 확인할 날짜를 골라주세요.</small></div></div>
+      <div id="dateStrip" class="date-strip" aria-label="날짜 선택"></div>
     </div>
-    <div class="banner">
-      전 항목은 표준 제공량(g) 기반 자동 추정치이며 실측값이 아닙니다. 식약처 통합식품영양성분DB · 가공식품DB · 국가표준식품성분표 10.4판을 우선순위에 따라 자동 매칭한 결과로, 매칭 신뢰도와 미매칭 구성요소는 항목 상세에서 확인할 수 있습니다.
-    </div>
-    <div id="dateStrip" class="date-strip"></div>
   </div>
 </div>
 
 <main>
-  <form id="personalForm" style="padding:14px;margin-bottom:16px;border:1px solid #ddd;border-radius:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:end">
-    <label>성별<br><select name="sex" required><option value="">선택</option><option value="male">남성</option><option value="female">여성</option></select></label>
-    <label>만 나이(20세 이상)<br><input name="age" type="number" min="20" step="1" required style="width:75px"></label>
-    <label>키(cm)<br><input name="heightCm" type="number" min="0.1" step="any" required style="width:85px"></label>
-    <label>체중(kg)<br><input name="weightKg" type="number" min="0.1" step="any" required style="width:85px"></label>
-    <label>활동수준<br><select name="activity" required><option value="">선택</option><option value="0">비활동적</option><option value="1">저활동적</option><option value="2">활동적</option><option value="3">매우 활동적</option></select></label>
-    <button type="submit" id="personalSubmit" disabled>개인 추천 계산</button>
-    <div id="personalStatus" role="status" style="width:100%;font-size:13px">정보를 입력하면 식당별 개인 추천순위를 표시합니다. 입력값은 저장하거나 전송하지 않습니다.</div>
+  <form id="personalForm" class="personal-form">
+    <section class="input-card">
+      <div class="step-caption"><span class="step-number">02</span><div><strong>사용자 정보</strong><small>입력값은 추천 계산에만 사용하고 저장하지 않아요.</small></div></div>
+      <div class="profile-grid">
+        <label class="form-field">성별<select name="sex" required><option value="">선택해 주세요</option><option value="male">남성</option><option value="female">여성</option></select></label>
+        <label class="form-field">만 나이 <span class="field-hint">20세 이상</span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
+        <label class="form-field">키 <span class="field-hint">cm</span><input name="heightCm" type="number" min="0.1" step="any" placeholder="예: 170" required></label>
+        <label class="form-field">체중 <span class="field-hint">kg</span><input name="weightKg" type="number" min="0.1" step="any" placeholder="예: 65" required></label>
+        <label class="form-field form-field-wide">활동수준<select name="activity" required><option value="">선택해 주세요</option><option value="0">비활동적</option><option value="1">저활동적</option><option value="2">활동적</option><option value="3">매우 활동적</option></select></label>
+      </div>
+    </section>
+    <section class="input-card">
+      <div class="step-caption"><span class="step-number">03</span><div><strong>영양목표</strong><small>나에게 맞는 한 가지 목표를 선택하세요.</small></div></div>
+      <div class="goal-grid" role="radiogroup" aria-label="영양목표">
+        <label class="goal-option"><input type="radio" name="goal" value="lifestyle" checked><span><strong>라이프스타일 유지</strong><small>현재 생활 패턴에 맞게</small></span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="weight_loss"><span><strong>체중감량</strong><small>하루 목표 열량 조정</small></span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="glycemic"><span><strong>혈당관리</strong><small>혈당관리 교환단위 적용</small></span></label>
+      </div>
+    </section>
+    <section class="input-card">
+      <div class="step-caption"><span class="step-number">04</span><div><strong>추가 식이조건</strong><small>여러 개를 선택하면 모두 충족하는 메뉴를 먼저 보여줘요.</small></div></div>
+      <div class="dietary-chips"><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sodium"><span>저나트륨</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sugar"><span>저당</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="high_protein"><span>고단백</span></label></div>
+    </section>
+    <div class="form-actions"><button type="submit" id="personalSubmit" disabled>내게 맞는 메뉴 보기</button><div id="personalStatus" role="status">정보를 입력하면 개인 추천순위를 보여드려요.</div></div>
   </form>
-  <div class="day-heading">
-    <h1 id="dayTitle">불러오는 중…</h1>
+  <section id="results" class="results-section">
+  <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2>추천 결과</h2><p id="dayTitle">불러오는 중…</p></div>
     <span class="count" id="dayCount"></span>
   </div>
+  <div id="shopTabs" class="shop-tabs results-tabs" role="tablist" aria-label="추천 결과 식당 선택"></div>
   <div class="shop-grid" id="shopGrid"></div>
+  </section>
+  <details class="data-notice"><summary>영양정보는 어떻게 계산했나요?</summary><p>전 항목은 표준 제공량 기반 자동 추정치이며 실측값이 아닙니다. 식약처 통합식품영양성분DB·가공식품DB·국가표준식품성분표를 자동 매칭했습니다. 매칭 신뢰도, 결측 및 미매칭 구성요소는 메뉴 상세에서 확인할 수 있습니다.</p></details>
 </main>
 
 <div class="scrim" id="scrim"></div>
@@ -322,6 +345,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 
 <script src="nrf-ranking.js"></script>
 <script src="personal-score.js"></script>
+<script src="recommendation-view.js"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
 const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};
@@ -329,10 +353,11 @@ const DOW = ["일","월","화","수","목","금","토"];
 const DV = {protein:55, fiber:25, ca:700, fe:12, vitA:700, vitC:100, satFat:15, sugar:100, na:2000};
 
 let DATA = [];
-let BASE_DATA = [], EXCHANGE_SNAPSHOT = null, TARGET_TABLE = null;
+let BASE_DATA = [], EXCHANGE_SNAPSHOT = null, TARGET_TABLE = null, GLYCEMIC_TABLE = null;
 let byDate = {};
 let dates = [];
 let activeDate = null;
+let activeShop = "all";
 
 function pct(v, dv){ return Math.min(100, (v/dv)*100); }
 
@@ -356,71 +381,113 @@ function fmtDate(d){
 function renderDateStrip(){
   const strip = document.getElementById("dateStrip");
   strip.innerHTML = "";
+  let selectedChip=null;
   dates.forEach(d=>{
     const {label, dow} = fmtDate(d);
-    const el = document.createElement("div");
+    const el = document.createElement("button");
+    el.type = "button";
     el.className = "date-chip" + (d===activeDate ? " active" : "");
+    el.setAttribute("aria-pressed",String(d===activeDate));
     el.innerHTML = `<span class="dow">${dow}</span>${label}`;
     el.onclick = () => { activeDate = d; renderDateStrip(); renderDay(); };
     strip.appendChild(el);
+    if(d===activeDate) selectedChip=el;
+  });
+  if(selectedChip) centerActiveDate();
+}
+function centerActiveDate(){
+  const strip=document.getElementById('dateStrip'),chip=strip.querySelector('.date-chip.active');
+  if(chip) strip.scrollLeft=chip.offsetLeft-strip.offsetLeft-strip.clientWidth/2+chip.clientWidth/2;
+}
+window.addEventListener('resize',centerActiveDate);
+
+function renderShopTabs(){
+  const tabs=document.getElementById('shopTabs');
+  tabs.innerHTML='';
+  ['all',...SHOP_ORDER].forEach(shop=>{
+    const tab=document.createElement('button');
+    tab.type='button';tab.className='shop-tab';tab.role='tab';
+    tab.setAttribute('aria-selected',String(shop===activeShop));
+    tab.textContent=shop==='all' ? '전체' : SHOP_LABEL[shop];
+    tab.onclick=()=>{activeShop=shop;renderShopTabs();renderDay();};
+    tabs.appendChild(tab);
   });
 }
 
-function itemCard(item){
-  const el = document.createElement("div");
-  el.className = "card";
-  el.tabIndex = 0;
-  const flags = [];
-  if(item.analysisMode) flags.push('<span class="badge badge-caution">추정</span>');
-  if(item.missingFields && item.missingFields.length) flags.push('<span class="badge badge-caution">결측 포함</span>');
-  el.innerHTML = `
-    <div class="card-top">
-      <span class="card-cat">${item.category}</span>
-      <span class="card-price mono">${item.price||""}</span>
-    </div>
-    <div class="card-name">${item.personal.eligible ? `<span class="badge badge-good">${item.personal.rank}위</span> ` : '<span class="badge">추천점수 없음</span> '}${item.main || "(메뉴명 미상)"}</div>
-    <div style="font-size:13px;line-height:1.9;margin-top:10px">
-      <div>개인영양목표 ${item.personal.eligible ? item.personal.personalScore.toFixed(2)+' / 75점' : '—'}</div>
-      <div>NRF ${item.assessment.eligible ? item.assessment.nrfPoints.toFixed(2)+' / 25점' : '—'}</div>
+function scoreDescription(score){
+  if(score>=80) return '매우 잘 맞음';
+  if(score>=60) return '잘 맞음';
+  if(score>=40) return '보통';
+  return '낮은 편';
+}
 
+function recommendationReason(item){
+  if(!item.personal.eligible) return item.personal.reason;
+  if(item.personal.passesSelectedDietaryConditions===false) return '선택한 식이조건을 충족하지 못했어요.';
+  if(item.personal.selectedDietaryConditions.includes('high_protein') && item.personal.passHighProtein) return '단백질이 충분한 메뉴예요.';
+  if(item.personal.fit>=70) return '개인 목표 교환단위와 잘 맞아요.';
+  if(item.assessment.percentile>=75) return '기준 학식 메뉴 중 영양밀도가 높은 편이에요.';
+  return '내 영양목표와 메뉴 구성을 비교했어요.';
+}
+
+function itemCard(item,displayRank){
+  const el = document.createElement("div");
+  const dietaryUnmet=item.personal.passesSelectedDietaryConditions===false;
+  el.className = "card"+(dietaryUnmet ? " dietary-unmet" : "")+(displayRank===1 ? " is-top" : "");
+  el.tabIndex = 0;
+  el.setAttribute('role','button');
+  const rankText=displayRank===null ? '' : `${activeShop==='all'?'전체 ':''}${displayRank}위`;
+  el.setAttribute('aria-label',`${item.main}, ${item.personal.eligible ? rankText : '추천점수 없음'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
+  const flags = [];
+  if(item.analysisMode) flags.push('<span class="badge">추정</span>');
+  if(item.missingFields && item.missingFields.length) flags.push('<span class="badge">결측 포함</span>');
+  const dietaryLabels={low_sodium:'저나트륨',low_sugar:'저당',high_protein:'고단백'};
+  for(const condition of item.personal.selectedDietaryConditions){
+    const passed={low_sodium:item.personal.passLowSodium,low_sugar:item.personal.passLowSugar,high_protein:item.personal.passHighProtein}[condition];
+    if(passed) flags.push(`<span class="badge condition-pass">${dietaryLabels[condition]} 충족</span>`);
+  }
+  const score=item.personal.finalScore;
+  const photo=item.photo ? `<img class="card-photo" src="menu_photos_web/${escapeText(item.photo)}" alt="${escapeText(item.main)} 사진" loading="lazy">` : '<div class="card-photo" aria-label="메뉴 사진 없음"></div>';
+  el.innerHTML = `
+    <div class="card-main">
+      ${photo}
+      <div class="card-copy">
+        <div class="card-top"><div class="card-meta-left"><span class="card-shop">${escapeText(SHOP_LABEL[item.shop]||item.shop)}</span><span class="card-cat">${escapeText(item.category)}</span></div><span class="card-price">${escapeText(item.price||'')}</span></div>
+        <div class="card-name">${item.personal.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')}</div>
+        <p class="card-reason">${escapeText(recommendationReason(item))}</p>
+        <div class="score-line"><strong>${score!==null ? score.toFixed(1) : '—'}</strong><span>${score!==null ? `/ 100점 · ${scoreDescription(score)}` : '개인 추천점수'}</span></div>
+      </div>
     </div>
-    <div class="card-foot" style="margin-top:10px">
-      <div style="padding:10px 14px;border-radius:10px;background:var(--good-soft);color:var(--good);font-weight:700">총점 ${item.personal.eligible ? item.personal.finalScore.toFixed(2)+' / 100점' : '—'}</div>
-      <div class="flags">${flags.join('')}</div>
+    ${dietaryUnmet ? `<div class="dietary-warning"><b>선택한 식이조건 미충족</b> · ${item.personal.failedDietaryConditions.map(escapeText).join('·')} 기준 미충족</div>` : ''}
+    <div class="nutrition-mini">
+      <div><small>열량</small><b>${item.kcal.toFixed(0)} kcal</b></div><div><small>탄수화물</small><b>${item.carb.toFixed(1)} g</b></div>
+      <div><small>단백질</small><b>${item.protein.toFixed(1)} g</b></div><div><small>지방</small><b>${item.fat.toFixed(1)} g</b></div>
     </div>
-    ${!item.personal.eligible ? `<div class="footnote">${escapeText(item.personal.reason)}</div>` : ''}
+    <div class="card-tags">${flags.join('')}</div>
+    <details class="score-details"><summary>상세 점수 보기</summary><div class="score-details-content"><span>개인 적합도 <b>${item.personal.eligible ? item.personal.personalScore.toFixed(2)+' / 75점' : '—'}</b></span><span>NRF 영양밀도 <b>${item.assessment.eligible ? item.assessment.nrfPoints.toFixed(2)+' / 25점' : '—'}</b></span><span>최종점수 <b>${score!==null ? score.toFixed(2)+' / 100점' : '—'}</b></span></div></details>
+    <div class="card-more">영양정보와 계산 과정 보기 →</div>
   `;
-  el.onclick = () => openSheet(item);
-  el.onkeydown = (e) => { if(e.key==="Enter"||e.key===" ") openSheet(item); };
+  el.onclick = () => openSheet(item,displayRank);
+  el.onkeydown = (e) => { if(e.target===el && (e.key==="Enter"||e.key===" ")){e.preventDefault();openSheet(item,displayRank);} };
+  el.querySelector('.score-details').addEventListener('click',e=>e.stopPropagation());
+  el.querySelector('.score-details').addEventListener('keydown',e=>e.stopPropagation());
   return el;
 }
 
 function renderDay(){
   const rows = byDate[activeDate] || [];
-  const {label, dow} = fmtDate(activeDate);
-  document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow})`;
-  document.getElementById("dayCount").textContent = `중식 ${rows.length}종 · 개인 평가 가능 ${rows.filter(r=>r.personal.eligible).length}종 · 전체 기준집단 ${DATA[0]?.assessment.referenceSize||0}종`;
+  const {dow} = fmtDate(activeDate);
+  const ranked=RecommendationView.rankVisibleMenus(rows,activeShop,PersonalScore.compareMenus);
+  const items=ranked.map(entry=>entry.item);
+  document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow}) · ${activeShop==='all'?'3개 식당 전체':SHOP_LABEL[activeShop]}`;
+  document.getElementById("dayCount").textContent = `중식 ${items.length}종 · 개인 평가 가능 ${items.filter(r=>r.personal.eligible).length}종`;
 
   const grid = document.getElementById("shopGrid");
   grid.innerHTML = "";
-  SHOP_ORDER.forEach(shop=>{
-    const items = rows.filter(r=>r.shop===shop).sort(PersonalScore.compareMenus);
-    const col = document.createElement("div");
-    col.className = "shop-col";
-    const head = document.createElement("div");
-    head.className = "shop-head";
-    head.innerHTML = `<span class="shop-name">${SHOP_LABEL[shop]}</span><span class="shop-code mono">#${shop}</span>`;
-    col.appendChild(head);
-    if(items.length===0){
-      const note = document.createElement("div");
-      note.className = "empty-note";
-      note.textContent = "이 날짜에 분석된 중식 자료 없음";
-      col.appendChild(note);
-    } else {
-      items.forEach(it => col.appendChild(itemCard(it)));
-    }
-    grid.appendChild(col);
-  });
+  if(items.length===0){
+    const note=document.createElement('div');note.className='empty-note';
+    note.textContent='이 날짜에 분석된 중식 메뉴가 없어요.';grid.appendChild(note);
+  } else ranked.forEach(({item,rank})=>grid.appendChild(itemCard(item,rank)));
 }
 
 function srcGroup(label, names){
@@ -455,8 +522,8 @@ function nutriTabHtml(item){
     <details style="margin:12px 0"><summary>음식별 추정 중량·매칭·계산 내역</summary><pre style="white-space:pre-wrap;font-size:11px">${escapeText(JSON.stringify(item.itemDetails,null,2))}</pre></details>` : ''}
     ${(item.matchingReview||[]).length ? `<details style="margin:12px 0"><summary>미매칭 음식과 대체 검토 후보 ${item.matchingReview.length}개</summary><p class="footnote">수식어 분해·유사 검색 결과입니다. 후보는 아직 영양성분 계산에 반영하지 않았습니다.</p>${item.matchingReview.map(r=>`<div style="margin-bottom:12px"><b>${escapeText(r.query)}</b><br>${r.direct_candidates.length ? r.direct_candidates.slice(0,6).map(c=>escapeText(c.name)+' ('+escapeText(c.source)+')').join('<br>') : '직접 검색 후보 없음'}${r.fusion ? '<br>수식어: '+escapeText(r.fusion.modifier)+' → 기본 메뉴: '+escapeText(r.fusion.base_name)+'<br>'+r.fusion.candidates.slice(0,6).map(c=>escapeText(c.name)).join(', ')+'<br><small>수식어 재료 영양소는 미반영</small>' : ''}</div>`).join('')}</details>` : ''}
     ${item.sourceMenuText ? `<details style="margin:12px 0"><summary>수집한 원래 메뉴명</summary>${escapeText(item.sourceMenuText)}</details>` : ''}
-    <div class="footnote">${item.assessment.eligible ? `전체 백분위 ${item.assessment.percentile.toFixed(2)}점 · NRF 환산 ${item.assessment.nrfPoints.toFixed(2)} / 25점` : `평가 제외: ${item.assessment.exclusionReason}`}<br>기존에 확정한 3개 식당의 고정 ${item.assessment.referenceSize}개 메뉴 기준(새 메뉴는 기준분포에 추가하지 않음). 원점수 이하 메뉴 비율 × 100, 환산점수 = 백분위 × 0.25. NRF 기준분포는 고정이며 개인점수와 합산한 순위는 날짜·식당별로 표시합니다.</div>
-    <div class="footnote">${item.personal.eligible ? `식당 내 ${item.personal.rank}위 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점<br>EER ${item.personal.eer.toFixed(2)} → ${item.personal.roundedEer} kcal/day<br>Fit ${item.personal.fit.toFixed(2)} → 개인 ${item.personal.personalScore.toFixed(2)} / 75점 + NRF ${item.personal.nrfScore.toFixed(2)} / 25점<br>한 끼 목표(곡류·어육류·채소·지방): ${item.personal.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위: ${item.personal.actual.join(' / ')}` : escapeText(item.personal.reason)}</div>
+    <div class="footnote">${item.assessment.eligible ? `전체 백분위 ${item.assessment.percentile.toFixed(2)}점 · NRF 환산 ${item.assessment.nrfPoints.toFixed(2)} / 25점` : `평가 제외: ${item.assessment.exclusionReason}`}<br>기존에 확정한 3개 식당의 고정 ${item.assessment.referenceSize}개 메뉴 기준(새 메뉴는 기준분포에 추가하지 않음). 원점수 이하 메뉴 비율 × 100, 환산점수 = 백분위 × 0.25. NRF 기준분포는 고정이며 추천순위는 선택 날짜의 전체 또는 선택 식당 메뉴 기준으로 표시합니다.</div>
+    <div class="footnote">${item.personal.eligible ? `${sheetRankScope} ${sheetDisplayRank}위 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점<br>목표: ${{lifestyle:'라이프스타일 유지',weight_loss:'체중감량',glycemic:'혈당관리'}[item.personal.goal]}<br>원래 EER ${item.personal.eer.toFixed(2)} → 조정 EER ${item.personal.adjustedEer.toFixed(2)} → 식품교환표 ${item.personal.roundedEer} kcal/day<br>한 끼 목표 T(곡류·어육류·채소·지방): ${item.personal.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위 M: ${item.personal.actual.join(' / ')}<br>거리 D ${item.personal.distance.toFixed(4)} · Fit ${item.personal.fit.toFixed(2)} · 개인 ${item.personal.personalScore.toFixed(2)} / 75점 · NRF ${item.personal.nrfScore.toFixed(2)} / 25점 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점` : escapeText(item.personal.reason)}${item.personal.selectedDietaryConditions.length ? `<br>식이조건: ${item.personal.passesSelectedDietaryConditions ? '모두 충족' : escapeText(item.personal.failedDietaryConditions.join('·'))+' 기준 미충족'}<br>저나트륨 ≤ ${item.personal.sodiumLimit} mg · 저당 ≤ ${item.personal.sugarLimit?.toFixed(2) ?? '—'} g · 고단백 ≥ ${item.personal.proteinLimit?.toFixed(2) ?? '—'} g` : ''}</div>
     <div class="nrf-block">
       <div class="nrf-num" style="color:var(${item.nrf>=-5?'--good':item.nrf>=-25?'--caution':'--bad'})">${item.nrf.toFixed(1)}</div>
       <div class="nrf-label">NRF6.3 raw (100 kcal 기준)<br>코드 판정 신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
@@ -508,6 +575,8 @@ function exchangeTabHtml(item){
 
 let sheetItem = null;
 let sheetTab = "nutri";
+let sheetDisplayRank = null;
+let sheetRankScope = '전체';
 
 function renderSheetTab(){
   const panel = document.getElementById("sheetPanel");
@@ -520,7 +589,7 @@ function switchSheetTab(tab){
   renderSheetTab();
 }
 
-function openSheet(item){
+function openSheet(item,displayRank){
   const photoWrap = document.getElementById("sheetPhotoWrap");
   if(item.photo){
     photoWrap.innerHTML = `<img class="sheet-photo" src="menu_photos_web/${item.photo}" alt="${item.main}">`;
@@ -530,6 +599,8 @@ function openSheet(item){
 
   sheetItem = item;
   sheetTab = "nutri";
+  sheetDisplayRank=displayRank;
+  sheetRankScope=activeShop==='all'?'전체':'식당 내';
 
   const tabsHtml = item.friendExchangeUnits ? `
     <div class="tab-row">
@@ -567,20 +638,21 @@ document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); }
 document.getElementById('personalForm').addEventListener('submit', e=>{
   e.preventDefault();
   const form=new FormData(e.currentTarget);
+  const dietaryOptions={selected:form.getAll('dietary'),weightKg:Number(form.get('weightKg'))};
   let target=null;
   try {
-    target=PersonalScore.calculateTarget({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),weightKg:Number(form.get('weightKg')),activity:Number(form.get('activity'))},TARGET_TABLE);
-    document.getElementById('personalStatus').textContent=`EER ${target.eer.toFixed(2)} → ${target.roundedEer} kcal/day · 한 끼 목표(곡류 / 어육류 / 채소 / 지방): ${target.mealTarget.map(v=>v.toFixed(3)).join(' / ')}`;
+    target=PersonalScore.calculateGoalTarget({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),weightKg:Number(form.get('weightKg')),activity:Number(form.get('activity'))},form.get('goal'),TARGET_TABLE,GLYCEMIC_TABLE);
+    document.getElementById('personalStatus').textContent=`${{lifestyle:'라이프스타일 유지',weight_loss:'체중감량',glycemic:'혈당관리'}[target.goal]} · ${target.roundedEer} kcal 기준으로 추천했어요. 상세 계산값은 메뉴에서 확인할 수 있어요.`;
   } catch(error) { document.getElementById('personalStatus').textContent=error.message; }
-  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,target);
+  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,target,dietaryOptions);
   dates.forEach(d=>byDate[d]=DATA.filter(x=>x.date===d));
   closeSheet();renderDay();
+  if(target) document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 });
 function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
-Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, reference, exchanges, targets])=>{
-  data = data.filter(row => ![0, 6].includes(new Date(row.date + 'T00:00:00Z').getUTCDay()));
+Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, reference, exchanges, targets, glycemicTargets])=>{
   data = NrfRanking.scoreMenus(data, reference.scores);
-  BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets;
+  BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets; GLYCEMIC_TABLE = glycemicTargets;
   DATA = PersonalScore.scoreMenus(BASE_DATA, EXCHANGE_SNAPSHOT, null);
   data = DATA;
   document.getElementById("personalSubmit").disabled=false;
@@ -590,6 +662,7 @@ Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapsh
   const requestedDate = new URLSearchParams(location.search).get('date');
   activeDate = dates.includes(requestedDate) ? requestedDate : dates[dates.length-1];
   renderDateStrip();
+  renderShopTabs();
   renderDay();
 
 }).catch(err=>{
