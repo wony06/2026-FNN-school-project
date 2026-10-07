@@ -4,6 +4,7 @@ run_pipeline.py의 마지막 단계로 자동 실행됨. 단독 실행도 가능
 import json, os
 from datetime import date
 from restore_menu_names import LABELS
+from preserve_manual_data import preserved_rows, sync_preserved_exchanges
 
 PIPELINE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(PIPELINE_DIR)
@@ -61,12 +62,14 @@ def build_site_data():
             "exchangeUnits": exchange_units,
         })
 
+    out = preserved_rows(out)
     out_path = os.path.join(PROJECT_DIR, "site_data.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False)
     web_path = os.path.join(PROJECT_DIR, "web", "site_data.json")
     with open(web_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False)
+    sync_preserved_exchanges(out)
     return out_path, len(out)
 
 

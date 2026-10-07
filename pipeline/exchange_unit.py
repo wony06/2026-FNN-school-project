@@ -369,6 +369,71 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "unresolved_ingredients": [],
                 "recipe_note": f"꼬치어묵: 사용자 지정에 따라 원재료DB 어묵으로 직접 매칭, 국물은 제외. 기존 추정 제공량 {weight_g:g}g 적용(1개 표준 추정 50g, 실측 아님). 실제 제품의 어육 함량·배합 차이 미보정. 메뉴 표시명과 기존 영양성분 계산값 유지, 식품교환단위만 재계산."}
     original_name = name
+    if name == "소불고기전골" and not use_plaza_servings:
+        scale = weight_g / 300.0
+        result = _from_menugen("소고기전골", 180.0 * scale)
+        if result is None:
+            raise ValueError("소고기전골 표준 레시피 없음")
+        base = MENUGEN_BY_NAME["소고기전골"]
+        excluded = {"두부", "양파, 데친것", "배추, 얼갈이배추, 생것", "표고버섯, 참나무재배, 말린것, 삶은것"}
+        removed_units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        for ingredient in base["ingredients"]:
+            if ingredient["food_name"] in excluded:
+                amount = float(ingredient["weight_g"]) * 180.0 * scale / float(base["weight_g"])
+                _add_ingredient(removed_units, ingredient["food_group"], DB104_BY_NAME.get(ingredient["food_name"]), amount)
+        for group in EXCHANGE_GROUPS:
+            result["units"][group] = max(0.0, result["units"][group] - removed_units[group])
+        additions = [("팽이버섯, 데친것", 20.0), ("당근, 뿌리, 데친것", 25.0),
+                     ("배추, 삶은것", 25.0), ("청경채, 데친것", 20.0),
+                     ("양파, 데친것", 15.0), ("느타리버섯, 데친것", 15.0)]
+        for ingredient, amount in additions:
+            record = DB104_BY_NAME[ingredient]
+            if not _add_ingredient(result["units"], record["식품군"], record, amount * scale):
+                raise ValueError(f"소불고기전골 추가 원재료 연결 실패: {ingredient}")
+        result["matched"] = True
+        result["additional_direct_matches"] = [ingredient for ingredient, _ in additions]
+        amounts = "·".join(f"{ingredient} {amount*scale:g}g" for ingredient, amount in additions)
+        result["recipe_note"] = f"소불고기전골: 사용자 지정으로 MenuGen 소고기전골 + 팽이버섯·당근·배추·청경채·양파·느타리버섯에 연결. 기존 추정 제공량 {weight_g:g}g 안에서 기본 전골 {180*scale:g}g + 사진 기반 추가분({amounts})으로 배분. 채소·버섯 종류와 중량은 2026-09-17 사진 기반 추정이며 실측 아님. 사용자 추가 요청으로 기본 소고기전골의 두부20g·양파20g·얼갈이배추10g·표고5g(원 레시피 기준)을 제외. 기본 전골180g에 비례 배분된 해당 재료의 교환단위를 차감하며 제거량을 남은 재료에 재배분하지 않음. 기본의 소고기·무·마늘·소금·참기름은 유지; 무는 사진에서 확인되지 않는 대체 구성임. 사진 기반 별도 양파15g·배추25g은 유지하여 기본 레시피 양파·배추와의 중복을 없앰. 채소·버섯은 데친것 또는 삶은것 DB로 대체하고 실제 국물 비율과 조리수율은 미보정. 당면은 추가하지 않음. 메뉴 표시명과 기존 영양성분은 유지하고 식품교환단위만 변경."
+        return result
+    if name == "불고기오븐도리아" and not use_plaza_servings:
+        scale = weight_g / 150.0
+        result = _from_menugen("불고기덮밥", 120.0 * scale)
+        if result is None:
+            raise ValueError("불고기덮밥 표준 레시피 없음")
+        additions = [("치즈, 체다", 10.0), ("치즈, 모차렐라, 슈레드타입", 20.0)]
+        for ingredient, amount in additions:
+            record = DB104_BY_NAME[ingredient]
+            if not _add_ingredient(result["units"], record["식품군"], record, amount * scale):
+                raise ValueError(f"도리아 추가 치즈 연결 실패: {ingredient}")
+        result["matched"] = True
+        result["additional_direct_matches"] = [ingredient for ingredient, _ in additions]
+        result["recipe_note"] = f"불고기오븐도리아: 사용자 지정으로 MenuGen 불고기덮밥 + 원재료DB 체다치즈·모차렐라치즈에 대체 연결. 기존 추정 제공량 {weight_g:g}g을 불고기덮밥 {120*scale:g}g, 치즈, 체다 {10*scale:g}g, 치즈, 모차렐라, 슈레드타입 {20*scale:g}g으로 배분. 치즈 양은 2026-08-25 사진의 노란 중심부와 흰 토핑을 참고한 추정이며 흰 부분이 실제 모차렐라라는 확인은 없음. 불고기덮밥은 소고기·밥·채소·달걀·조리유 등 DB 표준 배합을 그대로 비례 적용하며 실제 도리아 재료와 다를 수 있음; 조리수율은 실측하지 않음. 간장·생강청·후추 등 미환산 재료는 기존 교환단위 규칙상 미반영. 메뉴 표시명과 기존 영양성분 미매칭 상태는 유지하며 식품교환단위만 연결."
+        return result
+    if name == "보쌈정식" and not use_plaza_servings:
+        ingredient = "돼지고기, 앞다리, 수육용, 삶은것"
+        record = DB104_BY_NAME[ingredient]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("앞다리 수육 원재료DB 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": ingredient, "matched_ingredients": [ingredient],
+                "unresolved_ingredients": [],
+                "recipe_note": f"보쌈정식: 사용자 지정으로 고기 항목을 원재료DB 돼지고기, 앞다리, 수육용, 삶은것에 연결. 기존 추정 제공량 {weight_g:g}g 적용. 실제 급식의 부위를 확정한 값이 아닌 대체 추정이며 밥·국·쌈채소 등은 별도 구성요소로 계산하여 중복 추가하지 않음. 메뉴 표시명과 기존 영양성분은 유지하고 식품교환단위만 변경."}
+    if name == "뚝배기소불고기" and not use_plaza_servings:
+        # Keep the photographed additions within the existing serving weight.
+        scale = weight_g / 150.0
+        result = _from_menugen("불고기(소고기)", 100.0 * scale)
+        if result is None:
+            raise ValueError("불고기(소고기) 표준 레시피 없음")
+        additions = [("팽이버섯, 데친것", 20.0), ("양파, 데친것", 15.0)]
+        for ingredient, amount in additions:
+            record = DB104_BY_NAME[ingredient]
+            if not _add_ingredient(result["units"], record["식품군"], record, amount * scale):
+                raise ValueError(f"뚝배기소불고기 추가 재료 연결 실패: {ingredient}")
+        result["matched"] = True
+        result["additional_direct_matches"] = [ingredient for ingredient, _ in additions]
+        result["recipe_note"] = f"뚝배기소불고기: 사용자 지정으로 MenuGen 불고기(소고기)를 기본 연결하고 2026-08-31 사진의 팽이버섯·양파를 원재료DB로 보완. 기존 추정 제공량 {weight_g:g}g 안에서 불고기 {100*scale:g}g, 팽이버섯 {20*scale:g}g, 양파 {15*scale:g}g, 국물 {15*scale:g}g으로 배분. 불고기는 DB 표준 레시피 비례 환산이며 팽이버섯과 양파는 데친것 성분으로 대체. 사진으로 양파 종류와 재료별 중량을 확정할 수 없어 모두 추정이고 국물의 교환단위는 미반영. 당면은 사진에서 확인되지 않아 추가하지 않음. 메뉴 표시명과 기존 영양성분은 유지하고 식품교환단위만 재계산."
+        return result
     alias_note = None
     if not use_plaza_servings:
         # Explicit equivalents; retain uncertainty when using a standard recipe.
@@ -381,6 +446,13 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "고추장멸치볶음": "멸치볶음(고추장)",
             "꼬들단무지": "단무지",
             "놀부부대찌개": "부대찌개",
+            "뚝)된장찌개": "애호박감자된장찌개",
+            "락교": "염교(락교)장아찌",
+            "무피클": "무절임",
+            "비빔막국수": "메밀비빔국수",
+            "스크램블에그": "스크램에그",
+            "알감자조림": "감자조림",
+            "애호박전": "호박전(애호박)",
             "소면사리": "소면",
             "순대": "순대",
             "마늘쫑": "마늘종",
@@ -396,6 +468,8 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             alias_note = f"{original_name} → {name}: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 {weight_g:g}g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
             if name == "고들빼기김치":
                 alias_note = f"{original_name}: 사용자 지정에 따라 고들빼기김치로 대체 매칭. 8/27 식판 사진의 붉은 양념 잎채소를 근거로 한 대체 추정이며 발효 여부는 사진으로 확인되지 않음. 기존 추정 제공량 {weight_g:g}g 적용. 메뉴 표시명과 영양성분 탭 계산값은 유지하고 식품교환단위만 재계산."
+            if original_name == "뚝)된장찌개":
+                alias_note = f"뚝)된장찌개: 사용자 지정으로 애호박감자된장찌개에 대체 매칭. 2026-09-09 사진에서 두부·대파를 확인하고 감자·애호박·양파·고추를 추정함. 사진만으로 재료 종류와 배합은 확정할 수 없음. 기존 추정 제공량 {weight_g:g}g에 DB 표준 레시피 비례 적용. 메뉴 표시명과 영양성분 계산값은 유지하고 식품교환단위만 재계산."
     if name == "차돌짬뽕밥":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         for component, weight in (("차돌박이짬뽕국", 790.0), ("쌀밥", 275.0)):

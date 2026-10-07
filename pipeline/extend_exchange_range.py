@@ -13,7 +13,7 @@ from exchange_unit import compute_exchange_units, EXCHANGE_GROUPS, compute_kimch
 
 ROOT = Path(__file__).resolve().parent.parent
 FIELDS = dict(zip(EXCHANGE_GROUPS, ['grain', 'meat', 'veg', 'fat', 'dairy', 'fruit']))
-EXCLUDED = {'우동국', '우동국물', '미소국', '미소장국', '케찹', '케첩', '간장', '초간장', '초장', '돈까스소스'}
+EXCLUDED = {'우동국', '우동국물', '미소국', '미소장국', '케찹', '케첩', '간장', '초간장', '초장', '돈까스소스', '브라운소스', '쌈장'}
 
 def selected(row):
     return row['shop'] in ('401', '204') and '2026-08-24' <= row['date'] <= '2026-09-19'
@@ -45,6 +45,9 @@ def run():
         # Verify independently that the six displayed totals sum the item results.
         totals = {g: 0 for g in EXCHANGE_GROUPS}
         for item in items:
+            if item.get('exchange_excluded_reason'):
+                audit.append({'date':row['date'],'shop':row['shop'],'main':row['main'],'item':item['display'],'matched':False,'excluded':True,'reason':item['exchange_excluded_reason'],'weight_g':item['weight_g'],'units':{g:0 for g in EXCHANGE_GROUPS}})
+                continue
             if row['shop'] == '401' and item['display'] == '김치2종' and row['date'] in KIMCHI_PAIR_EXCLUDED_DATES:
                 audit.append({'date':row['date'],'shop':row['shop'],'main':row['main'],'item':'김치2종','matched':False,'reason':'사진 부재: 사용자 지정으로 미매칭 유지','weight_g':item['weight_g'],'units':{g:0 for g in EXCHANGE_GROUPS}})
                 continue
