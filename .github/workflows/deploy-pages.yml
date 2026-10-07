@@ -1,0 +1,63 @@
+name: Deploy HYU Menu Guide to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+      - name: Check required website files and photos
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          root = Path('web')
+          required = [
+              'index.html', 'modern.css', 'instant-rice.js', 'nrf-ranking.js',
+              'personal-score.js', 'recommendation-view.js', 'site_data.json',
+              'nrf_reference_fixed.json', 'menu_exchange_snapshot.json',
+              'eer_exchange_targets.json', 'glycemic_exchange_targets.json',
+          ]
+          missing = [str(root / name) for name in required if not (root / name).is_file()]
+          if missing:
+              raise SystemExit('Missing website files: ' + ', '.join(missing))
+          for name in required:
+              if name.endswith('.json'):
+                  json.loads((root / name).read_text(encoding='utf-8-sig'))
+          menus = json.loads((root / 'site_data.json').read_text(encoding='utf-8-sig'))
+          photos = {row['photo'] for row in menus if row.get('photo')}
+          missing = [str(root / 'menu_photos_web' / name) for name in sorted(photos)
+                     if not (root / 'menu_photos_web' / name).is_file()]
+          if missing:
+              raise SystemExit('Commit these missing menu photos before deployment:\n' + '\n'.join(missing))
+          print(f'Validated {len(menus)} menus, {len({row["date"] for row in menus})} dates, {len(photos)} photos.')
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload web folder without rebuilding data
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: web
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
