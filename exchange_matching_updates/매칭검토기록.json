@@ -1,0 +1,118 @@
+[
+  {
+    "date": "2026-10-07",
+    "menu": "야채춘권",
+    "target": {
+      "date": "2026-08-24",
+      "shop": "204",
+      "category": "정식",
+      "main": "순살간장닭갈비"
+    },
+    "requestedNameNormalization": "야채춘권 → 춘권 (수식어 제거; 재료에서 채소를 제거하는 요청으로 해석하지 않음)",
+    "searchedNames": [
+      "춘권",
+      "스프링롤",
+      "스프링 롤",
+      "spring roll"
+    ],
+    "sources": [
+      "menugen_recipes.json",
+      "recipe_db.json",
+      "recipe_db_full.json",
+      "custom_exchange_recipes.json",
+      "external_exchange_recipes.json",
+      "db104_raw_ingredients.json"
+    ],
+    "result": "사용자 승인 추정값으로 계산 완료; 웹사이트 반영 대기",
+    "nutritionExistingMatch": "가공식품DB 야채춘권(72EA): 영양성분용 매칭만 존재",
+    "websiteUpdated": false,
+    "relatedRecipes": [
+      {
+        "name": "밥스틱",
+        "ingredients": "당근다진것 10g, 양파다진것 15g, 홍피망다진것 10g, 청피망다진것 10g, 햄다진것 10g, 밥 10g, 카레가루 2g, 춘권피 30g, 치즈 5g, 튀김기름 3g, 소금적당량, 후춧가루 적당량",
+        "status": "직접 매칭 아님; 속재료·조리법 변경 필요"
+      },
+      {
+        "name": "인도식만두구이(사모사)",
+        "ingredients": "양파다진것 15g, 마늘다진것 2g, 생강다진것 1g, 청고추다진것 1g, 새우다진것 25g, 버터 1g, 레몬주수 1g, 생선육수 3g, 카레가루 2g, 토마토페이스트 3g, 달걀물 5g, 춘권피 20g, 올리브오일 1g",
+        "status": "직접 매칭 아님; 속재료·조리법 변경 필요"
+      },
+      {
+        "name": "단호박치즈스틱",
+        "ingredients": "단호박(200g), 새우살(120g),\n삼색파프리카(80g), 양파(40g),\n옥수수(20g), 모짜렐라치즈(20g),\n춘권피(10장), 생크림(15g), 식용유(40g)",
+        "status": "직접 매칭 아님; 속재료·조리법 변경 필요"
+      }
+    ],
+    "userRecipeRevision": {
+      "removed": [
+        "게살 1.5컵 전량",
+        "피자치즈 100g 전량 (기존 1인분25g 제외)"
+      ],
+      "recipe": {
+        "name": "야채춘권",
+        "weight_g": 65.5875,
+        "ingredients": [
+          {
+            "food_name": "춘권피, Spring Home 215mm, 교환단위 대체제품",
+            "food_group": "곡류 및 그 제품",
+            "weight_g": 37.8125
+          },
+          {
+            "food_name": "피망, 빨간색, 생것",
+            "food_group": "채소류",
+            "weight_g": 10
+          },
+          {
+            "food_name": "피망, 초록색, 생것",
+            "food_group": "채소류",
+            "weight_g": 5
+          },
+          {
+            "food_name": "콩기름",
+            "food_group": "유지류",
+            "weight_g": 5
+          },
+          {
+            "food_name": "칠리 소스",
+            "food_group": "조미료류",
+            "weight_g": 7.5
+          },
+          {
+            "food_name": "소금, 천일염, 가는소금",
+            "food_group": "조미료류",
+            "weight_g": 0.25
+          },
+          {
+            "food_name": "후추, 검은색, 가루",
+            "food_group": "조미료류",
+            "weight_g": 0.025
+          }
+        ],
+        "calculation_source": "custom_recipe",
+        "source": "사용자 제공 게살야채춘권: 게살·치즈 제외 + 승인된 추정값",
+        "created": "2026-10-07",
+        "source_url": "https://ctfood.se/spring-roll-pastry-215x215mm-20x550g-40pcs-spring-home/?language=en",
+        "assumptions": "야채춘권: 사용자 첨부 4인분 게살야채춘권에서 게살1.5컵·피자치즈100g 전량 제외. 1인분=1/4로 유지하여 춘권피2.75장, 핫소스7.5mL, 파프리카·소금·후추 소량. 사용자가 추정 계산을 승인함. 춘권피는 실제 제품 미확인으로 CT Food Spring Home 215mm 550g/40장 제품자료 대체: 1장13.75g, 1인분37.8125g, 100g당 탄수화물58g. 파프리카는 4인분 총60g(각 색20g) 가정으로 1인분15g; 빨강5g·노랑5g은 DB 빨간 피망10g으로, 초록5g은 초록 피망으로 연결. 튀김용 식용유는 전체300mL 중 실제 흡수유만 1인분5g(전체20g)으로 가정하고 콩기름 성분 대체; 흡수유3~7g 민감도도 기록. 핫소스는 밀도1g/mL로7.5g, 소금0.25g·후추0.025g 가정하고 조미료류 제외규칙 유지. 기준총65.5875g은 조리수율·수분손실 미보정 재료합계이며 실측 완성중량이 아님. 기존 식판40g에는 해당 배합을40/65.5875 비례 환산. 기존 계산방식에 따라 춘권피는 탄수화물 기준 곡류군에만 배정하며 제품 자체 지방을 별도 지방군으로 더하지 않음. 게살·치즈 추가 없음, 영양소 탭과 웹사이트는 갱신하지 않음."
+      },
+      "recipeServingExchangeUnits": {
+        "grain": 0.9535326086956522,
+        "meat": 0,
+        "veg": 0.3206666666666667,
+        "fat": 0.9995999999999998,
+        "dairy": 0,
+        "fruit": 0
+      },
+      "existingTrayServing": {
+        "weight_g": 40,
+        "exchangeUnits": {
+          "grain": 0.5815331328046668,
+          "meat": 0,
+          "veg": 0.195565720094022,
+          "fat": 0.6096283590623212,
+          "dairy": 0,
+          "fruit": 0
+        }
+      }
+    }
+  }
+]
