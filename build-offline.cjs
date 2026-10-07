@@ -1,0 +1,13 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const web=path.join(__dirname,'web');
+let html=fs.readFileSync(path.join(web,'index.html'),'utf8');
+const files=['site_data.json','nrf_reference_fixed.json','menu_exchange_snapshot.json','eer_exchange_targets.json','glycemic_exchange_targets.json'];
+const needle='["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))';
+if(!html.includes(needle))throw Error('Data loader missing');
+html=html.replace(needle,'['+files.map(f=>JSON.stringify(JSON.parse(fs.readFileSync(path.join(web,f),'utf8'))).replaceAll('</','<\\/')).join(',')+']');
+fs.writeFileSync(path.join(web,'index-offline.html'),html);
+for(const f of ['instant-rice.js','nrf-ranking.js','personal-score.js','recommendation-view.js'])html=html.replace('<script src="'+f+'"></script>','<script>'+fs.readFileSync(path.join(web,f),'utf8').replaceAll('</script','<\\/script')+'</script>');
+html=html.replace('<link rel="stylesheet" href="modern.css">','<style>'+fs.readFileSync(path.join(web,'modern.css'),'utf8')+'</style>');
+for(const match of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))new vm.Script(match[1]);
+fs.writeFileSync(path.join(__dirname,'웹사이트.html'),'<!doctype html><html lang="ko"><head><meta charset="UTF-8"><base href="./web/">'+html+'</html>');
+console.log('Offline pages updated; JavaScript syntax passed.');

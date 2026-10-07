@@ -186,7 +186,7 @@
     "food_eng_name": "Tofu, Firm",
     "food_group": "두류",
     "origin": "농진청",
-    "weight_g": 160.0,
+    "weight_g": 160,
     "allergy": "대두(콩)"
    },
    {
@@ -195,7 +195,7 @@
     "food_eng_name": "Cellophane noodle(Dangmyeon), Sweet potato starch, Dried",
     "food_group": "감자 및 전분류",
     "origin": "농진청",
-    "weight_g": 40.0,
+    "weight_g": 40,
     "allergy": null
    },
    {
@@ -204,7 +204,7 @@
     "food_eng_name": "Kimchi, Baechukimchi, Prepared with Kimchi cabbage",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 200.0,
+    "weight_g": 200,
     "allergy": null
    },
    {
@@ -213,7 +213,7 @@
     "food_eng_name": "Garlic(Maneul), Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 12.0,
+    "weight_g": 12,
     "allergy": null
    },
    {
@@ -222,7 +222,7 @@
     "food_eng_name": "Welsh onion, Spring onion, Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 6.0,
+    "weight_g": 6,
     "allergy": null
    },
    {
@@ -231,7 +231,7 @@
     "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 10.0,
+    "weight_g": 10,
     "allergy": null
    },
    {
@@ -240,7 +240,7 @@
     "food_eng_name": "Sesame oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 10.0,
+    "weight_g": 10,
     "allergy": null
    },
    {
@@ -249,7 +249,7 @@
     "food_eng_name": "Pepper, Black, Powder",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    },
    {
@@ -258,7 +258,7 @@
     "food_eng_name": "Wheat flour, White, All-purpose",
     "food_group": "곡류 및 그 제품",
     "origin": "농진청",
-    "weight_g": 110.0,
+    "weight_g": 110,
     "allergy": "밀"
    },
    {
@@ -291,7 +291,7 @@
     "food_eng_name": "Wheat flour, White, All-purpose",
     "food_group": "곡류 및 그 제품",
     "origin": "농진청",
-    "weight_g": 80.0,
+    "weight_g": 80,
     "allergy": "밀"
    },
    {
@@ -300,7 +300,7 @@
     "food_eng_name": "Pumpkin, Young, Blanched",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 35.0,
+    "weight_g": 35,
     "allergy": null
    },
    {
@@ -309,7 +309,7 @@
     "food_eng_name": "Egg(Dalgyal), Whole, Boiled",
     "food_group": "난류",
     "origin": "농진청",
-    "weight_g": 20.0,
+    "weight_g": 20,
     "allergy": "난류"
    },
    {
@@ -318,7 +318,7 @@
     "food_eng_name": "Potato(Gamja), Daeji, Boiled",
     "food_group": "감자 및 전분류",
     "origin": "농진청",
-    "weight_g": 15.0,
+    "weight_g": 15,
     "allergy": null
    },
    {
@@ -327,7 +327,7 @@
     "food_eng_name": "Soy sauce, Korean traditional type",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 7.0,
+    "weight_g": 7,
     "allergy": "대두(콩)"
    },
    {
@@ -336,7 +336,7 @@
     "food_eng_name": "Welsh onion, Spring onion, Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 5.0,
+    "weight_g": 5,
     "allergy": null
    },
    {
@@ -345,7 +345,7 @@
     "food_eng_name": "Oak mushroom(Pyogo-beoseot), On tree logs, Dried, Boiled",
     "food_group": "버섯류",
     "origin": "농진청",
-    "weight_g": 3.0,
+    "weight_g": 3,
     "allergy": null
    },
    {
@@ -354,7 +354,7 @@
     "food_eng_name": "Anchovy, Broth",
     "food_group": "어패류 및 기타 수산물",
     "origin": "농진청",
-    "weight_g": 2.0,
+    "weight_g": 2,
     "allergy": null
    },
    {
@@ -363,7 +363,7 @@
     "food_eng_name": "Sesame oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 2.0,
+    "weight_g": 2,
     "allergy": null
    },
    {
@@ -372,7 +372,7 @@
     "food_eng_name": "Laver product, Roasted",
     "food_group": "해조류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    },
    {
@@ -381,7 +381,7 @@
     "food_eng_name": "Garlic(Maneul), Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    },
    {
@@ -390,7 +390,7 @@
     "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    }
   ],
@@ -405,12 +405,12 @@
    {
     "food_name": "멜론, 머스크, 생것",
     "food_group": "과일류",
-    "weight_g": 8.0
+    "weight_g": 8
    },
    {
     "food_name": "사과, 생것",
     "food_group": "과일류",
-    "weight_g": 8.0
+    "weight_g": 8
    },
    {
     "food_name": "바나나, 생것",
@@ -420,7 +420,7 @@
    {
     "food_name": "오렌지, 생것",
     "food_group": "과일류",
-    "weight_g": 8.0
+    "weight_g": 8
    },
    {
     "food_name": "레몬 착즙",
@@ -492,7 +492,7 @@
  },
  {
   "name": "명엽채볶음",
-  "weight_g": 78.0,
+  "weight_g": 78,
   "ingredients": [
    {
     "food_code": "F02293",
@@ -500,7 +500,7 @@
     "food_eng_name": "Threadsail filefish, Dried, Strip",
     "food_group": "어패류 및 기타 수산물",
     "origin": null,
-    "weight_g": 60.0,
+    "weight_g": 60,
     "allergy": null
    },
    {
@@ -509,7 +509,7 @@
     "food_eng_name": "Soybean oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 6.0,
+    "weight_g": 6,
     "allergy": "대두(콩)"
    },
    {
@@ -518,7 +518,7 @@
     "food_eng_name": "Soy sauce, Fermented type",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 2.0,
+    "weight_g": 2,
     "allergy": "대두(콩)"
    },
    {
@@ -527,7 +527,7 @@
     "food_eng_name": "Starch syrup",
     "food_group": "당류",
     "origin": "농진청",
-    "weight_g": 5.0,
+    "weight_g": 5,
     "allergy": null
    },
    {
@@ -536,7 +536,7 @@
     "food_eng_name": "Welsh onion, Spring onion, Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 3.0,
+    "weight_g": 3,
     "allergy": null
    },
    {
@@ -545,7 +545,7 @@
     "food_eng_name": "Sesame seed(Chamkkae), White, Roasted",
     "food_group": "견과 및 종실류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    },
    {
@@ -554,7 +554,7 @@
     "food_eng_name": "Sesame oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    }
   ],
@@ -573,7 +573,7 @@
     "food_eng_name": "Southern rough shrimp, Deep-fried, Breaded",
     "food_group": "어패류 및 기타 수산물",
     "origin": "USDA",
-    "weight_g": 12.0,
+    "weight_g": 12,
     "allergy": "새우"
    },
    {
@@ -757,7 +757,7 @@
  },
  {
   "name": "전복표고솥밥_도라지제외_2026-09-01",
-  "weight_g": 251.0,
+  "weight_g": 251,
   "ingredients": [
    {
     "food_code": "F00017",
@@ -765,7 +765,7 @@
     "food_eng_name": "Rice(Ssal), White, Raw",
     "food_group": "곡류 및 그 제품",
     "origin": "대푯값",
-    "weight_g": 200.0,
+    "weight_g": 200,
     "allergy": null
    },
    {
@@ -774,7 +774,7 @@
     "food_eng_name": "Oak mushroom(Pyogo-beoseot), On the growing medium, Raw",
     "food_group": "버섯류",
     "origin": "농진청",
-    "weight_g": 15.0,
+    "weight_g": 15,
     "allergy": null
    },
    {
@@ -783,7 +783,7 @@
     "food_eng_name": "Disk abalone, Raw",
     "food_group": "어패류 및 기타 수산물",
     "origin": null,
-    "weight_g": 10.0,
+    "weight_g": 10,
     "allergy": "어패류(굴, 전복, 홍합 포함)"
    },
    {
@@ -792,7 +792,7 @@
     "food_eng_name": "Ginkgo nut(Eunhaeng), Raw",
     "food_group": "견과 및 종실류",
     "origin": "농진청",
-    "weight_g": 10.0,
+    "weight_g": 10,
     "allergy": null
    },
    {
@@ -801,7 +801,7 @@
     "food_eng_name": "Chestnut(Bam), Raw",
     "food_group": "견과 및 종실류",
     "origin": "농진청",
-    "weight_g": 8.0,
+    "weight_g": 8,
     "allergy": null
    },
    {
@@ -810,7 +810,7 @@
     "food_eng_name": "Perilla seed oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 7.0,
+    "weight_g": 7,
     "allergy": null
    },
    {
@@ -819,7 +819,7 @@
     "food_eng_name": "Salt(Sogeum), Sun-dried salt, Flower salt",
     "food_group": "조미료류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": null
    }
   ],
@@ -838,7 +838,7 @@
     "food_eng_name": "Rice(Ssal), White, Raw",
     "food_group": "곡류 및 그 제품",
     "origin": "대푯값",
-    "weight_g": 55.0,
+    "weight_g": 55,
     "allergy": null
    },
    {
@@ -847,7 +847,7 @@
     "food_eng_name": "Onion(Yangpa), Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 10.0,
+    "weight_g": 10,
     "allergy": null
    },
    {
@@ -856,7 +856,7 @@
     "food_eng_name": "Sweet pepper(Pimang), Green, Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 3.0,
+    "weight_g": 3,
     "allergy": null
    },
    {
@@ -865,7 +865,7 @@
     "food_eng_name": "Carrot(Danggeun), Root, Raw",
     "food_group": "채소류",
     "origin": "농진청",
-    "weight_g": 3.0,
+    "weight_g": 3,
     "allergy": null
    },
    {
@@ -874,7 +874,7 @@
     "food_eng_name": "Soybean oil",
     "food_group": "유지류",
     "origin": "농진청",
-    "weight_g": 1.0,
+    "weight_g": 1,
     "allergy": "대두(콩)"
    },
    {
@@ -891,5 +891,60 @@
   "source": "MenuGen 채소볶음밥에서 사용자 지정 달걀 제외",
   "created": "2026-10-06",
   "assumptions": "야채필라프: 사용자 지정으로 MenuGen 채소볶음밥에서 달걀10g 제외. 남은 생쌀55g·양파10g·피망3g·당근3g·콩기름1g·소금0.3g의 기준 총72.3g을 기존 추정 제공량40g에 비례 환산. 생쌀 기반 DB 표준 배합이며 생쌀의 조리수율을 보정하거나 실제 급식 중량을 실측한 값은 아님. 2026-09-03 사진은 채소밥 계열을 참고한 근거이며 사진에서 보이는 옥수수 추정 조각은 사용자 지정 레시피에 없어 별도 추가하지 않음. 달걀은 이번 교환단위 계산에 포함하지 않으며 실제 조리유·채소 배합과 다를 수 있음. 메뉴 표시명과 기존 영양성분의 필라프(새우) 대체 계산은 유지하고 식품교환단위만 변경."
+ },
+ {
+  "name": "바질크림떡볶이",
+  "weight_g": 40,
+  "ingredients": [
+   {
+    "food_name": "멥쌀떡, 가래떡",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 12.11020284589767
+   },
+   {
+    "food_name": "스파게티면, 말린것",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 2.4220405691795337
+   },
+   {
+    "food_name": "양파, 생것",
+    "food_group": "채소류",
+    "weight_g": 2.4220405691795337
+   },
+   {
+    "food_name": "버터, 무가염",
+    "food_group": "유지류",
+    "weight_g": 1.2110202845897668
+   },
+   {
+    "food_name": "밀, 중력밀가루",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 1.2110202845897668
+   },
+   {
+    "food_name": "크림, 생크림",
+    "food_group": "우유 및 그 제품",
+    "weight_g": 2.4220405691795337
+   },
+   {
+    "food_name": "우유",
+    "food_group": "우유 및 그 제품",
+    "weight_g": 6.055101422948835
+   },
+   {
+    "food_name": "파슬리, 말린것",
+    "food_group": "조미료류",
+    "weight_g": 0.03633060853769301
+   },
+   {
+    "food_name": "물",
+    "food_group": "기타",
+    "weight_g": 12.11020284589767
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "recipe_db 크림치즈떡볶이 seq463: 치즈·바질 전량 제외",
+  "created": "2026-10-07",
+  "assumptions": "바질크림떡볶이: 사용자 지정으로 recipe_db 크림치즈떡볶이(seq463)의 모짜렐라치즈30g을 전량 제외. 남은 기준330.3g(떡100g·건펜네20g·양파20g·버터10g·밀가루10g·육수100g·생크림20g·우유50g·파슬리가루0.3g)을 기존 추정 제공량40g에 비례 배분. 사용자가 사진에 바질이 없다고 확인하여 바질을 전량 제외하고 이전 생바질0.1g 추정 가정을 철회함. 펜네는 마른 스파게티면 DB로 대체, 육수는 배합 미상으로 물100g 대체하고 교환단위 미반영, 파슬리가루는 말린 파슬리 유지하되 기존 조미료류 규칙으로 교환단위 제외. 치즈와 바질을 제외하며 우유·생크림·버터는 유지. 조리수율·증발량·펜네 수화율 미보정, 사진에 보이는 기타 재료는 임의 추가하지 않음. 식품교환단위만 수정하며 메뉴명·영양소 탭 기존 계산값은 유지."
  }
 ]
