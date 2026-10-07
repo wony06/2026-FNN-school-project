@@ -1,493 +1,895 @@
 [
-  {
-    "name": "치즈돈까스",
-    "weight_g": 150,
-    "ingredients": [
-      {
-        "food_code": "F01614",
-        "food_name": "돼지고기, 등심, 구운것(팬)",
-        "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
-        "food_group": "육류",
-        "origin": "농진청",
-        "weight_g": 59.63302752293578,
-        "allergy": "돼지고기"
-      },
-      {
-        "food_code": "F00108",
-        "food_name": "밀, 중력밀가루",
-        "food_eng_name": "Wheat flour, White, All-purpose",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 20.275229357798164,
-        "allergy": "밀"
-      },
-      {
-        "food_code": "F01882",
-        "food_name": "달걀, 부침(달걀프라이)",
-        "food_eng_name": "Egg, Whole, Pan-fried",
-        "food_group": "난류",
-        "origin": "농진청",
-        "weight_g": 16.69724770642202,
-        "allergy": "난류,밀"
-      },
-      {
-        "food_code": "F00106",
-        "food_name": "밀, 빵가루",
-        "food_eng_name": "Wheat, Bread crumb",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 16.69724770642202,
-        "allergy": "밀"
-      },
-      {
-        "food_code": "F02712",
-        "food_name": "콩기름",
-        "food_eng_name": "Soybean oil",
-        "food_group": "유지류",
-        "origin": "농진청",
-        "weight_g": 11.926605504587156,
-        "allergy": "대두(콩)"
-      },
-      {
-        "food_code": "F02876",
-        "food_name": "소금, 천일염, 가는소금",
-        "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 2.385321100917431,
-        "allergy": null
-      },
-      {
-        "food_code": "F00739",
-        "food_name": "마늘, 생것",
-        "food_eng_name": "Garlic(Maneul), Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 1.1926605504587156,
-        "allergy": null
-      },
-      {
-        "food_code": "F02927",
-        "food_name": "후추, 검은색, 가루",
-        "food_eng_name": "Pepper, Black, Powder",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 1.1926605504587156,
-        "allergy": null
-      },
-      {
-        "food_name": "치즈, 모차렐라",
-        "food_group": "우유 및 그 제품",
-        "weight_g": 20
-      }
-    ],
-    "assumptions": "치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 130g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지.",
-    "source": "MenuGen 돈가스 + 국가표준식품성분표 고구마·모차렐라",
-    "created": "2026-10-05"
-  },
-  {
-    "name": "고구마치즈돈까스",
-    "weight_g": 150,
-    "ingredients": [
-      {
-        "food_code": "F01614",
-        "food_name": "돼지고기, 등심, 구운것(팬)",
-        "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
-        "food_group": "육류",
-        "origin": "농진청",
-        "weight_g": 50.45871559633027,
-        "allergy": "돼지고기"
-      },
-      {
-        "food_code": "F00108",
-        "food_name": "밀, 중력밀가루",
-        "food_eng_name": "Wheat flour, White, All-purpose",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 17.155963302752294,
-        "allergy": "밀"
-      },
-      {
-        "food_code": "F01882",
-        "food_name": "달걀, 부침(달걀프라이)",
-        "food_eng_name": "Egg, Whole, Pan-fried",
-        "food_group": "난류",
-        "origin": "농진청",
-        "weight_g": 14.128440366972477,
-        "allergy": "난류,밀"
-      },
-      {
-        "food_code": "F00106",
-        "food_name": "밀, 빵가루",
-        "food_eng_name": "Wheat, Bread crumb",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 14.128440366972477,
-        "allergy": "밀"
-      },
-      {
-        "food_code": "F02712",
-        "food_name": "콩기름",
-        "food_eng_name": "Soybean oil",
-        "food_group": "유지류",
-        "origin": "농진청",
-        "weight_g": 10.091743119266056,
-        "allergy": "대두(콩)"
-      },
-      {
-        "food_code": "F02876",
-        "food_name": "소금, 천일염, 가는소금",
-        "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 2.018348623853211,
-        "allergy": null
-      },
-      {
-        "food_code": "F00739",
-        "food_name": "마늘, 생것",
-        "food_eng_name": "Garlic(Maneul), Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 1.0091743119266054,
-        "allergy": null
-      },
-      {
-        "food_code": "F02927",
-        "food_name": "후추, 검은색, 가루",
-        "food_eng_name": "Pepper, Black, Powder",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 1.0091743119266054,
-        "allergy": null
-      },
-      {
-        "food_name": "고구마, 찐것",
-        "food_group": "감자류 및 전분류",
-        "weight_g": 20
-      },
-      {
-        "food_name": "치즈, 모차렐라",
-        "food_group": "우유 및 그 제품",
-        "weight_g": 20
-      }
-    ],
-    "assumptions": "고구마치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 110g + 찐 고구마 20g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지.",
-    "source": "MenuGen 돈가스 + 국가표준식품성분표 고구마·모차렐라",
-    "created": "2026-10-05"
-  },
-  {
-    "name": "비건만두",
-    "weight_g": 759,
-    "ingredients": [
-      {
-        "food_code": "F00470",
-        "food_name": "두부",
-        "food_eng_name": "Tofu, Firm",
-        "food_group": "두류",
-        "origin": "농진청",
-        "weight_g": 160.0,
-        "allergy": "대두(콩)"
-      },
-      {
-        "food_code": "F00341",
-        "food_name": "당면, 고구마, 말린것",
-        "food_eng_name": "Cellophane noodle(Dangmyeon), Sweet potato starch, Dried",
-        "food_group": "감자 및 전분류",
-        "origin": "농진청",
-        "weight_g": 40.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F00664",
-        "food_name": "김치, 배추 김치",
-        "food_eng_name": "Kimchi, Baechukimchi, Prepared with Kimchi cabbage",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 200.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F00739",
-        "food_name": "마늘, 생것",
-        "food_eng_name": "Garlic(Maneul), Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 12.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F01149",
-        "food_name": "파, 대파, 생것",
-        "food_eng_name": "Welsh onion, Spring onion, Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 6.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02876",
-        "food_name": "소금, 천일염, 가는소금",
-        "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 10.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02710",
-        "food_name": "참기름",
-        "food_eng_name": "Sesame oil",
-        "food_group": "유지류",
-        "origin": "농진청",
-        "weight_g": 10.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02927",
-        "food_name": "후추, 검은색, 가루",
-        "food_eng_name": "Pepper, Black, Powder",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 1.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F00108",
-        "food_name": "밀, 중력밀가루",
-        "food_eng_name": "Wheat flour, White, All-purpose",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 110.0,
-        "allergy": "밀"
-      },
-      {
-        "food_name": "양배추, 생것",
-        "food_group": "채소류",
-        "weight_g": 53.333333333333336
-      },
-      {
-        "food_name": "두부",
-        "food_group": "두류",
-        "weight_g": 53.333333333333336
-      },
-      {
-        "food_name": "부추, 재래종, 생것",
-        "food_group": "채소류",
-        "weight_g": 53.333333333333336
-      }
-    ],
-    "assumptions": "비건만두: 사용자 지정 MenuGen 만두 기반 대체 레시피. 돼지고기160g 제거 후 양배추·두부·부추 각53.33g(1:1:1 동일중량 가정) 추가. 기존 두부160g 유지하여 두부 합계213.33g, 기존 김치·당면·밀가루·참기름·양념 유지. DB 제공량759g과 명시 재료합709g의 차이50g은 구성 미상으로 기존 분모 유지. 기존 제공량34g에 비례 환산. 실제 제품 배합 및 조리수율 미확인. 김치는 배추김치 성분 대체이며 실제 식물성 제품 여부는 이 계산으로 검증할 수 없음. 기존 제품 영양표 직접 환산은 제거. 영양소 탭 기존 계산 유지.",
-    "source": "MenuGen 만두 + 국가표준식품성분표 양배추·두부·부추",
-    "created": "2026-10-05"
-  },
-  {
-    "name": "디포리된장국수",
-    "weight_g": 772,
-    "ingredients": [
-      {
-        "food_code": "F00108",
-        "food_name": "밀, 중력밀가루",
-        "food_eng_name": "Wheat flour, White, All-purpose",
-        "food_group": "곡류 및 그 제품",
-        "origin": "농진청",
-        "weight_g": 80.0,
-        "allergy": "밀"
-      },
-      {
-        "food_code": "F01185",
-        "food_name": "호박, 애호박, 데친것",
-        "food_eng_name": "Pumpkin, Young, Blanched",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 35.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F01877",
-        "food_name": "달걀, 삶은것",
-        "food_eng_name": "Egg(Dalgyal), Whole, Boiled",
-        "food_group": "난류",
-        "origin": "농진청",
-        "weight_g": 20.0,
-        "allergy": "난류"
-      },
-      {
-        "food_code": "F00306",
-        "food_name": "감자, 대지, 삶은것",
-        "food_eng_name": "Potato(Gamja), Daeji, Boiled",
-        "food_group": "감자 및 전분류",
-        "origin": "농진청",
-        "weight_g": 15.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02827",
-        "food_name": "간장, 재래",
-        "food_eng_name": "Soy sauce, Korean traditional type",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 7.0,
-        "allergy": "대두(콩)"
-      },
-      {
-        "food_code": "F01149",
-        "food_name": "파, 대파, 생것",
-        "food_eng_name": "Welsh onion, Spring onion, Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 5.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F01279",
-        "food_name": "표고버섯, 참나무재배, 말린것, 삶은것",
-        "food_eng_name": "Oak mushroom(Pyogo-beoseot), On tree logs, Dried, Boiled",
-        "food_group": "버섯류",
-        "origin": "농진청",
-        "weight_g": 3.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02061",
-        "food_name": "멸치 육수",
-        "food_eng_name": "Anchovy, Broth",
-        "food_group": "어패류 및 기타 수산물",
-        "origin": "농진청",
-        "weight_g": 2.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02710",
-        "food_name": "참기름",
-        "food_eng_name": "Sesame oil",
-        "food_group": "유지류",
-        "origin": "농진청",
-        "weight_g": 2.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02582",
-        "food_name": "김, 참김, 구운것",
-        "food_eng_name": "Laver product, Roasted",
-        "food_group": "해조류",
-        "origin": "농진청",
-        "weight_g": 1.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F00739",
-        "food_name": "마늘, 생것",
-        "food_eng_name": "Garlic(Maneul), Raw",
-        "food_group": "채소류",
-        "origin": "농진청",
-        "weight_g": 1.0,
-        "allergy": null
-      },
-      {
-        "food_code": "F02876",
-        "food_name": "소금, 천일염, 가는소금",
-        "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
-        "food_group": "조미료류",
-        "origin": "농진청",
-        "weight_g": 1.0,
-        "allergy": null
-      }
-    ],
-    "assumptions": "디포리된장국수 → MenuGen 칼국수(소고기)에서 소고기15g 제외하여 대체 계산(사용자 지정). 나머지 달걀·감자·애호박·표고버섯·멸치육수·참기름 등 DB 재료는 유지. 레시피 기준 총중량787g에서 소고기15g을 뺀772g을 분모로 기존 제공량790g에 환산. 총중량과 명시 재료합의 차이는 기존 DB 기준 유지. 실제 면·건더기 배합 및 조리수율·된장·디포리육수 차이 미보정. 어육류군에는 달걀·멸치육수 성분이 남을 수 있음. 영양소 탭 기존 계산 유지.",
-    "source": "MenuGen 칼국수(소고기), 소고기 제외",
-    "created": "2026-10-05"
-  },
-  {
-    "name": "과일사라다",
-    "weight_g": 40,
-    "ingredients": [
-      {
-        "food_name": "멜론, 머스크, 생것",
-        "food_group": "과일류",
-        "weight_g": 8.0
-      },
-      {
-        "food_name": "사과, 생것",
-        "food_group": "과일류",
-        "weight_g": 8.0
-      },
-      {
-        "food_name": "바나나, 생것",
-        "food_group": "과일류",
-        "weight_g": 5.333333333333333
-      },
-      {
-        "food_name": "오렌지, 생것",
-        "food_group": "과일류",
-        "weight_g": 8.0
-      },
-      {
-        "food_name": "레몬 착즙",
-        "food_group": "과일류",
-        "weight_g": 1.3333333333333333
-      },
-      {
-        "food_name": "오렌지 주스",
-        "food_group": "과일류",
-        "weight_g": 1.3333333333333333
-      },
-      {
-        "food_name": "마요네즈",
-        "food_group": "유지류",
-        "weight_g": 8
-      }
-    ],
-    "source": "recipe_db_full.json: 과일 요구르트 샐러드 (seq 934), 사용자 지정 수정",
-    "created": "2026-10-06",
-    "assumptions": "과일사라다: 사용자 지정에 따라 과일 요구르트 샐러드(seq 934)의 플레인 요구르트를 전량 제외하고 마요네즈로 교체. 9/10 생활과학대학 냄비우동 식판 사진에서 과일을 두껍게 덮은 흰 소스를 근거로 기존 추정 제공량40g 중 마요네즈8g(20%)을 가정. 사진으로 무게·소스 제품·발효 여부를 측정하거나 확정한 값이 아님. 나머지32g은 원 레시피의 멜론30:사과30:바나나20:오렌지30:레몬주스5:오렌지주스5 비율로 배분. 과일 종류는 사진에서 모두 식별되지 않아 원 레시피 구성을 유지한 대체 추정. 멜론은 머스크 생것, 레몬주스는 레몬 착즙, 오렌지주스는 오렌지 주스 DB 사용. 일반 마요네즈 지방 성분으로 지방군 계산, 저열량 제품 가정하지 않음. 추가 설탕·우유·요구르트 없음. 메뉴 표시명과 기존 영양소 계산값 유지, 식품교환단위만 수정."
-  },
-  {
-    "name": "그릴야채",
-    "weight_g": 75,
-    "ingredients": [
-      {
-        "food_name": "꽃양배추(콜리플라워), 데친것",
-        "food_group": "채소류",
-        "weight_g": 25
-      },
-      {
-        "food_name": "브로콜리, 데친것",
-        "food_group": "채소류",
-        "weight_g": 20
-      },
-      {
-        "food_name": "당근, 뿌리, 데친것",
-        "food_group": "채소류",
-        "weight_g": 20
-      },
-      {
-        "food_name": "완두, 삶은것",
-        "food_group": "두류",
-        "weight_g": 5
-      },
-      {
-        "food_name": "옥수수, 단옥수수, 삶은것",
-        "food_group": "곡류 및 그 제품",
-        "weight_g": 5
-      }
-    ],
-    "calculation_source": "db104_direct",
-    "source": "2026-09-03 생활과학대학 식판 사진 + db104_raw_ingredients.json",
-    "created": "2026-10-06",
-    "assumptions": "그릴야채: 사용자 요청에 따라 9/3 생활과학대학 치킨스테이크&그릴야채 사진의 혼합채소를 원재료DB에 직접 연결. 콜리플라워25g, 브로콜리20g, 당근20g, 완두5g, 단옥수수5g으로 기존 추정 제공량75g을 배분. 흰 꽃송이는 콜리플라워, 초록 꽃송이는 브로콜리, 주황 주름 조각은 당근, 초록 둥근 알은 완두, 노란 알은 단옥수수로 사진상 추정. 음식·조리상태·중량을 실측하거나 확정한 값이 아님. 채소는 데친것, 완두와 단옥수수는 삶은것 DB로 대체. 소스와 추가 조리유는 사용자 지정으로 제외. 기존 계산기의 식품군 분류 유지: 완두(두류)는 어육류군, 단옥수수(곡류)는 곡류군. 메뉴 표시명과 기존 영양소 계산값은 유지하고 식품교환단위만 재계산."
-  },
-  {
-    "name": "파채_육전고명_2026-09-11",
-    "weight_g": 10,
-    "calculation_source": "db104_direct",
-    "ingredients": [
-      {
-        "food_name": "파, 대파, 생것",
-        "food_group": "채소류",
-        "weight_g": 10
-      }
-    ],
-    "assumptions": "파채: 사용자 요청으로 2026-09-11 생활과학대학 나주곰탕 식판 사진의 육전 위 고명을 원재료DB 파, 대파, 생것으로 연결. 육전 위에 얇게 채 썬 흰색·초록색 파 소량이 보여 10g으로 사진 추정(실측 아님). 기존 육전·파채40g 균등분할에서 파채20g을 사용하던 교환단위 계산을 파채10g으로 수정. 육전20g과 곰탕 안의 파는 이번 변경에서 유지하며 고명과 중복 계산하지 않음. 사진상 추가 양념 종류·양은 확인되지 않아 미반영. 메뉴 표시명 파채와 영양소 탭 기존 계산은 유지, 식품교환단위만 변경."
-  }
+ {
+  "name": "치즈돈까스",
+  "weight_g": 150,
+  "ingredients": [
+   {
+    "food_code": "F01614",
+    "food_name": "돼지고기, 등심, 구운것(팬)",
+    "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 59.63302752293578,
+    "allergy": "돼지고기"
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 20.275229357798164,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01882",
+    "food_name": "달걀, 부침(달걀프라이)",
+    "food_eng_name": "Egg, Whole, Pan-fried",
+    "food_group": "난류",
+    "origin": "농진청",
+    "weight_g": 16.69724770642202,
+    "allergy": "난류,밀"
+   },
+   {
+    "food_code": "F00106",
+    "food_name": "밀, 빵가루",
+    "food_eng_name": "Wheat, Bread crumb",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 16.69724770642202,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 11.926605504587156,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 2.385321100917431,
+    "allergy": null
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.1926605504587156,
+    "allergy": null
+   },
+   {
+    "food_code": "F02927",
+    "food_name": "후추, 검은색, 가루",
+    "food_eng_name": "Pepper, Black, Powder",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.1926605504587156,
+    "allergy": null
+   },
+   {
+    "food_name": "치즈, 모차렐라",
+    "food_group": "우유 및 그 제품",
+    "weight_g": 20
+   }
+  ],
+  "assumptions": "치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 130g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지.",
+  "source": "MenuGen 돈가스 + 국가표준식품성분표 고구마·모차렐라",
+  "created": "2026-10-05"
+ },
+ {
+  "name": "고구마치즈돈까스",
+  "weight_g": 150,
+  "ingredients": [
+   {
+    "food_code": "F01614",
+    "food_name": "돼지고기, 등심, 구운것(팬)",
+    "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 50.45871559633027,
+    "allergy": "돼지고기"
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 17.155963302752294,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01882",
+    "food_name": "달걀, 부침(달걀프라이)",
+    "food_eng_name": "Egg, Whole, Pan-fried",
+    "food_group": "난류",
+    "origin": "농진청",
+    "weight_g": 14.128440366972477,
+    "allergy": "난류,밀"
+   },
+   {
+    "food_code": "F00106",
+    "food_name": "밀, 빵가루",
+    "food_eng_name": "Wheat, Bread crumb",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 14.128440366972477,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 10.091743119266056,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 2.018348623853211,
+    "allergy": null
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.0091743119266054,
+    "allergy": null
+   },
+   {
+    "food_code": "F02927",
+    "food_name": "후추, 검은색, 가루",
+    "food_eng_name": "Pepper, Black, Powder",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0091743119266054,
+    "allergy": null
+   },
+   {
+    "food_name": "고구마, 찐것",
+    "food_group": "감자류 및 전분류",
+    "weight_g": 20
+   },
+   {
+    "food_name": "치즈, 모차렐라",
+    "food_group": "우유 및 그 제품",
+    "weight_g": 20
+   }
+  ],
+  "assumptions": "고구마치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 110g + 찐 고구마 20g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지.",
+  "source": "MenuGen 돈가스 + 국가표준식품성분표 고구마·모차렐라",
+  "created": "2026-10-05"
+ },
+ {
+  "name": "비건만두",
+  "weight_g": 759,
+  "ingredients": [
+   {
+    "food_code": "F00470",
+    "food_name": "두부",
+    "food_eng_name": "Tofu, Firm",
+    "food_group": "두류",
+    "origin": "농진청",
+    "weight_g": 160.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00341",
+    "food_name": "당면, 고구마, 말린것",
+    "food_eng_name": "Cellophane noodle(Dangmyeon), Sweet potato starch, Dried",
+    "food_group": "감자 및 전분류",
+    "origin": "농진청",
+    "weight_g": 40.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00664",
+    "food_name": "김치, 배추 김치",
+    "food_eng_name": "Kimchi, Baechukimchi, Prepared with Kimchi cabbage",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 200.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 12.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01149",
+    "food_name": "파, 대파, 생것",
+    "food_eng_name": "Welsh onion, Spring onion, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 6.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02710",
+    "food_name": "참기름",
+    "food_eng_name": "Sesame oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02927",
+    "food_name": "후추, 검은색, 가루",
+    "food_eng_name": "Pepper, Black, Powder",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 110.0,
+    "allergy": "밀"
+   },
+   {
+    "food_name": "양배추, 생것",
+    "food_group": "채소류",
+    "weight_g": 53.333333333333336
+   },
+   {
+    "food_name": "두부",
+    "food_group": "두류",
+    "weight_g": 53.333333333333336
+   },
+   {
+    "food_name": "부추, 재래종, 생것",
+    "food_group": "채소류",
+    "weight_g": 53.333333333333336
+   }
+  ],
+  "assumptions": "비건만두: 사용자 지정 MenuGen 만두 기반 대체 레시피. 돼지고기160g 제거 후 양배추·두부·부추 각53.33g(1:1:1 동일중량 가정) 추가. 기존 두부160g 유지하여 두부 합계213.33g, 기존 김치·당면·밀가루·참기름·양념 유지. DB 제공량759g과 명시 재료합709g의 차이50g은 구성 미상으로 기존 분모 유지. 기존 제공량34g에 비례 환산. 실제 제품 배합 및 조리수율 미확인. 김치는 배추김치 성분 대체이며 실제 식물성 제품 여부는 이 계산으로 검증할 수 없음. 기존 제품 영양표 직접 환산은 제거. 영양소 탭 기존 계산 유지.",
+  "source": "MenuGen 만두 + 국가표준식품성분표 양배추·두부·부추",
+  "created": "2026-10-05"
+ },
+ {
+  "name": "디포리된장국수",
+  "weight_g": 772,
+  "ingredients": [
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 80.0,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01185",
+    "food_name": "호박, 애호박, 데친것",
+    "food_eng_name": "Pumpkin, Young, Blanched",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 35.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01877",
+    "food_name": "달걀, 삶은것",
+    "food_eng_name": "Egg(Dalgyal), Whole, Boiled",
+    "food_group": "난류",
+    "origin": "농진청",
+    "weight_g": 20.0,
+    "allergy": "난류"
+   },
+   {
+    "food_code": "F00306",
+    "food_name": "감자, 대지, 삶은것",
+    "food_eng_name": "Potato(Gamja), Daeji, Boiled",
+    "food_group": "감자 및 전분류",
+    "origin": "농진청",
+    "weight_g": 15.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02827",
+    "food_name": "간장, 재래",
+    "food_eng_name": "Soy sauce, Korean traditional type",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 7.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F01149",
+    "food_name": "파, 대파, 생것",
+    "food_eng_name": "Welsh onion, Spring onion, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 5.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01279",
+    "food_name": "표고버섯, 참나무재배, 말린것, 삶은것",
+    "food_eng_name": "Oak mushroom(Pyogo-beoseot), On tree logs, Dried, Boiled",
+    "food_group": "버섯류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02061",
+    "food_name": "멸치 육수",
+    "food_eng_name": "Anchovy, Broth",
+    "food_group": "어패류 및 기타 수산물",
+    "origin": "농진청",
+    "weight_g": 2.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02710",
+    "food_name": "참기름",
+    "food_eng_name": "Sesame oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 2.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02582",
+    "food_name": "김, 참김, 구운것",
+    "food_eng_name": "Laver product, Roasted",
+    "food_group": "해조류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   }
+  ],
+  "assumptions": "디포리된장국수 → MenuGen 칼국수(소고기)에서 소고기15g 제외하여 대체 계산(사용자 지정). 나머지 달걀·감자·애호박·표고버섯·멸치육수·참기름 등 DB 재료는 유지. 레시피 기준 총중량787g에서 소고기15g을 뺀772g을 분모로 기존 제공량790g에 환산. 총중량과 명시 재료합의 차이는 기존 DB 기준 유지. 실제 면·건더기 배합 및 조리수율·된장·디포리육수 차이 미보정. 어육류군에는 달걀·멸치육수 성분이 남을 수 있음. 영양소 탭 기존 계산 유지.",
+  "source": "MenuGen 칼국수(소고기), 소고기 제외",
+  "created": "2026-10-05"
+ },
+ {
+  "name": "과일사라다",
+  "weight_g": 40,
+  "ingredients": [
+   {
+    "food_name": "멜론, 머스크, 생것",
+    "food_group": "과일류",
+    "weight_g": 8.0
+   },
+   {
+    "food_name": "사과, 생것",
+    "food_group": "과일류",
+    "weight_g": 8.0
+   },
+   {
+    "food_name": "바나나, 생것",
+    "food_group": "과일류",
+    "weight_g": 5.333333333333333
+   },
+   {
+    "food_name": "오렌지, 생것",
+    "food_group": "과일류",
+    "weight_g": 8.0
+   },
+   {
+    "food_name": "레몬 착즙",
+    "food_group": "과일류",
+    "weight_g": 1.3333333333333333
+   },
+   {
+    "food_name": "오렌지 주스",
+    "food_group": "과일류",
+    "weight_g": 1.3333333333333333
+   },
+   {
+    "food_name": "마요네즈",
+    "food_group": "유지류",
+    "weight_g": 8
+   }
+  ],
+  "source": "recipe_db_full.json: 과일 요구르트 샐러드 (seq 934), 사용자 지정 수정",
+  "created": "2026-10-06",
+  "assumptions": "과일사라다: 사용자 지정에 따라 과일 요구르트 샐러드(seq 934)의 플레인 요구르트를 전량 제외하고 마요네즈로 교체. 9/10 생활과학대학 냄비우동 식판 사진에서 과일을 두껍게 덮은 흰 소스를 근거로 기존 추정 제공량40g 중 마요네즈8g(20%)을 가정. 사진으로 무게·소스 제품·발효 여부를 측정하거나 확정한 값이 아님. 나머지32g은 원 레시피의 멜론30:사과30:바나나20:오렌지30:레몬주스5:오렌지주스5 비율로 배분. 과일 종류는 사진에서 모두 식별되지 않아 원 레시피 구성을 유지한 대체 추정. 멜론은 머스크 생것, 레몬주스는 레몬 착즙, 오렌지주스는 오렌지 주스 DB 사용. 일반 마요네즈 지방 성분으로 지방군 계산, 저열량 제품 가정하지 않음. 추가 설탕·우유·요구르트 없음. 메뉴 표시명과 기존 영양소 계산값 유지, 식품교환단위만 수정."
+ },
+ {
+  "name": "그릴야채",
+  "weight_g": 75,
+  "ingredients": [
+   {
+    "food_name": "꽃양배추(콜리플라워), 데친것",
+    "food_group": "채소류",
+    "weight_g": 25
+   },
+   {
+    "food_name": "브로콜리, 데친것",
+    "food_group": "채소류",
+    "weight_g": 20
+   },
+   {
+    "food_name": "당근, 뿌리, 데친것",
+    "food_group": "채소류",
+    "weight_g": 20
+   },
+   {
+    "food_name": "완두, 삶은것",
+    "food_group": "두류",
+    "weight_g": 5
+   },
+   {
+    "food_name": "옥수수, 단옥수수, 삶은것",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 5
+   }
+  ],
+  "calculation_source": "db104_direct",
+  "source": "2026-09-03 생활과학대학 식판 사진 + db104_raw_ingredients.json",
+  "created": "2026-10-06",
+  "assumptions": "그릴야채: 사용자 요청에 따라 9/3 생활과학대학 치킨스테이크&그릴야채 사진의 혼합채소를 원재료DB에 직접 연결. 콜리플라워25g, 브로콜리20g, 당근20g, 완두5g, 단옥수수5g으로 기존 추정 제공량75g을 배분. 흰 꽃송이는 콜리플라워, 초록 꽃송이는 브로콜리, 주황 주름 조각은 당근, 초록 둥근 알은 완두, 노란 알은 단옥수수로 사진상 추정. 음식·조리상태·중량을 실측하거나 확정한 값이 아님. 채소는 데친것, 완두와 단옥수수는 삶은것 DB로 대체. 소스와 추가 조리유는 사용자 지정으로 제외. 기존 계산기의 식품군 분류 유지: 완두(두류)는 어육류군, 단옥수수(곡류)는 곡류군. 메뉴 표시명과 기존 영양소 계산값은 유지하고 식품교환단위만 재계산."
+ },
+ {
+  "name": "파채_육전고명_2026-09-11",
+  "weight_g": 10,
+  "calculation_source": "db104_direct",
+  "ingredients": [
+   {
+    "food_name": "파, 대파, 생것",
+    "food_group": "채소류",
+    "weight_g": 10
+   }
+  ],
+  "assumptions": "파채: 사용자 요청으로 2026-09-11 생활과학대학 나주곰탕 식판 사진의 육전 위 고명을 원재료DB 파, 대파, 생것으로 연결. 육전 위에 얇게 채 썬 흰색·초록색 파 소량이 보여 10g으로 사진 추정(실측 아님). 기존 육전·파채40g 균등분할에서 파채20g을 사용하던 교환단위 계산을 파채10g으로 수정. 육전20g과 곰탕 안의 파는 이번 변경에서 유지하며 고명과 중복 계산하지 않음. 사진상 추가 양념 종류·양은 확인되지 않아 미반영. 메뉴 표시명 파채와 영양소 탭 기존 계산은 유지, 식품교환단위만 변경."
+ },
+ {
+  "name": "명엽채볶음",
+  "weight_g": 78.0,
+  "ingredients": [
+   {
+    "food_code": "F02293",
+    "food_name": "쥐치, 포, 말린것",
+    "food_eng_name": "Threadsail filefish, Dried, Strip",
+    "food_group": "어패류 및 기타 수산물",
+    "origin": null,
+    "weight_g": 60.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 6.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02825",
+    "food_name": "간장, 개량, 양조",
+    "food_eng_name": "Soy sauce, Fermented type",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 2.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00386",
+    "food_name": "물엿",
+    "food_eng_name": "Starch syrup",
+    "food_group": "당류",
+    "origin": "농진청",
+    "weight_g": 5.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01149",
+    "food_name": "파, 대파, 생것",
+    "food_eng_name": "Welsh onion, Spring onion, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00551",
+    "food_name": "참깨, 흰색, 볶은것",
+    "food_eng_name": "Sesame seed(Chamkkae), White, Roasted",
+    "food_group": "견과 및 종실류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02710",
+    "food_name": "참기름",
+    "food_eng_name": "Sesame oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 쥐치포볶음 + 2026-09-11 사진 기반 사용자 지정",
+  "created": "2026-10-06",
+  "assumptions": "명엽채볶음: 사용자 지정으로 MenuGen 쥐치포볶음에서 고추장6g을 제외한 대체 레시피 적용. 2026-09-11 생활과학대학·신소재공학관 사진의 연갈색·연노란색 납작한 채와 윤기·깨를 근거로 함. 기본 재료는 말린 쥐치포60g, 콩기름6g, 양조간장2g, 물엿5g, 대파3g, 볶은 참깨1g, 참기름1g이며 고추장 제외 후 총78g을 기존 추정 제공량40g에 비례 환산. 실제 명엽채의 어종·가공배합과 양념 종류·양은 사진으로 확정할 수 없고 사진에서 확인되지 않는 대파·참기름 등은 대체 표준 레시피 구성으로 유지함. 조리수율 실측 없음. 간장·물엿 등은 기존 식품군 환산 규칙상 교환단위에 별도 반영되지 않으므로 전체 영양성분 계산과는 다름. 메뉴 표시명과 기존 영양성분 계산값은 유지하고 식품교환단위만 변경."
+ },
+ {
+  "name": "모듬튀김",
+  "weight_g": 40,
+  "ingredients": [
+   {
+    "food_code": "F02496",
+    "food_name": "새우, 꽃새우, 튀긴것(빵가루)",
+    "food_eng_name": "Southern rough shrimp, Deep-fried, Breaded",
+    "food_group": "어패류 및 기타 수산물",
+    "origin": "USDA",
+    "weight_g": 12.0,
+    "allergy": "새우"
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 2.0779220779220777,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F02567",
+    "food_name": "어묵, 게맛살 첨가",
+    "food_eng_name": "Eomuk, Fried fish paste, With crab",
+    "food_group": "어패류 및 기타 수산물",
+    "origin": null,
+    "weight_g": 2.0779220779220777,
+    "allergy": "밀,게"
+   },
+   {
+    "food_code": "F01882",
+    "food_name": "달걀, 부침(달걀프라이)",
+    "food_eng_name": "Egg, Whole, Pan-fried",
+    "food_group": "난류",
+    "origin": "농진청",
+    "weight_g": 1.5584415584415585,
+    "allergy": "난류,밀"
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 0.8311688311688312,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00342",
+    "food_name": "당면, 고구마, 삶은것",
+    "food_eng_name": "Cellophane noodle(Dangmyeon), Sweet potato starch, Boiled",
+    "food_group": "감자 및 전분류",
+    "origin": "농진청",
+    "weight_g": 0.6233766233766234,
+    "allergy": null
+   },
+   {
+    "food_code": "F00622",
+    "food_name": "고추, 빨간색, 생것",
+    "food_eng_name": "Hot pepper(Gochu), Red, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 0.3116883116883117,
+    "allergy": null
+   },
+   {
+    "food_code": "F02582",
+    "food_name": "김, 참김, 구운것",
+    "food_eng_name": "Laver product, Roasted",
+    "food_group": "해조류",
+    "origin": "농진청",
+    "weight_g": 0.3116883116883117,
+    "allergy": null
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 0.2077922077922078,
+    "allergy": null
+   },
+   {
+    "food_code": "F00470",
+    "food_name": "두부",
+    "food_eng_name": "Tofu, Firm",
+    "food_group": "두류",
+    "origin": "농진청",
+    "weight_g": 2.5396825396825395,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 1.9047619047619047,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01614",
+    "food_name": "돼지고기, 등심, 구운것(팬)",
+    "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 1.2698412698412698,
+    "allergy": "돼지고기"
+   },
+   {
+    "food_code": "F00940",
+    "food_name": "숙주나물, 데친것",
+    "food_eng_name": "Mungbean sprout(Sukjunamul), Blanched",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.2698412698412698,
+    "allergy": null
+   },
+   {
+    "food_code": "F00342",
+    "food_name": "당면, 고구마, 삶은것",
+    "food_eng_name": "Cellophane noodle(Dangmyeon), Sweet potato starch, Boiled",
+    "food_group": "감자 및 전분류",
+    "origin": "농진청",
+    "weight_g": 0.31746031746031744,
+    "allergy": null
+   },
+   {
+    "food_code": "F01148",
+    "food_name": "파, 쪽파, 생것",
+    "food_eng_name": "Welsh onion, Shallot, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 0.31746031746031744,
+    "allergy": null
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 0.15873015873015872,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 0.12698412698412698,
+    "allergy": null
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 0.09523809523809523,
+    "allergy": null
+   },
+   {
+    "food_name": "양파, 데친것",
+    "food_group": "채소류",
+    "weight_g": 4
+   },
+   {
+    "food_name": "당근, 뿌리, 데친것",
+    "food_group": "채소류",
+    "weight_g": 3
+   },
+   {
+    "food_name": "밀, 중력밀가루",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 3
+   },
+   {
+    "food_name": "콩기름",
+    "food_group": "유지류",
+    "weight_g": 2
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 3종 + 2026-08-28 사진 기반 야채튀김 원재료 보완",
+  "created": "2026-10-06",
+  "assumptions": "모듬튀김: 사용자 지정으로 2026-08-28 생활과학대학 전골떡볶이 사진의 새우튀김1개·김말이2조각·반달형 만두튀김 추정1개·야채튀김을 분해 매칭. 기존 추정 제공량40g을 새우튀김12g·김말이튀김8g·만두튀김8g·야채튀김12g으로 배분; 사진상 크기를 참고한 상대비율이며 실측 중량이 아님. 처음 세 항목은 각각 MenuGen 새우튀김·김말이튀김·만두튀김 표준 구성에 비례 환산. 김말이 레시피의 어묵·달걀 등과 만두 속재료는 사진으로 확인되지 않는 DB 대체 배합이며 실제 제품과 다를 수 있음. 야채튀김은 직접 레시피가 없어 양파4g·당근3g·중력밀가루3g·콩기름2g의 원재료DB로 재구성. 야채 종류·튀김옷·흡유량은 추정, 데친 채소 DB로 대체하며 물 손실·조리수율은 실측하지 않음. 소금 등은 기존 식품군 환산 규칙으로 교환단위 미반영; 완제품 새우튀김 성분은 기존 계산기의 어육류군 환산을 적용하며 튀김옷과 기름을 별도 분해하지 않음. 메뉴 표시명과 기존 영양성분 계산값은 유지하고 식품교환단위만 변경."
+ },
+ {
+  "name": "전복표고솥밥_도라지제외_2026-09-01",
+  "weight_g": 251.0,
+  "ingredients": [
+   {
+    "food_code": "F00017",
+    "food_name": "멥쌀, 백미, 밥",
+    "food_eng_name": "Rice(Ssal), White, Raw",
+    "food_group": "곡류 및 그 제품",
+    "origin": "대푯값",
+    "weight_g": 200.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01271",
+    "food_name": "표고버섯, 배지재배, 생것",
+    "food_eng_name": "Oak mushroom(Pyogo-beoseot), On the growing medium, Raw",
+    "food_group": "버섯류",
+    "origin": "농진청",
+    "weight_g": 15.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02411",
+    "food_name": "전복, 둥근전복, 생것",
+    "food_eng_name": "Disk abalone, Raw",
+    "food_group": "어패류 및 기타 수산물",
+    "origin": null,
+    "weight_g": 10.0,
+    "allergy": "어패류(굴, 전복, 홍합 포함)"
+   },
+   {
+    "food_code": "F00541",
+    "food_name": "은행, 생것",
+    "food_eng_name": "Ginkgo nut(Eunhaeng), Raw",
+    "food_group": "견과 및 종실류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00511",
+    "food_name": "밤, 생것",
+    "food_eng_name": "Chestnut(Bam), Raw",
+    "food_group": "견과 및 종실류",
+    "origin": "농진청",
+    "weight_g": 8.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02688",
+    "food_name": "들기름",
+    "food_eng_name": "Perilla seed oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 7.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02878",
+    "food_name": "소금, 천일염, 소금꽃",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Flower salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 도라지전복영양밥에서 도라지 제외 + 조리 밥 중량 변환",
+  "created": "2026-10-06",
+  "assumptions": "전복표고솥밥 밥 본체: 사용자 지정으로 MenuGen 도라지전복영양밥에서 도라지25g 제외. 레시피에 이미 있는 전복·표고를 포함하며 기존 별도 전복10g은 교환단위에서 중복 제외. 기존 볶음밥240g+전복10g을 합친250g을 적용. 생쌀80g을 완성 밥250g에 그대로 비례 확대하지 않도록 쌀 조리수율2.5배를 가정해 원재료DB 멥쌀, 백미, 밥200g으로 대체. 나머지는 표고15g·전복10g·은행10g·밤8g·들기름7g·소금1g 유지; 도라지 제외·밥 중량 변환 후 기준 총251g을250g으로 비례 환산. 쌀 조리수율·다른 재료 중량 변화는 실측 아님. 은행·밤·들기름은 사용자가 지정한 대체 레시피 구성으로 유지하며 실제 급식 배합을 확정한 값은 아님. 김 또는 전복 내장으로 보이는 검은 조각은 종류 불명이라 별도 추가하지 않음. 소금은 기존 교환단위 규칙상 미반영. 메뉴 이름과 기존 영양성분 계산은 유지하고 식품교환단위 연결만 변경."
+ },
+ {
+  "name": "야채필라프",
+  "weight_g": 72.3,
+  "ingredients": [
+   {
+    "food_code": "F00017",
+    "food_name": "멥쌀, 백미, 생것",
+    "food_eng_name": "Rice(Ssal), White, Raw",
+    "food_group": "곡류 및 그 제품",
+    "origin": "대푯값",
+    "weight_g": 55.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01001",
+    "food_name": "양파, 생것",
+    "food_eng_name": "Onion(Yangpa), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01165",
+    "food_name": "피망, 초록색, 생것",
+    "food_eng_name": "Sweet pepper(Pimang), Green, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00702",
+    "food_name": "당근, 뿌리, 생것",
+    "food_eng_name": "Carrot(Danggeun), Root, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 0.3,
+    "allergy": null
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 채소볶음밥에서 사용자 지정 달걀 제외",
+  "created": "2026-10-06",
+  "assumptions": "야채필라프: 사용자 지정으로 MenuGen 채소볶음밥에서 달걀10g 제외. 남은 생쌀55g·양파10g·피망3g·당근3g·콩기름1g·소금0.3g의 기준 총72.3g을 기존 추정 제공량40g에 비례 환산. 생쌀 기반 DB 표준 배합이며 생쌀의 조리수율을 보정하거나 실제 급식 중량을 실측한 값은 아님. 2026-09-03 사진은 채소밥 계열을 참고한 근거이며 사진에서 보이는 옥수수 추정 조각은 사용자 지정 레시피에 없어 별도 추가하지 않음. 달걀은 이번 교환단위 계산에 포함하지 않으며 실제 조리유·채소 배합과 다를 수 있음. 메뉴 표시명과 기존 영양성분의 필라프(새우) 대체 계산은 유지하고 식품교환단위만 변경."
+ }
 ]
