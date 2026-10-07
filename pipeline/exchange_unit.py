@@ -452,6 +452,8 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "비빔막국수": "메밀비빔국수",
             "스크램블에그": "스크램에그",
             "알감자조림": "감자조림",
+            "양념깻잎지": "깻잎장아찌",
+            "양파간장절임": "양파장아찌",
             "애호박전": "호박전(애호박)",
             "소면사리": "소면",
             "순대": "순대",
@@ -534,7 +536,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     if name in ("비엔나케찹볶음", "비엔나케첩볶음"):
         name = "소시지볶음(토마토케첩, 야채)"
     # 사용자 지정: 오그락지는 무말랭이 무침 레시피로 계산한다.
-    if name in ("오그락지", "무말랭이무침"):
+    if name in ("오그락지", "오그락지무침", "무말랭이무침"):
         name = "무말랭이 무침"
     # 사용자 지정: 산고추지는 고추장아찌로 계산한다.
     if name == "산고추지":

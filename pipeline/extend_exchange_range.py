@@ -13,7 +13,7 @@ from exchange_unit import compute_exchange_units, EXCHANGE_GROUPS, compute_kimch
 
 ROOT = Path(__file__).resolve().parent.parent
 FIELDS = dict(zip(EXCHANGE_GROUPS, ['grain', 'meat', 'veg', 'fat', 'dairy', 'fruit']))
-EXCLUDED = {'우동국', '우동국물', '미소국', '미소장국', '케찹', '케첩', '간장', '초간장', '초장', '돈까스소스', '브라운소스', '쌈장'}
+EXCLUDED = {'우동국', '우동국물', '미소국', '미소장국', '케찹', '케첩', '간장', '초간장', '초장', '돈까스소스', '브라운소스', '쌈장', '양파간장'}
 
 def selected(row):
     return row['shop'] in ('401', '204') and '2026-08-24' <= row['date'] <= '2026-09-19'

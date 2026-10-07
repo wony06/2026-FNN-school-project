@@ -560,7 +560,7 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         if it.get("exchange_excluded_reason"):
             recipe_notes.append(it["exchange_excluded_reason"])
             continue
-        if it["display"] in ("돈까스소스", "브라운소스", "쌈장"):
+        if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장"):
             recipe_notes.append(f"{it['display']}: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.")
             continue
         if shop == "401" and it["display"] == "김치2종" and date in KIMCHI_PAIR_EXCLUDED_DATES:
