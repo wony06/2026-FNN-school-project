@@ -158,11 +158,6 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 }
 .card:hover{border-color:var(--accent); transform:translateY(-1px);}
 .card:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-.card.dietary-unmet{background:var(--surface-2);border-color:var(--border);color:var(--ink-muted);}
-.card.dietary-unmet:hover{border-color:var(--ink-muted);}
-.card.dietary-unmet .card-name,.card.dietary-unmet .card-nutri b{color:var(--ink);}
-.card.dietary-unmet .badge-good,.card.dietary-unmet .total-score{background:var(--surface-3);color:var(--ink-muted);}
-.total-score{padding:10px 14px;border-radius:10px;background:var(--good-soft);color:var(--good);font-weight:700;}
 
 .card-top{display:flex; justify-content:space-between; gap:8px; align-items:flex-start;}
 .card-cat{
@@ -291,10 +286,15 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 
 <div class="topbar">
   <div class="topbar-inner">
-    <span class="eyebrow">HANYANG UNIVERSITY</span>
-    <div class="hero-copy"><h1>HYU Menu Guide</h1><p>내 영양목표에 맞는 한양대 학식을 찾아보세요.</p></div>
+    <div class="hero-intro">
+      <div class="hero-text">
+        <span class="eyebrow">HANYANG UNIVERSITY</span>
+        <div class="hero-copy"><h1>HYU Menu Guide</h1><p>내 영양목표에 맞는 한양대 학식을 찾아보세요.</p></div>
+      </div>
+      <img class="hero-illustration" src="hyu-mascot-flag.png" alt="한양대학교 깃발을 든 캐릭터" width="220" height="199">
+    </div>
     <div class="selection-panel">
-      <div class="step-caption"><span class="step-number">01</span><div><strong>날짜 선택</strong><small>점심 메뉴를 확인할 날짜를 골라주세요.</small></div></div>
+      <div class="step-caption"><div><strong>날짜 선택</strong><small>점심 메뉴를 확인할 날짜를 골라주세요.</small></div></div>
       <div id="dateStrip" class="date-strip" aria-label="날짜 선택"></div>
     </div>
   </div>
@@ -303,34 +303,46 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <main>
   <form id="personalForm" class="personal-form">
     <section class="input-card">
-      <div class="step-caption"><span class="step-number">02</span><div><strong>사용자 정보</strong><small>입력값은 추천 계산에만 사용하고 저장하지 않아요.</small></div></div>
+      <div class="step-caption"><span class="step-number">01</span><div><strong>사용자 정보</strong><small>입력값은 추천 계산에만 사용하고 저장하지 않아요.</small></div></div>
       <div class="profile-grid">
         <label class="form-field"><span class="field-label">성별</span><select name="sex" required><option value="">선택해 주세요</option><option value="male">남성</option><option value="female">여성</option></select></label>
         <label class="form-field"><span class="field-label">만 나이 <span class="field-hint">20세 이상</span></span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
         <label class="form-field"><span class="field-label">키 <span class="field-hint">cm</span></span><input name="heightCm" type="number" min="0.1" step="any" placeholder="예: 170" required></label>
         <label class="form-field"><span class="field-label">체중 <span class="field-hint">kg</span></span><input name="weightKg" type="number" min="0.1" step="any" placeholder="예: 65" required></label>
       </div>
-      <div class="activity-field" role="radiogroup" aria-labelledby="activity-heading">
-          <div id="activity-heading" class="activity-heading">활동수준</div>
-          <div class="activity-options">
-            <label class="activity-option"><input type="radio" name="activity" value="0" required><span><strong>비활동적</strong><small>대부분 앉아서 생활하며 규칙적인 운동을 거의 하지 않는 경우</small></span></label>
-            <label class="activity-option"><input type="radio" name="activity" value="1"><span><strong>저활동적</strong><small>통학·이동 등 가벼운 일상활동을 하는 일반적인 생활</small></span></label>
-            <label class="activity-option"><input type="radio" name="activity" value="2"><span><strong>활동적</strong><small>일상생활에 더해 중강도 운동 하루 60분 이상 하는 경우</small></span></label>
-            <label class="activity-option"><input type="radio" name="activity" value="3"><span><strong>매우 활동적</strong><small>일상생활에 더해 고강도 운동을 하루 2시간 이상 하는 경우</small></span></label>
+      <div class="daily-preferences">
+        <div class="meal-count-group" role="radiogroup" aria-labelledby="meal-count-heading">
+          <div id="meal-count-heading" class="choice-heading">하루 식사 횟수</div>
+          <div class="meal-count-options">
+            <label class="meal-option"><input type="radio" name="mealCount" value="2" required><span>2끼</span></label>
+            <label class="meal-option"><input type="radio" name="mealCount" value="3" checked><span>3끼</span></label>
           </div>
+        </div>
+        <div class="activity-field" role="radiogroup" aria-labelledby="activity-heading">
+          <div id="activity-heading" class="choice-heading">활동수준</div>
+          <div class="activity-options">
+            <label class="activity-option"><input type="radio" name="activity" value="0" data-description="대부분 앉아서 생활하며 규칙적인 운동을 거의 하지 않는 경우" required><span>비활동적</span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="1" data-description="통학·이동 등 가벼운 일상활동을 하는 일반적인 생활"><span>저활동적</span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="2" data-description="일상생활에 더해 중강도 운동 하루 60분 이상 하는 경우"><span>활동적</span></label>
+            <label class="activity-option"><input type="radio" name="activity" value="3" data-description="일상생활에 더해 고강도 운동을 하루 2시간 이상 하는 경우"><span>매우 활동적</span></label>
+          </div>
+          <p id="activityDescription" class="selection-description" aria-live="polite" hidden></p>
+        </div>
       </div>
     </section>
-    <section class="input-card">
-      <div class="step-caption"><span class="step-number">03</span><div><strong>영양목표</strong><small>나에게 맞는 한 가지 목표를 선택하세요.</small></div></div>
-      <div class="goal-grid" role="radiogroup" aria-label="영양목표">
-        <label class="goal-option"><input type="radio" name="goal" value="lifestyle" checked><span><strong>라이프스타일 유지</strong><small>현재 생활 패턴에 맞게</small></span></label>
-        <label class="goal-option"><input type="radio" name="goal" value="weight_loss"><span><strong>체중감량</strong><small>하루 목표 열량 조정</small></span></label>
-        <label class="goal-option"><input type="radio" name="goal" value="glycemic"><span><strong>혈당관리</strong><small>혈당관리 교환단위 적용</small></span></label>
+    <section class="input-card recommendation-card">
+      <div class="step-caption"><span class="step-number">02</span><div><strong>어떤 기준으로 추천받을까요?</strong><small>식사에서 가장 중요하게 생각하는 기준 한 가지를 선택해주세요.</small></div></div>
+      <div class="goal-grid" role="radiogroup" aria-label="추천 기준">
+        <label class="goal-option"><input type="radio" name="goal" value="lifestyle" data-description="내 필요 에너지에 잘 맞는 메뉴부터" checked><span>라이프스타일 유지</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="weight_loss" data-description="목표 열량 안에서 나에게 잘 맞는 메뉴부터"><span>체중감량</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="glycemic" data-description="혈당관리를 고려한 식사 구성에 잘 맞는 메뉴부터"><span>혈당관리</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="balanced" data-description="영양밀도가 높은 메뉴부터"><span>균형잡힌 식단</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="high_protein" data-description="한 끼 단백질 기준을 충족한 메뉴 중 단백질이 많은 순"><span>고단백</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="low_sugar" data-description="총당류가 낮은 메뉴부터"><span>저당</span></label>
+        <label class="goal-option"><input type="radio" name="goal" value="low_sodium" data-description="나트륨이 낮은 메뉴부터"><span>저나트륨</span></label>
       </div>
-    </section>
-    <section class="input-card dietary-card">
-      <div class="step-caption"><span class="step-number">04</span><div><strong>추가 식이조건</strong><small>여러 개를 선택하면 모두 충족하는 메뉴를 먼저 보여줘요.</small></div></div>
-      <div class="dietary-chips"><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sodium"><span>저나트륨</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="low_sugar"><span>저당</span></label><label class="diet-chip"><input type="checkbox" name="dietary" value="high_protein"><span>고단백</span></label></div>
+      <p id="goalDescription" class="selection-description goal-description" aria-live="polite"></p>
+      <label id="weightLossField" class="form-field weight-loss-field" hidden><span class="field-label">한 달 목표 감량 체중 <span class="field-hint">kg · 미입력 시 하루 750 kcal 적자</span></span><input name="monthlyLossKg" type="number" min="0" step="any" placeholder="예: 2"></label>
     </section>
     <div class="form-actions"><button type="submit" id="personalSubmit" disabled>내게 맞는 메뉴 보기</button><div id="personalStatus" role="status">정보를 입력하면 개인 추천순위를 보여드려요.</div></div>
   </form>
@@ -352,7 +364,6 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </aside>
 
 <script src="instant-rice.js"></script>
-<script src="nrf-ranking.js"></script>
 <script src="personal-score.js"></script>
 <script src="recommendation-view.js"></script>
 <script>
@@ -367,6 +378,7 @@ let byDate = {};
 let dates = [];
 let activeDate = null;
 let activeShop = "all";
+let activeGoal = null;
 
 function pct(v, dv){ return Math.min(100, (v/dv)*100); }
 
@@ -423,63 +435,65 @@ function renderShopTabs(){
   });
 }
 
-function scoreDescription(score){
-  if(score>=80) return '매우 잘 맞음';
-  if(score>=60) return '잘 맞음';
-  if(score>=40) return '보통';
-  return '낮은 편';
+const GOAL_LABEL={lifestyle:'라이프스타일 유지',weight_loss:'체중감량',glycemic:'혈당관리',
+  balanced:'균형잡힌 식단',high_protein:'고단백',low_sugar:'저당',low_sodium:'저나트륨'};
+function metricDisplay(item){
+  const r=item.recommendation;
+  if(!r.eligible) return null;
+  if(r.goal==='high_protein') return {value:`${r.metric.toFixed(1)} g`,label:'단백질'};
+  if(r.goal==='low_sugar') return {value:`${r.metric.toFixed(1)} g`,label:'총당류'};
+  if(r.goal==='low_sodium') return {value:`${r.metric.toFixed(0)} mg`,label:'나트륨'};
+  return null;
 }
-
 function recommendationReason(item){
-  if(!item.personal.eligible) return item.personal.reason;
-  if(item.personal.passesSelectedDietaryConditions===false) return '선택한 식이조건을 충족하지 못했어요.';
-  if(item.personal.selectedDietaryConditions.includes('high_protein') && item.personal.passHighProtein) return '단백질이 충분한 메뉴예요.';
-  if(item.personal.fit>=70) return '개인 목표 교환단위와 잘 맞아요.';
-  if(item.assessment.percentile>=75) return '기준 학식 메뉴 중 영양밀도가 높은 편이에요.';
-  return '내 영양목표와 메뉴 구성을 비교했어요.';
+  const r=item.recommendation;
+  if(!r.eligible) return r.reason;
+  return {lifestyle:'현재 필요 에너지와 식사 구성에 잘 맞는 메뉴예요.',
+    weight_loss:'한 끼 목표 열량 범위 안에서 잘 맞는 메뉴예요.',
+    glycemic:'혈당관리를 고려한 식사 구성에 잘 맞는 메뉴예요.',
+    balanced:'영양밀도가 높은 메뉴부터 보여드려요.',
+    high_protein:'한 끼 단백질 기준을 충족한 메뉴예요.',
+    low_sugar:'총당류가 낮은 메뉴부터 보여드려요.',
+    low_sodium:'나트륨이 낮은 메뉴부터 보여드려요.'}[r.goal];
 }
 
 function itemCard(item,displayRank){
   const el = document.createElement("div");
-  const dietaryUnmet=item.personal.passesSelectedDietaryConditions===false;
-  el.className = "card"+(dietaryUnmet ? " dietary-unmet" : "")+(displayRank===1 ? " is-top" : "");
+  const rec=item.recommendation;
+  el.className = "card"+(!rec.eligible ? " recommendation-excluded" : "")+(displayRank===1 ? " is-top" : "");
   el.tabIndex = 0;
   el.setAttribute('role','button');
   const rankText=displayRank===null ? '' : `${activeShop==='all'?'전체 ':''}${displayRank}위`;
-  el.setAttribute('aria-label',`${item.main}, ${item.personal.eligible ? rankText : '추천점수 없음'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
+  el.setAttribute('aria-label',`${item.main}, ${rec.eligible ? rankText : '추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
   const flags = [];
   if(item.analysisMode) flags.push('<span class="badge">추정</span>');
   if(item.missingFields && item.missingFields.length) flags.push('<span class="badge">결측 포함</span>');
-  const dietaryLabels={low_sodium:'저나트륨',low_sugar:'저당',high_protein:'고단백'};
-  for(const condition of item.personal.selectedDietaryConditions){
-    const passed={low_sodium:item.personal.passLowSodium,low_sugar:item.personal.passLowSugar,high_protein:item.personal.passHighProtein}[condition];
-    if(passed) flags.push(`<span class="badge condition-pass">${dietaryLabels[condition]} 충족</span>`);
-  }
-  const score=item.personal.finalScore;
+  const metric=metricDisplay(item);
+  const exchangeGoal=['lifestyle','weight_loss','glycemic'].includes(rec.goal);
+  const detail=exchangeGoal && rec.eligible ? `<details class="score-details"><summary>교환단위 비교 보기</summary><div class="score-details-content"><span>하루 EER <b>${rec.eer.toFixed(1)} kcal</b></span>${rec.goal==='weight_loss'?`<span>하루 적자 <b>${rec.deficit.toFixed(1)} kcal</b></span><span>한 끼 열량 상한 <b>${rec.mealEnergyLimit.toFixed(1)} kcal</b></span>`:''}<span>식품교환표 <b>${rec.roundedEer} kcal</b></span><span>한 끼 목표 T <b>${rec.target.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>메뉴 M <b>${rec.actual.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>거리 D <b>${rec.distance.toFixed(4)}</b></span></div></details>` : '';
   const photo=item.photo ? `<img class="card-photo" src="menu_photos_web/${escapeText(item.photo)}" alt="${escapeText(item.main)} 사진" loading="lazy">` : '<div class="card-photo" aria-label="메뉴 사진 없음"></div>';
   el.innerHTML = `
     <div class="card-main">
       ${photo}
       <div class="card-copy">
         <div class="card-top"><div class="card-meta-left"><span class="card-shop">${escapeText(SHOP_LABEL[item.shop]||item.shop)}</span><span class="card-cat">${escapeText(item.category)}</span></div><span class="card-price">${escapeText(item.price||'')}</span></div>
-        <div class="card-name">${item.personal.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')}</div>
+        <div class="card-name">${rec.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')}</div>
         <p class="card-reason">${escapeText(recommendationReason(item))}</p>
-        <div class="score-line"><strong>${score!==null ? score.toFixed(1) : '—'}</strong><span>${score!==null ? `/ 100점 · ${scoreDescription(score)}` : '개인 추천점수'}</span></div>
+        ${metric ? `<div class="highlight-nutrient"><strong>${metric.value}</strong><span>${metric.label}</span></div>` : ''}
       </div>
     </div>
-    ${dietaryUnmet ? `<div class="dietary-warning"><b>선택한 식이조건 미충족</b> · ${item.personal.failedDietaryConditions.map(escapeText).join('·')} 기준 미충족</div>` : ''}
     <div class="nutrition-mini">
       <div><small>열량</small><b>${item.kcal.toFixed(0)} kcal</b></div><div><small>탄수화물</small><b>${item.carb.toFixed(1)} g</b></div>
       <div><small>단백질</small><b>${item.protein.toFixed(1)} g</b></div><div><small>지방</small><b>${item.fat.toFixed(1)} g</b></div>
     </div>
     <div class="card-tags">${flags.join('')}</div>
-    <details class="score-details"><summary>상세 점수 보기</summary><div class="score-details-content"><span>개인 적합도 <b>${item.personal.eligible ? item.personal.personalScore.toFixed(2)+' / 75점' : '—'}</b></span><span>NRF 영양밀도 <b>${item.assessment.eligible ? item.assessment.nrfPoints.toFixed(2)+' / 25점' : '—'}</b></span><span>최종점수 <b>${score!==null ? score.toFixed(2)+' / 100점' : '—'}</b></span></div></details>
+    ${detail}
     <div class="card-more">영양정보와 계산 과정 보기 →</div>
   `;
   el.onclick = () => openSheet(item,displayRank);
   el.onkeydown = (e) => { if(e.target===el && (e.key==="Enter"||e.key===" ")){e.preventDefault();openSheet(item,displayRank);} };
-  el.querySelector('.score-details').addEventListener('click',e=>e.stopPropagation());
-  el.querySelector('.score-details').addEventListener('keydown',e=>e.stopPropagation());
+  if(detail){el.querySelector('.score-details').addEventListener('click',e=>e.stopPropagation());
+    el.querySelector('.score-details').addEventListener('keydown',e=>e.stopPropagation());}
   return el;
 }
 
@@ -488,8 +502,9 @@ function renderDay(){
   const {dow} = fmtDate(activeDate);
   const ranked=RecommendationView.rankVisibleMenus(rows,activeShop,PersonalScore.compareMenus);
   const items=ranked.map(entry=>entry.item);
+  document.querySelector('.day-heading h2').textContent=activeGoal ? `${GOAL_LABEL[activeGoal]} 추천` : '추천 결과';
   document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow}) · ${activeShop==='all'?'3개 식당 전체':SHOP_LABEL[activeShop]}`;
-  document.getElementById("dayCount").textContent = `중식 ${items.length}종 · 개인 평가 가능 ${items.filter(r=>r.personal.eligible).length}종`;
+  document.getElementById("dayCount").textContent = `중식 ${items.length}종 · ${GOAL_LABEL[activeGoal]||'추천'} 대상 ${items.filter(r=>r.recommendation.eligible).length}종`;
 
   const grid = document.getElementById("shopGrid");
   grid.innerHTML = "";
@@ -509,6 +524,8 @@ function nutriTabHtml(item){
   const warnTags = (item.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
   const db = item.matchedDb || {};
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
+  const rec=item.recommendation;
+  const recommendationDetail=rec.eligible ? `추천 기준: ${GOAL_LABEL[rec.goal]} · ${sheetRankScope} ${sheetDisplayRank}위${rec.fit!==null ? `<br>하루 EER ${rec.eer.toFixed(2)} kcal → 목표 ${rec.adjustedEer.toFixed(2)} kcal → 식품교환표 ${rec.roundedEer} kcal<br>${rec.mealCount}끼 기준 한 끼 목표(곡류·어육류·채소·지방): ${rec.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위: ${rec.actual.join(' / ')}<br>구성 차이(D): ${rec.distance.toFixed(4)}` : ''}` : `추천 제외: ${escapeText(rec.reason)}`;
 
   return `
     ${item.analysisMode ? `<div class="footnote" style="margin-bottom:16px;color:var(--caution)"><b>기존 코드로 계산한 추정값</b><br>제공량은 표준·추정 중량입니다. 미매칭 항목은 합산에서 빠지고 결측 영양소는 0으로 처리됩니다. NRF는 100 kcal 기준이며 권장·제한 영양소 모두 기존 코드의 100% cap을 적용했습니다. 백분위 점수가 아닙니다.</div>
@@ -531,8 +548,7 @@ function nutriTabHtml(item){
     <details style="margin:12px 0"><summary>음식별 추정 중량·매칭·계산 내역</summary><pre style="white-space:pre-wrap;font-size:11px">${escapeText(JSON.stringify(item.itemDetails,null,2))}</pre></details>` : ''}
     ${(item.matchingReview||[]).length ? `<details style="margin:12px 0"><summary>미매칭 음식과 대체 검토 후보 ${item.matchingReview.length}개</summary><p class="footnote">수식어 분해·유사 검색 결과입니다. 후보는 아직 영양성분 계산에 반영하지 않았습니다.</p>${item.matchingReview.map(r=>`<div style="margin-bottom:12px"><b>${escapeText(r.query)}</b><br>${r.direct_candidates.length ? r.direct_candidates.slice(0,6).map(c=>escapeText(c.name)+' ('+escapeText(c.source)+')').join('<br>') : '직접 검색 후보 없음'}${r.fusion ? '<br>수식어: '+escapeText(r.fusion.modifier)+' → 기본 메뉴: '+escapeText(r.fusion.base_name)+'<br>'+r.fusion.candidates.slice(0,6).map(c=>escapeText(c.name)).join(', ')+'<br><small>수식어 재료 영양소는 미반영</small>' : ''}</div>`).join('')}</details>` : ''}
     ${item.sourceMenuText ? `<details style="margin:12px 0"><summary>수집한 원래 메뉴명</summary>${escapeText(item.sourceMenuText)}</details>` : ''}
-    <div class="footnote">${item.assessment.eligible ? `전체 백분위 ${item.assessment.percentile.toFixed(2)}점 · NRF 환산 ${item.assessment.nrfPoints.toFixed(2)} / 25점` : `평가 제외: ${item.assessment.exclusionReason}`}<br>기존에 확정한 3개 식당의 고정 ${item.assessment.referenceSize}개 메뉴 기준(새 메뉴는 기준분포에 추가하지 않음). 원점수 이하 메뉴 비율 × 100, 환산점수 = 백분위 × 0.25. NRF 기준분포는 고정이며 추천순위는 선택 날짜의 전체 또는 선택 식당 메뉴 기준으로 표시합니다.</div>
-    <div class="footnote">${item.personal.eligible ? `${sheetRankScope} ${sheetDisplayRank}위 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점<br>목표: ${{lifestyle:'라이프스타일 유지',weight_loss:'체중감량',glycemic:'혈당관리'}[item.personal.goal]}<br>원래 EER ${item.personal.eer.toFixed(2)} → 조정 EER ${item.personal.adjustedEer.toFixed(2)} → 식품교환표 ${item.personal.roundedEer} kcal/day<br>한 끼 목표 T(곡류·어육류·채소·지방): ${item.personal.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위 M: ${item.personal.actual.join(' / ')}<br>거리 D ${item.personal.distance.toFixed(4)} · Fit ${item.personal.fit.toFixed(2)} · 개인 ${item.personal.personalScore.toFixed(2)} / 75점 · NRF ${item.personal.nrfScore.toFixed(2)} / 25점 · 최종 ${item.personal.finalScore.toFixed(2)} / 100점` : escapeText(item.personal.reason)}${item.personal.selectedDietaryConditions.length ? `<br>식이조건: ${item.personal.passesSelectedDietaryConditions ? '모두 충족' : escapeText(item.personal.failedDietaryConditions.join('·'))+' 기준 미충족'}<br>저나트륨 ≤ ${item.personal.sodiumLimit} mg · 저당 ≤ ${item.personal.sugarLimit?.toFixed(2) ?? '—'} g · 고단백 ≥ ${item.personal.proteinLimit?.toFixed(2) ?? '—'} g` : ''}</div>
+    <div class="footnote">${recommendationDetail}</div>
     <div class="nrf-block">
       <div class="nrf-num" style="color:var(${item.nrf>=-5?'--good':item.nrf>=-25?'--caution':'--bad'})">${item.nrf.toFixed(1)}</div>
       <div class="nrf-label">NRF6.3 raw (100 kcal 기준)<br>코드 판정 신뢰도 <span class="badge ${confBadgeClass(item.confidence)}" style="margin-left:2px">${item.confidence}</span></div>
@@ -644,24 +660,48 @@ document.getElementById("scrim").onclick = closeSheet;
 document.getElementById("sheetClose").onclick = closeSheet;
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); });
 
-document.getElementById('personalForm').addEventListener('submit', e=>{
+const personalForm=document.getElementById('personalForm');
+function updateSelectionDescription(name,id){
+  const selected=personalForm.querySelector(`input[name="${name}"]:checked`);
+  const description=document.getElementById(id);
+  description.textContent=selected?.dataset.description||'';
+  description.hidden=!selected;
+}
+function updateWeightLossField(){
+  const selected=personalForm.querySelector('input[name="goal"]:checked').value==='weight_loss';
+  document.getElementById('weightLossField').hidden=!selected;
+  personalForm.elements.monthlyLossKg.disabled=!selected;
+}
+function updateGoalDisplay(){
+  updateWeightLossField();
+  updateSelectionDescription('goal','goalDescription');
+}
+personalForm.querySelectorAll('input[name="activity"]').forEach(input=>input.addEventListener('change',()=>updateSelectionDescription('activity','activityDescription')));
+personalForm.querySelectorAll('input[name="goal"]').forEach(input=>input.addEventListener('change',updateGoalDisplay));
+updateSelectionDescription('activity','activityDescription');
+updateGoalDisplay();
+personalForm.addEventListener('submit', e=>{
   e.preventDefault();
   const form=new FormData(e.currentTarget);
-  const dietaryOptions={selected:form.getAll('dietary'),weightKg:Number(form.get('weightKg'))};
-  let target=null;
+  const goal=form.get('goal');
+  let context=null;
   try {
-    target=PersonalScore.calculateGoalTarget({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),weightKg:Number(form.get('weightKg')),activity:Number(form.get('activity'))},form.get('goal'),TARGET_TABLE,GLYCEMIC_TABLE);
-    document.getElementById('personalStatus').textContent=`${{lifestyle:'라이프스타일 유지',weight_loss:'체중감량',glycemic:'혈당관리'}[target.goal]} · ${target.roundedEer} kcal 기준으로 추천했어요. 상세 계산값은 메뉴에서 확인할 수 있어요.`;
+    const monthlyText=form.get('monthlyLossKg');
+    const monthlyLossKg=goal==='weight_loss' && monthlyText!==null && monthlyText.trim()!=='' ? Number(monthlyText) : null;
+    context=PersonalScore.createContext({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),
+      weightKg:Number(form.get('weightKg')),activity:Number(form.get('activity')),mealCount:Number(form.get('mealCount'))},
+      goal,TARGET_TABLE,GLYCEMIC_TABLE,monthlyLossKg);
+    document.getElementById('personalStatus').textContent=`${GOAL_LABEL[goal]} 기준 · 하루 ${context.mealCount}끼${goal==='weight_loss' ? ` · 하루 ${context.deficit.toFixed(1)} kcal 적자` : ''}로 추천했어요.`;
   } catch(error) { document.getElementById('personalStatus').textContent=error.message; }
-  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,target,dietaryOptions);
+  activeGoal=context?.goal??null;
+  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,context);
   dates.forEach(d=>byDate[d]=DATA.filter(x=>x.date===d));
   closeSheet();renderDay();
-  if(target) document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+  if(context) document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 });
 function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
-Promise.all(["site_data.json", "nrf_reference_fixed.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, reference, exchanges, targets, glycemicTargets])=>{
+Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, exchanges, targets, glycemicTargets])=>{
   InstantRice.apply(data, exchanges);
-  data = NrfRanking.scoreMenus(data, reference.scores);
   BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets; GLYCEMIC_TABLE = glycemicTargets;
   DATA = PersonalScore.scoreMenus(BASE_DATA, EXCHANGE_SNAPSHOT, null);
   data = DATA;
