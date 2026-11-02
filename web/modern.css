@@ -63,10 +63,10 @@ main{padding-top:32px;padding-bottom:64px}
 .meal-option input:checked+span,.activity-option input:checked+span,.goal-option input:checked+span{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
 .meal-option input:focus-visible+span,.activity-option input:focus-visible+span,.goal-option input:focus-visible+span{outline:3px solid var(--accent-soft);outline-offset:2px}
 .goal-grid{display:flex;flex-wrap:wrap;gap:8px}
-.goal-groups{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px}
+.goal-groups{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.1fr);gap:20px}
 .goal-group{min-width:0}
-.goal-group+.goal-group{border-left:1px solid #d8dee8;padding-left:24px}
-.goal-group-heading{margin:0 0 10px;color:var(--ink-muted);font-size:13px;font-weight:600;line-height:1.4}
+.goal-group+.goal-group{border-left:1px solid #d8dee8;padding-left:20px}
+.goal-group-heading{margin:0 0 10px;color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
 .goal-option span{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 15px;border:1px solid #d8dee8;border-radius:999px;background:var(--surface);color:var(--ink);font-size:13px;font-weight:600;line-height:1.35;white-space:nowrap;transition:background .15s,border-color .15s}
 .selection-description{margin:11px 0 0;color:var(--ink-muted);font-size:12.5px;line-height:1.5}
 .goal-description{border-top:1px solid #d8dee8;margin-top:16px;padding-top:14px}
@@ -136,8 +136,9 @@ main{padding-top:32px;padding-bottom:64px}
 .footnote{color:var(--ink-muted);font-size:12px;line-height:1.65}
 @media(max-width:900px){.personal-form{grid-template-columns:1fr}}
 @media(max-width:680px){
-  .goal-groups{grid-template-columns:1fr;gap:0}
-  .goal-group+.goal-group{border-left:0;padding-left:0;border-top:1px solid #d8dee8;margin-top:18px;padding-top:16px}
+  .goal-groups{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px 12px}
+  .goal-group+.goal-group{border-left:1px solid #d8dee8;padding-left:12px}
+  .goal-group:last-child{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid #d8dee8;padding-top:16px}
   .topbar-inner,main{padding-left:16px;padding-right:16px}
   .topbar-inner{padding-top:31px}
   .hero-intro{gap:8px}
