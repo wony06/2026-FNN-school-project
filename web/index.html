@@ -282,7 +282,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   .sheet, .scrim, .card{transition:none;}
 }
 </style>
-<link rel="stylesheet" href="modern.css">
+<link rel="stylesheet" href="modern.css?v=20261102-horizontal-groups">
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -331,15 +331,25 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
       </div>
     </section>
     <section class="input-card recommendation-card">
-      <div class="step-caption"><span class="step-number">02</span><div><strong>어떤 기준으로 추천받을까요?</strong><small>식사에서 가장 중요하게 생각하는 기준 한 가지를 선택해주세요.</small></div></div>
-      <div class="goal-grid" role="radiogroup" aria-label="추천 기준">
+      <div class="step-caption"><span class="step-number">02</span><div><strong>어떤 기준으로 추천받을까요?</strong><small>원하는 추천 기준 한 가지를 선택해주세요.</small></div></div>
+      <div class="goal-groups" role="radiogroup" aria-label="추천 기준">
+        <div class="goal-group" role="group" aria-labelledby="nutrition-goal-heading">
+          <h3 id="nutrition-goal-heading" class="goal-group-heading">개인 영양목표</h3>
+          <div class="goal-grid">
         <label class="goal-option"><input type="radio" name="goal" value="lifestyle" data-description="내 필요 에너지에 잘 맞는 메뉴부터" checked><span>라이프스타일 유지</span></label>
         <label class="goal-option"><input type="radio" name="goal" value="weight_loss" data-description="목표 열량 안에서 나에게 잘 맞는 메뉴부터"><span>체중감량</span></label>
         <label class="goal-option"><input type="radio" name="goal" value="glycemic" data-description="혈당관리를 고려한 식사 구성에 잘 맞는 메뉴부터"><span>혈당관리</span></label>
         <label class="goal-option"><input type="radio" name="goal" value="balanced" data-description="영양밀도가 높은 메뉴부터"><span>균형잡힌 식단</span></label>
+          </div>
+        </div>
+        <div class="goal-group" role="group" aria-labelledby="dietary-goal-heading">
+          <h3 id="dietary-goal-heading" class="goal-group-heading">식이조건</h3>
+          <div class="goal-grid">
         <label class="goal-option"><input type="radio" name="goal" value="high_protein" data-description="한 끼 단백질 기준을 충족한 메뉴 중 단백질이 많은 순"><span>고단백</span></label>
         <label class="goal-option"><input type="radio" name="goal" value="low_sugar" data-description="총당류가 낮은 메뉴부터"><span>저당</span></label>
         <label class="goal-option"><input type="radio" name="goal" value="low_sodium" data-description="나트륨이 낮은 메뉴부터"><span>저나트륨</span></label>
+          </div>
+        </div>
       </div>
       <p id="goalDescription" class="selection-description goal-description" aria-live="polite"></p>
       <label id="weightLossField" class="form-field weight-loss-field" hidden><span class="field-label">한 달 목표 감량 체중 <span class="field-hint">kg · 미입력 시 하루 750 kcal 적자</span></span><input name="monthlyLossKg" type="number" min="0" step="any" placeholder="예: 2"></label>
