@@ -72,6 +72,13 @@ main{padding-top:32px;padding-bottom:64px}
 .allergy-result{border-bottom:1px solid #d8dee8;padding:0 0 12px;margin-bottom:18px;font-family:inherit;font-size:13px;font-weight:400;line-height:1.5;color:var(--ink-muted)}
 .allergy-result p{margin:0 0 5px}.allergy-result p:last-child{margin-bottom:0}
 .allergy-check-tag{display:inline-block;font-size:12px;color:var(--ink-muted);background:var(--surface-2);padding:5px 8px;border-radius:7px}
+.menu-allergy-numbers{font-family:inherit;font-size:11px;font-weight:400;line-height:1.6;letter-spacing:normal;color:var(--ink-muted);white-space:normal;word-break:normal;overflow-wrap:anywhere}
+.day-heading .result-allergy-note{margin-top:6px;font-size:12px;font-weight:400;color:var(--ink-muted)}
+.allergy-legend{margin-top:22px;padding-top:16px;border-top:1px solid #d8dee8;color:var(--ink-muted);font-family:inherit;font-size:12px;line-height:1.6}
+.allergy-legend h2{margin:0;font-family:inherit;font-size:13px;font-weight:600}
+.allergy-legend-list{display:flex;flex-wrap:wrap;gap:5px 15px;list-style:none;margin:9px 0;padding:0}
+.allergy-legend-list li{white-space:nowrap}
+.allergy-legend p{margin:8px 0 0;font-weight:400}
 .allergy-detail{padding:8px 0;font-family:inherit;font-size:12px;font-weight:400;line-height:1.5;color:var(--ink-muted)}
 .allergy-excluded-heading{grid-column:1/-1;font-size:14px;font-weight:600;color:var(--ink-muted);margin-top:10px}
 .card.allergy-excluded-card,.card.allergy-excluded-card:hover{background:#f0f2f4;border-color:#dce1e6;color:var(--ink-muted);cursor:default;box-shadow:none;transform:none}

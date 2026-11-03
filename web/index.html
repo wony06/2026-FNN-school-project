@@ -282,7 +282,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   .sheet, .scrim, .card{transition:none;}
 }
 </style>
-<link rel="stylesheet" href="modern.css?v=20261103-profile-v2">
+<link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -381,7 +381,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <div class="form-actions"><button type="submit" id="personalSubmit" disabled>내게 맞는 메뉴 보기</button><div id="personalStatus" role="status">정보를 입력하면 개인 추천순위를 보여드려요.</div></div>
   </form>
   <section id="results" class="results-section">
-  <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2>추천 결과</h2><p id="dayTitle">불러오는 중…</p></div>
+  <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2>추천 결과</h2><p id="dayTitle">불러오는 중…</p><p class="result-allergy-note">알레르기 번호는 추정 정보입니다.</p></div>
     <span class="count" id="dayCount"></span>
   </div>
   <div id="shopTabs" class="shop-tabs results-tabs" role="tablist" aria-label="추천 결과 식당 선택"></div>
@@ -389,6 +389,13 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   <div class="shop-grid" id="shopGrid"></div>
   </section>
   <details class="data-notice"><summary>영양정보는 어떻게 계산했나요?</summary><p>전 항목은 표준 제공량 기반 자동 추정치이며 실측값이 아닙니다. 식약처 통합식품영양성분DB·가공식품DB·국가표준식품성분표를 자동 매칭했습니다. 매칭 신뢰도, 결측 및 미매칭 구성요소는 메뉴 상세에서 확인할 수 있습니다.</p></details>
+  <section class="allergy-legend" aria-labelledby="allergyLegendHeading">
+    <h2 id="allergyLegendHeading">알레르기 번호 안내</h2>
+    <ul class="allergy-legend-list">
+      <li>1 난류</li><li>2 우유</li><li>3 메밀</li><li>4 땅콩</li><li>5 대두</li><li>6 밀</li><li>7 고등어</li><li>8 게</li><li>9 새우</li><li>10 돼지고기</li><li>11 복숭아</li><li>12 토마토</li><li>13 아황산류</li><li>14 호두</li><li>15 닭고기</li><li>16 쇠고기</li><li>17 오징어</li><li>18 조개류</li><li>19 잣</li>
+    </ul>
+    <p>알레르기 번호는 추정 정보이며, 실제 원재료와 교차접촉 여부는 식당에 확인해 주세요.</p>
+  </section>
 </main>
 
 <div class="scrim" id="scrim"></div>
@@ -506,13 +513,17 @@ function recommendationReason(item){
 
 function itemCard(item,displayRank){
   const el = document.createElement("div");
+  const allergyEntry=ALLERGY_INDEX.get(AllergyFilter.key(item));
+  const allergyCodes=allergyEntry?.state==='choice_withheld' ? [] : [...new Set((allergyEntry?.allergens??[]).map(a=>a.code))].sort((a,b)=>a-b);
+  const allergyLabel=allergyCodes.length ? `추정 알레르기 번호 ${allergyCodes.join('·')}` : '알레르기 정보 미확인';
+  const allergyNumbersHtml=`<span class="menu-allergy-numbers" aria-label="${escapeText(allergyLabel)}">${allergyCodes.length ? allergyCodes.join('·<wbr>') : allergyLabel}</span>`;
   const allergyExcluded=Boolean(item.allergyAssessment?.excluded);
   const rec=item.recommendation??{eligible:false};
   el.className = "card"+(allergyExcluded ? " allergy-excluded-card" : !rec.eligible ? " recommendation-excluded" : "")+(displayRank===1 ? " is-top" : "");
   if(allergyExcluded){el.setAttribute('role','article');el.setAttribute('aria-disabled','true');}
   else{el.tabIndex=0;el.setAttribute('role','button');}
   const rankText=displayRank===null ? '' : `${activeShop==='all'?'전체 ':''}${displayRank}위`;
-  el.setAttribute('aria-label',allergyExcluded ? `${item.main}, ${AllergyUI.exclusionLabel(item.allergyAssessment)}, 선택 불가` : `${item.main}, ${rec.eligible ? rankText : '추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
+  el.setAttribute('aria-label',allergyExcluded ? `${item.main}, ${allergyLabel}, ${AllergyUI.exclusionLabel(item.allergyAssessment)}, 선택 불가` : `${item.main}, ${allergyLabel}, ${rec.eligible ? rankText : '추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
   const flags = [];
   if(item.allergyAssessment)flags.push(`<span class="allergy-check-tag">${escapeText(allergyExcluded?AllergyUI.exclusionLabel(item.allergyAssessment):AllergyUI.stateText(item.allergyAssessment))}</span>`);
   if(item.analysisMode) flags.push('<span class="badge">추정</span>');
@@ -526,7 +537,7 @@ function itemCard(item,displayRank){
       ${photo}
       <div class="card-copy">
         <div class="card-top"><div class="card-meta-left"><span class="card-shop">${escapeText(SHOP_LABEL[item.shop]||item.shop)}</span><span class="card-cat">${escapeText(item.category)}</span></div><span class="card-price">${escapeText(item.price||'')}</span></div>
-        <div class="card-name">${rec.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')}</div>
+        <div class="card-name">${rec.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')} ${allergyNumbersHtml}</div>
         <p class="card-reason">${escapeText(allergyExcluded?'알레르기 추정 근거로 추천 대상에서 제외됐어요.':recommendationReason(item))}</p>
         ${metric ? `<div class="highlight-nutrient"><strong>${metric.value}</strong><span>${metric.label}</span></div>` : ''}
       </div>
