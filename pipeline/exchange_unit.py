@@ -93,6 +93,19 @@ UNIT_BASIS = {
 }
 DB104_NUT_COL = {"carb": "탄수화물", "protein": "단백질", "fat": "지방"}
 
+# 2026-11-02: 메뉴젠에 "칼국수(소고기)"(재료합187g/완성중량787g≈23.8%)·"칼국수(닭고기)"
+# (191g/791g≈24.1%)처럼 완성중량에 국물이 반영된 항목이 있는 반면, 같은 칼국수류인데도
+# 아래 14종은 완성중량=재료합(국물 미기록)으로 등록돼 있어 목표중량(그릇 기준, 국물 포함)을
+# 그대로 재료에 비례 적용하면 면·재료가 수 배로 부풀어 오르는 문제가 있었다(예: 들깨칼국수에
+# 목표중량 790g 적용 시 칼국수면 80g→580g). "칼국수(소고기)/(닭고기)" 건더기 비율 평균(24%)을
+# 빌려와, 목표중량 중 건더기 몫만 재료에 배분하고 나머지(76%)는 국물로 간주해 제외한다.
+NO_BROTH_KALGUKSU_VARIANTS = {
+    "해물칼국수", "바지락칼국수", "호박칼국수", "들깨칼국수", "매생이칼국수",
+    "팥칼국수", "애호박닭칼국수", "들깨버섯칼국수", "버섯칼국수", "들깨인삼칼국수",
+    "장칼국수", "감자칼국수", "녹두칼국수", "수수들깨칼국수",
+}
+KALGUKSU_SOLID_RATIO = 0.24
+
 
 def _nutrients_per100(record):
     out = {}
@@ -157,7 +170,10 @@ def _from_menugen(name, target_weight_g):
         ref_weight = 0
     if no_meat or no_onion:
         ref_weight = sum(float(i.get("weight_g") or 0) for i in ingredients)
-    scale = (target_weight_g / ref_weight) if ref_weight > 0 else 1.0
+    effective_target = target_weight_g
+    if dish.get("name") in NO_BROTH_KALGUKSU_VARIANTS:
+        effective_target = target_weight_g * KALGUKSU_SOLID_RATIO
+    scale = (effective_target / ref_weight) if ref_weight > 0 else 1.0
 
     if spam_mayo:
         scale = max(0.0, target_weight_g - 9.0) / (ref_weight - 2.0)
@@ -267,6 +283,24 @@ MENUGEN_MODIFIER_PREFIXES = [
 ]
 
 
+# 2026-11-03: custom_exchange_recipes.json/external_exchange_recipes.json의 weight_g를
+# build_month.py 표준중량표(target_weight_g)에 맞춰 무조건 scale=target/weight_g로
+# 재조정하면, "재료합=완성중량"으로 이미 완결된 1인분을 의도해 만든 항목(돈코츠라멘·
+# 야채필라프·전복표고솥밥 등 - assumptions 필드에 "~g을 레시피1인분 식품교환단위
+# 제공량으로 사용"/"기존 추정 제공량 OOg에 비례 환산"이라고 명시)이, 표준중량표 숫자가
+# 바뀔 때마다(예: 면류 564→690g) 같이 끌려가며 왜곡된다(예: 돈코츠라멘 1.27배, 야채필라프
+# 5.78배 부풀어 오름). 반면 "닭한마리전골"처럼 재료합과 weight_g가 다른 항목(원 레시피
+# 전체 분량→1인분 희석)은 scale 적용이 원래 의도대로 맞다. 재료합이 weight_g와 거의
+# 같으면(물/국물 등 추가 희석분이 애초에 없는 "완결된 값") scale=1로 고정해 표준중량표
+# 변경의 영향을 받지 않게 하고, 재료합과 차이가 나면(진짜 희석/스케일링 의도) 기존대로
+# target_weight_g에 맞춰 조정한다.
+def _recipe_scale(dish, target_weight_g):
+    ing_sum = sum(ing["weight_g"] for ing in dish["ingredients"])
+    if abs(dish["weight_g"] - ing_sum) < 5:
+        return 1.0
+    return target_weight_g / dish["weight_g"]
+
+
 def _from_external_recipe(name, target_weight_g):
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "external_exchange_recipes.json")
     with open(path, encoding="utf-8") as f:
@@ -275,7 +309,7 @@ def _from_external_recipe(name, target_weight_g):
     if dish is None:
         return None
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
-    scale = target_weight_g / dish["weight_g"]
+    scale = _recipe_scale(dish, target_weight_g)
     for ing in dish["ingredients"]:
         _add_ingredient(units, ing["food_group"], DB104_BY_NAME.get(ing["food_name"]), ing["weight_g"] * scale)
     return {"units": units, "source": "external_recipe", "matched_name": name, "unresolved_ingredients": [],
@@ -291,7 +325,7 @@ def _from_custom_recipe(name, target_weight_g):
     if dish is None:
         return None
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
-    scale = target_weight_g / dish["weight_g"]
+    scale = _recipe_scale(dish, target_weight_g)
     unresolved = []
     for ing in dish["ingredients"]:
         record = DB104_BY_NAME.get(ing["food_name"])
@@ -474,7 +508,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 alias_note = f"뚝)된장찌개: 사용자 지정으로 애호박감자된장찌개에 대체 매칭. 2026-09-09 사진에서 두부·대파를 확인하고 감자·애호박·양파·고추를 추정함. 사진만으로 재료 종류와 배합은 확정할 수 없음. 기존 추정 제공량 {weight_g:g}g에 DB 표준 레시피 비례 적용. 메뉴 표시명과 영양성분 계산값은 유지하고 식품교환단위만 재계산."
     if name == "차돌짬뽕밥":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
-        for component, weight in (("차돌박이짬뽕국", 790.0), ("쌀밥", 275.0)):
+        for component, weight in (("차돌박이짬뽕국", 690.0), ("쌀밥", 289.0)):
             result = _from_menugen(component, weight)
             if result is None:
                 return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}
@@ -499,7 +533,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "recipe_note": '크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.',
                 "unresolved_ingredients": ["스프, 크림 스프, 가루, 끓인것"]}
     if name == "스팸마요덮밥" and use_plaza_servings:
-        weight_g = 570.0
+        weight_g = 418.0
     if name in ("옹심이", "찹쌀옹심이"):
         # 사용자 지정 대체 가정: 가공식품 DB 탄수화물 52g/100g으로 곡류군 산출.
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
@@ -514,7 +548,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                     "matched_name": "상추, 잎상추, 치마상추, 녹색, 생것", "unresolved_ingredients": []}
     if name == "부타동":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
-        for component, weight in (("돼지고기 간장볶음", 220.0), ("쌀밥", 350.0)):
+        for component, weight in (("돼지고기 간장볶음", 161.3), ("쌀밥", 256.7)):
             result = _from_menugen(component, weight)
             if result is None:
                 return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """메뉴 항목 하나를 food_db(1) -> gagong_db(1.5) -> recipe_db 재료분해/db104(1.7) 순으로 자동매칭.
 성공하면 {"source","name","per100":{...12개필드...}, "detail":{...}} 반환, 실패하면 None."""
-import sys, os, json
+import sys, os, json, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from food_search import load_db as load_food, search as search_food, PRI_RANK
 from gagong_search import load_db as load_gagong, search as search_gagong
@@ -11,6 +11,23 @@ FOOD_DB = load_food()
 GAGONG_DB = load_gagong()
 
 NUT_FIELDS = ["kcal", "protein", "fat", "carb", "sugar", "fiber", "ca", "fe", "vitA", "vitC", "satFat", "na"]
+
+
+def _parse_weight(s):
+    """"250ml"/"400g"/"291.90ml" 같은 문자열에서 숫자만 뽑아 float로. 못 뽑으면 None.
+    2026-11-03 추가: food_db(servingWeight)/gagong_db(1회 섭취참고량)가 매긴 음식별 1회분
+    중량을 build_month.py의 중량 산정 1순위로 쓰기 위한 공통 파서. 단위(g/ml)는 그 DB의
+    영양성분이 매겨진 기준(basis/영양성분함량기준량)과 항상 같은 단위라 숫자만 쓰면 됨."""
+    if not s:
+        return None
+    m = re.match(r"\s*([\d.]+)", str(s))
+    if not m:
+        return None
+    try:
+        v = float(m.group(1))
+    except ValueError:
+        return None
+    return v if v > 0 else None
 
 
 # food_db 표기가 실제 메뉴판 표기와 다른 흔한 동의어 (메뉴판 표기 -> food_db 표기)
@@ -128,6 +145,12 @@ GENERAL_SYNONYMS = {
 # 안 옴(왕돈가스=등심돈가스이지 그냥 돈가스가 아니라서).
 PREFIX_STRIP_RULES = ["돈육", "왕"]
 
+# 2026-11-03 추가: 농축액/베이스/분말류는 영양성분이 "희석 전 원액 100g당" 기준이라, 1회
+# 섭취참고량(=원액 사용량)과는 짝이 맞지만, 완성된 음식의 표시용 1인분 중량으로 쓰면 안 됨
+# (예: "원액 30g"을 그대로 "이 음식 30g"처럼 표시하면 비현실적). gagong_db 매칭 시 이런
+# 농축 제품은 같은 이름의 비농축 후보가 있으면 그쪽을 우선하고, 농축 후보만 있을 때만 쓴다.
+CONCENTRATE_KEYWORDS = ("농축", "원액", "베이스", "분말", "희석", "큐브", "스톡")
+
 
 def try_food_db(name):
     exact, _ = search_food(FOOD_DB, name, limit=5)
@@ -140,7 +163,8 @@ def try_food_db(name):
     d = exact[0]  # 이미 PRIORITY 순 정렬됨
     n = d["n"]
     per100 = {f: n.get(f) for f in NUT_FIELDS}
-    out = {"source": "food_db", "name": d["name"], "origin": d["origin"], "per100": per100}
+    out = {"source": "food_db", "name": d["name"], "origin": d["origin"], "per100": per100,
+           "serving_weight_g": _parse_weight(d.get("servingWeight"))}
     if used_synonym:
         out["used_synonym"] = used_synonym
     return out
@@ -150,16 +174,32 @@ def try_gagong_db(name):
     exact, _ = search_gagong(GAGONG_DB, name, limit=100)
     if not exact:
         return None
+    # 농축/베이스/분말류는 최대한 피한다 - 같은 이름으로 비농축 후보가 있으면 그것만 쓰고,
+    # 농축 후보밖에 없을 때만 어쩔 수 없이 그걸 쓴다(아래에서 is_concentrate로 표시).
+    normal = [d for d in exact if not any(k in d["식품명"] for k in CONCENTRATE_KEYWORDS)]
+    is_concentrate = not normal
+    pool = normal if normal else exact
+
     fmap = {"kcal": "에너지(kcal)", "protein": "단백질(g)", "fiber": "식이섬유(g)", "ca": "칼슘(mg)",
             "fe": "철(mg)", "vitA": "비타민 A(μg RAE)", "vitC": "비타민 C(mg)", "satFat": "포화지방산(g)",
             "sugar": "당류(g)", "na": "나트륨(mg)", "fat": "지방(g)", "carb": "탄수화물(g)"}
     import statistics
     per100 = {}
     for f, col in fmap.items():
-        vals = [float(d[col]) for d in exact if d[col] not in (None, "")]
+        vals = [float(d[col]) for d in pool if d[col] not in (None, "")]
         per100[f] = round(statistics.median(vals), 2) if vals else None
-    return {"source": "gagong_db", "name": exact[0]["식품명"], "n_dup": len(exact), "per100": per100,
-            "_codes": [d["식품코드"] for d in exact],
+
+    sw_vals = [v for v in (_parse_weight(d.get("1회 섭취참고량")) for d in pool) if v is not None]
+    serving_weight_g = round(statistics.median(sw_vals), 2) if sw_vals else None
+
+    # 농축 제품인데 1회섭취참고량(=원액 사용량)마저 없으면, 영양소 계산 기준으로 삼을 수 있는
+    # 근거가 전혀 없는 셈이라 이 매칭 자체를 포기하고(None 반환) 다른 DB로 cascade 넘어가게 한다.
+    if is_concentrate and serving_weight_g is None:
+        return None
+
+    return {"source": "gagong_db", "name": pool[0]["식품명"], "n_dup": len(pool), "per100": per100,
+            "_codes": [d["식품코드"] for d in pool], "serving_weight_g": serving_weight_g,
+            "is_concentrate": is_concentrate,
             "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"}
 
 
@@ -171,10 +211,20 @@ def try_recipe_decompose(name):
         return None
     w = result["total_parsed_weight_g"]
     per100 = {f: round(v * 100.0 / w, 3) for f, v in result["contrib_per_total"].items()}
+    # 2026-11-03: 영양소 계산(per100)은 재료 매칭 합계(w) 기준 그대로 유지한다(물이 레시피
+    # 자체에 안 적힌 경우가 많아 과소평가된 재료합이지만, per100도 같은 기준으로 계산됐으니
+    # 자체적으론 일관됨). recipe_db_weight_field(식약처 공식 "중량(1인분)")는 25%만 있는데,
+    # 이건 영양소 계산에는 안 쓰고 build_month.py가 "표시용 1인분 중량"을 정할 때만 참고한다
+    # (있으면 그대로, 없으면 국물 포함 여부 판단해 표준중량표 적용).
+    try:
+        serving_weight_g = float(result["recipe_db_weight_field"]) if result["recipe_db_weight_field"] else None
+    except (TypeError, ValueError):
+        serving_weight_g = None
     return {"source": "recipe_decompose", "name": name, "per100": per100,
             "total_parsed_weight_g": w, "n_unmatched_ingredients": len(result["unmatched_ingredients"]),
             "unmatched_ingredients": [i["name"] for i in result["unmatched_ingredients"]],
-            "recipe_db_reported_weight": result["recipe_db_weight_field"]}
+            "recipe_db_reported_weight": result["recipe_db_weight_field"],
+            "serving_weight_g": serving_weight_g}
 
 
 def try_db104_direct(name):
