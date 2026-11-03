@@ -1,0 +1,3929 @@
+{
+  "menuCount": 449,
+  "excludedByAllergen": {
+    "1": 219,
+    "2": 217,
+    "3": 21,
+    "4": 21,
+    "5": 291,
+    "6": 278,
+    "7": 47,
+    "8": 89,
+    "9": 205,
+    "10": 167,
+    "11": 15,
+    "12": 147,
+    "13": 291,
+    "14": 0,
+    "15": 116,
+    "16": 179,
+    "17": 40,
+    "18": 213,
+    "19": 0
+  },
+  "suppressedEvidenceCount": 37,
+  "correctedMealCount": 37,
+  "choiceWithheldMenus": 52,
+  "excludedCalculationOccurrences": 1128,
+  "corrections": [
+    {
+      "key": [
+        "2026-06-23",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-06-26",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-01",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-06",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-09",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-20",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-21",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-23",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-27",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-28",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-04",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-07",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-10",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-20",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-21",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-24",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-08-27",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    },
+    {
+      "key": [
+        "2026-11-05",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "code": 18,
+      "component": "등심돈까스",
+      "reference": "등심돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+    }
+  ],
+  "otherPartialShellfishEvidenceRetained": [
+    {
+      "key": [
+        "2026-06-23",
+        "204",
+        "일품",
+        "비빔막국수"
+      ],
+      "component": "메밀전병",
+      "reference": "메밀전병",
+      "labeledRecords": 7,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-23",
+        "204",
+        "일품",
+        "비빔막국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-23",
+        "204",
+        "정식",
+        "닭곰탕"
+      ],
+      "component": "닭곰탕",
+      "reference": "닭곰탕",
+      "labeledRecords": 1,
+      "totalRecords": 7,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-24",
+        "204",
+        "일품",
+        "새우튀김덮밥"
+      ],
+      "component": "김말이강정",
+      "reference": "김말이강정",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-24",
+        "204",
+        "일품",
+        "새우튀김덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-24",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "소고기육개장",
+      "reference": "소고기육개장",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-24",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-25",
+        "204",
+        "일품",
+        "지코바치킨덮밥"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-25",
+        "204",
+        "일품",
+        "지코바치킨덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-25",
+        "204",
+        "정식",
+        "돈까스나베"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-26",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "날치알김치볶음밥",
+      "reference": "날치알김치볶음밥",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-26",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-26",
+        "204",
+        "정식",
+        "돈육콩나물밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "105",
+        "즉석",
+        "부대찌개"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "component": "치킨마요덮밥",
+      "reference": "치킨마요덮밥",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "일품",
+        "제주비빔국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-30",
+        "204",
+        "일품",
+        "돈까스오므라이스"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-30",
+        "204",
+        "일품",
+        "돈까스오므라이스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-30",
+        "204",
+        "정식",
+        "소고기장터국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-01",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "꿔바로우",
+      "reference": "꿔바로우",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-01",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-01",
+        "204",
+        "정식",
+        "돈육수제비고추장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "일품",
+        "간장닭갈비볶음밥"
+      ],
+      "component": "야채튀김",
+      "reference": "야채튀김",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "일품",
+        "간장닭갈비볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "정식",
+        "돈등뼈감자탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-03",
+        "204",
+        "일품",
+        "하와이안함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-03",
+        "204",
+        "정식",
+        "소머리사리곰탕*소면"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-07",
+        "204",
+        "일품",
+        "마라샹궈"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-07",
+        "204",
+        "정식",
+        "돈육순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-08",
+        "204",
+        "일품",
+        "뿌팟퐁커리덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-08",
+        "204",
+        "정식",
+        "애호박고기짜글이"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-09",
+        "204",
+        "일품",
+        "마제소바"
+      ],
+      "component": "갈비만두",
+      "reference": "갈비만두",
+      "labeledRecords": 2,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-09",
+        "204",
+        "일품",
+        "마제소바"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-09",
+        "204",
+        "정식",
+        "나주곰탕"
+      ],
+      "component": "나주곰탕",
+      "reference": "나주곰탕",
+      "labeledRecords": 2,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-09",
+        "204",
+        "정식",
+        "나주곰탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "정식",
+        "얼큰수육국밥"
+      ],
+      "component": "무생채",
+      "reference": "무생채",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "정식",
+        "얼큰수육국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-13",
+        "204",
+        "일품",
+        "베이컨마늘볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "component": "치킨마요덮밥",
+      "reference": "치킨마요덮밥",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "일품",
+        "소고기쌀국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "정식",
+        "얼큰만두전골"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-15",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-15",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-15",
+        "204",
+        "정식",
+        "장각삼계탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "component": "김치말이국수",
+      "reference": "김치말이국수",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "component": "김말이강정",
+      "reference": "김말이강정",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "콩나물불고기",
+      "reference": "콩나물불고기",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "401",
+        "중식 - Korean Dining",
+        "포크슈니첼 &미니굴라쉬"
+      ],
+      "component": "야채볶음밥",
+      "reference": "야채볶음밥",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-20",
+        "204",
+        "일품",
+        "햄계란볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-20",
+        "204",
+        "정식",
+        "설렁탕&소면사리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-21",
+        "105",
+        "즉석",
+        "참치김치찌개"
+      ],
+      "component": "참치김치찌개",
+      "reference": "참치김치찌개",
+      "labeledRecords": 8,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-21",
+        "204",
+        "일품",
+        "제주고기국수"
+      ],
+      "component": "타코야끼",
+      "reference": "타코야끼",
+      "labeledRecords": 5,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-21",
+        "204",
+        "일품",
+        "제주고기국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-21",
+        "204",
+        "정식",
+        "돈육된장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-22",
+        "204",
+        "일품",
+        "깍두기볶음밥"
+      ],
+      "component": "김치말이국수",
+      "reference": "김치말이국수",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-22",
+        "204",
+        "일품",
+        "깍두기볶음밥"
+      ],
+      "component": "메밀전병",
+      "reference": "메밀전병",
+      "labeledRecords": 7,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-22",
+        "204",
+        "일품",
+        "깍두기볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-22",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "고구마닭갈비",
+      "reference": "고구마닭갈비",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-22",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-23",
+        "105",
+        "즉석",
+        "부대찌개"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-23",
+        "204",
+        "일품",
+        "새우튀김카레라이스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-23",
+        "204",
+        "정식",
+        "차돌순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-24",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "날치알김치볶음밥",
+      "reference": "날치알김치볶음밥",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-24",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-24",
+        "204",
+        "정식",
+        "맑은버섯전골"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-27",
+        "204",
+        "일품",
+        "하와이안함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-27",
+        "204",
+        "정식",
+        "순살닭볶음탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-28",
+        "204",
+        "일품",
+        "스팸김치마요덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-28",
+        "204",
+        "일품",
+        "스팸김치마요덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-28",
+        "204",
+        "정식",
+        "소고기장터국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-29",
+        "204",
+        "일품",
+        "피자돈까스"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-29",
+        "204",
+        "일품",
+        "피자돈까스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-29",
+        "204",
+        "정식",
+        "콩나물국밥"
+      ],
+      "component": "새송이볶음",
+      "reference": "새송이볶음",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-29",
+        "204",
+        "정식",
+        "콩나물국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "일품",
+        "가라아게덮밥"
+      ],
+      "component": "김치말이국수",
+      "reference": "김치말이국수",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "일품",
+        "가라아게덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "정식",
+        "돈육김치찌개"
+      ],
+      "component": "돈육김치찌개",
+      "reference": "돈육김치찌개",
+      "labeledRecords": 1,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "401",
+        "중식 - Korean Dining (메인1)",
+        "미트소스스파게티"
+      ],
+      "component": "미소장국",
+      "reference": "미소장국",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "401",
+        "중식 - Korean Dining (메인2)",
+        "불고기오븐도리아"
+      ],
+      "component": "미소장국",
+      "reference": "미소장국",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-31",
+        "204",
+        "일품",
+        "김치치즈도리아"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-31",
+        "204",
+        "일품",
+        "김치치즈도리아"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-31",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "콩나물불고기",
+      "reference": "콩나물불고기",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-07-31",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "component": "치킨마요덮밥",
+      "reference": "치킨마요덮밥",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "204",
+        "일품",
+        "돈육비빔막국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-04",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "야채튀김",
+      "reference": "야채튀김",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-04",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-04",
+        "204",
+        "정식",
+        "돈등뼈감자탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "105",
+        "즉석",
+        "부대찌개"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "204",
+        "일품",
+        "아비코카레덮밥*새우튀김"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "204",
+        "일품",
+        "아비코카레덮밥*새우튀김"
+      ],
+      "component": "꿔바로우",
+      "reference": "꿔바로우",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "204",
+        "일품",
+        "아비코카레덮밥*새우튀김"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "204",
+        "정식",
+        "숯불간장불고기"
+      ],
+      "component": "계란파국",
+      "reference": "계란파국",
+      "labeledRecords": 1,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-05",
+        "204",
+        "정식",
+        "숯불간장불고기"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "일품",
+        "마늘쫑비빔밥"
+      ],
+      "component": "타코야끼",
+      "reference": "타코야끼",
+      "labeledRecords": 5,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "일품",
+        "마늘쫑비빔밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "정식",
+        "돈육순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-07",
+        "204",
+        "일품",
+        "왕돈까스"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-07",
+        "204",
+        "일품",
+        "왕돈까스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-07",
+        "204",
+        "정식",
+        "돈사태김치찜"
+      ],
+      "component": "맑은콩나물국",
+      "reference": "맑은콩나물국",
+      "labeledRecords": 2,
+      "totalRecords": 13,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-10",
+        "204",
+        "일품",
+        "하와이안함박스테이크"
+      ],
+      "component": "로제스파게티",
+      "reference": "로제스파게티",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-10",
+        "204",
+        "일품",
+        "하와이안함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-10",
+        "204",
+        "정식",
+        "참치김치찌개"
+      ],
+      "component": "참치김치찌개",
+      "reference": "참치김치찌개",
+      "labeledRecords": 8,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-11",
+        "204",
+        "일품",
+        "햄계란볶음밥"
+      ],
+      "component": "갈비만두",
+      "reference": "갈비만두",
+      "labeledRecords": 2,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-11",
+        "204",
+        "일품",
+        "햄계란볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-11",
+        "204",
+        "정식",
+        "등촌버섯전골"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-12",
+        "204",
+        "일품",
+        "고깃집볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-12",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "고구마닭갈비",
+      "reference": "고구마닭갈비",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-12",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-13",
+        "204",
+        "일품",
+        "김밥볶음밥"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-13",
+        "204",
+        "일품",
+        "김밥볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-13",
+        "204",
+        "정식",
+        "순대국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "소고기육개장",
+      "reference": "소고기육개장",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "105",
+        "즉석",
+        "참치김치찌개"
+      ],
+      "component": "참치김치찌개",
+      "reference": "참치김치찌개",
+      "labeledRecords": 8,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "204",
+        "일품",
+        "토마토치킨커리"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "204",
+        "일품",
+        "토마토치킨커리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "204",
+        "정식",
+        "차돌순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "401",
+        "중식 - Korean Dining",
+        "가지솥밥"
+      ],
+      "component": "시금치된장국",
+      "reference": "시금치된장국",
+      "labeledRecords": 1,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "component": "시금치된장국",
+      "reference": "시금치된장국",
+      "labeledRecords": 1,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-19",
+        "105",
+        "즉석",
+        "돈코츠라멘"
+      ],
+      "component": "돈코츠라멘",
+      "reference": "돈코츠라멘",
+      "labeledRecords": 2,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-19",
+        "204",
+        "일품",
+        "소시지오므라이스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-20",
+        "204",
+        "일품",
+        "베이컨새우볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-20",
+        "204",
+        "정식",
+        "얼큰수육국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-21",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "날치알김치볶음밥",
+      "reference": "날치알김치볶음밥",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-21",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-21",
+        "204",
+        "정식",
+        "소고기장터국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-24",
+        "105",
+        "즉석",
+        "만두장칼국수"
+      ],
+      "component": "메밀전병",
+      "reference": "메밀전병",
+      "labeledRecords": 7,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-24",
+        "105",
+        "한식",
+        "치즈닭갈비덮밥"
+      ],
+      "component": "메밀전병",
+      "reference": "메밀전병",
+      "labeledRecords": 7,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-24",
+        "204",
+        "일품",
+        "새우튀김카레라이스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-24",
+        "204",
+        "정식",
+        "순살간장닭갈비"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "정식",
+        "돈까스나베"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "component": "치킨마요덮밥",
+      "reference": "치킨마요덮밥",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "204",
+        "일품",
+        "마라로제닭살덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "204",
+        "정식",
+        "돈육고추장찌개"
+      ],
+      "component": "야채튀김",
+      "reference": "야채튀김",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "204",
+        "정식",
+        "돈육고추장찌개"
+      ],
+      "component": "새송이볶음",
+      "reference": "새송이볶음",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "204",
+        "정식",
+        "돈육고추장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-27",
+        "105",
+        "한식",
+        "제육볶음&쌈채소"
+      ],
+      "component": "얼갈이된장국",
+      "reference": "얼갈이된장국",
+      "labeledRecords": 3,
+      "totalRecords": 7,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-27",
+        "204",
+        "일품",
+        "봉골레파스타"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-27",
+        "204",
+        "정식",
+        "돈육김치찌개"
+      ],
+      "component": "돈육김치찌개",
+      "reference": "돈육김치찌개",
+      "labeledRecords": 1,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-27",
+        "204",
+        "정식",
+        "돈육김치찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-28",
+        "204",
+        "일품",
+        "베이컨마늘볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-28",
+        "204",
+        "정식",
+        "닭곰탕*소면사리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-31",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-08-31",
+        "204",
+        "정식",
+        "돈등뼈감자탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "component": "치킨마요덮밥",
+      "reference": "치킨마요덮밥",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "401",
+        "중식 - Korean Dining",
+        "전복표고솥밥"
+      ],
+      "component": "미소장국",
+      "reference": "미소장국",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "미니우동",
+      "reference": "미니우동",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "고구마닭갈비",
+      "reference": "고구마닭갈비",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "정식",
+        "고구마닭갈비"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-03",
+        "204",
+        "일품",
+        "로제함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-03",
+        "204",
+        "정식",
+        "설렁탕*소면사리"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-03",
+        "401",
+        "중식 - Korean Dining",
+        "치킨스테이크&그릴야채"
+      ],
+      "component": "양송이스프",
+      "reference": "양송이스프",
+      "labeledRecords": 1,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "105",
+        "한식",
+        "크랩알밥"
+      ],
+      "component": "어묵국",
+      "reference": "어묵국",
+      "labeledRecords": 2,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "204",
+        "일품",
+        "장조림버터비빔밥"
+      ],
+      "component": "장조림버터비빔밥",
+      "reference": "장조림버터비빔밥",
+      "labeledRecords": 1,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "204",
+        "일품",
+        "장조림버터비빔밥"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "204",
+        "일품",
+        "장조림버터비빔밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "204",
+        "정식",
+        "돈육순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "204",
+        "일품",
+        "스팸마요덮밥"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "204",
+        "일품",
+        "스팸마요덮밥"
+      ],
+      "component": "메밀전병",
+      "reference": "메밀전병",
+      "labeledRecords": 7,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "204",
+        "일품",
+        "스팸마요덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "105",
+        "즉석",
+        "부대찌개"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "204",
+        "일품",
+        "차돌분모자크림떡볶이"
+      ],
+      "component": "김말이강정",
+      "reference": "김말이강정",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "204",
+        "일품",
+        "차돌분모자크림떡볶이"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "소고기육개장",
+      "reference": "소고기육개장",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "즉석",
+        "삼겹살비지찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "한식",
+        "스팸마요덮밥"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "204",
+        "일품",
+        "새우튀김오므라이스"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "204",
+        "일품",
+        "새우튀김오므라이스"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "204",
+        "일품",
+        "소고기쌀국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "204",
+        "정식",
+        "돈육고추장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "401",
+        "중식 - Korean Dining",
+        "나주곰탕"
+      ],
+      "component": "나주곰탕",
+      "reference": "나주곰탕",
+      "labeledRecords": 2,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "totalRecords": 15,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-14",
+        "105",
+        "한식",
+        "대패삼겹덮밥"
+      ],
+      "component": "미소장국",
+      "reference": "미소장국",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-14",
+        "204",
+        "일품",
+        "베이컨마늘볶음밥"
+      ],
+      "component": "타코야끼",
+      "reference": "타코야끼",
+      "labeledRecords": 5,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-14",
+        "204",
+        "일품",
+        "베이컨마늘볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-14",
+        "204",
+        "정식",
+        "미나리돼지곰탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "204",
+        "일품",
+        "토마토커리덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "204",
+        "정식",
+        "제육김치볶음"
+      ],
+      "component": "새송이볶음",
+      "reference": "새송이볶음",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "401",
+        "중식 - Korean Dining",
+        "보쌈정식"
+      ],
+      "component": "아욱된장국",
+      "reference": "아욱된장국",
+      "labeledRecords": 2,
+      "totalRecords": 12,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "105",
+        "한식",
+        "찹스테이크덮밥"
+      ],
+      "component": "크림스프",
+      "reference": "크림스프",
+      "labeledRecords": 1,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "204",
+        "일품",
+        "함박덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "204",
+        "정식",
+        "차돌된장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "401",
+        "중식 - Korean Dining",
+        "돈코츠라멘"
+      ],
+      "component": "돈코츠라멘",
+      "reference": "돈코츠라멘",
+      "labeledRecords": 2,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "204",
+        "일품",
+        "지코바치킨덮밥"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "204",
+        "일품",
+        "지코바치킨덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "204",
+        "정식",
+        "바지락순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "401",
+        "중식 - Korean Dining",
+        "소불고기전골"
+      ],
+      "component": "무생채",
+      "reference": "무생채",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "105",
+        "한식",
+        "참치마요덮밥"
+      ],
+      "component": "유부된장국",
+      "reference": "유부된장국",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "204",
+        "일품",
+        "마라샹궈"
+      ],
+      "component": "냉모밀",
+      "reference": "냉모밀",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "204",
+        "일품",
+        "마라샹궈"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "204",
+        "정식",
+        "감자탕"
+      ],
+      "component": "새송이볶음",
+      "reference": "새송이볶음",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "204",
+        "정식",
+        "감자탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "204",
+        "일품",
+        "마파두부덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-27",
+        "204",
+        "일품",
+        "왕돈가스*눈꽃치즈"
+      ],
+      "component": "미니우동",
+      "reference": "미니우동",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-27",
+        "204",
+        "일품",
+        "왕돈가스*눈꽃치즈"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-27",
+        "204",
+        "정식",
+        "얼큰수육국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-27",
+        "401",
+        "중식 - Korean Dining",
+        "나주곰탕"
+      ],
+      "component": "나주곰탕",
+      "reference": "나주곰탕",
+      "labeledRecords": 2,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-28",
+        "105",
+        "즉석",
+        "돼지고기고추장찌개"
+      ],
+      "component": "떡갈비",
+      "reference": "떡갈비",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-28",
+        "105",
+        "한식",
+        "참치야채비빔밥"
+      ],
+      "component": "떡갈비",
+      "reference": "떡갈비",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-28",
+        "204",
+        "일품",
+        "마라샹궈"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "105",
+        "한식",
+        "라따뚜이오믈렛"
+      ],
+      "component": "크림스프",
+      "reference": "크림스프",
+      "labeledRecords": 1,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "204",
+        "일품",
+        "투움바떡볶이"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "204",
+        "일품",
+        "투움바떡볶이"
+      ],
+      "component": "김말이강정",
+      "reference": "김말이강정",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "204",
+        "일품",
+        "투움바떡볶이"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "204",
+        "정식",
+        "닭개장"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-29",
+        "401",
+        "중식 - Korean Dining",
+        "수육"
+      ],
+      "component": "시금치된장국",
+      "reference": "시금치된장국",
+      "labeledRecords": 1,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "204",
+        "일품",
+        "피자함박스테이크"
+      ],
+      "component": "쌀국수",
+      "reference": "쌀국수",
+      "labeledRecords": 4,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "204",
+        "일품",
+        "피자함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "204",
+        "정식",
+        "바지락순두부찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "component": "미니우동",
+      "reference": "미니우동",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "일품",
+        "계란볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "정식",
+        "제육김치볶음"
+      ],
+      "component": "맑은콩나물국",
+      "reference": "맑은콩나물국",
+      "labeledRecords": 2,
+      "totalRecords": 13,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "정식",
+        "제육김치볶음"
+      ],
+      "component": "새송이볶음",
+      "reference": "새송이볶음",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "401",
+        "중식 - Korean Dining",
+        "닭한마리전골&양념장"
+      ],
+      "component": "해물파전",
+      "reference": "해물파전",
+      "labeledRecords": 3,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-03",
+        "204",
+        "일품",
+        "돈가스카레덮밥"
+      ],
+      "component": "미니우동",
+      "reference": "미니우동",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-03",
+        "204",
+        "일품",
+        "돈가스카레덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-03",
+        "204",
+        "정식",
+        "우삼겹갈비탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-03",
+        "401",
+        "중식 - Korean Dining",
+        "육회비빔밥"
+      ],
+      "component": "미소장국",
+      "reference": "미소장국",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "105",
+        "즉석",
+        "부대찌개"
+      ],
+      "component": "부대찌개",
+      "reference": "부대찌개",
+      "labeledRecords": 3,
+      "totalRecords": 10,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "204",
+        "정식",
+        "얼큰만두전골"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "401",
+        "중식 - Korean Dining",
+        "제육볶음"
+      ],
+      "component": "된장찌개",
+      "reference": "된장찌개",
+      "labeledRecords": 6,
+      "totalRecords": 16,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-05",
+        "204",
+        "일품",
+        "제주고기국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-05",
+        "204",
+        "정식",
+        "돈등뼈감자탕"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-06",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "날치알김치볶음밥",
+      "reference": "날치알김치볶음밥",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-06",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "크림스파게티",
+      "reference": "크림스파게티",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-06",
+        "204",
+        "일품",
+        "날치알김치볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-06",
+        "204",
+        "정식",
+        "차돌된장찌개"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-06",
+        "401",
+        "중식 - Korean Dining",
+        "전골)한방갈비찜"
+      ],
+      "component": "두부조림",
+      "reference": "두부조림",
+      "labeledRecords": 1,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    }
+  ],
+  "protectedSha256": {
+    "web\\site_data.json": "58aced6ae5cafca0177f97c00023384cf82624d3ca4afd58074b21d6d5a80718",
+    "web\\menu_exchange_snapshot.json": "548f3446d35ba13ea7b1d8506ae3bbff9ad5a1f0cbd18ddc6c036eadd2d1913c",
+    "web\\personal-score.js": "bcc45e2855f240ee4df507ccfa7e514582e16bfb54dabc30b18750865b1ffb63",
+    "web\\recommendation-view.js": "7ff9ab4b109f5ef10ac2810085748d5defee0b022ea01aae1b761a05b138d7e8",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
+    "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
+    "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b"
+  }
+}

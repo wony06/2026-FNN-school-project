@@ -7,6 +7,15 @@ __pycache__/
 
 # 개인 API 키 (config.example.py를 복사해서 config.py 만들 것)
 pipeline/config.py
+.env
+.env.*
+!.env.example
 
 # 디버그/스크래치 산출물
 pipeline/_debug_*.json
+pipeline/_neis_cache/
+pipeline/neis_reference/*.tmp
+pipeline/neis_reference/*.building.sqlite3
+pipeline/neis_reference/*.sqlite3-journal
+pipeline/neis_reference/*.sqlite3-wal
+pipeline/neis_reference/*.sqlite3-shm

@@ -53,6 +53,38 @@ main{padding-top:32px;padding-bottom:64px}
 .form-field input:focus,.form-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .form-field input::placeholder{color:var(--ink-faint)}
 .daily-preferences{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start;border-top:1px solid #d8dee8;margin-top:18px;padding-top:18px}
+.allergy-field{margin-top:18px;padding-top:16px;border-top:1px solid #d8dee8}
+.allergy-select{position:relative;max-width:480px}
+.allergy-toggle{width:100%;min-height:42px;text-align:left;padding:10px 36px 10px 12px;border:1px solid #d8dee8;border-radius:11px;background:var(--surface);color:var(--ink);font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;position:relative;overflow-wrap:anywhere}
+.allergy-toggle::after{content:"";position:absolute;right:15px;top:16px;width:7px;height:7px;border-right:1.5px solid var(--ink-muted);border-bottom:1.5px solid var(--ink-muted);transform:rotate(45deg)}
+.allergy-toggle[aria-expanded="true"]{border-color:var(--accent)}
+.allergy-toggle:focus-visible,.allergy-actions button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.allergy-panel{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:40;background:var(--surface);border:1px solid #cbd5e1;border-radius:12px;box-shadow:0 5px 14px rgba(24,32,42,.08);overflow:hidden}
+.allergy-options{max-height:min(250px,40vh);overflow-y:auto;overscroll-behavior:contain;padding:6px;scrollbar-width:thin}
+.allergy-option{display:flex;align-items:center;gap:10px;padding:10px 8px;border-radius:7px;min-height:40px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;color:var(--ink)}
+.allergy-option:hover,.allergy-option:has(input:checked){background:var(--accent-soft)}
+.allergy-option input{appearance:auto;position:static;opacity:1;flex:none;width:16px;height:16px;accent-color:var(--accent);margin:0}
+.allergy-actions{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-top:1px solid #d8dee8}
+.allergy-actions button{border:0;border-radius:8px;background:var(--surface-2);color:var(--ink-muted);padding:9px 13px;font:inherit;font-size:13px;cursor:pointer}
+.allergy-actions #allergyDone{background:var(--accent);color:#fff}
+.allergy-notice,.allergy-load-status{color:var(--ink-muted);font-family:inherit;font-size:12px;font-weight:400;line-height:1.5;margin:7px 0 0}
+.allergy-load-status:empty{display:none}
+.allergy-result{border-bottom:1px solid #d8dee8;padding:0 0 12px;margin-bottom:18px;font-family:inherit;font-size:13px;font-weight:400;line-height:1.5;color:var(--ink-muted)}
+.allergy-result p{margin:0 0 5px}.allergy-result p:last-child{margin-bottom:0}
+.allergy-check-tag{display:inline-block;font-size:12px;color:var(--ink-muted);background:var(--surface-2);padding:5px 8px;border-radius:7px}
+.allergy-detail{padding:8px 0;font-family:inherit;font-size:12px;font-weight:400;line-height:1.5;color:var(--ink-muted)}
+.allergy-excluded-heading{grid-column:1/-1;font-size:14px;font-weight:600;color:var(--ink-muted);margin-top:10px}
+.card.allergy-excluded-card,.card.allergy-excluded-card:hover{background:#f0f2f4;border-color:#dce1e6;color:var(--ink-muted);cursor:default;box-shadow:none;transform:none}
+.allergy-excluded-card .card-photo{filter:grayscale(1);opacity:.7}
+.allergy-excluded-card .card-name,.allergy-excluded-card .card-shop,.allergy-excluded-card .nutrition-mini b{color:var(--ink-muted)}
+.remember-field{margin-top:16px;padding-top:14px;border-top:1px solid #d8dee8}
+.remember-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.remember-label{display:flex;align-items:center;gap:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.remember-label input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
+#deleteProfile{border:0;background:none;color:var(--ink-muted);font-family:inherit;font-size:12px;font-weight:500;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+#deleteProfile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.remember-notice,.remember-status{margin:7px 0 0;color:var(--ink-muted);font-size:12px;font-weight:400;line-height:1.5}
+.remember-status:empty{display:none}
 .choice-heading{margin-bottom:9px;color:var(--ink);font-size:13px;font-weight:600}
 .meal-count-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
 .meal-option,.activity-option,.goal-option{display:block;position:relative;cursor:pointer;min-width:0}

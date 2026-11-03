@@ -1,0 +1,518 @@
+{
+  "generated_at": "2026-11-03T08:07:47.510214+00:00",
+  "months": [
+    "202609",
+    "202610"
+  ],
+  "school_count": 20,
+  "meal_rows_received": 1012,
+  "duplicate_meal_rows_removed": 0,
+  "unique_meal_count": 1012,
+  "menu_record_count": 6762,
+  "unique_original_menu_count": 3450,
+  "unique_normalized_menu_count": 3204,
+  "label_status_counts": {
+    "미표기": 1135,
+    "표기": 5626,
+    "검토필요": 1
+  },
+  "cross_school_variant_menu_count": 384,
+  "school_selection_attempts": [
+    {
+      "school_name": "개포고등학교",
+      "school_code": "7010058",
+      "district": "강남구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 15
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "강동고등학교",
+      "school_code": "7010117",
+      "district": "강동구",
+      "monthly_meal_counts": {
+        "202609": 32,
+        "202610": 34
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "삼각산고등학교",
+      "school_code": "7010985",
+      "district": "강북구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 16
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경복비즈니스고등학교",
+      "school_code": "7010835",
+      "district": "강서구",
+      "monthly_meal_counts": {
+        "202609": 33,
+        "202610": 28
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "광신고등학교",
+      "school_code": "7010133",
+      "district": "관악구",
+      "monthly_meal_counts": {
+        "202609": 35,
+        "202610": 19
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "건국대학교사범대학부속고등학교",
+      "school_code": "7010119",
+      "district": "광진구",
+      "monthly_meal_counts": {
+        "202609": 37,
+        "202610": 31
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경인고등학교",
+      "school_code": "7010563",
+      "district": "구로구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 15
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "국립전통예술고등학교",
+      "school_code": "1371663",
+      "district": "금천구",
+      "monthly_meal_counts": {
+        "202609": 35,
+        "202610": 33
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경기기계공업고등학교",
+      "school_code": "7010271",
+      "district": "노원구",
+      "monthly_meal_counts": {
+        "202609": 56,
+        "202610": 54
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "누원고등학교",
+      "school_code": "7010589",
+      "district": "도봉구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 15
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경희고등학교",
+      "school_code": "7010126",
+      "district": "동대문구",
+      "monthly_meal_counts": {
+        "202609": 39,
+        "202610": 39
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경문고등학교",
+      "school_code": "7010120",
+      "district": "동작구",
+      "monthly_meal_counts": {
+        "202609": 18,
+        "202610": 18
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경성고등학교",
+      "school_code": "7010124",
+      "district": "마포구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 19
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "가재울고등학교",
+      "school_code": "7011169",
+      "district": "서대문구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 15
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "동덕여자고등학교",
+      "school_code": "7010152",
+      "district": "서초구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 20
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경일고등학교",
+      "school_code": "7010698",
+      "district": "성동구",
+      "monthly_meal_counts": {
+        "202609": 19,
+        "202610": 16
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "경동고등학교",
+      "school_code": "7010061",
+      "district": "성북구",
+      "monthly_meal_counts": {
+        "202609": 18,
+        "202610": 18
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "가락고등학교",
+      "school_code": "7010057",
+      "district": "송파구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 16
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "강서고등학교",
+      "school_code": "7010118",
+      "district": "양천구",
+      "monthly_meal_counts": {
+        "202609": 39,
+        "202610": 35
+      },
+      "accepted": true
+    },
+    {
+      "school_name": "관악고등학교",
+      "school_code": "7010065",
+      "district": "영등포구",
+      "monthly_meal_counts": {
+        "202609": 20,
+        "202610": 15
+      },
+      "accepted": true
+    }
+  ],
+  "variation_examples": [
+    {
+      "normalized_menu_name": "깍두기",
+      "records": [
+        {
+          "record_id": "202d7c81c0408cdbab21586f242ef8213fe72c207f1b70b6bfa97768d6b9c957",
+          "meal_id": "164d794fbf83c8ea451d8852e9429f62f66774fe49bf31999e148d36b9cccd75",
+          "school_name": "국립전통예술고등학교",
+          "school_code": "1371663",
+          "office_code": "B10",
+          "meal_date": "20260901",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "무농약오색현미밥 <br/>북어콩나물국 (5)<br/>두부스팸김치조림 (1.2.5.6.9.10.13.15.16)<br/>잡채 (5.6.10.13)<br/>땅콩조림 (4.5.6.13)<br/>깍두기 (9)<br/>스위트트로피컬 (13)",
+          "fetched_at": "2026-11-03T08:07:37.550667+00:00",
+          "line_index": 5,
+          "source_text": "깍두기 (9)",
+          "original_menu_name": "깍두기",
+          "normalized_menu_name": "깍두기",
+          "allergy_numbers": [
+            9
+          ],
+          "allergy_names": [
+            "새우"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        },
+        {
+          "record_id": "5a450d08f5c3f123304f28c457071a9e3b474c474da8d2397c3f5dca4b1c0b7b",
+          "meal_id": "6e913dbc9b6e7dadeb7714a9452a5df768bc8815e811b60daebb05620aa24957",
+          "school_name": "개포고등학교",
+          "school_code": "7010058",
+          "office_code": "B10",
+          "meal_date": "20261021",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "팝콘치킨마요덮밥 (1.2.5.6.10.13.15.16)<br/>팽이유부장국 (5.6)<br/>메추리알곤약장조림 (1.5.6.13)<br/>하얼빈식두부만두 (5.6.13.16.18)<br/>깍두기 (9.13)<br/>만다린샐러드&요거트드레싱 (1.2.5.6.12)",
+          "fetched_at": "2026-11-03T08:07:32.681826+00:00",
+          "line_index": 4,
+          "source_text": "깍두기 (9.13)",
+          "original_menu_name": "깍두기",
+          "normalized_menu_name": "깍두기",
+          "allergy_numbers": [
+            9,
+            13
+          ],
+          "allergy_names": [
+            "새우",
+            "아황산류"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        }
+      ]
+    },
+    {
+      "normalized_menu_name": "배추김치",
+      "records": [
+        {
+          "record_id": "7cad34b05de8a188e82ada48ebcd53c7e256d214a8b33ed44b7bf7091f4d17c3",
+          "meal_id": "21ceabf29bb6b4de815303448115786e7cfc98db1b6aaa666dd08026b8ecce92",
+          "school_name": "가락고등학교",
+          "school_code": "7010057",
+          "office_code": "B10",
+          "meal_date": "20260904",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "칼슘강화찹쌀밥 <br/>게살미역국 (5.6.8)<br/>한방돈갈비찜 (5.6.10.13)<br/>파프리카잡채 (1.5.6.13)<br/>배추김치 (9)<br/>크레이프롤케익 (1.2.5.6)",
+          "fetched_at": "2026-11-03T08:07:45.254176+00:00",
+          "line_index": 4,
+          "source_text": "배추김치 (9)",
+          "original_menu_name": "배추김치",
+          "normalized_menu_name": "배추김치",
+          "allergy_numbers": [
+            9
+          ],
+          "allergy_names": [
+            "새우"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        },
+        {
+          "record_id": "188657fc6e744130e547d3b3cd13088e49ec1e174d8b18771db7ec5e44b0bfc4",
+          "meal_id": "2628ec91fa2a08c345da3a6d2e2ec7df476b7e1ef9c90439431fb978dbc03707",
+          "school_name": "개포고등학교",
+          "school_code": "7010058",
+          "office_code": "B10",
+          "meal_date": "20261012",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "곤드레나물밥&양념장 (5.6)<br/>두부된장찌개 (5.6)<br/>연근조림 (5.6.13)<br/>단호박돈사태찜 (5.6.10.13)<br/>무생채 (13)<br/>배추김치 (9.13)",
+          "fetched_at": "2026-11-03T08:07:32.681826+00:00",
+          "line_index": 5,
+          "source_text": "배추김치 (9.13)",
+          "original_menu_name": "배추김치",
+          "normalized_menu_name": "배추김치",
+          "allergy_numbers": [
+            9,
+            13
+          ],
+          "allergy_names": [
+            "새우",
+            "아황산류"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        }
+      ]
+    },
+    {
+      "normalized_menu_name": "배추겉절이",
+      "records": [
+        {
+          "record_id": "25a2e44be1d2b36a2f2331ce31918fee98e603466e1a708bf6361ac19820ddc9",
+          "meal_id": "52c4ec421d9e0c3e9f945a7f1587ff928bf2a436ff3e7fe3aac980fbade6b0ef",
+          "school_name": "국립전통예술고등학교",
+          "school_code": "1371663",
+          "office_code": "B10",
+          "meal_date": "20260903",
+          "meal_type_code": "3",
+          "meal_type": "석식",
+          "DDISH_NM": "짜장밥 (5.6.10.13.16)<br/>부추계란탕 (1.9)<br/>짬뽕소룡포만두 (1.5.6.10.16.18)<br/>오이탕탕이 (5.6.13)<br/>마파두부 (5.6.10.12.13.18)<br/>배추겉절이 (9)",
+          "fetched_at": "2026-11-03T08:07:37.550667+00:00",
+          "line_index": 5,
+          "source_text": "배추겉절이 (9)",
+          "original_menu_name": "배추겉절이",
+          "normalized_menu_name": "배추겉절이",
+          "allergy_numbers": [
+            9
+          ],
+          "allergy_names": [
+            "새우"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        },
+        {
+          "record_id": "d93dc4a3898f84a7b2aa91adcbc46635dc7eb0c3a233cbdbd6ccf83dcf8b46f9",
+          "meal_id": "50fdd58972406c009bc67fadd309b181e188f9cd3153c344f3d657e49c5ac460",
+          "school_name": "가락고등학교",
+          "school_code": "7010057",
+          "office_code": "B10",
+          "meal_date": "20261012",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "김밥(교직원) (1.2.5.6.10.13.15.16)<br/>잔치국수(탕그릇) (1.5.6.9)<br/>배추겉절이 (13)<br/>천혜향 ",
+          "fetched_at": "2026-11-03T08:07:45.650615+00:00",
+          "line_index": 2,
+          "source_text": "배추겉절이 (13)",
+          "original_menu_name": "배추겉절이",
+          "normalized_menu_name": "배추겉절이",
+          "allergy_numbers": [
+            13
+          ],
+          "allergy_names": [
+            "아황산류"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        }
+      ]
+    },
+    {
+      "normalized_menu_name": "된장찌개",
+      "records": [
+        {
+          "record_id": "2138e59631c7cbd077d15b31dbdd9d040fc8134a8aa928ac53baf0f80704f0a8",
+          "meal_id": "9df03d1de7826bf2c70de7491ece796f19b4d630f1a9e20b628731aa943a4fcf",
+          "school_name": "국립전통예술고등학교",
+          "school_code": "1371663",
+          "office_code": "B10",
+          "meal_date": "20260915",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "무농약칼슘흑미밥 <br/>된장찌개 (5.6)<br/>열무된장무침 (5.6)<br/>파 소불고기 (5.6.13.16)<br/>매콤어묵잡채 (1.5.6.13.18)<br/>포기김치 (9)<br/>젤리푸딩(리치) ",
+          "fetched_at": "2026-11-03T08:07:37.550667+00:00",
+          "line_index": 1,
+          "source_text": "된장찌개 (5.6)",
+          "original_menu_name": "된장찌개",
+          "normalized_menu_name": "된장찌개",
+          "allergy_numbers": [
+            5,
+            6
+          ],
+          "allergy_names": [
+            "대두",
+            "밀"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        },
+        {
+          "record_id": "bfdd2b458e53a24bcc3f325f6fec0e9dbf2004844eee7683505fc290d930bc57",
+          "meal_id": "f4c12da54543d7bac843551363e81ff1d908545d8f529f39be074d48d86405ab",
+          "school_name": "강동고등학교",
+          "school_code": "7010117",
+          "office_code": "B10",
+          "meal_date": "20260916",
+          "meal_type_code": "3",
+          "meal_type": "석식",
+          "DDISH_NM": "찰현미밥 <br/>된장찌개 (5.6.8.9.13.18)<br/>유자망고꿀치즈샐러드 (1.2.5.6)<br/>불닭제육맥앤치즈 (1.2.5.6.10.13.18)<br/>백김치 (9.13)<br/>증편 ",
+          "fetched_at": "2026-11-03T08:07:33.071741+00:00",
+          "line_index": 1,
+          "source_text": "된장찌개 (5.6.8.9.13.18)",
+          "original_menu_name": "된장찌개",
+          "normalized_menu_name": "된장찌개",
+          "allergy_numbers": [
+            5,
+            6,
+            8,
+            9,
+            13,
+            18
+          ],
+          "allergy_names": [
+            "대두",
+            "밀",
+            "게",
+            "새우",
+            "아황산류",
+            "조개류(굴·전복·홍합 포함)"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        }
+      ]
+    },
+    {
+      "normalized_menu_name": "육개장",
+      "records": [
+        {
+          "record_id": "c8eb12de8d44a763a7f4d2a7b433a55f4666f513a859d028c3daf03476bbd5e2",
+          "meal_id": "fb2a462cf3e307f343d8b72301846f45c232d030a0a5dc6f1b39bd94f28153bc",
+          "school_name": "국립전통예술고등학교",
+          "school_code": "1371663",
+          "office_code": "B10",
+          "meal_date": "20260915",
+          "meal_type_code": "3",
+          "meal_type": "석식",
+          "DDISH_NM": "무농약칼슘찹쌀밥 <br/>육개장 (1.5.6.16)<br/>오리주물럭 (5.6.13)<br/>미역줄기맛살볶음 <br/>낙지호롱꼬치구이 (5.6.13.17)<br/>총각김치 (9)",
+          "fetched_at": "2026-11-03T08:07:37.550667+00:00",
+          "line_index": 1,
+          "source_text": "육개장 (1.5.6.16)",
+          "original_menu_name": "육개장",
+          "normalized_menu_name": "육개장",
+          "allergy_numbers": [
+            1,
+            5,
+            6,
+            16
+          ],
+          "allergy_names": [
+            "난류",
+            "대두",
+            "밀",
+            "쇠고기"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        },
+        {
+          "record_id": "4bd66f18ea3bad4d1c9ab74a8f0d5ed714ecb001f9653fa36de3ddb3f0c0acac",
+          "meal_id": "1f513fe73543ce382b3c00e49ea294b39d7e7bcc854c33004b5ce1c951e60f65",
+          "school_name": "가락고등학교",
+          "school_code": "7010057",
+          "office_code": "B10",
+          "meal_date": "20260903",
+          "meal_type_code": "2",
+          "meal_type": "중식",
+          "DDISH_NM": "혼합잡곡밥 (5)<br/>육개장 (5.6.16)<br/>계란장조림 (1.5.6.13)<br/>삼치된장박이구이 (5.6.13)<br/>깍두기 (9)<br/>파인소스청경채무침 (1.5.12.13)",
+          "fetched_at": "2026-11-03T08:07:45.254176+00:00",
+          "line_index": 1,
+          "source_text": "육개장 (5.6.16)",
+          "original_menu_name": "육개장",
+          "normalized_menu_name": "육개장",
+          "allergy_numbers": [
+            5,
+            6,
+            16
+          ],
+          "allergy_names": [
+            "대두",
+            "밀",
+            "쇠고기"
+          ],
+          "label_status": "표기",
+          "review_flags": []
+        }
+      ]
+    }
+  ],
+  "normalization_version": "conservative-v1",
+  "meal_scope": "조식·중식·석식 등 API가 반환한 모든 급식구분",
+  "interpretation": "미표기/어떤 번호의 비표시는 부재나 안전의 증거가 아님. 다른 학교 메뉴의 표시를 한양대 메뉴의 확정 알레르기로 적용하지 않음."
+}

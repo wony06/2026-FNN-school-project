@@ -1,0 +1,27 @@
+{
+  "meal_count": 449,
+  "excluded_calculation_component_occurrences": 1128,
+  "source_supported_components_analyzed": 1973,
+  "classification_counts": {
+    "neis_possible": 2286,
+    "unknown": 5938,
+    "name_and_neis_possible": 215,
+    "name_indicated": 92
+  },
+  "meals_with_name_evidence": 237,
+  "meals_with_neis_evidence": 303,
+  "meals_with_unknown_recipe": 449,
+  "source_evidence_records": 1676,
+  "protected_sha256": {
+    "web\\site_data.json": "58aced6ae5cafca0177f97c00023384cf82624d3ca4afd58074b21d6d5a80718",
+    "month_lunch_trays.json": "984dde256cbc03ca7c06159b23eb8b6e05768acd5b0c121b6463a552c69aea05",
+    "hanyang_menu_month.json": "264882164bc0ba9add2d442a6568bc052b598a8d61a7f53501d427f92eb7589e",
+    "web\\index.html": "ee1a5bd3f1e23b329e9c695d4867ff4c04e921dade00ec88fa1f2aa06de65e77",
+    "web\\modern.css": "94b0e85d80e40d1e619f54b4ecfc426395ee2fb40ce438487b4580e8bba91b1d",
+    "web\\personal-score.js": "bcc45e2855f240ee4df507ccfa7e514582e16bfb54dabc30b18750865b1ffb63",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
+    "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
+    "pipeline\\hyu_neis_matching\\meal_matches.json": "943baa0529d12d6e02097576ce100e5055de7975a837bc9606be927ad33440f9"
+  },
+  "choice_or_separator_integration_withheld_meals": 52
+}
