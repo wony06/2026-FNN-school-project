@@ -282,7 +282,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   .sheet, .scrim, .card{transition:none;}
 }
 </style>
-<link rel="stylesheet" href="modern.css?v=20261102-two-mobile-rows">
+<link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -303,7 +303,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <main>
   <form id="personalForm" class="personal-form">
     <section class="input-card">
-      <div class="step-caption"><span class="step-number">01</span><div><strong>사용자 정보</strong><small>입력값은 추천 계산에만 사용하고 저장하지 않아요.</small></div></div>
+      <div class="step-caption"><span class="step-number">01</span><div><strong>사용자 정보</strong><small>입력 정보는 이 브라우저에서만 사용해요.</small></div></div>
       <div class="profile-grid">
         <label class="form-field"><span class="field-label">성별</span><select name="sex" required><option value="">선택해 주세요</option><option value="male">남성</option><option value="female">여성</option></select></label>
         <label class="form-field"><span class="field-label">만 나이 <span class="field-hint">20세 이상</span></span><input name="age" type="number" min="20" step="1" placeholder="예: 22" required></label>
@@ -328,6 +328,25 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
           </div>
           <p id="activityDescription" class="selection-description" aria-live="polite" hidden></p>
         </div>
+      </div>
+      <div class="allergy-field">
+        <div id="allergyHeading" class="choice-heading">알레르기 유발 식품</div>
+        <div id="allergySelect" class="allergy-select">
+          <button id="allergyToggle" class="allergy-toggle" type="button" aria-expanded="false" aria-controls="allergyPanel" aria-labelledby="allergyHeading allergyToggle" disabled>알레르기 유발 식품 선택</button>
+          <div id="allergyPanel" class="allergy-panel" hidden>
+            <div id="allergyOptions" class="allergy-options" role="group" aria-labelledby="allergyHeading"></div>
+            <div class="allergy-actions"><button id="allergyClear" type="button">전체 해제</button><button id="allergyDone" type="button">선택 완료</button></div>
+          </div>
+        </div>
+        <p id="allergyLoadStatus" class="allergy-load-status" role="status"></p>
+        <p class="allergy-notice">알레르기 정보는 추정치입니다. 실제 원재료·교차접촉 여부는 식당에 확인해 주세요.</p>
+      </div>
+      <div class="remember-field">
+        <div class="remember-actions">
+          <label class="remember-label"><input id="rememberProfile" type="checkbox">내 정보 기억하기</label>
+          <button id="deleteProfile" type="button">저장된 정보 삭제</button>
+        </div>
+        <p id="profileStorageStatus" class="remember-status" role="status" hidden></p>
       </div>
     </section>
     <section class="input-card recommendation-card">
@@ -362,13 +381,21 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <div class="form-actions"><button type="submit" id="personalSubmit" disabled>내게 맞는 메뉴 보기</button><div id="personalStatus" role="status">정보를 입력하면 개인 추천순위를 보여드려요.</div></div>
   </form>
   <section id="results" class="results-section">
-  <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2>추천 결과</h2><p id="dayTitle">불러오는 중…</p></div>
+  <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2>추천 결과</h2><p id="dayTitle">불러오는 중…</p><p class="result-allergy-note">알레르기 번호는 추정 정보입니다.</p></div>
     <span class="count" id="dayCount"></span>
   </div>
   <div id="shopTabs" class="shop-tabs results-tabs" role="tablist" aria-label="추천 결과 식당 선택"></div>
+  <div id="allergyResult" class="allergy-result" aria-live="polite" hidden></div>
   <div class="shop-grid" id="shopGrid"></div>
   </section>
   <details class="data-notice"><summary>영양정보는 어떻게 계산했나요?</summary><p>전 항목은 표준 제공량 기반 자동 추정치이며 실측값이 아닙니다. 식약처 통합식품영양성분DB·가공식품DB·국가표준식품성분표를 자동 매칭했습니다. 매칭 신뢰도, 결측 및 미매칭 구성요소는 메뉴 상세에서 확인할 수 있습니다.</p></details>
+  <section class="allergy-legend" aria-labelledby="allergyLegendHeading">
+    <h2 id="allergyLegendHeading">알레르기 번호 안내</h2>
+    <ul class="allergy-legend-list">
+      <li>1 난류</li><li>2 우유</li><li>3 메밀</li><li>4 땅콩</li><li>5 대두</li><li>6 밀</li><li>7 고등어</li><li>8 게</li><li>9 새우</li><li>10 돼지고기</li><li>11 복숭아</li><li>12 토마토</li><li>13 아황산류</li><li>14 호두</li><li>15 닭고기</li><li>16 쇠고기</li><li>17 오징어</li><li>18 조개류</li><li>19 잣</li>
+    </ul>
+    <p>알레르기 번호는 추정 정보이며, 실제 원재료와 교차접촉 여부는 식당에 확인해 주세요.</p>
+  </section>
 </main>
 
 <div class="scrim" id="scrim"></div>
@@ -381,6 +408,9 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="instant-rice.js"></script>
 <script src="personal-score.js"></script>
 <script src="recommendation-view.js"></script>
+<script src="allergy-filter.js?v=1"></script>
+<script src="allergy-ui.js?v=2"></script>
+<script src="profile-storage.js?v=2"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
 const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};
@@ -394,6 +424,15 @@ let dates = [];
 let activeDate = null;
 let activeShop = "all";
 let activeGoal = null;
+let ALLERGY_DATA=null, ALLERGY_INDEX=new Map(), ALLERGY_EXCLUDED=[], ACTIVE_CONTEXT=null;
+
+function refreshRecommendations(){
+  if(!BASE_DATA.length)return;
+  const partition=AllergyFilter.partition(BASE_DATA,AllergyUI.selectedCodes(),ALLERGY_INDEX);
+  ALLERGY_EXCLUDED=partition.excluded;
+  DATA=PersonalScore.scoreMenus(partition.kept,EXCHANGE_SNAPSHOT,ACTIVE_CONTEXT);
+  dates.forEach(d=>byDate[d]=DATA.filter(x=>x.date===d));
+}
 
 function pct(v, dv){ return Math.min(100, (v/dv)*100); }
 
@@ -474,16 +513,22 @@ function recommendationReason(item){
 
 function itemCard(item,displayRank){
   const el = document.createElement("div");
-  const rec=item.recommendation;
-  el.className = "card"+(!rec.eligible ? " recommendation-excluded" : "")+(displayRank===1 ? " is-top" : "");
-  el.tabIndex = 0;
-  el.setAttribute('role','button');
+  const allergyEntry=ALLERGY_INDEX.get(AllergyFilter.key(item));
+  const allergyCodes=allergyEntry?.state==='choice_withheld' ? [] : [...new Set((allergyEntry?.allergens??[]).map(a=>a.code))].sort((a,b)=>a-b);
+  const allergyLabel=allergyCodes.length ? `추정 알레르기 번호 ${allergyCodes.join('·')}` : '알레르기 정보 미확인';
+  const allergyNumbersHtml=`<span class="menu-allergy-numbers" aria-label="${escapeText(allergyLabel)}">${allergyCodes.length ? allergyCodes.join('·<wbr>') : allergyLabel}</span>`;
+  const allergyExcluded=Boolean(item.allergyAssessment?.excluded);
+  const rec=item.recommendation??{eligible:false};
+  el.className = "card"+(allergyExcluded ? " allergy-excluded-card" : !rec.eligible ? " recommendation-excluded" : "")+(displayRank===1 ? " is-top" : "");
+  if(allergyExcluded){el.setAttribute('role','article');el.setAttribute('aria-disabled','true');}
+  else{el.tabIndex=0;el.setAttribute('role','button');}
   const rankText=displayRank===null ? '' : `${activeShop==='all'?'전체 ':''}${displayRank}위`;
-  el.setAttribute('aria-label',`${item.main}, ${rec.eligible ? rankText : '추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
+  el.setAttribute('aria-label',allergyExcluded ? `${item.main}, ${allergyLabel}, ${AllergyUI.exclusionLabel(item.allergyAssessment)}, 선택 불가` : `${item.main}, ${allergyLabel}, ${rec.eligible ? rankText : '추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
   const flags = [];
+  if(item.allergyAssessment)flags.push(`<span class="allergy-check-tag">${escapeText(allergyExcluded?AllergyUI.exclusionLabel(item.allergyAssessment):AllergyUI.stateText(item.allergyAssessment))}</span>`);
   if(item.analysisMode) flags.push('<span class="badge">추정</span>');
   if(item.missingFields && item.missingFields.length) flags.push('<span class="badge">결측 포함</span>');
-  const metric=metricDisplay(item);
+  const metric=allergyExcluded?null:metricDisplay(item);
   const exchangeGoal=['lifestyle','weight_loss','glycemic'].includes(rec.goal);
   const detail=exchangeGoal && rec.eligible ? `<details class="score-details"><summary>교환단위 비교 보기</summary><div class="score-details-content"><span>하루 EER <b>${rec.eer.toFixed(1)} kcal</b></span>${rec.goal==='weight_loss'?`<span>하루 적자 <b>${rec.deficit.toFixed(1)} kcal</b></span><span>한 끼 열량 상한 <b>${rec.mealEnergyLimit.toFixed(1)} kcal</b></span>`:''}<span>식품교환표 <b>${rec.roundedEer} kcal</b></span><span>한 끼 목표 T <b>${rec.target.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>메뉴 M <b>${rec.actual.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>거리 D <b>${rec.distance.toFixed(4)}</b></span></div></details>` : '';
   const photo=item.photo ? `<img class="card-photo" src="menu_photos_web/${escapeText(item.photo)}" alt="${escapeText(item.main)} 사진" loading="lazy">` : '<div class="card-photo" aria-label="메뉴 사진 없음"></div>';
@@ -492,8 +537,8 @@ function itemCard(item,displayRank){
       ${photo}
       <div class="card-copy">
         <div class="card-top"><div class="card-meta-left"><span class="card-shop">${escapeText(SHOP_LABEL[item.shop]||item.shop)}</span><span class="card-cat">${escapeText(item.category)}</span></div><span class="card-price">${escapeText(item.price||'')}</span></div>
-        <div class="card-name">${rec.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')}</div>
-        <p class="card-reason">${escapeText(recommendationReason(item))}</p>
+        <div class="card-name">${rec.eligible ? `<span class="rank-pill">${rankText}</span>` : ''}${escapeText(item.main || '(메뉴명 미상)')} ${allergyNumbersHtml}</div>
+        <p class="card-reason">${escapeText(allergyExcluded?'알레르기 추정 근거로 추천 대상에서 제외됐어요.':recommendationReason(item))}</p>
         ${metric ? `<div class="highlight-nutrient"><strong>${metric.value}</strong><span>${metric.label}</span></div>` : ''}
       </div>
     </div>
@@ -503,8 +548,9 @@ function itemCard(item,displayRank){
     </div>
     <div class="card-tags">${flags.join('')}</div>
     ${detail}
-    <div class="card-more">영양정보와 계산 과정 보기 →</div>
+    ${allergyExcluded?'':'<div class="card-more">영양정보와 계산 과정 보기 →</div>'}
   `;
+  if(allergyExcluded)return el;
   el.onclick = () => openSheet(item,displayRank);
   el.onkeydown = (e) => { if(e.target===el && (e.key==="Enter"||e.key===" ")){e.preventDefault();openSheet(item,displayRank);} };
   if(detail){el.querySelector('.score-details').addEventListener('click',e=>e.stopPropagation());
@@ -517,16 +563,25 @@ function renderDay(){
   const {dow} = fmtDate(activeDate);
   const ranked=RecommendationView.rankVisibleMenus(rows,activeShop,PersonalScore.compareMenus);
   const items=ranked.map(entry=>entry.item);
-  document.querySelector('.day-heading h2').textContent=activeGoal ? `${GOAL_LABEL[activeGoal]} 추천` : '추천 결과';
+  const allergySelected=AllergyUI.selectedCodes().length>0;
+  document.querySelector('.day-heading h2').textContent=allergySelected ? `${activeGoal?GOAL_LABEL[activeGoal]+' 기준 · ':''}원재료 확인 필요 메뉴` : activeGoal ? `${GOAL_LABEL[activeGoal]} 추천` : '추천 결과';
   document.getElementById("dayTitle").textContent = `${activeDate.replaceAll("-",".")} (${dow}) · ${activeShop==='all'?'3개 식당 전체':SHOP_LABEL[activeShop]}`;
   document.getElementById("dayCount").textContent = `중식 ${items.length}종 · ${GOAL_LABEL[activeGoal]||'추천'} 대상 ${items.filter(r=>r.recommendation.eligible).length}종`;
+  const excluded=ALLERGY_EXCLUDED.filter(item=>item.date===activeDate&&(activeShop==='all'||item.shop===activeShop));
+  const total=BASE_DATA.filter(item=>item.date===activeDate&&(activeShop==='all'||item.shop===activeShop)).length;
+  if(allergySelected)document.getElementById('dayCount').textContent=`중식 ${total}종 · 추천 검토 ${items.length}종 · 알레르기 제외 ${excluded.length}종`;
+  AllergyUI.renderSummary(excluded,items.length,total);
 
   const grid = document.getElementById("shopGrid");
   grid.innerHTML = "";
   if(items.length===0){
     const note=document.createElement('div');note.className='empty-note';
-    note.textContent='이 날짜에 분석된 중식 메뉴가 없어요.';grid.appendChild(note);
+    note.textContent=excluded.length ? '선택한 성분의 포함 가능 근거로 추천 검토 메뉴가 없습니다. 제외 메뉴는 아래에 표시됩니다.' : '이 날짜에 분석된 중식 메뉴가 없어요.';grid.appendChild(note);
   } else ranked.forEach(({item,rank})=>grid.appendChild(itemCard(item,rank)));
+  if(excluded.length){
+    const heading=document.createElement('div');heading.className='allergy-excluded-heading';heading.textContent=`알레르기로 제외된 메뉴 ${excluded.length}종`;
+    grid.appendChild(heading);excluded.forEach(item=>grid.appendChild(itemCard(item,null)));
+  }
 }
 
 function srcGroup(label, names){
@@ -655,6 +710,7 @@ function openSheet(item,displayRank){
       <h2>${item.main || "(메뉴명 미상)"}</h2>
       <div class="meta">${item.date.replaceAll("-",".")} · ${item.price||""} · ${item.analysisMode?'추정 제공량':'1인분 제공량'} ${item.weight?item.weight.toFixed(0):"-"}g</div>
     </div>
+    ${AllergyUI.detailsHtml(item.allergyAssessment)}
     ${tabsHtml}
     <div class="tab-panel" id="sheetPanel"></div>
   `;
@@ -709,15 +765,18 @@ personalForm.addEventListener('submit', e=>{
     document.getElementById('personalStatus').textContent=`${GOAL_LABEL[goal]} 기준 · 하루 ${context.mealCount}끼${goal==='weight_loss' ? ` · 하루 ${context.deficit.toFixed(1)} kcal 적자` : ''}로 추천했어요.`;
   } catch(error) { document.getElementById('personalStatus').textContent=error.message; }
   activeGoal=context?.goal??null;
-  DATA=PersonalScore.scoreMenus(BASE_DATA,EXCHANGE_SNAPSHOT,context);
-  dates.forEach(d=>byDate[d]=DATA.filter(x=>x.date===d));
+  ACTIVE_CONTEXT=context;
+  refreshRecommendations();
   closeSheet();renderDay();
   if(context) document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 });
 function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
-Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}))).then(([data, exchanges, targets, glycemicTargets])=>{
+Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json", "allergy-data.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}).catch(error=>{if(url==='allergy-data.json')return null;throw error;}))).then(([data, exchanges, targets, glycemicTargets, allergyData])=>{
   InstantRice.apply(data, exchanges);
   BASE_DATA = data; EXCHANGE_SNAPSHOT = exchanges; TARGET_TABLE = targets; GLYCEMIC_TABLE = glycemicTargets;
+  try{ALLERGY_INDEX=allergyData?AllergyFilter.buildIndex(allergyData):new Map();ALLERGY_DATA=allergyData;}
+  catch(error){console.error(error);ALLERGY_DATA=null;ALLERGY_INDEX=new Map();}
+  AllergyUI.mount(ALLERGY_DATA,()=>{refreshRecommendations();closeSheet();renderDay();ProfileStorage.saveIfEnabled();});
   DATA = PersonalScore.scoreMenus(BASE_DATA, EXCHANGE_SNAPSHOT, null);
   data = DATA;
   document.getElementById("personalSubmit").disabled=false;
@@ -726,6 +785,9 @@ Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targ
   dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
   const requestedDate = new URLSearchParams(location.search).get('date');
   activeDate = dates.includes(requestedDate) ? requestedDate : dates[dates.length-1];
+  ProfileStorage.mount(personalForm,AllergyUI,()=>{
+    updateGoalDisplay();updateSelectionDescription('activity','activityDescription');refreshRecommendations();
+  });
   renderDateStrip();
   renderShopTabs();
   renderDay();
