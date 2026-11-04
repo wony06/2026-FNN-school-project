@@ -34,7 +34,8 @@ def parse_main_and_sides(name, desc):
     안내문)이고 실제 반찬목록은 name 필드에 "주메뉴 반찬1 반찬2 ... 음료"로 공백구분
     되어 다 들어있다. 식당별 하드코딩 대신 이 규칙 하나로 양쪽 다 처리한다."""
     desc = (desc or "").strip()
-    is_real_desc = desc not in ("", "-") and "SELF" not in desc.upper()
+    is_event_notice = "메뉴 이벤트로 인해" in desc and "미운영" in desc
+    is_real_desc = desc not in ("", "-") and "SELF" not in desc.upper() and not is_event_notice
     if is_real_desc:
         main = clean_tag(name)
         sides = [clean_tag(t) for t in desc.split()]

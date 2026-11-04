@@ -242,6 +242,11 @@ def classify_side_weight(name, cache=None):
 # 예외적으로 실제 재료 단위로 쪼갠다. 메인/반찬 어느 쪽에서 나오든 같은 방식으로 적용됨.
 # 케이스별로만 등록 - 새 이름이 나오면 여기 추가.
 DECOMPOSE_OVERRIDES = {
+    # 사용자 지정 분해. 미나리 20g은 실측이 아닌 임시 가정, 기존 총량 283g 유지.
+    "미나리곰탕": [
+        ("곰탕", 263, "사용자 지정 곰탕+미나리 분해: 기존 추정 총량 283g 중 미나리 20g을 가정하고 곰탕에 263g 배분"),
+        ("미나리", 20, "사용자 지정 곰탕+미나리 분해: 미나리 20g 임시 가정, 실제 중량·품종 미확인 생미나리 대체"),
+    ],
     # 사용자 지시: 닭 부분은 레시피 재구성 계산값(master_cache.json "지코바치킨"), 밥은 일반
     # 쌀밥으로 매칭. 204는 105처럼 실측 그릇 표준이 없어 일반적인 덮밥 비율로 추정.
     "지코바치킨덮밥": [
@@ -377,6 +382,7 @@ DECOMPOSE_OVERRIDES = {
     # 나온 경우라 _special_weight()의 SAUCE_KEYWORDS 판정을 못 타서 override로 처리.
     "타르D": [("타르타르소스", 9, "소스 - 표준 9g(1회용 파우치). 표기 통일: 타르D→타르타르소스")],
     "브라운S": [("브라운소스", 9, "소스 - 표준 9g(1회용 파우치). 표기 통일: 브라운S→브라운소스")],
+    "브라운D": [("브라운소스", 9, "소스 - 표준 9g(1회용 파우치). 사용자 지정: 브라운D→브라운소스")],
     # 미소시루(일본식 된장국)는 DB에 없어 기존 우동국물 캐시(가공식품DB 농축액 1:10 희석
     # 보정값)로 대체.
     "미소시루": [("우동국물", 283, "국물류 대체(미소시루→우동국물, 기존 1:10 희석 캐시 재사용) - 국물·찌개류(병합) 283g")],
@@ -579,6 +585,7 @@ DECOMPOSE_OVERRIDES = {
 # 200.5kcal에 먼저 걸림)를 막기 위함. 완성요리/가공품 이름은 db104에 애초에 없어서
 # 이 우선순위를 적용해도 안전하게 기존 cascade로 통과된다.
 RAW_COMPONENT_NAMES = {p for parts in DECOMPOSE_OVERRIDES.values() for p, w, note in parts}
+RAW_COMPONENT_NAMES.update({"당근", "오이"})  # 사진 확인 스틱 채소는 원재료DB 우선
 
 
 def expand_main(name, shop=None, category=None, cache=None):
@@ -587,10 +594,40 @@ def expand_main(name, shop=None, category=None, cache=None):
     return expand_compound(name, lambda n: classify_main_weight(n, cache))
 
 
-def expand_side(name, shop=None, category=None, cache=None):
+PHOTO_SIDE_OVERRIDES = {
+    ("2026-10-29", "401", "2종김치"): ("배추김치", "오이소박이"),
+    ("2026-11-03", "401", "김치2종"): ("배추김치", "열무김치"),
+    ("2026-11-04", "401", "2종김치"): ("배추김치", "깍두기"),
+}
+
+
+def expand_side(name, shop=None, category=None, cache=None, date=None):
+    photo_names = PHOTO_SIDE_OVERRIDES.get((date, shop, name))
+    if photo_names:
+        total_weight, _ = classify_side_weight(name, cache)
+        note = (f"{date} 사진 기반 대체 매칭: {' + '.join(photo_names)}. "
+                f"기존 {name} 추정 총량 {total_weight:g}g을 균등 배분; 실측 중량 아님")
+        if "오이소박이" in photo_names:
+            note += "; 오이김치는 오이소박이로 대체 추정"
+        if "열무김치" in photo_names:
+            note += "; 잎·줄기 김치는 열무김치로 대체 추정, 사진만으로 품종 확정 불가"
+        if "깍두기" in photo_names:
+            note += "; 큼직한 무김치는 깍두기로 대체 추정"
+        return [(part, total_weight / len(photo_names), note) for part in photo_names]
     if name in DECOMPOSE_OVERRIDES:
         return DECOMPOSE_OVERRIDES[name]
-    return expand_compound(name, lambda n: classify_side_weight(n, cache))
+    parts = expand_compound(name, lambda n: classify_side_weight(n, cache))
+    if (date, shop) == ("2026-11-04", "401"):
+        expanded = []
+        for part, weight, note in parts:
+            if part == "야채":
+                photo_note = (note + "; 사용자 제공 사진 확인: 당근·오이 스틱. "
+                              "기존 야채 추정량을 반씩 배분; 실측 중량 아님")
+                expanded.extend((raw, weight / 2, photo_note) for raw in ("당근", "오이"))
+            else:
+                expanded.append((part, weight, note))
+        return expanded
+    return parts
 
 
 # 2026-09-21: "&"(그리고)/"*"(메인+소스,사리 등)/"/"(둘 중 하나) 구조 분해.
@@ -739,6 +776,8 @@ def build_item(name, weight_g, weight_note, cache):
     # 1회분 값이 이미 weight_g에 반영돼 있으므로 둘이 같아 추가 분기가 필요 없다.
     nutrition_weight_g = m.get("total_parsed_weight_g", weight_g) if src == "recipe_decompose" else weight_g
     contrib = {f: (per100.get(f) or 0) * nutrition_weight_g / 100.0 for f in NUT_FIELDS}
+    if name == "야구르트":
+        weight_note += "; 사용자 지정 요구르트 대체 추정. 실제 제품·용량 미확인, DB 기준량 80mL를 계산상 80g으로 적용"
     return {"display": name, "matched": True, "weight_g": weight_g, "weight_note": weight_note,
             "contrib": contrib, "missing": missing, "source": src, "db_name": m.get("name")}
 
@@ -752,7 +791,7 @@ def all_match_names(lunch):
     sides = [s for s in lunch["sides"] if not is_self_or_junk(s)]
     names = [p for p, _, _ in expand_main(main, shop, category)]
     for s in sides:
-        names.extend(p for p, _, _ in expand_side(s, shop, category))
+        names.extend(p for p, _, _ in expand_side(s, shop, category, date=lunch["date"]))
     return names
 
 
@@ -766,8 +805,13 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         if it.get("exchange_excluded_reason"):
             recipe_notes.append(it["exchange_excluded_reason"])
             continue
-        if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장", "스위트칠리", "타르소스",
-                              "칠리소스", "머스타드", "카레소스", "겨자소스", "동그랑땡소스",
+        if it["display"] == "야구르트":
+            recipe_notes.append("야구르트: 사용자 지정으로 교환단위 계산과 미매칭 목록에서 제외. 영양성분은 요구르트로 대체 합산하며 교환단위가 0이라는 의미는 아님.")
+            continue
+        # 소스·조미료·차류는 db104 식품군 매핑이 없어(조미료류/차류 → None) 교환단위로 환산할
+        # 수 없고, 식품교환표에서도 저칼로리 조미료·차는 자유식품으로 계산에서 빼는 게 관례다.
+        if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장", "타르타르소스", "스위트칠리",
+                              "타르소스", "칠리소스", "머스타드", "카레소스", "겨자소스", "동그랑땡소스",
                               "레몬홍차", "복숭아티"):
             recipe_notes.append(f"{it['display']}: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.")
             continue
@@ -780,6 +824,12 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
             continue
         exchange_weight = (9.0 if "마요덮밥" in main else 12.0) if shop == "105" and it["display"] == "마요네즈" else it.get("exchange_weight_g", it["weight_g"])
         r = compute_kimchi_pair(date, exchange_weight) if shop == "401" and it["display"] == "김치2종" else None
+        if (date, shop, it["display"]) == ("2026-11-04", "401", "된장찌개"):
+            r = compute_exchange_units("애호박된장찌개", exchange_weight, use_plaza_servings=False)
+            r["recipe_note"] = (f"된장찌개: 11/4 사용자 제공 사진의 두부·호박·고추를 참고해 MenuGen "
+                                f"애호박된장찌개에 대체 매칭. 기존 추정 제공량 {exchange_weight:g}g 적용. "
+                                "감자·양파·육수 등 레시피 재료와 배합은 사진만으로 확정할 수 없는 "
+                                "유사 레시피 추정이며 조리수율 차이 미보정. 영양성분 계산 유지.")
         if r is None:
             r = compute_exchange_units(it["display"], exchange_weight, use_plaza_servings=(shop == "105"))
         if r.get("recipe_note"):
@@ -882,7 +932,7 @@ def compute_tray(lunch, cache):
     for p, w, note in expand_main(main, shop, category, cache):
         items.append(build_item(p, w, note, cache))
     for s in sides:
-        for p, w, note in expand_side(s, shop, category, cache):
+        for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
             items.append(build_item(p, w, note, cache))
 
     total = {f: 0.0 for f in NUT_FIELDS}

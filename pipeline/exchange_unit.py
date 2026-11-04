@@ -21,7 +21,7 @@ import sys
 import json
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from auto_match import GENERAL_SYNONYMS, PREFIX_STRIP_RULES
+from auto_match import GENERAL_SYNONYMS, PREFIX_STRIP_RULES, try_gagong_db, try_food_db
 from ingredient_parser import parse_ingredients
 from recipe_decompose import RECIPE_BY_NAME, match_ingredient_to_db104, find_db104_candidates, pick_db104_state, _norm
 
@@ -299,6 +299,8 @@ MENUGEN_MODIFIER_PREFIXES = [
 # 그러면 배치 전체(예: 미트볼 675g)가 1인분으로 계산되어 극단적으로 과대평가된다. 플래그가
 # 붙은 항목만 가드를 건너뛰고 target_weight_g 기준으로 비례 축소한다(기존 항목 동작은 불변).
 def _recipe_scale(dish, target_weight_g):
+    if dish.get("scale_to_target"):
+        return target_weight_g / dish["weight_g"]
     ing_sum = sum(ing["weight_g"] for ing in dish["ingredients"])
     if not dish.get("batch_recipe") and abs(dish["weight_g"] - ing_sum) < 5:
         return 1.0
@@ -361,6 +363,8 @@ def _try_cascade(name, weight_g):
 
 KIMCHI_PAIR_EXCLUDED_DATES = {"2026-08-29", "2026-09-05", "2026-09-12", "2026-09-19"}
 KIMCHI_PAIR_SECOND = {
+    "2026-11-02": "김치, 깍두기",  # 사진의 큼직한 무김치를 깍두기로 대체 추정
+    "2026-10-26": "김치, 오이 소박이",  # 사용자 지정: 배추김치 + 오이김치 대체
     **{date: "김치, 깍두기" for date in ("2026-08-26", "2026-08-31", "2026-09-11", "2026-09-14")},
     "2026-09-08": "김치, 오이 소박이",
     **{date: "김치, 열무 김치" for date in ("2026-08-24", "2026-08-27", "2026-09-01", "2026-09-04", "2026-09-09", "2026-09-17")},
@@ -381,6 +385,12 @@ def compute_kimchi_pair(date, weight_g):
         note += " 사진의 잎·줄기 김치는 열무·갓 계열 구분이 불확실하여 열무김치로 대체 추정."
     if second == "김치, 오이 소박이":
         note += " 사진의 오이김치는 DB 오이소박이로 대체 추정하며 소의 배합 차이 미보정."
+    if date == "2026-10-26":
+        note = (f"김치2종: 사용자 지정 대체 매칭. 배추김치 + 오이김치(오이소박이). "
+                f"기존 추정 제공량 {weight_g:g}g을 각각 {weight_g/2:g}g씩 균등 배분. "
+                "해당 날짜 사진을 별도로 확인한 결과가 아니며 실제 종류·중량 실측값 아님. 영양성분 계산 유지.")
+    if date == "2026-11-02":
+        note += " 사진의 큼직한 무김치는 섞박지 형태로 보이나, 원재료DB 깍두기로 대체 추정."
     return {"matched": True, "units": units, "source": "db104_direct", "matched_name": " + ".join(names),
             "matched_ingredients": names, "unresolved_ingredients": [], "recipe_note": note}
 
@@ -388,6 +398,60 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "곰탕":
+        product = try_food_db("곰탕")
+        protein_per100 = product["per100"].get("protein") if product else None
+        if protein_per100 is None:
+            return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS},
+                    "source": None, "unresolved_ingredients": ["곰탕 단백질"]}
+        protein_g = protein_per100 * weight_g / 100.0
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        units["어육류군"] = protein_g / UNIT_BASIS["어육류군"][1]
+        return {"matched": True, "units": units, "source": "food_db_estimate",
+                "matched_name": product["name"], "unresolved_ingredients": [],
+                "recipe_note": (f"곰탕: 사용자 지정 간이 환산. 영양성분DB 곰탕의 단백질 "
+                                f"100g당 {protein_per100:g}g을 기존 추정 제공량 {weight_g:g}g에 적용, "
+                                f"단백질 {protein_g:g}g / 8g으로 어육류군만 환산. 미나리는 별도 채소군 "
+                                "계산. 곡류·채소·지방군의 완전한 재료별 분해가 아닌 대체 추정. 영양성분 유지.")}
+    if name == "아삭이고추무침":
+        record = DB104_BY_NAME["고추, 오이고추, 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("아삭이고추무침 오이고추 원재료DB 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": (f"아삭이고추무침: 사용자 지정으로 양념을 제외하고 원재료DB "
+                                f"고추, 오이고추, 생것으로 대체 매칭. 기존 음식 추정 제공량 "
+                                f"{weight_g:g}g 전체를 고추 중량으로 간주하여 채소군 환산. "
+                                "실제 품종·고추 중량 실측값 아님. 양념의 당류·기름 등은 교환단위에 "
+                                "미반영. 메뉴 표시명과 영양성분 계산값 유지.")}
+    if name in ("치킨너겟버펄로볼", "치킨너겟 버펄로볼"):
+        result = compute_exchange_units("치킨너겟", weight_g, use_plaza_servings)
+        if result["matched"]:
+            result["recipe_note"] = (f"{name}: 사용자 지정으로 치킨너겟에 대체 매칭. "
+                                     f"원재료DB {result['matched_name']}에 기존 추정 제공량 "
+                                     f"{weight_g:g}g 적용. 밥·소스는 별도 추가하지 않음. "
+                                     "실제 배합·조리상태 차이 미보정. 영양성분 계산 유지.")
+        return result
+    processed_grain_names = {"꽃빵": "꽃빵", "나초파이": "나쵸칩", "브라운브레드": "브라운브레드"}
+    if name in processed_grain_names:
+        # 사용자 지정 예외: 완제품 탄수화물로 곡류군만 환산한다.
+        product = try_gagong_db(processed_grain_names[name])
+        carb_per100 = product["per100"].get("carb") if product else None
+        if carb_per100 is None:
+            return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS},
+                    "source": None, "unresolved_ingredients": [f"{name} 탄수화물"]}
+        carb_g = carb_per100 * weight_g / 100.0
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        units["곡류군"] = carb_g / UNIT_BASIS["곡류군"][1]
+        return {"matched": True, "units": units, "source": "gagong_db",
+                "matched_name": product["name"], "unresolved_ingredients": [],
+                "recipe_note": (f"{name}: 사용자 지정으로 가공식품DB {product['name']} 탄수화물 "
+                                f"100g당 {carb_per100:g}g 적용. 기존 추정 제공량 {weight_g:g}g의 "
+                                f"탄수화물 {carb_g:g}g을 23g/교환으로 나눠 곡류군만 환산. "
+                                "지방·단백질은 별도 식품군으로 중복 가산하지 않음. 실제 급식 제품 "
+                                "미확인 대체 추정이며 실측 중량 아님. 영양성분 계산 유지.")}
     if name == "도시락김" and not use_plaza_servings:
         record = DB104_BY_NAME["김, 조미김, 구운것"]
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
@@ -476,6 +540,9 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     if not use_plaza_servings:
         # Explicit equivalents; retain uncertainty when using a standard recipe.
         aliases = {
+            "막국수": "메밀비빔국수",  # 사용자 지정 유사 레시피 대체
+            "석박지": "섞박지",  # 사용자 지정 표기 연결
+            "오이탕탕이": "오이무침",  # 사용자 지정 교환단위 대체 매칭
             "포기김치": "배추김치",
             "소고기미역국": "미역국(소고기)",
             "고추장제육볶음": "돼지고기볶음(고추장, 야채)",
@@ -562,12 +629,15 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         units["곡류군"] = weight_g * 52.0 / 100.0 / 23.0
         return {"matched": True, "units": units, "source": "gagong_estimate",
                 "matched_name": "찹쌀옹심이", "unresolved_ingredients": []}
-    if name in ("쌈채소", "쌈야채"):
+    if name in ("쌈채소", "쌈야채", "모듬쌈"):
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         record = DB104_BY_NAME.get("상추, 잎상추, 치마상추, 녹색, 생것")
         if _add_ingredient(units, "채소류", record, weight_g):
             return {"matched": True, "units": units, "source": "db104_direct",
-                    "matched_name": "상추, 잎상추, 치마상추, 녹색, 생것", "unresolved_ingredients": []}
+                    "matched_name": "상추, 잎상추, 치마상추, 녹색, 생것", "unresolved_ingredients": [],
+                    "recipe_note": (f"{original_name}: 쌈채소를 녹색 치마상추 생것으로 대체 매칭. "
+                                    f"기존 추정 제공량 {weight_g:g}g 적용. 실제 채소 종류별 비율은 "
+                                    "미확인 대체 추정. 메뉴 표시명과 영양성분 계산값 유지.")}
     if name == "부타동":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         for component, weight in (("돼지고기 간장볶음", 161.3), ("쌀밥", 256.7)):
@@ -617,6 +687,16 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = "고춧잎나물"
     if name in ("고기산적조림", "고기산적 조림"):
         name = "퓨전떡갈비"
+    if name in ("언양식떡갈비", "언양식 떡갈비"):
+        name = "퓨전떡갈비"
+        alias_note = (f"{original_name}: 사용자 지정으로 MenuGen 퓨전떡갈비 레시피에 대체 매칭. "
+                      f"기존 추정 제공량 {weight_g:g}g에 전체 재료 배합을 비례 환산. 실제 제품의 "
+                      "고기·채소·양념 배합과 조리수율 차이는 미보정. 메뉴 표시명과 영양성분 계산값 유지.")
+    if name in ("전골)한방갈비찜", "전골) 한방갈비찜"):
+        name = "갈비찜"
+        alias_note = (f"{original_name}: 사용자 지정으로 MenuGen 갈비찜에 대체 매칭. "
+                      f"기존 추정 제공량 {weight_g:g}g에 전체 재료 배합을 비례 환산. 실제 고기 종류·"
+                      "한방 재료·양념 배합과 조리수율 차이는 미보정. 영양성분은 별도 갈비찜 DB로 계산.")
     if name in ("견과류멸치볶음", "견과류 멸치볶음"):
         name = "멸치볶음(견과류)"
     if name in ("계란지단", "달걀지단", "계란후라이", "달걀후라이"):
@@ -646,6 +726,9 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = name.replace("돈가스", "돈까스")
     if name == "양파링":
         name = "어니언링"
+    if name == "새우가스":
+        name = "새우까스"
+        alias_note = "새우가스: 사용자 지정 새우까스 외부 레시피(6971013)로 교환단위 대체 계산. 재료량 가정과 흡수유 제외는 외부 레시피 설명 참조. 영양성분은 기존 가공식품DB 계산 유지."
     # 2026-11-04: 한양플라자(학생식당) 10/26~11/6 미매칭 확정 정리 - DB 표준 이름/대체 레시피 연결
     if name == "떡갈비":
         name = "퓨전떡갈비"
