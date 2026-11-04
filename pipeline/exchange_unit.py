@@ -526,12 +526,30 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 units[group] += result["units"][group]
         return {"matched": True, "units": units, "source": "menugen",
                 "matched_name": "날치알밥 + 게맛살", "unresolved_ingredients": []}
-    if name in ("크림스프", "크림수프", "스프(크림)"):
-        return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS},
-                "source": None, "matched_name": "스프(크림)",
-                "reason": "분말 제품 영양성분표 및 1인분 분말량 미확인으로 계산 보류(0 교환단위 아님)",
-                "recipe_note": '크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.',
-                "unresolved_ingredients": ["스프, 크림 스프, 가루, 끓인것"]}
+    if name in ("크림수프", "스프(크림)"):
+        # 2026-11-04: db104 완성품 레코드("조리가공식품류")는 FOOD_GROUP_MAP에 None으로
+        # 매핑돼 있어 구조적으로 계산 불가 - 대신 사용자 제공 레시피(우유·버터·밀가루)를
+        # custom_exchange_recipes.json "크림스프"에 등록해 재료 단위로 계산. 여기선 표기만 통일.
+        name = "크림스프"
+    if name == "빠네청양크림파스타":
+        # 2026-11-04: "빠네"(빵 볼에 담은 크림파스타) 통짜 표기가 DB에 없어 분해. 파스타는
+        # MenuGen 베이컨크림파스타로, 빵은 db104 "빵, 롤빵, 하드"(사진 속 크러스티한 식사빵에
+        # 가장 가까움, db104는 1인분 중량 정보가 없어 사진 비율로 추정)로 매칭. 표준중량(172g)
+        # 안에서 빵:파스타 = 70:102 비율로 배분.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        bread_w = weight_g * (70.0 / 172.0)
+        pasta_w = weight_g - bread_w
+        result = _from_menugen("베이컨크림파스타", pasta_w)
+        if result is None:
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["베이컨크림파스타"]}
+        for group in EXCHANGE_GROUPS:
+            units[group] += result["units"][group]
+        bread_record = DB104_BY_NAME.get("빵, 롤빵, 하드")
+        if bread_record is None or not _add_ingredient(units, bread_record["식품군"], bread_record, bread_w):
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["빵, 롤빵, 하드"]}
+        return {"matched": True, "units": units, "source": "menugen+db104_direct",
+                "matched_name": "베이컨크림파스타 + 빵, 롤빵, 하드", "unresolved_ingredients": [],
+                "recipe_note": f'빠네청양크림파스타: [사진중량추정] 파스타는 MenuGen 베이컨크림파스타, 빵은 db104 "빵, 롤빵, 하드"로 분해 매칭. 표준중량(172g) 안에서 사진 비율로 빵 {bread_w:g}g : 파스타 {pasta_w:g}g 배분(db104는 1인분 중량 정보가 없어 추정치). 청양고추 매운맛은 미반영.'}
     if name == "스팸마요덮밥" and use_plaza_servings:
         weight_g = 418.0
     if name in ("옹심이", "찹쌀옹심이"):
@@ -624,6 +642,44 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = name.replace("돈가스", "돈까스")
     if name == "양파링":
         name = "어니언링"
+    # 2026-11-04: 한양플라자(학생식당) 10/26~11/6 미매칭 확정 정리 - DB 표준 이름/대체 레시피 연결
+    if name == "떡갈비":
+        name = "퓨전떡갈비"
+    if name == "흑임자연근샐러드":
+        name = "연근샐러드와 흑임자소스"
+    if name == "그릴드소시지":
+        name = "소시지구이"
+    if name == "오징어링":
+        name = "오징어튀김"
+    if name == "불맛제육덮밥":
+        name = "제육덮밥(고추장)"
+    if name == "시락국":
+        name = "시래기국"
+    if name == "모듬콩조림":
+        name = "콩조림"
+    if name == "동그랑땡":
+        name = "완자전(돼지고기)"
+    # 2026-11-04: 사용자 확인 - 10/27 한식 새우젓국은 두부새우젓국
+    if name == "새우젓국":
+        name = "두부새우젓국"
+    # 2026-11-04 추가: 한양플라자(학생식당) 10/26~11/6 미매칭 2차 정리(마라크림파스타·
+    # 빠네청양크림파스타는 제외 - 사용자 지시)
+    if name == "불오징어덮밥":
+        name = "오징어덮밥(고추장)"
+    if name == "돼지고기고추장찌개":
+        name = "목살고추장찌개"
+    if name == "마라크림파스타":
+        name = "베이컨크림파스타"
+    if name == "토마토비프스튜":
+        name = "토마소소고기스튜"
+    if name == "고들빼기무침":
+        name = "고들빼기"
+    if name == "알곤이매운탕":
+        name = "알탕(대구)"
+    if name == "간장마늘쫑":
+        name = "마늘종조림"
+    if name == "돼지고기애호박찌개":
+        name = "돼지고기찌개(고추장)"
     result = _from_custom_recipe(name, weight_g)
     if result is None:
         result = _from_external_recipe(name, weight_g)

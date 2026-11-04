@@ -1,6 +1,6 @@
 {
  "source": "기존 한양플라자 스냅샷 유지; 2026-08-24~2026-09-19 생활과학대학·신소재공학관 동일 계산 확장",
- "sourceSha256": "cc1c64b81e732cd21ecc2c5bbe09cb04611eef268452bcca0fbe4b6615d28ba5",
+ "sourceSha256": "54633761045f72e0cbbff80f5cc2ede274c18503d4a6309a29da5df0ffc37f73",
  "entries": [
   {
    "key": [
@@ -1772,15 +1772,14 @@
    ],
    "sourceMain": "찹스테이크덮밥",
    "exchangeUnits": {
-    "grain": 7.3,
+    "grain": 8.2,
     "meat": 0.1,
     "veg": 4.02,
-    "fat": 9.4,
-    "dairy": 0.0,
+    "fat": 15.8,
+    "dairy": 0.97,
     "fruit": 0.08,
     "unmatched": [
-     "찹스테이크",
-     "크림스프"
+     "찹스테이크"
     ],
     "externalRecipes": [
      {
@@ -1796,8 +1795,7 @@
     ],
     "recipeNotes": [
      "어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류.",
-     "크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.",
-     "크림스프 → 스프(크림): MenuGen DB 이름 연결 완료. 끓인 크림스프 완제품은 조리가공식품류로 분류되어 재료별 교환단위 계산 보류. 교환단위 0으로 확정한 것이 아니며 미매칭 목록에 유지."
+     "크림스프: 사용자 제공 레시피(우유 200ml, 버터 3T, 밀가루 3T - 화이트소스 베이스) 기준. 계량 환산은 1T=15ml, 버터 1T≈13g, 밀가루 1T≈9g(농진청 계량 환산 기준)로 변환해 레시피 총중량 266g 산출. db104 완성품 레코드(\"스프, 크림 스프\")는 식품군이 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어(FOOD_GROUP_MAP None) 계산이 구조적으로 불가해, 대신 재료(우유·버터·밀가루) 단위로 직접 분해 계산. 기존 반찬 1인분 추정 제공량(150g)에 비례 환산(scale=150/266). 치즈·향신료 등 레시피에 없는 부재료는 미반영. 실제 제품 배합·염분·조리수율과 다를 수 있음."
     ],
     "matchedDb": {
      "menugen": [
@@ -8882,15 +8880,13 @@
    ],
    "sourceMain": "불오징어덮밥",
    "exchangeUnits": {
-    "grain": 3.22,
-    "meat": 1.18,
-    "veg": 5.04,
-    "fat": 11.01,
+    "grain": 9.32,
+    "meat": 4.6,
+    "veg": 7.63,
+    "fat": 16.46,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "불오징어덮밥"
-    ],
+    "unmatched": [],
     "externalRecipes": [
      {
       "name": "마카로니샐러드",
@@ -8901,6 +8897,7 @@
     "recipeNotes": [],
     "matchedDb": {
      "menugen": [
+      "불오징어덮밥",
       "비엔나케찹볶음",
       "계란국"
      ],
@@ -9104,9 +9101,9 @@
    ],
    "sourceMain": "치킨마요덮밥",
    "exchangeUnits": {
-    "grain": 5.31,
-    "meat": 6.78,
-    "veg": 10.64,
+    "grain": 5.3,
+    "meat": 6.96,
+    "veg": 10.34,
     "fat": 3.88,
     "dairy": 0.0,
     "fruit": 0.0,
@@ -9124,7 +9121,8 @@
       "마요네즈",
       "물만두",
       "상추겉절이",
-      "두부새우젓국"
+      "두부",
+      "새우젓국"
      ],
      "recipeDb": [],
      "db104": [
@@ -9278,19 +9276,20 @@
    ],
    "sourceMain": "마라크림파스타",
    "exchangeUnits": {
-    "grain": 1.85,
-    "meat": 0.0,
-    "veg": 2.36,
-    "fat": 0.0,
+    "grain": 4.38,
+    "meat": 0.18,
+    "veg": 3.12,
+    "fat": 0.35,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "마라크림파스타"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
-    "recipeNotes": [],
+    "recipeNotes": [
+     "[임시대체] 마라크림파스타: MenuGen에 마라맛 파스타가 없어 우선 베이컨크림파스타로 대체 계산. 마라(얼얼한 향신료) 풍미는 전혀 반영되지 않은 임시값 - 추후 더 가까운 후보나 전용 레시피 생기면 재검토 필요."
+    ],
     "matchedDb": {
      "menugen": [
+      "마라크림파스타",
       "쌀밥",
       "샐러드"
      ],
@@ -9310,22 +9309,21 @@
    ],
    "sourceMain": "참치야채비빔밥",
    "exchangeUnits": {
-    "grain": 14.52,
-    "meat": 2.62,
-    "veg": 10.83,
-    "fat": 0.0,
+    "grain": 14.91,
+    "meat": 5.21,
+    "veg": 12.66,
+    "fat": 1.48,
     "dairy": 0.0,
-    "fruit": 0.0,
-    "unmatched": [
-     "떡갈비"
-    ],
+    "fruit": 0.22,
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
      "참치야채비빔밥: MenuGen 참치생야채비빔밥 기준 대체 계산. 대체 레시피 사용으로 실제 채소·참치·양념 배합과 차이가 있을 수 있음."
     ],
     "matchedDb": {
      "menugen": [
-      "참치야채비빔밥"
+      "참치야채비빔밥",
+      "떡갈비"
      ],
      "recipeDb": [],
      "db104": [
@@ -9344,20 +9342,20 @@
    ],
    "sourceMain": "돼지고기고추장찌개",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 0.0,
-    "veg": 7.6,
-    "fat": 0.0,
+    "grain": 1.06,
+    "meat": 2.9,
+    "veg": 10.53,
+    "fat": 1.48,
     "dairy": 0.0,
-    "fruit": 0.0,
-    "unmatched": [
-     "돼지고기고추장찌개",
-     "떡갈비"
-    ],
+    "fruit": 0.22,
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
-     "menugen": [],
+     "menugen": [
+      "돼지고기고추장찌개",
+      "떡갈비"
+     ],
      "recipeDb": [],
      "db104": [
       "무말랭이",
@@ -9479,29 +9477,28 @@
    ],
    "sourceMain": "라따뚜이오믈렛",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 0.0,
-    "veg": 3.6,
-    "fat": 0.0,
-    "dairy": 0.0,
+    "grain": 1.01,
+    "meat": 3.03,
+    "veg": 10.34,
+    "fat": 8.69,
+    "dairy": 1.08,
     "fruit": 0.0,
-    "unmatched": [
-     "라따뚜이오믈렛",
-     "그릴드소시지",
-     "크림스프"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
-     "크림스프: 사용자 확인에 따라 물에 분말을 풀어 만든 스프로 분류. 분말 제품의 영양성분표와 1인분 분말 사용량이 없어 식품교환단위 계산 보류. 미매칭 목록에 유지하며, 합계에 미반영된 것은 교환단위가 0이라는 의미가 아님. 우유·버터 기반 외부 레시피는 적용하지 않음.",
-     "크림스프 → 스프(크림): MenuGen DB 이름 연결 완료. 끓인 크림스프 완제품은 조리가공식품류로 분류되어 재료별 교환단위 계산 보류. 교환단위 0으로 확정한 것이 아니며 미매칭 목록에 유지."
+     "크림스프: 사용자 제공 레시피(우유 200ml, 버터 3T, 밀가루 3T - 화이트소스 베이스) 기준. 계량 환산은 1T=15ml, 버터 1T≈13g, 밀가루 1T≈9g(농진청 계량 환산 기준)로 변환해 레시피 총중량 266g 산출. db104 완성품 레코드(\"스프, 크림 스프\")는 식품군이 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어(FOOD_GROUP_MAP None) 계산이 구조적으로 불가해, 대신 재료(우유·버터·밀가루) 단위로 직접 분해 계산. 기존 반찬 1인분 추정 제공량(150g)에 비례 환산(scale=150/266). 치즈·향신료 등 레시피에 없는 부재료는 미반영. 실제 제품 배합·염분·조리수율과 다를 수 있음."
     ],
     "matchedDb": {
      "menugen": [
+      "오믈렛",
+      "그릴드소시지",
+      "피클",
       "할라피뇨"
      ],
-     "recipeDb": [],
+     "recipeDb": [
+      "라따뚜이"
+     ],
      "db104": [
-      "피클",
       "김치"
      ]
     }
@@ -9516,25 +9513,24 @@
    ],
    "sourceMain": "토마토비프스튜",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 0.0,
-    "veg": 3.6,
-    "fat": 0.0,
+    "grain": 0.05,
+    "meat": 0.77,
+    "veg": 7.27,
+    "fat": 0.27,
     "dairy": 0.0,
-    "fruit": 0.0,
-    "unmatched": [
-     "토마토비프스튜",
-     "그릴드소시지"
-    ],
+    "fruit": 0.1,
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
      "menugen": [
+      "토마토비프스튜",
+      "그릴드소시지",
+      "피클",
       "할라피뇨"
      ],
      "recipeDb": [],
      "db104": [
-      "피클",
       "김치"
      ]
     }
@@ -9726,14 +9722,11 @@
    "exchangeUnits": {
     "grain": 4.73,
     "meat": 1.9,
-    "veg": 7.78,
-    "fat": 3.39,
-    "dairy": 0.0,
-    "fruit": 0.0,
-    "unmatched": [
-     "흑임자연근샐러드",
-     "고들빼기무침"
-    ],
+    "veg": 10.67,
+    "fat": 5.85,
+    "dairy": 0.08,
+    "fruit": 0.08,
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
      "알밥: MenuGen 날치알밥 기준 대체 계산. DB 전체 재료 배합을 제공량에 비례 환산. 생쌀 조리수율 미보정, 실제 배합과 다를 수 있음."
@@ -9741,12 +9734,14 @@
     "matchedDb": {
      "menugen": [
       "새우튀김",
-      "알밥"
+      "알밥",
+      "흑임자연근샐러드"
      ],
      "recipeDb": [
       "된장국"
      ],
      "db104": [
+      "고들빼기무침",
       "김치"
      ]
     }
@@ -9762,22 +9757,22 @@
    "sourceMain": "알곤이매운탕",
    "exchangeUnits": {
     "grain": 0.0,
-    "meat": 0.0,
-    "veg": 2.36,
-    "fat": 0.0,
-    "dairy": 0.0,
-    "fruit": 0.0,
-    "unmatched": [
-     "알곤이매운탕",
-     "흑임자연근샐러드",
-     "고들빼기무침"
-    ],
+    "meat": 2.74,
+    "veg": 7.3,
+    "fat": 2.46,
+    "dairy": 0.08,
+    "fruit": 0.08,
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
-     "menugen": [],
+     "menugen": [
+      "알곤이매운탕",
+      "흑임자연근샐러드"
+     ],
      "recipeDb": [],
      "db104": [
+      "고들빼기무침",
       "김치"
      ]
     }
@@ -9932,21 +9927,20 @@
    ],
    "sourceMain": "소고기콩나물밥",
    "exchangeUnits": {
-    "grain": 3.48,
-    "meat": 1.0,
-    "veg": 3.85,
-    "fat": 0.17,
+    "grain": 3.62,
+    "meat": 1.87,
+    "veg": 4.47,
+    "fat": 0.62,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "동그랑땡",
-     "간장마늘쫑"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
      "menugen": [
-      "소고기콩나물밥"
+      "소고기콩나물밥",
+      "동그랑땡",
+      "간장마늘쫑"
      ],
      "recipeDb": [
       "된장국"
@@ -9966,21 +9960,21 @@
    ],
    "sourceMain": "돼지고기애호박찌개",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 0.0,
-    "veg": 2.36,
-    "fat": 0.0,
+    "grain": 0.15,
+    "meat": 3.44,
+    "veg": 5.16,
+    "fat": 0.45,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "돼지고기애호박찌개",
-     "동그랑땡",
-     "간장마늘쫑"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
-     "menugen": [],
+     "menugen": [
+      "돼지고기애호박찌개",
+      "동그랑땡",
+      "간장마늘쫑"
+     ],
      "recipeDb": [],
      "db104": [
       "김치"
@@ -10108,17 +10102,17 @@
    ],
    "sourceMain": "빠네청양크림파스타",
    "exchangeUnits": {
-    "grain": 1.85,
-    "meat": 0.0,
-    "veg": 2.36,
-    "fat": 0.0,
+    "grain": 4.95,
+    "meat": 0.11,
+    "veg": 2.81,
+    "fat": 0.21,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "빠네청양크림파스타"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
-    "recipeNotes": [],
+    "recipeNotes": [
+     "빠네청양크림파스타: [사진중량추정] 파스타는 MenuGen 베이컨크림파스타, 빵은 db104 \"빵, 롤빵, 하드\"로 분해 매칭. 표준중량(172g) 안에서 사진 비율로 빵 70g : 파스타 102g 배분(db104는 1인분 중량 정보가 없어 추정치). 청양고추 매운맛은 미반영."
+    ],
     "matchedDb": {
      "menugen": [
       "쌀밥",
@@ -10140,21 +10134,21 @@
    ],
    "sourceMain": "참치마요덮밥",
    "exchangeUnits": {
-    "grain": 3.5,
-    "meat": 0.76,
+    "grain": 3.65,
+    "meat": 2.85,
     "veg": 12.79,
-    "fat": 2.25,
+    "fat": 3.18,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "오징어링",
-     "스위트칠리"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
-    "recipeNotes": [],
+    "recipeNotes": [
+     "스위트칠리: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+    ],
     "matchedDb": {
      "menugen": [
-      "참치마요덮밥"
+      "참치마요덮밥",
+      "오징어링"
      ],
      "recipeDb": [],
      "db104": [
@@ -10173,21 +10167,21 @@
    ],
    "sourceMain": "목살김치찌개",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 1.99,
+    "grain": 0.16,
+    "meat": 4.08,
     "veg": 14.73,
-    "fat": 0.27,
+    "fat": 1.2,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "오징어링",
-     "스위트칠리"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
-    "recipeNotes": [],
+    "recipeNotes": [
+     "스위트칠리: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+    ],
     "matchedDb": {
      "menugen": [
-      "목살김치찌개"
+      "목살김치찌개",
+      "오징어링"
      ],
      "recipeDb": [],
      "db104": [
@@ -10352,22 +10346,21 @@
    ],
    "sourceMain": "불맛제육덮밥",
    "exchangeUnits": {
-    "grain": 0.0,
-    "meat": 1.04,
-    "veg": 3.54,
-    "fat": 0.79,
+    "grain": 1.75,
+    "meat": 2.1,
+    "veg": 9.1,
+    "fat": 3.83,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "불맛제육덮밥",
-     "시락국"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [],
     "matchedDb": {
      "menugen": [
+      "불맛제육덮밥",
       "계란말이",
-      "콩나물무침"
+      "콩나물무침",
+      "시락국"
      ],
      "recipeDb": [],
      "db104": [
@@ -10525,21 +10518,23 @@
    ],
    "sourceMain": "오돌뼈알밥",
    "exchangeUnits": {
-    "grain": 0.97,
-    "meat": 0.91,
-    "veg": 4.06,
-    "fat": 2.14,
+    "grain": 4.88,
+    "meat": 1.45,
+    "veg": 8.17,
+    "fat": 4.99,
     "dairy": 0.0,
     "fruit": 0.0,
     "unmatched": [
-     "오돌뼈알밥"
+     "오돌뼈"
     ],
     "externalRecipes": [],
     "recipeNotes": [
+     "알밥: MenuGen 날치알밥 기준 대체 계산. DB 전체 재료 배합을 제공량에 비례 환산. 생쌀 조리수율 미보정, 실제 배합과 다를 수 있음.",
      "단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영."
     ],
     "matchedDb": {
      "menugen": [
+      "알밥",
       "김말이튀김",
       "단무지무침",
       "계란국"
@@ -10757,14 +10752,12 @@
    "sourceMain": "황태무침비빔밥",
    "exchangeUnits": {
     "grain": 5.54,
-    "meat": 5.21,
+    "meat": 5.58,
     "veg": 8.33,
-    "fat": 3.68,
+    "fat": 3.75,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "모듬콩조림"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
      "황태구이_양념: MenuGen 북어구이(고추장)으로 대체 계산. 기존 사진 추정 제공량 80g 적용. 황태무침과 북어구이의 조리 방식·배합 차이는 미보정한 대체 추정값.",
@@ -10779,6 +10772,7 @@
       "당근",
       "상추",
       "견과류멸치볶음",
+      "모듬콩조림",
       "유부우동국"
      ],
      "recipeDb": [],
@@ -10799,14 +10793,12 @@
    "sourceMain": "몽글순두부찌개",
    "exchangeUnits": {
     "grain": 0.0,
-    "meat": 2.49,
+    "meat": 2.86,
     "veg": 5.55,
-    "fat": 2.12,
+    "fat": 2.18,
     "dairy": 0.0,
     "fruit": 0.0,
-    "unmatched": [
-     "모듬콩조림"
-    ],
+    "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
      "견과류멸치볶음: MenuGen 멸치볶음(견과류) 기준 대체 계산. 메뉴명을 정리하여 견과류 포함 레시피로 계산."
@@ -10814,7 +10806,8 @@
     "matchedDb": {
      "menugen": [
       "몽글순두부찌개",
-      "견과류멸치볶음"
+      "견과류멸치볶음",
+      "모듬콩조림"
      ],
      "recipeDb": [],
      "db104": [

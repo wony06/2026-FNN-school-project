@@ -8654,7 +8654,6 @@
   "serving_weight_g": 25.0,
   "is_concentrate": false
  },
- "감자모닝빵": null,
  "감자수제비국": null,
  "고기왕만두": {
   "source": "gagong_db",
@@ -8690,7 +8689,6 @@
   "serving_weight_g": 150.0,
   "is_concentrate": false
  },
- "고기짜장면": null,
  "고들빼기무침": {
   "source": "gagong_db",
   "name": "고들빼기무침(4KG)",
@@ -8772,9 +8770,6 @@
   },
   "serving_weight_g": 400.0
  },
- "그릴드소시지": null,
- "김치잔치국수": null,
- "꼬마돈가스": null,
  "꽃빵": {
   "source": "gagong_db",
   "name": "꽃빵(파맛)",
@@ -8983,7 +8978,6 @@
   "is_concentrate": false
  },
  "두부새우젓국": null,
- "떡갈비구이": null,
  "떡만두국": {
   "source": "food_db",
   "name": "떡만두국",
@@ -9112,7 +9106,6 @@
  },
  "맛살겨자무침": null,
  "맛살샐러드": null,
- "맛살어묵볶음": null,
  "메뉴": null,
  "모듬쌈": {
   "source": "gagong_db",
@@ -9180,7 +9173,6 @@
   "serving_weight_g": 70.0
  },
  "미나리곰탕": null,
- "미니칼국수": null,
  "미소된장국": {
   "source": "food_db",
   "name": "미소된장국",
@@ -9248,10 +9240,7 @@
   "serving_weight_g": 200.0,
   "is_concentrate": false
  },
- "불맛제육덮밥": null,
- "불오징어덮밥": null,
  "브라운D": null,
- "빠네청양크림파스타": null,
  "상추겉절이": {
   "source": "food_db",
   "name": "상추겉절이",
@@ -9362,7 +9351,6 @@
   "serving_weight_g": 100.0,
   "is_concentrate": false
  },
- "스위트칠리": null,
  "시금치된장국": {
   "source": "food_db",
   "name": "시금치 된장국",
@@ -9433,7 +9421,6 @@
   },
   "serving_weight_g": 560.0
  },
- "알곤이매운탕": null,
  "야구르트": null,
  "야채": null,
  "언양식떡갈비": null,
@@ -9519,8 +9506,6 @@
   "serving_weight_g": null,
   "is_concentrate": false
  },
- "옥수수김치전": null,
- "우삼겹갈비탕": null,
  "우엉조림": {
   "source": "food_db",
   "name": "우엉조림",
@@ -9623,7 +9608,6 @@
  "치킨너겟버펄로볼 나초파이 양송이스프": null,
  "코너": null,
  "콜라보": null,
- "크림스파게티": null,
  "토마토비프스튜": {
   "source": "gagong_db",
   "name": "토마토비프스튜",
@@ -9651,10 +9635,6 @@
   "serving_weight_g": 150.0,
   "is_concentrate": false
  },
- "투움바떡볶이": null,
- "피자함박스테이크": null,
- "피카츄돈가스": null,
- "피클": null,
  "할라피뇨": {
   "source": "gagong_db",
   "name": "할라피뇨",
@@ -9744,5 +9724,600 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "serving_weight_g": null,
   "is_concentrate": false
+ },
+ "라따뚜이": {
+  "source": "recipe_decompose",
+  "name": "라따뚜이",
+  "per100": {
+   "kcal": 20.649,
+   "protein": 0.844,
+   "fat": 0.189,
+   "carb": 4.61,
+   "sugar": 2.949,
+   "fiber": 1.13,
+   "ca": 14.73,
+   "fe": 0.262,
+   "vitA": 24.0,
+   "vitC": 15.663,
+   "satFat": 0.028,
+   "na": 2.216
+  },
+  "total_parsed_weight_g": 185.0,
+  "n_unmatched_ingredients": 1,
+  "unmatched_ingredients": [
+   "홀토마토"
+  ],
+  "recipe_db_reported_weight": null,
+  "serving_weight_g": null
+ },
+ "오믈렛": {
+  "source": "food_db",
+  "name": "오믈렛",
+  "origin": "외식(재료량 기반 산출함량)",
+  "per100": {
+   "kcal": 78,
+   "protein": 4.5,
+   "fat": 5.82,
+   "carb": 1.33,
+   "sugar": 0.67,
+   "fiber": 0.2,
+   "ca": 15,
+   "fe": 0.56,
+   "vitA": 50,
+   "vitC": 4.48,
+   "satFat": 1.44,
+   "na": 222
+  },
+  "serving_weight_g": 198.0
+ },
+ "새우젓국": {
+  "source": "food_db",
+  "name": "새우젓국",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 23,
+   "protein": 2,
+   "fat": 0.72,
+   "carb": 2.31,
+   "sugar": 0.85,
+   "fiber": 1,
+   "ca": 29,
+   "fe": 0.32,
+   "vitA": 5,
+   "vitC": 1.77,
+   "satFat": 0.12,
+   "na": 287
+  },
+  "serving_weight_g": 320.0
+ },
+ "두부": {
+  "source": "db104_direct",
+  "name": "두부",
+  "per100": {
+   "kcal": 97.0,
+   "protein": 9.62,
+   "fat": 4.63,
+   "carb": 3.75,
+   "sugar": 0.0,
+   "fiber": 2.9,
+   "ca": 64.0,
+   "fe": 1.54,
+   "vitA": 0.0,
+   "vitC": 0.0,
+   "satFat": 0.7,
+   "na": 1.0
+  }
+ },
+ "빠네청양크림파스타": {
+  "source": "food_db",
+  "name": "스파게티_간편조리세트_톡톡크림 빠네 파스타",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 233,
+   "protein": 6.05,
+   "fat": 17.24,
+   "carb": 13.4,
+   "sugar": 2.74,
+   "fiber": 1.8,
+   "ca": 55,
+   "fe": 0.46,
+   "vitA": null,
+   "vitC": 0.1,
+   "satFat": 3.58,
+   "na": 364
+  },
+  "serving_weight_g": 943.0
+ },
+ "불맛제육덮밥": {
+  "source": "gagong_db",
+  "name": "제육덮밥",
+  "n_dup": 4,
+  "per100": {
+   "kcal": 175.0,
+   "protein": 6.28,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.02,
+   "sugar": 5.39,
+   "na": 410.5,
+   "fat": 5.46,
+   "carb": 24.88
+  },
+  "_codes": [
+   "P123-201020200-1035",
+   "P123-201020300-3470",
+   "P123-201020200-0476",
+   "P123-201020300-5104"
+  ],
+  "serving_weight_g": 210.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"
+ },
+ "불오징어덮밥": {
+  "source": "food_db",
+  "name": "오징어 덮밥",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 65,
+   "protein": 3.3,
+   "fat": 0.25,
+   "carb": 11.88,
+   "sugar": 0.95,
+   "fiber": 0.4,
+   "ca": 5,
+   "fe": 0.23,
+   "vitA": 13,
+   "vitC": 1.57,
+   "satFat": 0.07,
+   "na": 51
+  },
+  "serving_weight_g": 708.2
+ },
+ "알곤이매운탕": {
+  "source": "food_db",
+  "name": "알탕_해물",
+  "origin": "외식(재료량 기반 산출함량)",
+  "per100": {
+   "kcal": 46,
+   "protein": 6.82,
+   "fat": 1.03,
+   "carb": 2.29,
+   "sugar": 0.55,
+   "fiber": 0.8,
+   "ca": 25,
+   "fe": 1.67,
+   "vitA": 26,
+   "vitC": 1.58,
+   "satFat": 0.15,
+   "na": 156
+  },
+  "serving_weight_g": 940.0
+ },
+ "피클": {
+  "source": "gagong_db",
+  "name": "오이피클(오이57.6%함유)",
+  "n_dup": 19,
+  "per100": {
+   "kcal": 22.0,
+   "protein": 0.8,
+   "fiber": 2.1,
+   "ca": 51.0,
+   "fe": 0.25,
+   "vitA": 12.0,
+   "vitC": 0.0,
+   "satFat": 0.0,
+   "sugar": 2.8,
+   "na": 600.0,
+   "fat": 0.0,
+   "carb": 4.0
+  },
+  "_codes": [
+   "P114-202020100-0466",
+   "P114-202020100-0608",
+   "P114-202020100-0546",
+   "P114-202020100-0465",
+   "P114-202020100-0674",
+   "P114-202020100-0444",
+   "P114-202020100-0443",
+   "P114-202020100-0369",
+   "P114-202020100-0545",
+   "P114-202020100-0607",
+   "P114-202020100-0721",
+   "P114-400020100-2861",
+   "P114-202020100-0464",
+   "P114-202020100-0544",
+   "P114-400020100-2860",
+   "P114-202020100-0181",
+   "P116-702070100-0020",
+   "P114-202020100-0543",
+   "P114-202020100-0673"
+  ],
+  "serving_weight_g": 25.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"
+ },
+ "스위트칠리": {
+  "source": "gagong_db",
+  "name": "활용만점 스위트칠리소스",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 100.0,
+   "protein": 0.62,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.0,
+   "sugar": 23.0,
+   "na": 1460.0,
+   "fat": 0.0,
+   "carb": 25.0
+  },
+  "_codes": [
+   "P113-206020400-2734"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"
+ },
+ "그릴드소시지": {
+  "source": "gagong_db",
+  "name": "소시지(HUNTER)",
+  "n_dup": 6,
+  "per100": {
+   "kcal": 258.0,
+   "protein": 12.91,
+   "fiber": 2.45,
+   "ca": 59.0,
+   "fe": 1.4,
+   "vitA": 16.5,
+   "vitC": 11.21,
+   "satFat": 5.67,
+   "sugar": 1.83,
+   "na": 786.5,
+   "fat": 17.82,
+   "carb": 9.9
+  },
+  "_codes": [
+   "P117-201020100-2228",
+   "P117-700080000-0081",
+   "P117-201020100-2247",
+   "P117-201020100-2244",
+   "P117-201020100-2246",
+   "P117-201020100-2245"
+  ],
+  "serving_weight_g": 30.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"
+ },
+ "오돌뼈": {
+  "source": "gagong_db",
+  "name": "오돌뼈",
+  "n_dup": 3,
+  "per100": {
+   "kcal": 253.0,
+   "protein": 17.5,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 4.0,
+   "sugar": 6.0,
+   "na": 683.0,
+   "fat": 13.0,
+   "carb": 17.22
+  },
+  "_codes": [
+   "P117-501050100-5296",
+   "P117-501050100-5295",
+   "P117-501050100-5640"
+  ],
+  "serving_weight_g": 100.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)"
+ },
+ "크림스파게티": {
+  "source": "food_db",
+  "name": "스파게티",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 100,
+   "protein": 3.2,
+   "fat": 1.52,
+   "carb": 18.69,
+   "sugar": 2.21,
+   "fiber": 1.4,
+   "ca": 13,
+   "fe": 0.45,
+   "vitA": 31,
+   "vitC": 2.2,
+   "satFat": 0.74,
+   "na": 36
+  },
+  "serving_weight_g": 442.6
+ },
+ "미니칼국수": {
+  "source": "food_db",
+  "name": "칼국수",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 97,
+   "protein": 2.7,
+   "fat": 0.29,
+   "carb": 20.03,
+   "sugar": 0.22,
+   "fiber": 0.9,
+   "ca": 17,
+   "fe": 0.26,
+   "vitA": 2,
+   "vitC": 1.15,
+   "satFat": 0.09,
+   "na": 184
+  },
+  "serving_weight_g": 514.8
+ },
+ "떡갈비구이": {
+  "source": "food_db",
+  "name": "떡갈비",
+  "origin": "가정식(분석 함량)",
+  "per100": {
+   "kcal": 202,
+   "protein": 21.38,
+   "fat": 11.82,
+   "carb": 2.46,
+   "sugar": 0.4,
+   "fiber": 1.1,
+   "ca": 22,
+   "fe": 2.9,
+   "vitA": 6,
+   "vitC": 0.77,
+   "satFat": 4.29,
+   "na": 404
+  },
+  "serving_weight_g": 200.0
+ },
+ "맛살어묵볶음": {
+  "source": "food_db",
+  "name": "어묵볶음",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 350,
+   "protein": 17,
+   "fat": 13.81,
+   "carb": 39.84,
+   "sugar": 13.84,
+   "fiber": 1.9,
+   "ca": 93,
+   "fe": 1.29,
+   "vitA": 89,
+   "vitC": 2.27,
+   "satFat": 2.24,
+   "na": 1781
+  },
+  "serving_weight_g": 41.2
+ },
+ "꼬마돈가스": {
+  "source": "food_db",
+  "name": "돈가스",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 149,
+   "protein": 8.9,
+   "fat": 7.89,
+   "carb": 9.33,
+   "sugar": 0.52,
+   "fiber": 0.5,
+   "ca": 8,
+   "fe": 0.4,
+   "vitA": 8,
+   "vitC": 3.61,
+   "satFat": 1.66,
+   "na": 119
+  },
+  "serving_weight_g": 100.0
+ },
+ "투움바떡볶이": {
+  "source": "food_db",
+  "name": "떡볶이",
+  "origin": "가정식(분석 함량)",
+  "per100": {
+   "kcal": 144,
+   "protein": 3.51,
+   "fat": 2.96,
+   "carb": 25.96,
+   "sugar": 4.4,
+   "fiber": 1,
+   "ca": 14,
+   "fe": 0.18,
+   "vitA": 15,
+   "vitC": 1.92,
+   "satFat": 0.28,
+   "na": 391
+  },
+  "serving_weight_g": 180.0
+ },
+ "고기짜장면": {
+  "source": "food_db",
+  "name": "짜장면",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 117,
+   "protein": 4,
+   "fat": 2.06,
+   "carb": 22.06,
+   "sugar": 1.9,
+   "fiber": 2.4,
+   "ca": 15,
+   "fe": 0.32,
+   "vitA": 7,
+   "vitC": 2.94,
+   "satFat": 0.41,
+   "na": 371
+  },
+  "serving_weight_g": 550.0
+ },
+ "피자함박스테이크": {
+  "source": "food_db",
+  "name": "함박스테이크",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 155,
+   "protein": 17.5,
+   "fat": 4.08,
+   "carb": 10.42,
+   "sugar": 2.89,
+   "fiber": 0.9,
+   "ca": 14,
+   "fe": 0.62,
+   "vitA": 20,
+   "vitC": 5.68,
+   "satFat": 1.44,
+   "na": 175
+  },
+  "serving_weight_g": 132.3
+ },
+ "감자모닝빵": {
+  "source": "food_db",
+  "name": "모닝빵",
+  "origin": "가정식(분석 함량)",
+  "per100": {
+   "kcal": 314,
+   "protein": 9.5,
+   "fat": 7.43,
+   "carb": 52.17,
+   "sugar": 7.97,
+   "fiber": 2.4,
+   "ca": 30,
+   "fe": 0.56,
+   "vitA": 48,
+   "vitC": 0,
+   "satFat": 3.03,
+   "na": 489
+  },
+  "serving_weight_g": 70.0
+ },
+ "우삼겹갈비탕": {
+  "source": "food_db",
+  "name": "갈비탕",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 75,
+   "protein": 4.4,
+   "fat": 5.02,
+   "carb": 2.32,
+   "sugar": 0.17,
+   "fiber": 0.2,
+   "ca": 7,
+   "fe": 0.89,
+   "vitA": 4,
+   "vitC": 0.63,
+   "satFat": 1.77,
+   "na": 179
+  },
+  "serving_weight_g": 270.0
+ },
+ "옥수수김치전": {
+  "source": "food_db",
+  "name": "김치전",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 126,
+   "protein": 3.6,
+   "fat": 5.03,
+   "carb": 15.56,
+   "sugar": 1.36,
+   "fiber": 1.8,
+   "ca": 23,
+   "fe": 0.37,
+   "vitA": 14,
+   "vitC": 1.49,
+   "satFat": 0.82,
+   "na": 370
+  },
+  "serving_weight_g": 70.0
+ },
+ "동그랑땡소스": {
+  "source": "db104_direct",
+  "name": "데리야끼 소스",
+  "per100": {
+   "kcal": 152.0,
+   "protein": 1.82,
+   "fat": 0.1,
+   "carb": 36.07,
+   "sugar": 26.34,
+   "fiber": 0.4,
+   "ca": 15.0,
+   "fe": 0.53,
+   "vitA": 0.0,
+   "vitC": 0.0,
+   "satFat": 0.01,
+   "na": 2044.0
+  }
+ },
+ "피카츄돈가스": {
+  "source": "food_db",
+  "name": "닭튀김_New치킨너겟",
+  "origin": "외식(프랜차이즈 등 업체 제공 영양정보)",
+  "per100": {
+   "kcal": 237,
+   "protein": 16.24,
+   "fat": null,
+   "carb": null,
+   "sugar": 0.79,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 2.85,
+   "na": 430
+  },
+  "serving_weight_g": 114.0,
+  "used_synonym": "닭튀김_New치킨너겟"
+ },
+ "완자전": {
+  "source": "food_db",
+  "name": "완자전",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 214,
+   "protein": 7.1,
+   "fat": 15.49,
+   "carb": 10.73,
+   "sugar": 0.36,
+   "fiber": 2.9,
+   "ca": 46,
+   "fe": 1.51,
+   "vitA": 23,
+   "vitC": 0.01,
+   "satFat": 3.33,
+   "na": 108
+  },
+  "serving_weight_g": 150.0
+ },
+ "김치잔치국수": {
+  "source": "food_db",
+  "name": "잔치국수",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 63,
+   "protein": 1.99,
+   "fat": 0.55,
+   "carb": 12.03,
+   "sugar": 0.63,
+   "fiber": 0.6,
+   "ca": 9,
+   "fe": 0.22,
+   "vitA": 12,
+   "vitC": 1.4,
+   "satFat": 0.12,
+   "na": 309
+  },
+  "serving_weight_g": 650.0
  }
 }
