@@ -294,9 +294,13 @@ MENUGEN_MODIFIER_PREFIXES = [
 # 같으면(물/국물 등 추가 희석분이 애초에 없는 "완결된 값") scale=1로 고정해 표준중량표
 # 변경의 영향을 받지 않게 하고, 재료합과 차이가 나면(진짜 희석/스케일링 의도) 기존대로
 # target_weight_g에 맞춰 조정한다.
+# 2026-11-04 추가: 위 규칙의 예외 - "원 레시피가 여러 인분짜리 배치"인 항목(batch_recipe=true).
+# 이런 항목은 재료합=weight_g(배치 총량)이라 위 판정에 걸려 scale=1.0으로 고정돼 버리는데,
+# 그러면 배치 전체(예: 미트볼 675g)가 1인분으로 계산되어 극단적으로 과대평가된다. 플래그가
+# 붙은 항목만 가드를 건너뛰고 target_weight_g 기준으로 비례 축소한다(기존 항목 동작은 불변).
 def _recipe_scale(dish, target_weight_g):
     ing_sum = sum(ing["weight_g"] for ing in dish["ingredients"])
-    if abs(dish["weight_g"] - ing_sum) < 5:
+    if not dish.get("batch_recipe") and abs(dish["weight_g"] - ing_sum) < 5:
         return 1.0
     return target_weight_g / dish["weight_g"]
 
@@ -680,6 +684,117 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = "마늘종조림"
     if name == "돼지고기애호박찌개":
         name = "돼지고기찌개(고추장)"
+    # 2026-11-04 추가: 신소재공학관(204) 식품교환단위 2차 보완(사용자 확인)
+    if name == "미소된장국":
+        name = "팽이미소된장국"
+    if name == "국밥":
+        name = "소고기국밥"
+    if name == "떡갈비구이":
+        name = "버섯떡갈비"
+    # 2026-11-04: db104 콤마 포함 표기는 find_db104_candidates가 "첫 토큰"만 정확 비교하는
+    # 구조라 여기서 name을 콤마 포함 전체 표기로 바로 바꿔버리면 매칭이 깨진다(기존 "밀가루"/
+    # "청양고추" 패턴과 동일 문제). 아래 9개는 식품군 매핑 자체는 유효해서 recipe_decompose.py
+    # SYNONYMS에 원래 이름 그대로 등록해 해결(콤마 포함 동의어는 전체 표기 정확매칭 경로를 탐).
+    # 눈꽃치즈/그린샐러드/새송이볶음/언양식불고기/미역초무침/석류차/미니칼국수/라임차/맛살샐러드/
+    # 브로콜리초회는 recipe_decompose.SYNONYMS에서 처리.
+    if name == "참치펜네샐러드":
+        # 영양소 계산에 이미 쓰인 2026-09-14 사진 기반 수동 레시피(master_cache "manual_recipe")
+        # 그대로 재사용 - 사진에 채소 없이 펜네+참치+마요네즈만 확인됨: 펜네 45g, 참치 20g,
+        # 마요네즈 10g(총 75g). 식품교환단위도 동일 구성으로 계산.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        parts = [("마카로니, 말린것, 삶은것", 45.0), ("다랑어, 가다랑어, 통조림, 유지", 20.0), ("마요네즈", 10.0)]
+        base = sum(w for _, w in parts)
+        scale = weight_g / base if base > 0 else 1.0
+        for ing_name, w in parts:
+            rec = DB104_BY_NAME.get(ing_name)
+            if rec is None or not _add_ingredient(units, rec["식품군"], rec, w * scale):
+                return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [ing_name]}
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "펜네+참치+마요네즈", "unresolved_ingredients": [],
+                "recipe_note": "참치펜네샐러드: [사진중량추정] 2026-09-14 사진 확인 결과 채소 없이 펜네 45g+참치 20g+마요네즈 10g(총 75g, 영양소 계산과 동일 구성)로 비례 환산."}
+    if name == "오복지무침":
+        name = "무생채"  # 사용자 지정: 오복지(여러 채소 절임) 대신 무생채로 대체 매칭
+    if name == "치킨까스":
+        name = "닭튀김"
+    if name == "후리가케밥":
+        name = "쌀밥"
+    if name == "해물까스":
+        name = "생선까스"  # 까스/가스 변형 자동 탐색으로 menugen "생선가스"에 연결됨
+    if name == "비트무피클":
+        name = "오이피클"  # 사용자 지정: 비트 성분 생략하고 단순화
+    if name == "피자함박스테이크":
+        name = "함박스테이크"
+    if name == "제육김치볶음":
+        name = "김치볶음(돼지고기)"
+    if name == "맑은콩나물국":
+        name = "콩나물국"
+    if name == "계란볶음밥":
+        name = "달걀볶음밥"
+    if name == "얼큰만두전골":
+        name = "굴림만두 전골"
+    if name == "청양마요":
+        name = "마요네즈"  # 청양고추 매운맛은 미반영
+    if name == "쥐어채볶음":
+        name = "쥐포볶음(고추장)"  # "쥐어채"=쥐치포의 방언
+    if name == "날치알김치볶음밥":
+        name = "김치볶음밥(돼지고기)"  # 날치알 토핑은 미반영
+    if name == "크림스파게티":
+        name = "베이컨크림스파게티"
+    if name == "피카츄돈가스":
+        name = "돈가스"  # 영양소 쪽은 치킨너겟으로 대체했으나 메뉴젠엔 치킨너겟 레시피가 없어 돈가스 유지
+    if name == "차돌김치찌개":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        parts = [("차돌박이", 50.0), ("두부", 50.0), ("배추김치", max(0.0, weight_g - 100.0))]
+        for ing_name, w in parts:
+            cands, _ = find_db104_candidates(ing_name)
+            rec, _ = pick_db104_state(cands, None)
+            if rec is None or not _add_ingredient(units, rec["식품군"], rec, w):
+                return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [ing_name]}
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "차돌박이+두부+배추김치", "unresolved_ingredients": [],
+                "recipe_note": f"차돌김치찌개: [사진중량추정] 10/26 사진 속 차돌박이 조각 비율 추정 - 전체 {weight_g:g}g 중 차돌박이 50g, 두부 50g, 나머지 배추김치로 분해(db104 직접매칭)."}
+    if name == "떡만두국":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        tteok_w = 150.0
+        mandu_w = max(0.0, weight_g - tteok_w)
+        result = _from_menugen("만둣국", mandu_w)
+        if result is None:
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["만둣국"]}
+        for group in EXCHANGE_GROUPS:
+            units[group] += result["units"][group]
+        cands, _ = find_db104_candidates("떡")
+        rec, _ = pick_db104_state(cands, None)
+        if rec is None or not _add_ingredient(units, rec["식품군"], rec, tteok_w):
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["떡"]}
+        return {"matched": True, "units": units, "source": "menugen+db104_direct",
+                "matched_name": "만둣국 + 떡(가래떡)", "unresolved_ingredients": [],
+                "recipe_note": f"떡만두국: [사진중량추정] 10/28 사진 속 떡 조각 비율 추정 - 표준중량(690g) 중 떡(가래떡) {tteok_w:g}g, 나머지 {mandu_w:g}g은 MenuGen 만둣국으로 분해."}
+    if name == "비엔나굴소스볶음":
+        # 굴소스는 db104 "조미료류"로 분류돼 식품군 매핑이 없어(크림스프와 동일 구조적 한계)
+        # 제외하고, 비엔나소시지만 전체 중량으로 계산(소스는 조미료 수준의 소량이라 영향 적음).
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        rec = DB104_BY_NAME.get("소시지, 위너(비엔나)소시지")
+        if rec is None or not _add_ingredient(units, rec["식품군"], rec, weight_g):
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["소시지, 위너(비엔나)소시지"]}
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "비엔나소시지", "unresolved_ingredients": [],
+                "recipe_note": "비엔나굴소스볶음: 굴소스는 db104 조미료류(식품군 매핑 없음)라 제외, 전체 중량을 비엔나소시지로 계산(db104 직접매칭)."}
+    if name == "닭갈비볶음밥":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        dakgalbi_w = weight_g * (90.0 / 210.0)
+        rice_w = weight_g - dakgalbi_w
+        result = _from_menugen("닭갈비", dakgalbi_w)
+        if result is None:
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["닭갈비"]}
+        for group in EXCHANGE_GROUPS:
+            units[group] += result["units"][group]
+        cands, _ = find_db104_candidates("쌀")
+        rec, _ = pick_db104_state(cands, None)
+        if rec is None or not _add_ingredient(units, rec["식품군"], rec, rice_w):
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["쌀"]}
+        return {"matched": True, "units": units, "source": "menugen+db104_direct",
+                "matched_name": "닭갈비 + 쌀밥", "unresolved_ingredients": [],
+                "recipe_note": f"닭갈비볶음밥: 표준중량(210g) 중 MenuGen 닭갈비 {dakgalbi_w:g}g + 쌀밥 {rice_w:g}g으로 분해(볶음밥 조리유는 미반영)."}
     result = _from_custom_recipe(name, weight_g)
     if result is None:
         result = _from_external_recipe(name, weight_g)

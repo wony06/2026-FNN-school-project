@@ -27,6 +27,9 @@ SELF_KEYWORDS = {
 OPTIONAL_EXCLUDE_KEYWORDS = {
     "마카로니과자", "추가밥", "한마리", "뿌링클가루",
     "메뉴", "이벤트로", "인해", "셀프코너", "콜라보", "코너", "미운영",
+    # 2026-11-04: 사용자 지정 - 라임차는 어느 DB에도 대응 항목이 없고(음료·차류는 db104/food_db
+    # 커버리지 없음) 열량 기여도 미미해 영양소 계산 자체에서 제외.
+    "라임차",
 }
 
 
@@ -763,7 +766,9 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         if it.get("exchange_excluded_reason"):
             recipe_notes.append(it["exchange_excluded_reason"])
             continue
-        if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장", "스위트칠리"):
+        if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장", "스위트칠리", "타르소스",
+                              "칠리소스", "머스타드", "카레소스", "겨자소스", "동그랑땡소스",
+                              "레몬홍차", "복숭아티"):
             recipe_notes.append(f"{it['display']}: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.")
             continue
         if shop == "401" and it["display"] == "김치2종" and date in KIMCHI_PAIR_EXCLUDED_DATES:
@@ -925,7 +930,9 @@ def compute_tray(lunch, cache):
         confidence = "낮음"
 
     exchange_units = None
-    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-09-19"):
+    # 2026-11-04: 204(신소재공학관)는 기존에 08-24~09-19 구간만 식품교환단위를 계산했음 -
+    # 사용자 지시로 10/26~11/6까지 범위 확장.
+    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-06"):
         exchange_units = compute_tray_exchanges(items, main, shop, lunch["date"])
 
     return {
