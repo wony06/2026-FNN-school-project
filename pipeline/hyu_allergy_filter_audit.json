@@ -1,28 +1,1283 @@
 {
+  "policyReview": {
+    "aliasMatches": [
+      {
+        "key": [
+          "2026-06-29",
+          "204",
+          "정식",
+          "부대찌개*라면사리"
+        ],
+        "component": "부대찌개*라면사리",
+        "reference": "부대찌개&라면사리",
+        "integrationApplied": true
+      },
+      {
+        "key": [
+          "2026-08-19",
+          "204",
+          "일품",
+          "소시지오므라이스"
+        ],
+        "component": "소시지오므라이스",
+        "reference": "소세지오므라이스",
+        "integrationApplied": true
+      },
+      {
+        "key": [
+          "2026-09-01",
+          "204",
+          "정식",
+          "부대찌개*라면사리"
+        ],
+        "component": "부대찌개*라면사리",
+        "reference": "부대찌개&라면사리",
+        "integrationApplied": true
+      },
+      {
+        "key": [
+          "2026-09-03",
+          "204",
+          "정식",
+          "설렁탕*소면사리"
+        ],
+        "component": "설렁탕*소면사리",
+        "reference": "설렁탕&소면사리",
+        "integrationApplied": true
+      },
+      {
+        "key": [
+          "2026-10-28",
+          "204",
+          "정식",
+          "떡만두국"
+        ],
+        "component": "떡만두국",
+        "reference": "떡만두국#",
+        "integrationApplied": true
+      }
+    ],
+    "nameChanges": [
+      {
+        "key": [
+          "2026-06-23",
+          "105",
+          "즉석",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-06-25",
+          "105",
+          "한식",
+          "부타동"
+        ],
+        "component": "부타동",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "부타동"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-06-29",
+          "204",
+          "정식",
+          "부대찌개*라면사리"
+        ],
+        "component": "스크램블에그",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "에그"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-01",
+          "204",
+          "일품",
+          "고추잡채덮밥"
+        ],
+        "component": "고추잡채덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "고추잡채덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-03",
+          "204",
+          "정식",
+          "소머리사리곰탕*소면"
+        ],
+        "component": "소머리사리곰탕*소면",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소머리"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-06",
+          "204",
+          "정식",
+          "차돌김치찌개"
+        ],
+        "component": "차돌김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "차돌김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 쇠고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-08",
+          "401",
+          "중식 - Korean Dining",
+          "냉모밀"
+        ],
+        "component": "감자에그샐러드",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "에그"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-10",
+          "204",
+          "일품",
+          "왕돈가스"
+        ],
+        "component": "왕돈가스",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "왕돈가스"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-13",
+          "105",
+          "한식",
+          "부타동"
+        ],
+        "component": "부타동",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "부타동"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-13",
+          "204",
+          "일품",
+          "베이컨마늘볶음밥"
+        ],
+        "component": "베이컨마늘볶음밥",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 난류 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-14",
+          "105",
+          "즉석",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-15",
+          "204",
+          "일품",
+          "고추잡채덮밥"
+        ],
+        "component": "고추잡채덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "고추잡채덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-16",
+          "401",
+          "중식 - Korean Dining",
+          "포크슈니첼 &미니굴라쉬"
+        ],
+        "component": "포크슈니첼 &미니굴라쉬",
+        "before": [
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "matched_terms": [
+              "굴"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "포크"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-16",
+          "401",
+          "중식 - Korean Dining",
+          "포크슈니첼 &미니굴라쉬"
+        ],
+        "component": "포크슈니첼",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "포크"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-21",
+          "105",
+          "한식",
+          "대패삼겹덮밥"
+        ],
+        "component": "대패삼겹덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "대패삼겹덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-22",
+          "401",
+          "중식 - Korean Dining",
+          "왕돈가스"
+        ],
+        "component": "왕돈가스",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "왕돈가스"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-07-23",
+          "105",
+          "한식",
+          "소불고기덮밥"
+        ],
+        "component": "소불고기덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소불고기"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-03",
+          "105",
+          "즉석",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-03",
+          "401",
+          "중식 - Korean Dining",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-04",
+          "204",
+          "일품",
+          "고추잡채덮밥"
+        ],
+        "component": "고추잡채덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "고추잡채덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-05",
+          "105",
+          "한식",
+          "대패삼겹덮밥"
+        ],
+        "component": "대패삼겹덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "대패삼겹덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-06",
+          "105",
+          "한식",
+          "포크하이라이스"
+        ],
+        "component": "포크하이라이스",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "포크"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-07",
+          "401",
+          "중식 - Korean Dining *품절*",
+          "왕돈가스"
+        ],
+        "component": "왕돈가스",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "왕돈가스"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-19",
+          "105",
+          "한식",
+          "부타동"
+        ],
+        "component": "부타동",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "부타동"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-28",
+          "204",
+          "일품",
+          "베이컨마늘볶음밥"
+        ],
+        "component": "베이컨마늘볶음밥",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 난류 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-31",
+          "204",
+          "일품",
+          "왕돈가스"
+        ],
+        "component": "왕돈가스",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "왕돈가스"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-08-31",
+          "401",
+          "중식 - Korean Dining",
+          "뚝배기소불고기"
+        ],
+        "component": "뚝배기소불고기",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소불고기"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-01",
+          "105",
+          "즉석",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-02",
+          "105",
+          "한식",
+          "비프하이라이스"
+        ],
+        "component": "비프하이라이스",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "비프"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-02",
+          "204",
+          "일품",
+          "고추잡채덮밥"
+        ],
+        "component": "고추잡채덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "고추잡채덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-03",
+          "105",
+          "한식",
+          "대패삼겹덮밥"
+        ],
+        "component": "대패삼겹덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "대패삼겹덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-07",
+          "204",
+          "정식",
+          "차돌김치찌개"
+        ],
+        "component": "차돌김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "차돌김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 쇠고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-08",
+          "105",
+          "한식",
+          "부타동"
+        ],
+        "component": "부타동",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "부타동"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-14",
+          "105",
+          "한식",
+          "대패삼겹덮밥"
+        ],
+        "component": "대패삼겹덮밥",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "대패삼겹덮밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-14",
+          "204",
+          "일품",
+          "베이컨마늘볶음밥"
+        ],
+        "component": "베이컨마늘볶음밥",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 난류 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "베이컨마늘볶음밥"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-17",
+          "401",
+          "중식 - Korean Dining",
+          "소불고기전골"
+        ],
+        "component": "소불고기전골",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소불고기"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-09-17",
+          "401",
+          "중식 - Korean Dining",
+          "소불고기전골"
+        ],
+        "component": "스크램블에그",
+        "before": [],
+        "after": [
+          {
+            "number": 1,
+            "name": "난류",
+            "matched_terms": [
+              "에그"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-10-26",
+          "204",
+          "정식",
+          "차돌김치찌개"
+        ],
+        "component": "차돌김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "차돌김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 쇠고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-10-29",
+          "105",
+          "즉석",
+          "토마토비프스튜"
+        ],
+        "component": "토마토비프스튜",
+        "before": [
+          {
+            "number": 12,
+            "name": "토마토",
+            "matched_terms": [
+              "토마토"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "after": [
+          {
+            "number": 12,
+            "name": "토마토",
+            "matched_terms": [
+              "토마토"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "비프"
+            ],
+            "basis": "메뉴명 명시·번역 단서; 실제 원재료/제품 확인 아님"
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-11-03",
+          "105",
+          "즉석",
+          "목살김치찌개"
+        ],
+        "component": "목살김치찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "목살김치찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-04",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      }
+    ],
+    "userReview": {
+      "reviewedAt": "2026-11-04",
+      "source": "사용자 채팅 답변",
+      "verification": "사용자 제공 정보; 제품 라벨·식당 공식 레시피 미확인. 성분 부재·교차접촉 안전 확정 아님.",
+      "scope": "현재 449개 식단의 원문 기반 구성 메뉴. 신규·다른 조리법 메뉴에는 임의 확장 금지.",
+      "porkComponentNames": [
+        "고추잡채덮밥",
+        "대패삼겹덮밥",
+        "목살김치찌개",
+        "베이컨마늘볶음밥",
+        "왕돈가스"
+      ],
+      "statements": [
+        {
+          "subject": "목살",
+          "statement": "목살은 전부 돼지고기"
+        },
+        {
+          "subject": "고추잡채덮밥",
+          "statement": "돼지고기 사용"
+        },
+        {
+          "subject": "식혜",
+          "statement": "토마토 안 들어감"
+        },
+        {
+          "subject": "계란말이",
+          "statement": "햄·고기 안 들어감"
+        },
+        {
+          "subject": "콘샐러드",
+          "statement": "맛살 및 다른 게 관련 재료 사용하지 않음"
+        }
+      ],
+      "holdReferenceCodes": [
+        [
+          "식혜",
+          12
+        ],
+        [
+          "계란말이",
+          10
+        ],
+        [
+          "콘샐러드",
+          8
+        ],
+        [
+          "계란말이",
+          15
+        ],
+        [
+          "계란말이",
+          16
+        ]
+      ],
+      "batch2": [
+        {
+          "subject": "통살치킨까스",
+          "confirmed": [
+            "치즈·별도 속재료 없이 닭고기에 튀김옷을 입힌 메뉴"
+          ],
+          "unknown": [
+            "튀김옷·제품 배합",
+            "우유·난류 등 실제 제품 성분"
+          ],
+          "referenceCandidate": "치킨가스"
+        },
+        {
+          "subject": "놀부부대찌개",
+          "confirmed": [
+            "실제 놀부 제품을 뜻하지 않고 일반 부대찌개에 붙인 이름"
+          ],
+          "unknown": [
+            "햄·소시지·육수·양념 제품의 원재료"
+          ],
+          "referenceCandidate": "부대찌개"
+        },
+        {
+          "subject": "참치야채비빔밥",
+          "confirmed": [
+            "마요네즈 없음"
+          ],
+          "unknown": [
+            "생야채 여부",
+            "초고추장 사용 여부",
+            "그 외 양념 원재료"
+          ]
+        },
+        {
+          "subject": "새우튀김알밥",
+          "confirmed": [
+            "날치알",
+            "마요네즈 사용"
+          ],
+          "unknown": [
+            "마요네즈 제품 원재료",
+            "튀김옷·다른 토핑"
+          ],
+          "warning": "날치알을 난류로 분류하지 않음. 마요네즈만으로 난류 확정하지 않음"
+        },
+        {
+          "subject": "대패삼겹덮밥",
+          "confirmed": [
+            "돼지고기 대패삼겹살",
+            "간장 양념"
+          ],
+          "unknown": [
+            "간장 및 양념 제품 원재료"
+          ],
+          "referenceCandidate": "#대패삼겹살덮밥"
+        }
+      ],
+      "batch2Policy": "일반명·재료 확인과 NEIS 조리법 일치 확인을 구분. 후보는 보존하되 NEIS 성분 코드 자동 복사 안 함. 부재·안전 확정 금지.",
+      "userReportedAllergenCodes": {
+        "베이컨마늘볶음밥": [
+          1,
+          10
+        ],
+        "왕돈가스": [
+          10
+        ],
+        "차돌김치찌개": [
+          16
+        ]
+      },
+      "batch3": [
+        {
+          "subject": "몽글순두부찌개",
+          "confirmed": [
+            "해물 사용"
+          ],
+          "tentative": [
+            "새우·오징어·조개류가 모두 들어갈 수 있다는 사용자 추정"
+          ],
+          "originalAnswer": "다 들어갈걸?",
+          "unknown": [
+            "구체적 해물 종류·제품"
+          ],
+          "automaticCodeAddition": [],
+          "warning": "불확실한 답변을 성분별 확정·자동 제외 근거로 승격하지 않음"
+        },
+        {
+          "subject": "왕돈가스",
+          "confirmed": [
+            "돼지고기 돈가스",
+            "치즈 등 별도 속재료 없음"
+          ],
+          "unknown": [
+            "튀김옷·제품 배합"
+          ],
+          "automaticCodeAddition": [
+            10
+          ]
+        },
+        {
+          "subject": "베이컨마늘볶음밥",
+          "confirmed": [
+            "돼지고기 베이컨 사용",
+            "계란 사용"
+          ],
+          "unknown": [
+            "베이컨 제품의 그 외 성분"
+          ],
+          "automaticCodeAddition": [
+            1,
+            10
+          ]
+        },
+        {
+          "subject": "차돌김치찌개",
+          "confirmed": [
+            "소고기 차돌박이 사용"
+          ],
+          "unknown": [
+            "양념·육수 성분"
+          ],
+          "automaticCodeAddition": [
+            16
+          ]
+        },
+        {
+          "subject": "하와이안함박스테이크",
+          "confirmed": [
+            "파인애플 토핑"
+          ],
+          "unknown": [
+            "패티 고기 종류·제품 원재료"
+          ],
+          "automaticCodeAddition": []
+        }
+      ]
+    },
+    "mealKeyRenames": [
+      {
+        "before": [
+          "2026-10-28",
+          "401",
+          "중식 - Korean Dining",
+          "치킨너겟버펄로볼 나초파이 양송이스프/맥앤치즈 브라운브레드&버터,잼 오이피클&할라피뇨 콜라 샐러드&토핑&드레싱"
+        ],
+        "after": [
+          "2026-10-28",
+          "401",
+          "중식 - Korean Dining",
+          "치킨너겟버펄로볼"
+        ]
+      }
+    ]
+  },
   "menuCount": 449,
   "excludedByAllergen": {
-    "1": 219,
-    "2": 217,
+    "1": 223,
+    "2": 210,
     "3": 21,
-    "4": 21,
-    "5": 291,
-    "6": 278,
+    "4": 4,
+    "5": 292,
+    "6": 279,
     "7": 47,
-    "8": 89,
+    "8": 81,
     "9": 205,
-    "10": 167,
-    "11": 15,
-    "12": 147,
+    "10": 184,
+    "11": 3,
+    "12": 142,
     "13": 291,
     "14": 0,
-    "15": 116,
-    "16": 179,
-    "17": 40,
+    "15": 113,
+    "16": 178,
+    "17": 25,
     "18": 213,
     "19": 0
   },
-  "suppressedEvidenceCount": 37,
-  "correctedMealCount": 37,
+  "suppressedEvidenceCount": 156,
+  "correctedMealCount": 94,
   "choiceWithheldMenus": 52,
   "excludedCalculationOccurrences": 1128,
   "corrections": [
@@ -43,7 +1298,10 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -62,7 +1320,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -81,7 +1342,98 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "일품",
+        "제주비빔국수"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "일품",
+        "제주비빔국수"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -100,7 +1452,76 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "일품",
+        "간장닭갈비볶음밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "일품",
+        "간장닭갈비볶음밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-02",
+        "204",
+        "일품",
+        "간장닭갈비볶음밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -119,7 +1540,33 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-08",
+        "204",
+        "일품",
+        "뿌팟퐁커리덮밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -138,7 +1585,10 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -157,7 +1607,76 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-10",
+        "204",
+        "일품",
+        "왕돈가스"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -176,7 +1695,143 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "일품",
+        "소고기쌀국수"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "일품",
+        "소고기쌀국수"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "일품",
+        "소고기쌀국수"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "정식",
+        "얼큰만두전골"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-14",
+        "204",
+        "정식",
+        "얼큰만두전골"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-15",
+        "204",
+        "정식",
+        "장각삼계탕"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -195,7 +1850,76 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-16",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -214,7 +1938,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -233,7 +1960,10 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -252,7 +1982,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -271,7 +2004,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -290,7 +2026,33 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-29",
+        "204",
+        "일품",
+        "피자돈까스"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -309,7 +2071,76 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "일품",
+        "가라아게덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "일품",
+        "가라아게덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-07-30",
+        "204",
+        "일품",
+        "가라아게덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -328,7 +2159,98 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "204",
+        "일품",
+        "돈육비빔막국수"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "204",
+        "일품",
+        "돈육비빔막국수"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "204",
+        "정식",
+        "스팸고추장찌개"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-03",
+        "204",
+        "정식",
+        "스팸고추장찌개"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -347,7 +2269,99 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-04",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "일품",
+        "마늘쫑비빔밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "일품",
+        "마늘쫑비빔밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-06",
+        "204",
+        "일품",
+        "마늘쫑비빔밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -366,7 +2380,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -385,7 +2402,55 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-12",
+        "204",
+        "일품",
+        "고깃집볶음밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-13",
+        "204",
+        "정식",
+        "순대국밥"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -404,7 +2469,143 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-14",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "204",
+        "일품",
+        "토마토치킨커리"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "401",
+        "중식 - Korean Dining",
+        "가지솥밥"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-18",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -423,7 +2624,10 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -442,7 +2646,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -461,7 +2668,210 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "105",
+        "즉석",
+        "로제부대찌개"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "105",
+        "한식",
+        "주꾸미덮밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "일품",
+        "돈육불고기덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "정식",
+        "돈까스나베"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-25",
+        "204",
+        "정식",
+        "돈까스나베"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -480,7 +2890,142 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "즉석",
+        "삼겹살김치찌개"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "즉석",
+        "삼겹살김치찌개"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "즉석",
+        "삼겹살김치찌개"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-08-26",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -499,7 +3044,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -518,7 +3066,164 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "즉석",
+        "목살김치찌개"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "즉석",
+        "목살김치찌개"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "즉석",
+        "목살김치찌개"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -537,7 +3242,76 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "204",
+        "일품",
+        "고추잡채덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -556,7 +3330,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -575,7 +3352,110 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "204",
+        "일품",
+        "스팸마요덮밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-07",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -594,7 +3474,153 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "204",
+        "일품",
+        "돈까스덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-08",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -613,7 +3639,483 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-09",
+        "401",
+        "중식 - Korean Dining",
+        "비빔밥&계란후라이"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "즉석",
+        "삼겹살비지찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "즉석",
+        "삼겹살비지찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "즉석",
+        "삼겹살비지찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "한식",
+        "스팸마요덮밥"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "한식",
+        "스팸마요덮밥"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "105",
+        "한식",
+        "스팸마요덮밥"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-10",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 10,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 15,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 4,
+      "labeledSchools": 1,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-11",
+        "401",
+        "중식 - Korean Dining",
+        "놀부부대찌개"
+      ],
+      "code": 16,
+      "component": "계란말이",
+      "reference": "계란말이",
+      "labeledRecords": 6,
+      "labeledSchools": 2,
+      "totalRecords": 15,
+      "recordIds": [
+        "39e5bf39b21dc4ad2fed6e222b9b325a7353c5ef738064123092a57351e74f9c",
+        "7d2d2e8fc28737fb5390e3e206e644c194784387702a80c1c37c1924ed1b2b4f",
+        "b1d11531cb9cd112508ae7e49da6d9dfcdf3483989b88f15584a0925511eac98",
+        "cedd44e7633c726107726eff83857e6af69b9df7a6e16a9add7bfb5bd6d0a1ac",
+        "cfdf0e01371ec09e0882bb10d7ca32baabc72d4afa9b915d98ab3dff9d087c45",
+        "ed7061af7e49619c7119379582f7dfbb49f320383f51879bc2b20282a721f6d7"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "204",
+        "일품",
+        "토마토커리덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "204",
+        "일품",
+        "토마토커리덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "204",
+        "일품",
+        "토마토커리덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -632,7 +4134,10 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -651,7 +4156,102 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "105",
+        "즉석",
+        "삼겹살김치찌개"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "105",
+        "한식",
+        "새우튀김알밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "204",
+        "일품",
+        "지코바치킨덮밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "401",
+        "중식 - Korean Dining",
+        "트러플풍기파스타"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -670,7 +4270,252 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "즉석",
+        "차돌된장찌개"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "즉석",
+        "차돌된장찌개"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "즉석",
+        "차돌된장찌개"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "한식",
+        "불오징어덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "한식",
+        "불오징어덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "105",
+        "한식",
+        "불오징어덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "204",
+        "일품",
+        "마파두부덮밥"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "204",
+        "일품",
+        "마파두부덮밥"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "204",
+        "정식",
+        "차돌김치찌개"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-26",
+        "204",
+        "정식",
+        "차돌김치찌개"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-28",
+        "204",
+        "정식",
+        "떡만두국"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -689,7 +4534,186 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-10-30",
+        "401",
+        "중식 - Korean Dining",
+        "날치알밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "일품",
+        "계란볶음밥"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "일품",
+        "계란볶음밥"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "정식",
+        "제육김치볶음"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-02",
+        "204",
+        "정식",
+        "제육김치볶음"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-03",
+        "401",
+        "중식 - Korean Dining",
+        "육회비빔밥"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -708,7 +4732,55 @@
         "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "204",
+        "일품",
+        "닭갈비볶음밥"
+      ],
+      "code": 8,
+      "component": "콘샐러드",
+      "reference": "콘샐러드",
+      "labeledRecords": 2,
+      "labeledSchools": 2,
+      "totalRecords": 4,
+      "recordIds": [
+        "9fefa1169bb4db6bc2702413f7c0ba5818dbcb09c4833d5f8608261ecdc6091e",
+        "b602a7af72e4396f15c5025cc9f83f917a97c8179e0ddba46fcfe804bbdb616b"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-04",
+        "204",
+        "정식",
+        "얼큰만두전골"
+      ],
+      "code": 2,
+      "component": "무말랭이무침",
+      "reference": "무말랭이무침",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 7,
+      "recordIds": [
+        "d969ba4d4184437f81a12219ce5fa3b9479a9237b431f1229b0e1d968afac055"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     },
     {
       "key": [
@@ -727,7 +4799,10 @@
         "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
       ],
       "state": "미확인",
-      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     }
   ],
   "otherPartialShellfishEvidenceRetained": [
@@ -937,6 +5012,19 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-06-29",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
+      "component": "부대찌개*라면사리",
+      "reference": "부대찌개&라면사리",
+      "labeledRecords": 1,
+      "totalRecords": 4,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -2740,6 +6828,19 @@
         "정식",
         "부대찌개*라면사리"
       ],
+      "component": "부대찌개*라면사리",
+      "reference": "부대찌개&라면사리",
+      "labeledRecords": 1,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "204",
+        "정식",
+        "부대찌개*라면사리"
+      ],
       "component": "배추김치",
       "reference": "배추김치",
       "labeledRecords": 1,
@@ -3918,8 +8019,8 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "58aced6ae5cafca0177f97c00023384cf82624d3ca4afd58074b21d6d5a80718",
-    "web\\menu_exchange_snapshot.json": "548f3446d35ba13ea7b1d8506ae3bbff9ad5a1f0cbd18ddc6c036eadd2d1913c",
+    "web\\site_data.json": "3a559be516357ced1abafbaf8b6644d39f0a7866466c5d897c210770c9ec1eff",
+    "web\\menu_exchange_snapshot.json": "8846790b57ab420cb01309951613a058bf72d6b7887c4bbec303581182f2c1c2",
     "web\\personal-score.js": "bcc45e2855f240ee4df507ccfa7e514582e16bfb54dabc30b18750865b1ffb63",
     "web\\recommendation-view.js": "7ff9ab4b109f5ef10ac2810085748d5defee0b022ea01aae1b761a05b138d7e8",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",

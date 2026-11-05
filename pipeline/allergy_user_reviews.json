@@ -1,0 +1,193 @@
+{
+  "reviewedAt": "2026-11-04",
+  "source": "사용자 채팅 답변",
+  "verification": "사용자 제공 정보; 제품 라벨·식당 공식 레시피 미확인. 성분 부재·교차접촉 안전 확정 아님.",
+  "scope": "현재 449개 식단의 원문 기반 구성 메뉴. 신규·다른 조리법 메뉴에는 임의 확장 금지.",
+  "porkComponentNames": [
+    "고추잡채덮밥",
+    "대패삼겹덮밥",
+    "목살김치찌개",
+    "베이컨마늘볶음밥",
+    "왕돈가스"
+  ],
+  "statements": [
+    {
+      "subject": "목살",
+      "statement": "목살은 전부 돼지고기"
+    },
+    {
+      "subject": "고추잡채덮밥",
+      "statement": "돼지고기 사용"
+    },
+    {
+      "subject": "식혜",
+      "statement": "토마토 안 들어감"
+    },
+    {
+      "subject": "계란말이",
+      "statement": "햄·고기 안 들어감"
+    },
+    {
+      "subject": "콘샐러드",
+      "statement": "맛살 및 다른 게 관련 재료 사용하지 않음"
+    }
+  ],
+  "holdReferenceCodes": [
+    [
+      "식혜",
+      12
+    ],
+    [
+      "계란말이",
+      10
+    ],
+    [
+      "콘샐러드",
+      8
+    ],
+    [
+      "계란말이",
+      15
+    ],
+    [
+      "계란말이",
+      16
+    ]
+  ],
+  "batch2": [
+    {
+      "subject": "통살치킨까스",
+      "confirmed": [
+        "치즈·별도 속재료 없이 닭고기에 튀김옷을 입힌 메뉴"
+      ],
+      "unknown": [
+        "튀김옷·제품 배합",
+        "우유·난류 등 실제 제품 성분"
+      ],
+      "referenceCandidate": "치킨가스"
+    },
+    {
+      "subject": "놀부부대찌개",
+      "confirmed": [
+        "실제 놀부 제품을 뜻하지 않고 일반 부대찌개에 붙인 이름"
+      ],
+      "unknown": [
+        "햄·소시지·육수·양념 제품의 원재료"
+      ],
+      "referenceCandidate": "부대찌개"
+    },
+    {
+      "subject": "참치야채비빔밥",
+      "confirmed": [
+        "마요네즈 없음"
+      ],
+      "unknown": [
+        "생야채 여부",
+        "초고추장 사용 여부",
+        "그 외 양념 원재료"
+      ]
+    },
+    {
+      "subject": "새우튀김알밥",
+      "confirmed": [
+        "날치알",
+        "마요네즈 사용"
+      ],
+      "unknown": [
+        "마요네즈 제품 원재료",
+        "튀김옷·다른 토핑"
+      ],
+      "warning": "날치알을 난류로 분류하지 않음. 마요네즈만으로 난류 확정하지 않음"
+    },
+    {
+      "subject": "대패삼겹덮밥",
+      "confirmed": [
+        "돼지고기 대패삼겹살",
+        "간장 양념"
+      ],
+      "unknown": [
+        "간장 및 양념 제품 원재료"
+      ],
+      "referenceCandidate": "#대패삼겹살덮밥"
+    }
+  ],
+  "batch2Policy": "일반명·재료 확인과 NEIS 조리법 일치 확인을 구분. 후보는 보존하되 NEIS 성분 코드 자동 복사 안 함. 부재·안전 확정 금지.",
+  "userReportedAllergenCodes": {
+    "베이컨마늘볶음밥": [
+      1,
+      10
+    ],
+    "왕돈가스": [
+      10
+    ],
+    "차돌김치찌개": [
+      16
+    ]
+  },
+  "batch3": [
+    {
+      "subject": "몽글순두부찌개",
+      "confirmed": [
+        "해물 사용"
+      ],
+      "tentative": [
+        "새우·오징어·조개류가 모두 들어갈 수 있다는 사용자 추정"
+      ],
+      "originalAnswer": "다 들어갈걸?",
+      "unknown": [
+        "구체적 해물 종류·제품"
+      ],
+      "automaticCodeAddition": [],
+      "warning": "불확실한 답변을 성분별 확정·자동 제외 근거로 승격하지 않음"
+    },
+    {
+      "subject": "왕돈가스",
+      "confirmed": [
+        "돼지고기 돈가스",
+        "치즈 등 별도 속재료 없음"
+      ],
+      "unknown": [
+        "튀김옷·제품 배합"
+      ],
+      "automaticCodeAddition": [
+        10
+      ]
+    },
+    {
+      "subject": "베이컨마늘볶음밥",
+      "confirmed": [
+        "돼지고기 베이컨 사용",
+        "계란 사용"
+      ],
+      "unknown": [
+        "베이컨 제품의 그 외 성분"
+      ],
+      "automaticCodeAddition": [
+        1,
+        10
+      ]
+    },
+    {
+      "subject": "차돌김치찌개",
+      "confirmed": [
+        "소고기 차돌박이 사용"
+      ],
+      "unknown": [
+        "양념·육수 성분"
+      ],
+      "automaticCodeAddition": [
+        16
+      ]
+    },
+    {
+      "subject": "하와이안함박스테이크",
+      "confirmed": [
+        "파인애플 토핑"
+      ],
+      "unknown": [
+        "패티 고기 종류·제품 원재료"
+      ],
+      "automaticCodeAddition": []
+    }
+  ]
+}

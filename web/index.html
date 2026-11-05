@@ -409,7 +409,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="personal-score.js"></script>
 <script src="recommendation-view.js"></script>
 <script src="allergy-filter.js?v=1"></script>
-<script src="allergy-ui.js?v=2"></script>
+<script src="allergy-ui.js?v=reviewed-policy-v2"></script>
 <script src="profile-storage.js?v=2"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
@@ -548,6 +548,7 @@ function itemCard(item,displayRank){
     </div>
     <div class="card-tags">${flags.join('')}</div>
     ${detail}
+    ${AllergyUI.heldInfoHtml(item.allergyAssessment??{entry:allergyEntry})}
     ${allergyExcluded?'':'<div class="card-more">영양정보와 계산 과정 보기 →</div>'}
   `;
   if(allergyExcluded)return el;
