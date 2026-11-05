@@ -406,8 +406,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </aside>
 
 <script src="instant-rice.js"></script>
-<script src="personal-score.js"></script>
-<script src="recommendation-view.js"></script>
+<script src="personal-score.js?v=20261105-distance-v1"></script>
+<script src="recommendation-view.js?v=20261105-distance-v1"></script>
 <script src="allergy-filter.js?v=1"></script>
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
 <script src="profile-storage.js?v=2"></script>
@@ -494,6 +494,7 @@ const GOAL_LABEL={lifestyle:'라이프스타일 유지',weight_loss:'체중감�
 function metricDisplay(item){
   const r=item.recommendation;
   if(!r.eligible) return null;
+  if(['lifestyle','weight_loss','glycemic'].includes(r.goal)) return {value:r.distance.toFixed(4),label:'목표 식품교환단위와의 거리(낮을수록 적합)'};
   if(r.goal==='high_protein') return {value:`${r.metric.toFixed(1)} g`,label:'단백질'};
   if(r.goal==='low_sugar') return {value:`${r.metric.toFixed(1)} g`,label:'총당류'};
   if(r.goal==='low_sodium') return {value:`${r.metric.toFixed(0)} mg`,label:'나트륨'};
@@ -530,7 +531,7 @@ function itemCard(item,displayRank){
   if(item.missingFields && item.missingFields.length) flags.push('<span class="badge">결측 포함</span>');
   const metric=allergyExcluded?null:metricDisplay(item);
   const exchangeGoal=['lifestyle','weight_loss','glycemic'].includes(rec.goal);
-  const detail=exchangeGoal && rec.eligible ? `<details class="score-details"><summary>교환단위 비교 보기</summary><div class="score-details-content"><span>하루 EER <b>${rec.eer.toFixed(1)} kcal</b></span>${rec.goal==='weight_loss'?`<span>하루 적자 <b>${rec.deficit.toFixed(1)} kcal</b></span><span>한 끼 열량 상한 <b>${rec.mealEnergyLimit.toFixed(1)} kcal</b></span>`:''}<span>식품교환표 <b>${rec.roundedEer} kcal</b></span><span>한 끼 목표 T <b>${rec.target.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>메뉴 M <b>${rec.actual.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>거리 D <b>${rec.distance.toFixed(4)}</b></span></div></details>` : '';
+  const detail=exchangeGoal && rec.eligible ? `<details class="score-details"><summary>교환단위 비교 보기</summary><div class="score-details-content"><span>하루 EER <b>${rec.eer.toFixed(1)} kcal</b></span>${rec.goal==='weight_loss'?`<span>하루 적자 <b>${rec.deficit.toFixed(1)} kcal</b></span><span>한 끼 열량 상한 <b>${rec.mealEnergyLimit.toFixed(1)} kcal</b></span>`:''}<span>식품교환표 <b>${rec.roundedEer} kcal</b></span><span>한 끼 목표 T <b>${rec.target.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>메뉴 M <b>${rec.actual.map(x=>x.toFixed(2)).join(' / ')}</b></span><span>목표 식품교환단위와의 거리(낮을수록 적합) <b>${rec.distance.toFixed(4)}</b></span></div></details>` : '';
   const photo=item.photo ? `<img class="card-photo" src="menu_photos_web/${escapeText(item.photo)}" alt="${escapeText(item.main)} 사진" loading="lazy">` : '<div class="card-photo" aria-label="메뉴 사진 없음"></div>';
   el.innerHTML = `
     <div class="card-main">
@@ -596,7 +597,7 @@ function nutriTabHtml(item){
   const db = item.matchedDb || {};
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
   const rec=item.recommendation;
-  const recommendationDetail=rec.eligible ? `추천 기준: ${GOAL_LABEL[rec.goal]} · ${sheetRankScope} ${sheetDisplayRank}위${rec.fit!==null ? `<br>하루 EER ${rec.eer.toFixed(2)} kcal → 목표 ${rec.adjustedEer.toFixed(2)} kcal → 식품교환표 ${rec.roundedEer} kcal<br>${rec.mealCount}끼 기준 한 끼 목표(곡류·어육류·채소·지방): ${rec.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위: ${rec.actual.join(' / ')}<br>구성 차이(D): ${rec.distance.toFixed(4)}` : ''}` : `추천 제외: ${escapeText(rec.reason)}`;
+  const recommendationDetail=rec.eligible ? `추천 기준: ${GOAL_LABEL[rec.goal]} · ${sheetRankScope} ${sheetDisplayRank}위${rec.distance!==null ? `<br>하루 EER ${rec.eer.toFixed(2)} kcal → 목표 ${rec.adjustedEer.toFixed(2)} kcal → 식품교환표 ${rec.roundedEer} kcal<br>${rec.mealCount}끼 기준 한 끼 목표(곡류·어육류·채소·지방): ${rec.target.map(v=>v.toFixed(3)).join(' / ')}<br>메뉴 교환단위: ${rec.actual.join(' / ')}<br>목표 식품교환단위와의 거리(낮을수록 적합): ${rec.distance.toFixed(4)}` : ''}` : `추천 제외: ${escapeText(rec.reason)}`;
 
   return `
     ${item.analysisMode ? `<div class="footnote" style="margin-bottom:16px;color:var(--caution)"><b>기존 코드로 계산한 추정값</b><br>제공량은 표준·추정 중량입니다. 미매칭 항목은 합산에서 빠지고 결측 영양소는 0으로 처리됩니다. NRF는 100 kcal 기준이며 권장·제한 영양소 모두 기존 코드의 100% cap을 적용했습니다. 백분위 점수가 아닙니다.</div>

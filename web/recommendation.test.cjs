@@ -48,7 +48,7 @@ test('혈당관리도 동일한 적합도 함수를 쓰되 다른 교환표를 �
   const blood=Score.createContext(profile,'glycemic',normal,glycemic);
   assert.equal(life.roundedEer,blood.roundedEer);
   assert.notDeepEqual(life.dailyTarget,blood.dailyTarget);
-  assert.equal(Score.fit(life.mealTarget,life.mealTarget).fit,100);
+  assert.equal(Score.calculateDistance(life.mealTarget,life.mealTarget).distance,0);
   assert.equal(ranked(blood).filter(x=>x.rank!==null).length,3);
 });
 
@@ -76,4 +76,41 @@ test('메뉴 교환단위 미매칭은 적합도 목표에서만 제외하고 �
   assert.equal(life[0].recommendation.eligible,false);
   assert.equal(sugar[0].recommendation.eligible,true);
   assert.equal(JSON.stringify(rows),source);
+});
+
+
+test('거리 1 이상도 구분하며 세 교환단위 모드 모두 D 오름차순이다',()=>{
+  for(const goal of ['lifestyle','weight_loss','glycemic']){
+    const ctx=Score.createContext(profile,goal,normal,glycemic);
+    const input=[row('가까움',{kcal:100}),row('중간',{kcal:100}),row('멀음',{kcal:100})];
+    const exchanges={entries:input.map((r,i)=>({key:[r.date,r.shop,r.category,r.main],exchangeUnits:{
+      ...Object.fromEntries(['grain','meat','veg','fat'].map((f,j)=>[f,ctx.mealTarget[j]*(2.1+i*.5)])),unmatched:[]}}))};
+    const scored=Score.scoreMenus(input,exchanges,ctx);
+    assert(scored.every(r=>r.recommendation.distance>1&&!('fit' in r.recommendation)));
+    const result=View.rankVisibleMenus(scored,'all',Score.compareMenus);
+    assert.deepEqual(result.map(r=>r.item.main),['가까움','중간','멀음']);
+    assert.deepEqual(result.map(r=>r.rank),[1,2,3]);
+  }
+});
+
+test('거리 동점은 실제 수치와 기계 오차만 사용하고 표시 반올림은 사용하지 않는다',()=>{
+  const item=(main,distance,goal='lifestyle')=>row(main,{recommendation:{eligible:true,goal,metric:distance,distance}});
+  const rounded=[item('A',1.00001),item('B',1.00002)];
+  assert.equal(rounded[0].recommendation.distance.toFixed(4),rounded[1].recommendation.distance.toFixed(4));
+  assert.deepEqual(View.rankVisibleMenus(rounded,'all',Score.compareMenus).map(x=>x.rank),[1,2]);
+  const actual=[item('A',0.3),item('B',0.1+0.2),item('C',0.300000000001)];
+  assert.deepEqual(View.rankVisibleMenus(actual,'all',Score.compareMenus).map(x=>x.rank),[1,1,3]);
+  const chain=[item('A',1),item('B',1+6*Number.EPSILON),item('C',1+12*Number.EPSILON)];
+  assert.deepEqual(View.rankVisibleMenus(chain,'all',Score.compareMenus).map(x=>x.rank),[1,1,3]);
+  const sugar=[item('A',0.3,'low_sugar'),item('B',0.1+0.2,'low_sugar')];
+  assert.deepEqual(View.rankVisibleMenus(sugar,'all',Score.compareMenus).map(x=>x.rank),[1,2]);
+});
+
+test('식당 탭은 기존 거리값을 재사용하고 미평가 메뉴에는 순위를 주지 않는다',()=>{
+  const ctx=Score.createContext(profile,'lifestyle',normal,glycemic);
+  const mixed=[...rows,row('다른식당',{shop:'204'}),row('미매칭',{unmatched:['X']})];
+  const scored=Score.scoreMenus(mixed,snapshot,ctx);const original=JSON.stringify(scored);
+  const all=View.rankVisibleMenus(scored,'all',Score.compareMenus),shop=View.rankVisibleMenus(scored,'105',Score.compareMenus);
+  assert(shop.every(x=>x.item.shop==='105'));assert.equal(JSON.stringify(scored),original);
+  for(const x of all.filter(x=>!x.item.recommendation.eligible))assert.equal(x.rank,null);
 });
