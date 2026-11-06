@@ -284,6 +284,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </style>
 <link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
 <link rel="stylesheet" href="flow.css?v=20261105-goal-difference-v1">
+<link rel="stylesheet" href="meal-diary.css?v=20261107-1">
 
 <header class="flow-header">
 <a href="#step=0" id="guideHome" class="guide-brand"><span class="brand-mark" aria-hidden="true">H</span><span>HYU Menu Guide</span></a>
@@ -291,7 +292,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <li data-progress-step="1"><span class="progress-number">1</span><span>기본 정보</span></li>
 <li data-progress-step="2"><span class="progress-number">2</span><span>영양 목표</span></li>
 <li data-progress-step="3"><span class="progress-number">3</span><span>추가 설정</span></li>
-<li data-progress-step="4"><span class="progress-number">4</span><span>추천 결과</span></li>
+<li data-progress-step="4"><span class="progress-number">4</span><span>맞춤 서비스</span></li>
 </ol></nav><span id="flowProgress" class="sr-only" aria-live="polite">나에게 맞는 학식 찾기</span>
 </header>
 
@@ -402,6 +403,12 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </form>
   <section id="results" class="results-section flow-page" data-step="4" hidden aria-labelledby="resultStepHeading">
 <div class="flow-result-nav"><button type="button" class="flow-secondary" data-flow-back>이전 단계</button></div>
+<nav id="mealServiceTabs" class="meal-service-tabs" role="tablist" aria-label="개인 맞춤 서비스">
+  <button type="button" id="mealRecommendTab" role="tab" aria-selected="true" aria-controls="mealRecommendationPanel" data-meal-tab="recommendation">학식 추천</button>
+  <button type="button" id="mealDiaryTab" role="tab" aria-selected="false" aria-controls="mealDiaryPanel" data-meal-tab="diary" tabindex="-1">오늘의 식단</button>
+</nav>
+<div id="mealRecommendationPanel" role="tabpanel" aria-labelledby="mealRecommendTab">
+<div id="mealLinkStatus" class="meal-link-status" role="status"></div>
 <div class="day-heading"><div><span class="eyebrow">YOUR LUNCH PICKS</span><h2 id="resultStepHeading" tabindex="-1">추천 결과</h2><p id="dayTitle">불러오는 중…</p><p class="result-allergy-note">알레르기 번호는 추정 정보입니다.</p></div>
     <span class="count" id="dayCount"></span>
   </div>
@@ -422,6 +429,31 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     </ul>
     <p>알레르기 번호는 추정 정보이며, 실제 원재료와 교차접촉 여부는 식당에 확인해 주세요.</p>
   </section>
+</div>
+<div id="mealDiaryPanel" class="meal-diary" role="tabpanel" aria-labelledby="mealDiaryTab" hidden>
+  <div class="meal-diary-heading">
+    <div><p class="meal-kicker">MY MEAL DIARY</p><h2 id="mealDiaryHeading" tabindex="-1">오늘의 식단</h2><p>먹은 음식을 기록하고 하루 목표와 비교해 보세요.</p></div>
+    <label for="mealDiaryDate">기록 날짜 <input type="date" id="mealDiaryDate"></label>
+  </div>
+  <section class="meal-card meal-summary" aria-label="하루 영양 섭취 현황">
+    <div id="mealEnergySummary" class="meal-energy-summary"></div>
+    <div class="meal-summary-title"><h3>탄수화물 · 단백질 · 지방</h3><span><i></i> 하루 참고 범위</span></div>
+    <div id="mealMacroSummary" class="meal-macro-grid"></div>
+    <p id="mealProteinTarget" class="meal-protein-target" hidden></p>
+    <details class="meal-calculation"><summary>목표 범위 및 비율 안내</summary>
+      <p>하루 목표 열량에 탄수화물 50–65%, 단백질 10–20%, 지방 15–30%를 각각 적용합니다. 각 범위는 독립적인 참고 범위입니다.</p>
+      <p>탄수화물과 단백질은 4 kcal/g, 지방은 9 kcal/g을 적용합니다. 비율의 분모는 기록된 섭취 열량이므로 DB의 열량과 환산 열량이 다르면 비율 합계가 100%와 다를 수 있습니다.</p>
+      <p>미기록 식사와 영양정보가 부족한 음식은 하루 목표 판정에 제한이 있습니다.</p>
+    </details>
+  </section>
+  <div id="mealDiaryMeals" class="meal-slots"></div>
+  <section class="meal-storage" aria-label="식사 기록 저장 설정">
+    <div><label><input type="checkbox" id="mealDiaryConsent"> 이 브라우저에 식사 기록 저장</label>
+    <p>동의한 경우 이 브라우저에 보관합니다. 공용 기기에서는 저장에 주의해주세요.</p></div>
+    <button type="button" id="mealDiaryClear" class="meal-outline">전체 기록 삭제</button>
+    <p id="mealDiaryStatus" role="status"></p>
+  </section>
+</div>
 </section>
 </main>
 
@@ -442,13 +474,54 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <p id="goalDifferenceCaution" class="goal-difference-caution">※ 저당 메뉴가 반드시 혈당관리에 적합한 것은 아니며, 본 서비스는 실제 식후 혈당 변화를 예측하지 않습니다.</p>
   </div>
 </dialog>
+<dialog id="mealEntryDialog" class="meal-entry-dialog" aria-labelledby="mealEntryTitle">
+  <div class="meal-dialog-head"><h2 id="mealEntryTitle">음식 추가</h2><button type="button" id="mealEntryClose" class="meal-outline">닫기</button></div>
+  <form id="mealEntryForm" novalidate>
+    <div class="meal-entry-destination">
+      <label>기록 날짜 <input type="date" id="mealEntryDate"></label>
+      <label>식사 <select id="mealEntrySlot"><option value="breakfast">아침</option><option value="lunch">점심</option><option value="dinner">저녁</option><option value="snack">간식</option></select></label>
+    </div>
+    <div class="meal-mode" id="mealEntryMode" role="group" aria-label="음식 입력 방법">
+      <button type="button" data-entry-mode="database" aria-pressed="true">DB에서 검색</button><button type="button" data-entry-mode="manual" aria-pressed="false">영양정보 직접 입력</button>
+    </div>
+    <div id="mealEntryDatabase">
+      <label for="mealFoodQuery">음식명 검색</label>
+      <div class="meal-search-field"><input id="mealFoodQuery" type="search" maxlength="100" placeholder="예: 김치볶음밥" autocomplete="off"><button type="button" id="mealFoodSearch" class="meal-outline">검색</button></div>
+      <p id="mealSearchStatus" class="meal-muted" role="status"></p>
+      <div id="mealFoodResults" class="meal-search-results" aria-label="음식 DB 검색 결과"></div>
+    </div>
+    <div id="mealEntryManual" hidden>
+      <label>음식명 <input type="text" id="mealManualName" maxlength="100" placeholder="예: 집에서 만든 샌드위치"></label>
+      <div class="meal-manual-values">
+        <label>탄수화물(g) <input type="number" min="0" step="any" id="mealManual-carb" inputmode="decimal"></label>
+        <label>단백질(g) <input type="number" min="0" step="any" id="mealManual-protein" inputmode="decimal"></label>
+        <label>지방(g) <input type="number" min="0" step="any" id="mealManual-fat" inputmode="decimal"></label>
+      </div>
+      <p class="meal-muted">입력한 탄단지에 4·4·9 kcal/g을 적용한 추정 열량을 기록합니다.</p>
+    </div>
+    <p id="mealEntrySource" class="meal-entry-source"></p>
+    <p id="mealEntryWarning" class="meal-entry-warning"></p>
+    <fieldset id="mealEntryPortions" class="meal-portions" hidden>
+      <legend>실제 섭취량</legend>
+      <label><input type="radio" name="portion" value="serving" id="mealPortionServing"><span id="mealServingLabel">기본 1인분</span></label>
+      <label><input type="radio" name="portion" value="grams" id="mealPortionGrams" checked> 직접 입력(g)</label>
+      <label id="mealGramsField">섭취 중량(g) <input id="mealEntryGrams" type="number" min="0" step="any" inputmode="decimal"></label>
+      <p id="mealServingHint" class="meal-muted"></p>
+    </fieldset>
+    <div class="meal-preview"><strong>저장할 영양정보</strong><p id="mealEntryPreview" aria-live="polite"></p></div>
+    <label id="mealEntryActualRow" class="meal-check" hidden><input type="checkbox" id="mealEntryActual"> 이 메뉴를 실제로 먹었습니다.</label>
+    <label id="mealEntryDuplicateRow" class="meal-check" hidden><input type="checkbox" id="mealEntryDuplicate"> 선택한 날짜에 같은 학식 기록이 있습니다. 한 번 더 기록합니다.</label>
+    <div class="meal-dialog-actions"><button type="submit" id="mealEntrySave" class="flow-primary" disabled>기록 저장</button></div>
+  </form>
+</dialog>
 <script src="instant-rice.js"></script>
 <script src="personal-score.js?v=20261105-distance-v1"></script>
 <script src="recommendation-view.js?v=20261105-distance-v1"></script>
 <script src="allergy-filter.js?v=1"></script>
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
 <script src="profile-storage.js?v=2"></script>
-<script src="flow-ui.js?v=20261105-goal-difference-v1"></script>
+<script src="flow-ui.js?v=20261107-diary-1"></script>
+<script src="meal-diary.js?v=20261107-1"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
 const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};
@@ -560,9 +633,8 @@ function itemCard(item,displayRank){
   const allergyNumbersHtml=`<span class="menu-allergy-numbers" aria-label="${escapeText(allergyLabel)}">${allergyCodes.length?allergyCodes.join('·<wbr>'):allergyLabel}</span>`;
   const allergyExcluded=Boolean(item.allergyAssessment?.excluded),rec=item.recommendation??{eligible:false};
   el.className='card menu-card'+(allergyExcluded?' allergy-excluded-card':!rec.eligible?' recommendation-excluded':'')+(displayRank===1?' is-top':'');
-  if(allergyExcluded)el.setAttribute('aria-disabled','true');
   const rankText=displayRank===null?'':`${activeShop==='all'?'전체 ':''}${displayRank}위`;
-  el.setAttribute('aria-label',allergyExcluded?`${item.main}, ${allergyLabel}, ${AllergyUI.exclusionLabel(item.allergyAssessment)}, 선택 불가`:`${item.main}, ${allergyLabel}, ${rec.eligible?rankText:'추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
+  el.setAttribute('aria-label',allergyExcluded?`${item.main}, ${allergyLabel}, ${AllergyUI.exclusionLabel(item.allergyAssessment)}, 추천 제외`:`${item.main}, ${allergyLabel}, ${rec.eligible?rankText:'추천 제외'}, ${SHOP_LABEL[item.shop]}, 상세 정보 보기`);
   const flags=[];
   if(item.analysisMode)flags.push('<span class="badge">추정</span>');
   if(item.missingFields&&item.missingFields.length)flags.push('<span class="badge">결측 포함</span>');
@@ -583,6 +655,12 @@ function itemCard(item,displayRank){
     </div></div>
     <div class="menu-card-footer"><p class="card-reason">${escapeText(allergyExcluded?'알레르기 추정 근거로 추천 대상에서 제외됐어요.':recommendationReason(item,displayRank))}</p>${allergyExcluded?'':'<button type="button" class="card-more">상세정보 보기</button>'}</div>
     ${status||notes?`<div class="menu-support">${status}${notes}</div>`:''}`;
+  const recordButton=document.createElement('button');
+  recordButton.type='button';
+  recordButton.className='meal-record-link';
+  recordButton.textContent='먹은 메뉴로 기록하기';
+  recordButton.addEventListener('click',()=>MEAL_DIARY.recordCafeteria(item,recordButton));
+  el.appendChild(recordButton);
   if(allergyExcluded)return el;
   el.querySelector('.card-more').addEventListener('click',event=>{event.stopPropagation();openSheet(item,displayRank);});
   el.addEventListener('click',event=>{if(!event.target.closest('details,button,a,input,select'))openSheet(item,displayRank);});
@@ -801,9 +879,14 @@ personalForm.addEventListener('submit', e=>{
   document.getElementById('personalStatus').textContent=`${GOAL_LABEL[goal]} 기준 · 하루 ${context.mealCount}끼로 추천했어요.`;
   activeGoal=goal;ACTIVE_CONTEXT=context;
   refreshRecommendations();closeSheet();renderDay();
+  MEAL_DIARY.setContext(context);
   GUIDE_FLOW.showResults(context);
 });
-GUIDE_FLOW=GuideFlow.mount({form:personalForm,validateGoal:contextFromForm,onLeave:closeSheet});
+const MEAL_DIARY=MealDiary.mount();
+GUIDE_FLOW=GuideFlow.mount({form:personalForm,validateGoal:contextFromForm,onLeave:()=>{
+  closeSheet();
+  MEAL_DIARY.closeEditor();
+}});
 function escapeText(value){return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');}
 Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targets.json", "glycemic_exchange_targets.json", "allergy-data.json"].map(url=>fetch(url, {cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url); return r.json();}).catch(error=>{if(url==='allergy-data.json')return null;throw error;}))).then(([data, exchanges, targets, glycemicTargets, allergyData])=>{
   InstantRice.apply(data, exchanges);

@@ -1,0 +1,198 @@
+/* The two services share the guide's existing colors and typography. */
+.meal-service-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 5px;
+  margin-bottom: 20px;
+  background: #e9eef7;
+  border-radius: 12px;
+}
+.meal-service-tabs button,.meal-mode button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 14px/1.4 var(--guide-font);
+}
+.meal-service-tabs button[aria-selected="true"],.meal-mode button[aria-pressed="true"] {
+  background: var(--panel);
+  color: var(--brand);
+}
+.meal-link-status {
+  margin: -8px 0 18px;
+  padding: 9px 14px;
+  background: var(--brand-wash);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.meal-link-status:empty {display: none}
+.menu-card .meal-record-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--brand);
+  font: 500 12px/1.4 var(--guide-font);
+}
+.meal-diary {color: var(--text)}
+.meal-diary-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 22px 0;
+}
+.meal-diary-heading h2 {font-size: 30px; line-height: 1.35; margin: 3px 0 4px}
+.meal-diary-heading p {margin: 0; color: var(--muted); font-size: 13px}
+.meal-diary-heading label,.meal-entry-dialog label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+.meal-diary-heading input,.meal-entry-dialog input:not([type="radio"],[type="checkbox"]),.meal-entry-dialog select {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  margin-top: 5px;
+  padding: 7px 11px;
+  border: 1px solid #d7dfeb;
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: 400 14px/1.4 var(--guide-font);
+}
+.meal-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+.meal-kicker {font-size: 12px; font-weight: 600; letter-spacing: .035em}
+.meal-energy-summary {max-width: 590px}
+.meal-energy-summary p {margin: 8px 0; font-size: 13px; color: var(--muted)}
+.meal-energy-number {font-size: 16px; line-height: 1.45}
+.meal-energy-number strong {font-size: 40px; font-weight: 700; letter-spacing: -.045em}
+.meal-energy-number span {font-size: 14px; color: var(--muted)}
+.meal-meter {
+  position: relative;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background: var(--canvas);
+  overflow: hidden;
+}
+.meal-range-zone,.meal-meter-fill {position: absolute; top: 0; bottom: 0}
+.meal-range-zone {background: #c6d8fc}
+.meal-meter-fill {left: 0; height: 6px; top: 2px; border-radius: 10px; background: var(--brand)}
+.meal-energy-summary .meal-meter-fill {height: 100%; top: 0}
+.meal-summary-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.meal-summary-title h3,.meal-slot h3 {font-size: 17px; margin: 0}
+.meal-summary-title span {font-size: 12px; color: var(--muted)}
+.meal-summary-title i {display: inline-block; width: 12px; height: 8px; background: #c6d8fc; border-radius: 2px}
+.meal-macro-grid {display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 16px}
+.meal-macro {padding: 14px; border-radius: 12px; background: var(--canvas)}
+.meal-macro .meal-meter {background: #e4e9f1}
+.meal-macro h4 {font-size: 14px; margin: 0}
+.meal-macro p {margin: 4px 0; font-size: 12px; color: var(--muted)}
+.meal-macro-value strong {font-size: 25px; color: var(--text)}
+.meal-macro p.meal-macro-status {color: var(--text); margin-top: 7px}
+.meal-protein-target {padding: 12px 14px; background: var(--brand-wash); border-radius: 9px; font-size: 13px; margin: 16px 0 0}
+.meal-calculation {margin-top: 15px; font-size: 12px; color: var(--muted)}
+.meal-calculation summary {cursor: pointer}
+.meal-calculation p {margin: 6px 0}
+.meal-slots {display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-top: 16px}
+.meal-slot-head,.meal-record,.meal-storage,.meal-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.meal-slot-head {align-items: center}
+.meal-outline,.meal-record-actions button {
+  flex: none;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--brand);
+  font: 500 12px/1.4 var(--guide-font);
+}
+.meal-outline:disabled {opacity: .55; cursor: default}
+.meal-muted,.meal-slot-total,.meal-storage p {font-size: 12px; color: var(--muted); margin: 10px 0 0}
+.meal-records {list-style: none; margin: 10px 0 0; padding: 0}
+.meal-record {padding: 10px 0; border-bottom: 1px solid var(--line)}
+.meal-record strong {font-size: 14px; overflow-wrap: anywhere}
+.meal-record p {font-size: 12px; color: var(--muted); margin: 3px 0; overflow-wrap: anywhere}
+.meal-record-actions {display: flex; flex: none; gap: 4px}
+.meal-record-actions button {padding-inline: 6px; border-color: transparent}
+.meal-storage {flex-wrap: wrap; align-items: center; margin: 20px 0 12px; font-size: 13px}
+.meal-storage #mealDiaryStatus {width: 100%; margin: 0}
+.meal-storage #mealDiaryStatus:empty {display: none}
+.meal-storage input,.meal-entry-dialog input[type="radio"],.meal-entry-dialog input[type="checkbox"] {accent-color: var(--brand)}
+.meal-entry-dialog {
+  width: min(600px,calc(100% - 28px));
+  max-height: calc(100dvh - 28px);
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--guide-font);
+}
+.meal-entry-dialog::backdrop {background: rgba(24,37,54,.42)}
+.meal-dialog-head {position: sticky; top: 0; z-index: 1; align-items: center; background: var(--panel); padding: 16px 22px; border-bottom: 1px solid var(--line)}
+.meal-dialog-head h2 {margin: 0; font-size: 22px}
+#mealEntryForm {display: grid; gap: 14px; padding: 16px 22px 22px}
+.meal-entry-destination,.meal-mode,.meal-manual-values {display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px}
+.meal-mode {gap: 4px; padding: 4px; border-radius: 10px; background: var(--canvas)}
+.meal-manual-values {grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 12px}
+.meal-search-field {display: flex; gap: 8px; align-items: flex-end}
+.meal-search-field button {min-height: 43px}
+.meal-search-results {max-height: 240px; overflow-y: auto}
+.meal-search-results h4 {font-size: 12px; margin: 10px 0 3px; color: var(--muted)}
+.meal-search-result {display: block; width: 100%; padding: 8px 10px; border: 0; border-bottom: 1px solid var(--line); text-align: left; background: var(--panel); color: var(--text); overflow-wrap: anywhere}
+.meal-search-result small {display: block; color: var(--muted); margin-top: 2px}
+.meal-search-result:hover:not(:disabled) {background: var(--brand-wash)}
+.meal-search-result:disabled {cursor: default; color: var(--muted)}
+.meal-entry-source,.meal-entry-warning {margin: 0; font-size: 13px; overflow-wrap: anywhere}
+.meal-entry-source:empty,.meal-entry-warning:empty,#mealServingHint:empty,#mealSearchStatus:empty {display: none}
+.meal-entry-warning {padding: 10px; background: var(--canvas); border-radius: 8px}
+.meal-portions {margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px}
+.meal-portions legend {font-size: 13px; font-weight: 600}
+.meal-portions label + label {margin-top: 7px}
+.meal-preview {padding: 12px; background: var(--brand-wash); border-radius: 9px; font-size: 13px; overflow-wrap: anywhere}
+.meal-preview p {margin: 4px 0 0}
+.meal-dialog-actions {display: flex; justify-content: flex-end}
+.meal-dialog-actions button:disabled {cursor: default}
+@media (max-width: 640px) {
+  .meal-diary-heading h2 {font-size: 26px}
+  .meal-card {padding: 16px}
+  .meal-macro-grid,.meal-slots {grid-template-columns: 1fr; gap: 10px}
+  .meal-macro {padding: 12px}
+  .meal-energy-number strong {font-size: 34px}
+  .meal-energy-number span {font-size: 12px}
+  .meal-dialog-head {padding: 13px 15px}
+  #mealEntryForm {padding: 14px 15px 18px}
+  .meal-entry-dialog input:not([type="radio"],[type="checkbox"]),.meal-entry-dialog select {font-size: 16px}
+}

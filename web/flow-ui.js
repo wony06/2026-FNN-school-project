@@ -14,13 +14,14 @@
       document.body.dataset.flowStep=String(step);
       document.getElementById('flowStepper').hidden=step===0;
       document.querySelectorAll('[data-progress-step]').forEach(item=>{const number=Number(item.dataset.progressStep);item.dataset.state=number===step?'current':number<step?'done':'pending';if(number===step)item.setAttribute('aria-current','step');else item.removeAttribute('aria-current');});
-      document.getElementById('flowProgress').textContent=step===0?'나에게 맞는 학식 찾기':`${step} / 4 · ${['','기본 정보','영양 목표','추가 설정','추천 결과'][step]}`;
+      document.getElementById('flowProgress').textContent=step===0?'나에게 맞는 학식 찾기':`${step} / 4 · ${['','기본 정보','영양 목표','추가 설정','개인 맞춤 서비스'][step]}`;
       const panel=document.getElementById('allergyPanel');panel.hidden=true;document.getElementById('allergyToggle').setAttribute('aria-expanded','false');
       if(historyMode!=='none'){
         const url=new URL(location.href);url.hash=`step=${step}`;
         if(historyMode==='replace'||url.href!==location.href)history[historyMode==='replace'?'replaceState':'pushState']({guideStep:step},'',url);
       }
-      const heading=document.querySelector(`[data-step="${step}"] [tabindex="-1"]`);
+      const headings=document.querySelectorAll(`[data-step="${step}"] :is(h1,h2)[tabindex="-1"]`);
+      const heading=Array.from(headings).find(node=>!node.closest('[hidden]'));
       heading?.focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'});
     }
     function showError(message,step){
