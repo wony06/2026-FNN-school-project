@@ -79,11 +79,17 @@
   background: var(--panel);
 }
 .meal-kicker {font-size: 12px; font-weight: 600; letter-spacing: .035em}
-.meal-energy-summary {max-width: 590px}
+.meal-energy-summary {max-width: 640px}
 .meal-energy-summary p {margin: 8px 0; font-size: 13px; color: var(--muted)}
-.meal-energy-number {font-size: 16px; line-height: 1.45}
+.meal-energy-values {display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 26px; margin: 12px 0}
+.meal-energy-values small {display: block; color: var(--muted); font-size: 12px}
+.meal-energy-number,.meal-energy-goal {font-size: 13px; line-height: 1.45}
 .meal-energy-number strong {font-size: 40px; font-weight: 700; letter-spacing: -.045em}
-.meal-energy-number span {font-size: 14px; color: var(--muted)}
+.meal-energy-goal {padding-left: 24px; border-left: 1px solid var(--line); color: var(--muted)}
+.meal-energy-goal strong {font-size: 24px; color: var(--text)}
+.meal-energy-summary .meal-energy-note {font-size: 14px; font-weight: 500; margin: 10px 0 0}
+.meal-energy-note.is-within {color: #284eb1}
+.meal-energy-note.is-above {color: #98520e}
 .meal-meter {
   position: relative;
   height: 10px;
@@ -109,19 +115,77 @@
 .meal-summary-title h3,.meal-slot h3 {font-size: 17px; margin: 0}
 .meal-summary-title span {font-size: 12px; color: var(--muted)}
 .meal-summary-title i {display: inline-block; width: 12px; height: 8px; background: #c6d8fc; border-radius: 2px}
-.meal-macro-grid {display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 16px}
+.meal-macro-overview {
+  --meal-carb: #315ee8;
+  --meal-protein: #608bea;
+  --meal-fat: #b4c9f3;
+  display: grid;
+  grid-template-columns: minmax(150px, .85fr) minmax(0, 3fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.meal-breakdown {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.meal-breakdown figcaption {font-size: 14px; font-weight: 600; text-align: center}
+.meal-breakdown figcaption small {display: block; color: var(--muted); font-size: 11px; font-weight: 400; margin-top: 2px}
+.meal-donut {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(112px, 100%);
+  aspect-ratio: 1;
+  margin: 12px auto;
+  border-radius: 50%;
+  background: var(--meal-donut-fill, #e8edf4);
+}
+.meal-donut > span {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--panel);
+}
+.meal-donut strong {font-size: 17px; line-height: 1.25}
+.meal-donut small {color: var(--muted); font-size: 10px}
+.meal-breakdown-legend {display: grid; gap: 4px; list-style: none; margin: 0; padding: 0; font-size: 12px}
+.meal-breakdown-legend li,.meal-macro-head {display: flex; align-items: center; justify-content: space-between; gap: 6px}
+.meal-breakdown-legend li span {display: flex; align-items: center; gap: 5px; color: var(--muted)}
+.meal-macro-dot {display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none}
+.meal-macro-carb {background: var(--meal-carb)}
+.meal-macro-protein {background: var(--meal-protein)}
+.meal-macro-fat {background: var(--meal-fat)}
+.meal-macro-grid {display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px}
 .meal-macro {padding: 14px; border-radius: 12px; background: var(--canvas)}
 .meal-macro .meal-meter {background: #e4e9f1}
 .meal-macro h4 {font-size: 14px; margin: 0}
 .meal-macro p {margin: 4px 0; font-size: 12px; color: var(--muted)}
 .meal-macro-value strong {font-size: 25px; color: var(--text)}
-.meal-macro p.meal-macro-status {color: var(--text); margin-top: 7px}
+.meal-macro p.meal-macro-status {color: var(--text); margin-top: 7px; font-weight: 600}
+.meal-macro-badge {
+  flex: none;
+  border-radius: 6px;
+  padding: 2px 6px;
+  background: #e7ecf3;
+  color: #4e5e74;
+  font-size: 11px;
+  font-weight: 600;
+}
+.meal-macro-badge.is-within {color: #284eb1; background: #e1ebff}
+.meal-macro-badge.is-above {color: #98520e; background: #fff0d9}
+.meal-macro .meal-macro-ratio {margin-top: 9px; font-size: 11px}
 .meal-protein-target {padding: 12px 14px; background: var(--brand-wash); border-radius: 9px; font-size: 13px; margin: 16px 0 0}
 .meal-calculation {margin-top: 15px; font-size: 12px; color: var(--muted)}
 .meal-calculation summary {cursor: pointer}
 .meal-calculation p {margin: 6px 0}
 .meal-slots {display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-top: 16px}
-.meal-slot-head,.meal-record,.meal-storage,.meal-dialog-head {
+.meal-slot-head,.meal-storage,.meal-dialog-head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -139,11 +203,37 @@
   font: 500 12px/1.4 var(--guide-font);
 }
 .meal-outline:disabled {opacity: .55; cursor: default}
-.meal-muted,.meal-slot-total,.meal-storage p {font-size: 12px; color: var(--muted); margin: 10px 0 0}
-.meal-records {list-style: none; margin: 10px 0 0; padding: 0}
-.meal-record {padding: 10px 0; border-bottom: 1px solid var(--line)}
+.meal-muted,.meal-storage p {font-size: 12px; color: var(--muted); margin: 10px 0 0}
+.meal-slot-total {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 10px;
+  margin: 10px 0 0;
+  padding: 9px 11px;
+  background: var(--brand-wash);
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.meal-slot-total strong {color: var(--text); font-size: 16px}
+.meal-slot-total > div {grid-column: 1 / -1}
+.meal-records {list-style: none; margin: 4px 0 0; padding: 0}
+.meal-record {display: block; padding: 9px 0; border-bottom: 1px solid var(--line)}
+.meal-record:last-child {border-bottom: 0; padding-bottom: 0}
+.meal-record-head {display: flex; align-items: center; justify-content: space-between; gap: 8px}
 .meal-record strong {font-size: 14px; overflow-wrap: anywhere}
-.meal-record p {font-size: 12px; color: var(--muted); margin: 3px 0; overflow-wrap: anywhere}
+.meal-record p {font-size: 11px; color: var(--muted); margin: 5px 0 0; overflow-wrap: anywhere}
+.meal-record-chips {display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px}
+.meal-record-chips span {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--canvas);
+  color: var(--text);
+  font-size: 11px;
+  white-space: nowrap;
+}
 .meal-record-actions {display: flex; flex: none; gap: 4px}
 .meal-record-actions button {padding-inline: 6px; border-color: transparent}
 .meal-storage {flex-wrap: wrap; align-items: center; margin: 20px 0 12px; font-size: 13px}
@@ -185,13 +275,25 @@
 .meal-preview p {margin: 4px 0 0}
 .meal-dialog-actions {display: flex; justify-content: flex-end}
 .meal-dialog-actions button:disabled {cursor: default}
+@media (max-width: 870px) {
+  .meal-macro-overview {grid-template-columns: 1fr}
+  .meal-breakdown {
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 12px;
+  }
+  .meal-breakdown figcaption {grid-column: 1 / -1; text-align: left}
+  .meal-breakdown-legend {padding-right: 4px}
+}
 @media (max-width: 640px) {
   .meal-diary-heading h2 {font-size: 26px}
   .meal-card {padding: 16px}
   .meal-macro-grid,.meal-slots {grid-template-columns: 1fr; gap: 10px}
   .meal-macro {padding: 12px}
   .meal-energy-number strong {font-size: 34px}
-  .meal-energy-number span {font-size: 12px}
+  .meal-energy-goal {padding-left: 15px}
+  .meal-energy-goal strong {font-size: 20px}
   .meal-dialog-head {padding: 13px 15px}
   #mealEntryForm {padding: 14px 15px 18px}
   .meal-entry-dialog input:not([type="radio"],[type="checkbox"]),.meal-entry-dialog select {font-size: 16px}

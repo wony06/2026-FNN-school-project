@@ -67,8 +67,36 @@
     return amounts;
   }
 
-  function scale(food, amount) {
-    const factor = amount === null ? 1 : amount / food.grams;
+  function foodReference(food) {
+    if (!food) return null;
+    if (!food.basis && Number.isFinite(food.grams) && food.grams > 0) {
+      return {amount: food.grams, unit: "g"};
+    }
+    let basis = String(food.basis ?? "").normalize("NFKC").trim();
+    basis = basis.replace(/^1\s*회(?:\s*제공량)?\s*:?\s*/u, "");
+    if (basis.startsWith("(") && basis.endsWith(")")) basis = basis.slice(1, -1).trim();
+    const match = /^(\d+(?:\.\d+)?)\s*(g|ml)$/i.exec(basis);
+    const amount = match ? Number(match[1]) : null;
+    if (!Number.isFinite(amount) || amount <= 0) return null;
+    return {amount, unit: match[2].toLowerCase() === "ml" ? "mL" : "g"};
+  }
+
+  function basisLabel(food, reference) {
+    return reference ? `기준량 ${reference.amount} ${reference.unit}` : food.basis;
+  }
+
+  function entryUnit(entry) {
+    return entry.unit ?? "g"; // All previously saved measured amounts were in grams.
+  }
+
+  function recordedAmount(entry) {
+    return entry.amount === null ? "섭취량 미확인" : `${entry.amount} ${entryUnit(entry)}`;
+  }
+
+  function scale(food, amount, unit) {
+    const reference = foodReference(food);
+    if (amount !== null && (!reference || unit !== reference.unit)) return null;
+    const factor = amount === null ? 1 : amount / reference.amount;
     const nutrients = Object.fromEntries(NUTRIENTS.map(key => {
       const value = valueOrNull(food.nutrients[key]);
       return [key, value === null ? null : value * factor];
@@ -101,10 +129,8 @@
 
   function databaseFood(row) {
     const [id, name, source, detail, foodType, basis, ...values] = row;
-    const gramBasis = /^(\d+(?:\.\d+)?)\s*g$/i.exec(basis);
     return {
       id, name, source, detail, foodType, basis, kind: id.split(":")[0],
-      grams: gramBasis && Number(gramBasis[1]) > 0 ? Number(gramBasis[1]) : null,
       nutrients: Object.fromEntries(NUTRIENTS.map((key, i) => [key, valueOrNull(values[i])])),
     };
   }
@@ -120,7 +146,7 @@
     const consent = el("mealDiaryConsent");
     const entryDate = el("mealEntryDate");
     const entryMeal = el("mealEntrySlot");
-    const grams = el("mealEntryGrams");
+    const amountInput = el("mealEntryAmount");
     const search = el("mealFoodQuery");
     const searchResults = el("mealFoodResults");
     const scrollPositions = {recommendation: 0, diary: 0};
@@ -181,7 +207,7 @@
 
     function amountLabel(entry) {
       if (entry.mode === "manual") return "직접 입력 · 추정 열량";
-      const amount = entry.amount === null ? "중량 미확인" : fmt(entry.amount) + " g";
+      const amount = recordedAmount(entry);
       if (entry.mode === "cafeteria") {
         return (entry.portion === "serving" ? "학식 추정 1인분 · " : "학식 g 환산 · ") + amount;
       }
@@ -190,7 +216,7 @@
 
     function sumLabel(amount, unit) {
       if (amount.partial && !amount.available) return "미확인";
-      return `${amount.partial ? "확인된 합계 " : ""}${fmt(amount.known)} ${unit}`;
+      return `${fmt(amount.known)} ${unit}`;
     }
 
     function nutrientText(values) {
@@ -211,68 +237,157 @@
       return `<div class="meal-meter" aria-hidden="true">${zone}<i class="meal-meter-fill" style="width:${position}%"></i></div>`;
     }
 
+    function renderMacroBreakdown(total) {
+      const parts = Object.entries(MACROS).map(([key, macro]) => ({
+        key, name: macro.name, amount: total[key], kcal: total[key].known * macro.factor,
+      }));
+      const macroKcal = parts.reduce((sum, part) => sum + part.kcal, 0);
+      const hasShare = Number.isFinite(macroKcal) && macroKcal > 0;
+      let boundary = 0;
+      const segments = hasShare ? parts.map(part => {
+        const start = boundary;
+        boundary = Math.min(100, boundary + part.kcal / macroKcal * 100);
+        return `var(--meal-${part.key}) ${start}% ${boundary}%`;
+      }).join(", ") : "";
+      const legend = parts.map(({key, name, amount, kcal}) => {
+        const share = amount.partial && !amount.available ? "미확인" :
+          hasShare ? fmt(kcal / macroKcal * 100) + "%" : "—";
+        return `<li><span><i class="meal-macro-dot meal-macro-${key}"></i>${name}</span><strong>${share}</strong></li>`;
+      }).join("");
+      return `<figure class="meal-breakdown">
+        <figcaption>탄단지 열량 비율 <small>확인된 영양정보 기준</small></figcaption>
+        <div class="meal-donut" aria-hidden="true"${hasShare ? ` style="--meal-donut-fill:conic-gradient(${segments})"` : ""}>
+          <span>${hasShare ? `<strong>${fmt(macroKcal)}</strong><small>환산 kcal</small>` : "<small>표시할 비율 없음</small>"}</span>
+        </div>
+        <ul class="meal-breakdown-legend" aria-label="탄단지 열량 비율">${legend}</ul>
+      </figure>`;
+    }
+
+    function renderMacroCard(key, macro, amount, range, energy) {
+      const ratio = !energy.partial && !amount.partial && energy.known > 0
+        ? fmt(amount.known * macro.factor / energy.known * 100) + "%" : "—";
+      let badge = "";
+      let state = "unknown";
+      let primary = "목표 범위 미설정";
+      let secondary = "";
+      if (range) {
+        const [lower, upper] = range;
+        if (amount.known > upper) {
+          state = "above";
+          badge = "초과";
+          primary = `상한보다 ${fmt(amount.known - upper)} g 초과`;
+        } else if (amount.known < lower) {
+          state = "below";
+          badge = "부족";
+          primary = `하한까지 ${fmt(lower - amount.known)} g 남음`;
+          secondary = `상한까지 ${fmt(upper - amount.known)} g 여유`;
+        } else {
+          state = "within";
+          badge = "적정";
+          primary = "적정 범위예요";
+          secondary = `상한까지 ${fmt(upper - amount.known)} g 여유`;
+        }
+      }
+      if (amount.partial) {
+        if (range && state === "above") primary = "확인된 값만으로 " + primary;
+        else if (range && state === "within") primary = "확인된 값 기준 적정 범위";
+        else primary = amount.available ? "확인된 값 기준으로 표시해요" : "확인된 섭취량이 없어요";
+        secondary = `일부 음식의 ${macro.name} 정보가 미확인되어 참고용으로 표시돼요.`;
+        state = "unknown";
+        badge = "일부 미확인";
+      }
+      const quantity = amount.partial && !amount.available ? "—" : fmt(amount.known);
+      return `<article class="meal-macro">
+        <div class="meal-macro-head"><h4>${macro.name}</h4>${badge ? `<span class="meal-macro-badge is-${state}">${badge}</span>` : ""}</div>
+        <p class="meal-macro-value"><strong>${quantity}</strong> g${amount.partial && amount.available ? " · 확인된 값" : ""}</p>
+        <p>목표 범위 ${range ? fmt(range[0]) + "–" + fmt(range[1]) + " g" : "—"}</p>
+        ${range ? bar(amount, ...range) : ""}
+        <p class="meal-macro-status">${primary}</p>
+        ${secondary ? `<p>${secondary}</p>` : ""}
+        ${ratio !== "—" ? `<p class="meal-macro-ratio">기록 열량 대비 ${ratio}</p>` : ""}
+      </article>`;
+    }
+
     function renderSummary(entries) {
       const total = totals(entries);
       const targets = diaryTargets(context);
       const energy = total.kcal;
       const goal = targets?.kcal;
       let energyNote = "기본 정보와 영양 목표를 입력하면 목표를 확인할 수 있어요.";
-      if (goal && energy.partial) energyNote = "열량 정보가 부족해 남은 목표량이나 초과량을 확정할 수 없어요.";
-      else if (goal) {
+      let noteClass = "";
+      if (goal && energy.partial) {
+        energyNote = "일부 음식의 열량이 미확인되어 확인된 값만 보여줘요.";
+      } else if (goal) {
         const left = goal - energy.known;
-        energyNote = left < 0 ? `${fmt(-left)} kcal 초과` : `목표까지 ${fmt(left)} kcal 남음`;
+        noteClass = left < 0 ? "is-above" : "is-within";
+        if (left < 0) energyNote = `<strong>${fmt(-left)} kcal</strong> 초과했어요`;
+        else if (left > 0) energyNote = `<strong>${fmt(left)} kcal</strong> 더 먹을 수 있어요`;
+        else energyNote = "오늘 목표 열량에 도달했어요";
       }
+      const recorded = energy.partial && !energy.available ? "—" : fmt(energy.known);
       el("mealEnergySummary").innerHTML = `
         <p class="meal-kicker">하루 총섭취 열량</p>
-        <div class="meal-energy-number"><strong>${energy.partial && !energy.available ? "—" : fmt(energy.known)}</strong> kcal <span>/ ${goal ? fmt(goal) + " kcal 목표" : "목표 미설정"}</span></div>
+        <div class="meal-energy-values">
+          <div class="meal-energy-number"><small>${energy.partial ? "확인된 섭취량" : "현재 섭취량"}</small><strong>${recorded}</strong> kcal</div>
+          <div class="meal-energy-goal"><small>하루 목표</small><strong>${goal ? fmt(goal) : "—"}</strong> kcal</div>
+        </div>
         ${goal ? bar(energy, 0, goal, false) : ""}
-        <p>${energy.partial ? "확인된 열량 합계입니다. " : ""}${energyNote}</p>
+        <p class="meal-energy-note ${noteClass}">${energyNote}</p>
         ${targets?.weightLoss ? '<p class="meal-muted">기존 체중감량 설정의 조정 열량입니다. 낮은 목표 열량은 적절한지 확인해주세요.</p>' : ""}`;
-      const cards = Object.entries(MACROS).map(([key, macro]) => {
-        const amount = total[key];
-        const range = targets?.ranges[key];
-        const ratio = !energy.partial && !amount.partial && energy.known > 0
-          ? fmt(amount.known * macro.factor / energy.known * 100) + "%" : "—";
-        let status = "목표 범위 미설정";
-        if (range) {
-          const [lower, upper] = range;
-          if (amount.known > upper) status = `하한까지 0 g · 상한 ${fmt(amount.known - upper)} g 초과`;
-          else if (amount.partial) status = "자료 부족으로 범위 판정 보류";
-          else if (amount.known < lower) status = `하한까지 ${fmt(lower - amount.known)} g 남음 · 상한 이내`;
-          else status = "적정 범위 내 · 하한까지 0 g · 상한 이내";
-        }
-        return `<article class="meal-macro"><h4>${macro.name}</h4>
-          <p class="meal-macro-value">${amount.partial ? "확인된 합계 " : ""}<strong>${amount.partial && !amount.available ? "—" : fmt(amount.known)}</strong> g</p>
-          <p>하루 참고 범위 ${range ? fmt(range[0]) + "–" + fmt(range[1]) + " g" : "—"}</p>
-          ${range ? bar(amount, ...range) : ""}
-          <p>기록 열량 대비 ${ratio}</p><p class="meal-macro-status">${status}</p></article>`;
-      });
-      el("mealMacroSummary").innerHTML = cards.join("");
+      const cards = Object.entries(MACROS).map(([key, macro]) =>
+        renderMacroCard(key, macro, total[key], targets?.ranges[key], energy));
+      el("mealMacroSummary").innerHTML = `${renderMacroBreakdown(total)}<div class="meal-macro-grid">${cards.join("")}</div>`;
       const high = el("mealProteinTarget");
       high.hidden = targets?.highProtein == null;
       if (!high.hidden) {
         const above = targets.highProtein > targets.ranges.protein[1];
         const amount = total.protein;
-        const status = amount.partial ? "결측 자료가 있어 남은 양은 확인할 수 없어요." :
+        const status = amount.partial ? "일부 음식의 단백질 정보가 미확인되어 남은 양을 확정하기 어려워요." :
           amount.known >= targets.highProtein ? "하루 고단백 목표에 도달했어요." :
           `고단백 목표까지 ${fmt(targets.highProtein - amount.known)} g 남았어요.`;
         high.textContent = `하루 고단백 목표 ${fmt(targets.highProtein)} g (체중 × 1.2 g/kg). ${status} ${above ? "이 목표는 일반 단백질 적정 범위 상한(에너지의 20%)보다 높습니다. " : ""}일반 단백질 적정 범위와 별개의 서비스 목표입니다.`;
       }
     }
 
+    function renderRecordChips(record) {
+      const chips = [];
+      if (record.mode !== "manual") {
+        chips.push(`<span>${recordedAmount(record)}</span>`);
+      }
+      for (const [key, label, unit] of [["kcal", "", "kcal"], ["carb", "탄", "g"], ["protein", "단", "g"], ["fat", "지", "g"]]) {
+        const amount = valueOrNull(record.nutrients[key]);
+        chips.push(`<span>${label ? label + " " : ""}${amount === null ? (label ? "미확인" : "열량 미확인") : fmt(amount) + " " + unit}</span>`);
+      }
+      return `<div class="meal-record-chips">${chips.join("")}</div>`;
+    }
+
     function renderMeals(entries) {
       el("mealDiaryMeals").innerHTML = Object.entries(MEALS).map(([key, label]) => {
         const group = entries.filter(record => record.meal === key);
         const total = totals(group);
-        const rows = group.map(record => `<li class="meal-record">
-          <div><strong>${escape(record.name)}</strong><p>${escape(amountLabel(record))} · ${record.nutrients.kcal === null ? "열량 미확인" : fmt(record.nutrients.kcal) + " kcal"}</p>
-          <p>${escape(record.mode === "manual" ? "직접 기록" : record.base?.source)}${record.incomplete?.length ? " · 영양정보 일부 미확인" : ""}</p>
-          ${record.base?.excluded ? '<p>알레르기 근거로 추천에서 제외된 메뉴</p>' : ""}</div>
-          <div class="meal-record-actions"><button type="button" data-meal-edit="${escape(record.id)}" aria-label="${escape(record.name)} 수정">수정</button>
-          <button type="button" data-meal-delete="${escape(record.id)}" aria-label="${escape(record.name)} 삭제">삭제</button></div></li>`).join("");
+        const partial = NUTRIENTS.some(nutrient => total[nutrient].partial);
+        const rows = group.map(record => {
+          const source = record.mode === "manual" ? "직접 입력 · 추정 열량" :
+            [record.base?.source, record.mode === "cafeteria" ? "추정 영양값" : "",
+              record.portion === "serving" ? "1인분" : ""].filter(Boolean).join(" · ");
+          const incomplete = record.incomplete?.length || NUTRIENTS.some(nutrient => valueOrNull(record.nutrients[nutrient]) === null);
+          return `<li class="meal-record">
+            <div class="meal-record-head">
+              <strong>${escape(record.name)}</strong>
+              <div class="meal-record-actions"><button type="button" data-meal-edit="${escape(record.id)}" aria-label="${escape(record.name)} 수정">수정</button>
+              <button type="button" data-meal-delete="${escape(record.id)}" aria-label="${escape(record.name)} 삭제">삭제</button></div>
+            </div>
+            ${renderRecordChips(record)}
+            <p>${escape(source)}${incomplete ? " · 일부 미확인 (확인된 값 기준)" : ""}</p>
+            ${record.base?.excluded ? '<p>알레르기 근거로 추천에서 제외된 메뉴</p>' : ""}</li>`;
+        }).join("");
+        const subtotal = `<div class="meal-slot-total">
+          <span>식사 소계${partial ? " · 확인된 값 기준" : ""}</span>
+          <strong>${sumLabel(total.kcal, "kcal")}</strong>
+          <div>탄 ${sumLabel(total.carb, "g")} <span aria-hidden="true">·</span> 단 ${sumLabel(total.protein, "g")} <span aria-hidden="true">·</span> 지 ${sumLabel(total.fat, "g")}</div>
+        </div>`;
         return `<section class="meal-card meal-slot"><div class="meal-slot-head"><h3>${label}</h3><button type="button" class="meal-outline" data-meal-add="${key}">+ 음식 추가</button></div>
-          ${group.length ? `<ul class="meal-records">${rows}</ul><p class="meal-slot-total">${sumLabel(total.kcal, "kcal")} · 탄 ${sumLabel(total.carb, "g")} · 단 ${sumLabel(total.protein, "g")} · 지 ${sumLabel(total.fat, "g")}</p>` :
-          '<p class="meal-muted">아직 기록한 음식이 없습니다.</p>'}</section>`;
+          ${group.length ? subtotal + `<ul class="meal-records">${rows}</ul>` : '<p class="meal-muted">아직 기록한 음식이 없습니다.</p>'}</section>`;
       }).join("");
     }
 
@@ -296,12 +411,16 @@
     }
 
     function activeServing() {
-      if (!editor.food) return null;
-      if (editor.mode === "cafeteria") return editor.food.grams;
-      if (editor.original?.base?.id === editor.food.id && editor.original.portion === "serving") {
-        return editor.original.amount;
+      const reference = foodReference(editor.food);
+      if (editor.mode === "cafeteria") return reference?.amount ?? null;
+      if (!reference) return null;
+      const original = editor.original;
+      if (original?.base?.id === editor.food.id && original.portion === "serving" &&
+          entryUnit(original) === reference.unit) {
+        return original.amount;
       }
-      return servingGrams(editor.food, table);
+      // The existing optional serving table specifies grams only.
+      return reference.unit === "g" ? servingGrams(editor.food, table) : null;
     }
 
     function currentEntry() {
@@ -309,6 +428,7 @@
       const base = editor.food;
       const portion = form.elements.portion.value;
       let name, amount, nutrients;
+      let unit = null;
       if (mode === "manual") {
         name = el("mealManualName").value.trim();
         if (!name) return null;
@@ -318,16 +438,18 @@
         if (!Number.isFinite(nutrients.kcal)) return null;
         amount = null;
       } else {
-        if (!base || (mode === "database" && !base.grams)) return null;
+        const reference = foodReference(base);
+        if (!base || (mode === "database" && !reference)) return null;
         name = base.name;
-        amount = portion === "serving" ? activeServing() : readNumber(grams);
-        if (portion === "grams" && (!base.grams || !amount)) return null;
+        unit = reference?.unit ?? null;
+        amount = portion === "serving" ? activeServing() : readNumber(amountInput);
+        if (portion === "direct" && (!reference || !amount)) return null;
         if (mode === "database" && !amount) return null;
-        nutrients = scale(base, amount);
+        nutrients = scale(base, amount, unit);
         if (!nutrients) return null;
       }
       return {
-        date: entryDate.value, meal: entryMeal.value, mode, name, amount,
+        date: entryDate.value, meal: entryMeal.value, mode, name, amount, unit,
         portion: mode === "manual" ? null : portion,
         nutrients, base: mode === "manual" ? null : base,
         incomplete: NUTRIENTS.filter(key => nutrients[key] === null || (mode !== "manual" && base.incomplete?.includes(key))),
@@ -342,23 +464,28 @@
 
     function updatePreview() {
       const {mode, food} = editor;
+      const reference = foodReference(food);
+      const unit = reference?.unit ?? "g";
       const serving = activeServing();
       const servingOption = el("mealPortionServing");
-      const gramOption = el("mealPortionGrams");
+      const directOption = el("mealPortionDirect");
       const servingAvailable = mode === "cafeteria" || Boolean(serving);
       servingOption.closest("label").hidden = !servingAvailable;
-      gramOption.closest("label").hidden = !food?.grams;
+      directOption.closest("label").hidden = !reference;
       el("mealEntryPortions").hidden = mode === "manual" || !food;
+      const servingAmount = serving ? ` · ${serving} ${unit}` : "";
       el("mealServingLabel").textContent = mode === "cafeteria"
-        ? `기존 추정 1인분${serving ? " · " + fmt(serving) + " g" : " · 중량 미확인"}`
-        : `기본 1인분${serving ? " · " + fmt(serving) + " g" : ""}`;
-      if (servingOption.checked && !servingAvailable) gramOption.checked = true;
-      el("mealGramsField").hidden = mode === "manual" || !food?.grams || !gramOption.checked;
-      el("mealServingHint").textContent = mode === "database" && food && !serving
-        ? "연결된 1인분 중량이 없어 실제 섭취량을 g으로 입력해야 합니다." :
-        mode === "cafeteria" && food?.grams ? "g 입력 시 한 끼 전체 추정 영양값을 중량에 비례해 환산합니다." : "";
+        ? "기존 추정 1인분" + (servingAmount || " · 중량 미확인")
+        : "기본 1인분" + servingAmount;
+      el("mealDirectLabel").textContent = `직접 입력(${unit})`;
+      el("mealAmountLabel").textContent = `섭취량(${unit})`;
+      if (servingOption.checked && !servingAvailable) directOption.checked = true;
+      el("mealAmountField").hidden = mode === "manual" || !reference || !directOption.checked;
+      el("mealServingHint").textContent = mode === "database" && reference
+        ? `DB 기준량과 같은 ${unit} 단위로 입력해주세요. g과 mL 간 환산 정보가 없습니다.`
+        : mode === "cafeteria" && reference ? "g 입력 시 한 끼 전체 추정 영양값을 중량에 비례해 환산합니다." : "";
       el("mealEntrySource").textContent = mode !== "manual" && food
-        ? [food.name, food.source, food.detail, food.basis].filter(Boolean).join(" · ") : "";
+        ? [food.name, food.source, food.detail, mode === "database" ? basisLabel(food, reference) : ""].filter(Boolean).join(" · ") : "";
       el("mealEntryWarning").textContent = mode === "cafeteria" && food.excluded
         ? "알레르기 근거로 추천에서 제외된 메뉴입니다. 이 기록은 실제 섭취 여부만 남깁니다." : "";
       const candidate = currentEntry();
@@ -393,8 +520,9 @@
       }
       el("mealEntryActual").checked = Boolean(record?.mode === "cafeteria");
       el("mealPortionServing").checked = record?.portion === "serving" || Boolean(food);
-      el("mealPortionGrams").checked = !el("mealPortionServing").checked;
-      grams.value = record?.amount ?? "";
+      el("mealPortionDirect").checked = !el("mealPortionServing").checked;
+      const reference = foodReference(editor.food);
+      amountInput.value = record && entryUnit(record) === reference?.unit ? record.amount ?? "" : "";
       updateMode(record?.mode || (food ? "cafeteria" : "database"));
       dialog.showModal();
     }
@@ -415,17 +543,20 @@
           const button = document.createElement("button");
           button.type = "button";
           button.className = "meal-search-result";
-          button.disabled = !food.grams;
-          button.innerHTML = `<strong>${escape(food.name)}</strong><small>${escape([food.source, food.detail, food.basis, food.id.split(":").slice(1).join(":")].filter(Boolean).join(" · "))}${food.grams ? "" : " · g 환산 불가"}</small>`;
+          const reference = foodReference(food);
+          button.disabled = !reference;
+          const details = [food.source, food.detail, basisLabel(food, reference), food.id.split(":").slice(1).join(":")];
+          if (!reference) details.push("g·mL 기준량 미확인");
+          button.innerHTML = `<strong>${escape(food.name)}</strong><small>${escape(details.filter(Boolean).join(" · "))}</small>`;
           button.addEventListener("click", () => {
             editor.food = food;
-            grams.value = "";
-            el("mealPortionServing").checked = Boolean(servingGrams(food, table));
-            el("mealPortionGrams").checked = !el("mealPortionServing").checked;
+            amountInput.value = "";
+            el("mealPortionServing").checked = Boolean(activeServing());
+            el("mealPortionDirect").checked = !el("mealPortionServing").checked;
             searchResults.replaceChildren();
             el("mealSearchStatus").textContent = "";
             updatePreview();
-            (el("mealPortionServing").checked ? el("mealPortionServing") : grams).focus();
+            (el("mealPortionServing").checked ? el("mealPortionServing") : amountInput).focus();
           });
           searchResults.append(button);
         }
@@ -559,7 +690,7 @@
         table = data;
         if (dialog.open) updatePreview();
       }).catch(() => {
-        el("mealDiaryStatus").textContent = "1인분 중량표를 불러오지 못했습니다. g으로 입력해주세요.";
+        el("mealDiaryStatus").textContent = "1인분 중량표를 불러오지 못했습니다. DB 기준 단위로 직접 입력해주세요.";
       });
     }
     render();
