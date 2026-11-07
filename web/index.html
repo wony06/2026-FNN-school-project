@@ -681,6 +681,24 @@ function confBadgeClass(c){
   return "";
 }
 
+function todayDate(){
+  const parts = new Intl.DateTimeFormat('en-US', {timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const part = type => parts.find(p=>p.type===type).value;
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
+
+function defaultMenuDate(today=todayDate()){
+  const date=new Date(`${today}T12:00:00Z`);
+  const weekday=date.getUTCDay();
+  if(weekday===6)date.setUTCDate(date.getUTCDate()+2);
+  else if(weekday===0)date.setUTCDate(date.getUTCDate()+1);
+  return date.toISOString().slice(0,10);
+}
+
+function menuDateChoices(){
+  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()])].sort();
+}
+
 function fmtDate(d){
   const [y,m,dd] = d.split("-").map(Number);
   const dow = DOW[new Date(y,m-1,dd).getDay()];
@@ -688,7 +706,7 @@ function fmtDate(d){
 }
 
 function selectMenuDate(date, focusChip=false){
-  if(!dates.includes(date)) return;
+  if(!menuDateChoices().includes(date)) return;
   activeDate=date;
   renderDateStrip();
   renderDay();
@@ -697,7 +715,7 @@ function selectMenuDate(date, focusChip=false){
 function renderDateStrip(){
   const strip=document.getElementById('dateStrip');
   strip.replaceChildren();
-  dates.forEach(date=>{
+  menuDateChoices().forEach(date=>{
     const {label,dow}=fmtDate(date);
     const selected=date===activeDate;
     const chip=document.createElement('button');
@@ -738,13 +756,14 @@ document.getElementById('dateStrip').addEventListener('scroll',updateDateNavigat
 document.getElementById('dateStrip').addEventListener('keydown',event=>{
   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
   event.preventDefault();
-  const index=dates.indexOf(activeDate);
+  const choices=menuDateChoices();
+  const index=choices.indexOf(activeDate);
   let next=index;
   if(event.key==='ArrowLeft') next=index-1;
   if(event.key==='ArrowRight') next=index+1;
   if(event.key==='Home') next=0;
-  if(event.key==='End') next=dates.length-1;
-  selectMenuDate(dates[next],true);
+  if(event.key==='End') next=choices.length-1;
+  selectMenuDate(choices[next],true);
 });
 window.addEventListener('resize',centerActiveDate);
 new ResizeObserver(centerActiveDate).observe(document.getElementById('dateStrip'));
@@ -818,6 +837,7 @@ function itemCard(item,displayRank,reviewScope){
 }
 
 function renderDay(){
+  const today=todayDate();
   const rows = byDate[activeDate] || [];
   const {dow} = fmtDate(activeDate);
   const ranked=RecommendationView.rankVisibleMenus(rows,activeShop,PersonalScore.compareMenus);
@@ -839,7 +859,7 @@ function renderDay(){
   grid.innerHTML = "";
   if(items.length===0){
     const note=document.createElement('div');note.className='empty-note';
-    note.textContent=excluded.length ? '선택한 성분의 포함 가능 근거로 추천 검토 메뉴가 없습니다. 제외 메뉴는 아래에 표시됩니다.' : '이 날짜에 분석된 중식 메뉴가 없어요.';grid.appendChild(note);
+    note.textContent=excluded.length ? '선택한 성분의 포함 가능 근거로 추천 검토 메뉴가 없습니다. 제외 메뉴는 아래에 표시됩니다.' : activeDate===today ? '오늘 등록된 중식 메뉴가 없어요. 다른 날짜를 선택해 주세요.' : '이 날짜에 분석된 중식 메뉴가 없어요.';grid.appendChild(note);
   } else ranked.forEach(({item,rank})=>grid.appendChild(itemCard(item,rank,reviewScope)));
   if(excluded.length){
     const heading=document.createElement('div');heading.className='allergy-excluded-heading';heading.textContent=`알레르기로 제외된 메뉴 ${excluded.length}종`;
@@ -1025,7 +1045,8 @@ personalForm.addEventListener('submit', e=>{
   const goal=context.goal;
   document.getElementById('personalStatus').textContent=`${GOAL_LABEL[goal]} 기준 · 하루 ${context.mealCount}끼로 추천했어요.`;
   activeGoal=goal;ACTIVE_CONTEXT=context;
-  refreshRecommendations();closeSheet();renderDay();
+  if(!GUIDE_FLOW.restoringResults)activeDate=defaultMenuDate();
+  refreshRecommendations();closeSheet();renderDateStrip();renderDay();
   MEAL_DIARY.setContext(context);
   GUIDE_FLOW.showResults(context);
 });
@@ -1048,7 +1069,7 @@ Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targ
   byDate = {};
   dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
   const requestedDate = new URLSearchParams(location.search).get('date');
-  activeDate = dates.includes(requestedDate) ? requestedDate : dates[dates.length-1];
+  activeDate = dates.includes(requestedDate) ? requestedDate : defaultMenuDate();
   ProfileStorage.mount(personalForm,AllergyUI,()=>{
     updateGoalDisplay();updateSelectionDescription('activity','activityDescription');refreshRecommendations();GUIDE_FLOW.updateAllergyButton();
   });

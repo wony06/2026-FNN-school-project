@@ -13,7 +13,8 @@ const url=process.env.HYU_TEST_URL||'http://127.0.0.1:8790/';
    if(!await button.isVisible()) await page.locator('#resultSettingsMenu > summary').click();
    await button.click();
   }
-  await page.goto(url+'?date=2026-11-03&v=campus-design-v2');await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);
+  await page.clock.install({time:new Date('2026-11-03T03:00:00Z')});
+ await page.goto(url+'?date=2026-11-03&v=campus-design-v2');await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);
   await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,4000))]));
   async function capture(step){
    assert.equal(await page.locator('body').getAttribute('data-flow-step'),String(step));

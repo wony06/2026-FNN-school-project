@@ -29,6 +29,7 @@ const note=name=>checks.push(name);
    if(!await button.isVisible()) await page.locator('#resultSettingsMenu > summary').click();
    await button.click();
   }
+ await page.clock.install({time:new Date('2026-11-04T03:00:00Z')});
  await page.goto(url+'?date=2026-11-04&v=step-flow-test');await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);
  assert.equal(await stage(),'0');assert(await page.locator('#guideStep0 img').isVisible());assert(!(await page.locator('#personalForm').isVisible()));await shot('cover');note('표지 및 기존 마스코트');
  await page.locator('#guideStart').click();assert.equal(await stage(),'1');

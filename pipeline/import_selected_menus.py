@@ -4,6 +4,7 @@
 Run from any directory: python pipeline/import_selected_menus.py
 The source page is read once per date. Existing rows and scores are preserved.
 """
+import argparse
 import hashlib
 import io
 import json
@@ -14,6 +15,7 @@ import urllib.parse
 import urllib.request
 from collections import Counter
 from pathlib import Path
+from datetime import date as calendar_date, timedelta
 
 from lxml import html
 from PIL import Image, ImageOps
@@ -111,7 +113,8 @@ def to_site(row, photo):
     }
 
 
-def run():
+def run(dates=None, source_file=None):
+    requested_dates = DATES if dates is None else dates
     existing_source = read_json(ROOT / 'hanyang_menu_month.json')
     old_days = existing_source['days']
     old_site = read_json(ROOT / 'web/site_data.json')
@@ -121,17 +124,23 @@ def run():
     cache = read_json(ROOT / 'pipeline/master_cache.json')
     snapshot = read_json(ROOT / 'web/menu_exchange_snapshot.json')
     existing_dates = {row['date'] for row in old_days}
-    new_days = [scrape_day(date) for date in DATES if date not in existing_dates]
+    if source_file:
+        saved_days = {day['date']: day for day in read_json(Path(source_file))['days']}
+        new_days = [saved_days[date] for date in requested_dates if date not in existing_dates]
+    else:
+        new_days = [scrape_day(date) for date in requested_dates if date not in existing_dates]
     if not new_days:
         print('All requested dates already imported; nothing changed.')
         return
-    with tempfile.TemporaryDirectory() as temp_dir:
+    with tempfile.TemporaryDirectory(dir=ROOT.parent) as temp_dir:
         source_path = Path(temp_dir) / 'selected.json'
         write_json(source_path, {'days': new_days})
         lunches = parse_month_lunches(source_path)
-    expected = Counter({'105': 3, '401': 1, '204': 2})
     for day in new_days:
         count = Counter(row['shop'] for row in lunches if row['date'] == day['date'])
+        expected = Counter({code: len(day[skey]['items']) for code, (skey, _) in SHOPS.items()})
+        if not all(expected[code] for code in SHOPS):
+            raise ValueError(f"{day['date']}: no published lunch menu for a restaurant")
         if count != expected:
             raise ValueError(f"{day['date']}: unexpected lunch counts {dict(count)}")
     existing_site_keys = {(x['date'], x['shop'], x['category'], x['main']) for x in old_site}
@@ -173,21 +182,28 @@ def run():
             print(f'Photo unavailable {key}: {exc}', flush=True)
 
     new_site = [to_site(tray, photo_map.get(photo_key(tray))) for tray in trays]
+    for lunch, tray, row in zip(lunches, trays, new_site):
+        # Keep source menu titles separate from replacement recipe names.
+        assert row['main'] == lunch['main']
+        source_item = [item for item in next(day for day in new_days if day['date'] == lunch['date'])
+                       ['s' + lunch['shop']]['items'] if item['category'] == lunch['category']][lunch.get('cat_idx', 0)]
+        row['sourceMenuText'] = source_item['name']
+        row['sourceUrl'] = f"{BASE}/front/fnbmMdMenu?date={lunch['date']}"
+        tray['sourceMenuText'] = source_item['name']
     combined_site = sorted(old_site + new_site, key=lambda x:(x['date'], x['shop'], x['category'], x['main']))
     assert all(x in combined_site for x in old_site)
     source = dict(existing_source)
     source['days'] = sorted(old_days + new_days, key=lambda x:x['date'])
-    source.setdefault('scraped_additional_ranges', []).extend([
-        {'start': '2026-10-26', 'end': '2026-10-30'},
-        {'start': '2026-11-02', 'end': '2026-11-06'}])
+    source.setdefault('scraped_additional_ranges', []).append(
+        {'start': min(day['date'] for day in new_days), 'end': max(day['date'] for day in new_days)})
 
     write_json(ROOT / 'hanyang_menu_month.json', source, 1)
     write_json(ROOT / 'pipeline/master_cache.json', cache, 1)
     write_json(ROOT / 'pipeline/month_lunch_parsed.json', old_parsed + lunches, 1)
     write_json(ROOT / 'month_lunch_trays.json', old_trays + trays, 1)
     write_json(ROOT / 'photo_mapping.json', photo_map, 1)
-    write_json(ROOT / 'site_data.json', combined_site, 1)
-    write_json(ROOT / 'web/site_data.json', combined_site, 1)
+    write_json(ROOT / 'site_data.json', combined_site)
+    write_json(ROOT / 'web/site_data.json', combined_site)
     keys = {tuple(entry['key']) for entry in snapshot['entries']}
     for row in new_site:
         key = (row['date'], row['shop'], row['category'], row['main'])
@@ -204,4 +220,21 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--start', help='First date, YYYY-MM-DD')
+    parser.add_argument('--end', help='Last date, YYYY-MM-DD')
+    parser.add_argument('--source-file', help='Optional previously collected source JSON')
+    args = parser.parse_args()
+    if bool(args.start) != bool(args.end):
+        parser.error('--start and --end must be provided together')
+    dates = None
+    if args.start:
+        current, end = calendar_date.fromisoformat(args.start), calendar_date.fromisoformat(args.end)
+        if current > end:
+            parser.error('--start must not be after --end')
+        dates = []
+        while current <= end:
+            if current.weekday() < 5:
+                dates.append(current.isoformat())
+            current += timedelta(days=1)
+    run(dates, args.source_file)

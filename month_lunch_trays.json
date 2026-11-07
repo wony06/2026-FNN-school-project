@@ -45603,13 +45603,25 @@
   "식품교환단위": {
    "곡류군": 3.41,
    "어육류군": 8.28,
-   "채소군": 2.03,
+   "채소군": 4.49,
    "지방군": 2.13,
    "우유군": 0.0,
    "과일군": 0.02,
-   "미매칭_항목": [
-    "김치2종"
-   ],
+   "미매칭_항목": [],
+   "매칭DB": {
+    "menugen": [
+     "생선가스",
+     "알감자조림",
+     "숙주나물",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "미나리",
+     "김치, 배추 김치",
+     "김치, 깍두기"
+    ]
+   },
    "externalRecipes": [
     {
      "name": "새우까스",
@@ -45621,20 +45633,9 @@
     "곰탕: 사용자 지정 간이 환산. 영양성분DB 곰탕의 단백질 100g당 7.5g을 기존 추정 제공량 263g에 적용, 단백질 19.725g / 8g으로 어육류군만 환산. 미나리는 별도 채소군 계산. 곡류·채소·지방군의 완전한 재료별 분해가 아닌 대체 추정. 영양성분 유지.",
     "새우가스: 사용자 지정 새우까스 외부 레시피(6971013)로 교환단위 대체 계산. 재료량 가정과 흡수유 제외는 외부 레시피 설명 참조. 영양성분은 기존 가공식품DB 계산 유지.",
     "타르타르소스: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.",
-    "알감자조림 → 감자조림: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 95.1g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
-   ],
-   "매칭DB": {
-    "menugen": [
-     "생선가스",
-     "알감자조림",
-     "숙주나물",
-     "쌀밥"
-    ],
-    "recipe_db": [],
-    "db104_direct": [
-     "미나리"
-    ]
-   }
+    "알감자조림 → 감자조림: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 95.1g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "김치2종: 사용자 지정 사진별 매칭(2026-11-05). 김치, 배추 김치 + 김치, 깍두기, 기존 추정 제공량 100g을 각각 50g씩 균등 배분. 실제 종류·제공량 실측값 아님. 메뉴 표시명과 기존 영양성분 계산 유지. 공식 식판 사진에서 배추김치와 큼직한 무김치 확인. 무김치 세부 종류는 확정하지 않고 원재료DB 깍두기로 대체 추정."
+   ]
   },
   "item_detail": [
    {
@@ -47159,17 +47160,11 @@
   "식품교환단위": {
    "곡류군": 1.43,
    "어육류군": 3.13,
-   "채소군": 6.25,
+   "채소군": 8.71,
    "지방군": 5.22,
    "우유군": 0.0,
    "과일군": 0.0,
-   "미매칭_항목": [
-    "김치2종"
-   ],
-   "externalRecipes": [],
-   "recipeNotes": [
-    "전골)한방갈비찜: 사용자 지정으로 MenuGen 갈비찜에 대체 매칭. 기존 추정 제공량 100g에 전체 재료 배합을 비례 환산. 실제 고기 종류·한방 재료·양념 배합과 조리수율 차이는 미보정. 영양성분은 별도 갈비찜 DB로 계산."
-   ],
+   "미매칭_항목": [],
    "매칭DB": {
     "menugen": [
      "전골)한방갈비찜",
@@ -47180,8 +47175,16 @@
      "쌀밥"
     ],
     "recipe_db": [],
-    "db104_direct": []
-   }
+    "db104_direct": [
+     "김치, 배추 김치",
+     "김치, 깍두기"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "전골)한방갈비찜: 사용자 지정으로 MenuGen 갈비찜에 대체 매칭. 기존 추정 제공량 100g에 전체 재료 배합을 비례 환산. 실제 고기 종류·한방 재료·양념 배합과 조리수율 차이는 미보정. 영양성분은 별도 갈비찜 DB로 계산.",
+    "김치2종: 사용자 지정 사진별 매칭(2026-11-06). 김치, 배추 김치 + 김치, 깍두기, 기존 추정 제공량 100g을 각각 50g씩 균등 배분. 실제 종류·제공량 실측값 아님. 메뉴 표시명과 기존 영양성분 계산 유지. 공식 식판 사진에서 배추김치와 큼직한 무김치 확인. 무김치 세부 종류는 확정하지 않고 원재료DB 깍두기로 대체 추정."
+   ]
   },
   "item_detail": [
    {
@@ -47865,5 +47868,9170 @@
     "db_name": "배추김치"
    }
   ]
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "고구마치즈돈까스",
+  "calculationMain": "고구마치즈돈까스",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "고구마치즈돈까스",
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 719.0,
+  "kcal": 735.7,
+  "단백질_g": 34.6,
+  "지방_g": 30.3,
+  "탄수화물_g": 81.7,
+  "당류_g": 16.5,
+  "식이섬유_g": 3.0,
+  "칼슘_mg": 100.0,
+  "철_mg": 1.87,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 5.5,
+  "포화지방_g": 5.51,
+  "나트륨_mg": 2884.3,
+  "NRF6.3": -7.9,
+  "역산검증_오차율": 0.3,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "샐러드",
+   "우동국"
+  ],
+  "결측_필드": [
+   "고구마치즈돈까스: vitA",
+   "쌀밥: vitA",
+   "샐러드: fiber,ca,fe,vitA,vitC",
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "고구마치즈돈까스",
+    "쌀밥",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "샐러드",
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 3.23,
+   "어육류군": 2.29,
+   "채소군": 2.45,
+   "지방군": 2.02,
+   "우유군": 0.06,
+   "과일군": 0.0,
+   "미매칭_항목": [],
+   "매칭DB": {
+    "menugen": [
+     "쌀밥",
+     "샐러드"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "고구마치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 110g + 찐 고구마 20g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "고구마치즈돈까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 420.0,
+     "protein": 20.775,
+     "fat": 26.91,
+     "carb": 23.835,
+     "sugar": 7.485,
+     "fiber": 0.45,
+     "ca": 51.0,
+     "fe": 1.44,
+     "vitA": 0.0,
+     "vitC": 1.8,
+     "satFat": 4.74,
+     "na": 514.5
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "돈가스"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 83.42,
+     "protein": 6.7768,
+     "fat": 2.6316,
+     "carb": 8.6344,
+     "sugar": 3.4658,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.602,
+     "na": 350.02
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "샐러드"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "고구마치즈돈까스"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "스리라차치킨마요덮밥",
+  "calculationMain": "스리라차치킨마요덮밥",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "스리라차치킨마요덮밥",
+   "메추리알장조림",
+   "치커리오이무침",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 937.6,
+  "kcal": 167.5,
+  "단백질_g": 11.2,
+  "지방_g": 5.0,
+  "탄수화물_g": 17.9,
+  "당류_g": 7.3,
+  "식이섬유_g": 2.8,
+  "칼슘_mg": 77.0,
+  "철_mg": 1.9,
+  "비타민A_ugRAE": 132.9,
+  "비타민C_mg": 4.0,
+  "포화지방_g": 1.5,
+  "나트륨_mg": 2667.8,
+  "NRF6.3": -36.6,
+  "역산검증_오차율": 4.0,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "스리라차치킨마요덮밥",
+   "치커리오이무침"
+  ],
+  "가공식품DB_출처_항목": [
+   "우동국"
+  ],
+  "결측_필드": [
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "메추리알장조림",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.71,
+   "채소군": 2.62,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "스리라차치킨마요덮밥",
+    "치커리오이무침"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "메추리알장조림"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "스리라차치킨마요덮밥",
+    "matched": false,
+    "weight_g": 418,
+    "weight_note": "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "메추리알장조림",
+    "matched": true,
+    "weight_g": 66.6,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 66.6g",
+    "contrib": {
+     "kcal": 101.23199999999999,
+     "protein": 7.525799999999999,
+     "fat": 4.522139999999999,
+     "carb": 5.98734,
+     "sugar": 1.7382599999999997,
+     "fiber": 0.2664,
+     "ca": 33.966,
+     "fe": 1.4652,
+     "vitA": 97.90199999999999,
+     "vitC": 0.37296,
+     "satFat": 1.4318999999999997,
+     "na": 648.0179999999999
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "메추리알장조림"
+   },
+   {
+    "display": "치커리오이무침",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "스리라차치킨마요덮밥"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "고깃집된장찌개",
+  "calculationMain": "고깃집된장찌개",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "고깃집된장찌개",
+   "메추리알장조림",
+   "치커리오이무침",
+   "김치"
+  ],
+  "1인분_제공량_g": 436.6,
+  "kcal": 261.2,
+  "단백질_g": 18.5,
+  "지방_g": 12.1,
+  "탄수화물_g": 17.3,
+  "당류_g": 6.1,
+  "식이섬유_g": 2.8,
+  "칼슘_mg": 77.0,
+  "철_mg": 1.9,
+  "비타민A_ugRAE": 132.9,
+  "비타민C_mg": 4.0,
+  "포화지방_g": 3.6,
+  "나트륨_mg": 2016.0,
+  "NRF6.3": -10.7,
+  "역산검증_오차율": 3.7,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "치커리오이무침"
+  ],
+  "가공식품DB_출처_항목": [
+   "고깃집된장찌개"
+  ],
+  "결측_필드": [
+   "고깃집된장찌개: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "메추리알장조림",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "고깃집된장찌개"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.71,
+   "채소군": 2.62,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "고깃집된장찌개",
+    "치커리오이무침"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "메추리알장조림"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "고깃집된장찌개",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 122.0,
+     "protein": 9.0,
+     "fat": 7.1,
+     "carb": 4.8,
+     "sugar": 2.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 2.1,
+     "na": 817.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고깃집된장찌개"
+   },
+   {
+    "display": "메추리알장조림",
+    "matched": true,
+    "weight_g": 66.6,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 66.6g",
+    "contrib": {
+     "kcal": 101.23199999999999,
+     "protein": 7.525799999999999,
+     "fat": 4.522139999999999,
+     "carb": 5.98734,
+     "sugar": 1.7382599999999997,
+     "fiber": 0.2664,
+     "ca": 33.966,
+     "fe": 1.4652,
+     "vitA": 97.90199999999999,
+     "vitC": 0.37296,
+     "satFat": 1.4318999999999997,
+     "na": 648.0179999999999
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "메추리알장조림"
+   },
+   {
+    "display": "치커리오이무침",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "고깃집된장찌개"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "참치김치찌개",
+  "calculationMain": "참치김치찌개",
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "참치김치찌개",
+   "언양식떡갈비",
+   "호박새우젓볶음",
+   "숙주나물",
+   "건파래볶음",
+   "김치2종",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 830.0,
+  "kcal": 744.2,
+  "단백질_g": 55.8,
+  "지방_g": 30.4,
+  "탄수화물_g": 59.7,
+  "당류_g": 6.6,
+  "식이섬유_g": 5.1,
+  "칼슘_mg": 97.9,
+  "철_mg": 6.47,
+  "비타민A_ugRAE": 51.2,
+  "비타민C_mg": 7.7,
+  "포화지방_g": 9.57,
+  "나트륨_mg": 2656.6,
+  "NRF6.3": 2.5,
+  "역산검증_오차율": 1.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "건파래볶음"
+  ],
+  "가공식품DB_출처_항목": [
+   "참치김치찌개",
+   "호박새우젓볶음"
+  ],
+  "결측_필드": [
+   "참치김치찌개: fiber,ca,fe,vitA,vitC",
+   "호박새우젓볶음: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "언양식떡갈비",
+    "숙주나물",
+    "김치2종",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "참치김치찌개",
+    "호박새우젓볶음"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.81,
+   "어육류군": 4.28,
+   "채소군": 8.87,
+   "지방군": 4.56,
+   "우유군": 0.0,
+   "과일군": 0.22,
+   "미매칭_항목": [
+    "김치2종"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "참치김치찌개",
+     "언양식떡갈비",
+     "호박새우젓볶음",
+     "숙주나물",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [
+    {
+     "name": "건파래볶음",
+     "url": "https://www.10000recipe.com/recipe/6857498",
+     "note": "사용자 지정 만개의레시피6857498 건파래무침을 건파래볶음의 교환단위 대체 레시피로 적용. 원문 건파래40g. 마늘1/2수저=7.5g, 고춧가루1/2수저=3.5g, 간장3수저=45g, 물3수저=45g, 올리고당1수저=20g으로 가정. 약간인 대파5g, 참기름3g, 깨소금3g(볶은 흰참깨) 가정. 총 배합172g(물45g 포함)을 기존 음식 추정 제공량80g에 비례 환산하며 원문4인분을 다시 나누지 않음. 간장물 전량 잔존 및 조리수율 미보정. 실제 볶음의 기름 사용량 및 급식 제공량은 미확인. 물은 영양소 없는 희석분으로 분모에만 포함. 기존 교환단위 규칙에 따라 당류·조미료는 식품군 환산에서 제외하므로 영양성분 전체를 뜻하지 않음. 메뉴 표시명과 영양성분 계산은 기존 유지."
+    }
+   ],
+   "recipeNotes": [
+    "참치김치찌개: 사용자 지정으로 MenuGen 김치찌개(참치)에 대체 매칭. 기존 추정 제공량에 레시피 재료를 비례 환산. 메뉴 표시명과 영양성분 계산 유지.",
+    "언양식떡갈비: 사용자 지정으로 MenuGen 퓨전떡갈비 레시피에 대체 매칭. 기존 추정 제공량 200g에 전체 재료 배합을 비례 환산. 실제 제품의 고기·채소·양념 배합과 조리수율 차이는 미보정. 메뉴 표시명과 영양성분 계산값 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "참치김치찌개",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 82.0,
+     "protein": 6.0,
+     "fat": 2.7,
+     "carb": 6.14,
+     "sugar": 3.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.4,
+     "na": 800.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "참치김치찌개(W)"
+   },
+   {
+    "display": "언양식떡갈비",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 200g",
+    "contrib": {
+     "kcal": 404.0,
+     "protein": 42.76,
+     "fat": 23.64,
+     "carb": 4.92,
+     "sugar": 0.8,
+     "fiber": 2.2,
+     "ca": 44.0,
+     "fe": 5.8,
+     "vitA": 12.0,
+     "vitC": 1.54,
+     "satFat": 8.58,
+     "na": 808.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "떡갈비"
+   },
+   {
+    "display": "호박새우젓볶음",
+    "matched": true,
+    "weight_g": 80,
+    "weight_note": "볶음류 - 대학급식소(1997) 제공량 평균 80g",
+    "contrib": {
+     "kcal": 47.2,
+     "protein": 1.056,
+     "fat": 2.8960000000000004,
+     "carb": 4.24,
+     "sugar": 0.336,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.35200000000000004,
+     "na": 357.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "호박볶음"
+   },
+   {
+    "display": "숙주나물",
+    "matched": true,
+    "weight_g": 70.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 70g",
+    "contrib": {
+     "kcal": 7.0,
+     "protein": 0.63,
+     "fat": 0.371,
+     "carb": 0.574,
+     "sugar": 0.084,
+     "fiber": 0.28,
+     "ca": 4.9,
+     "fe": 0.23800000000000002,
+     "vitA": 4.2,
+     "vitC": 2.443,
+     "satFat": 0.063,
+     "na": 140.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "숙주나물"
+   },
+   {
+    "display": "건파래볶음",
+    "matched": false,
+    "weight_g": 80,
+    "weight_note": "볶음류 - 대학급식소(1997) 제공량 평균 80g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "김치2종",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "참치김치찌개 언양식떡갈비 호박새우젓볶음 숙주나물 건파래볶음 김치2종 쌀밥"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "채선당샤브국수&칠리S",
+  "calculationMain": "채선당샤브국수&칠리S",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaGvqrKrfvKARJQJS-HNZw/400x.png",
+  "cat_idx": 1,
+  "구성요소_목록": [
+   "채선당샤브국수",
+   "칠리S",
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드",
+   "동치미",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 1116.0,
+  "kcal": 523.1,
+  "단백질_g": 9.8,
+  "지방_g": 16.3,
+  "탄수화물_g": 88.7,
+  "당류_g": 16.6,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 82.0,
+  "철_mg": 0.56,
+  "비타민A_ugRAE": 0.0,
+  "비타민C_mg": 1.3,
+  "포화지방_g": 2.78,
+  "나트륨_mg": 1304.5,
+  "NRF6.3": -9.6,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "채선당샤브국수",
+   "칠리S"
+  ],
+  "가공식품DB_출처_항목": [
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드"
+  ],
+  "결측_필드": [
+   "오징어김치전: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "고구마샐러드: fiber,ca,fe,vitA,vitC",
+   "동치미: vitA",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "동치미",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "오징어김치전",
+    "오이도라지무침",
+    "고구마샐러드"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.43,
+   "어육류군": 0.0,
+   "채소군": 2.22,
+   "지방군": 0.04,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "채선당샤브국수",
+    "칠리S",
+    "오징어김치전",
+    "고구마샐러드"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오이도라지무침",
+     "동치미",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "채선당샤브국수",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "칠리S",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어김치전",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 135.1,
+     "protein": 3.5,
+     "fat": 7.0,
+     "carb": 17.5,
+     "sugar": 1.4,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.4,
+     "na": 356.3
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어김치전"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "고구마샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 141.04,
+     "protein": 1.247,
+     "fat": 6.5532,
+     "carb": 20.554000000000002,
+     "sugar": 7.74,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.0578,
+     "na": 183.61
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고구마샐러드"
+   },
+   {
+    "display": "동치미",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 11.0,
+     "protein": 0.49,
+     "fat": 0.07,
+     "carb": 2.08,
+     "sugar": 1.19,
+     "fiber": 0.8,
+     "ca": 76.0,
+     "fe": 0.56,
+     "vitA": 0.0,
+     "vitC": 1.11,
+     "satFat": 0.01,
+     "na": 472.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "동치미"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "채선당샤브국수&칠리S 오징어김치전 오이도라지무침 고구마샐러드 동치미 쌀밥"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "돈육김치찌개",
+  "calculationMain": "돈육김치찌개",
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "돈육김치찌개",
+   "흑미밥",
+   "생선까스",
+   "타르소스",
+   "꽈리고추감자조림",
+   "메추리알조림",
+   "깍두기",
+   "매실차"
+  ],
+  "1인분_제공량_g": 1145.6,
+  "kcal": 1857.9,
+  "단백질_g": 54.5,
+  "지방_g": 32.1,
+  "탄수화물_g": 313.7,
+  "당류_g": 140.5,
+  "식이섬유_g": 6.5,
+  "칼슘_mg": 224.2,
+  "철_mg": 5.23,
+  "비타민A_ugRAE": 179.4,
+  "비타민C_mg": 14.7,
+  "포화지방_g": 5.68,
+  "나트륨_mg": 2806.9,
+  "NRF6.3": -2.6,
+  "역산검증_오차율": 5.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "타르소스",
+   "꽈리고추감자조림",
+   "매실차"
+  ],
+  "결측_필드": [
+   "타르소스: fiber,ca,fe,vitA,vitC",
+   "꽈리고추감자조림: fiber,ca,fe,vitA,vitC",
+   "깍두기: fiber",
+   "매실차: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "돈육김치찌개",
+    "흑미밥",
+    "생선까스",
+    "메추리알조림",
+    "깍두기"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "타르소스",
+    "꽈리고추감자조림",
+    "매실차"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 13.85,
+   "어육류군": 4.6,
+   "채소군": 2.64,
+   "지방군": 1.76,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "돈육김치찌개",
+    "꽈리고추감자조림",
+    "매실차"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "흑미밥",
+     "생선까스",
+     "메추리알조림",
+     "깍두기"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "타르소스: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.",
+    "메추리알조림 → 메추리알장조림: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 66.6g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "돈육김치찌개",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 200g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 2.4,
+     "fat": 1.06,
+     "carb": 4.66,
+     "sugar": 1.88,
+     "fiber": 2.8,
+     "ca": 46.0,
+     "fe": 0.6,
+     "vitA": 18.0,
+     "vitC": 2.54,
+     "satFat": 0.16,
+     "na": 380.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "김치찌개"
+   },
+   {
+    "display": "흑미밥",
+    "matched": true,
+    "weight_g": 390.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 390g",
+    "contrib": {
+     "kcal": 460.2,
+     "protein": 8.268,
+     "fat": 0.7020000000000001,
+     "carb": 100.815,
+     "sugar": 0.11699999999999999,
+     "fiber": 1.95,
+     "ca": 11.7,
+     "fe": 1.5989999999999998,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.195,
+     "na": 11.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "흑미밥"
+   },
+   {
+    "display": "생선까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지 (원본 표기 분리)",
+    "contrib": {
+     "kcal": 454.5,
+     "protein": 34.2,
+     "fat": 21.75,
+     "carb": 26.25,
+     "sugar": 1.11,
+     "fiber": 1.5,
+     "ca": 105.0,
+     "fe": 1.32,
+     "vitA": 54.0,
+     "vitC": 9.285000000000002,
+     "satFat": 3.675,
+     "na": 1020.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "생선까스"
+   },
+   {
+    "display": "타르소스",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 29.205,
+     "protein": 0.0747,
+     "fat": 2.115,
+     "carb": 0.945,
+     "sugar": 0.9089999999999999,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.19349999999999998,
+     "na": 55.8
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "타르타르소스"
+   },
+   {
+    "display": "꽈리고추감자조림",
+    "matched": true,
+    "weight_g": 44,
+    "weight_note": "조림류 - 대학급식소(1997) 제공량 평균 44g",
+    "contrib": {
+     "kcal": 48.4,
+     "protein": 0.88,
+     "fat": 1.76,
+     "carb": 7.92,
+     "sugar": 3.52,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 215.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "꽈리고추 감자조림"
+   },
+   {
+    "display": "메추리알조림",
+    "matched": true,
+    "weight_g": 66.6,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 66.6g",
+    "contrib": {
+     "kcal": 101.23199999999999,
+     "protein": 7.525799999999999,
+     "fat": 4.522139999999999,
+     "carb": 5.98734,
+     "sugar": 1.7382599999999997,
+     "fiber": 0.2664,
+     "ca": 33.966,
+     "fe": 1.4652,
+     "vitA": 97.90199999999999,
+     "vitC": 0.37296,
+     "satFat": 1.4318999999999997,
+     "na": 648.0179999999999
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "메추리알장조림"
+   },
+   {
+    "display": "깍두기",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 34.4,
+     "protein": 1.1696,
+     "fat": 0.18059999999999998,
+     "carb": 7.112199999999999,
+     "sugar": 2.7692,
+     "fiber": 0.0,
+     "ca": 27.52,
+     "fe": 0.24939999999999998,
+     "vitA": 9.46,
+     "vitC": 2.5026,
+     "satFat": 0.0258,
+     "na": 449.78
+    },
+    "missing": [
+     "fiber"
+    ],
+    "source": "food_db",
+    "db_name": "깍두기"
+   },
+   {
+    "display": "매실차",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 692.0,
+     "protein": 0.0,
+     "fat": 0.0,
+     "carb": 160.0,
+     "sugar": 128.42,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 26.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "매실차(Plum Tea)"
+   }
+  ],
+  "sourceMenuText": "돈육김치찌개 흑미밥 생선까스*타르소스 꽈리고추감자조림 메추리알조림 깍두기 매실차"
+ },
+ {
+  "date": "2026-11-09",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "김밥볶음밥",
+  "calculationMain": "김밥볶음밥",
+  "price": "6,500원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "김밥볶음밥",
+   "불닭크림우동",
+   "우동국물",
+   "팝콘치킨",
+   "오이피클",
+   "배추김치",
+   "매실차"
+  ],
+  "1인분_제공량_g": 844.0,
+  "kcal": 1036.8,
+  "단백질_g": 19.8,
+  "지방_g": 11.3,
+  "탄수화물_g": 200.9,
+  "당류_g": 136.9,
+  "식이섬유_g": 3.8,
+  "칼슘_mg": 106.8,
+  "철_mg": 0.95,
+  "비타민A_ugRAE": 38.0,
+  "비타민C_mg": 3.7,
+  "포화지방_g": 2.13,
+  "나트륨_mg": 2557.8,
+  "NRF6.3": -15.1,
+  "역산검증_오차율": 5.0,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "불닭크림우동"
+  ],
+  "가공식품DB_출처_항목": [
+   "우동국물",
+   "팝콘치킨",
+   "오이피클",
+   "매실차"
+  ],
+  "결측_필드": [
+   "김밥볶음밥: vitA",
+   "우동국물: fiber,ca,fe,vitA,vitC",
+   "팝콘치킨: fiber,ca,fe,vitA,vitC",
+   "매실차: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "김밥볶음밥",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "우동국물",
+    "팝콘치킨",
+    "오이피클",
+    "매실차"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.38,
+   "어육류군": 0.52,
+   "채소군": 5.24,
+   "지방군": 0.11,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "불닭크림우동",
+    "팝콘치킨",
+    "매실차"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "김밥볶음밥",
+     "오이피클",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "김밥볶음밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 193.0,
+     "protein": 6.92,
+     "fat": 8.38,
+     "carb": 22.5,
+     "sugar": 1.79,
+     "fiber": 0.8,
+     "ca": 51.0,
+     "fe": 0.46,
+     "vitA": 0.0,
+     "vitC": 0.13,
+     "satFat": 1.66,
+     "na": 282.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "볶음밥"
+   },
+   {
+    "display": "불닭크림우동",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "우동국물",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   },
+   {
+    "display": "팝콘치킨",
+    "matched": true,
+    "weight_g": 50.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 50g",
+    "contrib": {
+     "kcal": 80.0,
+     "protein": 9.0,
+     "fat": 2.5,
+     "carb": 5.5,
+     "sugar": 0.5,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.4,
+     "na": 80.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "팝콘치킨"
+   },
+   {
+    "display": "오이피클",
+    "matched": true,
+    "weight_g": 25.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 25g",
+    "contrib": {
+     "kcal": 5.5,
+     "protein": 0.2,
+     "fat": 0.0,
+     "carb": 1.0,
+     "sugar": 0.7,
+     "fiber": 0.525,
+     "ca": 12.75,
+     "fe": 0.0625,
+     "vitA": 3.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 150.0
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "오이피클(오이57.6%함유)"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "매실차",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 692.0,
+     "protein": 0.0,
+     "fat": 0.0,
+     "carb": 160.0,
+     "sugar": 128.42,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 26.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "매실차(Plum Tea)"
+   }
+  ],
+  "sourceMenuText": "김밥볶음밥 불닭크림우동 우동국물 팝콘치킨 오이피클 배추김치 매실차"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "통살치킨까스",
+  "calculationMain": "통살치킨까스",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "통살치킨까스",
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 719.0,
+  "kcal": 550.5,
+  "단백질_g": 33.6,
+  "지방_g": 7.8,
+  "탄수화물_g": 85.6,
+  "당류_g": 11.1,
+  "식이섬유_g": 2.6,
+  "칼슘_mg": 49.0,
+  "철_mg": 0.43,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.8,
+  "포화지방_g": 1.91,
+  "나트륨_mg": 2913.5,
+  "NRF6.3": -9.9,
+  "역산검증_오차율": 0.7,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "통살치킨까스",
+   "샐러드",
+   "우동국"
+  ],
+  "결측_필드": [
+   "통살치킨까스: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA",
+   "샐러드: fiber,ca,fe,vitA,vitC",
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "쌀밥",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "통살치킨까스",
+    "샐러드",
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 3.99,
+   "어육류군": 9.42,
+   "채소군": 2.36,
+   "지방군": 0.81,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [],
+   "매칭DB": {
+    "menugen": [
+     "쌀밥",
+     "샐러드"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [
+    {
+     "name": "통살치킨까스",
+     "url": "https://www.10000recipe.com/recipe/6867993",
+     "note": "통살치킨까스: 만개의레시피 치킨가스 대체 추정. 닭가슴살 3쪽=300g, 밀가루 3T=24g, 달걀 1개=50g, 빵가루 1컵=40g, 돈가스소스 3T=45g, 참깨 1T=9g, 연겨자 1/6T=2.5g으로 환산 가정. 선택 샐러드는 별도 반찬과 중복될 수 있어 제외. 소금·후추 약간은 양 미상으로 제외. 생재료 중량 비례 환산으로 조리 수율·튀김옷 잔량 미보정. 튀김기름 흡수량 미상으로 흡수유 미반영(지방군 과소 추정 가능)."
+    }
+   ],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "통살치킨까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 234.75,
+     "protein": 19.74,
+     "fat": 4.425,
+     "carb": 27.75,
+     "sugar": 2.13,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.14,
+     "na": 543.75
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "통살치킨까스"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 83.42,
+     "protein": 6.7768,
+     "fat": 2.6316,
+     "carb": 8.6344,
+     "sugar": 3.4658,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.602,
+     "na": 350.02
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "샐러드"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "통살치킨까스"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "두반장제육볶음",
+  "calculationMain": "두반장제육볶음",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "두반장제육볶음",
+   "건두부무침",
+   "짜사이",
+   "김치",
+   "계란국"
+  ],
+  "1인분_제공량_g": 595.0,
+  "kcal": 115.5,
+  "단백질_g": 10.5,
+  "지방_g": 4.0,
+  "탄수화물_g": 10.3,
+  "당류_g": 3.2,
+  "식이섬유_g": 2.5,
+  "칼슘_mg": 43.0,
+  "철_mg": 0.43,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.6,
+  "포화지방_g": 0.73,
+  "나트륨_mg": 2172.2,
+  "NRF6.3": -49.5,
+  "역산검증_오차율": 3.5,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "두반장제육볶음",
+   "건두부무침"
+  ],
+  "가공식품DB_출처_항목": [
+   "짜사이",
+   "계란국"
+  ],
+  "결측_필드": [
+   "짜사이: fiber,ca,fe,vitA,vitC",
+   "계란국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "짜사이",
+    "계란국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.19,
+   "채소군": 2.84,
+   "지방군": 0.07,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "두반장제육볶음",
+    "건두부무침",
+    "짜사이"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "계란국"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "두반장제육볶음",
+    "matched": false,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "건두부무침",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "짜사이",
+    "matched": true,
+    "weight_g": 25.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 25g",
+    "contrib": {
+     "kcal": 2.5,
+     "protein": 0.375,
+     "fat": 0.0,
+     "carb": 0.25,
+     "sugar": 0.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1180.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "짜사이(홀)"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "계란국",
+    "matched": true,
+    "weight_g": 250.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 250g",
+    "contrib": {
+     "kcal": 75.0,
+     "protein": 8.125,
+     "fat": 3.6,
+     "carb": 3.6,
+     "sugar": 0.7875,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.6625,
+     "na": 441.25
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "계란국(가공식품DB 4종 중 즉석조리 농축믹스 2종 제외, 정상 즉석섭취 2종 중앙값)"
+   }
+  ],
+  "sourceMenuText": "두반장제육볶음"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "우육면",
+  "calculationMain": "우육면",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "우육면",
+   "건두부무침",
+   "짜사이",
+   "김치"
+  ],
+  "1인분_제공량_g": 345.0,
+  "kcal": 321.0,
+  "단백질_g": 14.7,
+  "지방_g": 7.4,
+  "탄수화물_g": 48.8,
+  "당류_g": 4.6,
+  "식이섬유_g": 2.5,
+  "칼슘_mg": 43.0,
+  "철_mg": 0.43,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.6,
+  "포화지방_g": 1.66,
+  "나트륨_mg": 3342.0,
+  "NRF6.3": -32.8,
+  "역산검증_오차율": 0.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "건두부무침"
+  ],
+  "가공식품DB_출처_항목": [
+   "우육면",
+   "짜사이"
+  ],
+  "결측_필드": [
+   "우육면: fiber,ca,fe,vitA,vitC",
+   "짜사이: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "우육면",
+    "짜사이"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.0,
+   "채소군": 2.36,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "우육면",
+    "건두부무침",
+    "짜사이"
+   ],
+   "매칭DB": {
+    "menugen": [],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "우육면",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 280.5,
+     "protein": 12.315000000000003,
+     "fat": 6.96,
+     "carb": 42.03,
+     "sugar": 2.175,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.59,
+     "na": 1611.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우육면"
+   },
+   {
+    "display": "건두부무침",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "짜사이",
+    "matched": true,
+    "weight_g": 25.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 25g",
+    "contrib": {
+     "kcal": 2.5,
+     "protein": 0.375,
+     "fat": 0.0,
+     "carb": 0.25,
+     "sugar": 0.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1180.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "짜사이(홀)"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "우육면"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "산채비빔밥&계란후라이",
+  "calculationMain": "산채비빔밥&계란후라이",
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "산채비빔밥",
+   "된장찌개",
+   "간장돼지불고기",
+   "치커리무침",
+   "김치2종",
+   "야구르트"
+  ],
+  "1인분_제공량_g": 821.1,
+  "kcal": 606.9,
+  "단백질_g": 28.8,
+  "지방_g": 14.5,
+  "탄수화물_g": 86.9,
+  "당류_g": 24.6,
+  "식이섬유_g": 6.9,
+  "칼슘_mg": 119.8,
+  "철_mg": 2.59,
+  "비타민A_ugRAE": 105.4,
+  "비타민C_mg": 4.3,
+  "포화지방_g": 2.7,
+  "나트륨_mg": 2465.2,
+  "NRF6.3": -3.0,
+  "역산검증_오차율": 0.5,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "산채비빔밥",
+   "간장돼지불고기",
+   "야구르트"
+  ],
+  "결측_필드": [
+   "산채비빔밥: fiber,ca,fe,vitA,vitC",
+   "간장돼지불고기: fiber,ca,fe,vitA,vitC",
+   "야구르트: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "된장찌개",
+    "치커리무침",
+    "김치2종"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "산채비빔밥",
+    "간장돼지불고기",
+    "야구르트"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.89,
+   "어육류군": 2.7,
+   "채소군": 5.82,
+   "지방군": 0.18,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "김치2종"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "산채비빔밥",
+     "된장찌개",
+     "간장돼지불고기"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "치커리, 잎, 생것"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "산채비빔밥 → 산채비빔밥(고추장): DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 210g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "된장찌개 → 호박두부된장찌개: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 200g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "간장돼지불고기 → 돼지고기 간장볶음: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 80g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "치커리무침: 사용자 지정으로 치커리 잎 생것에 대체 매칭. 기존 음식 추정량 151.1g 전체를 잎채소로 간주하고 양념은 교환단위에서 제외. 실제 채소 중량 실측값 아님. 메뉴명과 영양성분 계산 유지.",
+    "야구르트: 사용자 지정으로 교환단위 계산과 미매칭 목록에서 제외. 영양성분은 요구르트로 대체 합산하며 교환단위가 0이라는 의미는 아님."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "산채비빔밥",
+    "matched": true,
+    "weight_g": 210.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 210g",
+    "contrib": {
+     "kcal": 249.9,
+     "protein": 6.237,
+     "fat": 7.203,
+     "carb": 40.278,
+     "sugar": 4.787999999999999,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.008,
+     "na": 751.8
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "산채비빔밥"
+   },
+   {
+    "display": "된장찌개",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 200g",
+    "contrib": {
+     "kcal": 92.0,
+     "protein": 6.76,
+     "fat": 3.26,
+     "carb": 8.88,
+     "sugar": 0.0,
+     "fiber": 3.2,
+     "ca": 42.0,
+     "fe": 1.4,
+     "vitA": 10.0,
+     "vitC": 0.0,
+     "satFat": 0.54,
+     "na": 636.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "된장찌개"
+   },
+   {
+    "display": "간장돼지불고기",
+    "matched": true,
+    "weight_g": 80,
+    "weight_note": "간장돼지불고기: 소스 오분류 수정. 반찬 볶음류 표준 추정량 80g 적용; 실측값 아님",
+    "contrib": {
+     "kcal": 118.8,
+     "protein": 11.44,
+     "fat": 2.8480000000000003,
+     "carb": 7.287999999999999,
+     "sugar": 3.464,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.96,
+     "na": 249.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "간장돼지불고기(냉장)"
+   },
+   {
+    "display": "치커리무침",
+    "matched": true,
+    "weight_g": 151.1,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 151.1g",
+    "contrib": {
+     "kcal": 24.176,
+     "protein": 1.2087999999999999,
+     "fat": 0.7252799999999999,
+     "carb": 3.5508499999999996,
+     "sugar": 1.04259,
+     "fiber": 1.2087999999999999,
+     "ca": 34.753,
+     "fe": 0.7555,
+     "vitA": 60.44,
+     "vitC": 0.71017,
+     "satFat": 0.12087999999999999,
+     "na": 258.381
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "치커리무침"
+   },
+   {
+    "display": "김치2종",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "야구르트",
+    "matched": true,
+    "weight_g": 80.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 80g; 사용자 지정 요구르트 대체 추정. 실제 제품·용량 미확인, DB 기준량 80mL를 계산상 80g으로 적용",
+    "contrib": {
+     "kcal": 84.0,
+     "protein": 1.2,
+     "fat": 0.0,
+     "carb": 20.4,
+     "sugar": 12.92,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 18.4
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "요구르트"
+   }
+  ],
+  "sourceMenuText": "산채비빔밥&계란후라이 된장찌개 간장돼지불고기 치커리무침 김치2종 야구르트"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "채선당샤브국수&칠리S",
+  "calculationMain": "채선당샤브국수&칠리S",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaGvqfWzcVOoJb1-iX5Q9w/400x.png",
+  "cat_idx": 1,
+  "구성요소_목록": [
+   "채선당샤브국수",
+   "칠리S",
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드",
+   "동치미",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 1116.0,
+  "kcal": 523.1,
+  "단백질_g": 9.8,
+  "지방_g": 16.3,
+  "탄수화물_g": 88.7,
+  "당류_g": 16.6,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 82.0,
+  "철_mg": 0.56,
+  "비타민A_ugRAE": 0.0,
+  "비타민C_mg": 1.3,
+  "포화지방_g": 2.78,
+  "나트륨_mg": 1304.5,
+  "NRF6.3": -9.6,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "채선당샤브국수",
+   "칠리S"
+  ],
+  "가공식품DB_출처_항목": [
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드"
+  ],
+  "결측_필드": [
+   "오징어김치전: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "고구마샐러드: fiber,ca,fe,vitA,vitC",
+   "동치미: vitA",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "동치미",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "오징어김치전",
+    "오이도라지무침",
+    "고구마샐러드"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.43,
+   "어육류군": 0.0,
+   "채소군": 2.22,
+   "지방군": 0.04,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "채선당샤브국수",
+    "칠리S",
+    "오징어김치전",
+    "고구마샐러드"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오이도라지무침",
+     "동치미",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "채선당샤브국수",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "칠리S",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어김치전",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 135.1,
+     "protein": 3.5,
+     "fat": 7.0,
+     "carb": 17.5,
+     "sugar": 1.4,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.4,
+     "na": 356.3
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어김치전"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "고구마샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 141.04,
+     "protein": 1.247,
+     "fat": 6.5532,
+     "carb": 20.554000000000002,
+     "sugar": 7.74,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.0578,
+     "na": 183.61
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고구마샐러드"
+   },
+   {
+    "display": "동치미",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 11.0,
+     "protein": 0.49,
+     "fat": 0.07,
+     "carb": 2.08,
+     "sugar": 1.19,
+     "fiber": 0.8,
+     "ca": 76.0,
+     "fe": 0.56,
+     "vitA": 0.0,
+     "vitC": 1.11,
+     "satFat": 0.01,
+     "na": 472.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "동치미"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "채선당샤브국수&칠리S 오징어김치전 오이도라지무침 고구마샐러드 동치미 쌀밥"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "간장불고기",
+  "calculationMain": "간장불고기",
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "간장불고기",
+   "흑미밥",
+   "얼큰콩나물국",
+   "베이컨감자채전",
+   "청포묵김무침",
+   "배추김치",
+   "망고주스"
+  ],
+  "1인분_제공량_g": 1239.0,
+  "kcal": 807.3,
+  "단백질_g": 28.0,
+  "지방_g": 9.5,
+  "탄수화물_g": 148.8,
+  "당류_g": 27.0,
+  "식이섬유_g": 6.9,
+  "칼슘_mg": 72.1,
+  "철_mg": 3.03,
+  "비타민A_ugRAE": 49.7,
+  "비타민C_mg": 43.0,
+  "포화지방_g": 2.72,
+  "나트륨_mg": 4212.3,
+  "NRF6.3": -7.7,
+  "역산검증_오차율": 1.8,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "베이컨감자채전"
+  ],
+  "가공식품DB_출처_항목": [
+   "얼큰콩나물국",
+   "망고주스"
+  ],
+  "결측_필드": [
+   "얼큰콩나물국: fiber,ca,fe,vitA,vitC",
+   "망고주스: fiber,ca,fe,vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "간장불고기",
+    "흑미밥",
+    "청포묵김무침",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "얼큰콩나물국",
+    "망고주스"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 13.27,
+   "어육류군": 0.46,
+   "채소군": 2.84,
+   "지방군": 1.96,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "간장불고기",
+    "얼큰콩나물국",
+    "베이컨감자채전",
+    "망고주스"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "흑미밥",
+     "청포묵김무침",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "간장불고기",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 7.65,
+     "protein": 0.7875,
+     "fat": 0.315,
+     "carb": 0.38699999999999996,
+     "sugar": 0.20339999999999997,
+     "fiber": 0.045,
+     "ca": 0.9,
+     "fe": 0.0378,
+     "vitA": 1.17,
+     "vitC": 0.24839999999999995,
+     "satFat": 0.0999,
+     "na": 19.62
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "돼지불고기_간장"
+   },
+   {
+    "display": "흑미밥",
+    "matched": true,
+    "weight_g": 390.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 390g",
+    "contrib": {
+     "kcal": 460.2,
+     "protein": 8.268,
+     "fat": 0.7020000000000001,
+     "carb": 100.815,
+     "sugar": 0.11699999999999999,
+     "fiber": 1.95,
+     "ca": 11.7,
+     "fe": 1.5989999999999998,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.195,
+     "na": 11.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "흑미밥"
+   },
+   {
+    "display": "얼큰콩나물국",
+    "matched": true,
+    "weight_g": 250.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 250g",
+    "contrib": {
+     "kcal": 100.0,
+     "protein": 13.075,
+     "fat": 1.575,
+     "carb": 8.65,
+     "sugar": 1.875,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.3,
+     "na": 2645.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "얼큰 콩나물국"
+   },
+   {
+    "display": "베이컨감자채전",
+    "matched": false,
+    "weight_g": 140,
+    "weight_note": "부침류 - 대학급식소(1997) 제공량 평균 140g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "청포묵김무침",
+    "matched": true,
+    "weight_g": 150.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 150g",
+    "contrib": {
+     "kcal": 109.5,
+     "protein": 3.6,
+     "fat": 6.51,
+     "carb": 9.435,
+     "sugar": 0.435,
+     "fiber": 2.4,
+     "ca": 16.5,
+     "fe": 0.96,
+     "vitA": 13.5,
+     "vitC": 3.15,
+     "satFat": 2.055,
+     "na": 969.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "탕평채"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "망고주스",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 92.0,
+     "protein": 0.24,
+     "fat": 0.0,
+     "carb": 23.0,
+     "sugar": 22.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 36.0,
+     "satFat": 0.0,
+     "na": 16.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA"
+    ],
+    "source": "gagong_db",
+    "db_name": "망고주스(1L)"
+   }
+  ],
+  "sourceMenuText": "간장불고기 흑미밥 얼큰콩나물국 베이컨감자채전 청포묵김무침 배추김치 망고주스"
+ },
+ {
+  "date": "2026-11-10",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "참치마요덮밥",
+  "calculationMain": "참치마요덮밥",
+  "price": "6,500원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "참치마요덮밥",
+   "잔치국수",
+   "국물떡볶이",
+   "김말이강정",
+   "단무지무침",
+   "배추김치"
+  ],
+  "1인분_제공량_g": 1206.0,
+  "kcal": 1243.1,
+  "단백질_g": 35.2,
+  "지방_g": 31.6,
+  "탄수화물_g": 197.6,
+  "당류_g": 20.2,
+  "식이섬유_g": 8.4,
+  "칼슘_mg": 120.7,
+  "철_mg": 2.17,
+  "비타민A_ugRAE": 123.2,
+  "비타민C_mg": 23.5,
+  "포화지방_g": 5.8,
+  "나트륨_mg": 4575.9,
+  "NRF6.3": -6.7,
+  "역산검증_오차율": 2.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "참치마요덮밥",
+   "국물떡볶이",
+   "김말이강정"
+  ],
+  "결측_필드": [
+   "참치마요덮밥: fiber,ca,fe,vitA,vitC",
+   "국물떡볶이: fiber,ca,fe,vitA,vitC",
+   "김말이강정: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "잔치국수",
+    "단무지무침",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "참치마요덮밥",
+    "국물떡볶이",
+    "김말이강정"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 7.29,
+   "어육류군": 1.28,
+   "채소군": 4.77,
+   "지방군": 2.25,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "국물떡볶이"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "참치마요덮밥",
+     "잔치국수",
+     "단무지무침",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "김말이강정: 사용자 제공 레시피(당면 80g, 김밥용 김 2~3장≈5g, 간장 1T=15g, 튀김가루 100g, 소금 약간≈1g, 전분 1T≈8g) 기준. 차가운 물 90~100㎖는 영양 기여가 없어 제외. 레시피 총중량 209g을 기존 1인분 추정 제공량(86g, 일반 반찬 평균)에 비례 환산. db104 \"김말이튀김\"은 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어 계산 불가했던 것을 원재료 단위로 분해해 해결. 튀김 흡수유는 중량 미확인으로 미반영(샐러드돈가스 처리와 동일), 강정 양념소스도 원 레시피에 없어 미반영. 계량 환산 기준: 출처 레시피 사이트의 \"계량법 안내\"를 1순위로 적용 - 저울 실측 제시값(양파 1개 170g, 대파 1/2대 70g→1대 140g, 마늘·생강 1톨 5g, 돼지고기 1토막 100g, 생선 1토막 85g, 무 1토막 150g)과 부피 기준(1T=15㎖, 1t=5㎖, 1C=200㎖, 1g=1㎖)을 그대로 사용. 액체·유지류는 1㎖=1g으로 환산. 가루류·다진 재료는 자료가 그람수를 제시하지 않아(밥숟가락 비교만 있음) 일반 조리 환산값 사용(밀가루 9g/T, 설탕 12g/T, 전분 8g/T, 빵가루 5g/T, 깨소금 8g/T, 다진마늘 10g/T, 다진대파 6g/T, 소금 15g/T).",
+    "단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "참치마요덮밥",
+    "matched": true,
+    "weight_g": 210.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 210g",
+    "contrib": {
+     "kcal": 444.15,
+     "protein": 13.209000000000001,
+     "fat": 20.496,
+     "carb": 47.754,
+     "sugar": 3.675,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.108,
+     "na": 698.25
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "참치마요덮밥(컵밥)"
+   },
+   {
+    "display": "잔치국수",
+    "matched": true,
+    "weight_g": 650.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 650g",
+    "contrib": {
+     "kcal": 409.5,
+     "protein": 12.935,
+     "fat": 3.5750000000000006,
+     "carb": 78.195,
+     "sugar": 4.095,
+     "fiber": 3.9,
+     "ca": 58.5,
+     "fe": 1.43,
+     "vitA": 78.0,
+     "vitC": 9.1,
+     "satFat": 0.78,
+     "na": 2008.5
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "잔치국수"
+   },
+   {
+    "display": "국물떡볶이",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 4.57,
+     "fat": 1.17,
+     "carb": 34.46,
+     "sugar": 8.33,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.25,
+     "na": 586.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "국물떡볶이(짜장)"
+   },
+   {
+    "display": "김말이강정",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 160.82,
+     "protein": 1.8920000000000001,
+     "fat": 4.859,
+     "carb": 27.434,
+     "sugar": 0.387,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.419,
+     "na": 365.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "김말이"
+   },
+   {
+    "display": "단무지무침",
+    "matched": true,
+    "weight_g": 60.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 60g",
+    "contrib": {
+     "kcal": 24.6,
+     "protein": 0.612,
+     "fat": 1.068,
+     "carb": 3.3059999999999996,
+     "sugar": 1.3619999999999999,
+     "fiber": 1.98,
+     "ca": 19.2,
+     "fe": 0.306,
+     "vitA": 10.2,
+     "vitC": 10.847999999999999,
+     "satFat": 0.174,
+     "na": 366.6
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "단무지무침"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "참치마요덮밥 잔치국수 국물떡볶이 김말이강정 단무지무침 배추김치"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "투움바파스타&치킨텐더",
+  "calculationMain": "투움바파스타&치킨텐더",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "투움바파스타",
+   "치킨텐더",
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 741.0,
+  "kcal": 651.1,
+  "단백질_g": 29.6,
+  "지방_g": 19.3,
+  "탄수화물_g": 89.0,
+  "당류_g": 12.2,
+  "식이섬유_g": 6.0,
+  "칼슘_mg": 79.1,
+  "철_mg": 0.89,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.8,
+  "포화지방_g": 5.8,
+  "나트륨_mg": 2976.1,
+  "NRF6.3": -10.5,
+  "역산검증_오차율": 0.4,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "투움바파스타",
+   "치킨텐더",
+   "샐러드",
+   "우동국"
+  ],
+  "결측_필드": [
+   "치킨텐더: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA",
+   "샐러드: fiber,ca,fe,vitA,vitC",
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "쌀밥",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "투움바파스타",
+    "치킨텐더",
+    "샐러드",
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.85,
+   "어육류군": 0.0,
+   "채소군": 2.36,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "투움바파스타",
+    "치킨텐더"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "쌀밥",
+     "샐러드"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "투움바파스타",
+    "matched": true,
+    "weight_g": 86.0,
+    "weight_note": "파스타류 - 메뉴젠(MenuGen) 레시피 23종 weight_g 중앙값 172g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 141.9,
+     "protein": 3.7925999999999997,
+     "fat": 6.794,
+     "carb": 14.000800000000002,
+     "sugar": 2.3564000000000003,
+     "fiber": 3.44,
+     "ca": 30.1,
+     "fe": 0.45580000000000004,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.397,
+     "na": 296.7
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "투움바파스타"
+   },
+   {
+    "display": "치킨텐더",
+    "matched": true,
+    "weight_g": 86.0,
+    "weight_note": "파스타류 - 메뉴젠(MenuGen) 레시피 23종 weight_g 중앙값 172g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 193.5,
+     "protein": 12.04,
+     "fat": 9.116,
+     "carb": 17.2,
+     "sugar": 0.86,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.6340000000000001,
+     "na": 309.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "치킨텐더(찌류)"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 83.42,
+     "protein": 6.7768,
+     "fat": 2.6316,
+     "carb": 8.6344,
+     "sugar": 3.4658,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.602,
+     "na": 350.02
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "샐러드"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "투움바파스타&치킨텐더"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "묵은지참치비빔밥",
+  "calculationMain": "묵은지참치비빔밥",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "묵은지참치비빔밥",
+   "메밀전병",
+   "오그락지",
+   "김치",
+   "탕국"
+  ],
+  "1인분_제공량_g": 1003.0,
+  "kcal": 440.3,
+  "단백질_g": 20.1,
+  "지방_g": 14.1,
+  "탄수화물_g": 59.3,
+  "당류_g": 10.7,
+  "식이섬유_g": 7.4,
+  "칼슘_mg": 97.4,
+  "철_mg": 1.4,
+  "비타민A_ugRAE": 63.0,
+  "비타민C_mg": 12.1,
+  "포화지방_g": 4.12,
+  "나트륨_mg": 1658.0,
+  "NRF6.3": 0.2,
+  "역산검증_오차율": 0.9,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "묵은지참치비빔밥"
+  ],
+  "가공식품DB_출처_항목": [
+   "메밀전병",
+   "탕국"
+  ],
+  "결측_필드": [
+   "메밀전병: fiber,ca,fe,vitA,vitC",
+   "탕국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "오그락지",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "메밀전병",
+    "탕국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 9.31,
+   "어육류군": 4.41,
+   "채소군": 16.92,
+   "지방군": 1.36,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "묵은지참치비빔밥",
+    "탕국"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오그락지"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [
+    {
+     "name": "메밀전병",
+     "url": "https://www.10000recipe.com/recipe/6918742",
+     "note": "메밀전병: 사용자 지정 만개의레시피6918742 대체 추정. 메밀 부침가루3종이컵=300g 가정, 혼합분 제품 배합 미상으로 메밀가루 성분 대체. 물2.7종이컵=486g, 김치1/5포기=200g, 두부1/2모=150g, 숙주1줌=50g, 대파1뿌리=70g 가정. 선택 돼지고기100g은 포함, 임의 추가 버섯은 제외. 굴소스1T18g, 설탕반스푼6g, 참기름반스푼6.8g, 간장1T15g, 맛술2스푼30g, 다진마늘1t5g 가정. 단계에만 등장하는 고춧가루1스푼7g 포함. 볶음·부침용 기름은 양 미상으로 제외하여 지방군 과소 추정 가능. 후추·생강가루 톡톡은 중량 미상 제외. 물 증발·조리수율 미보정, 가식부 추정총량에 기존 제공량 비례 환산. 실제 급식 제품 배합 미확인. 영양소 탭 기존 계산 유지."
+    }
+   ],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "묵은지참치비빔밥",
+    "matched": false,
+    "weight_g": 418,
+    "weight_note": "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "메밀전병",
+    "matched": true,
+    "weight_g": 150.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 150g",
+    "contrib": {
+     "kcal": 277.5,
+     "protein": 10.5,
+     "fat": 10.5,
+     "carb": 36.0,
+     "sugar": 3.75,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.375,
+     "na": 450.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "메밀전병"
+   },
+   {
+    "display": "오그락지",
+    "matched": true,
+    "weight_g": 85.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 85g",
+    "contrib": {
+     "kcal": 74.8,
+     "protein": 2.805,
+     "fat": 1.02,
+     "carb": 14.297,
+     "sugar": 4.488,
+     "fiber": 4.93,
+     "ca": 54.4,
+     "fe": 0.9689999999999999,
+     "vitA": 28.05,
+     "vitC": 8.4745,
+     "satFat": 0.1785,
+     "na": 269.45
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "무말랭이무침"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "탕국",
+    "matched": true,
+    "weight_g": 250.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 250g",
+    "contrib": {
+     "kcal": 50.0,
+     "protein": 4.775,
+     "fat": 2.125,
+     "carb": 2.55,
+     "sugar": 0.1,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.5,
+     "na": 387.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "탕국"
+   }
+  ],
+  "sourceMenuText": "묵은지참치비빔밥"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "소고기우거지국",
+  "calculationMain": "소고기우거지국",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "소고기우거지국",
+   "메밀전병",
+   "오그락지",
+   "김치"
+  ],
+  "1인분_제공량_g": 585.0,
+  "kcal": 460.3,
+  "단백질_g": 20.7,
+  "지방_g": 15.6,
+  "탄수화물_g": 60.7,
+  "당류_g": 12.6,
+  "식이섬유_g": 7.4,
+  "칼슘_mg": 97.4,
+  "철_mg": 1.4,
+  "비타민A_ugRAE": 63.0,
+  "비타민C_mg": 12.1,
+  "포화지방_g": 4.82,
+  "나트륨_mg": 1868.0,
+  "NRF6.3": -2.6,
+  "역산검증_오차율": 1.3,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "소고기우거지국",
+   "메밀전병"
+  ],
+  "결측_필드": [
+   "소고기우거지국: fiber,ca,fe,vitA,vitC",
+   "메밀전병: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "오그락지",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "소고기우거지국",
+    "메밀전병"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 9.31,
+   "어육류군": 4.41,
+   "채소군": 16.92,
+   "지방군": 1.36,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "소고기우거지국"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오그락지"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [
+    {
+     "name": "메밀전병",
+     "url": "https://www.10000recipe.com/recipe/6918742",
+     "note": "메밀전병: 사용자 지정 만개의레시피6918742 대체 추정. 메밀 부침가루3종이컵=300g 가정, 혼합분 제품 배합 미상으로 메밀가루 성분 대체. 물2.7종이컵=486g, 김치1/5포기=200g, 두부1/2모=150g, 숙주1줌=50g, 대파1뿌리=70g 가정. 선택 돼지고기100g은 포함, 임의 추가 버섯은 제외. 굴소스1T18g, 설탕반스푼6g, 참기름반스푼6.8g, 간장1T15g, 맛술2스푼30g, 다진마늘1t5g 가정. 단계에만 등장하는 고춧가루1스푼7g 포함. 볶음·부침용 기름은 양 미상으로 제외하여 지방군 과소 추정 가능. 후추·생강가루 톡톡은 중량 미상 제외. 물 증발·조리수율 미보정, 가식부 추정총량에 기존 제공량 비례 환산. 실제 급식 제품 배합 미확인. 영양소 탭 기존 계산 유지."
+    }
+   ],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "소고기우거지국",
+    "matched": true,
+    "weight_g": 250.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 250g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 5.375,
+     "fat": 3.7,
+     "carb": 3.925,
+     "sugar": 1.925,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.2,
+     "na": 597.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "소고기 우거지국"
+   },
+   {
+    "display": "메밀전병",
+    "matched": true,
+    "weight_g": 150.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 150g",
+    "contrib": {
+     "kcal": 277.5,
+     "protein": 10.5,
+     "fat": 10.5,
+     "carb": 36.0,
+     "sugar": 3.75,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.375,
+     "na": 450.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "메밀전병"
+   },
+   {
+    "display": "오그락지",
+    "matched": true,
+    "weight_g": 85.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 85g",
+    "contrib": {
+     "kcal": 74.8,
+     "protein": 2.805,
+     "fat": 1.02,
+     "carb": 14.297,
+     "sugar": 4.488,
+     "fiber": 4.93,
+     "ca": 54.4,
+     "fe": 0.9689999999999999,
+     "vitA": 28.05,
+     "vitC": 8.4745,
+     "satFat": 0.1785,
+     "na": 269.45
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "무말랭이무침"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "소고기우거지국"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "돈가스&브라운S",
+  "calculationMain": "돈가스&브라운S",
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "돈가스",
+   "브라운소스",
+   "크림스프",
+   "감자튀김",
+   "쫄면",
+   "김치볶음밥",
+   "단무지",
+   "포기김치",
+   "빼빼로"
+  ],
+  "1인분_제공량_g": 1140.3,
+  "kcal": 2017.5,
+  "단백질_g": 46.6,
+  "지방_g": 62.0,
+  "탄수화물_g": 308.6,
+  "당류_g": 62.4,
+  "식이섬유_g": 12.1,
+  "칼슘_mg": 121.4,
+  "철_mg": 3.91,
+  "비타민A_ugRAE": 107.5,
+  "비타민C_mg": 34.3,
+  "포화지방_g": 21.57,
+  "나트륨_mg": 6950.7,
+  "NRF6.3": -12.0,
+  "역산검증_오차율": 1.9,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "브라운소스",
+   "크림스프",
+   "김치볶음밥",
+   "빼빼로"
+  ],
+  "결측_필드": [
+   "브라운소스: fiber,ca,fe,vitA,vitC",
+   "김치볶음밥: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "돈가스",
+    "감자튀김",
+    "쫄면",
+    "단무지",
+    "포기김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "브라운소스",
+    "크림스프",
+    "김치볶음밥",
+    "빼빼로"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 12.29,
+   "어육류군": 5.06,
+   "채소군": 3.21,
+   "지방군": 9.87,
+   "우유군": 0.54,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "빼빼로"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "돈가스",
+     "감자튀김",
+     "쫄면",
+     "김치볶음밥",
+     "단무지",
+     "포기김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "브라운소스: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.",
+    "크림스프: 사용자 제공 레시피(우유 200㎖=200g, 버터 3T=45g, 밀가루 3T≈27g) 기준. 레시피 총중량 272g을 기존 반찬 1인분 추정 제공량(150g, 가공식품DB 1회 섭취참고량)에 비례 환산. db104 완성품 레코드(\"스프, 크림 스프\")는 식품군이 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어(FOOD_GROUP_MAP None) 계산이 구조적으로 불가해, 대신 재료 단위로 직접 분해 계산. 치즈·향신료 등 레시피에 없는 부재료는 미반영. 계량 환산 기준: 출처 레시피 사이트의 \"계량법 안내\"를 1순위로 적용 - 저울 실측 제시값(양파 1개 170g, 대파 1/2대 70g→1대 140g, 마늘·생강 1톨 5g, 돼지고기 1토막 100g, 생선 1토막 85g, 무 1토막 150g)과 부피 기준(1T=15㎖, 1t=5㎖, 1C=200㎖, 1g=1㎖)을 그대로 사용. 액체·유지류는 1㎖=1g으로 환산. 가루류·다진 재료는 자료가 그람수를 제시하지 않아(밥숟가락 비교만 있음) 일반 조리 환산값 사용(밀가루 9g/T, 설탕 12g/T, 전분 8g/T, 빵가루 5g/T, 깨소금 8g/T, 다진마늘 10g/T, 다진대파 6g/T, 소금 15g/T).",
+    "포기김치 → 배추김치: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 35g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "돈가스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지 (원본 표기 분리)",
+    "contrib": {
+     "kcal": 223.5,
+     "protein": 13.35,
+     "fat": 11.835,
+     "carb": 13.995,
+     "sugar": 0.78,
+     "fiber": 0.75,
+     "ca": 12.0,
+     "fe": 0.6,
+     "vitA": 12.0,
+     "vitC": 5.415,
+     "satFat": 2.49,
+     "na": 178.5
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "돈가스"
+   },
+   {
+    "display": "브라운소스",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스 - 표준 9g(1회용 파우치). 표기 통일: 브라운S→브라운소스",
+    "contrib": {
+     "kcal": 12.69,
+     "protein": 0.18,
+     "fat": 0.09,
+     "carb": 2.79,
+     "sugar": 2.25,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 112.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "브라운소스"
+   },
+   {
+    "display": "크림스프",
+    "matched": true,
+    "weight_g": 150.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 150g",
+    "contrib": {
+     "kcal": 637.5,
+     "protein": 7.5,
+     "fat": 22.23,
+     "carb": 100.32,
+     "sugar": 32.82,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 11.625,
+     "na": 2737.5
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "크림스프"
+   },
+   {
+    "display": "감자튀김",
+    "matched": true,
+    "weight_g": 201.3,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 201.3g",
+    "contrib": {
+     "kcal": 207.33900000000003,
+     "protein": 3.8247000000000004,
+     "fat": 8.756549999999999,
+     "carb": 28.745639999999998,
+     "sugar": 0.0,
+     "fiber": 5.2338,
+     "ca": 18.117,
+     "fe": 1.10715,
+     "vitA": 0.0,
+     "vitC": 19.98909,
+     "satFat": 1.32858,
+     "na": 756.888
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "감자튀김"
+   },
+   {
+    "display": "쫄면",
+    "matched": true,
+    "weight_g": 320.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 320g",
+    "contrib": {
+     "kcal": 387.2,
+     "protein": 11.008,
+     "fat": 2.56,
+     "carb": 79.13600000000001,
+     "sugar": 14.655999999999999,
+     "fiber": 4.16,
+     "ca": 54.4,
+     "fe": 1.1840000000000002,
+     "vitA": 83.2,
+     "vitC": 6.495999999999999,
+     "satFat": 0.608,
+     "na": 1923.2
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "쫄면"
+   },
+   {
+    "display": "김치볶음밥",
+    "matched": true,
+    "weight_g": 210.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 210g",
+    "contrib": {
+     "kcal": 380.1,
+     "protein": 7.1610000000000005,
+     "fat": 9.618,
+     "carb": 60.54299999999999,
+     "sugar": 2.52,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.5959999999999999,
+     "na": 717.15
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "김치볶음밥 (Kimchi Fried Rice)"
+   },
+   {
+    "display": "단무지",
+    "matched": true,
+    "weight_g": 35.0,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 4.55,
+     "protein": 0.1155,
+     "fat": 0.07,
+     "carb": 0.84,
+     "sugar": 0.16449999999999998,
+     "fiber": 0.455,
+     "ca": 3.85,
+     "fe": 0.035,
+     "vitA": 0.0,
+     "vitC": 1.0955,
+     "satFat": 0.0105,
+     "na": 193.2
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "단무지"
+   },
+   {
+    "display": "포기김치",
+    "matched": true,
+    "weight_g": 35.0,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 13.3,
+     "protein": 0.693,
+     "fat": 0.1505,
+     "carb": 2.2715,
+     "sugar": 0.84,
+     "fiber": 0.875,
+     "ca": 15.05,
+     "fe": 0.1505,
+     "vitA": 12.25,
+     "vitC": 1.2565,
+     "satFat": 0.0245,
+     "na": 192.85
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "빼빼로",
+    "matched": true,
+    "weight_g": 30.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 30g",
+    "contrib": {
+     "kcal": 151.35,
+     "protein": 2.778,
+     "fat": 6.6659999999999995,
+     "carb": 20.001,
+     "sugar": 8.334000000000001,
+     "fiber": 0.63,
+     "ca": 18.0,
+     "fe": 0.831,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.888,
+     "na": 138.9
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "빼빼로"
+   }
+  ],
+  "sourceMenuText": "돈가스&브라운S 크림스프 감자튀김 쫄면 김치볶음밥 단무지&포기김치 빼빼로"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "채선당샤브국수&칠리S",
+  "calculationMain": "채선당샤브국수&칠리S",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaGvqN1Ude-4AQo7mCmboA/400x.png",
+  "cat_idx": 1,
+  "구성요소_목록": [
+   "채선당샤브국수",
+   "칠리S",
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드",
+   "동치미",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 1116.0,
+  "kcal": 523.1,
+  "단백질_g": 9.8,
+  "지방_g": 16.3,
+  "탄수화물_g": 88.7,
+  "당류_g": 16.6,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 82.0,
+  "철_mg": 0.56,
+  "비타민A_ugRAE": 0.0,
+  "비타민C_mg": 1.3,
+  "포화지방_g": 2.78,
+  "나트륨_mg": 1304.5,
+  "NRF6.3": -9.6,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "채선당샤브국수",
+   "칠리S"
+  ],
+  "가공식품DB_출처_항목": [
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드"
+  ],
+  "결측_필드": [
+   "오징어김치전: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "고구마샐러드: fiber,ca,fe,vitA,vitC",
+   "동치미: vitA",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "동치미",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "오징어김치전",
+    "오이도라지무침",
+    "고구마샐러드"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.43,
+   "어육류군": 0.0,
+   "채소군": 2.22,
+   "지방군": 0.04,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "채선당샤브국수",
+    "칠리S",
+    "오징어김치전",
+    "고구마샐러드"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오이도라지무침",
+     "동치미",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "채선당샤브국수",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "칠리S",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어김치전",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 135.1,
+     "protein": 3.5,
+     "fat": 7.0,
+     "carb": 17.5,
+     "sugar": 1.4,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.4,
+     "na": 356.3
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어김치전"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "고구마샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 141.04,
+     "protein": 1.247,
+     "fat": 6.5532,
+     "carb": 20.554000000000002,
+     "sugar": 7.74,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.0578,
+     "na": 183.61
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고구마샐러드"
+   },
+   {
+    "display": "동치미",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 11.0,
+     "protein": 0.49,
+     "fat": 0.07,
+     "carb": 2.08,
+     "sugar": 1.19,
+     "fiber": 0.8,
+     "ca": 76.0,
+     "fe": 0.56,
+     "vitA": 0.0,
+     "vitC": 1.11,
+     "satFat": 0.01,
+     "na": 472.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "동치미"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "채선당샤브국수&칠리S 오징어김치전 오이도라지무침 고구마샐러드 동치미 쌀밥"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "얼큰수육국밥",
+  "calculationMain": "얼큰수육국밥",
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "국밥",
+   "돼지고기수육",
+   "흑미밥",
+   "치킨너겟",
+   "머스타드",
+   "양파절임",
+   "숙주나물",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "1인분_제공량_g": 1137.0,
+  "kcal": 1287.5,
+  "단백질_g": 62.8,
+  "지방_g": 27.0,
+  "탄수화물_g": 143.1,
+  "당류_g": 18.5,
+  "식이섬유_g": 9.9,
+  "칼슘_mg": 137.1,
+  "철_mg": 3.89,
+  "비타민A_ugRAE": 97.1,
+  "비타민C_mg": 9.5,
+  "포화지방_g": 10.89,
+  "나트륨_mg": 2847.1,
+  "NRF6.3": 1.7,
+  "역산검증_오차율": 17.1,
+  "역산검증_일치여부": false,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "머스타드",
+   "양파절임"
+  ],
+  "결측_필드": [
+   "치킨너겟: fat,carb,fiber,ca,fe,vitA,vitC",
+   "머스타드: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "국밥",
+    "흑미밥",
+    "치킨너겟",
+    "숙주나물",
+    "배추김치",
+    "그린샐러드"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "머스타드",
+    "양파절임"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 13.85,
+   "어육류군": 4.99,
+   "채소군": 6.68,
+   "지방군": 0.37,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "양파절임"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "국밥",
+     "흑미밥",
+     "숙주나물",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "돼지고기수육",
+     "치킨너겟",
+     "그린샐러드"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "머스타드: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "국밥",
+    "matched": true,
+    "weight_g": 197,
+    "weight_note": "국물·찌개류 표준(283g)에서 수육 사진추정분 제외",
+    "contrib": {
+     "kcal": 102.44,
+     "protein": 6.796500000000001,
+     "fat": 2.0291,
+     "carb": 14.4401,
+     "sugar": 0.09850000000000002,
+     "fiber": 2.5610000000000004,
+     "ca": 49.25,
+     "fe": 0.0,
+     "vitA": 37.43,
+     "vitC": 0.0,
+     "satFat": 0.6698000000000001,
+     "na": 567.36
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "국밥"
+   },
+   {
+    "display": "돼지고기수육",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "[사진중량추정] 10/27 사진 속 고기 조각 비율 추정 - 삼겹살김치찌개 사례와 동일하게 일반 반찬 평균 86g 적용",
+    "contrib": {
+     "kcal": 266.6,
+     "protein": 23.624200000000002,
+     "fat": 17.741799999999998,
+     "carb": 0.0,
+     "sugar": 0.0,
+     "fiber": 0.0,
+     "ca": 3.44,
+     "fe": 0.9975999999999999,
+     "vitA": 4.3,
+     "vitC": 0.0,
+     "satFat": 5.7791999999999994,
+     "na": 30.96
+    },
+    "missing": [],
+    "source": "db104_direct",
+    "db_name": "돼지고기, 앞다리, 수육용, 삶은것"
+   },
+   {
+    "display": "흑미밥",
+    "matched": true,
+    "weight_g": 390.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 390g",
+    "contrib": {
+     "kcal": 460.2,
+     "protein": 8.268,
+     "fat": 0.7020000000000001,
+     "carb": 100.815,
+     "sugar": 0.11699999999999999,
+     "fiber": 1.95,
+     "ca": 11.7,
+     "fe": 1.5989999999999998,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.195,
+     "na": 11.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "흑미밥"
+   },
+   {
+    "display": "치킨너겟",
+    "matched": true,
+    "weight_g": 114.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 114g (원본 표기 분리)",
+    "contrib": {
+     "kcal": 270.18,
+     "protein": 18.5136,
+     "fat": 0.0,
+     "carb": 0.0,
+     "sugar": 0.9006000000000001,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.2490000000000006,
+     "na": 490.2
+    },
+    "missing": [
+     "fat",
+     "carb",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "food_db",
+    "db_name": "닭튀김_New치킨너겟"
+   },
+   {
+    "display": "머스타드",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 12.33,
+     "protein": 0.5445,
+     "fat": 0.396,
+     "carb": 1.6434,
+     "sugar": 1.4084999999999999,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.041400000000000006,
+     "na": 59.13
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "머스타드(3172102)"
+   },
+   {
+    "display": "양파절임",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 64.5,
+     "protein": 1.5393999999999999,
+     "fat": 0.0258,
+     "carb": 15.0414,
+     "sugar": 10.75,
+     "fiber": 1.72,
+     "ca": 12.9,
+     "fe": 0.40419999999999995,
+     "vitA": 0.0,
+     "vitC": 0.40419999999999995,
+     "satFat": 0.0086,
+     "na": 922.78
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "양파장아찌"
+   },
+   {
+    "display": "숙주나물",
+    "matched": true,
+    "weight_g": 70.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 70g",
+    "contrib": {
+     "kcal": 7.0,
+     "protein": 0.63,
+     "fat": 0.371,
+     "carb": 0.574,
+     "sugar": 0.084,
+     "fiber": 0.28,
+     "ca": 4.9,
+     "fe": 0.23800000000000002,
+     "vitA": 4.2,
+     "vitC": 2.443,
+     "satFat": 0.063,
+     "na": 140.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "숙주나물"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "그린샐러드",
+    "matched": true,
+    "weight_g": 85.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 85g",
+    "contrib": {
+     "kcal": 66.3,
+     "protein": 0.9350000000000002,
+     "fat": 5.3465,
+     "carb": 4.114,
+     "sugar": 2.7625,
+     "fiber": 0.85,
+     "ca": 11.9,
+     "fe": 0.221,
+     "vitA": 16.15,
+     "vitC": 3.0940000000000003,
+     "satFat": 0.816,
+     "na": 73.95
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "양상추 샐러드"
+   }
+  ],
+  "sourceMenuText": "얼큰수육국밥 흑미밥 치킨너겟*머스타드 양파절임 숙주나물 배추김치 그린샐러드"
+ },
+ {
+  "date": "2026-11-11",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "왕돈까스",
+  "calculationMain": "왕돈까스",
+  "price": "6,500원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "왕돈까스",
+   "미니우동",
+   "비엔나강정",
+   "요구르트",
+   "단무지무침",
+   "배추김치",
+   "그린샐러드"
+  ],
+  "1인분_제공량_g": 1191.0,
+  "kcal": 999.2,
+  "단백질_g": 36.3,
+  "지방_g": 33.7,
+  "탄수화물_g": 133.9,
+  "당류_g": 22.8,
+  "식이섬유_g": 9.1,
+  "칼슘_mg": 143.4,
+  "철_mg": 1.97,
+  "비타민A_ugRAE": 86.6,
+  "비타민C_mg": 18.4,
+  "포화지방_g": 7.75,
+  "나트륨_mg": 2934.0,
+  "NRF6.3": -2.7,
+  "역산검증_오차율": 1.5,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "비엔나강정"
+  ],
+  "가공식품DB_출처_항목": [
+   "왕돈까스",
+   "요구르트"
+  ],
+  "결측_필드": [
+   "왕돈까스: fiber,ca,fe,vitA,vitC",
+   "요구르트: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "미니우동",
+    "단무지무침",
+    "배추김치",
+    "그린샐러드"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "왕돈까스",
+    "요구르트"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 7.67,
+   "어육류군": 4.29,
+   "채소군": 8.63,
+   "지방군": 2.75,
+   "우유군": 0.85,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "비엔나강정"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "왕돈까스",
+     "미니우동",
+     "요구르트",
+     "단무지무침",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "그린샐러드"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "왕돈까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 402.0,
+     "protein": 19.875,
+     "fat": 22.305,
+     "carb": 28.935,
+     "sugar": 2.31,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 5.685,
+     "na": 374.25
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "왕돈까스"
+   },
+   {
+    "display": "미니우동",
+    "matched": true,
+    "weight_g": 630.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 630g",
+    "contrib": {
+     "kcal": 384.3,
+     "protein": 11.718,
+     "fat": 4.536,
+     "carb": 70.686,
+     "sugar": 1.008,
+     "fiber": 3.78,
+     "ca": 69.3,
+     "fe": 1.008,
+     "vitA": 25.2,
+     "vitC": 0.882,
+     "satFat": 1.008,
+     "na": 1549.8
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "우동"
+   },
+   {
+    "display": "비엔나강정",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "요구르트",
+    "matched": true,
+    "weight_g": 80.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 80g",
+    "contrib": {
+     "kcal": 84.0,
+     "protein": 1.2,
+     "fat": 0.0,
+     "carb": 20.4,
+     "sugar": 12.92,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 18.4
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "요구르트"
+   },
+   {
+    "display": "단무지무침",
+    "matched": true,
+    "weight_g": 60.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 60g",
+    "contrib": {
+     "kcal": 24.6,
+     "protein": 0.612,
+     "fat": 1.068,
+     "carb": 3.3059999999999996,
+     "sugar": 1.3619999999999999,
+     "fiber": 1.98,
+     "ca": 19.2,
+     "fe": 0.306,
+     "vitA": 10.2,
+     "vitC": 10.847999999999999,
+     "satFat": 0.174,
+     "na": 366.6
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "단무지무침"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "그린샐러드",
+    "matched": true,
+    "weight_g": 85.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 85g",
+    "contrib": {
+     "kcal": 66.3,
+     "protein": 0.9350000000000002,
+     "fat": 5.3465,
+     "carb": 4.114,
+     "sugar": 2.7625,
+     "fiber": 0.85,
+     "ca": 11.9,
+     "fe": 0.221,
+     "vitA": 16.15,
+     "vitC": 3.0940000000000003,
+     "satFat": 0.816,
+     "na": 73.95
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "양상추 샐러드"
+   }
+  ],
+  "sourceMenuText": "왕돈까스 미니우동 비엔나강정 요구르트 단무지무침 배추김치 그린샐러드"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "소불고기덮밥",
+  "calculationMain": "소불고기덮밥",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "소불고기덮밥",
+   "볼어묵볶음",
+   "알마늘지",
+   "김치",
+   "무국"
+  ],
+  "1인분_제공량_g": 757.2,
+  "kcal": 554.2,
+  "단백질_g": 23.8,
+  "지방_g": 16.4,
+  "탄수화물_g": 82.2,
+  "당류_g": 16.1,
+  "식이섬유_g": 4.6,
+  "칼슘_mg": 106.9,
+  "철_mg": 1.25,
+  "비타민A_ugRAE": 71.7,
+  "비타민C_mg": 10.0,
+  "포화지방_g": 4.01,
+  "나트륨_mg": 2509.5,
+  "NRF6.3": -7.9,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "알마늘지"
+  ],
+  "가공식품DB_출처_항목": [
+   "소불고기덮밥"
+  ],
+  "결측_필드": [
+   "소불고기덮밥: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "볼어묵볶음",
+    "김치",
+    "무국"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "소불고기덮밥"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.0,
+   "채소군": 2.94,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "소불고기덮밥",
+    "볼어묵볶음",
+    "알마늘지"
+   ],
+   "매칭DB": {
+    "menugen": [],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치",
+     "무국"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "소불고기덮밥",
+    "matched": true,
+    "weight_g": 210.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 210g",
+    "contrib": {
+     "kcal": 349.65,
+     "protein": 14.007,
+     "fat": 9.786,
+     "carb": 55.23,
+     "sugar": 6.7410000000000005,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 2.9189999999999996,
+     "na": 658.35
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "소불고기덮밥"
+   },
+   {
+    "display": "볼어묵볶음",
+    "matched": true,
+    "weight_g": 41.2,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 41.2g",
+    "contrib": {
+     "kcal": 144.20000000000002,
+     "protein": 7.004000000000001,
+     "fat": 5.689720000000001,
+     "carb": 16.414080000000002,
+     "sugar": 5.7020800000000005,
+     "fiber": 0.7828,
+     "ca": 38.316,
+     "fe": 0.5314800000000001,
+     "vitA": 36.668,
+     "vitC": 0.93524,
+     "satFat": 0.9228800000000001,
+     "na": 733.7720000000002
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "어묵볶음"
+   },
+   {
+    "display": "알마늘지",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "무국",
+    "matched": true,
+    "weight_g": 320.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 320g",
+    "contrib": {
+     "kcal": 22.4,
+     "protein": 0.8320000000000001,
+     "fat": 0.544,
+     "carb": 4.096,
+     "sugar": 1.2480000000000002,
+     "fiber": 1.28,
+     "ca": 25.6,
+     "fe": 0.288,
+     "vitA": 0.0,
+     "vitC": 5.44,
+     "satFat": 0.096,
+     "na": 566.4
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "무국"
+   }
+  ],
+  "sourceMenuText": "소불고기덮밥"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "들깨오리탕",
+  "calculationMain": "들깨오리탕",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "들깨오리탕",
+   "볼어묵볶음",
+   "알마늘지",
+   "김치"
+  ],
+  "1인분_제공량_g": 477.2,
+  "kcal": 307.2,
+  "단백질_g": 16.2,
+  "지방_g": 15.5,
+  "탄수화물_g": 25.8,
+  "당류_g": 8.7,
+  "식이섬유_g": 3.3,
+  "칼슘_mg": 81.3,
+  "철_mg": 0.96,
+  "비타민A_ugRAE": 71.7,
+  "비타민C_mg": 4.5,
+  "포화지방_g": 3.97,
+  "나트륨_mg": 1729.8,
+  "NRF6.3": -10.8,
+  "역산검증_오차율": 0.1,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "알마늘지"
+  ],
+  "가공식품DB_출처_항목": [
+   "들깨오리탕"
+  ],
+  "결측_필드": [
+   "들깨오리탕: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "볼어묵볶음",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "들깨오리탕"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.0,
+   "어육류군": 0.0,
+   "채소군": 2.36,
+   "지방군": 0.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "들깨오리탕",
+    "볼어묵볶음",
+    "알마늘지"
+   ],
+   "매칭DB": {
+    "menugen": [],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "들깨오리탕",
+    "matched": true,
+    "weight_g": 250.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 250g",
+    "contrib": {
+     "kcal": 125.0,
+     "protein": 7.25,
+     "fat": 9.375,
+     "carb": 2.85,
+     "sugar": 0.55,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 2.975,
+     "na": 445.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "들깨오리탕"
+   },
+   {
+    "display": "볼어묵볶음",
+    "matched": true,
+    "weight_g": 41.2,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 41.2g",
+    "contrib": {
+     "kcal": 144.20000000000002,
+     "protein": 7.004000000000001,
+     "fat": 5.689720000000001,
+     "carb": 16.414080000000002,
+     "sugar": 5.7020800000000005,
+     "fiber": 0.7828,
+     "ca": 38.316,
+     "fe": 0.5314800000000001,
+     "vitA": 36.668,
+     "vitC": 0.93524,
+     "satFat": 0.9228800000000001,
+     "na": 733.7720000000002
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "어묵볶음"
+   },
+   {
+    "display": "알마늘지",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "들깨오리탕"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "등심돈까스",
+  "calculationMain": "등심돈까스",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "등심돈까스",
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 719.0,
+  "kcal": 600.7,
+  "단백질_g": 35.3,
+  "지방_g": 14.9,
+  "탄수화물_g": 78.7,
+  "당류_g": 10.5,
+  "식이섬유_g": 3.7,
+  "칼슘_mg": 74.5,
+  "철_mg": 1.68,
+  "비타민A_ugRAE": 57.5,
+  "비타민C_mg": 11.9,
+  "포화지방_g": 3.49,
+  "나트륨_mg": 3019.3,
+  "NRF6.3": -6.5,
+  "역산검증_오차율": 1.8,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "샐러드",
+   "우동국"
+  ],
+  "결측_필드": [
+   "쌀밥: vitA",
+   "샐러드: fiber,ca,fe,vitA,vitC",
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "등심돈까스",
+    "쌀밥",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "샐러드",
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 3.27,
+   "어육류군": 3.12,
+   "채소군": 2.48,
+   "지방군": 2.75,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [],
+   "매칭DB": {
+    "menugen": [
+     "등심돈까스",
+     "쌀밥",
+     "샐러드"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "등심돈까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 285.0,
+     "protein": 21.45,
+     "fat": 11.55,
+     "carb": 20.85,
+     "sugar": 1.515,
+     "fiber": 1.05,
+     "ca": 25.5,
+     "fe": 1.245,
+     "vitA": 22.5,
+     "vitC": 8.160000000000002,
+     "satFat": 2.715,
+     "na": 649.5
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "등심돈가스"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 83.42,
+     "protein": 6.7768,
+     "fat": 2.6316,
+     "carb": 8.6344,
+     "sugar": 3.4658,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.602,
+     "na": 350.02
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "샐러드"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "등심돈까스"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "육개장",
+  "calculationMain": "육개장",
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "육개장",
+   "닭강정",
+   "새송이버섯볶음",
+   "오이도라지무침",
+   "2종김치",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 943.9,
+  "kcal": 866.7,
+  "단백질_g": 56.1,
+  "지방_g": 24.8,
+  "탄수화물_g": 101.9,
+  "당류_g": 21.2,
+  "식이섬유_g": 5.7,
+  "칼슘_mg": 102.9,
+  "철_mg": 4.21,
+  "비타민A_ugRAE": 97.1,
+  "비타민C_mg": 0.4,
+  "포화지방_g": 4.12,
+  "나트륨_mg": 1769.8,
+  "NRF6.3": 7.0,
+  "역산검증_오차율": 1.3,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "2종김치"
+  ],
+  "가공식품DB_출처_항목": [
+   "새송이버섯볶음",
+   "오이도라지무침"
+  ],
+  "결측_필드": [
+   "새송이버섯볶음: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "육개장",
+    "닭강정",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "새송이버섯볶음",
+    "오이도라지무침"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 2.02,
+   "어육류군": 4.76,
+   "채소군": 4.23,
+   "지방군": 2.29,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "2종김치"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "육개장",
+     "닭강정",
+     "오이도라지무침",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "큰느타리버섯(새송이버섯), 데친것",
+     "콩기름"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "새송이버섯볶음: 사용자 지정으로 새송이버섯과 조리유 분해. 기존 추정 총량 80g 안에서 새송이버섯 77g + 콩기름 3g으로 배분(80g당 버섯77g, 기름3g 임시 가정). 실제 조리유 종류·흡수량 실측값이 아니며 버섯은 원재료DB 데친것으로 대체. 다른 채소·양념과 조리수율 차이는 미반영. 메뉴명과 영양성분 유지, 교환단위만 변경.",
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "육개장",
+    "matched": true,
+    "weight_g": 440.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 440g",
+    "contrib": {
+     "kcal": 132.0,
+     "protein": 16.192,
+     "fat": 4.356,
+     "carb": 6.556,
+     "sugar": 3.344,
+     "fiber": 5.28,
+     "ca": 74.8,
+     "fe": 2.4640000000000004,
+     "vitA": 8.8,
+     "vitC": 0.0,
+     "satFat": 0.7480000000000001,
+     "na": 884.4
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "육개장"
+   },
+   {
+    "display": "닭강정",
+    "matched": true,
+    "weight_g": 183.9,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 183.9g",
+    "contrib": {
+     "kcal": 402.741,
+     "protein": 32.9181,
+     "fat": 11.42019,
+     "carb": 39.37299,
+     "sugar": 8.514569999999999,
+     "fiber": 0.3678,
+     "ca": 22.068,
+     "fe": 1.7470499999999998,
+     "vitA": 88.272,
+     "vitC": 0.27585,
+     "satFat": 1.85739,
+     "na": 319.98600000000005
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "닭강정"
+   },
+   {
+    "display": "새송이버섯볶음",
+    "matched": true,
+    "weight_g": 80,
+    "weight_note": "볶음류 - 대학급식소(1997) 제공량 평균 80g",
+    "contrib": {
+     "kcal": 96.0,
+     "protein": 2.4,
+     "fat": 6.4,
+     "carb": 7.4319999999999995,
+     "sugar": 3.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.2,
+     "na": 272.8
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "새송이버섯볶음"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "2종김치",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "육개장 닭강정 새송이버섯볶음 오이도라지무침 2종김치 쌀밥"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "채선당샤브국수&칠리S",
+  "calculationMain": "채선당샤브국수&칠리S",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaGvp_tqcUqC4wKX0SXKyg/400x.png",
+  "cat_idx": 1,
+  "구성요소_목록": [
+   "채선당샤브국수",
+   "칠리S",
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드",
+   "동치미",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 1116.0,
+  "kcal": 523.1,
+  "단백질_g": 9.8,
+  "지방_g": 16.3,
+  "탄수화물_g": 88.7,
+  "당류_g": 16.6,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 82.0,
+  "철_mg": 0.56,
+  "비타민A_ugRAE": 0.0,
+  "비타민C_mg": 1.3,
+  "포화지방_g": 2.78,
+  "나트륨_mg": 1304.5,
+  "NRF6.3": -9.6,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "채선당샤브국수",
+   "칠리S"
+  ],
+  "가공식품DB_출처_항목": [
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드"
+  ],
+  "결측_필드": [
+   "오징어김치전: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "고구마샐러드: fiber,ca,fe,vitA,vitC",
+   "동치미: vitA",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "동치미",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "오징어김치전",
+    "오이도라지무침",
+    "고구마샐러드"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.43,
+   "어육류군": 0.0,
+   "채소군": 2.22,
+   "지방군": 0.04,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "채선당샤브국수",
+    "칠리S",
+    "오징어김치전",
+    "고구마샐러드"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오이도라지무침",
+     "동치미",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "채선당샤브국수",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "칠리S",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어김치전",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 135.1,
+     "protein": 3.5,
+     "fat": 7.0,
+     "carb": 17.5,
+     "sugar": 1.4,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.4,
+     "na": 356.3
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어김치전"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "고구마샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 141.04,
+     "protein": 1.247,
+     "fat": 6.5532,
+     "carb": 20.554000000000002,
+     "sugar": 7.74,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.0578,
+     "na": 183.61
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고구마샐러드"
+   },
+   {
+    "display": "동치미",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 11.0,
+     "protein": 0.49,
+     "fat": 0.07,
+     "carb": 2.08,
+     "sugar": 1.19,
+     "fiber": 0.8,
+     "ca": 76.0,
+     "fe": 0.56,
+     "vitA": 0.0,
+     "vitC": 1.11,
+     "satFat": 0.01,
+     "na": 472.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "동치미"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "채선당샤브국수&칠리S 오징어김치전 오이도라지무침 고구마샐러드 동치미 쌀밥"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "닭볶음탕",
+  "calculationMain": "닭볶음탕",
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "닭볶음탕",
+   "흑미밥",
+   "계란파국",
+   "야채춘권",
+   "칠리소스",
+   "느타리버섯볶음",
+   "배추김치",
+   "석류차"
+  ],
+  "1인분_제공량_g": 1532.0,
+  "kcal": 1721.7,
+  "단백질_g": 56.2,
+  "지방_g": 22.8,
+  "탄수화물_g": 318.4,
+  "당류_g": 128.8,
+  "식이섬유_g": 13.5,
+  "칼슘_mg": 149.2,
+  "철_mg": 4.77,
+  "비타민A_ugRAE": 127.2,
+  "비타민C_mg": 7.1,
+  "포화지방_g": 5.46,
+  "나트륨_mg": 2927.9,
+  "NRF6.3": -2.1,
+  "역산검증_오차율": 1.0,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "계란파국"
+  ],
+  "가공식품DB_출처_항목": [
+   "야채춘권",
+   "칠리소스",
+   "석류차"
+  ],
+  "결측_필드": [
+   "야채춘권: fiber,ca,fe,vitA,vitC",
+   "느타리버섯볶음: vitA",
+   "석류차: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "닭볶음탕",
+    "흑미밥",
+    "느타리버섯볶음",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "야채춘권",
+    "칠리소스",
+    "석류차"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 14.52,
+   "어육류군": 3.94,
+   "채소군": 5.45,
+   "지방군": 1.95,
+   "우유군": 0.0,
+   "과일군": 3.45,
+   "미매칭_항목": [
+    "계란파국"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "닭볶음탕",
+     "흑미밥",
+     "배추김치"
+    ],
+    "recipe_db": [
+     "느타리버섯볶음"
+    ],
+    "db104_direct": [
+     "석류차"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "닭볶음탕 → 닭볶음탕(고추장): DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 300g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "야채춘권: 사용자 첨부 4인분 게살야채춘권에서 게살1.5컵·피자치즈100g 전량 제외. 1인분=1/4로 유지하여 춘권피2.75장, 핫소스7.5mL, 파프리카·소금·후추 소량. 사용자가 추정 계산을 승인함. 춘권피는 실제 제품 미확인으로 CT Food Spring Home 215mm 550g/40장 제품자료 대체: 1장13.75g, 1인분37.8125g, 100g당 탄수화물58g. 파프리카는 4인분 총60g(각 색20g) 가정으로 1인분15g; 빨강5g·노랑5g은 DB 빨간 피망10g으로, 초록5g은 초록 피망으로 연결. 튀김용 식용유는 전체300mL 중 실제 흡수유만 1인분5g(전체20g)으로 가정하고 콩기름 성분 대체; 흡수유3~7g 민감도도 기록. 핫소스는 밀도1g/mL로7.5g, 소금0.25g·후추0.025g 가정하고 조미료류 제외규칙 유지. 기준총65.5875g은 조리수율·수분손실 미보정 재료합계이며 실측 완성중량이 아님. 기존 식판40g에는 해당 배합을40/65.5875 비례 환산. 기존 계산방식에 따라 춘권피는 탄수화물 기준 곡류군에만 배정하며 제품 자체 지방을 별도 지방군으로 더하지 않음. 게살·치즈 추가 없음, 영양소 탭과 웹사이트는 갱신하지 않음.",
+    "칠리소스: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "닭볶음탕",
+    "matched": true,
+    "weight_g": 300.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 300g",
+    "contrib": {
+     "kcal": 333.0,
+     "protein": 35.73,
+     "fat": 9.660000000000002,
+     "carb": 25.56,
+     "sugar": 1.26,
+     "fiber": 4.5,
+     "ca": 60.0,
+     "fe": 1.92,
+     "vitA": 90.0,
+     "vitC": 1.98,
+     "satFat": 3.57,
+     "na": 1128.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "닭볶음탕"
+   },
+   {
+    "display": "흑미밥",
+    "matched": true,
+    "weight_g": 390.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 390g",
+    "contrib": {
+     "kcal": 460.2,
+     "protein": 8.268,
+     "fat": 0.7020000000000001,
+     "carb": 100.815,
+     "sugar": 0.11699999999999999,
+     "fiber": 1.95,
+     "ca": 11.7,
+     "fe": 1.5989999999999998,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.195,
+     "na": 11.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "흑미밥"
+   },
+   {
+    "display": "계란파국",
+    "matched": false,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "야채춘권",
+    "matched": true,
+    "weight_g": 150.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 150g (원본 표기 분리)",
+    "contrib": {
+     "kcal": 259.5,
+     "protein": 6.555,
+     "fat": 3.885,
+     "carb": 50.59499999999999,
+     "sugar": 3.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.17,
+     "na": 639.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "야채춘권(72EA)"
+   },
+   {
+    "display": "칠리소스",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 13.95,
+     "protein": 0.09,
+     "fat": 0.05399999999999999,
+     "carb": 3.24,
+     "sugar": 2.7369,
+     "fiber": 0.17099999999999999,
+     "ca": 0.45,
+     "fe": 0.0738,
+     "vitA": 2.16,
+     "vitC": 0.0189,
+     "satFat": 0.0,
+     "na": 105.21
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "칠리소스(소포장)"
+   },
+   {
+    "display": "느타리버섯볶음",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 87.0,
+     "protein": 3.61,
+     "fat": 4.66,
+     "carb": 7.69,
+     "sugar": 3.24,
+     "fiber": 4.4,
+     "ca": 34.0,
+     "fe": 0.75,
+     "vitA": 0.0,
+     "vitC": 1.51,
+     "satFat": 0.45,
+     "na": 453.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "느타리버섯볶음"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "석류차",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 530.0,
+     "protein": 0.0,
+     "fat": 3.4,
+     "carb": 124.0,
+     "sugar": 116.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 40.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "석류차"
+   }
+  ],
+  "sourceMenuText": "닭볶음탕 흑미밥 계란파국 야채춘권*칠리소스 느타리버섯볶음 배추김치 석류차"
+ },
+ {
+  "date": "2026-11-12",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "장조림버터비빔밥",
+  "calculationMain": "장조림버터비빔밥",
+  "price": "6,500원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "쌀밥",
+   "장조림",
+   "계란후라이",
+   "버터",
+   "온모밀",
+   "마약옥수수",
+   "치즈맛감자",
+   "비트무피클",
+   "배추김치",
+   "석류차"
+  ],
+  "1인분_제공량_g": 919.0,
+  "kcal": 1307.6,
+  "단백질_g": 28.1,
+  "지방_g": 29.8,
+  "탄수화물_g": 231.7,
+  "당류_g": 137.3,
+  "식이섬유_g": 5.1,
+  "칼슘_mg": 72.0,
+  "철_mg": 0.98,
+  "비타민A_ugRAE": 107.2,
+  "비타민C_mg": 7.9,
+  "포화지방_g": 8.92,
+  "나트륨_mg": 1199.0,
+  "NRF6.3": -7.7,
+  "역산검증_오차율": 0.0,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "온모밀",
+   "치즈맛감자"
+  ],
+  "가공식품DB_출처_항목": [
+   "장조림",
+   "계란후라이",
+   "버터",
+   "비트무피클",
+   "석류차"
+  ],
+  "결측_필드": [
+   "쌀밥: vitA",
+   "장조림: fiber,ca,fe,vitA,vitC",
+   "계란후라이: fiber,ca,fe,vitA,vitC",
+   "비트무피클: fiber,ca,fe,vitA,vitC",
+   "석류차: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "쌀밥",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "장조림",
+    "계란후라이",
+    "버터",
+    "비트무피클",
+    "석류차"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 2.29,
+   "어육류군": 0.85,
+   "채소군": 16.22,
+   "지방군": 1.64,
+   "우유군": 0.0,
+   "과일군": 3.45,
+   "미매칭_항목": [
+    "온모밀",
+    "마약옥수수",
+    "치즈맛감자"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "쌀밥",
+     "버터",
+     "비트무피클",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "장조림",
+     "계란후라이",
+     "석류차"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "달걀프라이 원재료DB 성분과 기존 추정 제공량으로 어육류군 환산. 완제품 성분을 사용하며 조리용 기름을 별도 지방군으로 분해하지 않음."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 160,
+    "weight_note": "[사진중량추정] 사진 비율 추정(실측 아님) - 밥공기 기준 다소 많은 양",
+    "contrib": {
+     "kcal": 265.6,
+     "protein": 5.376,
+     "fat": 0.512,
+     "carb": 59.727999999999994,
+     "sugar": 0.032,
+     "fiber": 0.16,
+     "ca": 9.6,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.256,
+     "satFat": 0.16,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "장조림",
+    "matched": true,
+    "weight_g": 60,
+    "weight_note": "[사진중량추정] 사진 비율 추정(실측 아님) - 고기 조각 다수",
+    "contrib": {
+     "kcal": 94.2,
+     "protein": 12.36,
+     "fat": 3.5579999999999994,
+     "carb": 3.0,
+     "sugar": 0.282,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.43799999999999994,
+     "na": 99.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "장조림"
+   },
+   {
+    "display": "계란후라이",
+    "matched": true,
+    "weight_g": 45,
+    "weight_note": "[사진중량추정] 사진 비율 추정(실측 아님) - 스크램블 형태",
+    "contrib": {
+     "kcal": 45.0,
+     "protein": 4.05,
+     "fat": 1.44,
+     "carb": 4.05,
+     "sugar": 0.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.225,
+     "na": 175.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "계란후라이(패티용)"
+   },
+   {
+    "display": "버터",
+    "matched": true,
+    "weight_g": 10,
+    "weight_note": "버터 1조각(사용자 지정)",
+    "contrib": {
+     "kcal": 75.0,
+     "protein": 0.06,
+     "fat": 8.29,
+     "carb": 0.06,
+     "sugar": 0.06,
+     "fiber": 0.0,
+     "ca": 1.6,
+     "fe": 0.003,
+     "vitA": 52.4,
+     "vitC": 0.0,
+     "satFat": 5.5,
+     "na": 1.0
+    },
+    "missing": [],
+    "source": "gagong_db",
+    "db_name": "버터"
+   },
+   {
+    "display": "온모밀",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "마약옥수수",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 193.99880000000002,
+     "protein": 3.2680000000000002,
+     "fat": 11.094000000000001,
+     "carb": 21.328000000000003,
+     "sugar": 7.4562,
+     "fiber": 2.4166,
+     "ca": 17.7504,
+     "fe": 0.5504,
+     "vitA": 19.823,
+     "vitC": 4.0935999999999995,
+     "satFat": 2.5284,
+     "na": 86.9374
+    },
+    "missing": [],
+    "source": "manual_recipe",
+    "db_name": "마약옥수수(자체 레시피 재구성: 만개의레시피 조리법 기준, db104 원재료 6종 합산)"
+   },
+   {
+    "display": "치즈맛감자",
+    "matched": false,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "비트무피클",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 65.79,
+     "protein": 1.0062,
+     "fat": 1.1094,
+     "carb": 13.0376,
+     "sugar": 11.094000000000001,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 245.53
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "무피클(가공식품DB, '비트무피클' 대표매칭)"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "석류차",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 530.0,
+     "protein": 0.0,
+     "fat": 3.4,
+     "carb": 124.0,
+     "sugar": 116.0,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 40.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "석류차"
+   }
+  ],
+  "sourceMenuText": "장조림버터비빔밥 온모밀 마약옥수수 치즈맛감자 비트무피클 배추김치 석류차"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "양식",
+  "main": "치즈돈까스",
+  "calculationMain": "치즈돈까스",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "치즈돈까스",
+   "쌀밥",
+   "샐러드",
+   "김치",
+   "우동국"
+  ],
+  "1인분_제공량_g": 719.0,
+  "kcal": 629.2,
+  "단백질_g": 40.1,
+  "지방_g": 14.2,
+  "탄수화물_g": 86.4,
+  "당류_g": 9.6,
+  "식이섬유_g": 2.6,
+  "칼슘_mg": 49.0,
+  "철_mg": 0.43,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.8,
+  "포화지방_g": 5.84,
+  "나트륨_mg": 2765.8,
+  "NRF6.3": -8.5,
+  "역산검증_오차율": 0.7,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [],
+  "가공식품DB_출처_항목": [
+   "치즈돈까스",
+   "샐러드",
+   "우동국"
+  ],
+  "결측_필드": [
+   "치즈돈까스: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA",
+   "샐러드: fiber,ca,fe,vitA,vitC",
+   "우동국: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "쌀밥",
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "치즈돈까스",
+    "샐러드",
+    "우동국"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 3.08,
+   "어육류군": 2.71,
+   "채소군": 2.46,
+   "지방군": 2.38,
+   "우유군": 0.06,
+   "과일군": 0.0,
+   "미매칭_항목": [],
+   "매칭DB": {
+    "menugen": [
+     "쌀밥",
+     "샐러드"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "치즈돈까스: 사용자 요청 대체 레시피, 150g 기준 MenuGen 돈가스 130g + 모차렐라 치즈 20g. 추가 재료량·치즈 종류는 실제 제품 미확인 가정. 돈가스 DB의 밀가루·빵가루·달걀·콩기름 등 전체 배합 유지, 기름을 추가로 중복 가산하지 않음. 실제 튀김옷·흡수유·충전물 배합 및 조리수율 차이 미보정. 교환단위만 수정, 영양소 탭은 기존 계산 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "치즈돈까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 313.5,
+     "protein": 26.25,
+     "fat": 10.815,
+     "carb": 28.545,
+     "sugar": 0.555,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 5.07,
+     "na": 396.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "치즈돈까스"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   },
+   {
+    "display": "샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 83.42,
+     "protein": 6.7768,
+     "fat": 2.6316,
+     "carb": 8.6344,
+     "sugar": 3.4658,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.602,
+     "na": 350.02
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "샐러드"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "우동국",
+    "matched": true,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 28.3,
+     "protein": 1.6979999999999997,
+     "fat": 0.0,
+     "carb": 5.376999999999999,
+     "sugar": 3.113,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 1468.77
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "우동장국/우동국물(가공식품DB 농축액, 표준희석 1:10 적용)"
+   }
+  ],
+  "sourceMenuText": "치즈돈까스"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "한식",
+  "main": "갈릭쉬림프덮밥",
+  "calculationMain": "갈릭쉬림프덮밥",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "갈릭쉬림프덮밥",
+   "어니언링",
+   "케찹",
+   "비트무피클",
+   "김치",
+   "미소국"
+  ],
+  "1인분_제공량_g": 873.0,
+  "kcal": 224.7,
+  "단백질_g": 7.9,
+  "지방_g": 6.3,
+  "탄수화물_g": 35.2,
+  "당류_g": 17.4,
+  "식이섬유_g": 5.0,
+  "칼슘_mg": 82.1,
+  "철_mg": 1.05,
+  "비타민A_ugRAE": 37.3,
+  "비타민C_mg": 4.3,
+  "포화지방_g": 0.73,
+  "나트륨_mg": 1687.6,
+  "NRF6.3": -16.1,
+  "역산검증_오차율": 1.9,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "갈릭쉬림프덮밥"
+  ],
+  "가공식품DB_출처_항목": [
+   "어니언링",
+   "케찹",
+   "비트무피클"
+  ],
+  "결측_필드": [
+   "어니언링: fiber,ca,fe,vitA,vitC",
+   "케찹: fiber,ca,fe,vitA,vitC",
+   "비트무피클: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "김치",
+    "미소국"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "어니언링",
+    "케찹",
+    "비트무피클"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.6,
+   "어육류군": 0.1,
+   "채소군": 10.2,
+   "지방군": 1.2,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "갈릭쉬림프덮밥"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "비트무피클"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [
+    {
+     "name": "어니언링",
+     "url": "https://www.10000recipe.com/recipe/7005355",
+     "note": "어니언링: 사용자 지정 만개의레시피7005355의 양파·달걀·가루·빵가루 튀김 형태를 사진에 맞춰 수정. 사진3개×20g=60g 가정. 최종 제공량 배분은 양파30g·밀가루8g·달걀6g·빵가루10g·흡수유(콩기름)6g. 준비 달걀3개·가루 전량을 섭취량으로 사용하지 않음. 튀김가루 제품 배합 미상으로 중력밀가루 대체, 파슬리는 양 미상 제외. 모든 배합과 흡수유는 사진으로 측정한 값이 아닌 모델 가정, 수분손실·조리수율 미보정. 케찹은 별도 기존 제외 규칙 적용. 교환단위 계산은 이 대체 배합, 영양소는 기존 가공식품 성분을 새 제공량60g에 환산."
+    }
+   ],
+   "recipeNotes": [
+    "어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "갈릭쉬림프덮밥",
+    "matched": false,
+    "weight_g": 418,
+    "weight_note": "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "어니언링",
+    "matched": true,
+    "weight_g": 30.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 30g (원본 표기 분리)",
+    "contrib": {
+     "kcal": 64.5,
+     "protein": 1.14,
+     "fat": 2.85,
+     "carb": 9.0,
+     "sugar": 1.2299999999999998,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.36,
+     "na": 93.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "어니언링"
+   },
+   {
+    "display": "케찹",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 8.1,
+     "protein": 0.09,
+     "fat": 0.0,
+     "carb": 1.98,
+     "sugar": 1.8,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 103.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "케찹"
+   },
+   {
+    "display": "비트무피클",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 65.79,
+     "protein": 1.0062,
+     "fat": 1.1094,
+     "carb": 13.0376,
+     "sugar": 11.094000000000001,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 245.53
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "무피클(가공식품DB, '비트무피클' 대표매칭)"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "미소국",
+    "matched": true,
+    "weight_g": 230.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 230g",
+    "contrib": {
+     "kcal": 48.3,
+     "protein": 3.6340000000000003,
+     "fat": 1.9089999999999998,
+     "carb": 4.692,
+     "sugar": 0.828,
+     "fiber": 2.5300000000000002,
+     "ca": 39.1,
+     "fe": 0.621,
+     "vitA": 2.3,
+     "vitC": 0.6669999999999999,
+     "satFat": 0.29900000000000004,
+     "na": 694.6
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "미소된장국"
+   }
+  ],
+  "sourceMenuText": "갈릭쉬림프덮밥"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "105",
+  "shopName": "학생식당",
+  "category": "즉석",
+  "main": "시금치치킨프리카세",
+  "calculationMain": "시금치치킨프리카세",
+  "price": "4,800원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "시금치치킨프리카세",
+   "어니언링",
+   "케찹",
+   "비트무피클",
+   "김치"
+  ],
+  "1인분_제공량_g": 375.0,
+  "kcal": 176.4,
+  "단백질_g": 4.2,
+  "지방_g": 4.4,
+  "탄수화물_g": 30.5,
+  "당류_g": 16.5,
+  "식이섬유_g": 2.5,
+  "칼슘_mg": 43.0,
+  "철_mg": 0.43,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.6,
+  "포화지방_g": 0.43,
+  "나트륨_mg": 993.0,
+  "NRF6.3": -15.7,
+  "역산검증_오차율": 1.1,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "시금치치킨프리카세"
+  ],
+  "가공식품DB_출처_항목": [
+   "어니언링",
+   "케찹",
+   "비트무피클"
+  ],
+  "결측_필드": [
+   "어니언링: fiber,ca,fe,vitA,vitC",
+   "케찹: fiber,ca,fe,vitA,vitC",
+   "비트무피클: fiber,ca,fe,vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "어니언링",
+    "케찹",
+    "비트무피클"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 0.6,
+   "어육류군": 0.1,
+   "채소군": 10.2,
+   "지방군": 1.2,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "시금치치킨프리카세"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "비트무피클"
+    ],
+    "recipe_db": [],
+    "db104_direct": [
+     "김치"
+    ]
+   },
+   "externalRecipes": [
+    {
+     "name": "어니언링",
+     "url": "https://www.10000recipe.com/recipe/7005355",
+     "note": "어니언링: 사용자 지정 만개의레시피7005355의 양파·달걀·가루·빵가루 튀김 형태를 사진에 맞춰 수정. 사진3개×20g=60g 가정. 최종 제공량 배분은 양파30g·밀가루8g·달걀6g·빵가루10g·흡수유(콩기름)6g. 준비 달걀3개·가루 전량을 섭취량으로 사용하지 않음. 튀김가루 제품 배합 미상으로 중력밀가루 대체, 파슬리는 양 미상 제외. 모든 배합과 흡수유는 사진으로 측정한 값이 아닌 모델 가정, 수분손실·조리수율 미보정. 케찹은 별도 기존 제외 규칙 적용. 교환단위 계산은 이 대체 배합, 영양소는 기존 가공식품 성분을 새 제공량60g에 환산."
+    }
+   ],
+   "recipeNotes": [
+    "어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "시금치치킨프리카세",
+    "matched": false,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "어니언링",
+    "matched": true,
+    "weight_g": 30.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 30g (원본 표기 분리)",
+    "contrib": {
+     "kcal": 64.5,
+     "protein": 1.14,
+     "fat": 2.85,
+     "carb": 9.0,
+     "sugar": 1.2299999999999998,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.36,
+     "na": 93.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "어니언링"
+   },
+   {
+    "display": "케찹",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 8.1,
+     "protein": 0.09,
+     "fat": 0.0,
+     "carb": 1.98,
+     "sugar": 1.8,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 103.5
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "케찹"
+   },
+   {
+    "display": "비트무피클",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 65.79,
+     "protein": 1.0062,
+     "fat": 1.1094,
+     "carb": 13.0376,
+     "sugar": 11.094000000000001,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 245.53
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "무피클(가공식품DB, '비트무피클' 대표매칭)"
+   },
+   {
+    "display": "김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   }
+  ],
+  "sourceMenuText": "시금치치킨프리카세"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "등뼈감자탕",
+  "calculationMain": "등뼈감자탕",
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "등뼈감자탕",
+   "계란말이",
+   "사각어묵볶음",
+   "알마늘장아찌",
+   "2종김치",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 600.2,
+  "kcal": 443.5,
+  "단백질_g": 20.9,
+  "지방_g": 12.8,
+  "탄수화물_g": 59.9,
+  "당류_g": 9.7,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 85.7,
+  "철_mg": 2.14,
+  "비타민A_ugRAE": 133.1,
+  "비타민C_mg": 1.8,
+  "포화지방_g": 3.22,
+  "나트륨_mg": 1129.2,
+  "NRF6.3": 1.7,
+  "역산검증_오차율": 1.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "등뼈감자탕",
+   "2종김치"
+  ],
+  "가공식품DB_출처_항목": [
+   "알마늘장아찌"
+  ],
+  "결측_필드": [
+   "알마늘장아찌: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "사각어묵볶음",
+    "쌀밥"
+   ],
+   "recipe_decompose": [
+    "계란말이"
+   ],
+   "gagong_db": [
+    "알마늘장아찌"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.6,
+   "어육류군": 1.76,
+   "채소군": 2.76,
+   "지방군": 1.0,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "2종김치"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "등뼈감자탕",
+     "계란말이",
+     "사각어묵볶음",
+     "알마늘장아찌",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "등뼈감자탕 → 감자탕: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 283g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정.",
+    "알마늘장아찌 → 마늘장아찌: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 20g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "등뼈감자탕",
+    "matched": false,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "계란말이",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 120.21768,
+     "protein": 10.11188,
+     "fat": 6.663279999999999,
+     "carb": 3.655,
+     "sugar": 2.72104,
+     "fiber": 0.0,
+     "ca": 41.35826,
+     "fe": 1.6125,
+     "vitA": 96.42406,
+     "vitC": 0.7292799999999999,
+     "satFat": 2.1887,
+     "na": 111.07071999999998
+    },
+    "missing": [],
+    "source": "recipe_decompose",
+    "db_name": "일본식 계란말이"
+   },
+   {
+    "display": "사각어묵볶음",
+    "matched": true,
+    "weight_g": 41.2,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 41.2g",
+    "contrib": {
+     "kcal": 144.20000000000002,
+     "protein": 7.004000000000001,
+     "fat": 5.689720000000001,
+     "carb": 16.414080000000002,
+     "sugar": 5.7020800000000005,
+     "fiber": 0.7828,
+     "ca": 38.316,
+     "fe": 0.5314800000000001,
+     "vitA": 36.668,
+     "vitC": 0.93524,
+     "satFat": 0.9228800000000001,
+     "na": 733.7720000000002
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "어묵볶음"
+   },
+   {
+    "display": "알마늘장아찌",
+    "matched": true,
+    "weight_g": 20.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 20g",
+    "contrib": {
+     "kcal": 13.1,
+     "protein": 0.45,
+     "fat": 0.08800000000000001,
+     "carb": 2.508,
+     "sugar": 1.21,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.006,
+     "na": 284.4
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "알마늘장아찌"
+   },
+   {
+    "display": "2종김치",
+    "matched": false,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "등뼈감자탕 계란말이 사각어묵볶음 알마늘장아찌 2종김치 쌀밥"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "중식 - Korean Dining",
+  "main": "채선당샤브국수&칠리S",
+  "calculationMain": "채선당샤브국수&칠리S",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaGvpXFZfVm2UN06i-FC4A/400x.png",
+  "cat_idx": 1,
+  "구성요소_목록": [
+   "채선당샤브국수",
+   "칠리S",
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드",
+   "동치미",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 1116.0,
+  "kcal": 523.1,
+  "단백질_g": 9.8,
+  "지방_g": 16.3,
+  "탄수화물_g": 88.7,
+  "당류_g": 16.6,
+  "식이섬유_g": 0.9,
+  "칼슘_mg": 82.0,
+  "철_mg": 0.56,
+  "비타민A_ugRAE": 0.0,
+  "비타민C_mg": 1.3,
+  "포화지방_g": 2.78,
+  "나트륨_mg": 1304.5,
+  "NRF6.3": -9.6,
+  "역산검증_오차율": 3.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "채선당샤브국수",
+   "칠리S"
+  ],
+  "가공식품DB_출처_항목": [
+   "오징어김치전",
+   "오이도라지무침",
+   "고구마샐러드"
+  ],
+  "결측_필드": [
+   "오징어김치전: fiber,ca,fe,vitA,vitC",
+   "오이도라지무침: fiber,ca,fe,vitA,vitC",
+   "고구마샐러드: fiber,ca,fe,vitA,vitC",
+   "동치미: vitA",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "동치미",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "오징어김치전",
+    "오이도라지무침",
+    "고구마샐러드"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 1.43,
+   "어육류군": 0.0,
+   "채소군": 2.22,
+   "지방군": 0.04,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "채선당샤브국수",
+    "칠리S",
+    "오징어김치전",
+    "고구마샐러드"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "오이도라지무침",
+     "동치미",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "오이도라지무침 → 도라지오이무침: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "채선당샤브국수",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "칠리S",
+    "matched": false,
+    "weight_g": 345.0,
+    "weight_note": "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g (& / , 분리, 2등분)",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어김치전",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 135.1,
+     "protein": 3.5,
+     "fat": 7.0,
+     "carb": 17.5,
+     "sugar": 1.4,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.4,
+     "na": 356.3
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어김치전"
+   },
+   {
+    "display": "오이도라지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 70.0,
+     "protein": 1.19,
+     "fat": 2.31,
+     "carb": 11.2,
+     "sugar": 6.3,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 292.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오이도라지무침"
+   },
+   {
+    "display": "고구마샐러드",
+    "matched": true,
+    "weight_g": 86,
+    "weight_note": "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g",
+    "contrib": {
+     "kcal": 141.04,
+     "protein": 1.247,
+     "fat": 6.5532,
+     "carb": 20.554000000000002,
+     "sugar": 7.74,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.0578,
+     "na": 183.61
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "고구마샐러드"
+   },
+   {
+    "display": "동치미",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 11.0,
+     "protein": 0.49,
+     "fat": 0.07,
+     "carb": 2.08,
+     "sugar": 1.19,
+     "fiber": 0.8,
+     "ca": 76.0,
+     "fe": 0.56,
+     "vitA": 0.0,
+     "vitC": 1.11,
+     "satFat": 0.01,
+     "na": 472.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "동치미"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 166.0,
+     "protein": 3.36,
+     "fat": 0.32,
+     "carb": 37.33,
+     "sugar": 0.02,
+     "fiber": 0.1,
+     "ca": 6.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.16,
+     "satFat": 0.1,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "채선당샤브국수&칠리S 오징어김치전 오이도라지무침 고구마샐러드 동치미 쌀밥"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "정식",
+  "main": "차돌순두부찌개",
+  "calculationMain": "차돌순두부찌개",
+  "price": "6,000원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "차돌순두부찌개",
+   "흑미밥",
+   "오징어까스",
+   "타르소스",
+   "맛살마늘쫑볶음",
+   "오복지무침",
+   "배추김치",
+   "알새우칩"
+  ],
+  "1인분_제공량_g": 1029.0,
+  "kcal": 1080.8,
+  "단백질_g": 31.3,
+  "지방_g": 22.0,
+  "탄수화물_g": 183.4,
+  "당류_g": 14.1,
+  "식이섬유_g": 4.5,
+  "칼슘_mg": 54.7,
+  "철_mg": 2.03,
+  "비타민A_ugRAE": 35.0,
+  "비타민C_mg": 3.6,
+  "포화지방_g": 7.46,
+  "나트륨_mg": 2653.4,
+  "NRF6.3": -5.7,
+  "역산검증_오차율": 2.2,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "맛살마늘쫑볶음"
+  ],
+  "가공식품DB_출처_항목": [
+   "차돌순두부찌개",
+   "오징어까스",
+   "타르소스",
+   "오복지무침",
+   "알새우칩"
+  ],
+  "결측_필드": [
+   "차돌순두부찌개: fiber,ca,fe,vitA,vitC",
+   "오징어까스: fiber,ca,fe,vitA,vitC",
+   "타르소스: fiber,ca,fe,vitA,vitC",
+   "오복지무침: fiber,ca,fe,vitA,vitC",
+   "알새우칩: vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "흑미밥",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "차돌순두부찌개",
+    "오징어까스",
+    "타르소스",
+    "오복지무침",
+    "알새우칩"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 13.27,
+   "어육류군": 0.08,
+   "채소군": 3.37,
+   "지방군": 0.1,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "차돌순두부찌개",
+    "오징어까스",
+    "맛살마늘쫑볶음",
+    "알새우칩"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "흑미밥",
+     "오복지무침",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "타르소스: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "차돌순두부찌개",
+    "matched": true,
+    "weight_g": 200.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 200g",
+    "contrib": {
+     "kcal": 176.0,
+     "protein": 10.12,
+     "fat": 9.64,
+     "carb": 12.48,
+     "sugar": 1.88,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 3.76,
+     "na": 740.0
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "차돌순두부찌개"
+   },
+   {
+    "display": "흑미밥",
+    "matched": true,
+    "weight_g": 390.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 390g",
+    "contrib": {
+     "kcal": 460.2,
+     "protein": 8.268,
+     "fat": 0.7020000000000001,
+     "carb": 100.815,
+     "sugar": 0.11699999999999999,
+     "fiber": 1.95,
+     "ca": 11.7,
+     "fe": 1.5989999999999998,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.195,
+     "na": 11.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "흑미밥"
+   },
+   {
+    "display": "오징어까스",
+    "matched": true,
+    "weight_g": 150,
+    "weight_note": "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지 (원본 표기 분리)",
+    "contrib": {
+     "kcal": 197.25,
+     "protein": 8.625,
+     "fat": 1.65,
+     "carb": 36.075,
+     "sugar": 3.15,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.6,
+     "na": 509.25
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어까스"
+   },
+   {
+    "display": "타르소스",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)",
+    "contrib": {
+     "kcal": 29.205,
+     "protein": 0.0747,
+     "fat": 2.115,
+     "carb": 0.945,
+     "sugar": 0.9089999999999999,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.19349999999999998,
+     "na": 55.8
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "타르타르소스"
+   },
+   {
+    "display": "맛살마늘쫑볶음",
+    "matched": false,
+    "weight_g": 80,
+    "weight_note": "볶음류 - 대학급식소(1997) 제공량 평균 80g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오복지무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 28.0,
+     "protein": 0.49,
+     "fat": 0.0,
+     "carb": 6.3,
+     "sugar": 2.1,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 560.7
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오복지"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "알새우칩",
+    "matched": true,
+    "weight_g": 30.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 30g",
+    "contrib": {
+     "kcal": 152.1,
+     "protein": 1.764,
+     "fat": 7.5,
+     "carb": 20.295,
+     "sugar": 3.528,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 2.6460000000000004,
+     "na": 225.0
+    },
+    "missing": [
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "알새우칩"
+   }
+  ],
+  "sourceMenuText": "차돌순두부찌개 흑미밥 오징어까스*타르소스 맛살마늘쫑볶음 오복지무침 배추김치 알새우칩"
+ },
+ {
+  "date": "2026-11-13",
+  "shop": "204",
+  "shopName": "신소재공학관식당",
+  "category": "일품",
+  "main": "새우튀김덮밥",
+  "calculationMain": "새우튀김덮밥",
+  "price": "6,500원",
+  "img": null,
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "새우튀김덮밥",
+   "짬뽕국물",
+   "카레고로케",
+   "마카로니샐러드",
+   "요구르트",
+   "배추김치",
+   "알새우칩"
+  ],
+  "1인분_제공량_g": 1151.0,
+  "kcal": 598.3,
+  "단백질_g": 11.8,
+  "지방_g": 22.3,
+  "탄수화물_g": 88.8,
+  "당류_g": 25.9,
+  "식이섬유_g": 4.5,
+  "칼슘_mg": 65.1,
+  "철_mg": 0.91,
+  "비타민A_ugRAE": 60.5,
+  "비타민C_mg": 8.7,
+  "포화지방_g": 4.82,
+  "나트륨_mg": 1233.0,
+  "NRF6.3": -5.4,
+  "역산검증_오차율": 0.9,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "새우튀김덮밥",
+   "짬뽕국물"
+  ],
+  "가공식품DB_출처_항목": [
+   "카레고로케",
+   "요구르트",
+   "알새우칩"
+  ],
+  "결측_필드": [
+   "카레고로케: fiber,ca,fe,vitA,vitC",
+   "요구르트: fiber,ca,fe,vitA,vitC",
+   "알새우칩: vitA,vitC"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "마카로니샐러드",
+    "배추김치"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "카레고로케",
+    "요구르트",
+    "알새우칩"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 3.22,
+   "어육류군": 0.92,
+   "채소군": 4.27,
+   "지방군": 10.88,
+   "우유군": 0.85,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "새우튀김덮밥",
+    "짬뽕국물",
+    "카레고로케",
+    "알새우칩"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "요구르트",
+     "배추김치"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [
+    {
+     "name": "마카로니샐러드",
+     "url": "https://www.10000recipe.com/recipe/6864347",
+     "note": "대체 레시피 추정. 건마카로니 1컵=100g 가정, 삶은 중량=240g 가정(수율 2.4). 양파 1/4개=42.5g, 피망=25g, 파프리카=40g, 마요네즈 5T=75g, 설탕 1/2T=6g 가정. 스팸은 돼지고기 통조림햄으로 대체. 불특정 자투리채소 및 소금·후추 약간은 중량 미확정으로 제외. 마요네즈는 지방군에 반영하고 설탕은 교환단위 계산에서 제외하되 총중량에는 포함."
+    }
+   ],
+   "recipeNotes": []
+  },
+  "item_detail": [
+   {
+    "display": "새우튀김덮밥",
+    "matched": false,
+    "weight_g": 418,
+    "weight_note": "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "짬뽕국물",
+    "matched": false,
+    "weight_g": 283,
+    "weight_note": "국물·찌개류(병합) - 대학급식소(1997) 국류+찌개류 8종 통합 단순평균 283g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "카레고로케",
+    "matched": true,
+    "weight_g": 70.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 70g",
+    "contrib": {
+     "kcal": 89.6,
+     "protein": 2.8,
+     "fat": 0.84,
+     "carb": 18.2,
+     "sugar": 2.331,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.11900000000000001,
+     "na": 226.1
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "카레고로케"
+   },
+   {
+    "display": "마카로니샐러드",
+    "matched": true,
+    "weight_g": 170.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 170g",
+    "contrib": {
+     "kcal": 234.6,
+     "protein": 4.08,
+     "fat": 13.566,
+     "carb": 23.392,
+     "sugar": 4.675,
+     "fiber": 2.04,
+     "ca": 22.1,
+     "fe": 0.47600000000000003,
+     "vitA": 25.5,
+     "vitC": 5.066,
+     "satFat": 1.9889999999999999,
+     "na": 212.5
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "마카로니 샐러드"
+   },
+   {
+    "display": "요구르트",
+    "matched": true,
+    "weight_g": 80.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 80g",
+    "contrib": {
+     "kcal": 84.0,
+     "protein": 1.2,
+     "fat": 0.0,
+     "carb": 20.4,
+     "sugar": 12.92,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 18.4
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "요구르트"
+   },
+   {
+    "display": "배추김치",
+    "matched": true,
+    "weight_g": 100.0,
+    "weight_note": "food_db 자체 1회분 중량(servingWeight) 100g",
+    "contrib": {
+     "kcal": 38.0,
+     "protein": 1.98,
+     "fat": 0.43,
+     "carb": 6.49,
+     "sugar": 2.4,
+     "fiber": 2.5,
+     "ca": 43.0,
+     "fe": 0.43,
+     "vitA": 35.0,
+     "vitC": 3.59,
+     "satFat": 0.07,
+     "na": 551.0
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "알새우칩",
+    "matched": true,
+    "weight_g": 30.0,
+    "weight_note": "가공식품DB 자체 1회 섭취참고량 30g",
+    "contrib": {
+     "kcal": 152.1,
+     "protein": 1.764,
+     "fat": 7.5,
+     "carb": 20.295,
+     "sugar": 3.528,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 2.6460000000000004,
+     "na": 225.0
+    },
+    "missing": [
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "알새우칩"
+   }
+  ],
+  "sourceMenuText": "새우튀김덮밥 짬뽕국물 카레고로케 마카로니샐러드 요구르트 배추김치 알새우칩"
  }
 ]
