@@ -7,6 +7,12 @@ const url=process.env.HYU_TEST_URL||'http://127.0.0.1:8790/';
  const report={screens:[],errors:[],checks:[]};
  for(const [device,width,height] of [['desktop',1440,1000],['mobile',390,844]]){
   const context=await browser.newContext({viewport:{width,height}}),page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));
+
+  async function editStep(step){
+   const button=page.locator(`[data-edit-step="${step}"]`);
+   if(!await button.isVisible()) await page.locator('#resultSettingsMenu > summary').click();
+   await button.click();
+  }
   await page.goto(url+'?date=2026-11-03&v=campus-design-v2');await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);
   await page.evaluate(()=>Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,4000))]));
   async function capture(step){
@@ -30,12 +36,12 @@ const url=process.env.HYU_TEST_URL||'http://127.0.0.1:8790/';
   assert.equal(await page.locator('.card .nutrition-mini dt').count(),18);
   const notes=page.locator('.menu-notes').first();if(await notes.count()){await notes.locator('summary').click();assert(await notes.evaluate(e=>e.open));assert(!(await page.locator('#sheet').getAttribute('class')).includes('open'));await notes.locator('summary').click();}
   await page.locator('.card-more').first().click();await page.locator('#sheet.open').waitFor();assert(await page.locator('#sheetBody').isVisible());await page.waitForTimeout(350);assert(await page.locator('#sheet').evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=-1&&r.right<=innerWidth+1}));await page.screenshot({path:path.join(out,`${device}-detail.png`),fullPage:false});await page.locator('#sheetClose').click();
-  await page.locator('[data-edit-step="3"]').click();await page.locator('#allergyToggle').click();await page.locator('#allergyOptions input[value="2"]').check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+  await editStep(3);await page.locator('#allergyToggle').click();await page.locator('#allergyOptions input[value="2"]').check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
   const excluded=page.locator('.allergy-excluded-card');assert(await excluded.count()>0);assert.equal(await excluded.locator('.rank-pill').count(),0);assert.equal(await excluded.locator('.card-more').count(),0);
   await page.screenshot({path:path.join(out,`${device}-excluded.png`),fullPage:true});report.checks.push(device+': all steps, progress, uniform fields, dropdown scroll, photos, left-right card, notes, detail, exclusions');
   for(const narrow of [320,768,1024]){
    await page.setViewportSize({width:narrow,height:900});
-   for(const step of [1,2,3]){await page.locator(`[data-edit-step="${step}"]`).click();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.locator('[data-flow-next="2"]').isVisible().then(async visible=>{if(visible)await page.locator('[data-flow-next="2"]').click()});if(await page.locator('[data-flow-next="3"]').isVisible())await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));}
+   for(const step of [1,2,3]){await editStep(step);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.locator('[data-flow-next="2"]').isVisible().then(async visible=>{if(visible)await page.locator('[data-flow-next="2"]').click()});if(await page.locator('[data-flow-next="3"]').isVisible())await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));}
   }
   report.checks.push(device+': 320/768/1024px onboarding and results without horizontal overflow');
   await context.close();

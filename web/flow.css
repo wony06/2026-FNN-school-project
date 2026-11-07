@@ -202,3 +202,340 @@ dialog.goal-difference-dialog[open]{display:flex;flex-direction:column;gap:24px}
  .goal-difference-sections h3{font-size:15px;margin-bottom:10px}.goal-difference-sections p{font-size:13px;line-height:1.8;margin-bottom:12px}
  .goal-difference-caution{font-size:11px;margin-top:20px;padding-top:16px}
 }
+
+/* Step 1 explanatory text and PA comparison. */
+#guideStep1 #activityDescription {
+  max-width: 100%;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+#eerBasis .eer-guide-content {
+  margin: 0;
+  padding: 18px 16px;
+  font-size: 12px;
+  line-height: 1.85;
+}
+#eerBasis .eer-guide-content section + section {margin-top: 22px}
+#eerBasis .eer-guide-content h3 {
+  margin: 0 0 7px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text);
+}
+#eerBasis .eer-guide-content p {margin: 0}
+#eerBasis .eer-formulas {
+  margin: 10px 0 9px;
+  padding-left: 13px;
+  border-left: 2px solid var(--line);
+}
+#eerBasis .eer-formulas > div + div {margin-top: 14px}
+#eerBasis .eer-formulas dt {font-weight: 600; color: var(--text); margin-bottom: 3px}
+#eerBasis .eer-formulas dd {
+  margin: 0;
+  color: #43546d;
+  line-height: 1.9;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+#eerBasis .eer-pa-note {color: var(--muted); font-size: 11px}
+#eerBasis .eer-pa-table {
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 10px;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+#eerBasis .eer-pa-table th,#eerBasis .eer-pa-table td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  font-weight: 400;
+}
+#eerBasis .eer-pa-table thead th {background: var(--canvas); color: var(--text); font-weight: 500}
+#eerBasis .eer-pa-table th:first-child {text-align: left; width: 44%}
+#eerBasis .eer-pa-table tbody th {color: var(--text)}
+@media(max-width:640px) {
+  #eerBasis .eer-guide-content {padding: 16px 13px; font-size: 12px}
+  #eerBasis .eer-guide-content h3 {font-size: 13px}
+  #eerBasis .eer-guide-content section + section {margin-top: 19px}
+  #eerBasis .eer-pa-table th,#eerBasis .eer-pa-table td {padding: 8px 6px}
+}
+
+/* Step 2 explanatory text only. */
+#guideStep2 #goalDescription {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+#goalBasis .goal-guide-content {margin: 0; padding: 18px 16px; font-size: 12px; line-height: 1.85}
+#goalBasis .goal-guide-content > section + section {margin-top: 24px}
+#goalBasis .goal-guide-content h3 {margin: 0 0 9px; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.6}
+#goalBasis .goal-guide-content h4 {margin: 0 0 7px; font-size: 13px; font-weight: 600; color: #43546d}
+#goalBasis .goal-guide-content p {margin: 8px 0}
+#goalBasis .goal-guide-content ul {margin: 8px 0; padding-left: 18px}
+#goalBasis .goal-guide-content li + li {margin-top: 8px}
+#goalBasis .goal-guide-content li {overflow-wrap: anywhere}
+#goalBasis .goal-criterion-group + .goal-criterion-group {margin-top: 22px}
+#goalBasis .goal-guide-content .goal-implementation-note {font-size: 11px; color: var(--muted)}
+#goalBasis #distanceBasis {margin-top: 15px}
+#goalBasis .goal-guide-content .goal-distance-formula {
+  background: var(--canvas);
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #43546d;
+  overflow-wrap: anywhere;
+}
+#goalBasis .goal-guide-sources ul {font-size: 11px}
+#goalBasis .goal-guide-sources li + li {margin-top: 4px}
+#goalBasis .goal-table-reference {margin: 0 16px 16px; font-size: 11px}
+#goalBasis .goal-table-reference > summary {cursor: pointer}
+@media(max-width:640px) {
+  #goalBasis .goal-guide-content {padding: 16px 13px}
+  #goalBasis .goal-guide-content h3 {font-size: 13px}
+  #goalBasis .goal-guide-content h4 {font-size: 12px}
+  #goalBasis .goal-table-reference {margin: 0 13px 14px}
+  #goalBasis .goal-guide-content .goal-distance-formula {font-size: 12px}
+}
+
+/* Step 3 allergy guidance. */
+#allergyBasis .allergy-guide-content {margin: 0; padding: 18px 16px; font-size: 12px; line-height: 1.85}
+#allergyBasis .allergy-guide-content section + section {margin-top: 21px}
+#allergyBasis .allergy-guide-content h3 {margin: 0 0 7px; color: var(--text); font-size: 14px; line-height: 1.6; font-weight: 600}
+#allergyBasis .allergy-guide-content p {margin: 0; word-break: keep-all; overflow-wrap: anywhere}
+#allergyBasis .allergy-guide-content p + p {margin-top: 10px}
+@media(max-width:640px) {
+  #allergyBasis .allergy-guide-content {padding: 16px 13px}
+  #allergyBasis .allergy-guide-content h3 {font-size: 13px}
+}
+#results {--result-blue: #0753a5; --result-ink: #102c51; --result-wash: #eaf2fd}
+.result-icon-definitions {position: absolute; overflow: hidden; pointer-events: none}
+.result-icon {width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round}
+#results .flow-result-nav {margin: 0 0 16px}
+#results .flow-result-nav .flow-secondary {display: inline-flex; gap: 8px; font-size: 14px; font-weight: 500; color: #687384}
+#results .flow-result-nav .result-icon {width: 19px; height: 19px; transform: rotate(180deg)}
+#mealServiceTabs {
+  width: min(630px,100%);
+  margin: 0 auto 32px;
+  padding: 5px;
+  border: 1px solid #d8e2ef;
+  background: #f8faff;
+  border-radius: 20px;
+}
+#mealServiceTabs button {display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 54px; padding: 10px; font-size: 18px; font-weight: 600; border-radius: 15px; color: #657080}
+#mealServiceTabs button .result-icon {width: 25px; height: 25px}
+#mealServiceTabs button[aria-selected="true"] {background: var(--result-blue); color: #fff}
+#mealRecommendationPanel .day-heading {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(235px,270px);
+  align-items: center;
+  gap: 22px;
+  margin: 0 0 22px;
+}
+#mealRecommendationPanel .result-title-block {display: flex; align-items: flex-start; gap: 18px; min-width: 0}
+.result-title-icon {display: grid; place-items: center; flex: none; width: 65px; height: 62px; border-radius: 16px; background: #e2edfc; color: var(--result-blue)}
+.result-title-icon .result-icon {width: 36px; height: 36px; stroke-width: 1.7}
+#mealRecommendationPanel .day-heading h2 {font-size: 34px; color: var(--result-ink); margin: -3px 0 9px; line-height: 1.35; font-weight: 700; letter-spacing: -.045em}
+#mealRecommendationPanel #dayTitle {font-size: 16px; margin: 0; line-height: 1.6; color: #737d8c}
+#mealRecommendationPanel .energy-overview {
+  display: grid;
+  grid-template-columns: 30px minmax(0,1fr);
+  align-items: center;
+  gap: 16px;
+  align-self: center;
+  max-width: none;
+  padding: 17px 20px;
+  border-radius: 18px;
+  background: #e7f0fc;
+  color: var(--result-blue);
+  text-align: left;
+}
+#mealRecommendationPanel .energy-overview > .result-icon {width: 29px; height: 33px}
+.result-energy-content {border-left: 1px solid #c8d9ef; padding-left: 16px; min-width: 0}
+#mealRecommendationPanel .energy-label {font-size: 12px; white-space: nowrap; color: #697588; margin-bottom: 6px}
+#mealRecommendationPanel .energy-number {font-size: 32px; line-height: 1.25; color: var(--result-blue); font-weight: 700}
+#mealRecommendationPanel .energy-unit {font-size: 17px; color: #687485}
+#mealRecommendationPanel #resultEnergyTarget {font-size: 11px; line-height: 1.6; margin: 7px 0 0; color: #63748d}
+#mealRecommendationPanel .result-settings {display: block; border: 0; padding: 0; margin: 0 0 22px; background: transparent}
+.result-setting-row {display: flex; align-items: center; justify-content: space-between; gap: 14px}
+#mealRecommendationPanel #resultSettingsBrief {display: flex; flex-wrap: wrap; gap: 12px; font-size: 14px; margin: 0}
+.result-setting-tag {display: inline-flex; align-items: center; gap: 9px; padding: 7px 16px; border-radius: 999px; color: #435e83; background: var(--result-wash); font-weight: 500; line-height: 1.6}
+.result-setting-tag .result-icon {width: 20px; height: 20px; color: #6282ae}
+.result-settings-menu {position: relative; flex: none; font-size: 13px; color: #6e7989}
+.result-settings-menu > summary {display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; padding: 7px 13px; line-height: 1.6; border: 1px solid #dce4ef; border-radius: 13px}
+.result-settings-menu > summary::-webkit-details-marker {display: none}
+.result-settings-menu > summary:after {content: none}
+.result-settings-menu > summary .result-icon {width: 18px; height: 18px}
+.result-settings-menu > summary .result-icon:last-child {width: 14px; height: 14px}
+#mealRecommendationPanel .result-settings-menu .settings-actions {position: absolute; right: 0; top: calc(100% + 6px); z-index: 7; display: grid; gap: 0; width: 165px; padding: 4px; margin: 0; background: white; border: 1px solid var(--line); border-radius: 11px; box-shadow: 0 5px 16px rgba(24,37,54,.08)}
+#mealRecommendationPanel .settings-actions button {font-size: 12px; text-align: left; padding: 10px; border-radius: 7px; text-decoration: none}
+#mealRecommendationPanel .settings-actions button:hover {background: var(--result-wash)}
+#mealRecommendationPanel .settings-disclosure {font-size: 13px; margin-top: 13px; color: #6c7889}
+#mealRecommendationPanel .settings-disclosure > summary {display: inline-flex; align-items: center; gap: 8px; list-style: none}
+#mealRecommendationPanel .settings-disclosure > summary::-webkit-details-marker {display: none}
+#mealRecommendationPanel .settings-disclosure > summary .result-icon {width: 17px; height: 17px; transform: rotate(90deg)}
+#mealRecommendationPanel .settings-disclosure[open] > summary .result-icon {transform: rotate(-90deg)}
+#mealRecommendationPanel .settings-disclosure #profileSummary,#mealRecommendationPanel .result-count-detail,#mealRecommendationPanel #resultEnergyDetails {font-size: 12px; line-height: 1.8; margin: 8px 0 0; color: var(--muted)}
+#mealRecommendationPanel .results-controls {padding: 0 0 12px; margin: 0; border: 0}
+#mealRecommendationPanel .compact-date-panel {display: block; max-width: none; padding: 10px 14px; margin: 0 0 14px; border: 1px solid #e0e7f1; border-radius: 19px; background: #fbfcff}
+.date-browser {display: flex; align-items: center; gap: 15px; min-width: 0; width: 100%; max-width: none}
+.date-step {display: grid; place-items: center; width: 35px; height: 35px; padding: 0; flex: none; border: 0; border-radius: 50%; background: #f0f4f9; color: #7b899d}
+.date-step .result-icon {width: 20px; height: 20px}
+.date-step:first-child .result-icon {transform: rotate(180deg)}
+.date-step:hover:not(:disabled) {color: var(--result-blue); background: #e4edf9}
+.date-step:disabled {opacity: .45; cursor: default}
+#dateStrip.date-strip {--visible-dates: 7; position: relative; flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding: 0; margin: 0; gap: 8px}
+#dateStrip.date-strip::-webkit-scrollbar {display: none}
+#dateStrip .date-chip {
+  flex: 0 0 calc((100% - (var(--visible-dates) - 1) * 8px) / var(--visible-dates));
+  min-width: 0; height: 54px; padding: 5px 2px; gap: 3px; border: 1px solid #e0e6ef; border-radius: 14px; background: #fff; color: #697484; font-size: 16px; font-weight: 600;
+}
+#dateStrip .date-chip .dow {font-size: 12px; font-weight: 500; color: inherit}
+#dateStrip .date-chip.active {background: var(--result-blue); border-color: var(--result-blue); color: #fff}
+#mealRecommendationPanel .restaurant-filter {display: flex; align-items: center; gap: 14px}
+#mealRecommendationPanel .control-label {margin: 0; font-size: 11px}
+#mealRecommendationPanel .shop-tab {padding: 7px 13px; font-size: 11px}
+#mealRecommendationPanel .result-allergy-note {font-size: 10px; margin: 0 0 12px; color: var(--muted)}
+@media(max-width:900px) {
+  #mealRecommendationPanel .day-heading {grid-template-columns: minmax(0,1fr) 245px; gap: 16px}
+  #mealRecommendationPanel .day-heading h2 {font-size: 28px}
+  #mealRecommendationPanel #dayTitle {font-size: 13px}
+  #mealRecommendationPanel .result-title-block {gap: 12px}
+  .result-title-icon {width: 54px; height: 54px; border-radius: 14px}
+}
+@media(max-width:640px) {
+  #results .flow-result-nav {margin-bottom: 14px}
+  #results .flow-result-nav .flow-secondary {font-size: 12px}
+  #mealServiceTabs {width: 100%; margin-bottom: 20px; border-radius: 15px; padding: 4px}
+  #mealServiceTabs button {min-height: 43px; gap: 9px; font-size: 14px; padding: 8px; border-radius: 11px}
+  #mealServiceTabs button .result-icon {width: 20px; height: 20px}
+  #mealRecommendationPanel .day-heading {grid-template-columns: 1fr; gap: 13px; margin-bottom: 15px}
+  #mealRecommendationPanel .result-title-block {gap: 12px}
+  .result-title-icon {width: 44px; height: 44px; border-radius: 12px}
+  .result-title-icon .result-icon {width: 28px; height: 28px}
+  #mealRecommendationPanel .day-heading h2 {font-size: 24px; margin: -2px 0 5px}
+  #mealRecommendationPanel #dayTitle {font-size: 11px}
+  #mealRecommendationPanel .energy-overview {grid-template-columns: 22px minmax(0,1fr); gap: 12px; padding: 12px 15px; border-radius: 14px; width: 100%}
+  #mealRecommendationPanel .energy-overview > .result-icon {width: 22px; height: 26px}
+  .result-energy-content {padding-left: 12px}
+  #mealRecommendationPanel #resultEer {display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: center; gap: 4px}
+  #mealRecommendationPanel .energy-label {font-size: 11px; white-space: normal; margin: 0}
+  #mealRecommendationPanel .energy-number {font-size: 25px}
+  #mealRecommendationPanel .energy-unit {font-size: 12px}
+  #mealRecommendationPanel #resultEnergyTarget {font-size: 10px; margin-top: 4px}
+  #mealRecommendationPanel .result-settings {margin-bottom: 15px}
+  .result-setting-row {align-items: flex-start; gap: 9px}
+  #mealRecommendationPanel #resultSettingsBrief {font-size: 11px; gap: 6px}
+  .result-setting-tag {padding: 5px 10px; gap: 6px}
+  .result-setting-tag .result-icon {width: 15px; height: 15px}
+  .result-settings-menu {font-size: 11px}
+  .result-settings-menu > summary {padding: 5px 8px; gap: 5px; border-radius: 10px; white-space: nowrap}
+  .result-settings-menu > summary .result-icon {width: 15px; height: 15px}
+  .result-settings-menu > summary .result-icon:last-child {width: 11px; height: 11px}
+  #mealRecommendationPanel .settings-disclosure {font-size: 11px; margin-top: 10px}
+  #mealRecommendationPanel .compact-date-panel {padding: 8px 9px; border-radius: 15px; margin-bottom: 12px}
+  .date-browser {gap: 8px}
+  .date-step {width: 25px; height: 29px}
+  .date-step .result-icon {width: 17px; height: 17px}
+  #dateStrip.date-strip {--visible-dates: 5; gap: 5px}
+  #dateStrip .date-chip {flex-basis: calc((100% - (var(--visible-dates) - 1) * 5px) / var(--visible-dates)); height: 48px; font-size: 13px; gap: 3px; border-radius: 10px}
+  #dateStrip .date-chip .dow {font-size: 11px}
+  #mealRecommendationPanel .restaurant-filter {display: block}
+  #mealRecommendationPanel .control-label {display: none}
+  #mealRecommendationPanel .shop-tab {padding: 7px 5px; font-size: 10px}
+  #mealRecommendationPanel .result-allergy-note {margin-bottom: 10px}
+}
+@media(max-width:360px) {
+  #dateStrip.date-strip {--visible-dates: 3}
+  #mealRecommendationPanel .day-heading h2 {font-size: 22px}
+  #mealRecommendationPanel .result-title-block {gap: 10px}
+  .result-setting-tag {padding-inline: 8px}
+}
+
+/* Data-based two-line menu review; existing recommendation metrics stay intact. */
+.menu-card .card-reason {padding: 9px 11px; background: #f3f6fa; min-width: 0}
+.menu-card .card-reason p {display: flex; align-items: flex-start; gap: 7px; margin: 0; font: inherit; line-height: 1.6; overflow-wrap: anywhere; word-break: keep-all}
+.menu-card .card-reason p + p {margin-top: 4px}
+.menu-card .card-reason .result-icon {width: 14px; height: 14px; margin-top: 3px; color: #6c85a5; stroke-width: 1.8}
+.menu-card .card-reason .review-energy {color: #718096}
+.allergy-excluded-card .card-reason {background: #e8edf2}
+/* The diary heading shares the recommendation header's visual hierarchy. */
+#mealDiaryPanel .meal-diary-heading {display: grid; grid-template-columns: minmax(0,1fr) 250px; align-items: center; gap: 22px; margin: 0 0 22px}
+.diary-title-block {display: flex; align-items: flex-start; gap: 18px; min-width: 0}
+#mealDiaryPanel .meal-diary-heading h2 {font-size: 34px; color: var(--result-ink); margin: -3px 0 9px; line-height: 1.35; font-weight: 700; letter-spacing: -.045em}
+#mealDiaryPanel .meal-diary-heading p {font-size: 14px; line-height: 1.6; color: #737d8c; margin: 0}
+.diary-date-control {display: flex; align-items: center; gap: 14px; padding: 13px 17px; background: #e7f0fc; border-radius: 18px; color: var(--result-blue)}
+.diary-date-control > .result-icon {width: 27px; height: 27px}
+#mealDiaryPanel .diary-date-control label {flex: 1; min-width: 0; border-left: 1px solid #c8d9ef; padding-left: 14px; color: #697588; font-size: 12px}
+#mealDiaryPanel .diary-date-control input {min-height: 32px; padding: 3px 0; border: 0; border-radius: 0; background: transparent; color: var(--result-blue); font-size: 16px; font-weight: 600}
+@media(max-width:900px) {
+  #mealDiaryPanel .meal-diary-heading {grid-template-columns: minmax(0,1fr) 225px; gap: 16px}
+  #mealDiaryPanel .meal-diary-heading h2 {font-size: 28px}
+  .diary-title-block {gap: 12px}
+}
+@media(max-width:640px) {
+  .menu-card-footer {flex-wrap: wrap}
+  .menu-card .card-reason {flex: 1 1 100%; padding: 8px 10px; font-size: 11px}
+  .menu-card .card-reason .result-icon {width: 13px; height: 13px; margin-top: 2px}
+  .menu-card .card-reason p + p {margin-top: 3px}
+  #mealDiaryPanel .meal-diary-heading {grid-template-columns: 1fr; gap: 13px; margin-bottom: 16px}
+  #mealDiaryPanel .meal-diary-heading h2 {font-size: 24px; margin: -2px 0 5px}
+  #mealDiaryPanel .meal-diary-heading p {font-size: 11px}
+  .diary-date-control {padding: 10px 14px; border-radius: 14px}
+  .diary-date-control > .result-icon {width: 22px; height: 22px}
+  #mealDiaryPanel .diary-date-control label {display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 11px}
+  #mealDiaryPanel .diary-date-control input {width: 150px; margin: 0; font-size: 15px}
+}
+
+/* Read-only personal target comparison; collapsed by default. */
+.personal-goal-details {margin: 12px 0 0; border-top: 1px solid #e5eaf1; font: 400 12px/1.6 var(--guide-font); color: #53657c}
+.personal-goal-details > summary {display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 38px; padding: 7px 0; list-style: none; cursor: pointer; color: var(--result-blue); font-weight: 500}
+.personal-goal-details > summary::-webkit-details-marker {display: none}
+.personal-goal-details > summary:focus-visible {outline: 2px solid var(--result-blue); outline-offset: 3px; border-radius: 4px}
+.exchange-toggle {display: block; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-right: 5px; flex: none}
+.personal-goal-details[open] .exchange-toggle {transform: rotate(225deg)}
+.personal-goal-body {padding: 7px 0 12px}
+.exchange-heading {display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px}
+.exchange-heading > strong {font-size: 14px; font-weight: 600; color: var(--text)}
+.exchange-heading > span {font-size: 12px; color: #68778b}
+.exchange-heading b {font-weight: 600; color: #324961; margin-left: 5px; font-variant-numeric: tabular-nums}
+.exchange-description {margin: 5px 0 14px; color: #68778b; word-break: keep-all; overflow-wrap: anywhere}
+.exchange-chart-caption {display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3px 12px; color: #7c8797; font-size: 10px; padding-bottom: 6px}
+.exchange-chart {display: grid}
+.exchange-row {display: grid; grid-template-columns: 76px minmax(0,1fr) 74px; gap: 14px; align-items: center; padding: 11px 0; border-top: 1px solid #edf0f5}
+.exchange-row h4 {font: 500 12px/1.5 var(--guide-font); color: #42556c; margin: 0}
+.exchange-bars {display: grid; gap: 6px; min-width: 0}
+.exchange-series {display: grid; grid-template-columns: 25px minmax(0,1fr) 51px; align-items: center; gap: 8px; line-height: 1.4}
+.exchange-series-label {font-size: 10px; color: #7a8796}
+.exchange-track {display: block; width: 100%; height: 7px; border-radius: 4px; background: #f1f4f8; overflow: hidden}
+.exchange-fill {display: block; height: 100%; border-radius: inherit}
+.exchange-fill.is-target {background: #aeb8c6}
+.exchange-fill.is-actual {background: var(--result-blue)}
+.exchange-value {font-size: 11px; font-variant-numeric: tabular-nums; text-align: right; color: #52657b}
+.exchange-series:last-child .exchange-value {color: var(--result-blue); font-weight: 500}
+.exchange-difference {display: flex; flex-direction: column; align-items: flex-end; gap: 1px; font-variant-numeric: tabular-nums}
+.exchange-difference small {font-size: 9px; color: #7d8999}
+.exchange-difference span {font-size: 13px; font-weight: 500; color: #42556c; overflow-wrap: anywhere}
+.exchange-footnote {font-size: 10px; color: #7c8797; margin: 8px 0 0; word-break: keep-all; overflow-wrap: anywhere}
+.allergy-excluded-card .personal-goal-details > summary {color: #66758a}
+.allergy-excluded-card .exchange-fill.is-actual {background: #7c93ae}
+@media(max-width:640px) {
+  .personal-goal-details {font-size: 11px; margin-top: 10px}
+  .personal-goal-details > summary {min-height: 36px}
+  .exchange-heading {display: grid; gap: 3px}
+  .exchange-heading > strong {font-size: 13px}
+  .exchange-heading > span {font-size: 11px}
+  .exchange-description {margin: 6px 0 12px}
+  .exchange-chart-caption {display: grid; font-size: 9px; gap: 2px}
+  .exchange-row {grid-template-columns: minmax(0,1fr) auto; gap: 7px 12px; padding: 10px 0}
+  .exchange-row h4 {font-size: 11px}
+  .exchange-difference {grid-column: 2; grid-row: 1; flex-direction: row; align-items: baseline; gap: 7px}
+  .exchange-difference span {font-size: 12px}
+  .exchange-bars {grid-column: 1 / -1; grid-row: 2; gap: 5px}
+  .exchange-series {grid-template-columns: 23px minmax(0,1fr) 49px; gap: 7px}
+  .exchange-track {height: 6px}
+}

@@ -1,5 +1,4 @@
 (function(root){
-  const exchangeGoals=new Set(['lifestyle','weight_loss','glycemic']);
   function mount({form,validateGoal,onLeave=()=>{}}){
     const pages=[...document.querySelectorAll('[data-step]')],status=document.getElementById('flowStatus');
     const submit=document.getElementById('personalSubmit');
@@ -9,6 +8,7 @@
     function show(step,historyMode='push'){
       if(!Number.isInteger(step)||step<0||step>4)return;
       onLeave();current=step;
+      document.getElementById('resultSettingsMenu').open=false;
       pages.forEach(p=>p.hidden=Number(p.dataset.step)!==step);
       form.hidden=step===0||step===4;
       document.body.dataset.flowStep=String(step);
@@ -51,14 +51,8 @@
       else if(current===3&&ready)form.requestSubmit(submit);
     }
     function updateAllergyButton(){submit.textContent=(root.AllergyUI?.selectedCodes().length??0)>0?'다음':'건너뛰기';}
-    function updateGoalBasis(){
-      const goal=form.querySelector('[name="goal"]:checked')?.value;
-      document.querySelectorAll('[data-goal-basis]').forEach(el=>el.hidden=el.dataset.goalBasis!==goal);
-      document.getElementById('distanceBasis').hidden=!exchangeGoals.has(goal);
-    }
-    function setReady(value,table,glycemicTable){
+    function setReady(value){
       ready=value;submit.disabled=!value;document.querySelector('[data-flow-next="3"]').disabled=!value;
-      if(value){document.getElementById('exchangeTableSources').textContent=JSON.stringify({general:table,glycemic:glycemicTable},null,2);}
       updateAllergyButton();
     }
     function showResults(context){
@@ -67,27 +61,59 @@
       const choice=name=>form.querySelector(`[name="${name}"]:checked`)?.closest('label')?.textContent.trim()??'';
       const allergies=[...document.querySelectorAll('#allergyOptions input:checked')].map(input=>input.closest('label').textContent.trim()).join(', ');
       document.getElementById('profileSummary').textContent=`${field('sex')==='male'?'남성':'여성'} · 만 ${field('age')}세 · ${field('heightCm')} cm · ${field('weightKg')} kg · ${choice('activity')} · 하루 ${context.mealCount}끼 · ${choice('goal')}${allergies?' · 선택 알레르기: '+allergies:' · 알레르기 선택 안 함'}`;
-      document.getElementById('resultSettingsBrief').textContent=`${choice('goal')} · 하루 ${context.mealCount}끼 · ${root.AllergyUI.selectedCodes().length?'알레르기 '+root.AllergyUI.selectedCodes().length+'종 선택':'알레르기 선택 안 함'}`;
+      const selectedAllergies=Array.from(document.querySelectorAll('#allergyOptions input:checked'),input=>
+        input.closest('label').textContent.trim().replace(/^\d+[.\s]*/,''));
+      const allergyTag=selectedAllergies.length
+        ? '알레르기 '+selectedAllergies.slice(0,2).join('·')+(selectedAllergies.length>2 ? ` 외 ${selectedAllergies.length-2}종` : '')
+        : '알레르기 미선택';
+      const brief=document.getElementById('resultSettingsBrief');
+      brief.replaceChildren();
+      const tagIcons=['leaf','utensils','allergy'];
+      for(const [index,text] of [choice('goal'),`하루 ${context.mealCount}끼`,allergyTag].entries()){
+        const tag=document.createElement('span');
+        tag.className='result-setting-tag';
+        tag.setAttribute('role','listitem');
+        const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('class','result-icon');
+        svg.setAttribute('viewBox','0 0 24 24');
+        svg.setAttribute('aria-hidden','true');
+        const use=document.createElementNS('http://www.w3.org/2000/svg','use');
+        use.setAttribute('href',`#result-icon-${tagIcons[index]}`);
+        svg.appendChild(use);
+        tag.append(svg,document.createTextNode(text));
+        brief.appendChild(tag);
+      }
       const energy=document.getElementById('resultEer'),energyLabel=document.createElement('span'),energyValue=document.createElement('strong'),energyUnit=document.createElement('span');
-      energyLabel.className='energy-label';energyLabel.textContent='하루 필요 에너지(EER)';energyValue.className='energy-number';energyValue.textContent=context.eer.toFixed(0);energyUnit.className='energy-unit';energyUnit.textContent=' kcal';energy.replaceChildren(energyLabel,energyValue,energyUnit);
+      energyLabel.className='energy-label';energyLabel.textContent='하루 필요 에너지(EER)';energyValue.className='energy-number';energyValue.textContent=Number(context.eer.toFixed(0)).toLocaleString('ko-KR');energyUnit.className='energy-unit';energyUnit.textContent=' kcal';energy.replaceChildren(energyLabel,energyValue,energyUnit);
       const target=document.getElementById('resultEnergyTarget');target.hidden=context.goal!=='weight_loss';
-      target.textContent=context.goal==='weight_loss'?`하루 목표 ${context.adjustedEer.toFixed(1)} kcal · 하루 적자 ${context.deficit.toFixed(1)} kcal · 한 끼 열량 상한 ${context.mealEnergyLimit.toFixed(1)} kcal`:'';
+      target.textContent=context.goal==='weight_loss'?`감량 하루 목표 ${context.adjustedEer.toFixed(1)} kcal`:'';
+      const energyDetails=document.getElementById('resultEnergyDetails');
+      energyDetails.hidden=context.goal!=='weight_loss';
+      energyDetails.textContent=context.goal==='weight_loss'?`하루 목표 ${context.adjustedEer.toFixed(1)} kcal · 하루 적자 ${context.deficit.toFixed(1)} kcal · 한 끼 열량 상한 ${context.mealEnergyLimit.toFixed(1)} kcal`:'';
       show(4,restoring?'none':'push');
       requestAnimationFrame(()=>root.dispatchEvent(new Event('resize')));
     }
+    const settingsMenu=document.getElementById('resultSettingsMenu');
+    document.addEventListener('pointerdown',event=>{
+      if(settingsMenu.open&&!settingsMenu.contains(event.target)) settingsMenu.open=false;
+    });
+    settingsMenu.addEventListener('keydown',event=>{
+      if(event.key!=='Escape') return;
+      settingsMenu.open=false;
+      settingsMenu.querySelector('summary').focus();
+    });
     document.getElementById('guideStart').addEventListener('click',next);
     document.getElementById('guideHome').addEventListener('click',event=>{event.preventDefault();clearError();show(0);});
     document.querySelectorAll('[data-flow-next]').forEach(button=>button.addEventListener('click',next));
     document.querySelectorAll('[data-flow-back]').forEach(button=>button.addEventListener('click',()=>{clearError();show(Math.max(0,current-1));}));
     document.querySelectorAll('[data-edit-step]').forEach(button=>button.addEventListener('click',()=>{clearError();show(Number(button.dataset.editStep));}));
-    form.querySelectorAll('[name="goal"]').forEach(input=>input.addEventListener('change',updateGoalBasis));
     root.addEventListener('popstate',event=>{
       clearError();const step=event.state?.guideStep??0;
       if(step===4&&hasResults){restoring=true;try{form.requestSubmit(submit);}finally{restoring=false;}return;}
       show(step===4?0:step,'none');
     });
-    updateGoalBasis();setReady(false);show(0,'replace');
-    return {get step(){return current;},get restoringResults(){return restoring;},next,validateForResults,showError,showResults,setReady,updateAllergyButton,updateGoalBasis};
+    setReady(false);show(0,'replace');
+    return {get step(){return current;},get restoringResults(){return restoring;},next,validateForResults,showError,showResults,setReady,updateAllergyButton};
   }
   root.GuideFlow={mount};
 })(globalThis);

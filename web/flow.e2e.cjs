@@ -18,11 +18,17 @@ const note=name=>checks.push(name);
  const stage=()=>page.locator('body').getAttribute('data-flow-step');
  const shot=name=>page.screenshot({path:path.join(output,name+'.png'),fullPage:true});
  async function resultFor(goal){
-  if(await stage()==='4')await page.locator('[data-edit-step="2"]').click();
+  if(await stage()==='4')await editStep(2);
   await page.locator(`[name=goal][value=${goal}]`).check({force:true});
   if(goal==='weight_loss')await page.locator('[name=monthlyLossKg]').fill('');
   await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();assert.equal(await stage(),'4');
  }
+
+  async function editStep(step){
+   const button=page.locator(`[data-edit-step="${step}"]`);
+   if(!await button.isVisible()) await page.locator('#resultSettingsMenu > summary').click();
+   await button.click();
+  }
  await page.goto(url+'?date=2026-11-04&v=step-flow-test');await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);
  assert.equal(await stage(),'0');assert(await page.locator('#guideStep0 img').isVisible());assert(!(await page.locator('#personalForm').isVisible()));await shot('cover');note('표지 및 기존 마스코트');
  await page.locator('#guideStart').click();assert.equal(await stage(),'1');
@@ -62,28 +68,31 @@ const note=name=>checks.push(name);
   for(const a of actual)assert.deepEqual(a.recommendation,expectedByKey.get(JSON.stringify(a.key)));
   assert.deepEqual(await page.locator('.rank-pill').allTextContents(),expected.filter(x=>x.rank!==null).map(x=>`전체 ${x.rank}위`));
   assert(!(await page.locator('#shopGrid').innerText()).includes('목표 식품교환단위와의 거리'));
-  assert(!(await page.locator('#shopGrid').innerText()).includes('NRF'));assert.equal(await page.locator('#shopGrid .score-details').count(),0);
+  assert.equal(await page.locator('#shopGrid .nrf-num').count(),0);assert.equal(await page.locator('#shopGrid .score-details').count(),0);
   assert.equal(await page.locator('.card').count(),6);modeChecks.push(goal);
  }
- note('7모드의 계산값·평가 여부·순위 기존 함수와 완전 일치; 메인 카드 D·NRF 미노출');
+ note('7모드의 계산값·평가 여부·순위 기존 함수와 완전 일치; 메인 카드 D·NRF 원점수 미노출');
  await resultFor('lifestyle');
  await page.locator('.card-more').first().click();await page.locator('#sheet.open').waitFor();
- assert((await page.locator('#sheetBody').innerText()).includes('목표 식품교환단위와의 거리'));
+ assert.equal(await page.locator('#sheetPanel .nutri-table tr').count(),12);
+ assert.equal(await page.locator('#sheetPanel .nrf-block').count(),0);
+ assert(!(await page.locator('#sheetPanel').innerText()).includes('추천 기준:'));
+ assert(!(await page.locator('#sheetPanel').innerText()).includes('목표 식품교환단위와의 거리'));
  const exchange=page.locator('#sheetBody [data-tab=exchange]');if(await exchange.count()){await exchange.click();assert((await page.locator('#sheetBody').innerText()).includes('곡류'));}
- await page.locator('#sheetClose').click();note('상세정보 영양표·교환단위·거리 근거 유지');
+ await page.locator('#sheetClose').click();note('상세정보 영양표·교환단위 유지; 상단 추천 설명·NRF 박스 제거');
  const tabs=page.locator('#shopTabs button');await tabs.nth(1).click();assert((await page.locator('.rank-pill').allTextContents()).every(t=>!t.includes('전체')));await tabs.first().click();
- await page.locator('[data-edit-step="1"]').click();assert.equal(await page.locator('[name=age]').inputValue(),'22');await page.locator('[name=mealCount][value="2"]').check({force:true});
+ await editStep(1);assert.equal(await page.locator('[name=age]').inputValue(),'22');await page.locator('[name=mealCount][value="2"]').check({force:true});
  await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();
  const two=await page.evaluate(()=>ACTIVE_CONTEXT);assert.equal(two.mealCount,2);const three=Score.createContext(profile,'lifestyle',normal,glycemic);two.mealTarget.forEach((v,i)=>assert.equal(v,three.mealTarget[i]*1.5));
- await page.locator('[data-edit-step="1"]').click();await page.locator('[name=mealCount][value="3"]').check({force:true});await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();
+ await editStep(1);await page.locator('[name=mealCount][value="3"]').check({force:true});await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();
  await shot('results-desktop');note('결과에서 기본 정보 수정·2끼/3끼 목표·식당 탭 유지');
- await page.locator('[data-edit-step="3"]').click();await page.locator('#allergyToggle').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(3);await page.locator('#allergyToggle').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
  assert.equal(await page.locator('.card').count(),6);assert(await page.locator('.allergy-excluded-card').count()>0);
  for(const c of await page.locator('.allergy-excluded-card').all()){assert.equal(await c.locator('.rank-pill').count(),0);assert.equal(await c.locator('.card-more').count(),0);}
  note('제외 카드 회색·후순위·무순위·선택 불가 및 전체 메뉴 수 유지');
- await page.locator('[data-edit-step="3"]').click();await page.locator('#allergyToggle').click();for(const input of await page.locator('#allergyOptions input').all())await input.check({force:true});await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(3);await page.locator('#allergyToggle').click();for(const input of await page.locator('#allergyOptions input').all())await input.check({force:true});await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
  assert.equal(await page.locator('.allergy-excluded-card').count(),6);assert.equal(await page.locator('.rank-pill').count(),0);assert(await page.locator('.empty-note').isVisible());note('모든 메뉴 알레르기 제외 시 안내 유지');
- await page.locator('[data-edit-step="3"]').click();await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(3);await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
  const stored=await page.evaluate(()=>localStorage.getItem('hyu-menu-guide.profile.v1'));assert(stored);
  await page.reload();await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);assert.equal(await stage(),'0');await page.locator('#guideStart').click();assert.equal(await page.locator('[name=age]').inputValue(),'22');assert(await page.locator('#rememberProfile').isChecked());
  const state=await context.storageState(),reopened=await browser.newContext({storageState:state});const restored=await reopened.newPage();await restored.goto(url+'?date=2026-11-04');await restored.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);await restored.locator('#guideStart').click();assert.equal(await restored.locator('[name=weightKg]').inputValue(),'65');await reopened.close();
@@ -95,6 +104,6 @@ const note=name=>checks.push(name);
  assert(await page.locator('#shopGrid .card img').evaluateAll(imgs=>imgs.every(i=>i.naturalWidth>0)));note('결과 날짜 변경·기존 사진 전체 로딩');
  await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
  const rects=await page.locator('.card').evaluateAll(cards=>cards.map(c=>{const r=c.getBoundingClientRect();return {left:r.left,top:r.top};}));for(let i=1;i<rects.length;i++){assert.equal(rects[i].left,rects[0].left);assert(rects[i].top>rects[i-1].top);}
- await shot('results-mobile');await page.locator('[data-edit-step="3"]').click();await page.locator('#allergyToggle').click();assert(await page.locator('#allergyPanel').isVisible());assert(await page.locator('#allergyOptions').evaluate(el=>el.scrollHeight>el.clientHeight));await shot('allergy-mobile');note('모바일 세로 목록·가로 넘침 없음·스크롤 드롭다운');
+ await shot('results-mobile');await editStep(3);await page.locator('#allergyToggle').click();assert(await page.locator('#allergyPanel').isVisible());assert(await page.locator('#allergyOptions').evaluate(el=>el.scrollHeight>el.clientHeight));await shot('allergy-mobile');note('모바일 세로 목록·가로 넘침 없음·스크롤 드롭다운');
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'browser-report.json'),JSON.stringify({checks,modeChecks,errors},null,2));console.log(JSON.stringify({passed:checks.length,checks,errors},null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{await browser?.close();});
