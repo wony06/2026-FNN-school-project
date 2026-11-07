@@ -363,6 +363,8 @@ def _try_cascade(name, weight_g):
 
 KIMCHI_PAIR_EXCLUDED_DATES = {"2026-08-29", "2026-09-05", "2026-09-12", "2026-09-19"}
 KIMCHI_PAIR_SECOND = {
+    "2026-11-05": "김치, 깍두기",  # 공식 식판 사진의 배추김치 + 무김치 대체
+    "2026-11-06": "김치, 깍두기",  # 공식 식판 사진의 배추김치 + 무김치 대체
     "2026-11-02": "김치, 깍두기",  # 사진의 큼직한 무김치를 깍두기로 대체 추정
     "2026-10-26": "김치, 오이 소박이",  # 사용자 지정: 배추김치 + 오이김치 대체
     **{date: "김치, 깍두기" for date in ("2026-08-26", "2026-08-31", "2026-09-11", "2026-09-14")},
@@ -389,6 +391,8 @@ def compute_kimchi_pair(date, weight_g):
         note = (f"김치2종: 사용자 지정 대체 매칭. 배추김치 + 오이김치(오이소박이). "
                 f"기존 추정 제공량 {weight_g:g}g을 각각 {weight_g/2:g}g씩 균등 배분. "
                 "해당 날짜 사진을 별도로 확인한 결과가 아니며 실제 종류·중량 실측값 아님. 영양성분 계산 유지.")
+    if date in ("2026-11-05", "2026-11-06"):
+        note += " 공식 식판 사진에서 배추김치와 큼직한 무김치 확인. 무김치 세부 종류는 확정하지 않고 원재료DB 깍두기로 대체 추정."
     if date == "2026-11-02":
         note += " 사진의 큼직한 무김치는 섞박지 형태로 보이나, 원재료DB 깍두기로 대체 추정."
     return {"matched": True, "units": units, "source": "db104_direct", "matched_name": " + ".join(names),
@@ -398,6 +402,27 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "새송이버섯볶음":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        ingredients = [("큰느타리버섯(새송이버섯), 데친것", weight_g * 77 / 80),
+                       ("콩기름", weight_g * 3 / 80)]
+        for ingredient, amount in ingredients:
+            record = DB104_BY_NAME[ingredient]
+            if not _add_ingredient(units, record["식품군"], record, amount):
+                raise ValueError(f"새송이버섯볶음 재료 연결 실패: {ingredient}")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "새송이버섯 + 조리유(콩기름)",
+                "matched_ingredients": [n for n, _ in ingredients], "unresolved_ingredients": [],
+                "recipe_note": f"새송이버섯볶음: 사용자 지정으로 새송이버섯과 조리유 분해. 기존 추정 총량 {weight_g:g}g 안에서 새송이버섯 {weight_g*77/80:g}g + 콩기름 {weight_g*3/80:g}g으로 배분(80g당 버섯77g, 기름3g 임시 가정). 실제 조리유 종류·흡수량 실측값이 아니며 버섯은 원재료DB 데친것으로 대체. 다른 채소·양념과 조리수율 차이는 미반영. 메뉴명과 영양성분 유지, 교환단위만 변경."}
+    if name == "치커리무침":
+        record = DB104_BY_NAME["치커리, 잎, 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("치커리 잎 교환단위 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"치커리무침: 사용자 지정으로 치커리 잎 생것에 대체 매칭. 기존 음식 추정량 {weight_g:g}g 전체를 잎채소로 간주하고 양념은 교환단위에서 제외. 실제 채소 중량 실측값 아님. 메뉴명과 영양성분 계산 유지."}
     if name == "곰탕":
         product = try_food_db("곰탕")
         protein_per100 = product["per100"].get("protein") if product else None
@@ -540,6 +565,11 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     if not use_plaza_servings:
         # Explicit equivalents; retain uncertainty when using a standard recipe.
         aliases = {
+            "등뼈감자탕": "감자탕",  # 사용자 지정 교환단위 대체
+            "알마늘장아찌": "마늘장아찌",  # 사용자 지정 교환단위 이름 연결
+            "오이도라지무침": "도라지오이무침",  # 사용자 지정 교환단위 이름 연결
+            "된장찌개": "호박두부된장찌개",  # 사용자 지정 교환단위 대체
+            "간장돼지불고기": "돼지고기 간장볶음",  # 사용자 지정 교환단위 대체
             "막국수": "메밀비빔국수",  # 사용자 지정 유사 레시피 대체
             "석박지": "섞박지",  # 사용자 지정 표기 연결
             "오이탕탕이": "오이무침",  # 사용자 지정 교환단위 대체 매칭
@@ -655,6 +685,9 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             return {"matched": True, "units": units, "source": "db104_direct",
                     "matched_name": "김치, 배추 김치", "unresolved_ingredients": []}
     # 이름만 연결한다. 완제품의 채소류 분류로 튀김옷까지 계산하지 않도록 보류한다.
+    if name == "참치김치찌개":
+        name = "김치찌개(참치)"
+        alias_note = "참치김치찌개: 사용자 지정으로 MenuGen 김치찌개(참치)에 대체 매칭. 기존 추정 제공량에 레시피 재료를 비례 환산. 메뉴 표시명과 영양성분 계산 유지."
     # 사용자 지정: 등심돈까스는 기본 돈가스 레시피로 계산한다.
     if name in ("등심돈까스", "등심돈가스"):
         name = "돈가스"
