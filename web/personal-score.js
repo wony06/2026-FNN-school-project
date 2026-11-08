@@ -102,6 +102,7 @@
       const ascending=x.goal==='low_sugar'||x.goal==='low_sodium';
       const diff=ascending ? x.metric-y.metric : y.metric-x.metric;
       if(diff) return diff;
+      if(x.distance!=null && y.distance!=null){const dd=x.distance-y.distance;if(dd)return dd;}
     }
     return a.shop.localeCompare(b.shop) || a.category.localeCompare(b.category,'ko') || a.main.localeCompare(b.main,'ko');
   }

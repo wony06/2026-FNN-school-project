@@ -12,6 +12,23 @@ GAGONG_DB = load_gagong()
 
 NUT_FIELDS = ["kcal", "protein", "fat", "carb", "sugar", "fiber", "ca", "fe", "vitA", "vitC", "satFat", "na"]
 
+# 2026-11-05 추가: 반찬류 영양소 매칭의 단위 문제 보정.
+# food_db는 영양값을 "분석함량"(실측, 100% g)과 "재료량 기반 산출함량"(KNHANES 음식재료량
+# 기반 계산, 100% ml)으로 나눠 수록한다. 그런데 기본 매칭 우선순위(food_search.PRIORITY)는
+# 산업체급식(=재료량 산출=ml)을 1순위로 집어서, 고체 반찬도 'ml' 레코드로 매칭된다. 우리가
+# 가진 1인분 중량 기준자료(김혜영1997·식사구성안 등)는 g 단위뿐이라 ml 레코드와는 밀도 없이
+# 환산이 불가능하다(1ml≠1g). 따라서 '부피로 다루는 게 자연스러운 카테고리'(국·탕·찌개·면·밥·
+# 죽·음료)가 아닌 반찬류는 g 기반 분석함량 출처(외식→가정식)로만 매칭하고, 거기에 없으면
+# food_db를 포기(None)해 레시피DB·원재료DB(db104)로 cascade 되게 한다.
+ML_LEGIT_CATL = {
+    "음료 및 차류", "국 및 탕류", "찌개 및 전골류",
+    "면 및 만두류", "밥류", "죽 및 스프류", "유제품류 및 빙과류",
+    # 2026-11-08: 장류·양념류(초간장 등 소스)는 액체라 ml 매칭 허용(g규칙 예외). 1ml≈1g.
+    "장류, 양념류",
+}
+# 반찬류가 쓸 수 있는 g 기반(분석함량) 출처 — 외식(분석) 1순위, 가정식(분석) 2순위.
+SIDE_G_ORIGIN_PRIORITY = ["외식(분석함량)", "가정식(분석 함량)"]
+
 
 def _parse_weight(s):
     """"250ml"/"400g"/"291.90ml" 같은 문자열에서 숫자만 뽑아 float로. 못 뽑으면 None.
@@ -67,6 +84,7 @@ FOOD_DB_SYNONYMS = {
 # 이름 자체를 바꿔치기하는 동의어. "이화수육개장"→"육개장"처럼 수식어를 뗀 이름이 food_db엔
 # 없고 gagong_db에만 있는 경우가 많아 food_db 전용인 FOOD_DB_SYNONYMS로는 부족해서 따로 둠.
 GENERAL_SYNONYMS = {
+    "황태구이_양념": "황태구이",  # 2026-11-08: ml뿐인 "황태구이_양념" 대신 g 레코드 있는 "황태구이"로 영양소 매칭
     "새우가스": "새우까스",  # 사용자 지정 표기 연결
     "전골)한방갈비찜": "갈비찜",  # 사용자 지정 대체 매칭
     "전골) 한방갈비찜": "갈비찜",
@@ -193,18 +211,35 @@ CONCENTRATE_KEYWORDS = ("농축", "원액", "베이스", "분말", "희석", "�
 
 
 def try_food_db(name):
-    exact, _ = search_food(FOOD_DB, name, limit=5)
+    exact, _ = search_food(FOOD_DB, name, limit=50)
     used_synonym = None
     if not exact and name in FOOD_DB_SYNONYMS:
-        exact, _ = search_food(FOOD_DB, FOOD_DB_SYNONYMS[name], limit=5)
+        exact, _ = search_food(FOOD_DB, FOOD_DB_SYNONYMS[name], limit=50)
         used_synonym = FOOD_DB_SYNONYMS[name] if exact else None
     if not exact:
         return None
-    d = exact[0]  # 이미 PRIORITY 순 정렬됨
+    # 반찬류(부피 카테고리가 아닌 것)는 g 기반 분석함량 출처(외식→가정식)로만 매칭한다.
+    # 그런 출처 레코드가 없으면 food_db를 포기(None)하고 레시피DB·원재료DB로 넘긴다.
+    # (부피 카테고리는 기존 PRIORITY 그대로 - 국물류는 1ml≈1g이라 ml 레코드를 써도 무방.)
+    cat = exact[0].get("catL")  # 동일 이름 후보끼리는 식품분류(catL)가 같다
+    if cat not in ML_LEGIT_CATL:
+        g_cands = [c for c in exact if c.get("origin") in SIDE_G_ORIGIN_PRIORITY]
+        if not g_cands:
+            return None
+        g_cands.sort(key=lambda c: SIDE_G_ORIGIN_PRIORITY.index(c["origin"]))
+        d = g_cands[0]
+    else:
+        d = exact[0]  # 이미 PRIORITY 순 정렬됨
     n = d["n"]
     per100 = {f: n.get(f) for f in NUT_FIELDS}
+    # 2026-11-07: 영양소 per100의 기준단위(basis: 100g/100ml). 식약처 DB는 같은 음식도
+    # 레코드마다 g/ml이 혼용돼 있어(출처로는 못 가림 - 프랜차이즈 출처는 g/ml 섞임), 이 unit을
+    # 캐시에 저장해 build_month가 '영양소 단위에 맞는 중량표(g표=대학급식소 / ml표=KNHANES)'를
+    # 항목별로 고르게 한다.
+    basis = str(d.get("basis") or "")
+    unit = "ml" if "ml" in basis.lower() else "g"
     out = {"source": "food_db", "name": d["name"], "origin": d["origin"], "per100": per100,
-           "serving_weight_g": _parse_weight(d.get("servingWeight"))}
+           "serving_weight_g": _parse_weight(d.get("servingWeight")), "basis": basis, "unit": unit}
     if used_synonym:
         out["used_synonym"] = used_synonym
     return out
@@ -298,6 +333,14 @@ def try_db104_direct(name):
     return out
 
 
+def _with_unit(r):
+    """영양소 per100 기준단위를 보정. food_db만 g/ml이 혼용되고(try_food_db가 basis로 unit을
+    이미 채움), gagong_db·recipe_decompose·db104는 모두 100g 기준이라 unit='g'로 채운다."""
+    if r is not None and "unit" not in r:
+        r["unit"] = "g"
+    return r
+
+
 def _try_cascade(name, prefer_db104=False):
     # 우선순위(2026-09-20 재조정): food_db -> 1.7단계(레시피DB 재료분해+db104) -> gagong_db(가공식품, 최후수단)
     # -> db104(원재료DB) 직접매칭(2026-09-27 추가, 완성요리/가공식품/레시피 어디에도 없는
@@ -316,7 +359,7 @@ def _try_cascade(name, prefer_db104=False):
     for step in steps:
         r = step(name)
         if r:
-            return r
+            return _with_unit(r)
     return None
 
 

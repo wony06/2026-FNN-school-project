@@ -4,7 +4,8 @@
     let prior=null,rank=null;
     return sorted.map((item,index)=>{
       if(item.recommendation.eligible){
-        const tied=prior && prior.recommendation.metric===item.recommendation.metric;
+        const pm=prior?.recommendation;
+        const tied=pm && pm.metric===item.recommendation.metric && (pm.distance??null)===(item.recommendation.distance??null);
         rank=tied ? rank : index+1;
         prior=item;
       } else rank=null;

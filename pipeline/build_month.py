@@ -38,6 +38,10 @@ def is_self_or_junk(tok):
         return True
     if tok in SELF_KEYWORDS:
         return True
+    # 2026-11-08: "~사리"(라면사리·우동사리·당면사리 등 추가면)는 사용자 지시로 메뉴에서 아예
+    # 제거하고, 메뉴명(메인)만으로 매칭한다. (예: "부대찌개&라면사리" -> 부대찌개만)
+    if tok.endswith("사리"):
+        return True
     if tok in OPTIONAL_EXCLUDE_KEYWORDS:
         return True
     if "self" in tok.lower():
@@ -78,15 +82,18 @@ RICE_WORDS = ("쌀밥", "흑미밥", "백미밥", "잡곡밥", "현미밥", "추
 #   있음). "표시용 중량"만 recipe_db 공식 weight 필드(전체의 25%만 있음) 있으면 그걸, 없으면
 #   이 표의 값으로 교체. serving_weight_g 관련 로직은 build_item()/classify_*_weight()에서 처리.
 
-INDIVIDUAL_MATCH_WEIGHTS = {
-    "잡채": (150, "국민건강영양조사(2010) 개별 매칭 - 150g(국물 없어 면류 평균 제외)"),
-    "자장면": (750, "국민건강영양조사(2010) 개별 매칭 - 750g(국물 없어 면류 평균 제외)"),
-    "비빔국수": (500, "국민건강영양조사(2010) 개별 매칭 - 500g(국물 없어 면류 평균 제외)"),
-    "비빔냉면": (920, "국민건강영양조사(2010) 개별 매칭 - 920g(국물 없어 면류 평균 제외)"),
-    # 2026-11-03 추가: 1997년 대학급식소 연구 "Stir Fries"(볶음류) 중 "stir fried pork and
-    # vegetable"(제육볶음과 사실상 동일 음식) 단일 품목값. 볶음류 카테고리 평균(80g)이 아니라
-    # 이 품목 개별값을 메인요리 크기로 사용(다른 볶음류 2종보다 월등히 커서 평균 내면 희석됨).
-    "제육볶음": (119, "대학급식소(1997) Stir Fries 개별 품목 - 제육볶음(돼지고기야채볶음) 119g"),
+# 항상 적용되는 개별 품목값. 2026-11-08: 제육볶음 119(대학급식소 Stir Fries) 사용자 지정으로
+# 삭제(이제 제육볶음은 카테고리/메인 폴백으로 처리). 현재 항상적용 개별값 없음.
+INDIVIDUAL_MATCH_WEIGHTS = {}
+
+# 2026-11-07: 국민건강영양조사(2010) 1인1회 섭취분량(부피 ㎖) 기반 개별값. 이 값은 그 음식이
+# ml 기준(산업체급식 등 재료량산출)으로 영양소가 계산됐을 때만 쓴다(ml×ml 정합). g 기준으로
+# 매칭됐을 때는 이 값을 쓰지 않고 카테고리 분류로 넘긴다(잡채→반찬 폴백 등). classify_*_weight에서
+# INDIVIDUAL_MATCH_WEIGHTS 다음, 카테고리 분기 전에 'ml일 때만' 반환하도록 처리.
+# 2026-11-08: 잡채만 ml전용으로 남김. 자장면·비빔국수·비빔냉면은 면류(497)로 통합(아래
+# NOODLE 처리), 생선초밥은 메뉴에 안 나와 삭제.
+INDIVIDUAL_ML_ONLY = {
+    "잡채": (150, "KNHANES 2010 1인1회 섭취분량 150mL(ml 매칭 전용, g면 반찬 분류로)"),
 }
 
 JJIGAE_KEYWORDS = ("찌개", "전골")
@@ -102,7 +109,9 @@ GUK_JJIGAE_WEIGHT = (283, "국물·찌개류(병합) - 대학급식소(1997) 국
 # 2026-11-03: 애초에 "국물없는 면 평균"(자장면·비빔국수·비빔냉면 723g)을 썼었으나, 셋 다
 # 유난히 큰 개별 품목이라 평균이 비현실적으로 커서(723g, 국물있는 면류 564g보다도 큼) 보류.
 # 근거자료 보완 전까지 임시로 병합 국물·찌개류(272g)를 그대로 매칭해둔다.
-NOODLE_NO_BROTH_HINTS = ("비빔국수", "비빔냉면", "막국수", "쫄면", "냉모밀")
+# 2026-11-08: 비빔국수·비빔냉면은 사용자 지시로 면류(497)에 통합(아래 NOODLE 처리). 여기엔
+# 막국수·쫄면·냉모밀만 남겨 임시로 283 유지.
+NOODLE_NO_BROTH_HINTS = ("막국수", "쫄면", "냉모밀")
 
 # 2026-11-03 추가: 파스타·스파게티류 - 국민건강영양조사에 없어(스파게티 1건만 있으나 빈도
 # 낮고 변동폭 비정상적으로 커서 제외) 메뉴젠(MenuGen) 레시피 23종의 weight_g 중앙값 사용.
@@ -110,8 +119,11 @@ NOODLE_NO_BROTH_HINTS = ("비빔국수", "비빔냉면", "막국수", "쫄면", 
 PASTA_KEYWORDS = ("파스타", "스파게티")
 PASTA_WEIGHT = (172, "파스타류 - 메뉴젠(MenuGen) 레시피 23종 weight_g 중앙값 172g")
 
-NOODLE_KEYWORDS = ("국수", "칼국수", "우동", "라면", "라멘", "짬뽕", "냉면", "수제비", "콩국수", "떡국", "떡만두국", "만두국")
-DUPBAP_KEYWORDS = ("덮밥", "비빔밥", "볶음밥", "동", "솥밥", "오므라이스", "필라프", "카레라이스", "알밥")
+NOODLE_KEYWORDS = ("국수", "칼국수", "우동", "라면", "라멘", "짬뽕", "냉면", "수제비", "콩국수", "떡국", "떡만두국", "만두국", "자장면", "짜장면")
+# 2026-11-07: 볶음밥류는 덮밥·비빔밥(토핑 올린 큰 그릇)과 분리. 일반밥보다 약간 큰 '한 그릇 밥'
+# 수준으로 보고 g 289(기존 일반밥값)/ml 258을 적용. 김밥·참치김밥도 사용자 지시로 여기 매칭.
+BOKKEUMBAP_KEYWORDS = ("볶음밥", "김밥")
+DUPBAP_KEYWORDS = ("덮밥", "비빔밥", "동", "솥밥", "오므라이스", "필라프", "카레라이스", "알밥")
 
 # 2026-11-03 추가: 기준 자료가 아예 없는 메인 단백질 요리들의 임시 처리.
 #   - 구이: "구이" 키워드가 들어간 메인요리는 반찬 구이류(96g) 값을 그대로 재사용.
@@ -125,9 +137,21 @@ MEAT_MAIN_USE_GUK_JJIGAE = {
 # 2026-11-03 추가: 밥 베이스인데 기존 덮밥류 키워드에 안 걸리던 메뉴 - 사용자 지시로 전부 덮밥류 적용.
 RICE_MAIN_USE_DUPBAP = {
     "비프하이라이스", "소고기콩나물밥", "짜장밥", "불고기오븐도리아", "투움바떡볶이", "차돌분모자크림떡볶이",
+    # 2026-11-07: 짬뽕밥류는 '면'이 아니라 밥+토핑 한그릇이므로 덮밥류로 매칭(면 497 대신 덮밥 418/417).
+    "차돌짬뽕밥",
 }
 
-MAIN_FALLBACK = (150, "일반 메인요리 - 기준 미확정(돈까스류 등, 추후 사진추정/실측 예정), 기존 폴백 150g 임시 유지")
+# 2026-11-08: 메인요리 폴백을 대학급식소(1997) Pan Broiles 세부 "pan broiled sole" 151g로 변경
+# (사용자 지정). Pan Broiles 평균 96g은 pan broiled sole 151 + grilled cutlass fish 41의 평균이라,
+# 하드한 메인(까스·함박스테이크·제육·수육·보쌈·닭갈비 등)에는 큰 쪽(151)을 적용. 단위 구분 없는
+# 단일값(KNHANES ml 표준이 없어 _pick 미적용). 생선구이 메인은 별도(아래 70g).
+MAIN_FALLBACK = (151, "일반 메인요리(구이·까스·스테이크·메인단백질) 폴백 - 대학급식소(1997) pan broiled sole 151g")
+
+# 2026-11-07: 생선구이류는 위 139(육류구이·까스·스테이크 기준)와 달리, 2020 한국인 영양소
+# 섭취기준(KDRIs)의 생선 1회 제공량 70g(가식부)을 쓴다. "구이" 메뉴 중 아래 어종 키워드가
+# 들어가면 생선구이로 보고 70g, 아니면 MAIN_FALLBACK(139)으로 흐른다.
+GRILL_FISH_KEYWORDS = ("생선", "고등어", "삼치", "조기", "임연수", "연어", "가자미", "갈치",
+                       "꽁치", "코다리", "명태", "동태", "장어", "메로", "병어", "가오리", "아귀", "황태", "대구", "방어")
 
 # 2026-11-03 추가: 까스류(돈까스/돈가스/생선까스/치킨까스 등)는 food_db/gagong_db가 자체
 # 1회분 참고중량을 갖고 있어도 그 값이 "분석 샘플"/"포장 제품 1회량" 기준이라 실제 학식
@@ -137,94 +161,115 @@ MAIN_FALLBACK = (150, "일반 메인요리 - 기준 미확정(돈까스류 등, 
 # 복합메뉴(돈까스덮밥·돈까스오므라이스 등)는 그 분류가 우선이므로 제외.
 KASU_KEYWORDS = ("까스", "가스")
 
-
-# 2026-11-03 추가: 학식 식기 중 가장 큰 105 즉석 검정냄비 실측 용량(985mL, 78% 충전 시
-# 약 790g)을 넘는 중량은 물리적으로 그 그릇에 담길 수 없다. food_db는 같은 음식도 출처별로
-# (외식/초등학교급식/중고등학교급식/산업체급식/가정식) 서로 다른 레코드를 갖고 있어 1회분
-# 값이 음식마다 크게 다른데, 그중 우연히 이례적으로 큰 레코드가 매칭되는 경우가 있다(예:
-# "떡만두국"은 5개 출처 중 산업체급식 레코드만 1007g, 나머지는 180~700g). 이런 값은
-# 우리 식기 용량을 물리적으로 초과하므로 믿지 않고 이 표로 넘긴다.
-MAX_PHYSICAL_BOWL_G = 790
+# 2026-11-05 추가: "미니"/"꼬마"는 이름 자체가 축소 포션임을 명시한다. 그런데 food_db는 같은
+# 음식의 '일반(풀사이즈) 1회분'만 들고 있어(예: "우동" servingWeight 630g), 미니 표기 반찬이
+# 그 값을 그대로 물려받으면 반찬인데 메인 크기로 잡힌다(미니우동 630g=384kcal, 10/30 생과대
+# 트레이 total 과대의 원인). 그래서 미니 표기 반찬은 DB 자체 serving(_db_display_weight)을
+# 신뢰하지 않고 축소 포션 기준으로 넘긴다(classify_side_weight에서 분기).
+MINI_KEYWORDS = ("미니", "꼬마")
 
 
-def _db_display_weight(name, cache):
-    """영양소 매칭 DB가 그 음식 자체의 1회분 중량을 제공하면 이 표보다 그걸 우선 쓴다.
-    - food_db: servingWeight 있으면 그대로(표시값=영양소계산값 동일하게 쓰임, build_item 참고).
-    - gagong_db: 농축액/분말류(is_concentrate)는 표시값에 쓰면 비현실적(예: "원액 30g"을
-      "1인분 30g"처럼 보여주는 꼴)이라 제외하고 이 표로 넘김. 농축 아니면 1회섭취참고량 사용.
-    - recipe_decompose: 공식 weight 필드(전체 25%만 있음)가 있을 때만 사용. 없으면 이 표로
-      넘김(영양소 계산 자체는 build_item에서 별도로 total_parsed_weight_g 그대로 유지됨).
-    어느 경우든 MAX_PHYSICAL_BOWL_G(790g)를 넘으면 물리적으로 불가능한 값이라 버리고 이 표로.
-    cache가 없거나(all_match_names 등 이름 수집 단계) 매칭 전이면 None(표 값 그대로 사용)."""
-    if not cache:
-        return None
-    m = cache.get(name)
-    if not m:
-        return None
-    src = m.get("source")
-    sw = m.get("serving_weight_g")
-    if sw is not None and sw > MAX_PHYSICAL_BOWL_G:
-        return None  # 식기 물리적 용량 초과 - DB값 포기하고 표준중량표로
-    if src == "food_db" and sw is not None:
-        return sw, f"food_db 자체 1회분 중량(servingWeight) {sw:g}g"
-    if src == "gagong_db" and not m.get("is_concentrate") and sw is not None:
-        return sw, f"가공식품DB 자체 1회 섭취참고량 {sw:g}g"
-    if src == "recipe_decompose" and sw is not None:
-        return sw, f"레시피DB 공식 1인분 중량(weight 필드) {sw:g}g"
-    return None
+# 2026-11-07 변경: DB 자체 1회분 중량(_db_display_weight)을 중량 산정에서 **완전히 제거**했다.
+# 이유: 영양소 DB의 serving 필드가 출처마다 신뢰할 수 없는 값이다.
+#   - 외식(분석함량): 44%가 serving=100g = 분석 기준량(basis) placeholder. 국·탕·면이 100g으로
+#     적혀 있는 걸로 보아 "실제 1회 제공량"이 아니라 "100g당 분석했다"는 기준값일 뿐이다.
+#   - 산업체급식 등(재료량 기반 산출): 값은 실제 분량이지만 단위가 ml이라 g 중량표와 섞을 수
+#     없고, 1000ml 넘는 물리적 불가 이상치(떡만두국 1007 등)도 섞여 있었다.
+# 따라서 중량은 DB serving을 전혀 참조하지 않고, 아래 classify_main_weight/classify_side_weight의
+# 카테고리별 표준중량표(1인분량)로만 계산한다(영양소 per100만 DB에서 가져온다). ml 기준이
+# 자연스러운 카테고리(국·탕·찌개·면·밥·죽)는 ml 기준 표준값을, 반찬 카테고리는 g 기준 표준값을 쓴다.
+
+
+# 2026-11-07: 영양소 per100의 기준단위(g/ml)에 맞춰 중량표를 고른다. 식약처 DB는 같은 음식도
+# 레코드마다 100g/100ml이 섞여 있어, 출처가 아니라 '그 음식이 실제로 어느 단위로 계산됐는지'
+# (캐시 unit, auto_match가 basis로 기록)를 항목별로 보고 판정한다.
+#   - g 매칭(분석함량·가정식·가공식품·레시피·원재료, 100g 기준) → 대학급식소(1997) g 표준값
+#   - ml 매칭(식약처 재료량 기반 산출, 100ml 기준)      → KNHANES 2010(김숙배 등) 1인1회 분량 ml 평균
+# KNHANES ml 표는 논문이 다룬 밥/면/국·탕/찌개 카테고리만 존재한다(반찬류는 g 표만 사용).
+KNHANES_ML = {
+    "밥":   (258, "밥(공기밥·볶음밥 공통) - KNHANES 2010 쌀밥류 9종 평균 258mL(ml 매칭)"),
+    "덮밥": (417, "덮밥류(그 외 모든 밥) - KNHANES 2010 비빔밥·볶음밥 3종 평균 417mL(ml 매칭)"),
+    "면":   (497, "면·만두류 - KNHANES 2010 19종 평균 497mL(ml 매칭)"),
+    "국탕": (288, "국·탕류 - KNHANES 2010 39종 평균 288mL(ml 매칭)"),
+    "찌개": (201, "찌개류 - KNHANES 2010 9종 평균 201mL(ml 매칭)"),
+}
+
+
+def _unit(name, cache):
+    """이 음식의 영양소 per100 기준단위('g'|'ml'). 캐시에 없으면(미매칭 등) 'g'."""
+    m = cache.get(name) if cache else None
+    return (m or {}).get("unit", "g")
+
+
+def _pick(name, cache, g_result, ml_key):
+    """ml 매칭이면 KNHANES ml값, 아니면(g 매칭) 대학급식소 g값(g_result)."""
+    return KNHANES_ML[ml_key] if _unit(name, cache) == "ml" else g_result
 
 
 def classify_main_weight(name, cache=None):
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
+    if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
+        return INDIVIDUAL_ML_ONLY[name]  # 국건영 ml값은 ml매칭일 때만; g면 아래 카테고리로
+    if any(w in name for w in BOKKEUMBAP_KEYWORDS):
+        return _pick(name, cache, (289, "볶음밥류 - 일반밥 기준 289g(덮밥류와 분리)"), "밥")
     if any(w in name for w in KASU_KEYWORDS) and not any(w in name for w in DUPBAP_KEYWORDS) \
             and not any(w in name for w in NOODLE_KEYWORDS) and not any(w in name for w in PASTA_KEYWORDS):
         return MAIN_FALLBACK
-    db_override = _db_display_weight(name, cache)
-    if db_override:
-        return db_override
+    # 2026-11-08: 찜류 메인(갈비찜·찜닭 등)은 사용자 지시로 찌개·전골 중량으로 매칭(g 283 / ml 201).
+    # 그 외 근거없는 메인단백질(제육볶음·수육·보쌈·닭갈비·소불고기 등)은 메인폴백(151)으로 통일.
+    if "찜" in name and "찌개" not in name and "전골" not in name:
+        return _pick(name, cache, GUK_JJIGAE_WEIGHT, "찌개")
     if name in MEAT_MAIN_USE_GUK_JJIGAE:
-        return GUK_JJIGAE_WEIGHT
+        return MAIN_FALLBACK
     if name in RICE_MAIN_USE_DUPBAP:
-        return 418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g(사용자 지정 적용)"
+        return _pick(name, cache, (418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g(사용자 지정 적용)"), "덮밥")
     if any(w in name for w in JJIGAE_KEYWORDS) and "볶음" not in name:
-        return GUK_JJIGAE_WEIGHT
+        return _pick(name, cache, GUK_JJIGAE_WEIGHT, "찌개")
     if any(w in name for w in PASTA_KEYWORDS):
         return PASTA_WEIGHT
     if any(w in name for w in NOODLE_NO_BROTH_HINTS):
         return GUK_JJIGAE_WEIGHT  # 임시 - 전용 근거자료 보완 전까지 병합 국물·찌개류로 매칭
     if any(w in name for w in NOODLE_KEYWORDS):
-        return 690, "면류 - 대학급식소(1997) 국수장국+실국수 평균 690g"
+        # 면류는 국물 포함이라 밀도≈1로 보고 KNHANES ml값(497)을 g매칭에도 그대로 사용(g=ml=497).
+        return _pick(name, cache, (497, "면류 - KNHANES 2010 19종 평균 497g(국물포함, 밀도1 근사)"), "면")
     if any(w in name for w in DUPBAP_KEYWORDS):
-        return 418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g"
-    if "구이" in name:
-        return 96, "구이류 - 대학급식소(1997) 제공량 평균 96g(메인요리에 반찬 기준 재사용)"
+        return _pick(name, cache, (418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g"), "덮밥")
+    # 2026-11-07: 생선구이 메인 → KDRIs 생선 70g. 그 외 구이·까스·스테이크 메인은 분기 없이
+    # MAIN_FALLBACK(MenuGen 139g)으로 흐른다(반찬 구이 96g 재사용은 폐기).
+    if "구이" in name and any(f in name for f in GRILL_FISH_KEYWORDS):
+        return 70, "생선구이 메인 - 2020 한국인 영양소 섭취기준(KDRIs) 생선 1회 제공량 70g(가식부)"
     if any(w in name for w in GUK_TANG_KEYWORDS) or (name.endswith("국") and len(name) <= 8):
-        return GUK_JJIGAE_WEIGHT
+        return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국탕")
     return MAIN_FALLBACK
 
 
-SIDE_FALLBACK = (86, "일반 반찬 - 반찬 5개 카테고리 평균(80+44+70+96+140)/5 = 86g")
+SIDE_FALLBACK = (72.2, "일반 반찬 - 반찬 카테고리 평균(볶음80+조림44+김치무침70+구이96+샐러드71)/5 = 72.2g (부침류 제외, 사용자 지정)")
 
 
 def classify_side_weight(name, cache=None):
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
+    if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
+        return INDIVIDUAL_ML_ONLY[name]  # 국건영 ml값은 ml매칭일 때만; g면 아래 카테고리로
+    # 볶음밥·김밥류는 김치/무침 등 다른 분기에 먼저 걸리지 않도록 상단에서 처리.
+    if any(w in name for w in BOKKEUMBAP_KEYWORDS):
+        return _pick(name, cache, (289, "볶음밥류 - 일반밥 기준 289g(덮밥류와 분리)"), "밥")
+    is_mini = any(w in name for w in MINI_KEYWORDS)
     # "꼬마"(미니 사이즈)는 이름 자체가 작은 포션임을 명시하므로 제외.
     if any(w in name for w in KASU_KEYWORDS) and "꼬마" not in name \
             and not any(w in name for w in DUPBAP_KEYWORDS):
         return MAIN_FALLBACK
-    db_override = _db_display_weight(name, cache)
-    if db_override:
-        return db_override
-    if name in ("어니언링", "양파링"):
-        return 60, "[사진중량추정] 3개 × 20g = 60g(실측 아님)"
+    # 미니 면류(우동·짬뽕·칼국수·쌀국수 등)는 풀사이즈 면 1인분(690g)이 아니라 작은 면·국물
+    # 그릇 기준으로 본다. 전용 근거자료가 없어 병합 국물·찌개류(283g)를 축소 포션 표준으로 재사용.
+    if is_mini and any(w in name for w in NOODLE_KEYWORDS):
+        return 120, "미니 면류 - 사이드 미니우동 실측 수준 120g(백소정 미니우동 기준, 사용자 지정)"
     if name in RICE_WORDS or name.replace("/", "") in ("잡곡밥현미밥",):
-        return 289, "일반 밥 - 대학급식소(1997) 제공량 289g"
+        return _pick(name, cache, (210, "일반 밥(공기밥 1공기) - 2020 한국인 영양소 섭취기준 1회 분량 210g"), "밥")
     if any(w in name for w in JJIGAE_KEYWORDS) and "볶음" not in name and len(name) <= 8:
-        return GUK_JJIGAE_WEIGHT
+        return _pick(name, cache, GUK_JJIGAE_WEIGHT, "찌개")
     if (any(w in name for w in GUK_TANG_KEYWORDS) or name.endswith("국") or name.endswith("국물")) and len(name) <= 8:
-        return GUK_JJIGAE_WEIGHT
+        return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국탕")
     if "조림" in name or "젓갈" in name:
         return 44, "조림류 - 대학급식소(1997) 제공량 평균 44g"
     if "볶음" in name and "밥" not in name:
@@ -234,7 +279,9 @@ def classify_side_weight(name, cache=None):
     if "구이" in name:
         return 96, "구이류 - 대학급식소(1997) 제공량 평균 96g"
     if (name.endswith("전") and "전골" not in name) or "부침" in name:
-        return 140, "부침류 - 대학급식소(1997) 제공량 평균 140g"
+        return 96, "전·부침류 - 사용자 지정으로 구이류 기준(96g) 재사용"
+    if "샐러드" in name:
+        return 71, "샐러드류 - 대학급식소(1997) Fresh and Boiled Salads 대학급식 Serving 71g"
     return SIDE_FALLBACK
 
 
@@ -244,7 +291,7 @@ def classify_side_weight(name, cache=None):
 DECOMPOSE_OVERRIDES = {
     # 사용자 지정 분해. 미나리 20g은 실측이 아닌 임시 가정, 기존 총량 283g 유지.
     "미나리곰탕": [
-        ("곰탕", 263, "사용자 지정 곰탕+미나리 분해: 기존 추정 총량 283g 중 미나리 20g을 가정하고 곰탕에 263g 배분"),
+        ("곰탕", 268, "사용자 지정 곰탕+미나리 분해: ml매칭이라 KNHANES 국·탕 288mL 기준, 미나리 20g 제외분 268"),
         ("미나리", 20, "사용자 지정 곰탕+미나리 분해: 미나리 20g 임시 가정, 실제 중량·품종 미확인 생미나리 대체"),
     ],
     # 사용자 지시: 닭 부분은 레시피 재구성 계산값(master_cache.json "지코바치킨"), 밥은 일반
@@ -272,7 +319,7 @@ DECOMPOSE_OVERRIDES = {
     # 새우젓국(food_db)으로 매칭.
     "두부새우젓국": [
         ("두부", 25, "[사진중량추정] 국 내 두부 조각 4~5개 육안 비율 추정(실측 아님)"),
-        ("새우젓국", 258, "새우젓국 - 국물·찌개류 표준중량(283g)에서 두부 사진추정분 제외"),
+        ("새우젓국", 263, "새우젓국 - ml매칭이라 KNHANES 국·탕 288mL 기준, 두부 사진추정분(25) 제외 263"),
     ],
     # 2026-11-03 추가: 10/29 학생식당 한식 메인 - "라따뚜이오믈렛" 통짜 표기가 어느 DB에도
     # 없어 분해. 오믈렛은 food_db 자체 1회분 중량(외식 기준) 그대로, 라따뚜이는 gagong_db에
@@ -341,7 +388,7 @@ DECOMPOSE_OVERRIDES = {
     ],
     # 사용자 지정: 김치찌개(메인, 찌개류 표준) + 그 안에 들어간 삼겹살(반찬 함량 정도의 소량)
     "삼겹살김치찌개": [
-        ("김치찌개", 283, "국물·찌개류(병합) 대학급식소 평균 283g"),
+        ("김치찌개", 201, "찌개류 - ml매칭이라 KNHANES 찌개 9종 평균 201mL 적용"),
         ("삼겹살", 86, "삼겹살(찌개 내 반찬 함량) - 일반 반찬 평균 86g"),
     ],
     # 사용자 지정: 메추리알조림/곤약조림 둘 다 있으면 비율 나눠 합산 - 한 반찬 슬롯(40g)을 절반씩
@@ -353,12 +400,12 @@ DECOMPOSE_OVERRIDES = {
     # 직접 세어 unit_weight_reference.json 표준 단가(만두 13g, 새우튀김 20g)를 곱함.
     "만두장칼국수": [
         ("만두", 52, "[사진중량추정] 만두 4개(사진 확인) × 13g(unit_weight_reference 표준)"),
-        ("장칼국수", 690, "면류 - 대학급식소 평균 690g"),
+        ("장칼국수", 497, "면류 - ml매칭이라 KNHANES 면·만두 19종 평균 497mL 적용"),
     ],
     # 사용자 지정: 들깨칼국수(recipe_db에 있음) + 옹심이(개수 세서 반영).
     "들깨옹심이칼국수": [
         ("옹심이", 56, "[사진중량추정] 옹심이 7개(사진 확인) × 8g(unit_weight_reference 표준)"),
-        ("들깨칼국수", 690, "면류 - 대학급식소 평균 690g"),
+        ("들깨칼국수", 497, "면류 - KNHANES 2010 19종 평균 497g(국물포함, 밀도1 근사)"),
     ],
     "새우튀김카레라이스": [
         ("새우튀김", 20, "[사진중량추정] 새우튀김 1개(사진 확인) × 20g(unit_weight_reference 표준)"),
@@ -366,11 +413,11 @@ DECOMPOSE_OVERRIDES = {
     ],
     "새우튀김오므라이스": [
         ("새우튀김", 40, "[사진중량추정] 새우튀김 2개(사진 확인) × 20g(unit_weight_reference 표준)"),
-        ("오므라이스", 418, "덮밥류 - 대학급식소 평균 418g"),
+        ("오므라이스", 417, "덮밥류 - ml매칭이라 KNHANES 비빔밥·볶음밥 3종 평균 417mL 적용"),
     ],
     "새우튀김알밥": [
         ("새우튀김", 40, "[사진중량추정] 새우튀김 2개(사진 확인) × 20g(unit_weight_reference 표준)"),
-        ("알밥", 418, "덮밥류 - 대학급식소 평균 418g"),
+        ("알밥", 417, "덮밥류 - ml매칭이라 KNHANES 비빔밥·볶음밥 3종 평균 417mL 적용"),
     ],
     # 사용자 지정: 묵은지(토핑) + 참치마요덮밥(베이스).
     "묵은지참치마요덮밥": [
@@ -428,7 +475,7 @@ DECOMPOSE_OVERRIDES = {
     # 2026-09-27 추가: "삼겹살김치찌개→김치찌개+삼겹살"과 동일 구조("재료명+기본찌개/탕" 결합).
     # 기본 찌개/탕은 food_db/gagong_db에 그대로 있고, 재료만 반찬 함량으로 얹음.
     "목살김치전골": [
-        ("김치전골", 283, "국물·찌개류(병합) - 대학급식소 평균 283g"),
+        ("김치전골", 201, "찌개·전골류 - ml매칭이라 KNHANES 찌개 9종 평균 201mL 적용"),
         ("목살", 86, "목살(전골 내 반찬 함량) - 일반 반찬 평균 86g"),
     ],
     "미나리돼지곰탕": [
@@ -560,7 +607,7 @@ DECOMPOSE_OVERRIDES = {
     ],
     # 사용자 지정: 쌀밥 + 김가루 18g(고정)
     "김가루밥": [
-        ("쌀밥", 289, "일반 밥 - 대학급식소 평균 289g"),
+        ("쌀밥", 210, "일반 밥(공기밥) - 2020 한국인 영양소 섭취기준 1회 분량 210g"),
         ("김가루", 18, "사용자 지정 고정값"),
     ],
     # 사용자 지정: 주먹밥_참치(food_db) + 김가루(사진 확인)
@@ -656,10 +703,9 @@ def _special_weight(part):
     2026-09-27: 학식 소스는 전부 1회용 파우치 제공이라 실측 기준 9g으로 통일(기존 10g에서 수정)."""
     if part.endswith("덮밥"):
         return None
-    if any(k in part for k in SARI_KEYWORDS):
-        return 345, "사리 추가면 - 면류 표준 690g의 절반"
+    # 사리(추가면)는 _special_weight 전에 is_self_or_junk로 이미 제거됨(2026-11-08). 분기 삭제.
     if any(k in part for k in SAUCE_KEYWORDS):
-        return 9, "소스/토핑 - 표준 9g(1회용 파우치 실측 기준)"
+        return 9, "소스/토핑 - 표준 9ml(1회용 파우치, 액체라 ml 기준·밀도≈1)"
     return None
 
 
@@ -863,7 +909,7 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         if it["display"] == "크랩알밥" and r["matched"]:
             recipe_notes.append('크랩알밥: MenuGen 날치알밥 + 게맛살로 대체 매칭. 총 제공량(덮밥류 표준 418g) 중 게맛살은 DB 기준 30g으로 가정하고 날치알밥에 나머지를 배분. 실제 중량 실측값 아님. 날치알밥 DB 원재료 비율로 환산하며 생쌀 조리수율은 미보정. 영양소 탭은 기존 계산 유지.')
         if it["display"] == "차돌짬뽕밥" and r["matched"]:
-            recipe_notes.append('차돌짬뽕밥: MenuGen 차돌박이짬뽕국 690g(면류 표준) + 쌀밥 289g(일반 밥 표준)으로 분리하여 교환단위 계산. 실제 음식 무게 실측값 아님. 영양소 탭은 기존 계산 유지.')
+            recipe_notes.append('차돌짬뽕밥: 덮밥류 표준 418g 기준으로, 밥 210g(일반 밥 1공기 전량)을 먼저 넣고 남은 208g을 MenuGen 차돌박이짬뽕국에 비율 환산하여 교환단위 계산. 실제 음식 무게 실측값 아님. 영양소 탭은 기존(가공식품DB 차돌짬뽕밥 완제품) 계산 유지.')
         if it["display"] in ("참치야채비빔밥", "참치 야채비빔밥") and r["matched"]:
             recipe_notes.append('참치야채비빔밥: MenuGen 참치생야채비빔밥 기준 대체 계산. 대체 레시피 사용으로 실제 채소·참치·양념 배합과 차이가 있을 수 있음.')
         if it["display"] in ("계란지단", "달걀지단") and r["matched"]:

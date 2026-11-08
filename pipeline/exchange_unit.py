@@ -579,7 +579,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 alias_note = f"뚝)된장찌개: 사용자 지정으로 애호박감자된장찌개에 대체 매칭. 2026-09-09 사진에서 두부·대파를 확인하고 감자·애호박·양파·고추를 추정함. 사진만으로 재료 종류와 배합은 확정할 수 없음. 기존 추정 제공량 {weight_g:g}g에 DB 표준 레시피 비례 적용. 메뉴 표시명과 영양성분 계산값은 유지하고 식품교환단위만 재계산."
     if name == "차돌짬뽕밥":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
-        for component, weight in (("차돌박이짬뽕국", 690.0), ("쌀밥", 289.0)):
+        for component, weight in (("쌀밥", 210.0), ("차돌박이짬뽕국", 208.0)):
             result = _from_menugen(component, weight)
             if result is None:
                 return {"matched": False, "units": units, "source": None, "unresolved_ingredients": [component]}
