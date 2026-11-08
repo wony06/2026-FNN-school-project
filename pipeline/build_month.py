@@ -248,6 +248,8 @@ SIDE_FALLBACK = (72.2, "일반 반찬 - 반찬 카테고리 평균(볶음80+조�
 
 
 def classify_side_weight(name, cache=None):
+    if name == "간장돼지불고기":
+        return 80, "간장돼지불고기: 소스 오분류 수정. 반찬 볶음류 표준 추정량 80g 적용; 실측값 아님"
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
     if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
@@ -701,7 +703,7 @@ def resolve_or(name):
 def _special_weight(part):
     """소스/사리 단독 표기(& / * 분리든 단일 토큰이든 공통)의 표준 중량 판정.
     2026-09-27: 학식 소스는 전부 1회용 파우치 제공이라 실측 기준 9g으로 통일(기존 10g에서 수정)."""
-    if part.endswith("덮밥"):
+    if part == "간장돼지불고기" or part.endswith("덮밥"):
         return None
     # 사리(추가면)는 _special_weight 전에 is_self_or_junk로 이미 제거됨(2026-11-08). 분기 삭제.
     if any(k in part for k in SAUCE_KEYWORDS):

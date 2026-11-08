@@ -46,12 +46,12 @@
       proteinThreshold:goal==='high_protein'?p.weightKg*.4:null};
   }
 
-  function fit(actual,target){
+  function calculateDistance(actual,target){
     if(actual.length!==4 || target.length!==4 || ![...actual,...target].every(v=>Number.isFinite(v)&&v>=0)) throw Error('교환단위 자료 오류');
     const denominator=Math.hypot(...target);
     if(!denominator) throw Error('목표 벡터가 0입니다.');
     const distance=Math.hypot(...actual.map((v,i)=>v-target[i]))/denominator;
-    return {distance,fit:Math.max(0,100*(1-distance))};
+    return {distance};
   }
 
   function scoreMenus(rows,snapshot,context){
@@ -79,16 +79,15 @@
         reason=`단백질 기준 ${context.proteinThreshold.toFixed(1)} g 미달 또는 자료 없음`;
       if(!reason && goal==='low_sugar' && !Number.isFinite(row.sugar)) reason='총당류 자료 없음';
       if(!reason && goal==='low_sodium' && !Number.isFinite(row.na)) reason='나트륨 자료 없음';
-      const recommendation={eligible:!reason,reason,goal,rank:null,metric:null,fit:null,distance:null,
+      const recommendation={eligible:!reason,reason,goal,rank:null,metric:null,distance:null,
         actual:m,target:context?.mealTarget??null,eer:context?.eer??null,adjustedEer:context?.adjustedEer??null,
         roundedEer:context?.roundedEer??null,mealCount:context?.mealCount??null,deficit:context?.deficit??null,
         mealEnergyLimit:context?.mealEnergyLimit??null,proteinThreshold:context?.proteinThreshold??null};
       if(!reason){
         if(exchangeGoals.has(goal)){
-          const result=fit(m,context.mealTarget);
-          recommendation.fit=result.fit;
+          const result=calculateDistance(m,context.mealTarget);
           recommendation.distance=result.distance;
-          recommendation.metric=result.fit;
+          recommendation.metric=result.distance;
         } else recommendation.metric={balanced:row.nrf,high_protein:row.protein,low_sugar:row.sugar,low_sodium:row.na}[goal];
       }
       return {...row,recommendation,friendExchangeUnits:eu};
@@ -99,13 +98,21 @@
     const x=a.recommendation,y=b.recommendation;
     if(x.eligible!==y.eligible) return Number(y.eligible)-Number(x.eligible);
     if(x.eligible){
-      const ascending=x.goal==='low_sugar'||x.goal==='low_sodium';
+      const ascending=exchangeGoals.has(x.goal)||x.goal==='low_sugar'||x.goal==='low_sodium';
       const diff=ascending ? x.metric-y.metric : y.metric-x.metric;
       if(diff) return diff;
       if(x.distance!=null && y.distance!=null){const dd=x.distance-y.distance;if(dd)return dd;}
     }
     return a.shop.localeCompare(b.shop) || a.category.localeCompare(b.category,'ko') || a.main.localeCompare(b.main,'ko');
   }
-  const api={calculateEer,createContext,fit,scoreMenus,compareMenus};
+  function sameRankMetric(a,b){
+    const x=a.recommendation,y=b.recommendation;
+    if(!x.eligible||!y.eligible||x.goal!==y.goal) return false;
+    if(!exchangeGoals.has(x.goal)) return x.metric===y.metric;
+    if(!Number.isFinite(x.distance)||!Number.isFinite(y.distance)) return false;
+    // Eight machine epsilons absorb arithmetic roundoff, never display rounding.
+    return Math.abs(x.distance-y.distance)<=8*Number.EPSILON*Math.max(1,Math.abs(x.distance),Math.abs(y.distance));
+  }
+  const api={calculateEer,createContext,calculateDistance,scoreMenus,compareMenus,sameRankMetric};
   if(typeof module!=='undefined'&&module.exports) module.exports=api; else root.PersonalScore=api;
 })(globalThis);

@@ -48,7 +48,13 @@
   function exclusionLabel(assessment){return `${assessment.reasons.map(r=>name(r.code)).join('·')} 알레르기 제외`;}
   function detailsHtml(assessment){
     if(!assessment)return '';
-    return `<p class="allergy-detail">${esc(stateText(assessment))}. 실제 원재료·교차접촉 여부는 식당에 확인해 주세요.</p>`;
+    const held=[...new Set((assessment.entry?.suppressed??[]).filter(e=>e.policy==='reviewed-reference-hold-v2').map(e=>name(e.code)))];
+    const note=held.length ? ` 자동 적용 보류: ${held.join('·')} — 원재료 확인 필요.` : '';
+    return `<p class="allergy-detail">${esc(stateText(assessment))}.${esc(note)} 실제 원재료·교차접촉 여부는 식당에 확인해 주세요.</p>`;
+  }
+  function heldInfoHtml(assessment){
+    const held=[...new Set((assessment?.entry?.suppressed??[]).filter(e=>e.policy==='reviewed-reference-hold-v2').map(e=>name(e.code)))];
+    return held.length ? `<p class="allergy-detail">${esc(held.join('·'))}: 자동 적용 보류 · 원재료 확인 필요</p>` : '';
   }
   function renderSummary(excluded,remaining,total){
     const panel=document.getElementById('allergyResult');panel.hidden=!selected.size;
@@ -56,5 +62,5 @@
     panel.innerHTML=`<p>전체 ${total}개 · 추천 검토 ${remaining}개 · 알레르기 제외 ${excluded.length}개</p>
       <p>${remaining?'남아 있는 메뉴도 원재료 확인이 필요하며, 선택한 영양 기준으로 정렬됩니다.':'선택한 성분의 포함 가능 근거로 모든 메뉴가 제외됐습니다.'}</p>`;
   }
-  root.AllergyUI={mount,selectedCodes,setSelectedCodes,detailsHtml,stateText,exclusionLabel,renderSummary};
+  root.AllergyUI={mount,selectedCodes,setSelectedCodes,detailsHtml,heldInfoHtml,stateText,exclusionLabel,renderSummary};
 })(globalThis);
