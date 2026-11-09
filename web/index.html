@@ -879,6 +879,7 @@ function nutriTabHtml(item){
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
 
   return `
+    ${(item.nutritionNotes||[]).length ? `<details class="data-notice"><summary>영양성분 대체·추정 근거</summary>${item.nutritionNotes.map(note=>`<p>${escapeText(note)}</p>`).join('')}</details>` : ''}
     ${item.analysisMode ? `<div class="footnote" style="margin-bottom:16px;color:var(--caution)"><b>기존 코드로 계산한 추정값</b><br>제공량은 표준·추정 중량입니다. 미매칭 항목은 합산에서 빠지고 결측 영양소는 0으로 처리됩니다. NRF는 100 kcal 기준이며 권장·제한 영양소 모두 기존 코드의 100% cap을 적용했습니다. 백분위 점수가 아닙니다.</div>
     ${(item.missingFields||[]).length ? `<div class="section-title">결측 영양소 (0 처리)</div><div class="footnote">${item.missingFields.map(escapeText).join('<br>')}</div>` : ''}
     ${(item.qualityFlags||[]).includes('MENU_ALTERNATIVES_REQUIRE_REVIEW') ? '<div class="footnote">선택 메뉴(or)는 기존 규칙에 따라 첫 번째 선택지만 계산했습니다. 실제 선택 조합 확인이 필요합니다.</div>' : ''}
