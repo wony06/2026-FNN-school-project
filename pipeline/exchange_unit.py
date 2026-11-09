@@ -850,8 +850,8 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = "굴림만두 전골"
     if name == "청양마요":
         name = "마요네즈"  # 청양고추 매운맛은 미반영
-    if name == "쥐어채볶음":
-        name = "쥐포볶음(고추장)"  # "쥐어채"=쥐치포의 방언
+    if name == "유부우동국":
+        name = "유부국"  # 곁들임 국: 면 포함 유부우동으로 연결하지 않는다.
     if name == "날치알김치볶음밥":
         name = "김치볶음밥(돼지고기)"  # 날치알 토핑은 미반영
     if name == "크림스파게티":

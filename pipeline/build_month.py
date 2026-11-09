@@ -137,7 +137,7 @@ MEAT_MAIN_USE_GUK_JJIGAE = {
 }
 # 2026-11-03 추가: 밥 베이스인데 기존 덮밥류 키워드에 안 걸리던 메뉴 - 사용자 지시로 전부 덮밥류 적용.
 RICE_MAIN_USE_DUPBAP = {
-    "비프하이라이스", "소고기콩나물밥", "짜장밥", "불고기오븐도리아", "투움바떡볶이", "차돌분모자크림떡볶이",
+    "비프하이라이스", "소고기콩나물밥", "짜장밥", "불고기오븐도리아", "차돌분모자크림떡볶이",
     # 2026-11-07: 짬뽕밥류는 '면'이 아니라 밥+토핑 한그릇이므로 덮밥류로 매칭(면 497 대신 덮밥 418/417).
     "차돌짬뽕밥",
 }
@@ -206,6 +206,8 @@ def _pick(name, cache, g_result, ml_key):
 
 
 def classify_main_weight(name, cache=None):
+    if name == "투움바떡볶이":
+        return 180, "떡볶이 임시180g: 기존 떡볶이DB 참고 제공량 활용(분석기준100g과 구분). 실제 식판·제품 중량 미확인, 덮밥418g 분류 제외"
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
     if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
@@ -236,7 +238,7 @@ def classify_main_weight(name, cache=None):
         return _pick(name, cache, (418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g"), "덮밥")
     # 2026-11-09: 생선구이 70g 특례 삭제(사용자 지시). 구이·까스·스테이크 등 모든 메인단백질은
     # 표12 "일반 구이류 메인 151g"(대학급식소 pan broiled sole)으로 통일 - 아래 MAIN_FALLBACK으로 흐름.
-    if any(w in name for w in GUK_TANG_KEYWORDS) or (name.endswith("국") and len(name) <= 8):
+    if "탕수육" not in name and (any(w in name for w in GUK_TANG_KEYWORDS) or (name.endswith("국") and len(name) <= 8)):
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
     return MAIN_FALLBACK
 
@@ -245,6 +247,22 @@ SIDE_FALLBACK = (72.2, "일반 반찬 - 반찬 카테고리 평균(볶음80+조�
 
 
 def classify_side_weight(name, cache=None):
+    if name == "쥐어채볶음":
+        return 19.5, "소량 건어채 반찬: 원물15g 임시 기준에 조리유·양념4.5g을 합한 완성 추정19.5g. 실제 제공량 미확인"
+    if name == "견과류멸치볶음":
+        return 20, "사진의 소량 건어물·견과 반찬: 완성 혼합물20g 임시 가정. 일반 볶음80g 제외, 실측값·제품 참고량 아님"
+    if name == "간장마늘쫑":
+        return 25, "절임 반찬 임시25g: 제품DB 참고량 활용. 간장 소스9g 오분류 제외, 실제 제공량 미확인"
+    if name == "감자모닝빵":
+        return 30, "사진에서 빵1개 확인, 개당30g 임시 가정(실측·제품 중량 미확인). 일반 반찬72.2g 제외, 감자 속재료는 미확인"
+    if name == "탕평채":
+        return 70, "탕평채는 생채·무침류 반찬70g 적용(이름의 탕으로 국물283g 오분류하던 규칙 제외)"
+    if name in ("석류차", "매실차", "레몬홍차"):
+        return 200, "차 음료 - 1잔200mL 추정(일반 반찬 중량 제외, 실제 제공량·희석비 미확인)"
+    if name == "버터":
+        return 5, "버터 - 가공식품DB 1회 참고량5g으로 소량 추정; 레시피별 사용자 지정량 우선"
+    if name == "빼빼로":
+        return 30, "빼빼로 - 가공식품DB 1회 섭취참고량30g 적용(실제 포장 크기 미확인)"
     if name == "간장돼지불고기":
         return 80, "간장돼지불고기: 소스 오분류 수정. 반찬 볶음류 표준 추정량 80g 적용; 실측값 아님"
     if name in INDIVIDUAL_MATCH_WEIGHTS:
@@ -258,7 +276,7 @@ def classify_side_weight(name, cache=None):
     # "꼬마"(미니 사이즈)는 이름 자체가 작은 포션임을 명시하므로 제외.
     if any(w in name for w in KASU_KEYWORDS) and "꼬마" not in name \
             and not any(w in name for w in DUPBAP_KEYWORDS):
-        return MAIN_FALLBACK
+        return SIDE_FALLBACK[0], "곁들임 까스 임시 일반 반찬72.2g 적용(메인151g과 구분). 실제 개수·크기·제품 중량 미확인"
     # 미니 면류(우동·짬뽕·칼국수·쌀국수 등)는 풀사이즈 면 1인분(690g)이 아니라 작은 면·국물
     # 그릇 기준으로 본다. 전용 근거자료가 없어 병합 국물·찌개류(283g)를 축소 포션 표준으로 재사용.
     if is_mini and any(w in name for w in NOODLE_KEYWORDS):
@@ -267,7 +285,7 @@ def classify_side_weight(name, cache=None):
         return _pick(name, cache, (210, "일반 밥(공기밥 1공기) - 2020 한국인 영양소 섭취기준 1회 분량 210g"), "밥")
     if any(w in name for w in JJIGAE_KEYWORDS) and "볶음" not in name and len(name) <= 8:
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
-    if (any(w in name for w in GUK_TANG_KEYWORDS) or name.endswith("국") or name.endswith("국물")) and len(name) <= 8:
+    if "탕수육" not in name and (any(w in name for w in GUK_TANG_KEYWORDS) or name.endswith("국") or name.endswith("국물")) and len(name) <= 8:
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
     if "조림" in name or "젓갈" in name:
         return 44, "조림류 - 대학급식소(1997) 제공량 평균 44g"
@@ -346,12 +364,10 @@ DECOMPOSE_OVERRIDES = {
         ("완자전", 77, "완자전(동그랑땡 기본형) - 일반 반찬 평균(86g)에서 소스 9g 제외"),
         ("동그랑땡소스", 9, "소스 - 표준 9g(1회용 파우치 실측 기준), 가공식품DB 데리야끼소스로 매칭"),
     ],
-    # 2026-11-04 추가: "얼큰수육국밥" - 10/27 사진(feaf93c6b44f29ca8704f6c9.jpg) 확인, 국물
-    # 안에 고기 조각이 삼겹살김치찌개 사례와 비슷한 비중으로 보여 동일하게 일반 반찬 평균
-    # 86g을 수육 몫으로 적용, 나머지는 국밥(food_db)으로.
+    # Separate rice and pork are counted once; never reuse a whole gukbap DB here.
     "얼큰수육국밥": [
-        ("국밥", 197, "국물·찌개류 표준(283g)에서 수육 사진추정분 제외"),
-        ("돼지고기수육", 86, "[사진중량추정] 10/27 사진 속 고기 조각 비율 추정 - 삼겹살김치찌개 사례와 동일하게 일반 반찬 평균 86g 적용"),
+        ("수육국밥국물(밥·고기 제외)", 197, "국물·찌개류 283g 중 수육86g 제외. 채소·양념 대체 배합, 실제 육수 성분 미확인"),
+        ("돼지고기수육", 86, "기존 대체 추정량86g 유지(실측 아님). 국물 배합에는 고기를 넣지 않아 한 번만 계산"),
     ],
     # 2026-11-04 추가: "마늘쫑햄볶음" - 사진 미확보 상태라 사용자 지시로 우선 볶음류 표준(80g)을
     # 절반씩 균등 배분. 추후 사진 확보되면 비율 재추정 예정(TODO).
@@ -514,7 +530,7 @@ DECOMPOSE_OVERRIDES = {
         ("적양배추", 29.3, "[사진중량추정] 덮밥류 418g 중 비율 배분(기존 40/570 비율 유지, 실측 아님)"),
         ("당근", 29.3, "[사진중량추정] 덮밥류 418g 중 비율 배분(기존 40/570 비율 유지, 실측 아님)"),
         ("상추", 22.0, "[사진중량추정] 덮밥류 418g 중 비율 배분(기존 30/570 비율 유지, 실측 아님)"),
-        ("김가루", 22.0, "[사진중량추정] 덮밥류 418g 중 비율 배분(기존 30/570 비율 유지, 실측 아님)"),
+        ("김가루", 4, "김가루 제품DB 참고량4g 임시 적용. 기존22g 사진 비율 추정 제외, 실제 중량 미확인. 다른 재료는 늘리지 않아 비빔밥 추정합400g"),
     ],
     # 사용자 지정: "카레밥" 자체는 DB에 없어 카레+밥으로 분해. 덮밥류 418g을 카레/밥으로 배분.
     "토마토커리덮밥": [
@@ -604,10 +620,10 @@ DECOMPOSE_OVERRIDES = {
         ("게맛살", 20, "맛살(DB에 없어 게맛살로 대체) - 50:50 균등분배"),
         ("야채볶음", 20, "50:50 균등분배"),
     ],
-    # 사용자 지정: 쌀밥 + 김가루 18g(고정)
+    # 쌀밥 유지, 김가루는 제품DB 참고량4g 임시 적용(2026-11-10 사용자 승인)
     "김가루밥": [
         ("쌀밥", 210, "일반 밥(공기밥) - 2020 한국인 영양소 섭취기준 1회 분량 210g"),
-        ("김가루", 18, "사용자 지정 고정값"),
+        ("김가루", 4, "김가루 임시4g: 제품DB 참고량 활용, 실제 토핑 제공량 미확인"),
     ],
     # 사용자 지정: 주먹밥_참치(food_db) + 김가루(사진 확인)
     "참치김가루밥": [
@@ -718,7 +734,9 @@ def resolve_or(name):
 def _special_weight(part):
     """소스/사리 단독 표기(& / * 분리든 단일 토큰이든 공통)의 표준 중량 판정.
     2026-09-27: 학식 소스는 전부 1회용 파우치 제공이라 실측 기준 9g으로 통일(기존 10g에서 수정)."""
-    if part == "간장돼지불고기" or part.endswith("덮밥"):
+    if part == "양념장":
+        return 9, "곁들임 양념장 임시9g: 기존 소스 기준 적용, 실제 제공량 미확인"
+    if part in ("간장돼지불고기", "간장마늘쫑") or part.endswith("덮밥"):
         return None
     # 사리(추가면)는 _special_weight 전에 is_self_or_junk로 이미 제거됨(2026-11-08). 분기 삭제.
     if any(k in part for k in SAUCE_KEYWORDS):
@@ -829,7 +847,7 @@ def build_item(name, weight_g, weight_note, cache):
         return {"display": name, "matched": False, "weight_g": weight_g, "weight_note": weight_note,
                 "contrib": {f: 0 for f in NUT_FIELDS}, "missing": NUT_FIELDS[:], "source": None}
     per100 = m["per100"]
-    missing = [f for f in NUT_FIELDS if per100.get(f) is None]
+    missing = [f for f in NUT_FIELDS if per100.get(f) is None or f in m.get("partial_missing_fields", [])]
     src = m.get("source")
     # 2026-11-03: 영양소 계산용 중량과 "표시용 1인분 중량"(weight_g, classify_*_weight에서
     # 이미 DB 1회분 값 또는 이 표의 값으로 정해짐)을 분리한다. recipe_decompose는 레시피에
@@ -838,7 +856,12 @@ def build_item(name, weight_g, weight_note, cache):
     # 써야 자체 일관성이 유지된다(표시중량을 곱하면 과다산정됨). food_db/gagong_db는 매칭된
     # 1회분 값이 이미 weight_g에 반영돼 있으므로 둘이 같아 추가 분기가 필요 없다.
     nutrition_weight_g = m.get("total_parsed_weight_g", weight_g) if src == "recipe_decompose" else weight_g
+    if name == "닭강정" and src == "recipe_decompose":
+        nutrition_weight_g = weight_g
+        weight_note += "; 닭강정 레시피 전체량 대신 표시 제공량에 100g당 영양성분 비례 적용(실측 제공량 아님)"
     contrib = {f: (per100.get(f) or 0) * nutrition_weight_g / 100.0 for f in NUT_FIELDS}
+    if m.get("nutrition_note") and m["nutrition_note"] not in weight_note:
+        weight_note += "; " + m["nutrition_note"]
     if name == "야구르트":
         weight_note += "; 사용자 지정 요구르트 대체 추정. 실제 제품·용량 미확인, DB 기준량 80mL를 계산상 80g으로 적용"
     return {"display": name, "matched": True, "weight_g": weight_g, "weight_note": weight_note,
@@ -954,7 +977,10 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         if it["display"] in ("쫄깃단무지무침", "쫄깃단무지 무침") and r["matched"]:
             recipe_notes.append('쫄깃단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영.')
         if it["display"] in ("어니언링", "양파링"):
-            recipe_notes.append('어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류.')
+            if r["matched"] and r.get("external_recipe"):
+                recipe_notes.append(f"어니언링: 외부 레시피 기준 배합60g을 현재 추정 제공량{exchange_weight:g}g에 비례 환산. 튀김옷·흡수유는 레시피의 대체 가정이며 실측값 아님.")
+            elif not r["matched"]:
+                recipe_notes.append('어니언링 → 양파링: 이름 연결 완료. 튀김옷·흡수유 배합 정보 확인 전 교환단위 계산 보류.')
         if it["display"] == "청포묵무침" and r["matched"]:
             recipe_notes.append('청포묵무침: MenuGen 탕평채(D132066)의 소고기 30g을 제외하고 남은 재료 총중량 207.5g 기준으로 제공량에 비례 환산. 나머지 재료는 유지한 대체 레시피 추정.')
         if r["matched"]:
@@ -1045,7 +1071,7 @@ def compute_tray(lunch, cache):
     exchange_units = None
     # 2026-11-04: 204(신소재공학관)는 기존에 08-24~09-19 구간만 식품교환단위를 계산했음 -
     # 사용자 지시로 10/26~11/6까지 범위 확장.
-    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-06"):
+    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-13"):
         exchange_units = compute_tray_exchanges(items, main, shop, lunch["date"])
 
     return {

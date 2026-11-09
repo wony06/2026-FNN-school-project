@@ -3,6 +3,7 @@
 성공하면 {"source","name","per100":{...12개필드...}, "detail":{...}} 반환, 실패하면 None."""
 import sys, os, json, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from prepared_food_overrides import prepared_food_override
 from food_search import load_db as load_food, search as search_food, PRI_RANK
 from gagong_search import load_db as load_gagong, search as search_gagong
 from recipe_decompose import decompose_recipe, RECIPE_BY_NAME, find_db104_candidates, pick_db104_state, DB104_MAP
@@ -364,6 +365,9 @@ def _try_cascade(name, prefer_db104=False):
 
 
 def auto_match(name, prefer_db104=False):
+    prepared = prepared_food_override(name, FOOD_DB, GAGONG_DB, NUT_FIELDS, DB104_MAP)
+    if prepared is not None:
+        return _with_unit(prepared)
     name = GENERAL_SYNONYMS.get(name, name)
     r = _try_cascade(name, prefer_db104)
     if r:
