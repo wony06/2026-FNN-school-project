@@ -1651,5 +1651,679 @@
   "source": "MenuGen 쥐치포볶음 D101033에서 고추장 제외한 대체 배합",
   "created": "2026-11-10",
   "assumptions": "쥐어채볶음: 일반 볶음80g에 조리 전 쥐어채 제품 성분을 적용하던 계산 제외. 원물은 기존 제품DB 섭취참고량15g을 임시 출발점으로 사용하되 완성 볶음 총량과 구분. 사진의 연한 색 채를 참고해 MenuGen 쥐치포볶음 D101033에서 고추장6g 제외한 배합78g을 1/4로 적용: 건쥐치포15g·콩기름1.5g·간장0.5g·물엿1.25g·대파0.75g·참깨0.25g·참기름0.25g, 완성 추정19.5g. 실제 원물·기름·양념 중량과 어종·제품·조리수율 미확인. 영양성분은 기존 조미건어포 제품 대신 원재료DB 쥐치포와 각 기름·양념으로 계산하며 영양성분과 교환단위에 동일 배합 적용. 사진에서 확인되지 않는 양념은 대체 레시피 가정. 조미료·당류는 기존 교환군 환산 규칙에 따라 교환단위에 별도 반영되지 않지만 영양성분에는 포함."
+ },
+ {
+  "name": "오징어김치전",
+  "weight_g": 258.0,
+  "scale_to_target": true,
+  "ingredients": [
+   {
+    "food_name": "김치, 배추 김치",
+    "food_group": "채소류",
+    "weight_g": 80.0
+   },
+   {
+    "food_name": "양파, 데친것",
+    "food_group": "채소류",
+    "weight_g": 50.0
+   },
+   {
+    "food_name": "밀, 중력밀가루",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 45.0
+   },
+   {
+    "food_name": "오징어, 생것",
+    "food_group": "어패류 및 그 제품",
+    "weight_g": 30.0
+   },
+   {
+    "food_name": "달걀, 부침(달걀프라이)",
+    "food_group": "난류",
+    "weight_g": 30.0
+   },
+   {
+    "food_name": "콩기름",
+    "food_group": "유지류",
+    "weight_g": 17.0
+   },
+   {
+    "food_name": "파, 대파, 생것",
+    "food_group": "채소류",
+    "weight_g": 6.0
+   }
+  ],
+  "source": "MenuGen 김치전 D093005: 참치→오징어 동량 교체",
+  "created": "2026-11-10",
+  "assumptions": "오징어김치전: 사용자 지정으로 MenuGen 김치전(D093005)의 참치통조림30g을 생오징어30g으로 동량 교체. 배추김치80g·양파50g·밀가루45g·달걀프라이30g·콩기름17g·대파6g은 유지. 기준합258g에 기존 반찬 추정량70g을 비례 적용. 실제 급식의 재료 비율·흡수유·오징어 조리수율·제공량 미확인 대체 추정. 교환단위만 변경하며 영양성분은 기존 오징어김치전 제품DB를 유지."
+ },
+ {
+  "name": "소고기샤브샤브",
+  "weight_g": 297,
+  "scale_to_target": true,
+  "ingredients": [
+   {
+    "food_name": "소고기, 수입산, 목심(목심살), 삶은것",
+    "weight_g": 75,
+    "food_group": "육류"
+   },
+   {
+    "food_name": "배추, 생것",
+    "weight_g": 40.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "양파, 생것",
+    "weight_g": 10.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "팽이버섯, 생것",
+    "weight_g": 5.0,
+    "food_group": "버섯류"
+   },
+   {
+    "food_name": "느타리버섯, 생것",
+    "weight_g": 5.0,
+    "food_group": "버섯류"
+   },
+   {
+    "food_name": "미나리, 돌미나리, 생것",
+    "weight_g": 3.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "쑥갓, 생것",
+    "weight_g": 3.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "당근, 뿌리, 생것",
+    "weight_g": 3.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "간장, 개량, 양조",
+    "weight_g": 1.0,
+    "food_group": "조미료류"
+   },
+   {
+    "food_name": "다시마, 말린것",
+    "weight_g": 1.0,
+    "food_group": "해조류"
+   },
+   {
+    "food_name": "파, 대파, 생것",
+    "weight_g": 1.0,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "소금, 천일염",
+    "weight_g": 0.2,
+    "food_group": "조미료류"
+   },
+   {
+    "food_name": "물",
+    "weight_g": 149.8,
+    "food_group": "기타"
+   }
+  ],
+  "source": "MenuGen 샤브샤브전골 D064029: 조리 고기·육수 중량을 명시한 샤브국수 대체 배합",
+  "created": "2026-11-10",
+  "assumptions": "샤브국수의 샤브 부분297g 교환단위 대체 배합. MenuGen 샤브샤브전골 D064029의 생목심100g을 삶은 목심75g(수율75% 임시 가정, 수입산 삶은 목심DB 대체)으로 바꾸고 나머지 채소·양념72.2g은 유지. 원본에 없는 육수/수분149.8g을 명시해 완성 기준297g으로 구성. 채소·양념은 원본 재료량을 완성량으로 임시 유지하며 조리수율·증발 실측 없음. 실제 홍보 사진과 급식의 부위·배합·육수·제공량은 미확인. 육수로 용출된 영양성분은 교환단위에서 미반영하며 실제0을 뜻하지 않음. 영양성분은 별도 완성 음식 샤브샤브_소고기 DB 사용하므로 동일 실측 레시피는 아님. 삶은 칼국수면200g은 별도 곡류군으로 더하되 한 그릇 합497g 안에서 배분. 칠리소스9g과 별도 밥은 기존 구성 유지."
+ },
+ {
+  "name": "칼국수면",
+  "weight_g": 100,
+  "scale_to_target": true,
+  "calculation_source": "db104_direct",
+  "ingredients": [
+   {
+    "food_name": "칼국수면, 생것, 삶은것",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 100
+   }
+  ],
+  "source": "원재료DB 삶은 칼국수면 직접 환산",
+  "created": "2026-11-10",
+  "assumptions": "샤브국수 조합의 면은 칼국수면, 생것, 삶은것 DB로 직접 연결. 삶은 제공량에 삶은 면 탄수화물을 적용해 곡류군 계산. 건면/생면 기준과 혼합하지 않으며 실제 제품·수분함량·제공량은 미확인."
+ },
+ {
+  "name": "고깃집된장찌개",
+  "weight_g": 283,
+  "scale_to_target": true,
+  "ingredients": [
+   {
+    "food_name": "두부",
+    "food_group": "두류",
+    "weight_g": 30.0
+   },
+   {
+    "food_name": "호박, 애호박, 생것",
+    "food_group": "채소류",
+    "weight_g": 25.0
+   },
+   {
+    "food_name": "무, 조선무, 생것",
+    "food_group": "채소류",
+    "weight_g": 10.0
+   },
+   {
+    "food_name": "된장, 개량",
+    "food_group": "조미료류",
+    "weight_g": 3.0
+   },
+   {
+    "food_name": "표고버섯, 배지재배, 생것",
+    "food_group": "버섯류",
+    "weight_g": 2.5
+   },
+   {
+    "food_name": "고춧가루",
+    "food_group": "조미료류",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "다시마, 말린것",
+    "food_group": "해조류",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "명태, 북어, 말린것",
+    "food_group": "어패류 및 기타 수산물",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "멸치, 대멸치, 삶아서 말린것",
+    "food_group": "어패류 및 기타 수산물",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "새우, 꽃새우, 삶아서 말린것",
+    "food_group": "어패류 및 기타 수산물",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "고추, 청양고추, 생것",
+    "food_group": "채소류",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "양파, 생것",
+    "food_group": "채소류",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "마늘, 생것",
+    "food_group": "채소류",
+    "weight_g": 1.0
+   },
+   {
+    "food_name": "파, 대파, 생것",
+    "food_group": "채소류",
+    "weight_g": 0.7
+   },
+   {
+    "food_name": "물",
+    "food_group": "기타",
+    "weight_g": 203.8
+   }
+  ],
+  "source": "MenuGen 호박두부된장찌개: 국물 중량을 명시한 사진 기반 대체",
+  "created": "2026-11-10",
+  "assumptions": "고깃집된장찌개 교환단위: 11/9 공식 사진의 두부·호박을 참고해 MenuGen 호박두부된장찌개 재료79.2g을 사용하고 물/육수203.8g을 더해 완성 추정283g으로 구성. 원본 레시피에 국물 중량이 없어 재료79.2g에 완성283g을 직접 곱하던 과대 환산을 방지. 사진에서 고기의 유무·종류·양을 확정할 수 없어 별도 고기를 임의 추가하지 않은 대체 배합이며 실제 고기 기여가 빠질 수 있음. 육수 용출성분·실제 조리수율·배합·제공량 미확인. 조미료는 기존 교환군 규칙에 따라 별도 단위 미반영. 영양성분은 기존 고깃집된장찌개 제품DB 유지하므로 두 계산은 동일 실측 레시피가 아님. 원본 메뉴명과 별도 밥 구성 유지."
+ },
+ {
+  "name": "투움바파스타",
+  "weight_g": 370.02,
+  "ingredients": [
+   {
+    "food_code": "F03376",
+    "food_name": "스파게티 소스, 크림, 병조림",
+    "food_eng_name": "Spaghetti sauce, Cream, Bottled",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 80.0,
+    "allergy": null
+   },
+   {
+    "food_code": null,
+    "food_name": "스파게티면, 말린것, 삶은것",
+    "food_eng_name": "Pasta, Spaghetti, Dry noodle",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 200,
+    "allergy": "밀"
+   },
+   {
+    "food_code": null,
+    "food_name": "마카로니, 말린것, 삶은것",
+    "food_eng_name": "Pasta, Macaroni, Dry noodle",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 50,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01001",
+    "food_name": "양파, 생것",
+    "food_eng_name": "Onion(Yangpa), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 20.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01679",
+    "food_name": "베이컨",
+    "food_eng_name": "Bacon",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": "돼지고기"
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 5.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02706",
+    "food_name": "올리브유",
+    "food_eng_name": "Olive oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 2.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02878",
+    "food_name": "소금, 천일염, 소금꽃",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Flower salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02928",
+    "food_name": "후추, 흰색, 가루",
+    "food_eng_name": "Pepper, White, Powder",
+    "food_group": "조미료류",
+    "origin": "JAPAN",
+    "weight_g": 0.01,
+    "allergy": null
+   },
+   {
+    "food_code": "F02923",
+    "food_name": "파슬리, 말린것",
+    "food_eng_name": "Parsley, Dried",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 0.01,
+    "allergy": null
+   },
+   {
+    "food_name": "고춧가루",
+    "food_group": "조미료류",
+    "weight_g": 2
+   }
+  ],
+  "scale_to_target": true,
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 크림파스타 D031142 + 사용자 지정 고춧가루",
+  "assumptions": "투움바파스타: 사용자 제안에 따라 MenuGen 크림파스타 D031142에 고춧가루2g을 추가한 대체 배합. 고추장은 추가하지 않음. 원배합 건스파게티80g·건마카로니20g은 삶은 면200g·50g으로 환산(흡수수율2.5배 임시 가정), 크림소스80g·양파20g·베이컨10g·마늘5g·올리브유2g·소금1g·후추0.01g·파슬리0.01g 유지. 국물 없는 완성 배합370.02g을 기존 파스타 제공량86g에 비례 환산. 크림소스가 조미료라는 이유로 전량 누락되지 않도록 소스DB 지방17.23g/100g을 지방군으로 계산. 소스의 실제 우유 함량을 알 수 없어 우유군은 별도 추정하지 않음(실제0 확인값 아님). 고춧가루 등 소량 조미료는 교환단위 제외. 실제 투움바 제품·매운 양념·새우 유무·조리수율·제공량 미확인. 메뉴명과 영양소 탭의 기존 투움바파스타 제품DB 계산 유지."
+ },
+ {
+  "name": "들깨오리탕",
+  "weight_g": 535.2,
+  "ingredients": [
+   {
+    "food_code": null,
+    "food_name": "오리고기, 삶은것, 껍질 포함",
+    "food_eng_name": "Duck meat, With skin, Raw",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 60,
+    "allergy": null
+   },
+   {
+    "food_code": "F00368",
+    "food_name": "토란, 삶은것",
+    "food_eng_name": "Taro(Toran), Boiled",
+    "food_group": "감자 및 전분류",
+    "origin": "농진청",
+    "weight_g": 30.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01149",
+    "food_name": "파, 대파, 생것",
+    "food_eng_name": "Welsh onion, Spring onion, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 10.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00866",
+    "food_name": "부추, 두메부추, 생것",
+    "food_eng_name": "Chinese chive, Aging chive, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 8.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02825",
+    "food_name": "간장, 개량, 양조",
+    "food_eng_name": "Soy sauce, Fermented type",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 5.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 5.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02847",
+    "food_name": "된장, 개량",
+    "food_eng_name": "Doenjang",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 4.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02838",
+    "food_name": "고춧가루",
+    "food_eng_name": "Red pepper, Powder",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 3.5,
+    "allergy": null
+   },
+   {
+    "food_code": "F00495",
+    "food_name": "들깨, 볶은것",
+    "food_eng_name": "Perilla seed(Deulkkae), Roasted",
+    "food_group": "견과 및 종실류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00730",
+    "food_name": "들깻잎, 생것",
+    "food_eng_name": "Perilla leaf(Deulkkaennip), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 3.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F03079",
+    "food_name": "인삼, 수삼, 생것",
+    "food_eng_name": "Korean ginseng, Raw",
+    "food_group": "기타",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02897",
+    "food_name": "월계수, 잎, 말린것",
+    "food_eng_name": "Bay leaf, Dried",
+    "food_group": "조미료류",
+    "origin": "USDA",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F01320",
+    "food_name": "대추, 말린것",
+    "food_eng_name": "Jujube(Daechu), Dried",
+    "food_group": "과일류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F00919",
+    "food_name": "생강, 뿌리줄기, 생것",
+    "food_eng_name": "Ginger(Saenggang), Tuber, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 0.5,
+    "allergy": null
+   },
+   {
+    "food_code": "F02928",
+    "food_name": "후추, 흰색, 가루",
+    "food_eng_name": "Pepper, White, Powder",
+    "food_group": "조미료류",
+    "origin": "JAPAN",
+    "weight_g": 0.2,
+    "allergy": null
+   },
+   {
+    "food_name": "물",
+    "food_group": "기타",
+    "weight_g": 400
+   }
+  ],
+  "scale_to_target": true,
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 오리탕 D053090 국물 보완 대체",
+  "assumptions": "들깨오리탕: 사용자 지정 MenuGen 오리탕 D053090 배합에 연결. 원배합에 볶은 들깨3g이 포함되어 들깨를 중복 추가하지 않음. 원문 재료합155.2g에는 국물이 없어 물400g을 임시 보완; 생 오리고기80g은 수율75% 가정의 삶은 껍질 포함 오리고기60g으로 대체. 국물 포함 추정 배합535.2g을 기존 국 제공량283g에 비례 환산. 국물 영양성분·뼈 가식부·조리수율·실제 오리 껍질 유무·들깨량·제공량 미확인; 물400g은 원문 기재량이 아닌 희석용 가정. 소량 조미료는 교환단위 제외. 원본 메뉴명과 영양소 탭의 기존 들깨오리탕 제품DB 계산 유지."
+ },
+ {
+  "name": "묵은지참치비빔밥",
+  "weight_g": 418,
+  "ingredients": [
+   {
+    "food_name": "멥쌀, 백미, 밥",
+    "weight_g": 210,
+    "food_group": "곡류 및 그 제품"
+   },
+   {
+    "food_name": "다랑어, 가다랑어, 통조림, 유지",
+    "weight_g": 50,
+    "food_group": "어패류 및 그 제품"
+   },
+   {
+    "food_name": "김치, 배추 김치",
+    "weight_g": 60,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "달걀, 부침(달걀프라이)",
+    "weight_g": 40,
+    "food_group": "난류"
+   },
+   {
+    "food_name": "무, 조선무, 생것",
+    "weight_g": 12,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "호박, 애호박, 생것",
+    "weight_g": 12,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "당근, 뿌리, 생것",
+    "weight_g": 11,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "마늘, 생것",
+    "weight_g": 3,
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "참기름",
+    "weight_g": 4,
+    "food_group": "유지류"
+   },
+   {
+    "food_name": "참깨, 흰색, 볶은것",
+    "weight_g": 2,
+    "food_group": "견과류 및 종실류"
+   },
+   {
+    "food_name": "콩기름",
+    "weight_g": 3,
+    "food_group": "유지류"
+   },
+   {
+    "food_name": "고추장, 개량",
+    "weight_g": 11,
+    "food_group": "조미료류"
+   }
+  ],
+  "scale_to_target": true,
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 비빔밥 D014019 소고기 제외 + 사용자 지정 참치·묵은지",
+  "assumptions": "묵은지참치비빔밥: 사용자 지정 비빔밥(소고기 제외)+참치+묵은지 조합. MenuGen 비빔밥 D014019의 소고기60g은 제거하고, 기존 전체 제공량418g 안에서 밥210g·유지 참치통조림50g·묵은지60g·달걀프라이40g·무12g·애호박12g·당근11g·마늘3g·참기름4g·볶은 참깨2g·콩기름3g·고추장11g으로 임시 재배분. 묵은지는 별도 숙성 성분DB가 없어 배추김치로 대체. 참치는 기름 함유 통조림 기준이며 실제 기름 제거량 미확인. 밥은 배합 안에서 한 번만 계산하고, 완성 비빔밥 DB 성분이나 소고기를 추가 합산하지 않음. 달걀·나물·양념 종류와 실제 배합·제공량은 사진으로 확인되지 않은 가정. 영양성분과 교환단위에 동일 배합 사용; 교환단위에서는 고추장 등 소량 조미료 제외. 원본 메뉴명 유지."
+ },
+ {
+  "name": "탕국",
+  "weight_g": 558.3,
+  "ingredients": [
+   {
+    "food_code": "F00772",
+    "food_name": "무, 조선무, 생것",
+    "food_eng_name": "Radish(Mu), Korean radish, Root, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 70.0,
+    "allergy": null
+   },
+   {
+    "food_code": null,
+    "food_name": "소고기, 한우, 양지, 삶은것",
+    "food_eng_name": "Beef meat, Hanwoo, Brisket(Yangji), Raw",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 45,
+    "allergy": "쇠고기"
+   },
+   {
+    "food_code": "F02825",
+    "food_name": "간장, 개량, 양조",
+    "food_eng_name": "Soy sauce, Fermented type",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F01149",
+    "food_name": "파, 대파, 생것",
+    "food_eng_name": "Welsh onion, Spring onion, Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.0,
+    "allergy": null
+   },
+   {
+    "food_code": "F02875",
+    "food_name": "소금, 천일염",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 0.5,
+    "allergy": null
+   },
+   {
+    "food_code": "F03386",
+    "food_name": "마늘, 다진것",
+    "food_eng_name": "Garlic(Maneul), Minced",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 0.5,
+    "allergy": null
+   },
+   {
+    "food_code": "F02710",
+    "food_name": "참기름",
+    "food_eng_name": "Sesame oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 0.3,
+    "allergy": null
+   },
+   {
+    "food_name": "두부",
+    "food_group": "두류",
+    "weight_g": 40
+   },
+   {
+    "food_name": "물",
+    "food_group": "기타",
+    "weight_g": 400
+   }
+  ],
+  "scale_to_target": true,
+  "calculation_source": "custom_recipe",
+  "source": "MenuGen 양지무국 D051160 + 두부·국물 보완",
+  "assumptions": "탕국: 사용자 지정 소고기 탕국으로, MenuGen 양지무국 D051160에 두부40g·물400g을 임시 보완한 맑은 국 대체 배합. 원문 생 양지60g은 수율75% 가정으로 삶은 양지45g으로 환산. 국물 포함 추정 배합558.3g에 기존 국 제공량283g 비례 환산. 물400g과 두부40g은 원문 기재량이 아닌 가정. 해물은 추가하지 않음. 국물 용출성분·실제 배합·조리수율·두부 유무·제공량 미확인. 소량 조미료는 교환단위 제외. 원본 메뉴명과 영양소 탭의 기존 탕국 제품DB 성분 유지."
+ },
+ {
+  "name": "갈릭쉬림프덮밥",
+  "weight_g": 418,
+  "scale_to_target": true,
+  "ingredients": [
+   {
+    "food_name": "멥쌀, 백미, 밥",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 210
+   },
+   {
+    "food_name": "새우, 보리새우, 삶은것",
+    "food_group": "어패류 및 그 제품",
+    "weight_g": 100
+   },
+   {
+    "food_name": "마늘, 생것",
+    "food_group": "채소류",
+    "weight_g": 10
+   },
+   {
+    "food_name": "양파, 생것",
+    "food_group": "채소류",
+    "weight_g": 70
+   },
+   {
+    "food_name": "버터, 무가염",
+    "food_group": "유지류",
+    "weight_g": 8
+   },
+   {
+    "food_name": "간장, 개량, 양조",
+    "food_group": "조미료류",
+    "weight_g": 10
+   },
+   {
+    "food_name": "물",
+    "food_group": "기타",
+    "weight_g": 10
+   }
+  ],
+  "calculation_source": "custom_recipe",
+  "source": "사용자 지정 새우덮밥+갈릭 원재료 조합",
+  "assumptions": "갈릭쉬림프덮밥: 사용자 지정 새우덮밥+마늘 조합. 같은 이름의 완성 음식·레시피DB가 없어 원재료 조합으로 대체. 기존 덮밥 총량418g 안에 밥210g·껍질 없는 삶은 새우100g·마늘10g·양파70g·버터8g·간장10g·물10g으로 임시 배분. 새우는 삶은 보리새우 성분으로 대체, 실제 새우 종류·크기·개수·조리수율 미확인. 버터는 조리유 대체 가정이며 실제 기름 종류·흡수량·양념 미확인. 밥을 배합 안에서 한 번만 계산하며 새우볶음밥 완성 DB를 중복 가산하지 않음. 영양성분·교환단위에 동일 배합 사용, 교환단위에서 간장 등 조미료 제외. 실제 사진·배합·제공량 미확인, 원본 메뉴명 유지."
  }
 ]
