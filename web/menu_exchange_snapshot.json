@@ -1,6 +1,6 @@
 {
  "source": "기존 한양플라자 스냅샷 유지; 2026-08-24~2026-09-19 생활과학대학·신소재공학관 동일 계산 확장",
- "sourceSha256": "6bb79a58daffd2cbdc4307e3eeaa28cec4231b7d89c53f16110b3baed814680a",
+ "sourceSha256": "b358349a9acc0aa53dea06f12130b02fe30f07055047703d33c1ca1d2e43e40b",
  "entries": [
   {
    "key": [
@@ -10938,10 +10938,10 @@
    ],
    "sourceMain": "날치알김치볶음밥",
    "exchangeUnits": {
-    "grain": 4.59,
-    "meat": 4.64,
-    "veg": 2.66,
-    "fat": 3.73,
+    "grain": 3.84,
+    "meat": 3.0,
+    "veg": 2.6,
+    "fat": 2.28,
     "dairy": 0.83,
     "fruit": 0.0,
     "unmatched": [],
@@ -11143,10 +11143,10 @@
    ],
    "sourceMain": "돈육김치찌개",
    "exchangeUnits": {
-    "grain": 9.37,
-    "meat": 4.39,
+    "grain": 9.06,
+    "meat": 2.34,
     "veg": 2.17,
-    "fat": 1.78,
+    "fat": 0.85,
     "dairy": 0.0,
     "fruit": 0.0,
     "unmatched": [
