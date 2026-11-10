@@ -951,7 +951,7 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
                                 "감자·양파·육수 등 레시피 재료와 배합은 사진만으로 확정할 수 없는 "
                                 "유사 레시피 추정이며 조리수율 차이 미보정. 영양성분 계산 유지.")
         if r is None:
-            r = compute_exchange_units(it["display"], exchange_weight, use_plaza_servings=(shop == "105"))
+            r = compute_exchange_units(it.get("calculationName", it["display"]), exchange_weight, use_plaza_servings=(shop == "105"))
         if r.get("recipe_note"):
             recipe_notes.append(r["recipe_note"])
         if it["display"] in ("황태구이_양념", "황태구이 양념") and r["matched"]:
