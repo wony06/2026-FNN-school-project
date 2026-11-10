@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-10",
+  "menu": "불닭크림우동",
+  "target": {
+    "date": "2026-11-09",
+    "shop": "204",
+    "category": "일품",
+    "main": "김밥볶음밥"
+  },
+  "userConfirmation": "삶은 우동면+크림/우유+불닭소스 배합이 맞으며 닭고기는 들어가지 않음",
+  "ingredientComposition": {
+    "confirmed": [
+      "삶은 우동면",
+      "크림/우유",
+      "불닭소스"
+    ],
+    "excluded": [
+      "닭고기"
+    ],
+    "dairyDetail": "크림·우유 각각의 사용 여부와 비율은 구분 미확정"
+  },
+  "existingServingEstimate_g": 72.2,
+  "servingNote": "기존 사이트의 곁들임 표준 추정량이며 사용자 확인 또는 실측 중량은 아님",
+  "pending": [
+    "삶은 우동면·크림/우유·불닭소스의 배합 중량",
+    "크림·우유의 제품 및 개별 사용 여부",
+    "불닭소스 제품 또는 원재료 배합"
+  ],
+  "result": "재료 구성 확인 완료; 배합 중량 미확정으로 교환단위 계산 대기",
+  "websiteUpdated": false,
+  "nutritionUpdated": false,
+  "exchangeUnitsCalculated": false
+}

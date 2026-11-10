@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-10",
+  "menu": "양파절임",
+  "target": {
+    "date": "2026-11-11",
+    "shop": "204",
+    "category": "정식",
+    "main": "얼큰수육국밥"
+  },
+  "userConfirmedType": "새콤한 양파절임",
+  "status": "절임 유형 확인 완료; 초절임 배합·고형분 중량 검토 대기",
+  "confirmed": [
+    "양파절임이 새콤한 유형이라는 사용자 설명"
+  ],
+  "notConfirmed": [
+    "식초·홍초 제품 종류",
+    "설탕·소금·물·간장의 실제 사용 여부 및 중량",
+    "양파와 절임물의 중량 비율"
+  ],
+  "candidateRecipe": {
+    "source": "recipe_db.json",
+    "record": {
+      "seq": "2974",
+      "name": "양파홍초절임",
+      "way": "기타",
+      "cat": "반찬",
+      "weight": 80,
+      "n": {
+        "kcal": 56.87,
+        "carb": 12.64,
+        "protein": 0.55,
+        "fat": 0.46,
+        "na": 30.64
+      },
+      "ingredients": "양파 80g, 홍초 15g, 간장 0.1g, 설탕 1.5g, 홍고추 1g, 청양고추 1g",
+      "naTip": "홍초를 사용해 설탕과 간장의 사용을 줄일 수 있어요.",
+      "img": "http://www.foodsafetykorea.go.kr/uploadimg/20190408/20190408114231_1554691351521.jpg"
+    },
+    "note": "양파홍초절임은 새콤한 절임의 참고 배합 후보이며 사용자 선택이 확정된 레시피는 아님. 원본에는 간장0.1g·홍고추·청양고추가 포함되므로 그대로 적용하거나 미사용으로 단정하지 않음."
+  },
+  "reconstructionDirection": "양파 + 실제 사용한 초절임 양념으로 재구성. 간장장아찌 레시피를 임의 확정하지 않음.",
+  "existingServing_g": 72.2,
+  "servingNote": "기존 일반 반찬 표준 추정량72.2g. 양파 고형분만의 중량으로 확인된 값이 아니므로 전량을 생양파72.2g으로 계산하지 않음.",
+  "photoAvailable": false,
+  "exchangeUnitsCalculated": false,
+  "websiteUpdated": false,
+  "nutritionUpdated": false,
+  "notes": [
+    "새콤하다는 설명만으로 간장 미사용이나 특정 홍초 사용까지 확정하지 않음.",
+    "이전 답변의 간장장아찌가 아니라는 표현은 초절임 방향 검토를 의미하며 간장 성분 부재가 확인된 것은 아님.",
+    "현재 영양성분의 양파장아찌 대체 매칭은 별도 변경 요청이 없어 유지. 교환단위는 여전히 미매칭이며0교환으로 처리하지 않음."
+  ]
+}
