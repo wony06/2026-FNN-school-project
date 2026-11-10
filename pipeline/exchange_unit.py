@@ -279,7 +279,9 @@ def _from_direct_db104(name, weight_g):
 # 얽혀 예상 못 한 부작용이 날 수 있어 분리해서 관리한다.
 MENUGEN_MODIFIER_PREFIXES = [
     "가마보꼬", "교자", "데리야끼", "목살", "몽글", "물", "양념", "우삼겹",
-    "치즈", "투움바", "햄", "로제", "초", "해초",
+    "치즈", "투움바", "햄", "로제", "초",
+    # "해초" 제거(2026-11-10): 해초는 수식어가 아니라 주재료(해조류)인데 접두어로 등록돼
+    # 해초무침→무말랭이무침, 해초샐러드→감자샐러드로 오매칭을 유발. 두 항목은 위 특수케이스로 처리.
 ]
 
 
@@ -410,6 +412,43 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "장조림":
+        # 2026-11-10: db104 직접매칭이 "우엉, 장조림"(채소군)을 골라 소고기 장조림이 채소군으로
+        # 과대계산(채소 ~6.9교환)되던 것 교정. db104에 소고기 장조림이 없어 가공식품DB 장조림
+        # 단백질로 어육류군 환산(곰탕 간이환산과 동일 방식). 조미료는 교환단위 제외.
+        prod = try_gagong_db("장조림") or try_food_db("장조림")
+        protein_per100 = prod["per100"].get("protein") if prod else None
+        if protein_per100 is not None:
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["어육류군"] = protein_per100 * weight_g / 100.0 / UNIT_BASIS["어육류군"][1]
+            return {"matched": True, "units": units, "source": "gagong_db_estimate",
+                    "matched_name": prod["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"장조림: 사용자 지정 교정. db104 직접매칭이 '우엉, 장조림'(채소군)으로 "
+                        f"오매칭되던 것을 가공식품DB 장조림 단백질 100g당 {protein_per100:g}g 기준 어육류군으로 "
+                        f"환산(제공량 {weight_g:g}g). 간장 등 조미료는 교환단위 제외. 영양성분·메뉴명 유지.")}
+    if name in ("해초무침", "해초샐러드"):
+        # 2026-11-10: "해초" 접두어 strip 규칙 때문에 해초무침→"무말랭이 무침"(채소 6.82),
+        # 해초샐러드→"샐러드(감자)"로 오매칭되던 것 교정. 해조류(미역 생것)로 대체하고
+        # 드레싱·양념은 조미료 제외규칙을 유지한다.
+        record = DB104_BY_NAME["미역, 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        _add_ingredient(units, record["식품군"], record, weight_g)
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": (f"{name}: 사용자 지정 교정. 기존엔 '해초' 수식어 접두어 제거 규칙 때문에 "
+                    f"엉뚱한 반찬(무말랭이무침/감자샐러드)으로 매칭됐음. 제공량 {weight_g:g}g 전체를 해조류(미역 "
+                    "생것)로 간주해 채소군 환산하고 드레싱·양념은 조미료 제외규칙 적용. 실제 해조 종류·중량 "
+                    "실측값 아님. 영양성분·메뉴명 유지.")}
+    if name == "무말랭이":
+        # 2026-11-10: bare "무말랭이"가 db104 "무말랭이, 말린것"(건조 농축 탄수)에 직접 매칭돼
+        # 채소군이 ~15교환까지 과대계산되던 것 교정. 실제 제공되는 무친 반찬 형태로 간주해
+        # 무말랭이무침 레시피와 동일하게 계산한다.
+        result = compute_exchange_units("무말랭이무침", weight_g, use_plaza_servings=use_plaza_servings)
+        result["recipe_note"] = ("무말랭이: 사용자 지정 교정. 건조 상태 '무말랭이, 말린것'을 완성 제공량에 "
+            "그대로 적용해 채소군이 과대(약 15교환)되던 것을 실제 무친 반찬 기준(무말랭이무침 레시피)으로 교체. "
+            "영양성분·메뉴명 유지.")
+        return result
     if name == '소불고기덮밥':
         result = compute_exchange_units('불고기덮밥', weight_g, use_plaza_servings=False)
         result['recipe_note'] = ('소불고기덮밥: 사용자 지정 MenuGen 불고기덮밥 D015080에 연결. 밥·소고기를 포함한 표준 배합620g을 기존 덮밥418g에 비례 적용. '
