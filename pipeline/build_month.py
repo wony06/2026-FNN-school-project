@@ -681,10 +681,25 @@ PHOTO_SIDE_OVERRIDES = {
 }
 
 
+def classify_shop_side_weight(name, shop=None, cache=None):
+    """Role-based side portions. Explicit decomposition/photo weights bypass this fallback.
+
+    Shop 204 policy: see SERVING_WEIGHT_RULES.md. A side must never inherit the
+    generic main-protein fallback, even when its name is also used as a main.
+    Rice/soup/sauce/mini servings retain their own categories.
+    """
+    weight, note = classify_side_weight(name, cache)
+    if str(shop) == "204":
+        if (weight, note) == MAIN_FALLBACK:
+            weight, note = SIDE_FALLBACK
+        note = "신소재 곁들임 규칙: 음식 유형별 반찬 기준 적용(메인 기준 제외); " + note
+    return weight, note
+
+
 def expand_side(name, shop=None, category=None, cache=None, date=None):
     photo_names = PHOTO_SIDE_OVERRIDES.get((date, shop, name))
     if photo_names:
-        total_weight, _ = classify_side_weight(name, cache)
+        total_weight, _ = classify_shop_side_weight(name, shop, cache)
         note = (f"{date} 사진 기반 대체 매칭: {' + '.join(photo_names)}. "
                 f"기존 {name} 추정 총량 {total_weight:g}g을 균등 배분; 실측 중량 아님")
         if "오이소박이" in photo_names:
@@ -696,7 +711,7 @@ def expand_side(name, shop=None, category=None, cache=None, date=None):
         return [(part, total_weight / len(photo_names), note) for part in photo_names]
     if name in DECOMPOSE_OVERRIDES:
         return DECOMPOSE_OVERRIDES[name]
-    parts = expand_compound(name, lambda n: classify_side_weight(n, cache))
+    parts = expand_compound(name, lambda n: classify_shop_side_weight(n, shop, cache))
     if (date, shop) == ("2026-11-04", "401"):
         expanded = []
         for part, weight, note in parts:
