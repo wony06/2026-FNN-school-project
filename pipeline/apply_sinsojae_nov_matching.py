@@ -17,6 +17,9 @@ def write(path, data):
 def key(row):
     return tuple(row[f] for f in ('date','shop','category','main'))
 
+def applied_note(note):
+    return note.replace('웹사이트 반영 대기', '2026-11-11 사용자 승인으로 웹사이트 반영').replace('전달용 누적, 웹사이트 미반영', '2026-11-11 사용자 승인으로 웹사이트 반영')
+
 def apply():
     changes = read(BUNDLE/'변경내역.json')['changes']
     recipes = read(ROOT/'custom_exchange_recipes.json')
@@ -28,7 +31,7 @@ def apply():
         recipe = copy.deepcopy(change['recipe'])
         recipe['name'] = alias
         recipe['display_name'] = name
-        recipe['assumptions'] = recipe['assumptions'].replace('웹사이트 반영 대기', '2026-11-11 사용자 승인으로 웹사이트 반영')
+        recipe['assumptions'] = applied_note(recipe['assumptions'])
         existing = next((i for i,r in enumerate(recipes) if r['name']==alias), None)
         if existing is None:
             recipes.append(recipe)
@@ -58,7 +61,7 @@ def apply():
                   recipeNotes=raw['recipeNotes'], matchedDb={'menugen':db['menugen'],'recipeDb':db['recipe_db'],'db104':db['db104_direct']})
         eu['customRecipes'] = [copy.deepcopy(c['recipe']) for c in changes if tuple(c['key'])==key(row)]
         for recipe in eu['customRecipes']:
-            recipe['assumptions'] = recipe['assumptions'].replace('웹사이트 반영 대기','2026-11-11 사용자 승인으로 웹사이트 반영')
+            recipe['assumptions'] = applied_note(recipe['assumptions'])
         row['exchangeUnits'] = eu
         entry = next((e for e in manual['entries'] if tuple(e['key'])==key(row)), None)
         if entry is None:
