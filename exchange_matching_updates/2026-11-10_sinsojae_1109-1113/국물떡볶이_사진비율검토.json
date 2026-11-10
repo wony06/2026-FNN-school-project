@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-10",
+  "menu": "국물떡볶이",
+  "target": {
+    "date": "2026-11-10",
+    "shop": "204",
+    "category": "일품",
+    "main": "참치마요덮밥"
+  },
+  "status": "사진 기반 비율 추정 완료; 양념·국물 세부 배합 미확정으로 최종 교환단위 계산 대기",
+  "userRequest": "사진을 보고 떡·어묵·국물 비율 추정",
+  "photo": {
+    "path": "web/menu_photos_web/635000e95e1a47a0e207f519.jpg",
+    "observations": [
+      "사진 중앙 위쪽 흰 그릇에 길쭉한 떡으로 보이는 여러 조각",
+      "납작하고 넓은 어묵으로 보이는 조각",
+      "붉은 국물과 파 등으로 보이는 소량 고명"
+    ],
+    "limitations": [
+      "그릇 안 겹침·국물 아래 가림으로 개수·깊이 확인 불가",
+      "사진의 면적 비율이 질량 비율과 같지는 않음",
+      "정확한 부재료 종류·소스 배합을 사진만으로 식별할 수 없음"
+    ],
+    "measured": false
+  },
+  "serving": {
+    "value": 72.2,
+    "unit": "g",
+    "source": "기존 일반 반찬 표준 추정량 유지",
+    "confirmedByPhoto": false
+  },
+  "estimatedComposition": [
+    {
+      "component": "떡",
+      "fraction": 0.45,
+      "weight_g": 32.49
+    },
+    {
+      "component": "어묵",
+      "fraction": 0.15,
+      "weight_g": 10.83
+    },
+    {
+      "component": "국물·양념·소량 채소",
+      "fraction": 0.4,
+      "weight_g": 28.88
+    }
+  ],
+  "remainingFractionNote": "40%는 순수 물의 비율이 아님. 양념·소량 채소까지 포함한 나머지 묶음이며 각각의 중량은 아직 확정하지 않음.",
+  "scenarios": [
+    {
+      "name": "국물 많은 가정",
+      "riceCake": 0.4,
+      "fishCake": 0.1,
+      "brothSauceVegetables": 0.5,
+      "total_g": 72.2,
+      "weights_g": {
+        "riceCake": 28.880000000000003,
+        "fishCake": 7.220000000000001,
+        "brothSauceVegetables": 36.1
+      }
+    },
+    {
+      "name": "중앙 추정",
+      "riceCake": 0.45,
+      "fishCake": 0.15,
+      "brothSauceVegetables": 0.4,
+      "total_g": 72.2,
+      "weights_g": {
+        "riceCake": 32.49,
+        "fishCake": 10.83,
+        "brothSauceVegetables": 28.880000000000003
+      }
+    },
+    {
+      "name": "건더기 많은 가정",
+      "riceCake": 0.5,
+      "fishCake": 0.2,
+      "brothSauceVegetables": 0.3,
+      "total_g": 72.2,
+      "weights_g": {
+        "riceCake": 36.1,
+        "fishCake": 14.440000000000001,
+        "brothSauceVegetables": 21.66
+      }
+    }
+  ],
+  "candidateRecipe": {
+    "name": "떡볶이(고추장, 어묵)",
+    "source": "menugen_recipes.json",
+    "code": "D104005",
+    "note": "떡·어묵 재료 연결 후보로 유지하되 원본의 떡80g:어묵30g 비율이나 전체 레시피를 그대로 비례 적용한 값은 아님. 양념·채소·기름을 사용할 경우 28.88g 안에서 물과 나누어 배정해야 함."
+  },
+  "pending": [
+    "국물·양념·소량 채소28.88g 내부 배합 결정",
+    "떡의 조리 전후 수분흡수 및 어묵 조리상태 가정"
+  ],
+  "exchangeUnitsCalculated": false,
+  "websiteUpdated": false,
+  "nutritionUpdated": false,
+  "doNotApplyAsWaterOnly": true
+}

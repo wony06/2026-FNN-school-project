@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-10",
+  "menu": "치즈맛감자",
+  "target": {
+    "date": "2026-11-12",
+    "shop": "204",
+    "category": "일품",
+    "main": "장조림버터비빔밥"
+  },
+  "userConfirmedComposition": [
+    "감자튀김",
+    "치즈시즈닝"
+  ],
+  "interpretation": "감자튀김에 치즈시즈닝을 묻힌 음식. 치즈가 들어 있는 감자볼이나 체다치즈 토핑으로 대체하지 않음.",
+  "baseCandidate": {
+    "source": "MenuGen",
+    "record": {
+      "fd_code": "D124001",
+      "upper_group": "튀김류",
+      "group": "기타 튀김류",
+      "name": "감자튀김",
+      "weight_g": "137.00",
+      "ingredient_count": "3",
+      "ingredients": [
+        {
+          "food_code": "F00323",
+          "food_name": "감자 튀김, 튀긴것",
+          "food_eng_name": "Potato, French fry, Deep-fried",
+          "food_group": "감자 및 전분류",
+          "origin": "농진청",
+          "weight_g": "130.00",
+          "allergy": null
+        },
+        {
+          "food_code": "F02712",
+          "food_name": "콩기름",
+          "food_eng_name": "Soybean oil",
+          "food_group": "유지류",
+          "origin": "농진청",
+          "weight_g": "5.00",
+          "allergy": "대두(콩)"
+        },
+        {
+          "food_code": "F02876",
+          "food_name": "소금, 천일염, 가는소금",
+          "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+          "food_group": "조미료류",
+          "origin": "농진청",
+          "weight_g": "2.00",
+          "allergy": null
+        }
+      ],
+      "cooking_steps": []
+    }
+  },
+  "status": "구성 확인 완료; 시즈닝 제품·배합량 확인 후 최종 교환단위 계산",
+  "existingServing_g": 72.2,
+  "servingPolicy": "총72.2g 안에서 감자튀김과 치즈시즈닝을 나눔. 감자튀김72.2g 위에 시즈닝을 중복 추가하지 않음.",
+  "photoAvailable": false,
+  "pending": [
+    "치즈시즈닝 중량 또는 추정 배합 결정",
+    "치즈시즈닝 제품/원재료 배합",
+    "튀긴 감자 성분과 별도 조리유의 계산 범위 확인"
+  ],
+  "notes": [
+    "사진이 없어 시즈닝 비율을 확인하지 못함.",
+    "치즈시즈닝은 순수 치즈와 성분 및 식품군이 다를 수 있어 체다치즈·우유군을 자동 적용하지 않음.",
+    "로컬 가공식품DB에 여러 치즈시즈닝 제품이 있으나 실제 사용 제품은 미확인으로 하나를 임의 확정하지 않음.",
+    "기본 감자튀김 레시피는 튀긴 감자130g·콩기름5g·소금2g으로137g. 실제 제품과 차이 및 현재 단일군 환산에서 튀긴 감자 자체 지방이 별도 지방군에 추가되지 않는 한계 기록 필요.",
+    "온모밀 소고기 제외 등의 기존 누적 식판 패치는 그대로 보존.",
+    "배합 미확정 단계이므로 최종 custom 레시피나 식판 override에 추가하지 않음."
+  ],
+  "exchangeUnitsCalculated": false,
+  "websiteUpdated": false,
+  "nutritionUpdated": false
+}

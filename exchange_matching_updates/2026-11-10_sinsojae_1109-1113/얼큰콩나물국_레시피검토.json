@@ -1,0 +1,490 @@
+{
+  "date": "2026-11-10",
+  "menu": "얼큰콩나물국",
+  "key": [
+    "2026-11-10",
+    "204",
+    "정식",
+    "간장불고기"
+  ],
+  "target": {
+    "date": "2026-11-10",
+    "shop": "204",
+    "category": "정식",
+    "main": "간장불고기"
+  },
+  "userConfirmedMapping": {
+    "from": "얼큰콩나물국",
+    "to": "콩나물국(고춧가루)",
+    "code": "D051073"
+  },
+  "status": "사용자 지정 대체 레시피 계산 완료·웹사이트 반영 대기",
+  "sourceRecipe": {
+    "fd_code": "D051073",
+    "upper_group": "국(탕)류",
+    "group": "맑은국류",
+    "name": "콩나물국(고춧가루)",
+    "weight_g": "438.00",
+    "ingredient_count": "8",
+    "ingredients": [
+      {
+        "food_code": "F01120",
+        "food_name": "콩나물, 삶은것",
+        "food_eng_name": "Soybean sprout(Kongnamul), Boiled",
+        "food_group": "채소류",
+        "origin": "농진청",
+        "weight_g": "40.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F02838",
+        "food_name": "고춧가루",
+        "food_eng_name": "Red pepper, Powder",
+        "food_group": "조미료류",
+        "origin": "농진청",
+        "weight_g": "2.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F00772",
+        "food_name": "무, 조선무, 생것",
+        "food_eng_name": "Radish(Mu), Korean radish, Root, Raw",
+        "food_group": "채소류",
+        "origin": "농진청",
+        "weight_g": "30.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F02061",
+        "food_name": "멸치 육수",
+        "food_eng_name": "Anchovy, Broth",
+        "food_group": "어패류 및 기타 수산물",
+        "origin": "농진청",
+        "weight_g": "5.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F01149",
+        "food_name": "파, 대파, 생것",
+        "food_eng_name": "Welsh onion, Spring onion, Raw",
+        "food_group": "채소류",
+        "origin": "농진청",
+        "weight_g": "4.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F02827",
+        "food_name": "간장, 재래",
+        "food_eng_name": "Soy sauce, Korean traditional type",
+        "food_group": "조미료류",
+        "origin": "농진청",
+        "weight_g": "3.00",
+        "allergy": "대두(콩)"
+      },
+      {
+        "food_code": "F00739",
+        "food_name": "마늘, 생것",
+        "food_eng_name": "Garlic(Maneul), Raw",
+        "food_group": "채소류",
+        "origin": "농진청",
+        "weight_g": "2.00",
+        "allergy": null
+      },
+      {
+        "food_code": "F02876",
+        "food_name": "소금, 천일염, 가는소금",
+        "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+        "food_group": "조미료류",
+        "origin": "농진청",
+        "weight_g": "2.00",
+        "allergy": null
+      }
+    ],
+    "cooking_steps": []
+  },
+  "scale": 0.6461187214611872,
+  "recipe": {
+    "name": "얼큰콩나물국",
+    "weight_g": 283,
+    "scale_to_target": true,
+    "ingredients": [
+      {
+        "food_name": "콩나물, 삶은것",
+        "food_group": "채소류",
+        "weight_g": 25.84474885844749
+      },
+      {
+        "food_name": "고춧가루",
+        "food_group": "조미료류",
+        "weight_g": 1.2922374429223744
+      },
+      {
+        "food_name": "무, 조선무, 생것",
+        "food_group": "채소류",
+        "weight_g": 19.383561643835616
+      },
+      {
+        "food_name": "멸치 육수",
+        "food_group": "어패류 및 기타 수산물",
+        "weight_g": 3.230593607305936
+      },
+      {
+        "food_name": "파, 대파, 생것",
+        "food_group": "채소류",
+        "weight_g": 2.584474885844749
+      },
+      {
+        "food_name": "간장, 재래",
+        "food_group": "조미료류",
+        "weight_g": 1.9383561643835616
+      },
+      {
+        "food_name": "마늘, 생것",
+        "food_group": "채소류",
+        "weight_g": 1.2922374429223744
+      },
+      {
+        "food_name": "소금, 천일염, 가는소금",
+        "food_group": "조미료류",
+        "weight_g": 1.2922374429223744
+      },
+      {
+        "food_name": "물",
+        "food_group": "기타",
+        "weight_g": 226.1415525114155
+      }
+    ],
+    "calculation_source": "custom_recipe",
+    "source": "MenuGen 콩나물국(고춧가루)(D051073), 기준438g→283g 환산",
+    "created": "2026-11-10",
+    "assumptions": "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기."
+  },
+  "ingredientCalculations": [
+    {
+      "food_name": "콩나물, 삶은것",
+      "food_group": "채소류",
+      "weight_g": 25.84474885844749,
+      "group": "veg",
+      "nutrient": "탄수화물",
+      "per100": 3.18,
+      "exchangeUnits": 0.2739543378995434
+    },
+    {
+      "food_name": "고춧가루",
+      "food_group": "조미료류",
+      "weight_g": 1.2922374429223744,
+      "excluded": true,
+      "reason": "조미료류 기존 환산 제외"
+    },
+    {
+      "food_name": "무, 조선무, 생것",
+      "food_group": "채소류",
+      "weight_g": 19.383561643835616,
+      "group": "veg",
+      "nutrient": "탄수화물",
+      "per100": 4.72,
+      "exchangeUnits": 0.30496803652968035
+    },
+    {
+      "food_name": "멸치 육수",
+      "food_group": "어패류 및 기타 수산물",
+      "weight_g": 3.230593607305936,
+      "group": "meat",
+      "nutrient": "단백질",
+      "per100": 0.14,
+      "exchangeUnits": 0.0005653538812785389
+    },
+    {
+      "food_name": "파, 대파, 생것",
+      "food_group": "채소류",
+      "weight_g": 2.584474885844749,
+      "group": "veg",
+      "nutrient": "탄수화물",
+      "per100": 4.8,
+      "exchangeUnits": 0.041351598173515976
+    },
+    {
+      "food_name": "간장, 재래",
+      "food_group": "조미료류",
+      "weight_g": 1.9383561643835616,
+      "excluded": true,
+      "reason": "조미료류 기존 환산 제외"
+    },
+    {
+      "food_name": "마늘, 생것",
+      "food_group": "채소류",
+      "weight_g": 1.2922374429223744,
+      "group": "veg",
+      "nutrient": "탄수화물",
+      "per100": 26.42,
+      "exchangeUnits": 0.11380304414003045
+    },
+    {
+      "food_name": "소금, 천일염, 가는소금",
+      "food_group": "조미료류",
+      "weight_g": 1.2922374429223744,
+      "excluded": true,
+      "reason": "조미료류 기존 환산 제외"
+    },
+    {
+      "food_name": "물",
+      "food_group": "기타",
+      "weight_g": 226.1415525114155,
+      "excluded": true,
+      "reason": "기타 기존 환산 제외"
+    }
+  ],
+  "exchangeUnits": {
+    "grain": 0,
+    "meat": 0.0005653538812785389,
+    "veg": 0.7340770167427701,
+    "fat": 0,
+    "dairy": 0,
+    "fruit": 0
+  },
+  "baselineTrayExchangeUnits": {
+    "grain": 3.78,
+    "meat": 0.21,
+    "veg": 1.83,
+    "fat": 0.91,
+    "dairy": 0,
+    "fruit": 0,
+    "unmatched": [
+      "간장불고기",
+      "얼큰콩나물국",
+      "베이컨감자채전",
+      "망고주스"
+    ],
+    "externalRecipes": [],
+    "recipeNotes": [
+      "흑미밥: 교환단위 분해가 MenuGen 원본에서 생쌀(멥쌀 백미 생것 70g + 흑미 생것 20g, 총 90g) 기준이라, 익힌밥 기준인 쌀밥·현미밥과 달리 곡류군이 약 2.4배 과대계산되던 것을 교정. 쌀밥(멥쌀 백미 밥 210g)·현미밥과 동일하게 익힌밥 210g 기준으로 재구성하고 원 생쌀 비율(70:20)을 유지해 백미밥 165g + 흑진미밥 45g으로 배분. 현재 식판 제공량/210 비례 환산. 영양성분(기존 food_db 흑미밥)과 메뉴 표시명은 유지하고 교환단위만 교정."
+    ],
+    "matchedDb": {
+      "menugen": [
+        "청포묵김무침",
+        "배추김치"
+      ],
+      "recipeDb": [],
+      "db104": []
+    }
+  },
+  "updatedTrayExchangeUnits": {
+    "grain": 3.78,
+    "meat": 0.21,
+    "veg": 2.56,
+    "fat": 0.91,
+    "dairy": 0,
+    "fruit": 0,
+    "unmatched": [
+      "간장불고기",
+      "베이컨감자채전",
+      "망고주스"
+    ],
+    "externalRecipes": [],
+    "recipeNotes": [
+      "흑미밥: 교환단위 분해가 MenuGen 원본에서 생쌀(멥쌀 백미 생것 70g + 흑미 생것 20g, 총 90g) 기준이라, 익힌밥 기준인 쌀밥·현미밥과 달리 곡류군이 약 2.4배 과대계산되던 것을 교정. 쌀밥(멥쌀 백미 밥 210g)·현미밥과 동일하게 익힌밥 210g 기준으로 재구성하고 원 생쌀 비율(70:20)을 유지해 백미밥 165g + 흑진미밥 45g으로 배분. 현재 식판 제공량/210 비례 환산. 영양성분(기존 food_db 흑미밥)과 메뉴 표시명은 유지하고 교환단위만 교정.",
+      "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기."
+    ],
+    "matchedDb": {
+      "menugen": [
+        "청포묵김무침",
+        "배추김치"
+      ],
+      "recipeDb": [],
+      "db104": []
+    },
+    "customRecipes": [
+      {
+        "name": "얼큰콩나물국",
+        "weight_g": 283,
+        "scale_to_target": true,
+        "ingredients": [
+          {
+            "food_name": "콩나물, 삶은것",
+            "food_group": "채소류",
+            "weight_g": 25.84474885844749
+          },
+          {
+            "food_name": "고춧가루",
+            "food_group": "조미료류",
+            "weight_g": 1.2922374429223744
+          },
+          {
+            "food_name": "무, 조선무, 생것",
+            "food_group": "채소류",
+            "weight_g": 19.383561643835616
+          },
+          {
+            "food_name": "멸치 육수",
+            "food_group": "어패류 및 기타 수산물",
+            "weight_g": 3.230593607305936
+          },
+          {
+            "food_name": "파, 대파, 생것",
+            "food_group": "채소류",
+            "weight_g": 2.584474885844749
+          },
+          {
+            "food_name": "간장, 재래",
+            "food_group": "조미료류",
+            "weight_g": 1.9383561643835616
+          },
+          {
+            "food_name": "마늘, 생것",
+            "food_group": "채소류",
+            "weight_g": 1.2922374429223744
+          },
+          {
+            "food_name": "소금, 천일염, 가는소금",
+            "food_group": "조미료류",
+            "weight_g": 1.2922374429223744
+          },
+          {
+            "food_name": "물",
+            "food_group": "기타",
+            "weight_g": 226.1415525114155
+          }
+        ],
+        "calculation_source": "custom_recipe",
+        "source": "MenuGen 콩나물국(고춧가루)(D051073), 기준438g→283g 환산",
+        "created": "2026-11-10",
+        "assumptions": "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기.",
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.0005653538812785389,
+          "veg": 0.7340770167427701,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        }
+      }
+    ]
+  },
+  "websiteUpdated": false,
+  "nutritionUpdated": false,
+  "assumptions": "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기.",
+  "baselineCommit": "765c49023d7db04e6d55eadf067286baa0ae6bbe",
+  "integrationNote": "식판 합계는 기존 소수2자리 합계에 새 기여분을 더한 예상값. 이후 같은 식단 변경은 최신 전달용 합계를 기준으로 누적하고 실제 반영 전 원자료와 충돌 확인 및 전체 재계산 필요. 간장불고기는 레시피만 확정되고 중량 검토가 남아 있어 미매칭 유지.",
+  "originalReviewProjection": {
+    "baselineTrayExchangeUnits": {
+      "grain": 8.78,
+      "meat": 0.21,
+      "veg": 1.83,
+      "fat": 0.91,
+      "dairy": 0,
+      "fruit": 0,
+      "unmatched": [
+        "간장불고기",
+        "얼큰콩나물국",
+        "베이컨감자채전",
+        "망고주스"
+      ],
+      "externalRecipes": [],
+      "recipeNotes": [],
+      "matchedDb": {
+        "menugen": [
+          "흑미밥",
+          "청포묵김무침",
+          "배추김치"
+        ],
+        "recipeDb": [],
+        "db104": []
+      }
+    },
+    "updatedTrayExchangeUnits": {
+      "grain": 8.78,
+      "meat": 0.21,
+      "veg": 2.56,
+      "fat": 0.91,
+      "dairy": 0,
+      "fruit": 0,
+      "unmatched": [
+        "간장불고기",
+        "베이컨감자채전",
+        "망고주스"
+      ],
+      "externalRecipes": [],
+      "recipeNotes": [
+        "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기."
+      ],
+      "matchedDb": {
+        "menugen": [
+          "흑미밥",
+          "청포묵김무침",
+          "배추김치"
+        ],
+        "recipeDb": [],
+        "db104": []
+      },
+      "customRecipes": [
+        {
+          "name": "얼큰콩나물국",
+          "weight_g": 283,
+          "scale_to_target": true,
+          "ingredients": [
+            {
+              "food_name": "콩나물, 삶은것",
+              "food_group": "채소류",
+              "weight_g": 25.84474885844749
+            },
+            {
+              "food_name": "고춧가루",
+              "food_group": "조미료류",
+              "weight_g": 1.2922374429223744
+            },
+            {
+              "food_name": "무, 조선무, 생것",
+              "food_group": "채소류",
+              "weight_g": 19.383561643835616
+            },
+            {
+              "food_name": "멸치 육수",
+              "food_group": "어패류 및 기타 수산물",
+              "weight_g": 3.230593607305936
+            },
+            {
+              "food_name": "파, 대파, 생것",
+              "food_group": "채소류",
+              "weight_g": 2.584474885844749
+            },
+            {
+              "food_name": "간장, 재래",
+              "food_group": "조미료류",
+              "weight_g": 1.9383561643835616
+            },
+            {
+              "food_name": "마늘, 생것",
+              "food_group": "채소류",
+              "weight_g": 1.2922374429223744
+            },
+            {
+              "food_name": "소금, 천일염, 가는소금",
+              "food_group": "조미료류",
+              "weight_g": 1.2922374429223744
+            },
+            {
+              "food_name": "물",
+              "food_group": "기타",
+              "weight_g": 226.1415525114155
+            }
+          ],
+          "calculation_source": "custom_recipe",
+          "source": "MenuGen 콩나물국(고춧가루)(D051073), 기준438g→283g 환산",
+          "created": "2026-11-10",
+          "assumptions": "얼큰콩나물국: 사용자 지정으로 MenuGen 콩나물국(고춧가루)(D051073)에 연결. 원본 완성 기준중량438g에 대해 기존 국물·찌개 표준 추정 제공량283g을283/438배로 환산. 원본 재료합88g과 기준438g의 차이350g은 물·국물 등 비영양 희석분으로 해석하여 기록상 물로 보완(원본에 물350g이 명시된 것은 아님). 콩나물40g·고춧가루2g·무30g·멸치육수5g·대파4g·재래간장3g·마늘2g·소금2g은 원본 비율 유지. 재료합88g으로 나누어 국 건더기를 부풀리지 않음. 제공량과 실제 재료 배합은 실측 아님, 원본의 무·멸치육수 포함 여부도 별도 사진 확인 없이 대체 레시피로 유지. 고춧가루·간장·소금은 기존 식품군 규칙상 교환단위 제외, 멸치육수는 해당 DB의 단백질 기준으로 어육류군에 환산. 조리수율 차이 미보정. 메뉴명·영양성분·기존 제공량 유지, 교환단위만 별도 계산하여 웹사이트 반영 대기.",
+          "exchangeUnits": {
+            "grain": 0,
+            "meat": 0.0005653538812785389,
+            "veg": 0.7340770167427701,
+            "fat": 0,
+            "dairy": 0,
+            "fruit": 0
+          }
+        }
+      ]
+    },
+    "baselineCommit": "4b68a9a05c3b848ad58a19862f1f9eb39b565113"
+  },
+  "rebasedAgainst": "765c49023d7db04e6d55eadf067286baa0ae6bbe",
+  "baselineSource": "최신main 765c49023d7db04e6d55eadf067286baa0ae6bbe 대상 식판에 이번 대체 레시피를 순서대로 누적(팀원 흑미밥·장조림 교정 보존)"
+}

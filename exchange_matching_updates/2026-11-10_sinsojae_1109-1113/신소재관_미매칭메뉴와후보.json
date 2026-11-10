@@ -1,0 +1,1094 @@
+{
+  "range": [
+    "2026-11-09",
+    "2026-11-13"
+  ],
+  "shop": "204",
+  "sourceCommit": "4b68a9a05c3b848ad58a19862f1f9eb39b565113",
+  "mealCount": 10,
+  "occurrences": 25,
+  "uniqueCount": 23,
+  "applied": false,
+  "entries": [
+    {
+      "name": "불닭크림우동",
+      "reviewType": "재료 구성 확인 완료・배합 중량 대기",
+      "note": "사용자 확인: 삶은 우동면+크림/우유+불닭소스 구성, 닭고기 없음. 크림·우유 개별 사용 여부, 제품과 배합 중량은 미확정. 기존72.2g은 표준 추정량. 교환단위 계산·웹사이트 반영 대기.",
+      "candidates": [
+        {
+          "source": "DB104",
+          "name": "우동면, 생것, 삶은것",
+          "referenceWeight": null,
+          "foodGroup": "곡류 및 그 제품"
+        },
+        {
+          "source": "DB104",
+          "name": "크림, 생크림",
+          "referenceWeight": null,
+          "foodGroup": "우유 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-09",
+          "category": "일품",
+          "main": "김밥볶음밥",
+          "photo": "9ecc689b3cc64f02b2507b25.jpg",
+          "nutritionUnmatched": true,
+          "currentWeight": 72.2
+        }
+      ],
+      "userConfirmation": {
+        "confirmed": [
+          "삶은 우동면",
+          "크림/우유",
+          "불닭소스"
+        ],
+        "excluded": [
+          "닭고기"
+        ],
+        "dairyDetail": "크림·우유 각각의 사용 여부와 비율은 구분 미확정"
+      }
+    },
+    {
+      "name": "팝콘치킨",
+      "reviewType": "유사 레시피 수정",
+      "note": "한입 닭튀김 제품의 닭고기·튀김옷·흡수유 비율 확인. 쌀 치킨텐더의 쌀·소스 등은 실제 제품과 다를 수 있어 그대로 적용하지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "닭튀김",
+          "referenceWeight": "93.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "쌀 치킨텐더",
+          "referenceWeight": "142.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-09",
+          "category": "일품",
+          "main": "김밥볶음밥",
+          "photo": "9ecc689b3cc64f02b2507b25.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 대체 레시피 추정; 계산 완료·웹사이트 반영 대기",
+        "recipe": "팝콘치킨",
+        "source": "MenuGen 닭튀김(D122003)",
+        "weight_g": 72.2,
+        "exchangeUnits": {
+          "grain": 0.41525632538569424,
+          "meat": 1.459138709677419,
+          "veg": 0,
+          "fat": 0.7760335483870968,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "매실차",
+      "reviewType": "제품 기준 지정 완료・교환단위 환산 보류",
+      "note": "사용자 지정: 초록매실 기준. 매실청 희석 배합 후보 대신 일반 완제품 음료를 기준으로 검토. 정확한 포장·성분 레코드와 제공부피 미확정. 현재 음료류는 식품군 매핑이 없으므로 과일군으로 임의 환산하지 않음. 기존 영양성분 및 웹사이트 유지.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "매실청",
+          "referenceWeight": "100.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "매실음료",
+          "referenceWeight": "100.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-09",
+          "category": "일품",
+          "main": "김밥볶음밥",
+          "photo": "9ecc689b3cc64f02b2507b25.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 200
+        },
+        {
+          "date": "2026-11-09",
+          "category": "정식",
+          "main": "돈육김치찌개",
+          "photo": "7a71012e213f6f85b8638201.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 200
+        }
+      ],
+      "userProductReference": "웅진식품 초록매실 일반 완제품 음료"
+    },
+    {
+      "name": "돈육김치찌개",
+      "reviewType": "이름 연결 우선 검토",
+      "note": "돈육→돼지고기 표기 연결 후보. 두부·돼지고기·국물 비율과 현재272g 기준을 확인.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "김치찌개(돼지고기)",
+          "referenceWeight": "146.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "돼지고기두부김치찌개",
+          "referenceWeight": "91.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-09",
+          "category": "정식",
+          "main": "돈육김치찌개",
+          "photo": "7a71012e213f6f85b8638201.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 272
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 레시피 선택 확정; 국물 보완 임시 추정·계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 돼지고기두부김치찌개(D062025)",
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 1.1597749999999998,
+          "veg": 0.9051333333333333,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false,
+        "brothCorrection": "재료91g+물181g 임시 추정"
+      }
+    },
+    {
+      "name": "꽈리고추감자조림",
+      "reviewType": "재료 추가",
+      "note": "감자조림 기본 배합에 실제 꽈리고추 중량 추가. 기본 레시피에는 꽈리고추가 없음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "감자조림",
+          "referenceWeight": "43.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-09",
+          "category": "정식",
+          "main": "돈육김치찌개",
+          "photo": "7a71012e213f6f85b8638201.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 44
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 대체 레시피·사진 추정; 계산 완료·웹사이트 반영 대기",
+        "pepper_g": 4,
+        "total_g": 44,
+        "exchangeUnits": {
+          "grain": 0.2110010111223458,
+          "meat": 0,
+          "veg": 0.10373333333333334,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "국물떡볶이",
+      "reviewType": "국물/어묵 확인",
+      "note": "어묵 유무에 맞게 선택. 떡·어묵·국물 비율 확인. 완성중량과 재료합이 다르므로 국물까지 떡 중량으로 잡지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "떡볶이(고추장, 어묵)",
+          "referenceWeight": "267.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "떡볶이(고추장)",
+          "referenceWeight": "388.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-10",
+          "category": "일품",
+          "main": "참치마요덮밥",
+          "photo": "635000e95e1a47a0e207f519.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "photoRatioReview": {
+        "status": "사진 기반 비율 추정 완료; 양념·국물 세부 배합 미확정으로 최종 교환단위 계산 대기",
+        "ratios": [
+          {
+            "component": "떡",
+            "fraction": 0.45,
+            "weight_g": 32.49
+          },
+          {
+            "component": "어묵",
+            "fraction": 0.15,
+            "weight_g": 10.83
+          },
+          {
+            "component": "국물·양념·소량 채소",
+            "fraction": 0.4,
+            "weight_g": 28.88
+          }
+        ],
+        "total_g": 72.2,
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "간장불고기",
+      "reviewType": "대체 레시피 이름 확정; 기존 소스 분류9g 오류 검토 후 교환단위 계산 예정",
+      "note": "돼지고기인지 소고기인지 확인 후 선택. 현재 메인 중량9g은 소스 수준이므로 매칭 전에 분류·제공량 검토 필요. 임의 수정하지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "불고기(돼지고기)",
+          "referenceWeight": "167.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "돼지고기 간장볶음",
+          "referenceWeight": "139.10",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "불고기(소고기)",
+          "referenceWeight": "94.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-10",
+          "category": "정식",
+          "main": "간장불고기",
+          "photo": "3d1d9d5fa7e991ff119edcaa.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 9
+        }
+      ],
+      "userConfirmedMapping": {
+        "from": "간장불고기",
+        "to": "불고기(돼지고기)",
+        "source": "MenuGen",
+        "code": "D102012"
+      },
+      "requiresWeightReview": true
+    },
+    {
+      "name": "얼큰콩나물국",
+      "reviewType": "이름 연결·국물 확인",
+      "note": "콩나물국(고춧가루)은 기준438g에 국물 분량이 반영됨. 매콤콩나물국은 기준63.7g=재료합으로 국물 누락 가능, 283g에 단순 확대 금지.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "콩나물국(고춧가루)",
+          "referenceWeight": "438.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "매콤콩나물국",
+          "referenceWeight": "63.70",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-10",
+          "category": "정식",
+          "main": "간장불고기",
+          "photo": "3d1d9d5fa7e991ff119edcaa.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 283
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 대체 레시피 계산 완료·웹사이트 반영 대기",
+        "source": "콩나물국(고춧가루)",
+        "sourceCode": "D051073",
+        "serving_g": 283,
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.0005653538812785389,
+          "veg": 0.7340770167427701,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "베이컨감자채전",
+      "reviewType": "재료 수정",
+      "note": "기장 감자채전의 기장·김치 유무 확인 후 제외/유지, 베이컨 추가. 감자전 후보는 감자튀김 성분을 사용하므로 조리유 중복 및 감자 상태 확인.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "기장 감자채전",
+          "referenceWeight": "176.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "감자전",
+          "referenceWeight": "106.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "베이컨",
+          "referenceWeight": null,
+          "foodGroup": "육류 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-10",
+          "category": "정식",
+          "main": "간장불고기",
+          "photo": "3d1d9d5fa7e991ff119edcaa.jpg",
+          "nutritionUnmatched": true,
+          "currentWeight": 96
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 대체 레시피 추정·계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 기장 감자채전(D093042) 기장·김치 제외 + 베이컨10g 대체 추정",
+        "total_g": 96,
+        "bacon_g": 10,
+        "exchangeUnits": {
+          "grain": 0.47933208297811875,
+          "meat": 0.3427843137254902,
+          "veg": 0.12216122004357298,
+          "fat": 1.6855999999999998,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "망고주스",
+      "reviewType": "제품 확인 후 이름 연결",
+      "note": "사용자 지정 테이크얼라이브 망고맛72.2g 기준. 밀도1가정으로72.2mL 환산. 공식250mL 성분표 적용. 일반 과일류 망고음료 후보는 선택하지 않음. 유산균음료의 교환단위 처리 규칙 미확정으로 교환단위 계산 보류.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "망고음료",
+          "referenceWeight": "100.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "망고 음료",
+          "referenceWeight": null,
+          "foodGroup": "과일류"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-10",
+          "category": "정식",
+          "main": "간장불고기",
+          "photo": "3d1d9d5fa7e991ff119edcaa.jpg",
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "userConfirmedProduct": "테이크얼라이브 망고맛",
+      "productReferenceCalculation": {
+        "weight_g": 72.2,
+        "assumedVolume_mL": 72.2,
+        "nutrition": {
+          "kcal": 33.212,
+          "carb_g": 7.5088,
+          "sugar_g": 6.3536,
+          "fiber_g": 0.5776,
+          "fat_g": 0.51984,
+          "protein_g": 0,
+          "satFat_g": 0,
+          "transFat_g": 0,
+          "cholesterol_mg": 0,
+          "sodium_mg": 20.216,
+          "vitC_mg": 173.28
+        },
+        "exchangeUnitsCalculated": false,
+        "status": "사용자 지정 제품·제공량 기준 성분 환산 완료; 교환단위 식품군 확정은 보류"
+      }
+    },
+    {
+      "name": "비엔나강정",
+      "reviewType": "떡 유무 확인",
+      "note": "소시지강정 레시피는 떡50g·비엔나20g·땅콩4g 포함. 소시지만 나온 메뉴면 떡·땅콩을 그대로 넣지 않고 실제 배합으로 수정.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "소시지강정",
+          "referenceWeight": "93.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "소시지볶음(토마토케첩, 야채)",
+          "referenceWeight": "91.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-11",
+          "category": "일품",
+          "main": "왕돈까스",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 떡·땅콩 제외 대체 레시피 계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 소시지강정(D124019) 떡·땅콩 제외 대체 배합",
+        "total_g": 72.2,
+        "excluded": [
+          "떡",
+          "땅콩"
+        ],
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.7067269230769232,
+          "veg": 0,
+          "fat": 1.110324923076923,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "양파절임",
+      "reviewType": "절임 유형 확인 완료; 초절임 배합·고형분 중량 검토 대기",
+      "note": "사용자 확인: 새콤한 양파절임. 양파+초절임 양념으로 검토하되 간장 유무·홍초 종류·설탕 등 배합은 미확정.72.2g은 기존 총량 추정이며 전량 양파로 환산하지 않음. 사진 없음. 교환단위 계산·웹사이트 반영 대기.",
+      "candidates": [
+        {
+          "source": "recipe_db",
+          "name": "양파홍초절임",
+          "sequence": "2974",
+          "status": "참고 배합; 홍초·고추·소량 간장 실제 사용 여부 미확인"
+        },
+        {
+          "source": "DB104",
+          "name": "양파, 생것",
+          "status": "원재료 재구성 후보; 고형분량 미확정"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-11",
+          "category": "정식",
+          "main": "얼큰수육국밥",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "userConfirmedType": "새콤한 양파절임",
+      "previousCandidatesStatus": "양파장아찌·양파매실장아찌는 사용자 확정 후보가 아님. 새콤한 양파절임에 맞춰 재검토."
+    },
+    {
+      "name": "온모밀",
+      "reviewType": "면·육수 재구성",
+      "note": "메밀국수 레시피는 소고기·오이·참기름 포함. 실제 온모밀에 없는 재료 제거, 삶은 면+장국+고명 배합으로 구성. 현재72.2g은 사이드 추정량.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "메밀국수",
+          "referenceWeight": "481.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "메밀 국수, 말린것, 삶은것",
+          "referenceWeight": null,
+          "foodGroup": "곡류 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-12",
+          "category": "일품",
+          "main": "장조림버터비빔밥",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 소고기 전량 제외 재계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 메밀국수(D031004) 소고기 전량 제외·총72.2g 유지",
+        "total_g": 72.2,
+        "excluded": [
+          "소고기"
+        ],
+        "exchangeUnits": {
+          "grain": 0.133037783603001,
+          "meat": 0,
+          "veg": 0.12543686763686762,
+          "fat": 0.059945513513513515,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "unconfirmedIngredients": [
+          "오이",
+          "참기름",
+          "겨자"
+        ],
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "마약옥수수",
+      "reviewType": "토핑 확인",
+      "note": "옥수수구이(버터)를 기본으로 실제 마요네즈·치즈·시즈닝만 추가. 메뉴명만으로 치즈를 확정하지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "옥수수구이(버터)",
+          "referenceWeight": "56.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "마요네즈",
+          "referenceWeight": null,
+          "foodGroup": "조미료류"
+        },
+        {
+          "source": "DB104",
+          "name": "치즈, 체다",
+          "referenceWeight": null,
+          "foodGroup": "우유 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-12",
+          "category": "일품",
+          "main": "장조림버터비빔밥",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "userConfirmedPlan": {
+        "base": {
+          "name": "옥수수구이(버터)",
+          "source": "MenuGen",
+          "code": "D083008"
+        },
+        "toppingPolicy": {
+          "candidates": [
+            "마요네즈",
+            "치즈",
+            "시즈닝"
+          ],
+          "onlyActuallyUsed": true,
+          "confirmedSpecificTypes": [],
+          "confirmedWeights_g": null,
+          "note": "실제 사용한 토핑만 추가하라는 요청을 모든 후보가 실제 포함됐다는 확인으로 해석하지 않음. 치즈 종류·시즈닝 종류 및 중량은 미확정."
+        },
+        "status": "기본 레시피 선택 확정; 실제 추가 토핑 구성·양 확인 후 최종 교환단위 계산",
+        "total_g": 72.2,
+        "exchangeUnitsCalculated": false,
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "치즈맛감자",
+      "reviewType": "구성 확인 완료; 시즈닝 제품·배합량 확인 후 최종 교환단위 계산",
+      "note": "사용자 확인: 감자튀김+치즈시즈닝. 체다치즈 또는 치즈 속 감자볼 후보는 사용하지 않음. 기존총72.2g 안에서 시즈닝량을 배정해야 하며 제품·중량은 미확정. 사진 없음, 교환단위 계산·웹사이트 반영 대기.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "감자튀김",
+          "referenceWeight": "137.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "감자 튀김, 튀긴것",
+          "referenceWeight": null,
+          "foodGroup": "감자류 및 전분류"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-12",
+          "category": "일품",
+          "main": "장조림버터비빔밥",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 72.2
+        }
+      ],
+      "userConfirmedComposition": [
+        "감자튀김",
+        "치즈시즈닝"
+      ]
+    },
+    {
+      "name": "계란파국",
+      "reviewType": "국물 중량 보정 필수",
+      "note": "각 기준7.51g/18.01g/62g이 재료합과 같고 물·국물 미기록. 현재283g에 단순 비례하면 달걀 등이 과대 계산되므로 1인분 달걀·파·육수량을 별도로 설정.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "달걀파국",
+          "referenceWeight": "7.51",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "달걀실파국",
+          "referenceWeight": "18.01",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "실파달걀국",
+          "referenceWeight": "62.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-12",
+          "category": "정식",
+          "main": "닭볶음탕",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 283
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 레시피 선택 확정; 국물 보완 임시 추정·계산 완료·웹사이트 반영 대기",
+        "source": "달걀실파국",
+        "total_g": 283,
+        "waterAdded_g": 264.99,
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.3152625,
+          "veg": 0.12989333333333333,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "새우튀김덮밥",
+      "reviewType": "복합 메뉴 새 조합",
+      "note": "밥+새우튀김+덮밥소스+실제 달걀/양파 등으로 재구성. 총418g 안에서 배분하고 밥을 중복 추가하지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "새우튀김",
+          "referenceWeight": "3.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "쌀밥",
+          "referenceWeight": "210.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "일품",
+          "main": "새우튀김덮밥",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 418
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 대체 조합 계산 완료(튀김옷·흡수유 별도 군 분해 미포함)·웹사이트 반영 대기",
+        "portions": {
+          "rice_g": 250,
+          "shrimpFry_g": 150,
+          "sauce_g": 18,
+          "total_g": 418,
+          "sauceProxy": "데리야끼 소스",
+          "actualCountsKnown": false
+        },
+        "exchangeUnits": {
+          "grain": 3.571739130434783,
+          "meat": 4.010625,
+          "veg": 0,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "coverage": {
+          "type": "부분 환산 추정",
+          "unresolved": [
+            "튀김옷 탄수화물의 별도 곡류군 분해",
+            "흡수유의 별도 지방군 분해",
+            "실제 소스 배합 및 교환단위"
+          ]
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "짬뽕국물",
+      "reviewType": "건더기 확인",
+      "note": "짬뽕국 레시피는 오징어·돼지고기·조개·홍합·채소·기름 포함. 실제 국물만 제공되면 전체 레시피의 건더기를 그대로 포함하지 않음. 백짬뽕은 맑은 국물일 때만 검토.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "짬뽕국",
+          "referenceWeight": "782.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "백짬뽕국",
+          "referenceWeight": "127.60",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "일품",
+          "main": "새우튀김덮밥",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 283
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 짬뽕국 전체 배합 대체 계산 완료·웹사이트 반영 대기",
+        "source": "짬뽕국",
+        "total_g": 283,
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.7369942455242966,
+          "veg": 0.5398472293265132,
+          "fat": 2.170486956521739,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "unconfirmedActualIngredients": [
+          "오징어",
+          "돼지고기",
+          "조개",
+          "홍합",
+          "채소",
+          "조리유량"
+        ],
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "카레고로케",
+      "reviewType": "카레·속재료 확인",
+      "note": "크로켓 기본 배합에서 실제 감자·고기·채소·카레·튀김옷·흡수유 확인. 제품 배합이나 레시피로 보정.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "크로켓(감자)",
+          "referenceWeight": "100.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "크로켓(채소)",
+          "referenceWeight": "200.00",
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "일품",
+          "main": "새우튀김덮밥",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 신규 대체 배합 추정·계산 완료·웹사이트 반영 대기",
+        "source": "사용자 승인 신규 대체 배합(특정 제품·레시피 실측 비율 아님)",
+        "total_g": 72.2,
+        "exchangeUnits": {
+          "grain": 0.6454869565217392,
+          "meat": 0.03215,
+          "veg": 0.18516666666666665,
+          "fat": 0.6397440000000001,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "알새우칩",
+      "reviewType": "제품 대체 검토",
+      "note": "새우 스낵 후보는 곡류군으로 환산 가능하지만 실제 튀김칩과 제품 차이 확인. 단일 군 환산으로 제품 지방이 별도 지방군에 자동 반영되지는 않음. 현재72.2g 실제 양 재검토.",
+      "candidates": [
+        {
+          "source": "DB104",
+          "name": "과자, 스낵, 새우",
+          "referenceWeight": null,
+          "foodGroup": "곡류 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "일품",
+          "main": "새우튀김덮밥",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        },
+        {
+          "date": "2026-11-13",
+          "category": "정식",
+          "main": "차돌순두부찌개",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 새우스낵 대체 계산 완료(곡류군 단일 환산)·웹사이트 반영 대기",
+        "source": "과자, 스낵, 새우",
+        "total_g": 72.2,
+        "targets": [
+          {
+            "date": "2026-11-13",
+            "shop": "204",
+            "category": "일품",
+            "main": "새우튀김덮밥"
+          },
+          {
+            "date": "2026-11-13",
+            "shop": "204",
+            "category": "정식",
+            "main": "차돌순두부찌개"
+          }
+        ],
+        "exchangeUnits": {
+          "grain": 2.081871304347826,
+          "meat": 0,
+          "veg": 0,
+          "fat": 0,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "coverage": {
+          "type": "곡류군 단일 환산",
+          "limitation": "제품 지방·단백질을 다른 군으로 분리하지 않은 부분 추정값"
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "차돌순두부찌개",
+      "reviewType": "고기 교체/재구성",
+      "note": "순두부찌개 기본에는 바지락·달걀 등이 포함됨. 실제 없는 바지락 등을 제거하고 차돌박이 추가. 육수·순두부·고기량 확인.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "순두부찌개",
+          "referenceWeight": "363.10",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "소고기, 한우(1등급), 양지(차돌박이), 생것",
+          "referenceWeight": null,
+          "foodGroup": "육류 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "정식",
+          "main": "차돌순두부찌개",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 283
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 순두부찌개+차돌박이 대체 배합 추정·계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 순두부찌개(D065024)+차돌박이30g·물92.8g 대체 추정",
+        "total_g": 283,
+        "brisket_g": 30,
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 1.5314074999999998,
+          "veg": 2.163523333333333,
+          "fat": 0.17971200000000004,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "coverage": {
+          "limitation": "차돌 자체 지방은 별도 지방군 미분해",
+          "brisketFat_g_notSeparatelyAssigned": 10.781999999999998
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "오징어까스",
+      "reviewType": "제품 배합 확인",
+      "note": "오징어+빵가루/반죽+흡수유로 조정. 오징어튀김과 까스의 튀김옷 비율 차이 확인, 딸기쨈 후보의 쨈은 실제 미사용이면 제외.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "오징어튀김",
+          "referenceWeight": "93.00",
+          "foodGroup": null
+        },
+        {
+          "source": "recipe_db",
+          "name": "오징어튀김&딸기쨈",
+          "referenceWeight": null,
+          "foodGroup": null
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "정식",
+          "main": "차돌순두부찌개",
+          "photo": null,
+          "nutritionUnmatched": false,
+          "currentWeight": 72.2
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 지정 오징어튀김 대체 계산 완료·웹사이트 반영 대기",
+        "source": "오징어튀김",
+        "total_g": 72.2,
+        "exchangeUnits": {
+          "grain": 0.13233291257597007,
+          "meat": 1.7498795698924732,
+          "veg": 0,
+          "fat": 0.7760335483870968,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    },
+    {
+      "name": "맛살마늘쫑볶음",
+      "reviewType": "두 재료 조합",
+      "note": "마늘종볶음에 게맛살을 실제 비율로 추가하거나 게맛살볶음에 마늘종을 추가. 80g 안에서 나누며 두 레시피를 각각80g씩 합치지 않음.",
+      "candidates": [
+        {
+          "source": "MenuGen",
+          "name": "마늘종볶음",
+          "referenceWeight": "87.00",
+          "foodGroup": null
+        },
+        {
+          "source": "MenuGen",
+          "name": "게맛살볶음",
+          "referenceWeight": "91.00",
+          "foodGroup": null
+        },
+        {
+          "source": "DB104",
+          "name": "게맛살, 어육함량이 낮은것",
+          "referenceWeight": null,
+          "foodGroup": "어패류 및 그 제품"
+        }
+      ],
+      "appearances": [
+        {
+          "date": "2026-11-13",
+          "category": "정식",
+          "main": "차돌순두부찌개",
+          "photo": null,
+          "nutritionUnmatched": true,
+          "currentWeight": 80
+        }
+      ],
+      "stagedResolution": {
+        "status": "사용자 승인 다른 날짜 비율 참고 대체 배합 추정·계산 완료·웹사이트 반영 대기",
+        "source": "MenuGen 마늘종볶음(D103025)+게맛살, 사용자 승인 다른 날짜 비율 참고 추정",
+        "total_g": 80,
+        "ratio": {
+          "primaryScapeFraction": 0.45,
+          "primaryCrabFraction": 0.55,
+          "scape_g": 27.00675168792198,
+          "crab_g": 33.00825206301576,
+          "remainingIngredients_g": 19.984996249062263,
+          "appliesTo": "양념 제외 두 주재료 사이"
+        },
+        "ratioSource": {
+          "date": "2026-09-10",
+          "shop": "204",
+          "category": "정식",
+          "path": "pipeline/build_month.py",
+          "priorEstimates_g": {
+            "scape": 18,
+            "crab": 22
+          },
+          "evidenceType": "기존 코드에 기록된 다른 날짜 사진 추정",
+          "isCurrentDateMeasurement": false
+        },
+        "exchangeUnits": {
+          "grain": 0,
+          "meat": 0.3177044261065267,
+          "veg": 1.6629317329332332,
+          "fat": 0.37268237059264814,
+          "dairy": 0,
+          "fruit": 0
+        },
+        "websiteUpdated": false
+      }
+    }
+  ]
+}
