@@ -208,6 +208,10 @@ def _pick(name, cache, g_result, ml_key):
 def classify_main_weight(name, cache=None):
     if name == "투움바떡볶이":
         return 180, "떡볶이 임시180g: 기존 떡볶이DB 참고 제공량 활용(분석기준100g과 구분). 실제 식판·제품 중량 미확인, 덮밥418g 분류 제외"
+    if name == "순살닭한마리":
+        # 2026-11-10 사용자 지정: 닭한마리 국물요리인데 키워드 미매칭으로 메인단백질 폴백(151g)이
+        # 적용돼 교환단위가 과소/과대로 흔들렸다. 국물 포함 한 그릇으로 보아 면류 기준(497g)으로 매칭한다.
+        return _pick(name, cache, (497, "면류 기준 - 닭한마리 국물요리로 KNHANES 2010 면류 평균 497g 적용(사용자 지정)"), "면")
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
     if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
@@ -1050,6 +1054,10 @@ def compute_tray(lunch, cache):
     main = lunch.get("calculationMain", lunch["main"])
     shop, category = lunch["shop"], lunch["category"]
     sides = [s for s in lunch["sides"] if not is_self_or_junk(s)]
+    # 2026-11-10 사용자 지정: 돈까스나베는 분해 시 쌀밥을 포함하므로, 중복되는 밥 사이드를 제거해
+    # 밥을 쌀밥 하나로 통일한다(곡류군 중복 합산 방지).
+    if lunch["main"] == "돈까스나베":
+        sides = [s for s in sides if s not in ("흑미밥", "쌀밥", "잡곡밥", "현미밥", "기장밥", "보리밥")]
 
     items = []
     for p, w, note in expand_main(main, shop, category, cache):

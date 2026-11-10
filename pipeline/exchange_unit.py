@@ -106,6 +106,19 @@ NO_BROTH_KALGUKSU_VARIANTS = {
 }
 KALGUKSU_SOLID_RATIO = 0.24
 
+# 2026-11-10: MenuGen 밥 요리(비빔밥/덮밥/볶음밥 등) 레시피는 쌀을 "생것"(생쌀)으로 등록하고
+# 완성중량에 비례 스케일하는데, 생쌀은 익힌밥보다 탄수화물 밀도가 ~2.4배 높아(79 vs 33 g/100g)
+# 곡류군이 과대계산된다(예: 참치생야채비빔밥 곡류 8.65, 정상 ~3.6). 스케일된 생쌀 중량은 완성
+# 밥의 중량에 가까우므로, 생쌀을 같은 중량의 "밥" 영양밀도로 치환해 곡류군을 바로잡는다.
+# 쌀밥·현미밥 등은 레시피에 이미 "밥"으로 등록돼 있어 영향받지 않는다.
+RAW_RICE_TO_COOKED = {
+    "멥쌀, 백미, 생것": "멥쌀, 백미, 밥",
+    "멥쌀, 현미, 생것": "멥쌀, 현미, 밥",
+    "멥쌀, 현미, 흑미, 생것": "멥쌀, 현미, 흑진미, 밥",
+    "찹쌀, 백미, 생것": "찹쌀, 백미, 밥",
+    "찹쌀, 현미, 생것": "찹쌀, 현미, 보람찰, 밥",
+}
+
 
 def _nutrients_per100(record):
     out = {}
@@ -120,6 +133,10 @@ def _nutrients_per100(record):
 
 def _add_ingredient(units, raw_group_name, db104_record, weight_g):
     """재료 하나를 식품군에 배정하고 단위수를 더한다. 매핑/기록 없으면 False."""
+    if db104_record is not None:
+        cooked = RAW_RICE_TO_COOKED.get(db104_record.get("식품명"))
+        if cooked and cooked in DB104_BY_NAME:
+            db104_record = DB104_BY_NAME[cooked]
     group = "지방군" if db104_record and db104_record.get("식품명", "").startswith("마요네즈") else FOOD_GROUP_MAP.get(raw_group_name)
     if group is None or db104_record is None:
         return False
@@ -173,6 +190,21 @@ def _from_menugen(name, target_weight_g):
     effective_target = target_weight_g
     if dish.get("name") in NO_BROTH_KALGUKSU_VARIANTS:
         effective_target = target_weight_g * KALGUKSU_SOLID_RATIO
+    # 2026-11-10: 국/탕/미역국 메뉴젠 레시피 다수가 물·육수를 재료에 안 적어(건더기+양념만),
+    # 국물 포함 그릇중량(국·찌개 283g 등)으로 비례 환산하면 건더기·기름이 몇 배로 부풀어 오른다
+    # (예: 어묵탕 ref82.5g→283g ×3.43, 전복미역국 ref29.5g→283g ×9.6로 참기름 폭증). 국물요리는
+    # 건더기를 레시피 재료합(ref) 이상으로 환산하지 않도록 상한을 둔다(국물 제외, 칼국수 건더기비율
+    # 방식의 일반화). 찌개는 ref가 커서 상한에 안 걸려 무영향, 탕수육·국수·콩국수·쌀국수·수제비·
+    # 떡볶이는 국물요리가 아니거나 국물이 영양성분이라 제외.
+    _nm = dish.get("name", "")
+    _is_broth_soup = (any(k in _nm for k in ("국", "탕", "미역")) and
+                      not any(k in _nm for k in ("탕수육", "국수", "찌개", "전골", "볶음", "콩국", "쌀국", "수제비", "떡")))
+    if _is_broth_soup and ref_weight > 0:
+        _has_water = any((("물" == (i.get("food_name") or "").split(",")[0].strip()) or
+                          ("육수" in (i.get("food_name") or ""))) and float(i.get("weight_g") or 0) >= 30
+                         for i in ingredients)
+        if not _has_water:
+            effective_target = min(effective_target, ref_weight)
     scale = (effective_target / ref_weight) if ref_weight > 0 else 1.0
 
     if spam_mayo:
@@ -440,6 +472,19 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                     f"엉뚱한 반찬(무말랭이무침/감자샐러드)으로 매칭됐음. 제공량 {weight_g:g}g 전체를 해조류(미역 "
                     "생것)로 간주해 채소군 환산하고 드레싱·양념은 조미료 제외규칙 적용. 실제 해조 종류·중량 "
                     "실측값 아님. 영양성분·메뉴명 유지.")}
+    if name in ("군만두", "군만두(초간장포함)"):
+        # 2026-11-10: 군만두 교환단위는 만두 피·소(조리가공식품류)가 식품군 미매핑이라 사실상
+        # 콩기름(튀김유)만 반영되는데, MenuGen 레시피의 콩기름 7g(ref 19g의 37%=튀김팬 기름 전량)이
+        # 흡수유로 전량 계산돼 지방군이 과대(72g에서 기름 26.6g→5.3교환)였다. 사용자 지정: 튀김
+        # 흡수유만 반영해 70g당 4g(약 6%) 추정으로 지방군만 환산한다.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        _add_ingredient(units, "유지류", DB104_BY_NAME["콩기름"], weight_g * 4.0 / 70.0)
+        return {"matched": True, "units": units, "source": "custom_recipe",
+                "matched_name": "군만두(흡수유 추정)", "unresolved_ingredients": [],
+                "recipe_note": (f"군만두: 사용자 지정 교정. 만두 본체(조리가공식품류)는 교환단위 식품군 "
+                    f"미매핑이라 미반영이고, 기존엔 레시피 튀김유 전량(72g에서 ~26.6g)이 흡수유로 계산돼 "
+                    f"지방군 과대였음. 흡수유만 70g당 4g(약 6%)으로 추정해 제공량 {weight_g:g}g에 비례 "
+                    "환산(지방군만). 만두 본체 영양성분·메뉴 표시명은 기존 유지.")}
     if name == "무말랭이":
         # 2026-11-10: bare "무말랭이"가 db104 "무말랭이, 말린것"(건조 농축 탄수)에 직접 매칭돼
         # 채소군이 ~15교환까지 과대계산되던 것 교정. 실제 제공되는 무친 반찬 형태로 간주해
