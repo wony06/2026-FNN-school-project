@@ -41,6 +41,9 @@ PRODUCTS = {
 }
 
 COOKED = {
+    '짜사이': ('D714-715000000-0001', 72.2),
+    '소고기샤브샤브': ('D306-287180000-0001', 297),
+    '건파래볶음': ('D710-498000000-0001', 80),
     '소고기콩나물밥': ('D701-047280000-0001', 417),
 
     '석류차': ('D220-719000000-0146', 200),
@@ -72,6 +75,40 @@ def number(value):
 
 def prepared_food_override(name, foods, products, nutrients, raw_map):
 
+    if name in ('묵은지참치비빔밥', '갈릭쉬림프덮밥', '시금치치킨프리카세'):
+        recipe_file = 'external_exchange_recipes.json' if name == '시금치치킨프리카세' else 'custom_exchange_recipes.json'
+        recipe = next(r for r in json.loads((ROOT/recipe_file).read_text(encoding='utf-8')) if r['name'] == name)
+        records = {r['식품명']:r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8'))}
+        totals = {f:0.0 for f in nutrients}; partial = set()
+        for ingredient in recipe['ingredients']:
+            if ingredient['food_name'] == '물':
+                continue
+            record = records[ingredient['food_name']]
+            for f in nutrients:
+                value = number(record.get(raw_map[f]))
+                if value is None: partial.add(f)
+                else: totals[f] += value * ingredient['weight_g'] / 100
+        return {'source':'recipe_decompose','name':name,'unit':'g',
+                'per100':{f:v*100/recipe['weight_g'] for f,v in totals.items()},
+                'partial_missing_fields':sorted(partial),'nutrition_note':recipe['assumptions'],
+                'prepared_proxy':True,'recipe_batch_g':recipe['weight_g']}
+    if name in ('우육면', '건두부무침'):
+        recipe = next(r for r in json.loads((ROOT/'external_exchange_recipes.json').read_text(encoding='utf-8')) if r['name'] == name)
+        records = {r['식품명']:r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8'))}
+        totals = {f:0.0 for f in nutrients}; partial = set()
+        for ingredient in recipe['ingredients']:
+            if ingredient['food_name'] == '물':
+                continue
+            record = records.get(ingredient['food_name'])
+            for f in nutrients:
+                value = ingredient['nutrients_per100'].get(f) if 'nutrients_per100' in ingredient else number(record.get(raw_map[f]))
+                if value is None: partial.add(f)
+                else: totals[f] += value * ingredient['weight_g'] / 100
+        if name == '우육면': partial.update(nutrients)  # Unmeasured residual broth/seasoning.
+        return {'source':'recipe_decompose','name':name,'unit':'g',
+                'per100':{f:v*100/recipe['weight_g'] for f,v in totals.items()},
+                'partial_missing_fields':sorted(partial),'nutrition_note':recipe['assumptions'],
+                'prepared_proxy':True,'recipe_batch_g':recipe['weight_g'],'external_recipe_url':recipe['source_url']}
     if name in PRODUCTS:
 
         code, portion, subtype = PRODUCTS[name]
@@ -123,6 +160,16 @@ def prepared_food_override(name, foods, products, nutrients, raw_map):
         if name == '유부우동국':
             note = (f'유부우동국: 사진에서 면이 확인되지 않는 곁들임 국. 면 포함 일식우동 대체를 제거하고 국물 포함 유부국({code}) 100mL당17kcal를 국 표준272mL에 적용. '
                     '실제 유부·육수·고명 배합과 제공량은 미확인 대체 추정. 교환단위도 면 없는 유부국으로 연결.')
+        if name == '소고기샤브샤브':
+            note = (f'샤브국수 조합의 국물·고기·채소 부분: 완성 음식 샤브샤브_소고기({code}) 100g당44kcal를 임시297g에 적용. '
+                    '면은 별도 삶은 칼국수면200g만 포함하고 고기·채소를 영양성분에 다시 추가하지 않음. 실제 배합·제품·제공량 미확인 대체 추정.')
+        if name == '짜사이':
+            note = '짜사이: 사용자 지정 짜사이무침(D714-715000000-0001) 완성 음식에 연결. 기존72.2g을 밀도1 가정으로72.2mL 환산. 실제 밀도·양념·제공량 미확인.'
+        if name == '건파래볶음':
+            note = (f'건파래볶음: 사용자 지정으로 산업체급식 파래볶음({code}) DB에 대체 연결. '
+                    '100mL당49kcal를 기존 볶음 반찬 추정량80g에 밀도1(80mL)로 임시 환산해 적용. '
+                    '원본 메뉴명과 기존 제공량은 유지. 실제 건파래의 수분·기름·양념·밀도 및 제품·제공량 미확인으로 건조 자반 형태와 차이가 있을 수 있음. '
+                    '식품교환단위는 기존 사용자 지정 외부 레시피를 유지.')
         if name == '소고기콩나물밥':
             note = (f'소고기콩나물밥: 탄수화물1.8g/100g인 제품DB 대신 산업체급식 콩나물밥_소고기({code}) 완성 음식으로 대체. '
                     '100mL당131kcal를 덮밥 표준417mL에 적용. 밥·소고기·콩나물을 포함하므로 밥을 별도 가산하지 않음. 실제 제공량·배합 미확인.')
@@ -140,6 +187,11 @@ def prepared_food_override(name, foods, products, nutrients, raw_map):
 
                 'unit':'ml' if 'ml' in row['basis'].lower() else 'g'}
 
+    if name == '칼국수면':
+        record = next(r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8')) if r['식품명']=='칼국수면, 생것, 삶은것')
+        return {'source':'db104_direct', 'name':record['식품명'],
+                'per100':{f:number(record.get(raw_map[f])) for f in nutrients}, 'unit':'g',
+                'nutrition_note':'샤브국수 조합의 삶은 칼국수면: 원재료DB 칼국수면, 생것, 삶은것을 임시200g 적용. 건면·생면 성분에 삶은 중량을 곱하지 않음. 샤브 부분297g과 합497g 내 배분, 실제 면 제품·수분·제공량 미확인.'}
     if name == '적양배추':
         record = next(r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8')) if r['식품명']=='양배추, 적색, 생것')
         return {'source':'db104_direct', 'name':record['식품명'],

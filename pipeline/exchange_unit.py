@@ -317,7 +317,12 @@ def _from_external_recipe(name, target_weight_g):
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
     scale = _recipe_scale(dish, target_weight_g)
     for ing in dish["ingredients"]:
-        _add_ingredient(units, ing["food_group"], DB104_BY_NAME.get(ing["food_name"]), ing["weight_g"] * scale)
+        record = DB104_BY_NAME.get(ing["food_name"])
+        if 'nutrients_per100' in ing:
+            record = {'식품명':ing['food_name'], **{col:ing['nutrients_per100'].get(f) for f,col in DB104_NUT_COL.items()}}
+        if record is None and FOOD_GROUP_MAP.get(ing['food_group']) is not None:
+            raise ValueError(f"External recipe ingredient missing: {ing['food_name']}")
+        _add_ingredient(units, ing["food_group"], record, ing["weight_g"] * scale)
     return {"units": units, "source": "external_recipe", "matched_name": name, "unresolved_ingredients": [],
             "external_recipe": {"name": name, "url": dish["source_url"], "note": dish["assumptions"]},
             "additional_direct_matches": dish.get("direct_db_additions", [])}
@@ -362,7 +367,10 @@ def _try_cascade(name, weight_g):
 
 
 KIMCHI_PAIR_EXCLUDED_DATES = {"2026-08-29", "2026-09-05", "2026-09-12", "2026-09-19"}
+KIMCHI_PAIR_FIRST = {"2026-11-09": "김치, 깍두기"}
 KIMCHI_PAIR_SECOND = {
+    "2026-11-09": "김치, 열무 김치",  # 사진의 잎·줄기 김치 대체 추정
+    "2026-11-10": "김치, 열무 김치",  # 사진의 잎·줄기 김치 대체 추정
     "2026-11-05": "김치, 깍두기",  # 공식 식판 사진의 배추김치 + 무김치 대체
     "2026-11-06": "김치, 깍두기",  # 공식 식판 사진의 배추김치 + 무김치 대체
     "2026-11-02": "김치, 깍두기",  # 사진의 큼직한 무김치를 깍두기로 대체 추정
@@ -376,7 +384,7 @@ def compute_kimchi_pair(date, weight_g):
     second = KIMCHI_PAIR_SECOND.get(date)
     if second is None:
         return None
-    names = ["김치, 배추 김치", second]
+    names = [KIMCHI_PAIR_FIRST.get(date, "김치, 배추 김치"), second]
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
     for name in names:
         record = DB104_BY_NAME[name]
@@ -384,7 +392,7 @@ def compute_kimchi_pair(date, weight_g):
             raise ValueError(f"김치 원재료DB 연결 실패: {name}")
     note = f"김치2종: 사용자 지정 사진별 매칭({date}). {names[0]} + {second}, 기존 추정 제공량 {weight_g:g}g을 각각 {weight_g/2:g}g씩 균등 배분. 실제 종류·제공량 실측값 아님. 메뉴 표시명과 기존 영양성분 계산 유지."
     if second == "김치, 열무 김치":
-        note += " 사진의 잎·줄기 김치는 열무·갓 계열 구분이 불확실하여 열무김치로 대체 추정."
+        note += " 사진의 잎·줄기 김치는 열무·갓·얼갈이 계열 구분이 불확실하여 열무김치로 대체 추정."
     if second == "김치, 오이 소박이":
         note += " 사진의 오이김치는 DB 오이소박이로 대체 추정하며 소의 배합 차이 미보정."
     if date == "2026-10-26":
@@ -402,6 +410,30 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == '소불고기덮밥':
+        result = compute_exchange_units('불고기덮밥', weight_g, use_plaza_servings=False)
+        result['recipe_note'] = ('소불고기덮밥: 사용자 지정 MenuGen 불고기덮밥 D015080에 연결. 밥·소고기를 포함한 표준 배합620g을 기존 덮밥418g에 비례 적용. '
+            '밥을 별도 추가하지 않음. 실제 채소·달걀·조리유·소고기 부위·배합·제공량 미확인 대체이며 원본 메뉴명과 기존 영양성분은 유지.')
+        return result
+    if name == '볼어묵볶음':
+        result = compute_exchange_units('어묵볶음', weight_g, use_plaza_servings=False)
+        result['recipe_note'] = ('볼어묵볶음: 사용자 지정 어묵볶음 레시피로 연결. 기존 볶음 반찬 제공량에 비례 적용. '
+            '어묵 모양·제품 및 실제 채소·조리유 배합 미확인. 메뉴 표시명과 영양성분 유지.')
+        return result
+    if name == '소고기우거지국':
+        result = compute_exchange_units('우거지된장국(소고기)', weight_g, use_plaza_servings=False)
+        result['recipe_note'] = ('소고기우거지국: 사용자 지정으로 MenuGen 우거지된장국(소고기) D052046에 대체 연결. '
+            '원본 메뉴명·영양성분·제공량 유지. 레시피 완성459g(재료59g+국물400g)에 기존 제공량을 비례 적용; '
+            '건더기59g만을 기준으로 확대하지 않음. 실제 소고기·우거지·된장 비율 미확인. 된장 등 조미료는 교환단위 계산에서 제외.')
+        return result
+    if name in ('짜사이', '짜사이무침'):
+        from auto_match import FOOD_DB
+        food = next(r for r in FOOD_DB if r['code']=='D714-715000000-0001')
+        units = {g:0.0 for g in EXCHANGE_GROUPS}
+        units['채소군'] = food['n']['carb'] * weight_g / 100 / 3
+        units['지방군'] = food['n']['fat'] * weight_g / 100 / 5
+        return {'matched':True,'units':units,'source':'food_db','matched_name':'짜사이무침',
+                'unresolved_ingredients':[], 'recipe_note':'짜사이무침 완성 음식DB D714-715000000-0001: 밀도1 가정. 탄수화물은 채소군, 지방은 양념유 지방군으로 대체 추정; 설탕 탄수화물 분리 불가. 실제 배합·중량 미확인.'}
     if name == "새송이버섯볶음":
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         ingredients = [("큰느타리버섯(새송이버섯), 데친것", weight_g * 77 / 80),
