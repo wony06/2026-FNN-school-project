@@ -545,6 +545,22 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
                 "unresolved_ingredients": [],
                 "recipe_note": f"치커리무침: 사용자 지정으로 치커리 잎 생것에 대체 매칭. 기존 음식 추정량 {weight_g:g}g 전체를 잎채소로 간주하고 양념은 교환단위에서 제외. 실제 채소 중량 실측값 아님. 메뉴명과 영양성분 계산 유지."}
+    if name == "크림스프":
+        # 2026-11-11: 사용자 제공 레시피(버터 45g/272g 비례)로 72g 컵에 버터 11.9g이 들어가 지방군 1.96교환까지
+        # 부풀던 것 교정. 영양탭과 같은 완제품 영양성분DB(스프_크림)의 탄수·지방으로 곡류·지방군을 환산한다
+        # (식혜·감자수제비국과 동일한 완제품 기준 방식). 우유·단백질 소량은 4군 비교 대상이 아니라 생략.
+        product = try_food_db("스프_크림")
+        carb_per100 = product["per100"].get("carb") if product else None
+        fat_per100 = product["per100"].get("fat") if product else None
+        if carb_per100 is not None and fat_per100 is not None:
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = carb_per100 * weight_g / 100.0 / UNIT_BASIS["곡류군"][1]
+            units["지방군"] = fat_per100 * weight_g / 100.0 / UNIT_BASIS["지방군"][1]
+            return {"matched": True, "units": units, "source": "food_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"크림스프: 사용자 지정 교정. 버터 과다 레시피(지방 과대) 대신 영양성분DB 스프_크림 "
+                                    f"탄수화물 100g당 {carb_per100:g}g·지방 {fat_per100:g}g × 제공량 {weight_g:g}g을 곡류·지방군으로 환산. "
+                                    "완제품 기준 추정이라 우유·단백질 소량은 생략. 영양성분·메뉴명 유지.")}
     if name == "식혜":
         # 2026-11-11: MenuGen 식혜 레시피(엿기름 26g+설탕 10g+찹쌀 8g=44g, 물 없음)를 컵 중량에 비례 환산하면 엿기름이
         # 수십 g으로 부풀어 곡류군 1.5교환(72g 기준)이 되던 것 교정. 영양탭과 같은 영양성분DB(외식 식혜) 완제품 탄수화물로
