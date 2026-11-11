@@ -4,7 +4,7 @@
     const submit=document.getElementById('personalSubmit');
     let current=0,ready=false,hasResults=false,restoring=false;
     form.before(status);form.noValidate=true;
-    function clearError(){status.hidden=true;status.textContent='';}
+    function clearError(){status.hidden=true;status.textContent='';document.getElementById('guideResumeStatus').hidden=true;}
     function show(step,historyMode='push'){
       if(!Number.isInteger(step)||step<0||step>4)return;
       onLeave();current=step;
@@ -105,12 +105,15 @@
     function updateResumeButton(){
       const button=document.getElementById('guideResume');
       const saved=root.ProfileStorage.getSavedProfile();
-      button.hidden=!saved;button.disabled=!ready;
-      button.textContent=root.ProfileStorage.resumeStep(saved)===4?'저장된 정보로 바로보기':'저장된 정보로 이어서 입력하기';
+      button.hidden=false;button.disabled=!ready;
+      button.textContent='저장된 정보로 바로보기';
+      if(saved)document.getElementById('guideResumeStatus').hidden=true;
     }
     document.getElementById('guideResume').addEventListener('click',()=>{
       clearError();
-      const step=root.ProfileStorage.resumeStep(root.ProfileStorage.getSavedProfile());
+      const saved=root.ProfileStorage.getSavedProfile();
+      if(!saved){document.getElementById('guideResumeStatus').hidden=false;return;}
+      const step=root.ProfileStorage.resumeStep(saved);
       if(step!==4){show(step);return;}
       if(!ready)return;
       restoring=true;try{form.requestSubmit(submit);}finally{restoring=false;}
