@@ -4,6 +4,12 @@
   const goals=new Set(['lifestyle','weight_loss','glycemic','balanced','high_protein','low_sugar','low_sodium']);
   const exchangeGoals=new Set(['lifestyle','weight_loss','glycemic']);
   const key=r=>JSON.stringify([r.date,r.shop,r.category,r.main]);
+  const fmtKcal=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  function tableBounds(t){
+    const ks=Object.keys(t?.dailyExchanges||{}).map(Number).filter(Number.isFinite);
+    if(!ks.length) throw Error('식품교환단위 표가 비어 있습니다.');
+    return [Math.min(...ks),Math.max(...ks)];
+  }
 
   function calculateEer(p){
     if(!p || !PA[p.sex] || !Number.isInteger(p.age) || p.age<20 ||
@@ -27,12 +33,14 @@
         deficit=Math.min(1000,monthlyLossKg*7000/30);
       } else deficit=750;
       adjustedEer=eer-deficit;
-      if(adjustedEer<1200 || adjustedEer>2800) throw Error(`감량 후 하루 목표 ${adjustedEer.toFixed(1)} kcal: 현재 식품교환표 적용 범위 밖(1,200~2,800 kcal)입니다. 목표를 검토해주세요.`);
+      const [loss_lo,loss_hi]=tableBounds(table);
+      if(adjustedEer<loss_lo || adjustedEer>loss_hi) throw Error(`감량 후 하루 목표 ${adjustedEer.toFixed(1)} kcal: 현재 식품교환표 적용 범위 밖(${fmtKcal(loss_lo)}~${fmtKcal(loss_hi)} kcal)입니다. 목표를 검토해주세요.`);
     }
     if(exchangeGoals.has(goal)){
       roundedEer=Math.floor((adjustedEer+50)/100)*100;
       const selectedTable=goal==='glycemic' ? glycemicTable : table;
-      if(roundedEer<1200 || roundedEer>2800) throw Error(`반올림 열량 ${roundedEer} kcal: 현재 식품교환표 적용 범위 밖(1,200~2,800 kcal)입니다.`);
+      const [lo,hi]=tableBounds(selectedTable);
+      if(roundedEer<lo || roundedEer>hi) throw Error(`반올림 열량 ${roundedEer} kcal: 현재 ${goal==='glycemic'?'혈당관리용 ':''}식품교환표 적용 범위 밖(${fmtKcal(lo)}~${fmtKcal(hi)} kcal)입니다.`);
       const row=selectedTable?.dailyExchanges?.[String(roundedEer)];
       if(!row) throw Error(`${roundedEer} kcal에 해당하는 ${goal==='glycemic'?'혈당관리용':'일반'} 식품교환단위 표가 없습니다.`);
       if(row.length<(goal==='glycemic'?8:7) || !row.every(v=>Number.isFinite(v)&&v>=0)) throw Error('해당 열량의 식품교환단위 자료 오류');
