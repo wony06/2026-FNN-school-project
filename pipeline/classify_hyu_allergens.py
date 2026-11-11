@@ -24,14 +24,16 @@ def load(path):return json.loads(path.read_text(encoding='utf-8'))
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run():
+def run(input_dir=None, out_dir=None, verbose=True):
+    input_path = Path(input_dir) if input_dir is not None else INPUT
+    out = Path(out_dir) if out_dir is not None else OUT
     protected=[ROOT/'web/site_data.json',ROOT/'month_lunch_trays.json',ROOT/'hanyang_menu_month.json',
         ROOT/'web/index.html',ROOT/'web/modern.css',ROOT/'web/personal-score.js',ROOT/'web/instant-rice.js',
-        ROOT/'pipeline/neis_reference/reference.sqlite3',INPUT/'meal_matches.json']
+        ROOT/'pipeline/neis_reference/reference.sqlite3',input_path/'meal_matches.json']
     before={str(p.relative_to(ROOT)):sha(p) for p in protected}
-    meals=load(INPUT/'meal_matches.json')
-    aggregates=load(INPUT/'reference_evidence.json')
-    records=[json.loads(line) for line in (INPUT/'evidence_records.jsonl').read_text(encoding='utf-8').splitlines()]
+    meals=load(input_path/'meal_matches.json')
+    aggregates=load(input_path/'reference_evidence.json')
+    records=[json.loads(line) for line in (input_path/'evidence_records.jsonl').read_text(encoding='utf-8').splitlines()]
     sources={r['record_id']:r for r in records}
     code_records=defaultdict(list)
     for r in records:
@@ -108,13 +110,14 @@ def run():
                 'excluded_calculation_component_count':len(excluded),
                 'components_without_reference_match':[c['name'] for c in per_component if c['unresolved']['no_confirmed_reference_match']],
                 'meaning':'통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음.'}})
-    expected_excluded=load(INPUT/'summary.json')['calculation_only_component_occurrences']
+    expected_excluded=load(input_path/'summary.json')['calculation_only_component_occurrences']
     assert excluded_total==expected_excluded
     assert len(output)==len(meals) and all(len(row['allergens'])==19 for row in output)
     wanted=['고구마치즈돈까스','등심돈까스','제육덮밥','차돌순두부찌개','수육','감자탕','계란볶음밥',
         '마라샹궈','설렁탕&소면사리','가라아게덮밥','간장돈육볶음','고추참치마요덮밥','곰탕',
         '김치찌개&라면사리','하와이안함박스테이크','냉모밀','우삼겹하이라이스','돼지고기애호박찌개',
         '날치알김치볶음밥','돈까스나베']
+    example_count=min(20,len({r['meal_key'][3] for r in output}))
     examples=[]
     for name in wanted:
         candidates=[r for r in output if r['meal_key'][3]==name]
@@ -123,13 +126,14 @@ def run():
     # Ensure all three restaurants occur, then fill any absent names from real data.
     for shop in SHOP:
         if not any(r['meal_key'][1]==shop for r in examples):
-            extra=next(r for r in output if r['meal_key'][1]==shop and r['meal_key'][3] not in seen)
-            if len(examples)==20:examples.pop()
+            extra=next((r for r in output if r['meal_key'][1]==shop and r['meal_key'][3] not in seen), None)
+            if extra is None:continue
+            if len(examples)==example_count:examples.pop()
             examples.append(extra);seen.add(extra['meal_key'][3])
     for r in output:
-        if len(examples)>=20:break
+        if len(examples)>=example_count:break
         if r['meal_key'][3] not in seen:examples.append(r);seen.add(r['meal_key'][3])
-    assert len(examples)==20
+    assert len(examples)==example_count
     summary={'meal_count':len(output),'excluded_calculation_component_occurrences':excluded_total,
         'source_supported_components_analyzed':sum(len(r['components']) for r in output),
         'classification_counts':dict(Counter(a['classification'] for r in output for a in r['allergens'])),
@@ -137,13 +141,13 @@ def run():
         'meals_with_neis_evidence':sum(any(a['neis_evidence'] for a in r['allergens']) for r in output),
         'meals_with_unknown_recipe':len(output),'source_evidence_records':len(records),'protected_sha256':before}
     summary['choice_or_separator_integration_withheld_meals']=sum(r['unknowns']['choice_or_separator_integration_withheld'] for r in output)
-    OUT.mkdir(parents=True,exist_ok=True)
+    out.mkdir(parents=True,exist_ok=True)
     for filename,data in [('meal_estimates.json',output),('examples20.json',examples),('summary.json',summary),
                           ('reference_statistics.json',aggregates)]:
-        (OUT/filename).write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
-    with (OUT/'source_records.jsonl').open('w',encoding='utf-8') as f:
+        (out/filename).write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
+    with (out/'source_records.jsonl').open('w',encoding='utf-8') as f:
         for r in records:f.write(json.dumps(r,ensure_ascii=False)+'\n')
-    with (OUT/'meal_allergen_estimates.csv').open('w',encoding='utf-8-sig',newline='') as f:
+    with (out/'meal_allergen_estimates.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.writer(f);w.writerow(['날짜','식당','메인명','알레르기번호','식품명','분류','메뉴명근거','NEIS근거구성메뉴',
             '근거기록수_중복제거','근거학교수_중복제거','실제배합확인'])
         for r in output:
@@ -186,9 +190,11 @@ def run():
         '- 유사한 이름 후보는 성분 통합에 사용하지 않았다. 가라아게덮밥/치킨가라아게, 곰탕/닭곰탕 등은 동일 메뉴로 확정하지 않는다.',
         '- 한 끼 근거 기록 수는 record_id로 중복 제거하며 서로 다른 음식의 학교·기록 수를 단순 합산하지 않는다. 메뉴별 원래 분모와 출처는 별도로 유지한다.',
         '- 원문 지지 여부는 텍스트 확인이며 실물·선택형(or)·공통 반찬 제공 여부가 완전히 검증된 것은 아니다. 모든 식단의 실제 배합은 확인불가다.'])
-    (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    (out/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     assert all(sha(p)==before[str(p.relative_to(ROOT))] for p in protected)
-    print(json.dumps(summary,ensure_ascii=False,indent=2))
+    if verbose:
+        print(json.dumps(summary,ensure_ascii=False,indent=2))
+    return summary
 
 
 if __name__=='__main__':

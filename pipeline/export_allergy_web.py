@@ -23,17 +23,20 @@ def suppress_partial_cutlet_shellfish(number,evidence,component):
     return number==18 and cutlet and partial and not named
 
 
-def run():
+def run(estimates_source=None, output_path=None, audit_path=None, verbose=True, source_provenance=None):
+    source = Path(estimates_source) if estimates_source is not None else SOURCE
+    output_path = Path(output_path) if output_path is not None else ROOT/'web/allergy-data.json'
+    audit_path = Path(audit_path) if audit_path is not None else ROOT/'pipeline/hyu_allergy_filter_audit.json'
     protected=[ROOT/'web/site_data.json',ROOT/'web/menu_exchange_snapshot.json',
         ROOT/'web/personal-score.js',ROOT/'web/recommendation-view.js',ROOT/'web/instant-rice.js',
-        ROOT/'pipeline/neis_reference/reference.sqlite3',SOURCE/'meal_estimates.json']
+        ROOT/'pipeline/neis_reference/reference.sqlite3',source/'meal_estimates.json']
     hashes={str(p.relative_to(ROOT)):sha(p) for p in protected}
-    estimates=load(SOURCE/'meal_estimates.json')
+    estimates=load(source/'meal_estimates.json')
     rows=load(ROOT/'web/site_data.json')
     assert len({tuple(m['meal_key']) for m in estimates})==len(estimates)
     assert {MEAL_KEY_RENAMES.get(tuple(m['meal_key']),tuple(m['meal_key'])) for m in estimates}=={key(r) for r in rows}, 'Regenerate estimates for all current menus before exporting'
-    ref=load(SOURCE/'reference_statistics.json')
-    source_records=[json.loads(x) for x in (SOURCE/'source_records.jsonl').read_text(encoding='utf-8').splitlines()]
+    ref=load(source/'reference_statistics.json')
+    source_records=[json.loads(x) for x in (source/'source_records.jsonl').read_text(encoding='utf-8').splitlines()]
     estimates,ref,source_records,policy_audit=apply_reviewed_overlay(ROOT,estimates,ref,source_records)
     source_map={r['record_id']:{'school':r['school_name'],'schoolCode':r['school_code'],
         'date':r['meal_date'],'mealType':r['meal_type'],'sourceText':r['source_text'],
@@ -61,7 +64,8 @@ def run():
             for e in a['neis_evidence']:
                 c=components[e['component_id']]
                 partial=0<e['labeled_record_count']<e['total_record_count']
-                evidence={'component':e['component_name'],'reference':e['reference_menu']}
+                evidence={'component':e['component_name'],'reference':e['reference_menu'],
+                          **({'provenance':e['provenance']} if e.get('provenance') else {})}
                 reviewed_hold=(e['reference_menu'],a['number']) in HELD_REFERENCE_CODES and not any(n['number']==a['number'] for n in c['name_indications'])
                 if reviewed_hold or suppress_partial_cutlet_shellfish(a['number'],e,c):
                     entry={'code':a['number'],**evidence,'labeledRecords':e['labeled_record_count'],
@@ -87,8 +91,12 @@ def run():
             'unknownComponents':m['unknowns']['components_without_reference_match'],
             'excludedCalculationCount':len(m['excluded_calculation_components']),
             'userReviewNotes':[{'component':c['name'],**c['userReviewNotes']} for c in m['components'] if c.get('userReviewNotes')]})
+    published_hashes=dict(hashes)
+    if source_provenance is not None:
+        published_hashes.pop(str((source/'meal_estimates.json').relative_to(ROOT)),None)
+        published_hashes.update(source_provenance)
     result={'schemaVersion':1,'policyVersion':'reviewed-reference-hold-v2',
-        'generatedAt':datetime.now(timezone.utc).isoformat(),'sourceSha256':hashes,
+        'generatedAt':datetime.now(timezone.utc).isoformat(),'sourceSha256':published_hashes,
         'allergens':[{'code':n,'name':name} for n,name in ALLERGENS.items()],
         'meals':meals,'references':references,'sourceRecords':source_map}
     counts={str(n):sum(any(a['code']==n for a in m['allergens']) for m in meals) for n in ALLERGENS}
@@ -96,14 +104,17 @@ def run():
         'correctedMealCount':len({tuple(e['key']) for e in corrections}),
         'choiceWithheldMenus':sum(m['state']=='choice_withheld' for m in meals),
         'excludedCalculationOccurrences':sum(m['excludedCalculationCount'] for m in meals),
-        'corrections':corrections,'otherPartialShellfishEvidenceRetained':review,'protectedSha256':hashes}
-    (ROOT/'web/allergy-data.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
-    (ROOT/'pipeline/hyu_allergy_filter_audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
+        'corrections':corrections,'otherPartialShellfishEvidenceRetained':review,'protectedSha256':published_hashes}
+    output_path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+    audit_path.write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
     assert all(sha(p)==hashes[str(p.relative_to(ROOT))] for p in protected)
-    print(json.dumps({k:v for k,v in audit.items() if k not in ('corrections','otherPartialShellfishEvidenceRetained','protectedSha256','policyReview')},ensure_ascii=False,indent=2))
+    if verbose:
+        print(json.dumps({k:v for k,v in audit.items() if k not in ('corrections','otherPartialShellfishEvidenceRetained','protectedSha256','policyReview')},ensure_ascii=False,indent=2))
+    return result, audit
 
 
 if __name__=='__main__':
     import sys
     if hasattr(sys.stdout,'reconfigure'):sys.stdout.reconfigure(encoding='utf-8')
-    run()
+    from sync_allergy_data import sync_allergy_data
+    sync_allergy_data()

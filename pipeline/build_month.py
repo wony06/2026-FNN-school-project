@@ -742,6 +742,12 @@ def expand_main(name, shop=None, category=None, cache=None):
     return expand_compound(name, lambda n: classify_main_weight(n, cache))
 
 
+TEMP_KIMCHI_REFERENCES = {
+    "2026-11-12": ("2026-11-09", ("깍두기", "열무김치")),
+    "2026-11-13": ("2026-11-10", ("배추김치", "열무김치")),
+}
+
+
 PHOTO_SIDE_OVERRIDES = {
     ("2026-11-09", "401", "김치2종"): ("깍두기", "열무김치"),
     ("2026-11-10", "401", "김치2종"): ("배추김치", "열무김치"),
@@ -767,6 +773,13 @@ def classify_shop_side_weight(name, shop=None, cache=None):
 
 
 def expand_side(name, shop=None, category=None, cache=None, date=None):
+    if str(shop) == "401" and name in ("2종김치", "김치2종") and date in TEMP_KIMCHI_REFERENCES:
+        reference, names = TEMP_KIMCHI_REFERENCES[date]
+        total_weight, _ = classify_shop_side_weight(name, shop, cache)
+        note = (f"사용자 승인 임시 매칭: {reference}의 김치 조합 {' + '.join(names)}을 {date}에 임시 적용. "
+                f"기존 추정 총량 {total_weight:g}g을 균등 배분. 해당 날짜 사진 미확인·실측값 아님. "
+                "사진 등록 후 김치 종류 확인 및 필요시 재매칭. 원본 메뉴명 유지.")
+        return [(part, total_weight / len(names), note) for part in names]
     photo_names = PHOTO_SIDE_OVERRIDES.get((date, shop, name))
     if photo_names:
         total_weight, _ = classify_shop_side_weight(name, shop, cache)
@@ -1200,38 +1213,7 @@ def include_nov5_fishcake_photo_sides(items, lunch, cache):
         items.append(build_item('쌀밥', 200, '11/5 사진에 확인되는 밥: 기존 즉석메뉴 자동추가 기준200g을 데이터에 명시해 한 번만 계산. 실측값 아님.', cache))
 
 
-def compute_tray(lunch, cache):
-    main = lunch.get("calculationMain", lunch["main"])
-    shop, category = lunch["shop"], lunch["category"]
-    sides = [s for s in lunch["sides"] if not is_self_or_junk(s)]
-    # 2026-11-10 사용자 지정: 돈까스나베는 분해 시 쌀밥을 포함하므로, 중복되는 밥 사이드를 제거해
-    # 밥을 쌀밥 하나로 통일한다(곡류군 중복 합산 방지).
-    if lunch["main"] == "돈까스나베":
-        sides = [s for s in sides if s not in ("흑미밥", "쌀밥", "잡곡밥", "현미밥", "기장밥", "보리밥")]
-    # 2026-11-11 사용자 확인: 한양플라자(105) 즉석 코너는 공기밥이 항상 함께 제공되는데 원본 메뉴 텍스트에
-    # 밥이 표기되지 않아 곡류군·열량이 통째로 빠져 있었다. 메인/사이드에 밥류가 없으면 쌀밥 210g을 추가한다.
-    # (한식 등 다른 코너는 밥이 항상 나가지 않으므로 자동 추가하지 않는다 - 2026-11-11 사용자 확인.)
-    extra_rice = None
-    if shop == "105" and category == "즉석" and not has_rice_like(main, sides):
-        extra_rice = ("쌀밥", 210, "즉석 코너 공기밥 - 원본 메뉴 미표기, 사용자 확인(2026-11-11)으로 항상 제공 적용; 일반 밥 1공기 210g")
-    elif (lunch["date"], shop, lunch["main"]) in RICE_CONFIRMED_TRAYS and not has_rice_like(main, sides):
-        extra_rice = ("쌀밥", 210, "공기밥 - 원본 메뉴 미표기, 해당 식판 사용자 개별 확인(2026-11-11)으로 추가; 일반 밥 1공기 210g")
-
-    items = []
-    for p, w, note in expand_main(main, shop, category, cache):
-        items.append(build_item(p, w, note, cache))
-    for s in sides:
-        for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
-            items.append(build_item(p, w, note, cache))
-    if extra_rice:
-        items.append(build_item(*extra_rice, cache))
-
-    include_photo_confirmed_rice(items, lunch, cache)
-    apply_reviewed_chip_portion(items, lunch, cache)
-    apply_reviewed_side_rice_portion(items, lunch, cache)
-    apply_reviewed_fries_portion(items, lunch, cache)
-    apply_nov11_plaza_photo_review(items, lunch, cache)
-    include_nov5_fishcake_photo_sides(items, lunch, cache)
+def summarize_nutrition(items):
     total = {f: 0.0 for f in NUT_FIELDS}
     tw = 0.0
     n_unmatched = 0
@@ -1275,6 +1257,45 @@ def compute_tray(lunch, cache):
         confidence = "보통"
     else:
         confidence = "낮음"
+
+    return total, tw, nrf, diff_ratio, reverse_ok, confidence, unmatched_list, gagong_list, missing_list, nutri_source
+
+
+def compute_tray(lunch, cache):
+    main = lunch.get("calculationMain", lunch["main"])
+    shop, category = lunch["shop"], lunch["category"]
+    sides = [s for s in lunch["sides"] if not is_self_or_junk(s)]
+    # 2026-11-10 사용자 지정: 돈까스나베는 분해 시 쌀밥을 포함하므로, 중복되는 밥 사이드를 제거해
+    # 밥을 쌀밥 하나로 통일한다(곡류군 중복 합산 방지).
+    if lunch["main"] == "돈까스나베":
+        sides = [s for s in sides if s not in ("흑미밥", "쌀밥", "잡곡밥", "현미밥", "기장밥", "보리밥")]
+    # 2026-11-11 사용자 확인: 한양플라자(105) 즉석 코너는 공기밥이 항상 함께 제공되는데 원본 메뉴 텍스트에
+    # 밥이 표기되지 않아 곡류군·열량이 통째로 빠져 있었다. 메인/사이드에 밥류가 없으면 쌀밥 210g을 추가한다.
+    # (한식 등 다른 코너는 밥이 항상 나가지 않으므로 자동 추가하지 않는다 - 2026-11-11 사용자 확인.)
+    extra_rice = None
+    if shop == "105" and category == "즉석" and not has_rice_like(main, sides):
+        extra_rice = ("쌀밥", 210, "즉석 코너 공기밥 - 원본 메뉴 미표기, 사용자 확인(2026-11-11)으로 항상 제공 적용; 일반 밥 1공기 210g")
+    elif (lunch["date"], shop, lunch["main"]) in RICE_CONFIRMED_TRAYS and not has_rice_like(main, sides):
+        extra_rice = ("쌀밥", 210, "공기밥 - 원본 메뉴 미표기, 해당 식판 사용자 개별 확인(2026-11-11)으로 추가; 일반 밥 1공기 210g")
+
+    items = []
+    for p, w, note in expand_main(main, shop, category, cache):
+        items.append(build_item(p, w, note, cache))
+    for s in sides:
+        for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
+            items.append(build_item(p, w, note, cache))
+    if extra_rice:
+        items.append(build_item(*extra_rice, cache))
+
+    include_photo_confirmed_rice(items, lunch, cache)
+    apply_reviewed_chip_portion(items, lunch, cache)
+    apply_reviewed_side_rice_portion(items, lunch, cache)
+    apply_reviewed_fries_portion(items, lunch, cache)
+    apply_nov11_plaza_photo_review(items, lunch, cache)
+    include_nov5_fishcake_photo_sides(items, lunch, cache)
+    from approved_nov_nutrition import apply_approved_nutrition
+    apply_approved_nutrition(items, lunch)
+    total, tw, nrf, diff_ratio, reverse_ok, confidence, unmatched_list, gagong_list, missing_list, nutri_source = summarize_nutrition(items)
 
     exchange_units = None
     # 2026-11-04: 204(신소재공학관)는 기존에 08-24~09-19 구간만 식품교환단위를 계산했음 -

@@ -1,0 +1,5087 @@
+{
+  "고구마치즈돈까스": {
+    "query": "고구마치즈돈까스",
+    "normalized_query": "고구마치즈돈가스",
+    "match_type": "synonym",
+    "reference_menu": "고구마치즈돈가스",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "matched_terms": [
+          "치즈"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "고구마치즈돈가스"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "쌀밥": {
+    "query": "쌀밥",
+    "normalized_query": "쌀밥",
+    "match_type": "exact",
+    "reference_menu": "쌀밥",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": 94,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "샐러드": {
+    "query": "샐러드",
+    "normalized_query": "샐러드",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "콘샐러드",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#콘샐러드",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "감자샐러드",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "과일샐러드",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "딸기샐러드",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "김치": {
+    "query": "김치",
+    "normalized_query": "김치",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "갓김치",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "김치전",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "백김치",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "파김치",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#김치전",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "우동국": {
+    "query": "우동국",
+    "normalized_query": "우동국",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "우동국물",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "우동장국",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#우동장국",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "맑은우동국",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "쑥갓우동장국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "고깃집된장찌개": {
+    "query": "고깃집된장찌개",
+    "normalized_query": "고깃집된장찌개",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "된장찌개",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "고추장찌개",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "메추리알장조림": {
+    "query": "메추리알장조림",
+    "normalized_query": "메추리알장조림",
+    "match_type": "exact",
+    "reference_menu": "메추리알장조림",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "메추리알"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "메추리알장조림"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "메추리알장조림"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "메추리알장조림"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "메추리알장조림"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 4,
+        "evidence_reference_menu": "메추리알장조림"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "치커리오이무침": {
+    "query": "치커리오이무침",
+    "normalized_query": "치커리오이무침",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "오이무침",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리사과무침",
+        "similarity": 0.7143,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리유자무침",
+        "similarity": 0.7143,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리파채무침",
+        "similarity": 0.7143,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "오이배무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "스리라차치킨마요덮밥": {
+    "query": "스리라차치킨마요덮밥",
+    "normalized_query": "스리라차치킨마요덮밥",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "치킨마요덮밥",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#치킨마요덮밥",
+        "similarity": 0.7059,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "수제치킨마요덮밥",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "스팸김치마요덮밥",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "팝콘치킨마요덮밥",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "김밥볶음밥": {
+    "query": "김밥볶음밥",
+    "normalized_query": "김밥볶음밥",
+    "match_type": "exact",
+    "reference_menu": "김밥볶음밥",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "김밥볶음밥"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "불닭크림우동": {
+    "query": "불닭크림우동",
+    "normalized_query": "불닭크림우동",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "크림짬뽕우동",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "닭"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "우동국물": {
+    "query": "우동국물",
+    "normalized_query": "우동국물",
+    "match_type": "exact",
+    "reference_menu": "우동국물",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "우동국물"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "팝콘치킨": {
+    "query": "팝콘치킨",
+    "normalized_query": "팝콘치킨",
+    "match_type": "exact",
+    "reference_menu": "팝콘치킨",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "팝콘치킨"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "팝콘치킨"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "팝콘치킨"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "팝콘치킨"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오이피클": {
+    "query": "오이피클",
+    "normalized_query": "오이피클",
+    "match_type": "exact",
+    "reference_menu": "오이피클",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 13,
+        "evidence_reference_menu": "오이피클"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 12,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "배추김치": {
+    "query": "배추김치",
+    "normalized_query": "배추김치",
+    "match_type": "exact",
+    "reference_menu": "배추김치",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 14,
+        "labeled_record_count": 297,
+        "total_record_count": 297,
+        "evidence_reference_menu": "배추김치"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 16,
+        "total_record_count": 297,
+        "evidence_reference_menu": "배추김치"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 297,
+        "evidence_reference_menu": "배추김치"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "매실차": {
+    "query": "매실차",
+    "normalized_query": "매실차",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "돈육김치찌개": {
+    "query": "돈육김치찌개",
+    "normalized_query": "돈육김치찌개",
+    "match_type": "exact",
+    "reference_menu": "돈육김치찌개",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "matched_terms": [
+          "돈육"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 5,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 5,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 5,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "돈육김치찌개"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "흑미밥": {
+    "query": "흑미밥",
+    "normalized_query": "흑미밥",
+    "match_type": "exact",
+    "reference_menu": "흑미밥",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": 46,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "생선까스*타르소스": {
+    "query": "생선까스*타르소스",
+    "normalized_query": "생선가스*타르소스",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "생선가스&타르소스",
+        "similarity": 0.8889,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "생선가스&타르타르소스",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "생선가스&소스",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "돈가스*소스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "꽈리고추감자조림": {
+    "query": "꽈리고추감자조림",
+    "normalized_query": "꽈리고추감자조림",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "꽈리고추메알조림",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "꽈리고추멸치조림",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "꽈리고추계란장조림",
+        "similarity": 0.7059,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "메추리알조림": {
+    "query": "메추리알조림",
+    "normalized_query": "메추리알조림",
+    "match_type": "exact",
+    "reference_menu": "메추리알조림",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "메추리알"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "메추리알조림"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "깍두기": {
+    "query": "깍두기",
+    "normalized_query": "깍두기",
+    "match_type": "exact",
+    "reference_menu": "깍두기",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 18,
+        "labeled_record_count": 194,
+        "total_record_count": 194,
+        "evidence_reference_menu": "깍두기"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 18,
+        "total_record_count": 194,
+        "evidence_reference_menu": "깍두기"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "참치김치찌개": {
+    "query": "참치김치찌개",
+    "normalized_query": "참치김치찌개",
+    "match_type": "exact",
+    "reference_menu": "참치김치찌개",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 8,
+        "labeled_record_count": 10,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 8,
+        "labeled_record_count": 10,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 6,
+        "labeled_record_count": 8,
+        "total_record_count": 10,
+        "evidence_reference_menu": "참치김치찌개"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "언양식떡갈비": {
+    "query": "언양식떡갈비",
+    "normalized_query": "언양식떡갈비",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "#담양식떡갈비",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "한식떡갈비",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "언양식떡갈비&파채무침",
+        "similarity": 0.7059,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#청양떡갈비",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "떡갈비",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "호박새우젓볶음": {
+    "query": "호박새우젓볶음",
+    "normalized_query": "호박새우젓볶음",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "애호박볶음",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 9,
+        "name": "새우",
+        "matched_terms": [
+          "새우"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "숙주나물": {
+    "query": "숙주나물",
+    "normalized_query": "숙주나물",
+    "match_type": "exact",
+    "reference_menu": "숙주나물",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": 1,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "건파래볶음": {
+    "query": "건파래볶음",
+    "normalized_query": "건파래볶음",
+    "match_type": "exact",
+    "reference_menu": "건파래볶음",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 11,
+        "evidence_reference_menu": "건파래볶음"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 11,
+        "evidence_reference_menu": "건파래볶음"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 5,
+        "labeled_record_count": 9,
+        "total_record_count": 11,
+        "evidence_reference_menu": "건파래볶음"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 11,
+        "evidence_reference_menu": "건파래볶음"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 11,
+        "evidence_reference_menu": "건파래볶음"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "김치2종": {
+    "query": "김치2종",
+    "normalized_query": "김치2종",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "채선당샤브국수&칠리S": {
+    "query": "채선당샤브국수&칠리S",
+    "normalized_query": "채선당샤브국수&칠리s",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오징어김치전": {
+    "query": "오징어김치전",
+    "normalized_query": "오징어김치전",
+    "match_type": "exact",
+    "reference_menu": "오징어김치전",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 17,
+        "name": "오징어",
+        "matched_terms": [
+          "오징어"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "오징어김치전"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오이도라지무침": {
+    "query": "오이도라지무침",
+    "normalized_query": "오이도라지무침",
+    "match_type": "exact",
+    "reference_menu": "오이도라지무침",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 3,
+        "evidence_reference_menu": "오이도라지무침"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 3,
+        "evidence_reference_menu": "오이도라지무침"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 3,
+        "evidence_reference_menu": "오이도라지무침"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "오이도라지무침"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "고구마샐러드": {
+    "query": "고구마샐러드",
+    "normalized_query": "고구마샐러드",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "망고샐러드",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "망고샐러드1",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "동치미": {
+    "query": "동치미",
+    "normalized_query": "동치미",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "통살치킨까스": {
+    "query": "통살치킨까스",
+    "normalized_query": "통살치킨가스",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "치킨가스",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "수제치킨가스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "우육면": {
+    "query": "우육면",
+    "normalized_query": "우육면",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "건두부무침": {
+    "query": "건두부무침",
+    "normalized_query": "건두부무침",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "#쑥갓두부무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "두부부침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "부추무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "matched_terms": [
+          "두부"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "짜사이": {
+    "query": "짜사이",
+    "normalized_query": "짜사이",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "짜사이무침",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#짜사이무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "짜사이채무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "두반장제육볶음": {
+    "query": "두반장제육볶음",
+    "normalized_query": "두반장제육볶음",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "제육볶음",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "제육볶음밥",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "matched_terms": [
+          "제육"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "계란국": {
+    "query": "계란국",
+    "normalized_query": "계란국",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "계란파국",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "계란실파국",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "황태계란국",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#계란실파국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "계란찜",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "계란"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "참치마요덮밥": {
+    "query": "참치마요덮밥",
+    "normalized_query": "참치마요덮밥",
+    "match_type": "exact",
+    "reference_menu": "참치마요덮밥",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "참치마요덮밥"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "잔치국수": {
+    "query": "잔치국수",
+    "normalized_query": "잔치국수",
+    "match_type": "exact",
+    "reference_menu": "잔치국수",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 6,
+        "labeled_record_count": 7,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 7,
+        "labeled_record_count": 8,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 8,
+        "evidence_reference_menu": "잔치국수"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "국물떡볶이": {
+    "query": "국물떡볶이",
+    "normalized_query": "국물떡볶이",
+    "match_type": "exact",
+    "reference_menu": "국물떡볶이",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 6,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 6,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 6,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 5,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 6,
+        "evidence_reference_menu": "국물떡볶이"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "김말이강정": {
+    "query": "김말이강정",
+    "normalized_query": "김말이강정",
+    "match_type": "exact",
+    "reference_menu": "김말이강정",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "김말이강정"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "단무지무침": {
+    "query": "단무지무침",
+    "normalized_query": "단무지무침",
+    "match_type": "exact",
+    "reference_menu": "단무지무침",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 5,
+        "evidence_reference_menu": "단무지무침"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 3,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "간장불고기": {
+    "query": "간장불고기",
+    "normalized_query": "간장불고기",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "간장소불고기",
+        "similarity": 0.9091,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "간장돼지불고기",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "간장오리불고기",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "돈육간장불고기",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "제육간장불고기",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "얼큰콩나물국": {
+    "query": "얼큰콩나물국",
+    "normalized_query": "얼큰콩나물국",
+    "match_type": "exact",
+    "reference_menu": "얼큰콩나물국",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "matched_terms": [
+          "콩나물"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 4,
+        "evidence_reference_menu": "얼큰콩나물국"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "베이컨감자채전": {
+    "query": "베이컨감자채전",
+    "normalized_query": "베이컨감자채전",
+    "match_type": "exact",
+    "reference_menu": "베이컨감자채전",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "베이컨감자채전"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "베이컨감자채전"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "청포묵김무침": {
+    "query": "청포묵김무침",
+    "normalized_query": "청포묵김무침",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "청포묵채김무침",
+        "similarity": 0.9231,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "청포묵무침",
+        "similarity": 0.9091,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "청포묵김가루무침",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "청포묵김가루무침#",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "동부묵김무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "망고주스": {
+    "query": "망고주스",
+    "normalized_query": "망고주스",
+    "match_type": "exact",
+    "reference_menu": "망고주스",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "망고주스"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "산채비빔밥&계란후라이": {
+    "query": "산채비빔밥&계란후라이",
+    "normalized_query": "산채비빔밥&계란후라이",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "계란"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "된장찌개": {
+    "query": "된장찌개",
+    "normalized_query": "된장찌개",
+    "match_type": "exact",
+    "reference_menu": "된장찌개",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 11,
+        "labeled_record_count": 16,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 11,
+        "labeled_record_count": 16,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 6,
+        "labeled_record_count": 7,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 5,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 16,
+        "evidence_reference_menu": "된장찌개"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "간장돼지불고기": {
+    "query": "간장돼지불고기",
+    "normalized_query": "간장돼지불고기",
+    "match_type": "exact",
+    "reference_menu": "간장돼지불고기",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "matched_terms": [
+          "돼지"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "간장돼지불고기"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "간장돼지불고기"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "간장돼지불고기"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "간장돼지불고기"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "간장돼지불고기"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "치커리무침": {
+    "query": "치커리무침",
+    "normalized_query": "치커리무침",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "치커리사과무침",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리유자무침",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리파채무침",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리사과무침#",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "치커리유자청무침",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "야구르트": {
+    "query": "야구르트",
+    "normalized_query": "야구르트",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "요구르트",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "요구르트런",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "투움바파스타&치킨텐더": {
+    "query": "투움바파스타&치킨텐더",
+    "normalized_query": "투움바파스타&치킨텐더",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "투움바파스타",
+        "similarity": 0.7059,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "소고기우거지국": {
+    "query": "소고기우거지국",
+    "normalized_query": "소고기우거지국",
+    "match_type": "exact",
+    "reference_menu": "소고기우거지국",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "matched_terms": [
+          "소고기"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "소고기우거지국"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "메밀전병": {
+    "query": "메밀전병",
+    "normalized_query": "메밀전병",
+    "match_type": "exact",
+    "reference_menu": "메밀전병",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 3,
+        "name": "메밀",
+        "matched_terms": [
+          "메밀"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 4,
+        "labeled_record_count": 7,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "labeled_school_count": 6,
+        "labeled_record_count": 9,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 6,
+        "labeled_record_count": 9,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 6,
+        "labeled_record_count": 9,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 7,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 4,
+        "labeled_record_count": 7,
+        "total_record_count": 9,
+        "evidence_reference_menu": "메밀전병"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오그락지": {
+    "query": "오그락지",
+    "normalized_query": "오그락지",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "묵은지참치비빔밥": {
+    "query": "묵은지참치비빔밥",
+    "normalized_query": "묵은지참치비빔밥",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "탕국": {
+    "query": "탕국",
+    "normalized_query": "탕국",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "왕돈까스": {
+    "query": "왕돈까스",
+    "normalized_query": "왕돈가스",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "수제왕돈가스",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "돈가스소스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "등심돈가스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "미니돈가스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "순살돈가스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "미니우동": {
+    "query": "미니우동",
+    "normalized_query": "미니우동",
+    "match_type": "exact",
+    "reference_menu": "미니우동",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 5,
+        "evidence_reference_menu": "미니우동"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "비엔나강정": {
+    "query": "비엔나강정",
+    "normalized_query": "비엔나강정",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "요구르트": {
+    "query": "요구르트",
+    "normalized_query": "요구르트",
+    "match_type": "exact",
+    "reference_menu": "요구르트",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "matched_terms": [
+          "요구르트"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 8,
+        "labeled_record_count": 11,
+        "total_record_count": 11,
+        "evidence_reference_menu": "요구르트"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "그린샐러드": {
+    "query": "그린샐러드",
+    "normalized_query": "그린샐러드",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "그린샐러드2",
+        "similarity": 0.9091,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "그린샐러드4",
+        "similarity": 0.9091,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "황도그린샐러드",
+        "similarity": 0.8333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "그린샐러드키위d",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "만다린샐러드",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "얼큰수육국밥": {
+    "query": "얼큰수육국밥",
+    "normalized_query": "얼큰수육국밥",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "얼큰수제비국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "치킨너겟*머스타드": {
+    "query": "치킨너겟*머스타드",
+    "normalized_query": "치킨너겟*머스타드",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "양파절임": {
+    "query": "양파절임",
+    "normalized_query": "양파절임",
+    "match_type": "exact",
+    "reference_menu": "양파절임",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "양파절임"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "양파절임"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "양파절임"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "돈가스&브라운S": {
+    "query": "돈가스&브라운S",
+    "normalized_query": "돈가스&브라운s",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "돈가스/브라운소스",
+        "similarity": 0.7059,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "크림스프": {
+    "query": "크림스프",
+    "normalized_query": "크림스프",
+    "match_type": "exact",
+    "reference_menu": "크림스프",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 4,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "크림스프"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "감자튀김": {
+    "query": "감자튀김",
+    "normalized_query": "감자튀김",
+    "match_type": "exact",
+    "reference_menu": "감자튀김",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "감자튀김"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "쫄면": {
+    "query": "쫄면",
+    "normalized_query": "쫄면",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "#쫄면",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "쫄면무침",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "김치볶음밥": {
+    "query": "김치볶음밥",
+    "normalized_query": "김치볶음밥",
+    "match_type": "exact",
+    "reference_menu": "김치볶음밥",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 6,
+        "evidence_reference_menu": "김치볶음밥"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "단무지&포기김치": {
+    "query": "단무지&포기김치",
+    "normalized_query": "단무지&포기김치",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "포기김치",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "빼빼로": {
+    "query": "빼빼로",
+    "normalized_query": "빼빼로",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "빼빼로뻥",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "등심돈까스": {
+    "query": "등심돈까스",
+    "normalized_query": "등심돈가스",
+    "match_type": "exact",
+    "reference_menu": "등심돈가스",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 3,
+        "evidence_reference_menu": "등심돈가스"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "들깨오리탕": {
+    "query": "들깨오리탕",
+    "normalized_query": "들깨오리탕",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "볼어묵볶음": {
+    "query": "볼어묵볶음",
+    "normalized_query": "볼어묵볶음",
+    "match_type": "exact",
+    "reference_menu": "볼어묵볶음",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "볼어묵볶음"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "볼어묵볶음"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "볼어묵볶음"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 2,
+        "evidence_reference_menu": "볼어묵볶음"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "알마늘지": {
+    "query": "알마늘지",
+    "normalized_query": "알마늘지",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "소불고기덮밥": {
+    "query": "소불고기덮밥",
+    "normalized_query": "소불고기덮밥",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "소불고기",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "김치불고기덮밥",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "낙지불고기덮밥",
+        "similarity": 0.7692,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "불고기솥밥",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "파소불고기",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "무국": {
+    "query": "무국",
+    "normalized_query": "무국",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "북어무국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "얼큰무국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "장조림버터비빔밥": {
+    "query": "장조림버터비빔밥",
+    "normalized_query": "장조림버터비빔밥",
+    "match_type": "exact",
+    "reference_menu": "장조림버터비빔밥",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "matched_terms": [
+          "버터"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 4,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 4,
+        "evidence_reference_menu": "장조림버터비빔밥"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "온모밀": {
+    "query": "온모밀",
+    "normalized_query": "온모밀",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "온모밀국수",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "냉모밀",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "마약옥수수": {
+    "query": "마약옥수수",
+    "normalized_query": "마약옥수수",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "옥수수밥",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "옥수수빵",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "치즈맛감자": {
+    "query": "치즈맛감자",
+    "normalized_query": "치즈맛감자",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "치즈감자전",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "matched_terms": [
+          "치즈"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "비트무피클": {
+    "query": "비트무피클",
+    "normalized_query": "비트무피클",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "#무피클",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "석류차": {
+    "query": "석류차",
+    "normalized_query": "석류차",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "닭볶음탕": {
+    "query": "닭볶음탕",
+    "normalized_query": "닭볶음탕",
+    "match_type": "exact",
+    "reference_menu": "닭볶음탕",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "닭"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 6,
+        "labeled_record_count": 13,
+        "total_record_count": 13,
+        "evidence_reference_menu": "닭볶음탕"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 6,
+        "labeled_record_count": 13,
+        "total_record_count": 13,
+        "evidence_reference_menu": "닭볶음탕"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 6,
+        "labeled_record_count": 13,
+        "total_record_count": 13,
+        "evidence_reference_menu": "닭볶음탕"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 6,
+        "labeled_record_count": 13,
+        "total_record_count": 13,
+        "evidence_reference_menu": "닭볶음탕"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 2,
+        "labeled_record_count": 4,
+        "total_record_count": 13,
+        "evidence_reference_menu": "닭볶음탕"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "계란파국": {
+    "query": "계란파국",
+    "normalized_query": "계란파국",
+    "match_type": "exact",
+    "reference_menu": "계란파국",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "계란"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 7,
+        "labeled_record_count": 8,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 5,
+        "labeled_record_count": 6,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 8,
+        "evidence_reference_menu": "계란파국"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "야채춘권*칠리소스": {
+    "query": "야채춘권*칠리소스",
+    "normalized_query": "야채춘권*칠리소스",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "느타리버섯볶음": {
+    "query": "느타리버섯볶음",
+    "normalized_query": "느타리버섯볶음",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "애느타리버섯볶음",
+        "similarity": 0.9333,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "버섯볶음",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "느타리버섯무침",
+        "similarity": 0.7143,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "육개장": {
+    "query": "육개장",
+    "normalized_query": "육개장",
+    "match_type": "exact",
+    "reference_menu": "육개장",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 9,
+        "labeled_record_count": 13,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 11,
+        "labeled_record_count": 15,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 11,
+        "labeled_record_count": 15,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 2,
+        "labeled_record_count": 2,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 11,
+        "labeled_record_count": 16,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 3,
+        "labeled_record_count": 3,
+        "total_record_count": 16,
+        "evidence_reference_menu": "육개장"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "닭강정": {
+    "query": "닭강정",
+    "normalized_query": "닭강정",
+    "match_type": "exact",
+    "reference_menu": "닭강정",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "닭"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "닭강정"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "새송이버섯볶음": {
+    "query": "새송이버섯볶음",
+    "normalized_query": "새송이버섯볶음",
+    "match_type": "exact",
+    "reference_menu": "새송이버섯볶음",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": 1,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "2종김치": {
+    "query": "2종김치",
+    "normalized_query": "2종김치",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "치즈돈까스": {
+    "query": "치즈돈까스",
+    "normalized_query": "치즈돈가스",
+    "match_type": "exact",
+    "reference_menu": "치즈돈가스",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "matched_terms": [
+          "치즈"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "치즈돈가스"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "시금치치킨프리카세": {
+    "query": "시금치치킨프리카세",
+    "normalized_query": "시금치치킨프리카세",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 15,
+        "name": "닭고기",
+        "matched_terms": [
+          "치킨"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "어니언링*케찹": {
+    "query": "어니언링*케찹",
+    "normalized_query": "어니언링*케찹",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "갈릭쉬림프덮밥": {
+    "query": "갈릭쉬림프덮밥",
+    "normalized_query": "갈릭쉬림프덮밥",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "미소국": {
+    "query": "미소국",
+    "normalized_query": "미소국",
+    "match_type": "exact",
+    "reference_menu": "미소국",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "미소국"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "미소국"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "새우튀김덮밥": {
+    "query": "새우튀김덮밥",
+    "normalized_query": "새우튀김덮밥",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "새우튀김",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "새우볼튀김",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "왕새우튀김",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "새우튀김꼬치",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 9,
+        "name": "새우",
+        "matched_terms": [
+          "새우"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "짬뽕국물": {
+    "query": "짬뽕국물",
+    "normalized_query": "짬뽕국물",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "짬뽕국",
+        "similarity": 0.8571,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#짬뽕국",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "얼큰짬뽕국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "차돌짬뽕국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "해물짬뽕국",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "카레고로케": {
+    "query": "카레고로케",
+    "normalized_query": "카레고로케",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "마카로니샐러드": {
+    "query": "마카로니샐러드",
+    "normalized_query": "마카로니샐러드",
+    "match_type": "exact",
+    "reference_menu": "마카로니샐러드",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5,
+        "evidence_reference_menu": "마카로니샐러드"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "알새우칩": {
+    "query": "알새우칩",
+    "normalized_query": "알새우칩",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 9,
+        "name": "새우",
+        "matched_terms": [
+          "새우"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "차돌순두부찌개": {
+    "query": "차돌순두부찌개",
+    "normalized_query": "차돌순두부찌개",
+    "match_type": "synonym",
+    "reference_menu": "차돌순두부찌개",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 5,
+        "name": "대두",
+        "matched_terms": [
+          "두부"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "차돌순두부찌개"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오징어까스*타르소스": {
+    "query": "오징어까스*타르소스",
+    "normalized_query": "오징어까스*타르소스",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "오징어까스",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [
+      {
+        "number": 17,
+        "name": "오징어",
+        "matched_terms": [
+          "오징어"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "맛살마늘쫑볶음": {
+    "query": "맛살마늘쫑볶음",
+    "normalized_query": "맛살마늘쫑볶음",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "건새우마늘쫑볶음",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "마늘쫑건새우볶음",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "마늘쫑쥐어채볶음",
+        "similarity": 0.6667,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "오복지무침": {
+    "query": "오복지무침",
+    "normalized_query": "오복지무침",
+    "match_type": "review",
+    "reference_menu": null,
+    "candidates": [
+      {
+        "reference_menu": "오이지무침",
+        "similarity": 0.8,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "오복지",
+        "similarity": 0.75,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#오복채무침",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "#오이지무침",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      },
+      {
+        "reference_menu": "오이지무침1",
+        "similarity": 0.7273,
+        "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+      }
+    ],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "등뼈감자탕": {
+    "query": "등뼈감자탕",
+    "normalized_query": "등뼈감자탕",
+    "match_type": "exact",
+    "reference_menu": "등뼈감자탕",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1,
+        "evidence_reference_menu": "등뼈감자탕"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "계란말이": {
+    "query": "계란말이",
+    "normalized_query": "계란말이",
+    "match_type": "exact",
+    "reference_menu": "계란말이",
+    "candidates": [],
+    "name_explicit_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "matched_terms": [
+          "계란"
+        ],
+        "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+      }
+    ],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 7,
+        "labeled_record_count": 15,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 2,
+        "labeled_record_count": 6,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 6,
+        "labeled_record_count": 14,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 6,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 4,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 3,
+        "labeled_record_count": 5,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 4,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 4,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 2,
+        "labeled_record_count": 6,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 2,
+        "labeled_record_count": 6,
+        "total_record_count": 15,
+        "evidence_reference_menu": "계란말이"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "사각어묵볶음": {
+    "query": "사각어묵볶음",
+    "normalized_query": "사각어묵볶음",
+    "match_type": "exact",
+    "reference_menu": "사각어묵볶음",
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "사각어묵볶음"
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "사각어묵볶음"
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "사각어묵볶음"
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 3,
+        "evidence_reference_menu": "사각어묵볶음"
+      }
+    ],
+    "unknown": {
+      "unlabeled_record_count": 0,
+      "review_record_count": 0,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  },
+  "알마늘장아찌": {
+    "query": "알마늘장아찌",
+    "normalized_query": "알마늘장아찌",
+    "match_type": "unmatched",
+    "reference_menu": null,
+    "candidates": [],
+    "name_explicit_ingredients": [],
+    "neis_possible_ingredients": [],
+    "unknown": {
+      "unlabeled_record_count": null,
+      "review_record_count": null,
+      "actual_hyu_ingredients_verified": false,
+      "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+    }
+  }
+}

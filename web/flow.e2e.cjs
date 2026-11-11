@@ -17,11 +17,15 @@ const note=name=>checks.push(name);
  const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  const stage=()=>page.locator('body').getAttribute('data-flow-step');
  const shot=name=>page.screenshot({path:path.join(output,name+'.png'),fullPage:true});
+ async function submitResult(){
+  if(await stage()==='2')await page.locator('[data-flow-next="3"]').click();
+  await page.locator('#personalSubmit').click();
+ }
  async function resultFor(goal){
-  if(await stage()==='4')await editStep(2);
+  if(await stage()==='4')await editStep(3);
   await page.locator(`[name=goal][value=${goal}]`).check({force:true});
   if(goal==='weight_loss')await page.locator('[name=monthlyLossKg]').fill('');
-  await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();assert.equal(await stage(),'4');
+  await submitResult();assert.equal(await stage(),'4');
  }
 
   async function editStep(step){
@@ -42,24 +46,24 @@ const note=name=>checks.push(name);
  assert(!(await page.locator('#resultEer').isVisible()));await page.locator('#eerBasis summary').click();assert((await page.locator('#eerBasis').innerText()).includes('539.6'));await page.locator('#eerBasis summary').click();
  await page.locator('#rememberProfile').check();await shot('basic');note('필수값·20세 검증, 활동 설명, EER 펼쳐보기·결과 전 숨김');
  await page.locator('[data-flow-next="2"]').click();assert.equal(await stage(),'2');
- assert.equal(await page.locator('[name=goal]').count(),7);
+ assert(await page.locator('#allergyStepHeading').isVisible());assert.equal(await page.locator('#allergyNext').innerText(),'건너뛰기');
+ await page.locator('#allergyToggle').click();assert.equal(await page.locator('#allergyOptions input').count(),19);
+ for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();
+ await page.locator('#allergyDone').click();assert.equal(await page.locator('#allergyNext').innerText(),'다음');await shot('allergy');
+ await page.locator('[data-flow-next="3"]').click();assert.equal(await stage(),'3');
  for(const goal of groups){
   await page.locator(`[name=goal][value=${goal}]`).check({force:true});assert.equal(await page.locator('[name=goal]:checked').count(),1);
   assert.equal(await page.locator('#weightLossField').isVisible(),goal==='weight_loss');assert(await page.locator('#goalDescription').isVisible());
-  await page.locator('#goalBasis').evaluate(el=>el.open=true);assert(await page.locator(`[data-goal-basis=${goal}]`).isVisible());
  }
- await page.locator('[name=goal][value=weight_loss]').check({force:true});await page.locator('[name=monthlyLossKg]').fill('-1');await page.locator('[data-flow-next="3"]').click();assert.equal(await stage(),'2');
- await page.locator('[name=goal][value=balanced]').check({force:true});await page.locator('#goalBasis').evaluate(el=>el.open=false);await shot('goals');note('7목표 단일 선택·목표별 설명·감량 조건부 입력과 음수 검증');
- await page.locator('[data-flow-next="3"]').click();assert.equal(await stage(),'3');assert.equal(await page.locator('#personalSubmit').innerText(),'건너뛰기');
- await page.goBack();assert.equal(await stage(),'2');assert(await page.locator('[name=goal][value=balanced]').isChecked());await page.locator('[data-flow-next="3"]').click();
- await page.locator('#allergyToggle').click();assert.equal(await page.locator('#allergyOptions input').count(),19);
- for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();
- await page.locator('#allergyDone').click();assert.equal(await page.locator('#personalSubmit').innerText(),'다음');
- await page.locator('#guideStep3 [data-flow-back]').click();assert.equal(await stage(),'2');assert(await page.locator('[name=goal][value=balanced]').isChecked());
+ await page.locator('[name=goal][value=weight_loss]').check({force:true});await page.locator('[name=monthlyLossKg]').fill('-1');await submitResult();assert.equal(await stage(),'3');
+ await page.locator('[name=goal][value=balanced]').check({force:true});await shot('goals');
+ await page.locator('#guideStep3 [data-flow-back]').click();assert.equal(await stage(),'2');assert((await page.locator('#allergyToggle').innerText()).includes('2개 선택'));
  await page.locator('#guideStep2 [data-flow-back]').click();assert.equal(await stage(),'1');assert.equal(await page.locator('[name=heightCm]').inputValue(),'170');
- await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();assert((await page.locator('#allergyToggle').innerText()).includes('2개 선택'));assert.equal(await page.locator('#personalSubmit').innerText(),'다음');
- await shot('allergy');await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();await page.locator('#allergyDone').click();assert.equal(await page.locator('#personalSubmit').innerText(),'건너뛰기');note('19종 드롭다운·다중 선택·해제·완료·다음/건너뛰기 및 브라우저 뒤로 가기');
- await page.locator('#personalSubmit').click();assert.equal(await stage(),'4');assert((await page.locator('#resultEer').innerText()).includes('kcal'));
+ await page.locator('[data-flow-next="2"]').click();await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();await page.locator('#allergyDone').click();
+ assert.equal(await page.locator('#allergyNext').innerText(),'건너뛰기');await page.locator('[data-flow-next="3"]').click();assert(await page.locator('[name=goal][value=balanced]').isChecked());
+ await page.goBack();assert.equal(await stage(),'2');await page.locator('[data-flow-next="3"]').click();
+ await submitResult();assert.equal(await stage(),'4');
+ note('기본정보 → 알레르기 → 영양목표 순서, 19종 선택, 7목표와 감량 검증, 뒤로가기 입력 유지');
  const date='2026-11-04';const modeChecks=[];
  for(const goal of groups){
   await resultFor(goal);
@@ -83,28 +87,34 @@ const note=name=>checks.push(name);
  await page.locator('#sheetClose').click();note('상세정보 영양표·교환단위 유지; 상단 추천 설명·NRF 박스 제거');
  const tabs=page.locator('#shopTabs button');await tabs.nth(1).click();assert((await page.locator('.rank-pill').allTextContents()).every(t=>!t.includes('전체')));await tabs.first().click();
  await editStep(1);assert.equal(await page.locator('[name=age]').inputValue(),'22');await page.locator('[name=mealCount][value="2"]').check({force:true});
- await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();
+ await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await submitResult();
  const two=await page.evaluate(()=>ACTIVE_CONTEXT);assert.equal(two.mealCount,2);const three=Score.createContext(profile,'lifestyle',normal,glycemic);two.mealTarget.forEach((v,i)=>assert.equal(v,three.mealTarget[i]*1.5));
- await editStep(1);await page.locator('[name=mealCount][value="3"]').check({force:true});await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#personalSubmit').click();
+ await editStep(1);await page.locator('[name=mealCount][value="3"]').check({force:true});await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await submitResult();
  await shot('results-desktop');note('결과에서 기본 정보 수정·2끼/3끼 목표·식당 탭 유지');
- await editStep(3);await page.locator('#allergyToggle').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(2);await page.locator('#allergyToggle').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await submitResult();
  assert.equal(await page.locator('.card').count(),6);assert(await page.locator('.allergy-excluded-card').count()>0);
  for(const c of await page.locator('.allergy-excluded-card').all()){assert.equal(await c.locator('.rank-pill').count(),0);assert.equal(await c.locator('.card-more').count(),0);}
  note('제외 카드 회색·후순위·무순위·선택 불가 및 전체 메뉴 수 유지');
- await editStep(3);await page.locator('#allergyToggle').click();for(const input of await page.locator('#allergyOptions input').all())await input.check({force:true});await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(2);await page.locator('#allergyToggle').click();for(const input of await page.locator('#allergyOptions input').all())await input.check({force:true});await page.locator('#allergyDone').click();await submitResult();
  assert.equal(await page.locator('.allergy-excluded-card').count(),6);assert.equal(await page.locator('.rank-pill').count(),0);assert(await page.locator('.empty-note').isVisible());note('모든 메뉴 알레르기 제외 시 안내 유지');
- await editStep(3);await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await editStep(2);await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();for(const n of [2,9])await page.locator(`#allergyOptions input[value="${n}"]`).check();await page.locator('#allergyDone').click();await submitResult();
  const stored=await page.evaluate(()=>localStorage.getItem('hyu-menu-guide.profile.v1'));assert(stored);
  await page.reload();await page.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);assert.equal(await stage(),'0');await page.locator('#guideStart').click();assert.equal(await page.locator('[name=age]').inputValue(),'22');assert(await page.locator('#rememberProfile').isChecked());
  const state=await context.storageState(),reopened=await browser.newContext({storageState:state});const restored=await reopened.newPage();await restored.goto(url+'?date=2026-11-04');await restored.waitForFunction(()=>!document.querySelector('#personalSubmit').disabled);await restored.locator('#guideStart').click();assert.equal(await restored.locator('[name=weightKg]').inputValue(),'65');await reopened.close();
  await page.evaluate(()=>localStorage.setItem('unrelated-test','keep'));await page.locator('#deleteProfile').click();assert.equal(await page.evaluate(()=>localStorage.getItem('hyu-menu-guide.profile.v1')),null);assert.equal(await page.evaluate(()=>localStorage.getItem('unrelated-test')),'keep');await page.locator('[name=weightKg]').fill('66');assert.equal(await page.evaluate(()=>localStorage.getItem('hyu-menu-guide.profile.v1')),null);note('기억 동의·새로고침/재접속 복원·삭제·미동의 영구 저장 없음');
- await page.locator('[name=weightKg]').fill('65');await page.locator('[data-flow-next="2"]').click();await page.locator('[data-flow-next="3"]').click();await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();await page.locator('#allergyDone').click();await page.locator('#personalSubmit').click();
+ await page.locator('[name=weightKg]').fill('65');await page.locator('[data-flow-next="2"]').click();await page.locator('#allergyToggle').click();await page.locator('#allergyClear').click();await page.locator('#allergyDone').click();await submitResult();
  await page.locator('#dateStrip button').filter({hasText:'11/3'}).click();assert((await page.locator('#dayTitle').innerText()).includes('2026.11.03'));
  const expectedPhotos=rows.filter(r=>r.date==='2026-11-03'&&r.photo).length;assert.equal(await page.locator('#shopGrid .card img').count(),expectedPhotos);
  await page.locator('#shopGrid .card img').evaluateAll(imgs=>{imgs.forEach(i=>i.loading='eager');return Promise.race([Promise.all(imgs.map(i=>i.decode().catch(()=>{}))),new Promise(r=>setTimeout(r,5000))]);});
  assert(await page.locator('#shopGrid .card img').evaluateAll(imgs=>imgs.every(i=>i.naturalWidth>0)));note('결과 날짜 변경·기존 사진 전체 로딩');
  await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
  const rects=await page.locator('.card').evaluateAll(cards=>cards.map(c=>{const r=c.getBoundingClientRect();return {left:r.left,top:r.top};}));for(let i=1;i<rects.length;i++){assert.equal(rects[i].left,rects[0].left);assert(rects[i].top>rects[i-1].top);}
- await shot('results-mobile');await editStep(3);await page.locator('#allergyToggle').click();assert(await page.locator('#allergyPanel').isVisible());assert(await page.locator('#allergyOptions').evaluate(el=>el.scrollHeight>el.clientHeight));await shot('allergy-mobile');note('모바일 세로 목록·가로 넘침 없음·스크롤 드롭다운');
+ await shot('results-mobile');await editStep(2);await page.locator('#allergyToggle').click();assert(await page.locator('#allergyPanel').isVisible());assert(await page.locator('#allergyOptions').evaluate(el=>el.scrollHeight>el.clientHeight));await shot('allergy-mobile');note('모바일 세로 목록·가로 넘침 없음·스크롤 드롭다운');
+ const visibleDates=await page.locator('#dateStrip button').evaluateAll(buttons=>buttons.map(b=>b.getAttribute('aria-label').slice(0,10).replaceAll('.','-')));
+ const expectedDates=[...new Set(rows.map(r=>r.date))].filter(d=>d>='2026-10-26').sort();
+ assert.deepEqual(visibleDates,expectedDates);
+ const preservedDates=await page.evaluate(()=>({count:BASE_DATA.length,earliest:BASE_DATA.map(r=>r.date).sort()[0],older:BASE_DATA.filter(r=>r.date<'2026-10-26').length}));
+ assert.equal(preservedDates.count,rows.length);assert(preservedDates.earliest<'2026-10-26');assert(preservedDates.older>0);
+ note('추천 날짜는 10/26 이후만 표시하고 이전 메뉴 데이터 전체는 유지');
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'browser-report.json'),JSON.stringify({checks,modeChecks,errors},null,2));console.log(JSON.stringify({passed:checks.length,checks,errors},null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{await browser?.close();});

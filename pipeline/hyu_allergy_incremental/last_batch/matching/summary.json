@@ -1,0 +1,1419 @@
+{
+  "meal_rows": 35,
+  "unique_main_names": 31,
+  "meal_main_match_counts": {
+    "완전일치": 11,
+    "표기동의어": 2,
+    "검토필요": 11,
+    "미매칭": 11
+  },
+  "unique_main_match_counts": {
+    "미매칭": 7,
+    "검토필요": 11,
+    "완전일치": 11,
+    "표기동의어": 2
+  },
+  "source_supported_component_occurrences": 181,
+  "component_match_counts": {
+    "완전일치": 82,
+    "표기동의어": 2,
+    "검토필요": 59,
+    "미매칭": 38
+  },
+  "calculation_only_component_occurrences": 20,
+  "reference_evidence_records": 853,
+  "successful_examples": [
+    {
+      "meal_key": [
+        "2026-11-09",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "고구마치즈돈까스",
+        "normalized_query": "고구마치즈돈가스",
+        "match_type": "synonym",
+        "reference_menu": "고구마치즈돈가스",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 2,
+            "name": "우유",
+            "matched_terms": [
+              "치즈"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 1,
+            "name": "난류",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 12,
+            "name": "토마토",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "고구마치즈돈가스"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-13",
+        "204",
+        "정식",
+        "차돌순두부찌개"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "차돌순두부찌개",
+        "normalized_query": "차돌순두부찌개",
+        "match_type": "synonym",
+        "reference_menu": "차돌순두부찌개",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 5,
+            "name": "대두",
+            "matched_terms": [
+              "두부"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 1,
+            "name": "난류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 17,
+            "name": "오징어",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "차돌순두부찌개"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-09",
+        "204",
+        "일품",
+        "김밥볶음밥"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "김밥볶음밥",
+        "normalized_query": "김밥볶음밥",
+        "match_type": "exact",
+        "reference_menu": "김밥볶음밥",
+        "candidates": [],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          },
+          {
+            "number": 12,
+            "name": "토마토",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "김밥볶음밥"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-12",
+        "204",
+        "정식",
+        "닭볶음탕"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "닭볶음탕",
+        "normalized_query": "닭볶음탕",
+        "match_type": "exact",
+        "reference_menu": "닭볶음탕",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 15,
+            "name": "닭고기",
+            "matched_terms": [
+              "닭"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 6,
+            "labeled_record_count": 13,
+            "total_record_count": 13,
+            "evidence_reference_menu": "닭볶음탕"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 6,
+            "labeled_record_count": 13,
+            "total_record_count": 13,
+            "evidence_reference_menu": "닭볶음탕"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 6,
+            "labeled_record_count": 13,
+            "total_record_count": 13,
+            "evidence_reference_menu": "닭볶음탕"
+          },
+          {
+            "number": 15,
+            "name": "닭고기",
+            "labeled_school_count": 6,
+            "labeled_record_count": 13,
+            "total_record_count": 13,
+            "evidence_reference_menu": "닭볶음탕"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 2,
+            "labeled_record_count": 4,
+            "total_record_count": 13,
+            "evidence_reference_menu": "닭볶음탕"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-09",
+        "204",
+        "정식",
+        "돈육김치찌개"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "돈육김치찌개",
+        "normalized_query": "돈육김치찌개",
+        "match_type": "exact",
+        "reference_menu": "돈육김치찌개",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "돈육"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 5,
+            "labeled_record_count": 5,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 8,
+            "name": "게",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 5,
+            "labeled_record_count": 5,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 5,
+            "labeled_record_count": 5,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "evidence_reference_menu": "돈육김치찌개"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-13",
+        "401",
+        "중식 - Korean Dining",
+        "등뼈감자탕"
+      ],
+      "shop_name": "생활과학관식당",
+      "result": {
+        "query": "등뼈감자탕",
+        "normalized_query": "등뼈감자탕",
+        "match_type": "exact",
+        "reference_menu": "등뼈감자탕",
+        "candidates": [],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 15,
+            "name": "닭고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "evidence_reference_menu": "등뼈감자탕"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-12",
+        "105",
+        "양식",
+        "등심돈까스"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "등심돈까스",
+        "normalized_query": "등심돈가스",
+        "match_type": "exact",
+        "reference_menu": "등심돈가스",
+        "candidates": [],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [
+          {
+            "number": 1,
+            "name": "난류",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 12,
+            "name": "토마토",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 2,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 3,
+            "evidence_reference_menu": "등심돈가스"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-11",
+        "105",
+        "즉석",
+        "소고기우거지국"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "소고기우거지국",
+        "normalized_query": "소고기우거지국",
+        "match_type": "exact",
+        "reference_menu": "소고기우거지국",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소고기"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 8,
+            "name": "게",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 15,
+            "name": "닭고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기우거지국"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-12",
+        "401",
+        "중식 - Korean Dining",
+        "육개장"
+      ],
+      "shop_name": "생활과학관식당",
+      "result": {
+        "query": "육개장",
+        "normalized_query": "육개장",
+        "match_type": "exact",
+        "reference_menu": "육개장",
+        "candidates": [],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [
+          {
+            "number": 1,
+            "name": "난류",
+            "labeled_school_count": 9,
+            "labeled_record_count": 13,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 11,
+            "labeled_record_count": 15,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 11,
+            "labeled_record_count": 15,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 8,
+            "name": "게",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 4,
+            "labeled_record_count": 5,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 11,
+            "labeled_record_count": 16,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 16,
+            "evidence_reference_menu": "육개장"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-12",
+        "204",
+        "일품",
+        "장조림버터비빔밥"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "장조림버터비빔밥",
+        "normalized_query": "장조림버터비빔밥",
+        "match_type": "exact",
+        "reference_menu": "장조림버터비빔밥",
+        "candidates": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 2,
+            "name": "우유",
+            "matched_terms": [
+              "버터"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [
+          {
+            "number": 1,
+            "name": "난류",
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 4,
+            "labeled_record_count": 4,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          },
+          {
+            "number": 18,
+            "name": "조개류(굴·전복·홍합 포함)",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 4,
+            "evidence_reference_menu": "장조림버터비빔밥"
+          }
+        ],
+        "unknown": {
+          "unlabeled_record_count": 0,
+          "review_record_count": 0,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    }
+  ],
+  "ambiguous_examples": [
+    {
+      "meal_key": [
+        "2026-11-10",
+        "204",
+        "정식",
+        "간장불고기"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "간장불고기",
+        "normalized_query": "간장불고기",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "간장소불고기",
+            "similarity": 0.9091,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "간장돼지불고기",
+            "similarity": 0.8333,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "간장오리불고기",
+            "similarity": 0.8333,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "돈육간장불고기",
+            "similarity": 0.8333,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "제육간장불고기",
+            "similarity": 0.8333,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-09",
+        "105",
+        "즉석",
+        "고깃집된장찌개"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "고깃집된장찌개",
+        "normalized_query": "고깃집된장찌개",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "된장찌개",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "고추장찌개",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-11",
+        "401",
+        "중식 - Korean Dining",
+        "돈가스&브라운S"
+      ],
+      "shop_name": "생활과학관식당",
+      "result": {
+        "query": "돈가스&브라운S",
+        "normalized_query": "돈가스&브라운s",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "돈가스/브라운소스",
+            "similarity": 0.7059,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-10",
+        "105",
+        "한식",
+        "두반장제육볶음"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "두반장제육볶음",
+        "normalized_query": "두반장제육볶음",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "제육볶음",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "제육볶음밥",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "제육"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-13",
+        "204",
+        "일품",
+        "새우튀김덮밥"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "새우튀김덮밥",
+        "normalized_query": "새우튀김덮밥",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "새우튀김",
+            "similarity": 0.8,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "새우볼튀김",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "왕새우튀김",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "새우튀김꼬치",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [
+          {
+            "number": 9,
+            "name": "새우",
+            "matched_terms": [
+              "새우"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-12",
+        "105",
+        "한식",
+        "소불고기덮밥"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "소불고기덮밥",
+        "normalized_query": "소불고기덮밥",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "소불고기",
+            "similarity": 0.8,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "김치불고기덮밥",
+            "similarity": 0.7692,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "낙지불고기덮밥",
+            "similarity": 0.7692,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "불고기솥밥",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "파소불고기",
+            "similarity": 0.7273,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-09",
+        "105",
+        "한식",
+        "스리라차치킨마요덮밥"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "스리라차치킨마요덮밥",
+        "normalized_query": "스리라차치킨마요덮밥",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "치킨마요덮밥",
+            "similarity": 0.75,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "#치킨마요덮밥",
+            "similarity": 0.7059,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "수제치킨마요덮밥",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "스팸김치마요덮밥",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "팝콘치킨마요덮밥",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [
+          {
+            "number": 15,
+            "name": "닭고기",
+            "matched_terms": [
+              "치킨"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-11",
+        "204",
+        "정식",
+        "얼큰수육국밥"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "얼큰수육국밥",
+        "normalized_query": "얼큰수육국밥",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "얼큰수제비국",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-11",
+        "204",
+        "일품",
+        "왕돈까스"
+      ],
+      "shop_name": "신소재공학관식당",
+      "result": {
+        "query": "왕돈까스",
+        "normalized_query": "왕돈가스",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "수제왕돈가스",
+            "similarity": 0.8,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "돈가스소스",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "등심돈가스",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "미니돈가스",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "순살돈가스",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    },
+    {
+      "meal_key": [
+        "2026-11-10",
+        "105",
+        "양식",
+        "통살치킨까스"
+      ],
+      "shop_name": "학생식당",
+      "result": {
+        "query": "통살치킨까스",
+        "normalized_query": "통살치킨가스",
+        "match_type": "review",
+        "reference_menu": null,
+        "candidates": [
+          {
+            "reference_menu": "치킨가스",
+            "similarity": 0.8,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          },
+          {
+            "reference_menu": "수제치킨가스",
+            "similarity": 0.6667,
+            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+          }
+        ],
+        "name_explicit_ingredients": [
+          {
+            "number": 15,
+            "name": "닭고기",
+            "matched_terms": [
+              "치킨"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible_ingredients": [],
+        "unknown": {
+          "unlabeled_record_count": null,
+          "review_record_count": null,
+          "actual_hyu_ingredients_verified": false,
+          "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+        }
+      }
+    }
+  ],
+  "input_sha256": {
+    "web\\site_data.json": "bd093cf6107484cac0dd7e3ac97104c993389d13062fc64dea115c71b049c6c6",
+    "hanyang_menu_month.json": "919cf7247cd4bbf2c22b7b5509ea08259c93e7539744fc64f3da2d67987c079a",
+    "month_lunch_trays.json": "c95dc37a7f89e3d07f2891a72f22e0c82c3bf0a68d4bdc8354ddd1afd569ef3c",
+    "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
+  },
+  "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",
+  "interpretation": "명칭 일치만 확정. 한양대 실물의 성분은 확정하지 않음. 후보 성분은 미적용."
+}

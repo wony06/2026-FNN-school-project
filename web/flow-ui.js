@@ -14,7 +14,7 @@
       document.body.dataset.flowStep=String(step);
       document.getElementById('flowStepper').hidden=step===0;
       document.querySelectorAll('[data-progress-step]').forEach(item=>{const number=Number(item.dataset.progressStep);item.dataset.state=number===step?'current':number<step?'done':'pending';if(number===step)item.setAttribute('aria-current','step');else item.removeAttribute('aria-current');});
-      document.getElementById('flowProgress').textContent=step===0?'나에게 맞는 학식 찾기':`${step} / 4 · ${['','기본 정보','영양 목표','추가 설정','개인 맞춤 서비스'][step]}`;
+      document.getElementById('flowProgress').textContent=step===0?'나에게 맞는 학식 찾기':`${step} / 4 · ${['','기본 정보','알레르기 설정','영양 목표','개인 맞춤 서비스'][step]}`;
       const panel=document.getElementById('allergyPanel');panel.hidden=true;document.getElementById('allergyToggle').setAttribute('aria-expanded','false');
       if(historyMode!=='none'){
         const url=new URL(location.href);url.hash=`step=${step}`;
@@ -38,22 +38,22 @@
     }
     function validateSettings(){
       if(!ready){showError('메뉴 자료를 불러오는 중입니다. 잠시 후 다시 시도해주세요.');return false;}
-      if(!validateSection(2))return false;
+      if(!validateSection(3))return false;
       try{validateGoal();return true;}
-      catch(error){showError(error.message,2);return false;}
+      catch(error){showError(error.message,3);return false;}
     }
     function validateForResults(){clearError();return validateSection(1)&&validateSettings();}
     function next(){
       clearError();
       if(current===0)show(1);
       else if(current===1&&validateSection(1))show(2);
-      else if(current===2&&validateSettings())show(3);
+      else if(current===2)show(3);
       else if(current===3&&ready)form.requestSubmit(submit);
     }
-    function updateAllergyButton(){submit.textContent=(root.AllergyUI?.selectedCodes().length??0)>0?'다음':'건너뛰기';}
+    function updateAllergyButton(){document.getElementById('allergyNext').textContent=(root.AllergyUI?.selectedCodes().length??0)>0?'다음':'건너뛰기';}
     function setReady(value){
       ready=value;submit.disabled=!value;document.querySelector('[data-flow-next="3"]').disabled=!value;
-      updateAllergyButton();
+      updateAllergyButton();updateResumeButton();
     }
     function showResults(context){
       clearError();hasResults=true;
@@ -102,6 +102,20 @@
       settingsMenu.open=false;
       settingsMenu.querySelector('summary').focus();
     });
+    function updateResumeButton(){
+      const button=document.getElementById('guideResume');
+      const saved=root.ProfileStorage.getSavedProfile();
+      button.hidden=!saved;button.disabled=!ready;
+      button.textContent=root.ProfileStorage.resumeStep(saved)===4?'저장된 정보로 바로보기':'저장된 정보로 이어서 입력하기';
+    }
+    document.getElementById('guideResume').addEventListener('click',()=>{
+      clearError();
+      const step=root.ProfileStorage.resumeStep(root.ProfileStorage.getSavedProfile());
+      if(step!==4){show(step);return;}
+      if(!ready)return;
+      restoring=true;try{form.requestSubmit(submit);}finally{restoring=false;}
+    });
+    root.addEventListener('hyu-profile-storage-change',updateResumeButton);
     document.getElementById('guideStart').addEventListener('click',next);
     document.getElementById('guideHome').addEventListener('click',event=>{event.preventDefault();clearError();show(0);});
     document.querySelectorAll('[data-flow-next]').forEach(button=>button.addEventListener('click',next));

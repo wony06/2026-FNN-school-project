@@ -505,6 +505,20 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "빼빼로":
+        # 사용자 승인: 기존 영양성분과 동일한 가공식품DB 중앙값으로 간이 환산.
+        product = try_gagong_db(name)
+        if product and all(product["per100"].get(f) is not None for f in ("carb", "fat")):
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = product["per100"]["carb"] * weight_g / 100 / 23
+            units["지방군"] = product["per100"]["fat"] * weight_g / 100 / 5
+            return {"matched": True, "units": units, "source": "gagong_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"빼빼로: 사용자 승인 임시 간이 환산. 가공식품DB 빼빼로 4개 제품 중앙값 "
+                                    f"탄수화물66.67g/100g·지방22.22g/100g에 추정 제공량{weight_g:g}g 적용. "
+                                    "곡류군=탄수화물/23, 지방군=지방/5. 당류도 곡류 환산에 포함되며 "
+                                    "곡류 자체 지방과 첨가 지방은 구분하지 않음. 표준 식품교환표의 확정값 아님. "
+                                    "실제 제품·포장 중량 확인 후 재검토. 영양성분·제공량·메뉴명 유지.")}
     if name == "장조림":
         # 2026-11-10: db104 직접매칭이 "우엉, 장조림"(채소군)을 골라 소고기 장조림이 채소군으로
         # 과대계산(채소 ~6.9교환)되던 것 교정. db104에 소고기 장조림이 없어 가공식품DB 장조림

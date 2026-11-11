@@ -283,15 +283,15 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 }
 </style>
 <link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
-<link rel="stylesheet" href="flow.css?v=20261108-goal-comparison-v1">
-<link rel="stylesheet" href="meal-diary.css?v=summary-ui-1">
+<link rel="stylesheet" href="flow.css?v=20261111-mobile-v1">
+<link rel="stylesheet" href="meal-diary.css?v=20261111-mobile-v1">
 
 <header class="flow-header">
 <a href="#step=0" id="guideHome" class="guide-brand"><span class="brand-mark" aria-hidden="true">H</span><span>HYU Menu Guide</span></a>
 <nav id="flowStepper" class="flow-stepper" aria-label="진행 단계" hidden><ol>
 <li data-progress-step="1"><span class="progress-number">1</span><span>기본 정보</span></li>
-<li data-progress-step="2"><span class="progress-number">2</span><span>영양 목표</span></li>
-<li data-progress-step="3"><span class="progress-number">3</span><span>추가 설정</span></li>
+<li data-progress-step="2"><span class="progress-number">2</span><span>알레르기</span></li>
+<li data-progress-step="3"><span class="progress-number">3</span><span>영양 목표</span></li>
 <li data-progress-step="4"><span class="progress-number">4</span><span>맞춤 서비스</span></li>
 </ol></nav><span id="flowProgress" class="sr-only" aria-live="polite">나에게 맞는 학식 찾기</span>
 </header>
@@ -300,7 +300,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <section id="guideStep0" class="flow-cover flow-page" data-step="0" aria-labelledby="coverHeading">
 <div class="cover-copy"><p class="section-kicker">HANYANG UNIVERSITY</p><h1 id="coverHeading" tabindex="-1">HYU Menu Guide</h1>
 <p class="cover-subtitle">나에게 적합한<br>오늘의 학식 메뉴 찾기</p><p class="cover-description">나의 영양목표에 맞추어 한양대학교 학생식단 메뉴를 비교해보세요</p>
-<button id="guideStart" class="flow-primary" type="button">시작하기</button><p class="cover-route">내 정보 입력 <span aria-hidden="true">·</span> 기준 선택 <span aria-hidden="true">·</span> 메뉴 비교</p></div>
+<div class="cover-actions"><button id="guideStart" class="flow-primary" type="button">시작하기</button>
+<button id="guideResume" class="flow-primary" type="button" hidden disabled>저장된 정보로 바로보기</button></div><p class="cover-route">내 정보 입력 <span aria-hidden="true">·</span> 알레르기 설정 <span aria-hidden="true">·</span> 영양목표 선택 <span aria-hidden="true">·</span> 메뉴 비교</p></div>
 <figure class="cover-visual"><img class="hero-illustration" src="hyu-mascot-flag.png" alt="한양대학교 깃발을 든 캐릭터" width="220" height="199"></figure>
 </section>
 <form id="personalForm" class="personal-form flow-form" hidden novalidate>
@@ -371,8 +372,39 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
         <p id="profileStorageStatus" class="remember-status" role="status" hidden></p>
       </div>
 </div><div class="flow-actions"><button type="button" class="flow-secondary" data-flow-back>이전</button><button type="button" class="flow-primary" data-flow-next="2">다음</button></div></section>
-    <section id="guideStep2" class="input-card recommendation-card flow-page" data-step="2" hidden aria-labelledby="goalStepHeading">
-      <div class="step-caption"><div class="goal-caption-top"><p class="section-kicker">STEP 02</p><button id="goalDifferenceTrigger" class="goal-help-trigger" type="button" aria-haspopup="dialog" aria-controls="goalDifferenceDialog">ⓘ 혈당관리와 저당의 차이</button></div><h1 id="goalStepHeading" tabindex="-1">영양 목표를 선택해주세요</h1><p class="step-intro">오늘 식사에서 가장 중요하게 생각하는 기준 하나를 골라주세요.</p></div><div class="onboarding-body"><div class="goal-groups" role="radiogroup" aria-label="추천 기준">
+<section id="guideStep2" class="input-card flow-page" data-step="2" hidden aria-labelledby="allergyStepHeading"><div class="step-caption"><p class="section-kicker">STEP 02</p><h1 id="allergyStepHeading" tabindex="-1">알레르기 유발 식품이 있나요?</h1><p class="step-intro">선택 사항이에요. 필요한 항목이 없다면 건너뛸 수 있어요.</p></div><div class="onboarding-body"><div class="allergy-field">
+        <div id="allergyHeading" class="choice-heading">알레르기 유발 식품</div>
+        <div id="allergySelect" class="allergy-select">
+          <button id="allergyToggle" class="allergy-toggle" type="button" aria-expanded="false" aria-controls="allergyPanel" aria-labelledby="allergyHeading allergyToggle" disabled>알레르기 유발 식품 선택</button>
+          <div id="allergyPanel" class="allergy-panel" hidden>
+            <div id="allergyOptions" class="allergy-options" role="group" aria-labelledby="allergyHeading"></div>
+            <div class="allergy-actions"><button id="allergyClear" type="button">전체 해제</button><button id="allergyDone" type="button">선택 완료</button></div>
+          </div>
+        </div>
+        <p id="allergyLoadStatus" class="allergy-load-status" role="status"></p>
+        <p class="allergy-notice">알레르기 정보는 추정치입니다. 실제 원재료·교차접촉 여부는 식당에 확인해 주세요.</p>
+      </div>
+      <details class="flow-basis guide-accordion" id="allergyBasis"><summary>알레르기 추정 및 필터링 기준</summary>
+        <div class="allergy-guide-content">
+          <section aria-labelledby="allergyEstimateHeading">
+            <h3 id="allergyEstimateHeading">① 알레르기 성분 추정 및 제외 기준</h3>
+            <p>메뉴명에 드러난 재료 정보와 NEIS 동일 메뉴의 알레르기 표시 정보를 활용하여 알레르기 성분을 추정합니다. 사용자가 선택한 알레르기 성분이 추정 근거에 하나라도 포함된 메뉴는 추천에서 제외하고, 목록 하단에 별도로 표시합니다.</p>
+          </section>
+          <section aria-labelledby="allergyReviewHeading">
+            <h3 id="allergyReviewHeading">② 확인이 필요한 항목</h3>
+            <p>학교마다 사용하는 재료와 조리법이 다를 수 있습니다. 자동 적용 보류·통합 보류·미매칭·미표기 항목은 원재료 확인이 필요한 상태이며, 알레르기 성분이 없거나 안전하다는 의미가 아닙니다.</p>
+            <p>또한 영양성분 계산을 위해 가정하거나 대체·분해한 구성요소는 알레르기 판단 근거로 사용하지 않습니다.</p>
+          </section>
+          <section aria-labelledby="allergySourcesHeading">
+            <h3 id="allergySourcesHeading">③ 자료 출처 및 주의사항</h3>
+            <p>NEIS 급식식단정보 참고 DB와 프로젝트의 메뉴별 검토 기록을 활용하였으며, 원본 출처와 판단 근거는 별도로 보존합니다.</p>
+            <p>실제 사용 재료와 알레르기 유발 성분의 교차접촉 가능성은 반드시 식당에 직접 확인해 주세요.</p>
+          </section>
+        </div>
+      </details>
+</div><div class="flow-actions"><button type="button" class="flow-secondary" data-flow-back>이전</button><button type="button" id="allergyNext" class="flow-primary" data-flow-next="3" disabled>건너뛰기</button></div></section>
+    <section id="guideStep3" class="input-card recommendation-card flow-page" data-step="3" hidden aria-labelledby="goalStepHeading">
+      <div class="step-caption"><div class="goal-caption-top"><p class="section-kicker">STEP 03</p><button id="goalDifferenceTrigger" class="goal-help-trigger" type="button" aria-haspopup="dialog" aria-controls="goalDifferenceDialog">ⓘ 혈당관리와 저당의 차이</button></div><h1 id="goalStepHeading" tabindex="-1">영양 목표를 선택해주세요</h1><p class="step-intro">오늘 식사에서 가장 중요하게 생각하는 기준 하나를 골라주세요.</p></div><div class="onboarding-body"><div class="goal-groups" role="radiogroup" aria-label="추천 기준">
         <div class="goal-group" role="group" aria-labelledby="nutrition-goal-heading">
           <h3 id="nutrition-goal-heading" class="goal-group-heading">개인 영양요구 충족 목표</h3>
           <div class="goal-grid">
@@ -448,38 +480,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
         </div>
 
       </details>
-</div><div class="flow-actions"><button type="button" class="flow-secondary" data-flow-back>이전</button><button type="button" class="flow-primary" data-flow-next="3">다음</button></div>    </section>
-<section id="guideStep3" class="input-card flow-page" data-step="3" hidden aria-labelledby="allergyStepHeading"><div class="step-caption"><p class="section-kicker">STEP 03</p><h1 id="allergyStepHeading" tabindex="-1">알레르기 유발 식품이 있나요?</h1><p class="step-intro">선택 사항이에요. 필요한 항목이 없다면 건너뛸 수 있어요.</p></div><div class="onboarding-body"><div class="allergy-field">
-        <div id="allergyHeading" class="choice-heading">알레르기 유발 식품</div>
-        <div id="allergySelect" class="allergy-select">
-          <button id="allergyToggle" class="allergy-toggle" type="button" aria-expanded="false" aria-controls="allergyPanel" aria-labelledby="allergyHeading allergyToggle" disabled>알레르기 유발 식품 선택</button>
-          <div id="allergyPanel" class="allergy-panel" hidden>
-            <div id="allergyOptions" class="allergy-options" role="group" aria-labelledby="allergyHeading"></div>
-            <div class="allergy-actions"><button id="allergyClear" type="button">전체 해제</button><button id="allergyDone" type="button">선택 완료</button></div>
-          </div>
-        </div>
-        <p id="allergyLoadStatus" class="allergy-load-status" role="status"></p>
-        <p class="allergy-notice">알레르기 정보는 추정치입니다. 실제 원재료·교차접촉 여부는 식당에 확인해 주세요.</p>
-      </div>
-      <details class="flow-basis guide-accordion" id="allergyBasis"><summary>알레르기 추정 및 필터링 기준</summary>
-        <div class="allergy-guide-content">
-          <section aria-labelledby="allergyEstimateHeading">
-            <h3 id="allergyEstimateHeading">① 알레르기 성분 추정 및 제외 기준</h3>
-            <p>메뉴명에 드러난 재료 정보와 NEIS 동일 메뉴의 알레르기 표시 정보를 활용하여 알레르기 성분을 추정합니다. 사용자가 선택한 알레르기 성분이 추정 근거에 하나라도 포함된 메뉴는 추천에서 제외하고, 목록 하단에 별도로 표시합니다.</p>
-          </section>
-          <section aria-labelledby="allergyReviewHeading">
-            <h3 id="allergyReviewHeading">② 확인이 필요한 항목</h3>
-            <p>학교마다 사용하는 재료와 조리법이 다를 수 있습니다. 자동 적용 보류·통합 보류·미매칭·미표기 항목은 원재료 확인이 필요한 상태이며, 알레르기 성분이 없거나 안전하다는 의미가 아닙니다.</p>
-            <p>또한 영양성분 계산을 위해 가정하거나 대체·분해한 구성요소는 알레르기 판단 근거로 사용하지 않습니다.</p>
-          </section>
-          <section aria-labelledby="allergySourcesHeading">
-            <h3 id="allergySourcesHeading">③ 자료 출처 및 주의사항</h3>
-            <p>NEIS 급식식단정보 참고 DB와 프로젝트의 메뉴별 검토 기록을 활용하였으며, 원본 출처와 판단 근거는 별도로 보존합니다.</p>
-            <p>실제 사용 재료와 알레르기 유발 성분의 교차접촉 가능성은 반드시 식당에 직접 확인해 주세요.</p>
-          </section>
-        </div>
-      </details>
-<div id="personalStatus" role="status"></div></div><div class="flow-actions"><button type="button" class="flow-secondary" data-flow-back>이전</button><button type="submit" id="personalSubmit" class="flow-primary" disabled>건너뛰기</button></div></section>
+<div id="personalStatus" role="status"></div></div><div class="flow-actions"><button type="button" class="flow-secondary" data-flow-back>이전</button><button type="submit" id="personalSubmit" class="flow-primary" disabled>추천 결과 보기</button></div>    </section>
 </form>
   <section id="results" class="results-section flow-page" data-step="4" hidden aria-labelledby="resultStepHeading">
 <svg class="result-icon-definitions" aria-hidden="true" width="0" height="0">
@@ -516,8 +517,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
       <summary><svg class="result-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#result-icon-settings"></use></svg><span>설정 변경</span><svg class="result-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#result-icon-chevron"></use></svg></summary>
       <div class="settings-actions">
         <button type="button" data-edit-step="1">기본 정보 수정</button>
-        <button type="button" data-edit-step="2">영양 목표 수정</button>
-        <button type="button" data-edit-step="3">알레르기 수정</button>
+        <button type="button" data-edit-step="3">영양 목표 수정</button>
+        <button type="button" data-edit-step="2">알레르기 수정</button>
       </div>
     </details>
   </div>
@@ -641,8 +642,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="personal-goal-view.js?v=20261108-v1"></script>
 <script src="allergy-filter.js?v=1"></script>
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
-<script src="profile-storage.js?v=2"></script>
-<script src="flow-ui.js?v=20261108-reference-header-v1"></script>
+<script src="profile-storage.js?v=20261111-resume-v1"></script>
+<script src="flow-ui.js?v=20261111-cover-buttons-v2"></script>
 <script src="meal-diary.js?v=portion-units-1"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
@@ -695,8 +696,10 @@ function defaultMenuDate(today=todayDate()){
   return date.toISOString().slice(0,10);
 }
 
+// Display boundary only: all historical data remains loaded and preserved.
+const FIRST_VISIBLE_MENU_DATE='2026-10-26';
 function menuDateChoices(){
-  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()])].sort();
+  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()].filter(date=>date>=FIRST_VISIBLE_MENU_DATE))].sort();
 }
 
 function fmtDate(d){
@@ -713,6 +716,7 @@ function selectMenuDate(date, focusChip=false){
   if(focusChip) document.querySelector('#dateStrip .active')?.focus({preventScroll:true});
 }
 function renderDateStrip(){
+  if(activeDate<FIRST_VISIBLE_MENU_DATE) activeDate=menuDateChoices()[0]??null;
   const strip=document.getElementById('dateStrip');
   strip.replaceChildren();
   menuDateChoices().forEach(date=>{
@@ -879,7 +883,6 @@ function nutriTabHtml(item){
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
 
   return `
-    ${(item.nutritionNotes||[]).length ? `<details class="data-notice"><summary>영양성분 대체·추정 근거</summary>${item.nutritionNotes.map(note=>`<p>${escapeText(note)}</p>`).join('')}</details>` : ''}
     ${item.analysisMode ? `<div class="footnote" style="margin-bottom:16px;color:var(--caution)"><b>기존 코드로 계산한 추정값</b><br>제공량은 표준·추정 중량입니다. 미매칭 항목은 합산에서 빠지고 결측 영양소는 0으로 처리됩니다. NRF는 100 kcal 기준이며 권장·제한 영양소 모두 기존 코드의 100% cap을 적용했습니다. 백분위 점수가 아닙니다.</div>
     ${(item.missingFields||[]).length ? `<div class="section-title">결측 영양소 (0 처리)</div><div class="footnote">${item.missingFields.map(escapeText).join('<br>')}</div>` : ''}
     ${(item.qualityFlags||[]).includes('MENU_ALTERNATIVES_REQUIRE_REVIEW') ? '<div class="footnote">선택 메뉴(or)는 기존 규칙에 따라 첫 번째 선택지만 계산했습니다. 실제 선택 조합 확인이 필요합니다.</div>' : ''}
@@ -915,7 +918,6 @@ function nutriTabHtml(item){
       <tr><td>비타민C</td><td>${item.vitC.toFixed(1)} mg</td></tr>
     </table>
     ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
-    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
     ${warnTags ? `<div><div class="section-title">미매칭 구성요소</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 3개 영양DB(식약처 통합DB·가공식품DB·국가표준식품성분표) 어디에도 매칭되지 않아 전체 영양성분 합산에서 제외되었습니다. 실제 섭취 열량·영양소는 표시값보다 높을 수 있습니다.</div></div>` : ""}
   `;
 }
@@ -936,10 +938,7 @@ function exchangeTabHtml(item){
       <tr><td>지방군</td><td>${eu.fat.toFixed(2)} 단위</td></tr>
     </table>
     ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
-    ${srcHtml ? `<div><div class="section-title">매칭 DB</div>${srcHtml}</div>` : ""}
     ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
-    ${(eu.externalRecipes||[]).length ? `<div><div class="section-title">외부 레시피 매칭</div>${eu.externalRecipes.map(recipe=>`<div class="footnote">${escapeText(recipe.name)} · ${/^https:\/\//.test(recipe.url||'') ? `<a href="${escapeText(recipe.url)}" target="_blank" rel="noopener noreferrer">레시피 출처</a>` : ''}<br>${escapeText(recipe.note||'')}</div>`).join("")}</div>` : ""}
-    ${(eu.recipeNotes||[]).length ? `<div><div class="section-title">계산 기준</div>${eu.recipeNotes.map(note=>`<div class="footnote">${escapeText(note)}</div>`).join("")}</div>` : ""}
   `;
 }
 
@@ -1040,12 +1039,13 @@ personalForm.addEventListener('submit', e=>{
   if(!GUIDE_FLOW.validateForResults())return;
   let context;
   try{context=contextFromForm();}
-  catch(error){GUIDE_FLOW.showError(error.message,2);return;}
+  catch(error){GUIDE_FLOW.showError(error.message,3);return;}
   const goal=context.goal;
   document.getElementById('personalStatus').textContent=`${GOAL_LABEL[goal]} 기준 · 하루 ${context.mealCount}끼로 추천했어요.`;
   activeGoal=goal;ACTIVE_CONTEXT=context;
   if(!GUIDE_FLOW.restoringResults)activeDate=defaultMenuDate();
   refreshRecommendations();closeSheet();renderDateStrip();renderDay();
+  ProfileStorage.saveIfEnabled();
   MEAL_DIARY.setContext(context);
   GUIDE_FLOW.showResults(context);
 });
@@ -1068,7 +1068,7 @@ Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targ
   byDate = {};
   dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
   const requestedDate = new URLSearchParams(location.search).get('date');
-  activeDate = dates.includes(requestedDate) ? requestedDate : defaultMenuDate();
+  activeDate = menuDateChoices().includes(requestedDate) ? requestedDate : defaultMenuDate();
   ProfileStorage.mount(personalForm,AllergyUI,()=>{
     updateGoalDisplay();updateSelectionDescription('activity','activityDescription');refreshRecommendations();GUIDE_FLOW.updateAllergyButton();
   });
