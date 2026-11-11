@@ -301,7 +301,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <div class="cover-copy"><p class="section-kicker">HANYANG UNIVERSITY</p><h1 id="coverHeading" tabindex="-1">HYU Menu Guide</h1>
 <p class="cover-subtitle">나에게 적합한<br>오늘의 학식 메뉴 찾기</p><p class="cover-description">나의 영양목표에 맞추어 한양대학교 학생식단 메뉴를 비교해보세요</p>
 <div class="cover-actions"><button id="guideStart" class="flow-primary" type="button">시작하기</button>
-<button id="guideResume" class="flow-primary" type="button" hidden disabled>저장된 정보로 바로보기</button></div><p class="cover-route">내 정보 입력 <span aria-hidden="true">·</span> 알레르기 설정 <span aria-hidden="true">·</span> 영양목표 선택 <span aria-hidden="true">·</span> 메뉴 비교</p></div>
+<button id="guideResume" class="flow-primary" type="button" disabled>저장된 정보로 바로보기</button></div><p id="guideResumeStatus" class="cover-route" role="status" hidden>저장된 정보가 없습니다.</p><p class="cover-route">내 정보 입력 <span aria-hidden="true">·</span> 알레르기 설정 <span aria-hidden="true">·</span> 영양목표 선택 <span aria-hidden="true">·</span> 메뉴 비교</p></div>
 <figure class="cover-visual"><img class="hero-illustration" src="hyu-mascot-flag.png" alt="한양대학교 깃발을 든 캐릭터" width="220" height="199"></figure>
 </section>
 <form id="personalForm" class="personal-form flow-form" hidden novalidate>
@@ -643,7 +643,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="allergy-filter.js?v=1"></script>
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
 <script src="profile-storage.js?v=20261111-resume-v1"></script>
-<script src="flow-ui.js?v=20261111-cover-buttons-v2"></script>
+<script src="flow-ui.js?v=20261111-resume-visible-v3"></script>
 <script src="meal-diary.js?v=portion-units-1"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
