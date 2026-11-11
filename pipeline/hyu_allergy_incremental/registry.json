@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyHash": "701c604e1bcbfcd165396b48f8be98ddc2f1e39f922b3df95920a4ad7977405c",
+  "policyHash": "60cdeae387a5f3799e6305962e79ffc5399f4eae9fb3b36fece493f1ff5743a0",
   "sourceFingerprints": {
     "[\"2026-06-23\",\"105\",\"양식\",\"등심돈까스\"]": "63e5be221b5ef8cbecab2c2663faadb38d68644c7c6b71fe68498a9ae5eefa9a",
     "[\"2026-06-23\",\"105\",\"즉석\",\"목살김치찌개\"]": "438d863b0ec0b832743b8cf039814b09f09914a4831447d540890e74450a5dc8",
@@ -487,6 +487,6 @@
     "[\"2026-11-13\",\"401\",\"중식 - Korean Dining\",\"등뼈감자탕\"]": "9c14e4b7d8cce2b892aed9c094334237774e785e4b22fe9610a52f71306e9322",
     "[\"2026-11-13\",\"401\",\"중식 - Korean Dining\",\"채선당샤브국수&칠리S\"]": "5559a828bbd6da2a83342452bf40fe3a1309158f46a4fcc715323c9dde0e4103"
   },
-  "webSha256": "0506c699af69339b7ec87179891e798fcdeaccf67a6c93ef34d8b51f0dcf3279",
-  "sourceSiteSha256": "b521494034033f046847994c4e7bbe65116e2c525747b9888acddbe368558fc0"
+  "webSha256": "655f2db20ca66f6d6df7f6def0cc56727cf2fabe714f0816fa007d90eb312079",
+  "sourceSiteSha256": "bd093cf6107484cac0dd7e3ac97104c993389d13062fc64dea115c71b049c6c6"
 }

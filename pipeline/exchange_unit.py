@@ -120,6 +120,27 @@ RAW_RICE_TO_COOKED = {
 }
 
 
+# 2026-11-11: 조리유·양념유가 그릇 크기에 선형 스케일돼 지방이 과대(불고기덮밥 콩기름 30g→지방 3.67)되던 것
+# 교정(A3). 조리유(콩기름 등)는 음식 흡수량 수준의 1인분 상한 8g, 양념유(참기름·들기름·고추기름)는 5g 상한.
+# "팬에 두른 조리유 전량"이 아니라 입에 들어가는 양 기준. 버터·마가린 등 고형지방은 별도(미적용).
+_SEASONING_OILS = ("참기름", "들기름", "고추기름")
+_COOKING_OILS = ("콩기름", "식용유", "옥수수기름", "미강유", "쌀겨기름", "유채씨기름", "카놀라유", "포도씨유", "올리브유", "해바라기유")
+
+
+# 불고기·불오징어처럼 볶으면서 기름이 음식에 배어 먹는 양이 많은(흡수유) 요리는 조리유 상한을 15g으로
+# 완화한다(튀김·일반 볶음·구이는 8g 유지). 양념유(참기름 등) 상한 5g은 공통.
+_ABSORPTION_OIL_DISHES = ("불고기", "오징어덮밥")  # 불오징어덮밥은 '오징어덮밥(고추장)' 레시피로 해석됨
+
+
+def _cap_oil_weight(food_name, w, cooking_cap=8.0):
+    base = (food_name or "").split(",")[0].strip()
+    if any(o in base for o in _SEASONING_OILS):
+        return min(w, 5.0)
+    if any(o in base for o in _COOKING_OILS):
+        return min(w, cooking_cap)
+    return w
+
+
 def _nutrients_per100(record):
     out = {}
     for key, col in DB104_NUT_COL.items():
@@ -194,18 +215,51 @@ def _from_menugen(name, target_weight_g):
     # 국물 포함 그릇중량(국·찌개 283g 등)으로 비례 환산하면 건더기·기름이 몇 배로 부풀어 오른다
     # (예: 어묵탕 ref82.5g→283g ×3.43, 전복미역국 ref29.5g→283g ×9.6로 참기름 폭증). 국물요리는
     # 건더기를 레시피 재료합(ref) 이상으로 환산하지 않도록 상한을 둔다(국물 제외, 칼국수 건더기비율
-    # 방식의 일반화). 찌개는 ref가 커서 상한에 안 걸려 무영향, 탕수육·국수·콩국수·쌀국수·수제비·
-    # 떡볶이는 국물요리가 아니거나 국물이 영양성분이라 제외.
+    # 방식의 일반화). 탕수육·국수·콩국수·쌀국수·수제비는 국물요리가 아니거나 국물이 영양성분이라 제외.
     _nm = dish.get("name", "")
+    _cooking_cap = 15.0 if any(k in _nm for k in _ABSORPTION_OIL_DISHES) else 8.0  # 해석된 레시피명 기준
+    _has_water = any((("물" == (i.get("food_name") or "").split(",")[0].strip()) or
+                      ("육수" in (i.get("food_name") or ""))) and float(i.get("weight_g") or 0) >= 30
+                     for i in ingredients)
     _is_broth_soup = (any(k in _nm for k in ("국", "탕", "미역")) and
                       not any(k in _nm for k in ("탕수육", "국수", "찌개", "전골", "볶음", "콩국", "쌀국", "수제비", "떡")))
-    if _is_broth_soup and ref_weight > 0:
-        _has_water = any((("물" == (i.get("food_name") or "").split(",")[0].strip()) or
-                          ("육수" in (i.get("food_name") or ""))) and float(i.get("weight_g") or 0) >= 30
-                         for i in ingredients)
-        if not _has_water:
+    # 2026-11-11: 찌개·전골도 MenuGen 레시피에 물이 없어 그릇중량(283g)에 비례환산하면 건더기가 몇 배로
+    # 부풀던 것 교정(부대찌개 ref48g→283g ×5.87, 호박두부된장찌개 79g ×3.57). 국·탕(건더기=ref 상한)과
+    # 달리 찌개는 건더기 비중이 커서 그릇의 40%까지 허용하고, 순두부찌개처럼 레시피 건더기(ref)가 그보다
+    # 크면 깎지 않는다(상한+바닥). 떡(전골떡볶이)·찜(갈비찜)·볶음은 국물요리가 아니라 제외.
+    _is_stew = (any(k in _nm for k in ("찌개", "전골")) and
+                not any(k in _nm for k in ("떡", "찜", "볶음")))
+    if ref_weight > 0 and not _has_water:
+        if _is_broth_soup:
             effective_target = min(effective_target, ref_weight)
+        elif _is_stew:
+            effective_target = min(effective_target, max(ref_weight, effective_target * 0.40))
     scale = (effective_target / ref_weight) if ref_weight > 0 else 1.0
+
+    # 2026-11-11: 덮밥·알밥·비빔밥은 MenuGen 완성중량이 날것 재료합으로 등록돼(취반 팽창 미반영) 서빙중량
+    # (417g)에 비례 스케일하면 쌀이 '날것 비율'로만 잡혀 곡류 과소(날치알밥 곡류 1.9). 밥은 1공기(조리밥
+    # 210g) 고정으로 곡류 환산하고, 나머지(토핑)만 서빙중량-210g에 비례 배분한다(차돌짬뽕밥 방식).
+    # 볶음밥은 서빙 자체가 밥 통합중량(210g)이라 제외; 쌀이 '밥'으로 등록된 레시피(_rice_raw=0)도 무영향.
+    _is_bapbase = (any(k in _nm for k in ("덮밥", "알밥", "비빔밥")) and "볶음밥" not in _nm and not spam_mayo)
+    _rice_names = set(RAW_RICE_TO_COOKED) | set(RAW_RICE_TO_COOKED.values())  # 생쌀·조리밥 모두(큰 레시피 과소도 교정)
+    _rice_raw = sum(float(i.get("weight_g") or 0) for i in ingredients if i.get("food_name") in _rice_names)
+    if _is_bapbase and _rice_raw > 0 and target_weight_g > 210 and ref_weight > _rice_raw:
+        topping_scale = (target_weight_g - 210.0) / (ref_weight - _rice_raw)
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        any_used = False
+        unresolved = []
+        for ing in ingredients:
+            fn = ing.get("food_name")
+            raw_w = float(ing.get("weight_g") or 0)
+            w = 210.0 * raw_w / _rice_raw if fn in _rice_names else raw_w * topping_scale
+            w = _cap_oil_weight(fn, w, _cooking_cap)
+            if _add_ingredient(units, ing.get("food_group"), DB104_BY_NAME.get(fn), w):
+                any_used = True
+            else:
+                unresolved.append(fn)
+        if any_used:
+            return {"units": units, "source": "menugen", "matched_name": dish.get("name"),
+                    "unresolved_ingredients": unresolved}
 
     if spam_mayo:
         scale = max(0.0, target_weight_g - 9.0) / (ref_weight - 2.0)
@@ -217,6 +271,7 @@ def _from_menugen(name, target_weight_g):
             w = 9.0 if spam_mayo and ing.get("food_name") == "마요네즈" else float(ing.get("weight_g") or 0) * scale
         except (TypeError, ValueError):
             continue
+        w = _cap_oil_weight(ing.get("food_name"), w, _cooking_cap)
         rec = DB104_BY_NAME.get(ing.get("food_name"))
         if _add_ingredient(units, ing.get("food_group"), rec, w):
             any_used = True
@@ -450,6 +505,20 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "빼빼로":
+        # 사용자 승인: 기존 영양성분과 동일한 가공식품DB 중앙값으로 간이 환산.
+        product = try_gagong_db(name)
+        if product and all(product["per100"].get(f) is not None for f in ("carb", "fat")):
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = product["per100"]["carb"] * weight_g / 100 / 23
+            units["지방군"] = product["per100"]["fat"] * weight_g / 100 / 5
+            return {"matched": True, "units": units, "source": "gagong_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"빼빼로: 사용자 승인 임시 간이 환산. 가공식품DB 빼빼로 4개 제품 중앙값 "
+                                    f"탄수화물66.67g/100g·지방22.22g/100g에 추정 제공량{weight_g:g}g 적용. "
+                                    "곡류군=탄수화물/23, 지방군=지방/5. 당류도 곡류 환산에 포함되며 "
+                                    "곡류 자체 지방과 첨가 지방은 구분하지 않음. 표준 식품교환표의 확정값 아님. "
+                                    "실제 제품·포장 중량 확인 후 재검토. 영양성분·제공량·메뉴명 유지.")}
     if name == "장조림":
         # 2026-11-10: db104 직접매칭이 "우엉, 장조림"(채소군)을 골라 소고기 장조림이 채소군으로
         # 과대계산(채소 ~6.9교환)되던 것 교정. db104에 소고기 장조림이 없어 가공식품DB 장조림
@@ -545,6 +614,22 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
                 "unresolved_ingredients": [],
                 "recipe_note": f"치커리무침: 사용자 지정으로 치커리 잎 생것에 대체 매칭. 기존 음식 추정량 {weight_g:g}g 전체를 잎채소로 간주하고 양념은 교환단위에서 제외. 실제 채소 중량 실측값 아님. 메뉴명과 영양성분 계산 유지."}
+    if name == "크림스프":
+        # 2026-11-11: 사용자 제공 레시피(버터 45g/272g 비례)로 72g 컵에 버터 11.9g이 들어가 지방군 1.96교환까지
+        # 부풀던 것 교정. 영양탭과 같은 완제품 영양성분DB(스프_크림)의 탄수·지방으로 곡류·지방군을 환산한다
+        # (식혜·감자수제비국과 동일한 완제품 기준 방식). 우유·단백질 소량은 4군 비교 대상이 아니라 생략.
+        product = try_food_db("스프_크림")
+        carb_per100 = product["per100"].get("carb") if product else None
+        fat_per100 = product["per100"].get("fat") if product else None
+        if carb_per100 is not None and fat_per100 is not None:
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = carb_per100 * weight_g / 100.0 / UNIT_BASIS["곡류군"][1]
+            units["지방군"] = fat_per100 * weight_g / 100.0 / UNIT_BASIS["지방군"][1]
+            return {"matched": True, "units": units, "source": "food_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"크림스프: 사용자 지정 교정. 버터 과다 레시피(지방 과대) 대신 영양성분DB 스프_크림 "
+                                    f"탄수화물 100g당 {carb_per100:g}g·지방 {fat_per100:g}g × 제공량 {weight_g:g}g을 곡류·지방군으로 환산. "
+                                    "완제품 기준 추정이라 우유·단백질 소량은 생략. 영양성분·메뉴명 유지.")}
     if name == "식혜":
         # 2026-11-11: MenuGen 식혜 레시피(엿기름 26g+설탕 10g+찹쌀 8g=44g, 물 없음)를 컵 중량에 비례 환산하면 엿기름이
         # 수십 g으로 부풀어 곡류군 1.5교환(72g 기준)이 되던 것 교정. 영양탭과 같은 영양성분DB(외식 식혜) 완제품 탄수화물로

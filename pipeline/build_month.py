@@ -717,6 +717,13 @@ DECOMPOSE_OVERRIDES = {
     "두반장제육볶음": [
         ("제육볶음", 151, "사용자 지정: 제육볶음으로 매칭 - 메인요리 폴백 표준중량 151g 유지(두반장 미반영)"),
     ],
+    # 2026-11-11: 105(한양플라자) 8/27 한식 메인 "제육볶음&쌈채소"가 "&" 자동분할로 151g을 제육·쌈채소에
+    # 절반씩(75.5g) 나눠 제육이 과소(어육 0.95)되던 것 교정. 제육볶음은 메인 1인분 151g, 쌈채소는
+    # 곁들임 잎채소 70g으로 분리(사용자 지정).
+    "제육볶음&쌈채소": [
+        ("제육볶음", 151, "사용자 지정: 제육볶음 메인 1인분 표준 151g(균등분할 제외)"),
+        ("쌈채소", 70, "사용자 지정: 쌈채소 곁들임 잎채소 70g(김치·무침류 표준). 실측 아님"),
+    ],
 }
 
 # 2026-09-27 추가: DECOMPOSE_OVERRIDES에 손으로 등록한 컴포넌트 이름 전체(= 메뉴 통짜가 아니라
@@ -733,6 +740,12 @@ def expand_main(name, shop=None, category=None, cache=None):
     if name in DECOMPOSE_OVERRIDES:
         return DECOMPOSE_OVERRIDES[name]
     return expand_compound(name, lambda n: classify_main_weight(n, cache))
+
+
+TEMP_KIMCHI_REFERENCES = {
+    "2026-11-12": ("2026-11-09", ("깍두기", "열무김치")),
+    "2026-11-13": ("2026-11-10", ("배추김치", "열무김치")),
+}
 
 
 PHOTO_SIDE_OVERRIDES = {
@@ -760,6 +773,13 @@ def classify_shop_side_weight(name, shop=None, cache=None):
 
 
 def expand_side(name, shop=None, category=None, cache=None, date=None):
+    if str(shop) == "401" and name in ("2종김치", "김치2종") and date in TEMP_KIMCHI_REFERENCES:
+        reference, names = TEMP_KIMCHI_REFERENCES[date]
+        total_weight, _ = classify_shop_side_weight(name, shop, cache)
+        note = (f"사용자 승인 임시 매칭: {reference}의 김치 조합 {' + '.join(names)}을 {date}에 임시 적용. "
+                f"기존 추정 총량 {total_weight:g}g을 균등 배분. 해당 날짜 사진 미확인·실측값 아님. "
+                "사진 등록 후 김치 종류 확인 및 필요시 재매칭. 원본 메뉴명 유지.")
+        return [(part, total_weight / len(names), note) for part in names]
     photo_names = PHOTO_SIDE_OVERRIDES.get((date, shop, name))
     if photo_names:
         total_weight, _ = classify_shop_side_weight(name, shop, cache)

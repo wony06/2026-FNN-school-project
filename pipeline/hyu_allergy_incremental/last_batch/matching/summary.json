@@ -8,8 +8,8 @@
     "미매칭": 11
   },
   "unique_main_match_counts": {
-    "검토필요": 11,
     "미매칭": 7,
+    "검토필요": 11,
     "완전일치": 11,
     "표기동의어": 2
   },
@@ -1409,9 +1409,9 @@
     }
   ],
   "input_sha256": {
-    "web\\site_data.json": "61dabf0c71fece37a1e05fd26fb8bbac7e10f6ecad884751871073daca11442a",
+    "web\\site_data.json": "bd093cf6107484cac0dd7e3ac97104c993389d13062fc64dea115c71b049c6c6",
     "hanyang_menu_month.json": "919cf7247cd4bbf2c22b7b5509ea08259c93e7539744fc64f3da2d67987c079a",
-    "month_lunch_trays.json": "05e603762e75a433fc2b88f3ed164303ac2e06e64a182cb49dccde09b4c84841",
+    "month_lunch_trays.json": "c95dc37a7f89e3d07f2891a72f22e0c82c3bf0a68d4bdc8354ddd1afd569ef3c",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
   },
   "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",
