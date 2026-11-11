@@ -735,6 +735,12 @@ def expand_main(name, shop=None, category=None, cache=None):
     return expand_compound(name, lambda n: classify_main_weight(n, cache))
 
 
+TEMP_KIMCHI_REFERENCES = {
+    "2026-11-12": ("2026-11-09", ("깍두기", "열무김치")),
+    "2026-11-13": ("2026-11-10", ("배추김치", "열무김치")),
+}
+
+
 PHOTO_SIDE_OVERRIDES = {
     ("2026-11-09", "401", "김치2종"): ("깍두기", "열무김치"),
     ("2026-11-10", "401", "김치2종"): ("배추김치", "열무김치"),
@@ -760,6 +766,13 @@ def classify_shop_side_weight(name, shop=None, cache=None):
 
 
 def expand_side(name, shop=None, category=None, cache=None, date=None):
+    if str(shop) == "401" and name in ("2종김치", "김치2종") and date in TEMP_KIMCHI_REFERENCES:
+        reference, names = TEMP_KIMCHI_REFERENCES[date]
+        total_weight, _ = classify_shop_side_weight(name, shop, cache)
+        note = (f"사용자 승인 임시 매칭: {reference}의 김치 조합 {' + '.join(names)}을 {date}에 임시 적용. "
+                f"기존 추정 총량 {total_weight:g}g을 균등 배분. 해당 날짜 사진 미확인·실측값 아님. "
+                "사진 등록 후 김치 종류 확인 및 필요시 재매칭. 원본 메뉴명 유지.")
+        return [(part, total_weight / len(names), note) for part in names]
     photo_names = PHOTO_SIDE_OVERRIDES.get((date, shop, name))
     if photo_names:
         total_weight, _ = classify_shop_side_weight(name, shop, cache)
