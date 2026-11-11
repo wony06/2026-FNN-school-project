@@ -51,6 +51,25 @@ def is_self_or_junk(tok):
     return False
 
 RICE_WORDS = ("쌀밥", "흑미밥", "백미밥", "잡곡밥", "현미밥", "추가밥", "잡곡밥/현미밥")
+# 2026-11-11 사용자 확인: 한식 코너는 밥이 항상 나가는 게 아니므로 자동 추가하지 않는다. 대신 밥류 항목이 하나도 없는
+# 105 한식 식판은 build 시 경고로 출력해 사람이 확인한다(has_rice_like / report_rice_missing).
+RICE_LIKE_HINTS = ("밥", "오므라이스", "필라프", "리조또", "카레라이스", "하이라이스", "솥밥", "덮밥", "비빔밥", "볶음밥", "알밥", "김밥", "초밥",
+                   "부타동", "규동", "가츠동", "텐동")
+
+
+# 2026-11-11 사용자 확인: 한식 코너 중 원본 메뉴에 밥이 없지만 실제로 공기밥이 같이 나간 식판(개별 확인분).
+# 한식은 일반 규칙으로 밥을 자동 추가하지 않으므로, build 시 "[확인 필요]" 경고에 뜬 식판을 사용자가 확인한 뒤 여기에 추가한다.
+RICE_CONFIRMED_TRAYS = {
+    ("2026-08-27", "105", "제육볶음&쌈채소"),
+    ("2026-10-29", "105", "라따뚜이오믈렛"),
+    ("2026-11-10", "105", "두반장제육볶음"),
+}
+
+
+def has_rice_like(main, sides):
+    names = [main] + list(sides)
+    return any(h in n for n in names for h in RICE_LIKE_HINTS)
+# 2026-11-11: 후리가케밥은 사용자 확인 결과 공기밥이 아니라 곁들임(사이드)이라 밥 210g이 아닌 일반 반찬 폴백(72.2g)을 유지한다.
 
 # 2026-11-03: 그릇 실측(부피) 기반 추정을 전면 폐지하고, 신뢰할 수 있는 외부 자료의
 # "음식 종류별 1인분 제공량"으로 교체. 식당/그릇 종류와 무관하게 메뉴명만으로 중량을
@@ -260,10 +279,24 @@ def classify_side_weight(name, cache=None):
         return 20, "사진의 소량 건어물·견과 반찬: 완성 혼합물20g 임시 가정. 일반 볶음80g 제외, 실측값·제품 참고량 아님"
     if name == "간장마늘쫑":
         return 25, "절임 반찬 임시25g: 제품DB 참고량 활용. 간장 소스9g 오분류 제외, 실제 제공량 미확인"
+    if name in ("마늘장아찌", "알마늘장아찌"):
+        # 2026-11-11: 마늘 원물은 탄수밀도가 높아 72.2g 폴백으로 채소군이 6교환까지 부풀던 것 교정.
+        # 장아찌 몇 쪽 수준의 실제 섭취량으로 현실화(생마늘 기준 환산은 exchange_unit에서 처리).
+        return 12, "마늘장아찌류 - 마늘 원물 섭취량 현실화(장아찌 몇 쪽 ≈ 12g, 사용자 지정). 생마늘 기준 환산, 실측 아님"
     if name == "감자모닝빵":
         return 30, "사진에서 빵1개 확인, 개당30g 임시 가정(실측·제품 중량 미확인). 일반 반찬72.2g 제외, 감자 속재료는 미확인"
     if name == "탕평채":
         return 70, "탕평채는 생채·무침류 반찬70g 적용(이름의 탕으로 국물283g 오분류하던 규칙 제외)"
+    if name == "오이탕탕이":
+        # 2026-11-11: 이름의 "탕" 때문에 국물류 283g로 분류돼 채소군이 4교환까지 부풀던 것 교정(무침 70g).
+        return 70, "오이탕탕이는 오이 무침류 반찬70g 적용(이름의 탕으로 국물283g 오분류하던 규칙 제외)"
+    if name == "명엽채볶음":
+        # 2026-11-11: 볶음 80g 폴백이 건어물 반찬에 과해 쥐치포 60g(어육 3.1교환)이 들어가던 것 교정.
+        # 쥐어채볶음(19.5g)·견과류멸치볶음(20g)과 같은 소량 건어물 규칙.
+        return 20, "소량 건어물 반찬: 명엽채(쥐치포) 볶음 완성 혼합물 20g 임시 가정(쥐어채·멸치볶음과 동일 규칙). 실측값 아님"
+    if name == "식혜":
+        # 2026-11-11: 음료인데 일반 반찬 72.2g 폴백을 받던 것 교정. 영양성분DB(외식 식혜) 자체 1회 제공량 150g 적용.
+        return 150, "식혜 1잔 - 영양성분DB(외식) 1회 제공량 150g 적용(일반 반찬 72.2g 오분류 교정, 실측·컵 용량 미확인)"
     if name in ("석류차", "매실차", "레몬홍차"):
         return 200, "차 음료 - 1잔200mL 추정(일반 반찬 중량 제외, 실제 제공량·희석비 미확인)"
     if name == "버터":
@@ -313,6 +346,12 @@ def classify_side_weight(name, cache=None):
 # 예외적으로 실제 재료 단위로 쪼갠다. 메인/반찬 어느 쪽에서 나오든 같은 방식으로 적용됨.
 # 케이스별로만 등록 - 새 이름이 나오면 여기 추가.
 DECOMPOSE_OVERRIDES = {
+    # 2026-11-11: "*" 균등분할로 돈가스 75.5g + 치즈 75.5g이 되던 것 교정. 돈가스는 메인 폴백 151g 그대로,
+    # 눈꽃치즈는 토핑 소량(20g, 사진 미확인 임시값)으로 분리한다.
+    "왕돈가스*눈꽃치즈": [
+        ("왕돈가스", 151, "일반 메인요리(까스류) 폴백 - 대학급식소(1997) pan broiled sole 151g (눈꽃치즈 토핑과 분리, 균등분할 제외)"),
+        ("눈꽃치즈", 20, "돈가스 위 눈꽃치즈 토핑 임시 20g(실측·제품 중량 미확인). 기존 균등분할 75.5g은 과대"),
+    ],
     # 11/9 photo confirms cut chicken, egg strips, seaweed and orange sauce.
     # Component weights are provisional; the original bowl total remains 418g.
     "스리라차치킨마요덮밥": [
@@ -670,7 +709,7 @@ DECOMPOSE_OVERRIDES = {
     # 없어 미매칭. 사용자 지시로 마늘장아찌(food_db)로 매칭. 중량은 기존 일반 반찬 평균
     # 표준(72.2g) 그대로 유지.
     "알마늘지": [
-        ("마늘장아찌", 72.2, "사용자 지정: 마늘장아찌로 매칭 - 일반 반찬 평균 표준중량 72.2g 유지"),
+        ("마늘장아찌", 12, "사용자 지정: 마늘장아찌로 매칭 - 마늘 원물 섭취량 현실화 12g(생마늘 기준 환산, 2026-11-11). 실측 아님"),
     ],
     # 2026-11-09 추가: 105(한양플라자) 11/10 한식 메인 - "두반장제육볶음" 통짜가 DB에 없어
     # 미매칭. 사용자 지시로 제육볶음으로 매칭(두반장 소스분 별도 추가 안 함). 중량은 기존
@@ -777,7 +816,8 @@ def _special_weight(part):
         return 9, "칠리S는 칠리소스: 기존 소스 기준 임시9g. 국수와 균등분할하지 않음, 실제 제공량 미확인"
     if part == "양념장":
         return 9, "곁들임 양념장 임시9g: 기존 소스 기준 적용, 실제 제공량 미확인"
-    if part in ("간장돼지불고기", "간장마늘쫑", "간장불고기") or part.endswith("덮밥"):
+    # 2026-11-11: "간장불고기"(204 정식 메인)가 "간장" 키워드로 9g 소스가 되던 것 교정 - 불고기류는 소스가 아니다.
+    if part in ("간장돼지불고기", "간장마늘쫑", "간장불고기") or part.endswith("덮밥") or "불고기" in part:
         return None
     # 사리(추가면)는 _special_weight 전에 is_self_or_junk로 이미 제거됨(2026-11-08). 분기 삭제.
     if any(k in part for k in SAUCE_KEYWORDS):
@@ -939,7 +979,11 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
         # 수 없고, 식품교환표에서도 저칼로리 조미료·차는 자유식품으로 계산에서 빼는 게 관례다.
         if it["display"] in ("돈까스소스", "브라운소스", "쌈장", "양파간장", "타르타르소스", "스위트칠리",
                               "타르소스", "칠리소스", "머스타드", "카레소스", "겨자소스", "동그랑땡소스",
-                              "레몬홍차", "복숭아티", "칠리S", "스리라차소스"):
+                              "레몬홍차", "복숭아티", "칠리S", "스리라차소스",
+                              # 2026-11-11: 과일음료·과일차 및 기타 당·향료 음료는 식품교환단위 산출에서 제외(사용자 지정).
+                              # 과일류는 추천 비교(곡류·어육·채소·지방)에 쓰지 않으며, 콜라→"콜라비"(채소 3.44)·석류차→"석류"
+                              # (과일 3.45)처럼 엉뚱한 식품군으로 오매칭되거나 미매칭으로 남던 것을 함께 정리. 식혜(쌀 음료)는 유지.
+                              "망고주스", "석류차", "매실차", "유자차", "쿨피스", "콜라", "제로사이다", "탄산음료"):
             recipe_notes.append(f"{it['display']}: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.")
             continue
         if shop == "401" and it["display"] == "김치2종" and date in KIMCHI_PAIR_EXCLUDED_DATES:
@@ -1157,6 +1201,14 @@ def compute_tray(lunch, cache):
     # 밥을 쌀밥 하나로 통일한다(곡류군 중복 합산 방지).
     if lunch["main"] == "돈까스나베":
         sides = [s for s in sides if s not in ("흑미밥", "쌀밥", "잡곡밥", "현미밥", "기장밥", "보리밥")]
+    # 2026-11-11 사용자 확인: 한양플라자(105) 즉석 코너는 공기밥이 항상 함께 제공되는데 원본 메뉴 텍스트에
+    # 밥이 표기되지 않아 곡류군·열량이 통째로 빠져 있었다. 메인/사이드에 밥류가 없으면 쌀밥 210g을 추가한다.
+    # (한식 등 다른 코너는 밥이 항상 나가지 않으므로 자동 추가하지 않는다 - 2026-11-11 사용자 확인.)
+    extra_rice = None
+    if shop == "105" and category == "즉석" and not has_rice_like(main, sides):
+        extra_rice = ("쌀밥", 210, "즉석 코너 공기밥 - 원본 메뉴 미표기, 사용자 확인(2026-11-11)으로 항상 제공 적용; 일반 밥 1공기 210g")
+    elif (lunch["date"], shop, lunch["main"]) in RICE_CONFIRMED_TRAYS and not has_rice_like(main, sides):
+        extra_rice = ("쌀밥", 210, "공기밥 - 원본 메뉴 미표기, 해당 식판 사용자 개별 확인(2026-11-11)으로 추가; 일반 밥 1공기 210g")
 
     items = []
     for p, w, note in expand_main(main, shop, category, cache):
@@ -1164,6 +1216,8 @@ def compute_tray(lunch, cache):
     for s in sides:
         for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
             items.append(build_item(p, w, note, cache))
+    if extra_rice:
+        items.append(build_item(*extra_rice, cache))
 
     include_photo_confirmed_rice(items, lunch, cache)
     apply_reviewed_chip_portion(items, lunch, cache)
@@ -1259,3 +1313,11 @@ if __name__ == "__main__":
     print(f"trays with at least 1 unmatched item: {n_unmatched_total}")
     print(f"낮음 신뢰도: {n_low_conf}")
     print(f"reverse-check FAIL(>10%): {n_err_over10}")
+    # 2026-11-11: 105 한식은 밥이 항상 나가지 않아 자동 추가하지 않는다. 밥류 항목이 없는 식판은 사람이 확인하도록 경고.
+    rice_missing = [l for l in lunches if l["shop"] == "105" and l["category"] == "한식"
+                    and (l["date"], l["shop"], l["main"]) not in RICE_CONFIRMED_TRAYS
+                    and not has_rice_like(l.get("calculationMain", l["main"]), [s for s in l["sides"] if not is_self_or_junk(s)])]
+    if rice_missing:
+        print(f"[확인 필요] 105 한식인데 밥류 항목이 없는 식판 {len(rice_missing)}건 (밥 제공 여부 확인 후 필요 시 처리):")
+        for l in rice_missing:
+            print(f"   {l['date']} {l['main']} | 반찬: {l['sides']}")

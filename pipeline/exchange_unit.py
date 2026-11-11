@@ -258,6 +258,10 @@ def _from_recipe_db(name, target_weight_g):
             ingredient_name = {'펜넬파스타': '스파게티면, 말린것', '청피망': '피망, 초록색, 생것', '홍피망': '피망, 빨간색, 생것', '완두콩': '완두, 삶은것', '블랙올리브': '올리브 절임, 완숙, 검은색', '토마토콩카세': '토마토, 생것', '파마산치즈': '치즈, 파르메산(파마산)'}.get(ingredient_name, ingredient_name)
         if name == "삼색딤섬":
             ingredient_name = {'다진 소고기': '소고기, 한우(1등급), 살코기, 생것', '후춧가루': '후추, 검은색, 가루', '통깨': '참깨, 흰색, 말린것'}.get(ingredient_name, ingredient_name)
+        if name == "함박스테이크":
+            # 2026-11-11: 다진 소고기·돼지고기 180g(레시피 200g 중)이 db104 미매칭으로 탈락해 151g 함박이 어육 0.38교환이던 것 교정.
+            ingredient_name = {'다진 소고기': '소고기, 한우(1등급), 살코기, 생것', '다진 돼지고기': '돼지고기, 살코기, 생것',
+                               '깻잎': '들깻잎, 생것', '빵가루': '밀, 빵가루'}.get(ingredient_name, ingredient_name)
         exact_record = DB104_BY_NAME.get(ingredient_name)
         m = {"record": exact_record} if exact_record is not None else match_ingredient_to_db104(ingredient_name, r.get("way"))
         if m is None:
@@ -541,6 +545,44 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
                 "unresolved_ingredients": [],
                 "recipe_note": f"치커리무침: 사용자 지정으로 치커리 잎 생것에 대체 매칭. 기존 음식 추정량 {weight_g:g}g 전체를 잎채소로 간주하고 양념은 교환단위에서 제외. 실제 채소 중량 실측값 아님. 메뉴명과 영양성분 계산 유지."}
+    if name == "식혜":
+        # 2026-11-11: MenuGen 식혜 레시피(엿기름 26g+설탕 10g+찹쌀 8g=44g, 물 없음)를 컵 중량에 비례 환산하면 엿기름이
+        # 수십 g으로 부풀어 곡류군 1.5교환(72g 기준)이 되던 것 교정. 영양탭과 같은 영양성분DB(외식 식혜) 완제품 탄수화물로
+        # 곡류군만 환산한다(당류 음료는 교환표 6군에 없어 탄수화물 기준 곡류 환산, 쌀 음료 관례).
+        product = try_food_db("식혜")
+        carb_per100 = product["per100"].get("carb") if product else None
+        if carb_per100 is not None:
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = carb_per100 * weight_g / 100.0 / UNIT_BASIS["곡류군"][1]
+            return {"matched": True, "units": units, "source": "food_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"식혜: 사용자 지정 교정. 물 없는 MenuGen 레시피 비례환산(곡류 과대) 대신 영양성분DB 식혜 "
+                                    f"탄수화물 100g당 {carb_per100:g}g × 제공량 {weight_g:g}g을 곡류군으로 환산. 당류 음료라 다른 식품군 없음.")}
+    if name == "감자수제비국":
+        # 2026-11-11: 국물 포함 전량(272g)을 db104 "수제비면, 감자, 삶은것"으로 매칭해 곡류 4.5교환까지
+        # 부풀던 것 교정. 국물에 희석된 완제품 탄수(영양탭과 동일한 영양성분DB 수제비_감자, 100mL당 17.65g)로
+        # 곡류군만 환산한다(국물요리를 완제품 기준으로 보는 식혜·곰탕과 동일 방식).
+        product = try_food_db("수제비_감자")
+        carb_per100 = product["per100"].get("carb") if product else None
+        if carb_per100 is not None:
+            units = {g: 0.0 for g in EXCHANGE_GROUPS}
+            units["곡류군"] = carb_per100 * weight_g / 100.0 / UNIT_BASIS["곡류군"][1]
+            return {"matched": True, "units": units, "source": "food_db_estimate",
+                    "matched_name": product["name"], "unresolved_ingredients": [],
+                    "recipe_note": (f"감자수제비국: 사용자 지정 교정. 국물 포함 전량을 수제비면으로 매칭(곡류 과대)하던 것을, "
+                                    f"영양성분DB 수제비_감자 탄수화물 100mL당 {carb_per100:g}g × 제공량 {weight_g:g}g을 곡류군으로 환산. "
+                                    "감자·채소·육수 재료별 분해가 아닌 완제품 기준 대체 추정. 영양성분·메뉴명 유지.")}
+    if name == "그린샐러드":
+        # 2026-11-11: recipe_decompose.SYNONYMS가 "양배추 샐러드, 코울슬로"(탄수 13.4g/100g)에 연결해 71g이
+        # 채소군 3.17교환으로 부풀던 것 교정. 잎채소(양상추 생것)로 환산하고 드레싱은 조미료 제외 규칙 유지.
+        record = DB104_BY_NAME["상추, 결구(양상추), 녹색, 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("양상추 교환단위 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"그린샐러드: 사용자 지정 교정. 기존 코울슬로 대체(당·소스 포함 탄수)로 채소군이 과대되던 것을 양상추 생것 {weight_g:g}g으로 환산. 드레싱은 교환단위 제외. 실제 채소 종류·중량 실측값 아님. 영양성분·메뉴명 유지."}
     if name == "곰탕":
         product = try_food_db("곰탕")
         protein_per100 = product["per100"].get("protein") if product else None
@@ -569,6 +611,51 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                                 f"{weight_g:g}g 전체를 고추 중량으로 간주하여 채소군 환산. "
                                 "실제 품종·고추 중량 실측값 아님. 양념의 당류·기름 등은 교환단위에 "
                                 "미반영. 메뉴 표시명과 영양성분 계산값 유지.")}
+    # 2026-11-11: 절임·장아찌류 채소군 과대 교정(사용자 지정). 설탕·식초로 탄수화물이 부풀어 70g당
+    # 6~7교환까지 나오던 것을, 절임액·양념을 빼고 원물 채소 기준으로 환산한다(식품교환표 채소군은
+    # 생채소 기준). 이미 저탄수 절임 레코드에 매칭되던 단무지류·무피클·오이지무침·짜사이는 손대지 않는다.
+    _PICKLE_RAW_VEG = {
+        "오이피클": "오이, 다다기, 생것", "피클": "오이, 다다기, 생것",
+        "비트무피클": "무, 조선무, 생것",
+        "무말랭이": "무, 조선무, 생것", "무말랭이무침": "무, 조선무, 생것",
+        "오그락지": "무, 조선무, 생것", "오그락지무침": "무, 조선무, 생것",
+        "양파절임": "양파, 생것", "양파간장절임": "양파, 생것",
+        "코울슬로": "양배추, 생것",
+        "마늘쫑장아찌": "마늘종, 꽃줄기, 생것",
+    }
+    if name in _PICKLE_RAW_VEG:
+        record = DB104_BY_NAME[_PICKLE_RAW_VEG[name]]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError(f"{name} 원물 채소 연결 실패: {_PICKLE_RAW_VEG[name]}")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"{name}: 사용자 지정 교정. 절임의 당·식초 탄수로 채소군이 과대되던 것을 원물 채소({record['식품명']}) {weight_g:g}g 기준으로 환산. 절임액·양념은 교환단위 제외. 실측값 아님. 메뉴 표시명과 영양성분 계산값 유지."}
+    # 마늘장아찌·알마늘장아찌: 마늘 원물은 탄수밀도가 높아(생마늘 26.4g/100g) 원물매칭으로도 과대되므로,
+    # 실제 섭취량(마늘 몇 쪽 ≈ 12g, build_month에서 지정)으로 생마늘 기준 환산한다(사용자 지정).
+    if name in ("마늘장아찌", "알마늘장아찌", "알마늘지"):
+        record = DB104_BY_NAME["마늘, 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("마늘장아찌 생마늘 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"{name}: 사용자 지정 교정. 마늘장아찌DB(설탕·간장 포함 탄수)로 채소군이 과대되던 것을, 마늘 원물의 높은 탄수밀도를 반영해 실제 섭취량 수준의 생마늘 {weight_g:g}g으로 환산. 절임액은 교환단위 제외. 실측값 아님. 메뉴 표시명과 영양성분 계산값 유지."}
+    if name == "무말랭이오징어젓갈":
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        radish = DB104_BY_NAME["무, 조선무, 생것"]
+        if not _add_ingredient(units, radish["식품군"], radish, weight_g * 0.7):
+            raise ValueError("무말랭이오징어젓갈 무 연결 실패")
+        jeot = compute_exchange_units("오징어젓", weight_g * 0.3, use_plaza_servings)
+        if jeot["matched"]:
+            for g in EXCHANGE_GROUPS:
+                units[g] += jeot["units"][g]
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": f"{radish['식품명']} + {jeot.get('matched_name', '오징어젓')}",
+                "unresolved_ingredients": [],
+                "recipe_note": f"무말랭이오징어젓갈: 사용자 지정 교정. 미매칭이던 것을 무말랭이(원물 무 {weight_g * 0.7:g}g, 절임액 제외)와 오징어젓({weight_g * 0.3:g}g)으로 분해 환산. 중량 배분은 임시 가정(실측 아님). 메뉴 표시명과 영양성분 계산값 유지."}
     if name in ("치킨너겟버펄로볼", "치킨너겟 버펄로볼"):
         result = compute_exchange_units("치킨너겟", weight_g, use_plaza_servings)
         if result["matched"]:
@@ -613,6 +700,17 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "matched_name": "어묵", "matched_ingredients": ["어묵"],
                 "unresolved_ingredients": [],
                 "recipe_note": f"꼬치어묵: 사용자 지정에 따라 원재료DB 어묵으로 직접 매칭, 국물은 제외. 기존 추정 제공량 {weight_g:g}g 적용(1개 표준 추정 50g, 실측 아님). 실제 제품의 어육 함량·배합 차이 미보정. 메뉴 표시명과 기존 영양성분 계산값 유지, 식품교환단위만 재계산."}
+    if name == "오돌뼈":
+        # 2026-11-11: db104에 '오돌뼈'·'연골'·'물렁뼈' 원재료가 없어 교환단위 미매칭이던 것 교정(사용자 지정).
+        # 이름에 오돌뼈(갈비연골)가 포함된 실제 부위 '삼겹살(오돌삼겹)'로 대체 매칭. 육류라 단백질만 어육류군 환산.
+        record = DB104_BY_NAME["돼지고기, 삼겹살(오돌삼겹), 생것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("오돌뼈 오돌삼겹 원재료DB 연결 실패")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "matched_ingredients": [record["식품명"]],
+                "unresolved_ingredients": [],
+                "recipe_note": f"오돌뼈: 사용자 지정 교정. db104에 오돌뼈·연골 원재료가 없어 미매칭이던 것을, 이름에 오돌뼈(갈비연골)가 포함된 실제 부위 '{record['식품명']}'으로 대체 매칭. 제공량 {weight_g:g}g 전체를 어육류군으로 환산(육류는 단백질 기준). 양념·연골 비율 차이 미보정, 실측값 아님. 메뉴 표시명과 영양성분 계산값 유지."}
     original_name = name
     if name == "소불고기전골" and not use_plaza_servings:
         scale = weight_g / 300.0
@@ -684,7 +782,6 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         # Explicit equivalents; retain uncertainty when using a standard recipe.
         aliases = {
             "등뼈감자탕": "감자탕",  # 사용자 지정 교환단위 대체
-            "알마늘장아찌": "마늘장아찌",  # 사용자 지정 교환단위 이름 연결
             "오이도라지무침": "도라지오이무침",  # 사용자 지정 교환단위 이름 연결
             "된장찌개": "호박두부된장찌개",  # 사용자 지정 교환단위 대체
             "간장돼지불고기": "돼지고기 간장볶음",  # 사용자 지정 교환단위 대체
@@ -706,7 +803,6 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "스크램블에그": "스크램에그",
             "알감자조림": "감자조림",
             "양념깻잎지": "깻잎장아찌",
-            "양파간장절임": "양파장아찌",
             "애호박전": "호박전(애호박)",
             "소면사리": "소면",
             "순대": "순대",
