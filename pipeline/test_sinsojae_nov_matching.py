@@ -53,7 +53,7 @@ class SinsojaeMatchingTest(unittest.TestCase):
 
     def test_pending_and_beef_exclusion(self):
         pending={n for k,r in self.rows.items() if k[1]=='204' and '2026-11-09'<=k[0]<='2026-11-13' for n in r['exchangeUnits']['unmatched']}
-        self.assertEqual(pending,{'불닭크림우동','매실차','국물떡볶이','간장불고기','망고주스','양파절임','마약옥수수','치즈맛감자'})
+        self.assertEqual(pending,{'불닭크림우동','국물떡볶이','마약옥수수','치즈맛감자'})  # 간장불고기는 2026-11-11 중량 교정 후 적용; 양파절임은 절임 원물환산으로 매칭 해소; 매실차·망고주스는 2026-11-11 과일음료·차 교환단위 제외
         recipes=read(ROOT/'custom_exchange_recipes.json')
         recipe=next(r for r in recipes if r['name']=='신소재_202611_검토확정_온모밀')
         self.assertFalse(any('소고기' in i['food_name'] or '쇠고기' in i['food_name'] for i in recipe['ingredients']))
