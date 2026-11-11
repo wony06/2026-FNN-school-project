@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-11",
+  "menu": "매실차",
+  "userRequestedReference": "초록매실",
+  "referenceProduct": {
+    "brand": "웅진식품 초록매실",
+    "variantAssumption": "일반 완제품 음료로 해석; 제로·스파클링·매실청·사탕은 후보에서 제외",
+    "exactPackageOrLabelConfirmed": false,
+    "selectedPackage": "1.35L DB 제품"
+  },
+  "targets": [
+    {
+      "date": "2026-11-09",
+      "shop": "204",
+      "category": "일품",
+      "main": "김밥볶음밥",
+      "existingServingEstimate": 200,
+      "existingServingField": "weight_g",
+      "volumeConfirmed": false
+    },
+    {
+      "date": "2026-11-09",
+      "shop": "204",
+      "category": "정식",
+      "main": "돈육김치찌개",
+      "existingServingEstimate": 200,
+      "existingServingField": "weight_g",
+      "volumeConfirmed": false
+    }
+  ],
+  "localProductCandidates": [
+    {
+      "식품코드": "P109-303030300-0966",
+      "식품명": "초록매실",
+      "데이터구분명": "가공식품",
+      "식품기원명": "가공식품",
+      "식품대분류명": "음료류",
+      "식품중분류명": "과일·채소류음료",
+      "식품소분류명": "과·채음료",
+      "영양성분함량기준량": "100ml",
+      "1회 섭취참고량": "200ml",
+      "식품중량": "1500ml",
+      "제조사명": "웅진식품(주)",
+      "원산지국명": "해당없음",
+      "에너지(kcal)": "50",
+      "단백질(g)": "0.00",
+      "식이섬유(g)": "",
+      "칼슘(mg)": "",
+      "철(mg)": "",
+      "비타민 A(μg RAE)": "",
+      "비타민 C(mg)": "",
+      "포화지방산(g)": "0.00",
+      "당류(g)": "11.00",
+      "나트륨(mg)": "5",
+      "지방(g)": "0.00",
+      "탄수화물(g)": "13.00"
+    },
+    {
+      "식품코드": "P109-303030300-2987",
+      "식품명": "초록매실",
+      "데이터구분명": "가공식품",
+      "식품기원명": "가공식품",
+      "식품대분류명": "음료류",
+      "식품중분류명": "과일·채소류음료",
+      "식품소분류명": "과·채음료",
+      "영양성분함량기준량": "100ml",
+      "1회 섭취참고량": "200ml",
+      "식품중량": "2160ml",
+      "제조사명": "동원시스템즈 횡성공장",
+      "원산지국명": "해당없음",
+      "에너지(kcal)": "50",
+      "단백질(g)": "0.00",
+      "식이섬유(g)": "",
+      "칼슘(mg)": "",
+      "철(mg)": "",
+      "비타민 A(μg RAE)": "",
+      "비타민 C(mg)": "",
+      "포화지방산(g)": "0.00",
+      "당류(g)": "11.11",
+      "나트륨(mg)": "6",
+      "지방(g)": "0.00",
+      "탄수화물(g)": "12.78"
+    },
+    {
+      "식품코드": "P109-303030300-3004",
+      "식품명": "초록매실",
+      "데이터구분명": "가공식품",
+      "식품기원명": "가공식품",
+      "식품대분류명": "음료류",
+      "식품중분류명": "과일·채소류음료",
+      "식품소분류명": "과·채음료",
+      "영양성분함량기준량": "100ml",
+      "1회 섭취참고량": "200ml",
+      "식품중량": "1350ml",
+      "제조사명": "웅진식품(주)",
+      "원산지국명": "해당없음",
+      "에너지(kcal)": "45",
+      "단백질(g)": "0.00",
+      "식이섬유(g)": "0.2",
+      "칼슘(mg)": "2",
+      "철(mg)": "0.00",
+      "비타민 A(μg RAE)": "0",
+      "비타민 C(mg)": "6.04",
+      "포화지방산(g)": "0.00",
+      "당류(g)": "9.00",
+      "나트륨(mg)": "5",
+      "지방(g)": "0.00",
+      "탄수화물(g)": "11.00"
+    }
+  ],
+  "referenceSource": {
+    "local": "gagong_db_nrf63.csv",
+    "officialBrandPage": "https://www.wjfood.co.kr/brand/index?br=4&ca=1",
+    "officialChecked": "2026-11-11",
+    "officialVerificationScope": "일반·제로 제품군 구분만 재확인; 영양수치는 프로젝트 DB 레코드에 근거하고 최신 제조사 영양표 검증값은 아님"
+  },
+  "status": "사용자 지정으로 교환단위 계산·미매칭 목록 제외 확정; 웹사이트 미반영",
+  "exchangeUnitsCalculated": false,
+  "websiteUpdated": false,
+  "nutritionUpdated": false,
+  "pending": [],
+  "notes": [
+    "2026-11-11 사용자 지정: 매실주스(해당 메뉴 표기 매실차·초록매실 기준)와 망고주스는 식품교환단위 계산 및 미매칭 목록에서 제외. 영양성분·메뉴·제공량은 유지. 실제 교환단위나 탄수화물이0이라는 의미가 아님.",
+    "기존 제품·영양 환산 기록은 참고자료로 보존하되 이번 요청은 교환단위만 제외한다. 과일군·곡류군 등으로 별도 가산하지 않는다."
+  ],
+  "selectedReferenceRecord": {
+    "식품코드": "P109-303030300-3004",
+    "식품명": "초록매실",
+    "데이터구분명": "가공식품",
+    "식품기원명": "가공식품",
+    "식품대분류명": "음료류",
+    "식품중분류명": "과일·채소류음료",
+    "식품소분류명": "과·채음료",
+    "영양성분함량기준량": "100ml",
+    "1회 섭취참고량": "200ml",
+    "식품중량": "1350ml",
+    "제조사명": "웅진식품(주)",
+    "원산지국명": "해당없음",
+    "에너지(kcal)": "45",
+    "단백질(g)": "0.00",
+    "식이섬유(g)": "0.2",
+    "칼슘(mg)": "2",
+    "철(mg)": "0.00",
+    "비타민 A(μg RAE)": "0",
+    "비타민 C(mg)": "6.04",
+    "포화지방산(g)": "0.00",
+    "당류(g)": "9.00",
+    "나트륨(mg)": "5",
+    "지방(g)": "0.00",
+    "탄수화물(g)": "11.00"
+  },
+  "referenceSelectionConfirmed": true,
+  "actualProductConfirmed": false,
+  "portion": {
+    "volume_ml": 200,
+    "weight_g_for_compatibility": 200,
+    "density_assumption_g_per_ml": 1,
+    "dilution": "완제품 그대로, 별도 희석 없음으로 가정",
+    "measured": false,
+    "nutritionEstimate": {
+      "kcal": 90.0,
+      "carb": 22.0,
+      "sugar": 18.0,
+      "protein": 0.0,
+      "fat": 0.0,
+      "na": 10.0
+    }
+  },
+  "referenceSelectionReason": "사용자가 초록매실 기준으로 지정하고 확인을 위임하여 일반 완제품으로 한정. 재현 가능한 프로젝트 DB의 웅진식품 1.35L 레코드 P109-303030300-3004를 계산 기준으로 선택. 최신 모든 제품의 공통 성분이라고 주장하지 않음.",
+  "photoCheck": {
+    "photos": [
+      "9ecc689b3cc64f02b2507b25.jpg",
+      "7a71012e213f6f85b8638201.jpg"
+    ],
+    "observation": "11/9 일품·정식 식판 사진 모두에서 별도 음료 컵·병·포장을 확인하지 못함. 따라서 브랜드·제품·용량·희석비의 사진 검증 불가."
+  },
+  "externalVerification": {
+    "checked": "2026-11-11",
+    "officialBrand": {
+      "url": "https://www.wjfood.co.kr/brand/index?br=4&ca=1",
+      "confirmed": "일반 초록매실, 제로, 스파클링 제로 제품군 구분",
+      "notConfirmed": "일반 제품의 영양표 수치는 공식 페이지 텍스트에서 확인하지 못함"
+    },
+    "retailerDiscrepancy": [
+      {
+        "url": "https://m.ssg.com/item/itemView.ssg?itemId=1000368042890",
+        "searchExtract": "일반1.35L 100mL당35kcal"
+      },
+      {
+        "url": "https://emart.ssg.com/item/itemView.ssg?itemId=1000368042890&salestrNo=2551&siteNo=7009",
+        "searchExtract": "일반1.35L 100mL당45kcal"
+      },
+      {
+        "url": "https://www.speedmall.co.kr/product/L54HL",
+        "searchExtract": "100mL당50kcal·탄수화물13g·당류11g"
+      }
+    ],
+    "conclusion": "공개 판매 정보가 상충하고 제조사 영양표 원본은 확인하지 못해, 하나를 최신 공식값으로 확정하지 않음. 서로 다른 자료에서 열량·탄수화물을 섞지 않고 선택한 단일 DB 레코드만 환산."
+  },
+  "exchangeHandling": {
+    "action": "excluded_by_user",
+    "exchangeUnits": null,
+    "includedInSixGroupTotals": false,
+    "retainUnmatched": false,
+    "reason": "2026-11-11 사용자 지정: 매실주스(해당 메뉴 표기 매실차·초록매실 기준)와 망고주스는 식품교환단위 계산 및 미매칭 목록에서 제외. 영양성분·메뉴·제공량은 유지. 실제 교환단위나 탄수화물이0이라는 의미가 아님."
+  },
+  "exchangeExcluded": true,
+  "exchangeExclusionReason": "2026-11-11 사용자 지정: 매실주스(해당 메뉴 표기 매실차·초록매실 기준)와 망고주스는 식품교환단위 계산 및 미매칭 목록에서 제외. 영양성분·메뉴·제공량은 유지. 실제 교환단위나 탄수화물이0이라는 의미가 아님."
+}

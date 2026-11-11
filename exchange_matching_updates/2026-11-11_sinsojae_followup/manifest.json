@@ -1,0 +1,22 @@
+{
+  "sourceCommit": "f6cb91fb702cc7a7d11dd364dd3783df689a2565",
+  "status": "review_only_not_applied_to_runtime",
+  "created": "2026-11-11",
+  "recipeCount": 6,
+  "exclusionItemCount": 3,
+  "mealCount": 6,
+  "protectedSourceSha256": {
+    "custom_exchange_recipes.json": "a2f6e6f6576dbd18dd808cd6b84ab067d78b1e6e6bdda73546dbd55b6c43229a",
+    "manual_exchange_overrides.json": "622dc6c338e48976f60d27e8793023252e8a4e65c784983da5bef13e009e685a",
+    "month_lunch_trays.json": "dd90a7a9641d04c86790054f1381d35a62d1ef9c02ab153303192848573285d5",
+    "site_data.json": "4985987c80642f0165f8c6562f53dcea761076c88cabebe8fc70645192b601dd",
+    "web/site_data.json": "4985987c80642f0165f8c6562f53dcea761076c88cabebe8fc70645192b601dd",
+    "web/menu_exchange_snapshot.json": "78c06071ebcc8cd652bd73bfdc7aaee2784bcedc7c7d89b92416da797afa82b2",
+    "pipeline/build_month.py": "fd2733aa3e14cabf1718a6888306746ac104b3b4212f5bd91d035de0da60cd3d",
+    "pipeline/exchange_unit.py": "994836ad7ae46bff7eed45f9206cc473337b6b6d06da3545eea47d9507a6b31d"
+  },
+  "sourceHashNormalization": "CRLF converted to LF for cross-platform validation; mutation checks use exact bytes",
+  "scope": "이번 추가 검토6레시피·음료 제외3건만. 이미 배포한15레시피와 과거8~9월 수정은 중복 적용하지 않음.",
+  "nutritionPolicy": "최신 팀원 영양성분·표시명·제공량 보존, 간장불고기151g 교정 보존",
+  "limitations": "계산자 추정 배합. 당류·일부 조미료 제외, 단일 식품군 환산에 따른 지방·단백질 누락 등 기존 엔진 한계를 recipeNotes에 보존."
+}
