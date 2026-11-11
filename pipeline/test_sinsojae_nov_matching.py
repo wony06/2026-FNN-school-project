@@ -13,15 +13,51 @@ class SinsojaeMatchingTest(unittest.TestCase):
         cls.baselines=read(BUNDLE/'baseline_rows.json')
         cls.changes=read(BUNDLE/'변경내역.json')['changes']
 
-    def test_nutrition_and_display_unchanged(self):
+    def test_display_and_unreviewed_nutrition_unchanged(self):
+        # Later user-approved calorie reviews supersede only these baseline items.
+        reviewed = {
+            ('2026-11-10','참치마요덮밥'): {'참치마요덮밥'},
+            ('2026-11-10','간장불고기'): {'간장불고기','베이컨감자채전'},
+            ('2026-11-11','왕돈까스'): {'비엔나강정'},
+            ('2026-11-12','닭볶음탕'): {'계란파국'},
+            ('2026-11-13','차돌순두부찌개'): {'맛살마늘쫑볶음','알새우칩'},
+        }
+        derived = ('weight','kcal','protein','fat','carb','sugar','fiber','ca','fe','vitA','vitC',
+                   'satFat','na','nrf','confidence','unmatched','gagongSourced','matchedDb',
+                   'missingFields','qualityFlags','nutritionNotes')
         for baseline in self.baselines:
             row=copy.deepcopy(self.rows[key(baseline)])
+            allowed = reviewed.get((row['date'],row['main']), set())
+            if allowed:
+                for field in derived:
+                    if field in baseline: row[field]=baseline[field]
+                    else: row.pop(field,None)
             row['exchangeUnits']=baseline['exchangeUnits']
             for old,new in zip(baseline['itemDetails'],row['itemDetails']):
+                if old['display'] in allowed:
+                    new.clear(); new.update(copy.deepcopy(old))
                 for f in ('calculationName','exchange_weight_g','exchange_weight_note'):
                     if f in old: new[f]=old[f]
                     else: new.pop(f,None)
             self.assertEqual(row,baseline)
+
+    def test_reviewed_calories_and_portions(self):
+        expected = {('2026-11-10','참치마요덮밥'):1047.2,
+                    ('2026-11-10','간장불고기'):841.8,
+                    ('2026-11-11','왕돈까스'):838.0,
+                    ('2026-11-12','닭볶음탕'):989.0,
+                    ('2026-11-13','차돌순두부찌개'):967.0}
+        for (day,main),kcal in expected.items():
+            row=next(r for k,r in self.rows.items() if k[0]==day and k[1]=='204' and k[3]==main)
+            self.assertEqual(row['kcal'],kcal)
+            self.assertAlmostEqual(sum(i['contrib']['kcal'] for i in row['itemDetails']),kcal,delta=.1)
+            self.assertFalse(row['unmatched'])
+            if main=='왕돈까스':
+                self.assertEqual(next(i['weight_g'] for i in row['itemDetails'] if i['display']=='왕돈까스'),151)
+            if main=='차돌순두부찌개':
+                chip=next(i for i in row['itemDetails'] if i['display']=='알새우칩')
+                self.assertEqual(chip['weight_g'],30)
+                self.assertEqual(chip['exchange_weight_g'],30)
 
     def test_full_precision_recalculation_and_persistence(self):
         roots={key(r):r for r in read(ROOT/'site_data.json')}

@@ -16,6 +16,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# User-approved nutrition reuse of the already approved exchange recipes.
+APPROVED_SIDE_NUTRITION = {
+    '베이컨감자채전': '신소재_202611_검토확정_베이컨감자채전',
+    '비엔나강정': '신소재_202611_검토확정_비엔나강정',
+    '계란파국': '신소재_202611_검토확정_계란파국',
+    '맛살마늘쫑볶음': '신소재_202611_검토확정_맛살마늘쫑볶음',
+}
+
 PRODUCT_FIELDS = {
 
     'kcal':'에너지(kcal)', 'protein':'단백질(g)', 'fat':'지방(g)',
@@ -41,6 +49,7 @@ PRODUCTS = {
 }
 
 COOKED = {
+    '간장불고기': ('D708-375010000-0001', 151),
     '짜사이': ('D714-715000000-0001', 72.2),
     '소고기샤브샤브': ('D306-287180000-0001', 297),
     '건파래볶음': ('D710-498000000-0001', 80),
@@ -75,17 +84,18 @@ def number(value):
 
 def prepared_food_override(name, foods, products, nutrients, raw_map):
 
-    if name in ('묵은지참치비빔밥', '갈릭쉬림프덮밥', '시금치치킨프리카세'):
+    if name in ('묵은지참치비빔밥', '갈릭쉬림프덮밥', '시금치치킨프리카세', '참치마요덮밥') or name in APPROVED_SIDE_NUTRITION:
         recipe_file = 'external_exchange_recipes.json' if name == '시금치치킨프리카세' else 'custom_exchange_recipes.json'
-        recipe = next(r for r in json.loads((ROOT/recipe_file).read_text(encoding='utf-8')) if r['name'] == name)
+        recipe_name = APPROVED_SIDE_NUTRITION.get(name, name)
+        recipe = next(r for r in json.loads((ROOT/recipe_file).read_text(encoding='utf-8')) if r['name'] == recipe_name)
         records = {r['식품명']:r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8'))}
         totals = {f:0.0 for f in nutrients}; partial = set()
         for ingredient in recipe['ingredients']:
             if ingredient['food_name'] == '물':
                 continue
-            record = records[ingredient['food_name']]
+            record = records.get(ingredient['food_name'])
             for f in nutrients:
-                value = number(record.get(raw_map[f]))
+                value = ingredient['nutrients_per100'].get(f) if 'nutrients_per100' in ingredient else number(record.get(raw_map[f]))
                 if value is None: partial.add(f)
                 else: totals[f] += value * ingredient['weight_g'] / 100
         return {'source':'recipe_decompose','name':name,'unit':'g',
@@ -163,6 +173,10 @@ def prepared_food_override(name, foods, products, nutrients, raw_map):
         if name == '소고기샤브샤브':
             note = (f'샤브국수 조합의 국물·고기·채소 부분: 완성 음식 샤브샤브_소고기({code}) 100g당44kcal를 임시297g에 적용. '
                     '면은 별도 삶은 칼국수면200g만 포함하고 고기·채소를 영양성분에 다시 추가하지 않음. 실제 배합·제품·제공량 미확인 대체 추정.')
+        if name == '간장불고기':
+            note = ('간장불고기: 기존 산업체급식 돼지불고기_간장(D708-375010000-0001) 성분을 고정 사용. '
+                    '김밥·도시락 등 이름에 간장불고기가 포함된 제품 중앙값으로 재매칭하지 않음. '
+                    '소스9g 오분류를 메인 표준 추정151g으로 수정하고100mL 기준 성분에 밀도1(151mL) 가정 적용. 실제 밀도·제공량 미확인.')
         if name == '짜사이':
             note = '짜사이: 사용자 지정 짜사이무침(D714-715000000-0001) 완성 음식에 연결. 기존72.2g을 밀도1 가정으로72.2mL 환산. 실제 밀도·양념·제공량 미확인.'
         if name == '건파래볶음':

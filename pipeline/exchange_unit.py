@@ -374,6 +374,8 @@ def _from_custom_recipe(name, target_weight_g):
     unresolved = []
     for ing in dish["ingredients"]:
         record = DB104_BY_NAME.get(ing["food_name"])
+        if 'nutrients_per100' in ing:
+            record = {'식품명':ing['food_name'], **{col:ing['nutrients_per100'].get(f) for f,col in DB104_NUT_COL.items()}}
         if record is None and FOOD_GROUP_MAP.get(ing["food_group"]) is not None:
             unresolved.append(ing["food_name"])
         _add_ingredient(units, ing["food_group"], record, ing["weight_g"] * scale)

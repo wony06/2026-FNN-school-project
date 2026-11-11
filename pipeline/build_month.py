@@ -206,6 +206,9 @@ def _pick(name, cache, g_result, ml_key):
 
 
 def classify_main_weight(name, cache=None):
+    if name == '간장불고기':
+        return 151, ('간장불고기는 소스가 아닌 메인요리: 표준 추정량151g 적용. '
+                     '현재 영양DB가100mL 기준이므로 밀도1 가정으로151mL 환산; 실제 밀도·제공량 미확인')
     if name == "투움바떡볶이":
         return 180, "떡볶이 임시180g: 기존 떡볶이DB 참고 제공량 활용(분석기준100g과 구분). 실제 식판·제품 중량 미확인, 덮밥418g 분류 제외"
     if name == "순살닭한마리":
@@ -774,7 +777,7 @@ def _special_weight(part):
         return 9, "칠리S는 칠리소스: 기존 소스 기준 임시9g. 국수와 균등분할하지 않음, 실제 제공량 미확인"
     if part == "양념장":
         return 9, "곁들임 양념장 임시9g: 기존 소스 기준 적용, 실제 제공량 미확인"
-    if part in ("간장돼지불고기", "간장마늘쫑") or part.endswith("덮밥"):
+    if part in ("간장돼지불고기", "간장마늘쫑", "간장불고기") or part.endswith("덮밥"):
         return None
     # 사리(추가면)는 _special_weight 전에 is_self_or_junk로 이미 제거됨(2026-11-08). 분기 삭제.
     if any(k in part for k in SAUCE_KEYWORDS):
@@ -1050,6 +1053,102 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
     return exchange_units
 
 
+def include_photo_confirmed_rice(items, lunch, cache):
+    """Include the confirmed rice once, without changing another meal's portions."""
+    if (lunch['date'], str(lunch['shop']), lunch['main']) != ('2026-11-10', '105', '두반장제육볶음'):
+        return
+    if any(i['display'] in {'쌀밥', '백미밥', '흑미밥', '잡곡밥', '현미밥'} for i in items):
+        return
+    items.append(build_item('쌀밥', 210,
+        '11/10 두반장제육볶음 사진에서 밥 확인, 사용자 지정으로 누락된 밥 포함. '
+        '밥 표준 추정량210g 적용(실측 아님). 한식 분류라 즉석메뉴 자동 밥200g 규칙이 적용되지 않아 별도로 한 번만 계산.', cache))
+
+
+def apply_reviewed_chip_portion(items, lunch, cache):
+    """Use a product reference portion only for the reviewed November 13 meal."""
+    if (lunch['date'], str(lunch['shop']), lunch['main']) != ('2026-11-13', '204', '차돌순두부찌개'):
+        return
+    for index, item in enumerate(items):
+        if item['display'] != '알새우칩':
+            continue
+        note = ('알새우칩: 일반 반찬72.2g 대신 제품DB 1회 참고량30g을 임시 적용. '
+                '11/13 공식 사진이 없어 실제 제공량 확인값은 아님. 영양성분과 교환단위에30g을 동일 적용.')
+        replacement = build_item('알새우칩', 30, note, cache)
+        replacement.update(calculationName='신소재_20261113_알새우칩_30g',
+                           exchange_weight_g=30, exchange_weight_note=note)
+        items[index] = replacement
+
+
+def apply_reviewed_side_rice_portion(items, lunch, cache):
+    """Use the approved side portion for rice accompanying the November 11 cutlet."""
+    if (lunch['date'], str(lunch['shop']), lunch['main']) != ('2026-11-11', '401', '돈가스&브라운S'):
+        return
+    for index, item in enumerate(items):
+        if item['display'] == '김치볶음밥':
+            replacement = build_item('김치볶음밥', 72.2,
+                '사용자 지정: 돈가스 식판의 김치볶음밥은 밥 한공기210g 대신 일반 곁들임 표준 추정량72.2g 적용. '
+                '사진·실측 제공량 확인값 아님. 다른 볶음밥 식판은 기존 기준 유지.', cache)
+            replacement.update(exchange_weight_g=72.2)
+            items[index] = replacement
+
+
+def apply_reviewed_fries_portion(items, lunch, cache):
+    """Keep the user's temporary fries portion scoped to the reviewed cutlet tray."""
+    if (lunch['date'], str(lunch['shop']), lunch['main']) != ('2026-11-11', '401', '돈가스&브라운S'):
+        return
+    for index, item in enumerate(items):
+        if item['display'] == '감자튀김':
+            replacement = build_item('감자튀김', 40,
+                '사용자 승인: 돈가스 식판의 감자튀김을 작은 곁들임 임시40g으로 적용. '
+                '사진·실측 제공량이나 공인 표준이 아닌 가정값. 영양성분과 교환단위에 동일40g 적용.', cache)
+            replacement.update(exchange_weight_g=40)
+            items[index] = replacement
+
+
+def apply_nov11_plaza_photo_review(items, lunch, cache):
+    """Photo-based assumptions for these three meals only; never infer measured grams."""
+    if (lunch['date'], str(lunch['shop'])) != ('2026-11-11', '105'):
+        return
+    main = lunch['main']
+    if main == '투움바파스타&치킨텐더':
+        items[:] = [i for i in items if i['display'] not in {'쌀밥', '샐러드'}]
+        for index, item in enumerate(items):
+            if item['display'] in {'투움바파스타', '치킨텐더'}:
+                weight = 370 if item['display'] == '투움바파스타' else 72.2
+                note = ('11/11 공식 사진137c6cf8ef54fe175801be1b.jpg 기준: 별도 밥·샐러드는 사진에서 확인되지 않아 사진 기준 계산에서 제외(실제 미제공 확정 아님). '
+                        '사용자 승인으로 파스타는 익힌 면·소스 포함 임시370g 적용: 승인된 크림파스타 배합의 건면100g→익힌 면250g(수율2.5배 가정)·소스80g·기타 재료 약40g을 참고. '
+                        '생재료 중량이 섞인 메뉴젠 중앙값172g을 완성중량으로 사용하던 방식 제외. '
+                        '텐더는 약2조각으로 보이는 곁들임 기준72.2g 유지. 영양성분은 기존 투움바 제품DB165kcal/100g, 교환단위는 승인된 크림파스타+고춧가루 배합에 같은 제공량370g 적용. '
+                        '영양성분·교환단위의 대체 DB가 서로 달라 실제 동일제품 배합 확인값은 아니며, 조리수율·제공량·조각별 중량·소스량 모두 실측 아님.')
+                items[index] = build_item(item['display'], weight, note, cache)
+    elif main in {'묵은지참치비빔밥', '소고기우거지국'}:
+        for index, item in enumerate(items):
+            if item['display'] == '묵은지참치비빔밥':
+                items[index] = build_item(item['display'], 418, '11/11 공식 사진 토핑 배합으로 교체, 기존 전체418g 유지.', cache)
+            elif item['display'] == '메밀전병':
+                note = '; 11/11 사진에 길쭉한 전병 약2조각 확인. 절단 여부·제품 규격 불명이라2개 완제품으로 간주해 배증하지 않고 기존 총72.2g 유지(실측 아님).'
+                if note not in item['weight_note']:
+                    item['weight_note'] += note
+        if main == '소고기우거지국' and not any(i['display'] in {'쌀밥','흑미밥','잡곡밥','현미밥','백미밥'} for i in items):
+            items.append(build_item('쌀밥', 200, '11/11 공식 사진에 밥 확인. 기존 즉석메뉴 화면 자동추가200g을 데이터에 명시해 한 번만 계산(실측 아님).', cache))
+
+
+def include_nov5_fishcake_photo_sides(items, lunch, cache):
+    """Recover the sides absent from the official textual menu, without duplicating rice."""
+    if (lunch['date'], str(lunch['shop']), lunch['main']) != ('2026-11-05', '105', '가마보꼬어묵탕'):
+        return
+    additions = [
+        ('김말이튀김', 72.2, '사진의 길쭉한 튀김 약2조각을 김말이튀김으로 대체 추정, 기존 일반 곁들임 기준 총72.2g 가정'),
+        ('단무지무침', 70, '사진의 노란 무침을 단무지무침으로 연결, 기존 무침류 기준70g 가정'),
+        ('배추김치', 70, '사진의 배추김치를 기존 김치류 기준70g 가정'),
+    ]
+    for name, weight, note in additions:
+        if not any(i['display'] == name for i in items):
+            items.append(build_item(name, weight, '11/5 공식 사진ff1967bfd2243f50c8c54e05.jpg에서 누락 반찬 확인: '+note+'; 실측·제품 중량 확인값 아님.', cache))
+    if not any(i['display'] in {'쌀밥','흑미밥','잡곡밥','현미밥','백미밥'} for i in items):
+        items.append(build_item('쌀밥', 200, '11/5 사진에 확인되는 밥: 기존 즉석메뉴 자동추가 기준200g을 데이터에 명시해 한 번만 계산. 실측값 아님.', cache))
+
+
 def compute_tray(lunch, cache):
     main = lunch.get("calculationMain", lunch["main"])
     shop, category = lunch["shop"], lunch["category"]
@@ -1066,6 +1165,12 @@ def compute_tray(lunch, cache):
         for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
             items.append(build_item(p, w, note, cache))
 
+    include_photo_confirmed_rice(items, lunch, cache)
+    apply_reviewed_chip_portion(items, lunch, cache)
+    apply_reviewed_side_rice_portion(items, lunch, cache)
+    apply_reviewed_fries_portion(items, lunch, cache)
+    apply_nov11_plaza_photo_review(items, lunch, cache)
+    include_nov5_fishcake_photo_sides(items, lunch, cache)
     total = {f: 0.0 for f in NUT_FIELDS}
     tw = 0.0
     n_unmatched = 0
