@@ -1,0 +1,29 @@
+{
+ "status": "applied_to_runtime",
+ "applied": "2026-11-11",
+ "sourceCommit": "f6cb91fb702cc7a7d11dd364dd3783df689a2565",
+ "userPreference": "앞으로 GitHub 업로드 시 검토 기록·실행 데이터·재계산·웹사이트 배포까지 함께 진행",
+ "recipes": 6,
+ "excludedItems": 3,
+ "meals": 6,
+ "nutritionChanged": false,
+ "preflight": {
+  "recipes": 6,
+  "meals": 6,
+  "excludedItems": 3,
+  "fullRecalculation": "passed",
+  "ingredientMassBalance": "passed",
+  "latestBaselineAndNutritionPreserved": "passed",
+  "cornAndCheeseCumulative": "passed",
+  "onmomilBeefExclusionPreserved": "passed",
+  "runtimeFilesUnchanged": "passed"
+ },
+ "resultSha256": {
+  "custom_exchange_recipes.json": "fccd90d07109f04a15197fcb4520da4743e5a364e4694590b8de6f6f4ac4a01c",
+  "manual_exchange_overrides.json": "c099228d4969f74760e07c97a9a4f2a452e918dc0b0122a0bc0964671093641f",
+  "site_data.json": "e5fe57e5a44b4ecf77234aa747b2194e6b8737eba0204f94d6a2e7aed1b5b578",
+  "month_lunch_trays.json": "4fb39cfc3afe60b5b2d8b28fba3a09a558c5080262e471fcd74d5615ba71a4ae",
+  "web/site_data.json": "e5fe57e5a44b4ecf77234aa747b2194e6b8737eba0204f94d6a2e7aed1b5b578",
+  "web/menu_exchange_snapshot.json": "4efd9496f0153e24abd2cd3539f8eb030469aff8bb4469c654b575cfdef696ce"
+ }
+}
