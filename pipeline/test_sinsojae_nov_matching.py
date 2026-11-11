@@ -13,15 +13,51 @@ class SinsojaeMatchingTest(unittest.TestCase):
         cls.baselines=read(BUNDLE/'baseline_rows.json')
         cls.changes=read(BUNDLE/'변경내역.json')['changes']
 
-    def test_nutrition_and_display_unchanged(self):
+    def test_display_and_unreviewed_nutrition_unchanged(self):
+        # Later user-approved calorie reviews supersede only these baseline items.
+        reviewed = {
+            ('2026-11-10','참치마요덮밥'): {'참치마요덮밥'},
+            ('2026-11-10','간장불고기'): {'간장불고기','베이컨감자채전'},
+            ('2026-11-11','왕돈까스'): {'비엔나강정'},
+            ('2026-11-12','닭볶음탕'): {'계란파국'},
+            ('2026-11-13','차돌순두부찌개'): {'맛살마늘쫑볶음','알새우칩'},
+        }
+        derived = ('weight','kcal','protein','fat','carb','sugar','fiber','ca','fe','vitA','vitC',
+                   'satFat','na','nrf','confidence','unmatched','gagongSourced','matchedDb',
+                   'missingFields','qualityFlags','nutritionNotes')
         for baseline in self.baselines:
             row=copy.deepcopy(self.rows[key(baseline)])
+            allowed = reviewed.get((row['date'],row['main']), set())
+            if allowed:
+                for field in derived:
+                    if field in baseline: row[field]=baseline[field]
+                    else: row.pop(field,None)
             row['exchangeUnits']=baseline['exchangeUnits']
             for old,new in zip(baseline['itemDetails'],row['itemDetails']):
+                if old['display'] in allowed:
+                    new.clear(); new.update(copy.deepcopy(old))
                 for f in ('calculationName','exchange_weight_g','exchange_weight_note'):
                     if f in old: new[f]=old[f]
                     else: new.pop(f,None)
             self.assertEqual(row,baseline)
+
+    def test_reviewed_calories_and_portions(self):
+        expected = {('2026-11-10','참치마요덮밥'):1047.2,
+                    ('2026-11-10','간장불고기'):841.8,
+                    ('2026-11-11','왕돈까스'):838.0,
+                    ('2026-11-12','닭볶음탕'):989.0,
+                    ('2026-11-13','차돌순두부찌개'):967.0}
+        for (day,main),kcal in expected.items():
+            row=next(r for k,r in self.rows.items() if k[0]==day and k[1]=='204' and k[3]==main)
+            self.assertEqual(row['kcal'],kcal)
+            self.assertAlmostEqual(sum(i['contrib']['kcal'] for i in row['itemDetails']),kcal,delta=.1)
+            self.assertFalse(row['unmatched'])
+            if main=='왕돈까스':
+                self.assertEqual(next(i['weight_g'] for i in row['itemDetails'] if i['display']=='왕돈까스'),151)
+            if main=='차돌순두부찌개':
+                chip=next(i for i in row['itemDetails'] if i['display']=='알새우칩')
+                self.assertEqual(chip['weight_g'],30)
+                self.assertEqual(chip['exchange_weight_g'],30)
 
     def test_full_precision_recalculation_and_persistence(self):
         roots={key(r):r for r in read(ROOT/'site_data.json')}
@@ -53,7 +89,7 @@ class SinsojaeMatchingTest(unittest.TestCase):
 
     def test_pending_and_beef_exclusion(self):
         pending={n for k,r in self.rows.items() if k[1]=='204' and '2026-11-09'<=k[0]<='2026-11-13' for n in r['exchangeUnits']['unmatched']}
-        self.assertEqual(pending,{'불닭크림우동','국물떡볶이','마약옥수수','치즈맛감자'})  # 간장불고기는 2026-11-11 중량 교정 후 적용; 양파절임은 절임 원물환산으로 매칭 해소; 매실차·망고주스는 2026-11-11 과일음료·차 교환단위 제외
+        self.assertEqual(pending,set())  # 2026-11-11 병합: 팀원 followup 추가 레시피 6개(불닭크림우동·국물떡볶이·마약옥수수·치즈맛감자 등)와 내 변경(양파절임 원물환산, 매실차·망고주스 음료 제외)으로 신소재 11/9~13 미매칭이 모두 해소됨
         recipes=read(ROOT/'custom_exchange_recipes.json')
         recipe=next(r for r in recipes if r['name']=='신소재_202611_검토확정_온모밀')
         self.assertFalse(any('소고기' in i['food_name'] or '쇠고기' in i['food_name'] for i in recipe['ingredients']))
