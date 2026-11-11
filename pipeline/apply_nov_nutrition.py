@@ -18,7 +18,7 @@ def load(path):
 
 def save(path, data, compact=False):
     original = (ROOT/path).read_bytes()
-    newline = '\r\n' if b'\r\n' in original else '\n'
+    newline = '\n' if path == 'web/menu_exchange_snapshot.json' else ('\r\n' if b'\r\n' in original else '\n')
     (ROOT/path).write_text(json.dumps(data, ensure_ascii=False, **({} if compact else {'indent':1})),
                            encoding='utf-8', newline=newline)
 
