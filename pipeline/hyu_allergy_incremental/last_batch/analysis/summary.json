@@ -1,0 +1,27 @@
+{
+  "meal_count": 35,
+  "excluded_calculation_component_occurrences": 20,
+  "source_supported_components_analyzed": 181,
+  "classification_counts": {
+    "neis_possible": 219,
+    "name_and_neis_possible": 30,
+    "unknown": 407,
+    "name_indicated": 9
+  },
+  "meals_with_name_evidence": 29,
+  "meals_with_neis_evidence": 30,
+  "meals_with_unknown_recipe": 35,
+  "source_evidence_records": 853,
+  "protected_sha256": {
+    "web\\site_data.json": "61dabf0c71fece37a1e05fd26fb8bbac7e10f6ecad884751871073daca11442a",
+    "month_lunch_trays.json": "05e603762e75a433fc2b88f3ed164303ac2e06e64a182cb49dccde09b4c84841",
+    "hanyang_menu_month.json": "919cf7247cd4bbf2c22b7b5509ea08259c93e7539744fc64f3da2d67987c079a",
+    "web\\index.html": "e3f19904af568613d25677ca707355e9e8ab863e2a0643dea92ae3f31c1b2458",
+    "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
+    "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
+    "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
+    "pipeline\\hyu_allergy_incremental\\_build-nu50nbkz\\matching\\meal_matches.json": "514019d5bdb67a7ea1a416456dbbb2186880128723d0fb0ec171b04674b27ea6"
+  },
+  "choice_or_separator_integration_withheld_meals": 0
+}

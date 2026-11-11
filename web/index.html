@@ -696,8 +696,10 @@ function defaultMenuDate(today=todayDate()){
   return date.toISOString().slice(0,10);
 }
 
+// Display boundary only: all historical data remains loaded and preserved.
+const FIRST_VISIBLE_MENU_DATE='2026-10-26';
 function menuDateChoices(){
-  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()])].sort();
+  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()].filter(date=>date>=FIRST_VISIBLE_MENU_DATE))].sort();
 }
 
 function fmtDate(d){
@@ -714,6 +716,7 @@ function selectMenuDate(date, focusChip=false){
   if(focusChip) document.querySelector('#dateStrip .active')?.focus({preventScroll:true});
 }
 function renderDateStrip(){
+  if(activeDate<FIRST_VISIBLE_MENU_DATE) activeDate=menuDateChoices()[0]??null;
   const strip=document.getElementById('dateStrip');
   strip.replaceChildren();
   menuDateChoices().forEach(date=>{
@@ -1065,7 +1068,7 @@ Promise.all(["site_data.json", "menu_exchange_snapshot.json", "eer_exchange_targ
   byDate = {};
   dates.forEach(d => byDate[d] = data.filter(x=>x.date===d));
   const requestedDate = new URLSearchParams(location.search).get('date');
-  activeDate = dates.includes(requestedDate) ? requestedDate : defaultMenuDate();
+  activeDate = menuDateChoices().includes(requestedDate) ? requestedDate : defaultMenuDate();
   ProfileStorage.mount(personalForm,AllergyUI,()=>{
     updateGoalDisplay();updateSelectionDescription('activity','activityDescription');refreshRecommendations();GUIDE_FLOW.updateAllergyButton();
   });

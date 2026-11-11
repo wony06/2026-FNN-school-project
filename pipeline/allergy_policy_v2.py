@@ -1,6 +1,7 @@
 """Reviewed web-only allergy policy. Original estimates and NEIS database stay immutable."""
 from copy import deepcopy
 import json
+import re
 import sqlite3
 from pathlib import Path
 from build_neis_reference import ALLERGENS, normalize_name
@@ -58,7 +59,9 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
     refs = deepcopy(refs)
     records = {r['record_id']: r for r in source_records}
     db = sqlite3.connect((root/'pipeline/neis_reference/reference.sqlite3').as_uri()+'?mode=ro', uri=True)
-    alias_refs = set(ALIASES.values())
+    user_mappings = USER_REVIEW.get('referenceMappings', [])
+    simultaneous = USER_REVIEW.get('simultaneousMenuParts', [])
+    alias_refs = {part for entry in simultaneous for part in entry['parts']} | set(ALIASES.values()) | {p['referenceMenu'] for m in user_mappings for p in m['parts'] if p.get('referenceMenu')}
     for target in alias_refs:
         row = db.execute('SELECT metadata_json FROM menu_aggregates WHERE normalized_menu_name=?', (target,)).fetchone()
         assert row, target
@@ -70,11 +73,53 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
     db.close()
     alias_matches = []
     name_changes = []
+    user_reference_matches = []
     for meal in meals:
         original_key = tuple(meal['meal_key'])
         if original_key in MEAL_KEY_RENAMES:
             meal['meal_key'] = list(MEAL_KEY_RENAMES[original_key])
             meal['originalMealKey'] = list(original_key)
+        # Split only the exact, date-scoped source phrase confirmed by the user.
+        # Every other slash/choice notice keeps the original conservative behavior.
+        for confirmation in simultaneous:
+            if tuple(confirmation['mealKey']) != tuple(meal['meal_key']): continue
+            phrase = confirmation['sourceComponent']
+            if phrase not in (meal.get('source_menu_text') or ''): continue
+            confirmed = []
+            for c in meal['components']:
+                if c['name'] != phrase:
+                    confirmed.append(c)
+                    continue
+                for index, name in enumerate(confirmation['parts']):
+                    part = deepcopy(c)
+                    part['name'] = name
+                    part['component_id'] = c['component_id'] + '-confirmed-' + str(index)
+                    part['source_scope'] = '원문 구성 메뉴의 구분: 사용자 확인상 두 반찬 함께 제공'
+                    part['reference_menu'] = name
+                    part['match_type'] = 'exact'
+                    part['neis_possible'] = []
+                    part['name_indications'] = revised_name_evidence(name)
+                    part['unresolved']['no_confirmed_reference_match'] = False
+                    part['unresolved']['review_candidates_not_applied'] = []
+                    part['userReviewNotes'] = {**confirmation,
+                        'evidenceType': 'user_confirmed_simultaneous_menu_parts',
+                        'actualIngredientsVerified': False}
+                    for stat in refs[name]['allergens']:
+                        if not stat['labeled_record_count']: continue
+                        ids = sorted(x['record_id'] for x in records.values()
+                            if x['normalized_menu_name'] == name and x['label_status'] == '표기'
+                            and stat['number'] in x['allergy_numbers'])
+                        assert len(ids) == stat['labeled_record_count']
+                        part['neis_possible'].append({**stat, 'reference_menu': name,
+                            'source_record_ids': ids,
+                            'meaning': '함께 제공됨을 확인한 반찬의 동일명 NEIS 포함 가능 근거; 실제 배합 미확인'})
+                    confirmed.append(part)
+            meal['components'] = confirmed
+            remaining = meal['source_menu_text'].replace(phrase, ' '.join(confirmation['parts']))
+            remaining = re.split(r'샐러드&토핑&드레싱|\(self\)',remaining,flags=re.I)[0]
+            still_held = bool(re.search(r'\bor\b|또는|선택|/',remaining,flags=re.I))
+            meal['unknowns']['choice_or_separator_integration_withheld'] = still_held
+            for c in meal['components']: c['integration_applied'] = not still_held
         held = meal['unknowns']['choice_or_separator_integration_withheld']
         for component in meal['components']:
             user_notes = next((r for r in USER_REVIEW.get('batch2', [])+USER_REVIEW.get('batch3', []) if r['subject']==component['name']), None)
@@ -102,6 +147,38 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
                         'source_record_ids': ids, 'meaning': '표기 동의어의 NEIS 포함 가능 근거; 실제 한양대 배합 미확인'})
                 alias_matches.append({'key': meal['meal_key'], 'component': component['name'],
                     'reference': target, 'integrationApplied': not held})
+        # Explicit user-approved reference substitutions are distinct from synonyms,
+        # literal name clues and nutrition-only recipe decomposition.
+        for mapping in user_mappings:
+            if tuple(mapping['mealKey']) != tuple(meal['meal_key']): continue
+            for c in meal['components']:
+                if c['name'] != mapping['sourceComponent']: continue
+                notes = {'subject': c['name'], 'statement': mapping['statement'],
+                         'reviewedAt': mapping['reviewedAt'],
+                         'evidenceType': 'user_approved_reference_recipe_unverified',
+                         'actualIngredientsVerified': False, 'referenceParts': [], 'unknownParts': []}
+                for part in mapping['parts']:
+                    target = part.get('referenceMenu')
+                    if target is None:
+                        notes['unknownParts'].append(dict(part))
+                        continue
+                    notes['referenceParts'].append(dict(part))
+                    provenance = {'type': 'user_approved_reference', 'reviewedAt': mapping['reviewedAt'],
+                                  'requestedQuery': part['query'], 'resolution': part['resolution'],
+                                  'actualIngredientsVerified': False}
+                    for stat in refs[target]['allergens']:
+                        if not stat['labeled_record_count']: continue
+                        ids = sorted(r['record_id'] for r in records.values()
+                                     if r['normalized_menu_name'] == target and r['label_status'] == '표기'
+                                     and stat['number'] in r['allergy_numbers'])
+                        assert len(ids) == stat['labeled_record_count']
+                        c['neis_possible'].append({**stat, 'reference_menu': target,
+                            'source_record_ids': ids, 'provenance': provenance,
+                            'meaning': '사용자 지정 참고 메뉴의 NEIS 포함 가능 근거; 실제 한양대 배합·제품 확인 아님'})
+                c['userReviewNotes'] = notes
+                c['unresolved']['user_approved_reference_only'] = True
+                user_reference_matches.append({'key': meal['meal_key'], 'component': c['name'],
+                                               'integrationApplied': not held, **notes})
         for allergen in meal['allergens']:
             n = allergen['number']
             allergen['name_evidence'] = []
@@ -120,4 +197,5 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
             allergen['distinct_supporting_school_count'] = len({records[rid]['school_code'] for rid in ids})
         meal['unknowns']['components_without_reference_match'] = [c['name'] for c in meal['components']
             if c['unresolved']['no_confirmed_reference_match']]
-    return meals, refs, list(records.values()), {'aliasMatches': alias_matches, 'nameChanges': name_changes, 'userReview': USER_REVIEW, 'mealKeyRenames':[{'before':list(k),'after':list(v)} for k,v in MEAL_KEY_RENAMES.items()]}
+        meal['unknowns']['components_without_reference_match'] += [p['query'] for c in meal['components'] for p in c.get('userReviewNotes', {}).get('unknownParts', [])]
+    return meals, refs, list(records.values()), {'userReferenceMatches': user_reference_matches, 'aliasMatches': alias_matches, 'nameChanges': name_changes, 'userReview': USER_REVIEW, 'mealKeyRenames':[{'before':list(k),'after':list(v)} for k,v in MEAL_KEY_RENAMES.items()]}

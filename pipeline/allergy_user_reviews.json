@@ -189,5 +189,116 @@
       ],
       "automaticCodeAddition": []
     }
+  ],
+  "referenceMappings": [
+    {
+      "mealKey": [
+        "2026-11-03",
+        "105",
+        "양식",
+        "빠네청양크림파스타"
+      ],
+      "sourceComponent": "빠네청양크림파스타",
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 지정: 크림파스타 + 빵으로 참고 매칭",
+      "parts": [
+        {
+          "query": "크림파스타",
+          "referenceMenu": "크림파스타",
+          "resolution": "사용자 지정 참고 메뉴"
+        },
+        {
+          "query": "빵",
+          "referenceMenu": null,
+          "resolution": "NEIS 단독 항목 없음; 빵 종류·제품 성분 미확인"
+        }
+      ]
+    },
+    {
+      "mealKey": [
+        "2026-11-05",
+        "105",
+        "즉석",
+        "가마보꼬어묵탕"
+      ],
+      "sourceComponent": "가마보꼬어묵탕",
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 지정: 어묵탕으로 참고 매칭",
+      "parts": [
+        {
+          "query": "어묵탕",
+          "referenceMenu": "어묵국",
+          "resolution": "NEIS 어묵탕 단독 항목 없음; 일반 어묵 국물요리인 어묵국을 참고함. 동일 레시피 확인 아님"
+        }
+      ]
+    },
+    {
+      "mealKey": [
+        "2026-10-28",
+        "105",
+        "양식",
+        "마라크림파스타"
+      ],
+      "sourceComponent": "마라크림파스타",
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 지정: 크림파스타 정보를 참고",
+      "parts": [
+        {
+          "query": "크림파스타",
+          "referenceMenu": "크림파스타",
+          "resolution": "사용자 지정 대체 참고. 마라소스의 실제 원재료는 미확인"
+        }
+      ]
+    },
+    {
+      "mealKey": [
+        "2026-10-30",
+        "105",
+        "즉석",
+        "알곤이매운탕"
+      ],
+      "sourceComponent": "알곤이매운탕",
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 지정: 매운탕 → 동태매운탕 대체 참고 승인",
+      "parts": [
+        {
+          "query": "매운탕",
+          "referenceMenu": "동태매운탕",
+          "resolution": "일반 매운탕 항목 부재로 사용자 승인한 동태매운탕을 참고. 실제 어종·배합 확인 아님"
+        }
+      ]
+    }
+  ],
+  "simultaneousMenuParts": [
+    {
+      "mealKey": [
+        "2026-10-27",
+        "105",
+        "즉석",
+        "로제부대찌개"
+      ],
+      "sourceComponent": "상추겉절이/콩나물무침",
+      "parts": [
+        "상추겉절이",
+        "콩나물무침"
+      ],
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 확인: 두 반찬이 함께 제공됨. 택일 메뉴가 아님."
+    },
+    {
+      "mealKey": [
+        "2026-10-27",
+        "105",
+        "한식",
+        "치킨마요덮밥"
+      ],
+      "sourceComponent": "상추겉절이/콩나물무침",
+      "parts": [
+        "상추겉절이",
+        "콩나물무침"
+      ],
+      "reviewedAt": "2026-11-11",
+      "statement": "사용자 확인: 두 반찬이 함께 제공됨. 택일 메뉴가 아님."
+    }
   ]
 }

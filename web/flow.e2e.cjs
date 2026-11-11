@@ -110,5 +110,11 @@ const note=name=>checks.push(name);
  await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
  const rects=await page.locator('.card').evaluateAll(cards=>cards.map(c=>{const r=c.getBoundingClientRect();return {left:r.left,top:r.top};}));for(let i=1;i<rects.length;i++){assert.equal(rects[i].left,rects[0].left);assert(rects[i].top>rects[i-1].top);}
  await shot('results-mobile');await editStep(2);await page.locator('#allergyToggle').click();assert(await page.locator('#allergyPanel').isVisible());assert(await page.locator('#allergyOptions').evaluate(el=>el.scrollHeight>el.clientHeight));await shot('allergy-mobile');note('모바일 세로 목록·가로 넘침 없음·스크롤 드롭다운');
+ const visibleDates=await page.locator('#dateStrip button').evaluateAll(buttons=>buttons.map(b=>b.getAttribute('aria-label').slice(0,10).replaceAll('.','-')));
+ const expectedDates=[...new Set(rows.map(r=>r.date))].filter(d=>d>='2026-10-26').sort();
+ assert.deepEqual(visibleDates,expectedDates);
+ const preservedDates=await page.evaluate(()=>({count:BASE_DATA.length,earliest:BASE_DATA.map(r=>r.date).sort()[0],older:BASE_DATA.filter(r=>r.date<'2026-10-26').length}));
+ assert.equal(preservedDates.count,rows.length);assert(preservedDates.earliest<'2026-10-26');assert(preservedDates.older>0);
+ note('추천 날짜는 10/26 이후만 표시하고 이전 메뉴 데이터 전체는 유지');
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'browser-report.json'),JSON.stringify({checks,modeChecks,errors},null,2));console.log(JSON.stringify({passed:checks.length,checks,errors},null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{await browser?.close();});

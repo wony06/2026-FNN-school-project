@@ -41,11 +41,12 @@ def contains_source(raw,name):
     return bool(re.search(r'(?<![가-힣A-Za-z0-9])'+re.escape(name)+r'(?![가-힣A-Za-z0-9])',raw))
 
 
-def run():
+def run(meals=None, out_dir=None, verbose=True):
+    out = Path(out_dir) if out_dir is not None else OUT
     protected=[ROOT/'web/site_data.json',ROOT/'hanyang_menu_month.json',ROOT/'month_lunch_trays.json',
                ROOT/'pipeline/neis_reference/reference.sqlite3']
     before={str(p.relative_to(ROOT)):sha(p) for p in protected}
-    meals=load(ROOT/'web/site_data.json')
+    meals=load(ROOT/'web/site_data.json') if meals is None else meals
     assert all(row['shop'] in ('105','401','204') for row in meals)
     db=sqlite3.connect((ROOT/'pipeline/neis_reference/reference.sqlite3').as_uri()+'?mode=ro',uri=True)
     ref={name:json.loads(meta) for name,meta in db.execute('SELECT normalized_menu_name,metadata_json FROM menu_aggregates')}
@@ -124,7 +125,7 @@ def run():
             'source_menu_text':raw or None,'parsed_source':source,'component_results':component_results,
             'meal_allergen_union':None,'meal_allergen_union_reason':'구성 경계·실제 배합 미확인: 알레르기 코드 자동 합산 안함'})
 
-    OUT.mkdir(parents=True,exist_ok=True)
+    out.mkdir(parents=True,exist_ok=True)
     targets={m['reference_menu'] for m in memo.values() if m['reference_menu']}
     evidence=[]
     for raw_json, in db.execute('SELECT source_json FROM records'):
@@ -162,10 +163,10 @@ def run():
     assert all(before[str(p.relative_to(ROOT))]==sha(p) for p in protected)
     for name,value in [('meal_matches.json',output),('name_matches.json',memo),('summary.json',summary),
                        ('reference_evidence.json',{key:ref[key] for key in sorted(targets)})]:
-        (OUT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8')
-    with (OUT/'evidence_records.jsonl').open('w',encoding='utf-8') as f:
+        (out/name).write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8')
+    with (out/'evidence_records.jsonl').open('w',encoding='utf-8') as f:
         for record in evidence:f.write(json.dumps(record,ensure_ascii=False)+'\n')
-    with (OUT/'main_matches.csv').open('w',encoding='utf-8-sig',newline='') as f:
+    with (out/'main_matches.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.writer(f);w.writerow(['날짜','식당코드','식당','구분','메인명','분류','NEIS정규화명','검토후보'])
         for r in output:
             w.writerow([r['meal_key'][0],r['meal_key'][1],r['shop_name'],r['meal_key'][2],r['meal_key'][3],
@@ -198,8 +199,10 @@ def run():
         '- 원문에 등장하는 구성요소라도 원래 파서의 분리 오류 가능성이 남아 있다. 복합명을 추가 분해하지 않았다.',
         '- 메뉴명 명시 단서는 실제 원재료 확인과 다르다. 포괄명(김치·샐러드·소스 등)은 추가 세부 확인이 필요하다.',
         '- 미표기·검토필요는 별도 보존한다. 미표기 및 어떤 번호의 비표시는 음성 근거가 아니다.'])
-    (OUT/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print(json.dumps({k:v for k,v in summary.items() if not k.endswith('_examples')},ensure_ascii=False,indent=2))
+    (out/'REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    if verbose:
+        print(json.dumps({k:v for k,v in summary.items() if not k.endswith('_examples')},ensure_ascii=False,indent=2))
+    return summary
 
 
 if __name__=='__main__':

@@ -70,6 +70,9 @@ def build_site_data():
     with open(web_path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False)
     sync_preserved_exchanges(out)
+    # Allergy matching uses official menu text, never calculated recipe components.
+    from sync_allergy_data import sync_allergy_data
+    sync_allergy_data()
     return out_path, len(out)
 
 

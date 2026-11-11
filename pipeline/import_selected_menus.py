@@ -130,7 +130,9 @@ def run(dates=None, source_file=None):
     else:
         new_days = [scrape_day(date) for date in requested_dates if date not in existing_dates]
     if not new_days:
-        print('All requested dates already imported; nothing changed.')
+        from sync_allergy_data import sync_allergy_data
+        sync_allergy_data()
+        print('All requested dates already imported; menu data unchanged; allergy coverage checked.')
         return
     with tempfile.TemporaryDirectory(dir=ROOT.parent) as temp_dir:
         source_path = Path(temp_dir) / 'selected.json'
@@ -212,6 +214,8 @@ def run(dates=None, source_file=None):
                                         'exchangeUnits': row['exchangeUnits']})
     snapshot['sourceSha256'] = hashlib.sha256((ROOT / 'web/site_data.json').read_bytes()).hexdigest()
     write_json(ROOT / 'web/menu_exchange_snapshot.json', snapshot, 1)
+    from sync_allergy_data import sync_allergy_data
+    sync_allergy_data()
     summary = {'days':len(new_days), 'newMenus':len(new_site), 'byShop':dict(Counter(x['shop'] for x in new_site)),
                'photos':len(new_photos), 'withoutPhoto':sum(x['photo'] is None for x in new_site),
                'nutrientUnmatchedMenus':sum(bool(x['unmatched']) for x in new_site),

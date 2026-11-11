@@ -37,7 +37,7 @@ jobs:
               'index.html', 'modern.css', 'instant-rice.js', 'nrf-ranking.js',
               'personal-score.js', 'recommendation-view.js', 'site_data.json',
               'nrf_reference_fixed.json', 'menu_exchange_snapshot.json',
-              'eer_exchange_targets.json', 'glycemic_exchange_targets.json',
+              'eer_exchange_targets.json', 'glycemic_exchange_targets.json', 'allergy-data.json',
           ]
           missing = [str(root / name) for name in required if not (root / name).is_file()]
           if missing:
@@ -46,6 +46,13 @@ jobs:
               if name.endswith('.json'):
                   json.loads((root / name).read_text(encoding='utf-8-sig'))
           menus = json.loads((root / 'site_data.json').read_text(encoding='utf-8-sig'))
+          allergy = json.loads((root / 'allergy-data.json').read_text(encoding='utf-8-sig'))
+          menu_keys = [tuple(row[k] for k in ('date', 'shop', 'category', 'main')) for row in menus]
+          allergy_keys = [tuple(row['key']) for row in allergy['meals']]
+          if len(set(menu_keys)) != len(menu_keys) or len(set(allergy_keys)) != len(allergy_keys):
+              raise SystemExit('Duplicate menu/allergy keys; review source identity before deployment.')
+          if set(menu_keys) != set(allergy_keys):
+              raise SystemExit('Allergy coverage is stale. Run python pipeline/sync_allergy_data.py and commit web/allergy-data.json.')
           photos = {row['photo'] for row in menus if row.get('photo')}
           missing = [str(root / 'menu_photos_web' / name) for name in sorted(photos)
                      if not (root / 'menu_photos_web' / name).is_file()]
