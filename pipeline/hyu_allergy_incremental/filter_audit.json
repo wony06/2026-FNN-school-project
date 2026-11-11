@@ -8847,8 +8847,8 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "61dabf0c71fece37a1e05fd26fb8bbac7e10f6ecad884751871073daca11442a",
-    "web\\menu_exchange_snapshot.json": "730e0fdc91955c2f1b93e2618af0e259fb758c9d7bc789cb0bd238361cf7d3b9",
+    "web\\site_data.json": "b521494034033f046847994c4e7bbe65116e2c525747b9888acddbe368558fc0",
+    "web\\menu_exchange_snapshot.json": "6c1f6e840aace5ac440d5390a1e33116623c4108b960972df2ab09de04c063a1",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
