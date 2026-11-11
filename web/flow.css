@@ -265,7 +265,7 @@ dialog.goal-difference-dialog[open]{display:flex;flex-direction:column;gap:24px}
 }
 
 /* Step 2 explanatory text only. */
-#guideStep2 #goalDescription {
+#guideStep3 #goalDescription {
   white-space: normal;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -539,3 +539,52 @@ dialog.goal-difference-dialog[open]{display:flex;flex-direction:column;gap:24px}
   .exchange-series {grid-template-columns: 23px minmax(0,1fr) 49px; gap: 7px}
   .exchange-track {height: 6px}
 }
+
+/* Equal-sized cover actions; navigation and saved-profile behavior are unchanged. */
+.cover-actions {display: grid; gap: 12px; width: min(300px,100%)}
+.cover-actions #guideStart,.cover-actions #guideResume {display: flex; width: 100%; max-width: none; min-width: 0; height: 52px; min-height: 52px; padding: 12px 16px; margin: 0; font-size: 14px; line-height: 1.4; border-radius: 10px}
+.cover-actions #guideStart {background: var(--brand); border-color: var(--brand); color: #fff}
+.cover-actions #guideStart:hover {background: var(--brand-hover); border-color: var(--brand-hover)}
+.cover-actions #guideResume {background: #fff; border-color: var(--line); color: var(--brand)}
+.cover-actions #guideResume:hover {background: var(--canvas); border-color: #c9d3e0}
+@media(max-width:640px){.cover-actions{margin-inline:auto}.cover-actions #guideStart,.cover-actions #guideResume{font-size:13px}}
+
+/* Handset-only readability and touch layout; desktop rules are unchanged. */
+@media(max-width:640px) {
+  .flow-form .input-card {min-height: 0}
+  .flow-form .form-field input,.flow-form .form-field select {font-size: 16px}
+  .step-intro,.selection-description,.allergy-notice {font-size: 12px; line-height: 1.8; overflow-wrap: anywhere}
+  .cover-description {word-break: keep-all; overflow-wrap: anywhere}
+  .meal-option span {min-height: 44px}
+  .allergy-option {min-height: 44px; font-size: 13px}
+  .allergy-actions button {min-height: 44px; font-size: 13px}
+  .goal-help-trigger,.goal-difference-close {min-height: 44px}
+  #mealServiceTabs {position: static}
+  #results .flow-result-nav .flow-secondary {min-height: 44px}
+  .result-settings-menu > summary {min-height: 44px}
+  #mealRecommendationPanel .settings-actions button {min-height: 44px; font-size: 13px}
+  .date-step {width: 44px; height: 44px}
+  #mealRecommendationPanel .shop-tab {min-height: 44px; font-size: 11px; padding-inline: 4px; white-space: normal}
+  .menu-card .card-shop,.menu-card .rank-pill {font-size: 11px}
+  .menu-card .card-cat,.menu-card .card-price {font-size: 10px}
+  .menu-card .card-top {flex-wrap: wrap; row-gap: 4px}
+  .menu-card .nutrition-mini dd b {font-size: 14px}
+  .menu-card .nutrition-mini dd span {font-size: 10px}
+  .menu-card .card-reason {font-size: 12px}
+  .results-section .menu-card .card-more {font-size: 12px; min-height: 44px}
+  .menu-card .meal-record-link {font-size: 12px; min-height: 44px}
+  .personal-goal-details > summary {min-height: 44px; font-size: 12px}
+  .menu-card .allergy-check-tag,.menu-notes,.menu-notes > summary {font-size: 11px}
+  .menu-notes > summary {min-height: 36px; padding-block: 6px}
+  .allergy-legend-list li,.allergy-legend p {font-size: 11px}
+  #sheet .sheet-body {padding: 22px 18px 28px; gap: 18px}
+  #sheet .sheet-head h2 {overflow-wrap: anywhere; word-break: keep-all}
+  #sheet .sheet-head .meta {line-height: 1.8; overflow-wrap: anywhere}
+  #sheet .tab-btn {min-height: 44px; font-size: 14px}
+  #sheet .sheet-close {width: 44px; height: 44px}
+  #sheet .tag {max-width: 100%; overflow-wrap: anywhere}
+  dialog.goal-difference-dialog {max-height: calc(100dvh - 24px)}
+}
+@media(max-width:420px) {#sheet .nutri-table tbody {grid-template-columns: 1fr}}
+@media(max-width:400px) {#dateStrip.date-strip {--visible-dates: 3}}
+@media(max-width:360px) {#mealRecommendationPanel .shop-tab {font-size: 10px}}

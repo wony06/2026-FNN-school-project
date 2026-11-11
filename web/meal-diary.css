@@ -298,3 +298,28 @@
   #mealEntryForm {padding: 14px 15px 18px}
   .meal-entry-dialog input:not([type="radio"],[type="checkbox"]),.meal-entry-dialog select {font-size: 16px}
 }
+
+/* Mobile diary and editor: readable native inputs and reachable actions. */
+@media(max-width:640px) {
+  .meal-slot-head .meal-outline,.meal-record-actions button,.meal-storage button,.meal-dialog-head button {min-height: 44px; font-size: 12px}
+  .meal-mode button {min-height: 44px; font-size: 12px; padding: 8px; word-break: keep-all}
+  .meal-entry-dialog {max-height: calc(100dvh - 24px); overflow-y: auto}
+  .meal-entry-dialog input:not([type="radio"],[type="checkbox"]),.meal-entry-dialog select {min-width: 0; max-width: 100%; min-height: 44px}
+  .meal-entry-destination > label,.meal-manual-values > label,.meal-search-field {min-width: 0}
+  .meal-search-field input {flex: 1; min-width: 0}
+  .meal-search-field button {min-width: 54px; min-height: 44px}
+  .meal-manual-values {gap: 12px 10px}
+  .meal-macro-grid,.meal-slots {gap: 12px}
+  .meal-record-head {align-items: flex-start}
+  .meal-record-actions button {min-width: 44px}
+  .meal-breakdown-legend li > span {min-width: 0; white-space: nowrap}
+  .meal-breakdown-legend {font-size: 11px}
+}
+@media(max-width:420px) {
+  .meal-entry-destination {grid-template-columns: 1fr}
+  .meal-manual-values {grid-template-columns: repeat(2,minmax(0,1fr))}
+  .meal-record-head {flex-wrap: wrap}
+  .meal-record-head > strong {flex: 1 1 100%}
+  .meal-record-actions {margin-left: auto}
+  .meal-breakdown {grid-template-columns: 96px minmax(0,1fr); column-gap: 10px; padding: 12px}
+}
