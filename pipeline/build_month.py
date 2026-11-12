@@ -105,6 +105,21 @@ def has_rice_like(main, sides):
 # 삭제(이제 제육볶음은 카테고리/메인 폴백으로 처리). 현재 항상적용 개별값 없음.
 INDIVIDUAL_MATCH_WEIGHTS = {}
 
+# 2026-11-12: 학생식당(한양플라자) 양식 코너 까스류 - 영양사님 제공 실제 제공량. 등심돈까스 160g,
+# 그 외 돈까스(치즈·아쿠아·고구마치즈)는 180g. 생선까스·통살치킨까스도 영양사님 지정 160g.
+# 메인 전용(classify_main_weight에서만 적용): 같은 이름이 곁들임(생선까스 11/9 등)으로 나올 땐
+# 반찬 규칙(72.2g)을 유지해야 하므로 INDIVIDUAL_MATCH_WEIGHTS(메인·곁들임 공통)에 넣지 않는다.
+# 이 이름들은 양식 코너에만 있어 타 식당 돈까스(왕돈까스·돈까스덮밥·돈가스&브라운S 등)엔 미적용.
+_DONKKAS_NOTE = "학생식당(한양플라자) 양식 메인 - 영양사님 제공 1인 제공량"
+MAIN_INDIVIDUAL_WEIGHTS = {
+    "등심돈까스":     (160, f"{_DONKKAS_NOTE} 160g"),
+    "생선까스":       (160, f"{_DONKKAS_NOTE} 160g"),
+    "통살치킨까스":   (160, f"{_DONKKAS_NOTE} 160g"),
+    "치즈돈까스":     (180, f"{_DONKKAS_NOTE} 180g"),
+    "아쿠아돈까스":   (180, f"{_DONKKAS_NOTE} 180g"),
+    "고구마치즈돈까스": (180, f"{_DONKKAS_NOTE} 180g"),
+}
+
 # 2026-11-07: 국민건강영양조사(2010) 1인1회 섭취분량(부피 ㎖) 기반 개별값. 이 값은 그 음식이
 # ml 기준(산업체급식 등 재료량산출)으로 영양소가 계산됐을 때만 쓴다(ml×ml 정합). g 기준으로
 # 매칭됐을 때는 이 값을 쓰지 않고 카테고리 분류로 넘긴다(잡채→반찬 폴백 등). classify_*_weight에서
@@ -236,6 +251,8 @@ def classify_main_weight(name, cache=None):
         return _pick(name, cache, (497, "면류 기준 - 닭한마리 국물요리로 KNHANES 2010 면류 평균 497g 적용(사용자 지정)"), "면")
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
+    if name in MAIN_INDIVIDUAL_WEIGHTS:  # 메인 전용 개별값(까스류 영양사 지정). 곁들임엔 미적용.
+        return MAIN_INDIVIDUAL_WEIGHTS[name]
     if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":
         return INDIVIDUAL_ML_ONLY[name]  # 국건영 ml값은 ml매칭일 때만; g면 아래 카테고리로
     if any(w in name for w in BOKKEUMBAP_KEYWORDS):

@@ -22,6 +22,22 @@ class ServingClassificationTest(unittest.TestCase):
         item=build_item('빼빼로',30,'',{'빼빼로':matched})
         self.assertLess(item['contrib']['kcal'],200)
 
+    def test_plaza_western_cutlet_main_weights(self):
+        # 2026-11-12 영양사님 지정: 학생식당 양식 메인 까스류. 등심돈까스 160g, 그 외 돈까스 180g,
+        # 생선·통살치킨까스 160g. 곁들임으로 나올 땐 반찬 폴백(72.2g) 유지.
+        self.assertEqual(classify_main_weight('등심돈까스')[0], 160)
+        self.assertEqual(classify_main_weight('생선까스')[0], 160)
+        self.assertEqual(classify_main_weight('통살치킨까스')[0], 160)
+        self.assertEqual(classify_main_weight('치즈돈까스')[0], 180)
+        self.assertEqual(classify_main_weight('아쿠아돈까스')[0], 180)
+        self.assertEqual(classify_main_weight('고구마치즈돈까스')[0], 180)
+        # 곁들임(생선까스 11/9 등)은 메인 지정값에 영향받지 않고 72.2g 유지
+        self.assertEqual(classify_side_weight('생선까스')[0], 72.2)
+        self.assertEqual(classify_side_weight('치즈돈까스')[0], 72.2)
+        # 타 식당 돈까스는 미적용(왕돈까스 메인 폴백 151, 돈까스덮밥 덮밥류 418)
+        self.assertEqual(classify_main_weight('왕돈까스')[0], 151)
+        self.assertEqual(classify_main_weight('돈까스덮밥')[0], 418)
+
     def test_prepared_pomegranate_and_tea_portion(self):
         matched=auto_match('석류차')
         self.assertEqual(matched['code'],'D220-719000000-0146')
