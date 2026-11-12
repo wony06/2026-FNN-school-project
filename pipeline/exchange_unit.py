@@ -238,13 +238,15 @@ def _from_menugen(name, target_weight_g):
 
     # 2026-11-11: 덮밥·알밥·비빔밥은 MenuGen 완성중량이 날것 재료합으로 등록돼(취반 팽창 미반영) 서빙중량
     # (417g)에 비례 스케일하면 쌀이 '날것 비율'로만 잡혀 곡류 과소(날치알밥 곡류 1.9). 밥은 1공기(조리밥
-    # 210g) 고정으로 곡류 환산하고, 나머지(토핑)만 서빙중량-210g에 비례 배분한다(차돌짬뽕밥 방식).
+    # 210g) 고정으로 곡류 환산한다. 토핑은 덮밥(고기 등 토핑량이 그릇에 비례)은 서빙중량-210g에 비례 배분하되,
+    # 알밥·비빔밥은 밥 위주라 토핑이 적어 비례 확대하면 과대(날치알밥 채소 3.6)되므로 레시피 자연량 그대로 둔다.
     # 볶음밥은 서빙 자체가 밥 통합중량(210g)이라 제외; 쌀이 '밥'으로 등록된 레시피(_rice_raw=0)도 무영향.
     _is_bapbase = (any(k in _nm for k in ("덮밥", "알밥", "비빔밥")) and "볶음밥" not in _nm and not spam_mayo)
+    _is_rice_dominant = any(k in _nm for k in ("알밥", "비빔밥"))  # 밥 위주 - 토핑 자연량 유지(비례 확대 안 함)
     _rice_names = set(RAW_RICE_TO_COOKED) | set(RAW_RICE_TO_COOKED.values())  # 생쌀·조리밥 모두(큰 레시피 과소도 교정)
     _rice_raw = sum(float(i.get("weight_g") or 0) for i in ingredients if i.get("food_name") in _rice_names)
     if _is_bapbase and _rice_raw > 0 and target_weight_g > 210 and ref_weight > _rice_raw:
-        topping_scale = (target_weight_g - 210.0) / (ref_weight - _rice_raw)
+        topping_scale = 1.0 if _is_rice_dominant else (target_weight_g - 210.0) / (ref_weight - _rice_raw)
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
         any_used = False
         unresolved = []
