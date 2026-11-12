@@ -284,7 +284,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 </style>
 <link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
 <link rel="stylesheet" href="flow.css?v=20261111-mobile-v1">
-<link rel="stylesheet" href="meal-diary.css?v=20261111-mobile-v1">
+<link rel="stylesheet" href="meal-diary.css?v=20261112-horizontal-portions">
 
 <header class="flow-header">
 <a href="#step=0" id="guideHome" class="guide-brand"><span class="brand-mark" aria-hidden="true">H</span><span>HYU Menu Guide</span></a>
@@ -551,7 +551,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <p>알레르기 번호는 추정 정보이며, 실제 원재료와 교차접촉 여부는 식당에 확인해 주세요.</p>
   </section>
 </div>
-<div id="mealDiaryPanel" class="meal-diary" role="tabpanel" aria-labelledby="mealDiaryTab" hidden>
+<div id="mealDiaryPanel" class="meal-diary" data-serving-table="./meal-serving-rules.json?v=category-20261112" role="tabpanel" aria-labelledby="mealDiaryTab" hidden>
   <div class="meal-diary-heading">
     <div class="diary-title-block"><span class="result-title-icon"><svg class="result-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#result-icon-calendar"></use></svg></span><div><h2 id="mealDiaryHeading" tabindex="-1">오늘의 식단 기록</h2><p>먹은 음식을 기록하고 하루 목표와 비교해 보세요.</p></div></div>
     <div class="diary-date-control"><svg class="result-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#result-icon-calendar"></use></svg><label for="mealDiaryDate">기록 날짜 <input type="date" id="mealDiaryDate"></label></div>
@@ -624,8 +624,10 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
     <p id="mealEntryWarning" class="meal-entry-warning"></p>
     <fieldset id="mealEntryPortions" class="meal-portions" hidden>
       <legend>실제 섭취량</legend>
-      <label><input type="radio" name="portion" value="serving" id="mealPortionServing"><span id="mealServingLabel">기본 1인분</span></label>
-      <label><input type="radio" name="portion" value="direct" id="mealPortionDirect" checked> <span id="mealDirectLabel">직접 입력(g)</span></label>
+      <div class="meal-portion-options">
+        <label><input type="radio" name="portion" value="serving" id="mealPortionServing"><span id="mealServingLabel">1인분 적용</span></label>
+        <label><input type="radio" name="portion" value="direct" id="mealPortionDirect" checked> <span id="mealDirectLabel">직접 입력(g)</span></label>
+      </div>
       <label id="mealAmountField"><span id="mealAmountLabel">섭취량(g)</span> <input id="mealEntryAmount" type="number" min="0" step="any" inputmode="decimal"></label>
       <p id="mealServingHint" class="meal-muted"></p>
     </fieldset>
@@ -644,7 +646,8 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
 <script src="profile-storage.js?v=20261111-resume-v1"></script>
 <script src="flow-ui.js?v=20261111-resume-visible-v3"></script>
-<script src="meal-diary.js?v=portion-units-1"></script>
+<script src="meal-serving.js?v=category-20261112"></script>
+<script src="meal-diary.js?v=category-20261112-horizontal-portions"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
 const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};

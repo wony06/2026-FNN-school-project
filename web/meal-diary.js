@@ -2,7 +2,7 @@
   "use strict";
 
   const MEALS = {breakfast: "아침", lunch: "점심", dinner: "저녁", snack: "간식"};
-  const KINDS = {cooked: "조리식품", processed: "가공식품", ingredient: "식품 원재료·성분표"};
+  const KINDS = {cooked: "조리식품", recipe: "기존 레시피 계산값", processed: "가공식품", ingredient: "식품 원재료·성분표"};
   const MACROS = {
     carb: {name: "탄수화물", factor: 4, range: [0.50, 0.65]},
     protein: {name: "단백질", factor: 4, range: [0.10, 0.20]},
@@ -25,14 +25,6 @@
     }).formatToParts(new Date());
     const part = type => fields.find(field => field.type === type).value;
     return [part("year"), part("month"), part("day")].join("-");
-  }
-
-  function servingGrams(food, table) {
-    const positive = value => Number.isFinite(value) && value > 0 ? value : null;
-    const exact = positive(table?.foods?.[food.id]);
-    if (exact !== null) return exact;
-    const reviewedType = table?.foodTypes?.[food.id];
-    return typeof reviewedType === "string" ? positive(table?.types?.[reviewedType]) : null;
   }
 
   function diaryTargets(context) {
@@ -132,6 +124,8 @@
     return {
       id, name, source, detail, foodType, basis, kind: id.split(":")[0],
       nutrients: Object.fromEntries(NUTRIENTS.map((key, i) => [key, valueOrNull(values[i])])),
+      incomplete: row[10]?.incomplete ?? [],
+      recipeNote: row[10]?.note ?? null,
     };
   }
 
@@ -157,6 +151,7 @@
     let records = [];
     let context = null;
     let table = null;
+    let tableFailed = false;
     let worker = null;
     let searchId = 0;
     let searchTimer;
@@ -211,7 +206,7 @@
       if (entry.mode === "cafeteria") {
         return (entry.portion === "serving" ? "학식 추정 1인분 · " : "학식 g 환산 · ") + amount;
       }
-      return (entry.portion === "serving" ? "기본 1인분 · " : "") + amount;
+      return (entry.portion === "serving" ? "1인분 적용 · " : "") + amount;
     }
 
     function sumLabel(amount, unit) {
@@ -410,17 +405,23 @@
       updatePreview();
     }
 
-    function activeServing() {
+    function activeServingInfo() {
       const reference = foodReference(editor.food);
-      if (editor.mode === "cafeteria") return reference?.amount ?? null;
-      if (!reference) return null;
+      if (editor.mode === "cafeteria") return reference
+        ? {state: "available", ...reference, label: "기존 학식 추정량"} : {state: "unknown_basis"};
+      if (!reference) return {state: "unknown_basis"};
       const original = editor.original;
-      if (original?.base?.id === editor.food.id && original.portion === "serving" &&
-          entryUnit(original) === reference.unit) {
-        return original.amount;
+      if (!editor.reapplyServing && original?.base?.id === editor.food.id && original.portion === "serving" &&
+          entryUnit(original) === reference.unit && Number.isFinite(original.amount) && original.amount > 0) {
+        return {...original.servingReference, state: "available", amount: original.amount,
+          unit: reference.unit, label: original.servingReference?.label ?? "기록 당시 1인분", preserved: true};
       }
-      // The existing optional serving table specifies grams only.
-      return reference.unit === "g" ? servingGrams(editor.food, table) : null;
+      return MealServing.lookup(editor.food, table);
+    }
+
+    function activeServing() {
+      const serving = activeServingInfo();
+      return serving.state === "available" ? serving.amount : null;
     }
 
     function currentEntry() {
@@ -440,7 +441,7 @@
       } else {
         const reference = foodReference(base);
         if (!base || (mode === "database" && !reference)) return null;
-        name = base.name;
+        name = base.portionName || base.name;
         unit = reference?.unit ?? null;
         amount = portion === "serving" ? activeServing() : readNumber(amountInput);
         if (portion === "direct" && (!reference || !amount)) return null;
@@ -452,6 +453,7 @@
         date: entryDate.value, meal: entryMeal.value, mode, name, amount, unit,
         portion: mode === "manual" ? null : portion,
         nutrients, base: mode === "manual" ? null : base,
+        ...(mode === "database" && portion === "serving" ? {servingReference: activeServingInfo()} : {}),
         incomplete: NUTRIENTS.filter(key => nutrients[key] === null || (mode !== "manual" && base.incomplete?.includes(key))),
       };
     }
@@ -466,23 +468,31 @@
       const {mode, food} = editor;
       const reference = foodReference(food);
       const unit = reference?.unit ?? "g";
-      const serving = activeServing();
+      const servingInfo = activeServingInfo();
+      const serving = servingInfo.state === "available" ? servingInfo.amount : null;
       const servingOption = el("mealPortionServing");
       const directOption = el("mealPortionDirect");
       const servingAvailable = mode === "cafeteria" || Boolean(serving);
-      servingOption.closest("label").hidden = !servingAvailable;
+      servingOption.closest("label").hidden = false;
+      servingOption.disabled = !servingAvailable;
       directOption.closest("label").hidden = !reference;
       el("mealEntryPortions").hidden = mode === "manual" || !food;
       const servingAmount = serving ? ` · ${serving} ${unit}` : "";
       el("mealServingLabel").textContent = mode === "cafeteria"
         ? "기존 추정 1인분" + (servingAmount || " · 중량 미확인")
-        : "기본 1인분" + servingAmount;
+        : "1인분 적용" + (servingAmount || " · 기준 없음");
       el("mealDirectLabel").textContent = `직접 입력(${unit})`;
       el("mealAmountLabel").textContent = `섭취량(${unit})`;
       if (servingOption.checked && !servingAvailable) directOption.checked = true;
       el("mealAmountField").hidden = mode === "manual" || !reference || !directOption.checked;
       el("mealServingHint").textContent = mode === "database" && reference
-        ? `DB 기준량과 같은 ${unit} 단위로 입력해주세요. g과 mL 간 환산 정보가 없습니다.`
+        ? servingInfo.state === "available"
+          ? "실제 섭취량이 다르면 직접 입력해주세요"
+          : servingInfo.state === "unit_unavailable"
+            ? `${servingInfo.label}에는 ${unit} 표준량이 없습니다. g·mL를 환산하지 않고 ${unit}로 직접 입력해주세요.`
+            : servingInfo.state === "extra_noodles"
+              ? `추가면(사리)은 자동 1인분 적용 대상에서 제외합니다. 실제 먹은 양을 ${unit}로 직접 입력해주세요.`
+              : `1인분 정보 없음${tableFailed ? " · 기준표 로딩 실패" : ""}. DB 기준과 같은 ${unit}로 직접 입력해주세요. g·mL는 임의 환산하지 않습니다.`
         : mode === "cafeteria" && reference ? "g 입력 시 한 끼 전체 추정 영양값을 중량에 비례해 환산합니다." : "";
       el("mealEntrySource").textContent = mode !== "manual" && food
         ? [food.name, food.source, food.detail, mode === "database" ? basisLabel(food, reference) : ""].filter(Boolean).join(" · ") : "";
@@ -527,29 +537,36 @@
       dialog.showModal();
     }
 
-    function renderSearch({groups, counts, error}) {
+    function renderSearch({groups, ordered, counts, error, recipeUnavailable, portionQuery, matchedQuery}) {
       searchResults.replaceChildren();
       el("mealSearchStatus").textContent = error || (Object.values(counts).some(Boolean)
-        ? "기준량과 출처를 확인하고 정확한 항목을 선택해주세요. 유형별 최대 20건을 표시합니다."
+        ? "이름 일치와 출처 우선순위로 정렬했습니다. 기준량·출처를 확인하고 선택해주세요. 유형별 최대 20건을 표시합니다." + (recipeUnavailable ? " 레시피 후보는 불러오지 못했습니다." : "")
         : "검색 결과가 없습니다. 다른 이름으로 검색하거나 직접 입력해주세요.");
       if (error) return;
-      for (const [kind, rows] of Object.entries(groups)) {
+      for (const [kind, rows] of ordered ? [[null, ordered]] : Object.entries(groups)) {
         if (!rows.length) continue;
         const heading = document.createElement("h4");
         heading.textContent = `${KINDS[kind]} · ${fmt(counts[kind])}건`;
-        searchResults.append(heading);
+        if (kind) searchResults.append(heading);
         for (const row of rows) {
           const food = databaseFood(row);
+          // Preserve only the explicit mini modifier, never an unrelated fuzzy menu.
+          if (portionQuery && MealServing.normalize(food.name) === MealServing.normalize(matchedQuery)) food.portionName = portionQuery;
           const button = document.createElement("button");
           button.type = "button";
           button.className = "meal-search-result";
           const reference = foodReference(food);
           button.disabled = !reference;
           const details = [food.source, food.detail, basisLabel(food, reference), food.id.split(":").slice(1).join(":")];
+          if (food.portionName) details.push(`${food.portionName} 분량 기준`);
           if (!reference) details.push("g·mL 기준량 미확인");
+          const standard = MealServing.lookup(food, table);
+          details.push(standard.state === "available" ? `1인분 ${standard.amount} ${standard.unit} (${standard.label})` : "1인분 기준 없음");
+          if (food.incomplete.length) details.push("일부 영양값 미확인");
           button.innerHTML = `<strong>${escape(food.name)}</strong><small>${escape(details.filter(Boolean).join(" · "))}</small>`;
           button.addEventListener("click", () => {
             editor.food = food;
+            editor.reapplyServing = true;
             amountInput.value = "";
             el("mealPortionServing").checked = Boolean(activeServing());
             el("mealPortionDirect").checked = !el("mealPortionServing").checked;
@@ -574,7 +591,7 @@
       el("mealSearchStatus").textContent = "음식 DB에서 검색 중…";
       try {
         if (!worker) {
-          worker = new Worker("./meal-food-search.js?v=1");
+          worker = new Worker("./meal-food-search.js?v=category-20261112");
           worker.onmessage = ({data}) => {
             if (data.id === searchId && dialog.open && editor.mode === "database") renderSearch(data);
           };
@@ -652,7 +669,10 @@
       }
     });
     form.addEventListener("input", updatePreview);
-    form.addEventListener("change", updatePreview);
+    form.addEventListener("change", event => {
+      if (event.target.name === "portion" && event.target.value === "serving") editor.reapplyServing = true;
+      updatePreview();
+    });
     form.addEventListener("submit", event => {
       event.preventDefault();
       updatePreview();
@@ -681,16 +701,19 @@
       searchId++;
       if (opener?.isConnected) opener.focus();
     });
-    // Optional: set data-serving-table on the diary panel when the team table is available.
+    // User-provided category standards only: never consult DB serving/package mass.
     if (diary.dataset.servingTable) {
       fetch(diary.dataset.servingTable).then(response => {
         if (!response.ok) throw new Error("serving table");
         return response.json();
       }).then(data => {
+        if (data?.version !== 1 || !data.categories) throw new Error("serving categories");
         table = data;
         if (dialog.open) updatePreview();
       }).catch(() => {
+        tableFailed = true;
         el("mealDiaryStatus").textContent = "1인분 중량표를 불러오지 못했습니다. DB 기준 단위로 직접 입력해주세요.";
+        if (dialog.open) updatePreview();
       });
     }
     render();
