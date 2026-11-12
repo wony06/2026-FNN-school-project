@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "source": "2026-11-12 사용자 지정 카테고리 표",
+  "policy": "DB 자체 serving·1회 섭취참고량·포장 중량은 사용하지 않음. 레코드 basis와 같은 단위만 사용하며 g/mL 환산하지 않음.",
+  "categories": {
+    "rice": {"label":"쌀밥·공기밥", "g":210, "mL":258, "sourceG":"KDRIs", "sourceML":"KNHANES"},
+    "fried_rice": {"label":"볶음밥류", "g":289, "mL":258, "sourceG":"대학급식소", "sourceML":"KNHANES"},
+    "rice_bowl": {"label":"덮밥·비빔밥류", "g":418, "mL":417, "sourceG":"대학급식소", "sourceML":"KNHANES"},
+    "noodles": {"label":"면류", "g":497, "mL":497, "sourceG":"사용자 지정 면류 기준", "sourceML":"KNHANES"},
+    "soup": {"label":"국·탕", "g":283, "mL":288, "sourceG":"대학급식소", "sourceML":"KNHANES"},
+    "stew": {"label":"찌개·전골·찜류", "g":283, "mL":201, "sourceG":"대학급식소", "sourceML":"KNHANES"},
+    "braised_side": {"label":"조림·젓갈", "g":44, "sourceG":"대학급식소 1997 college Serving"},
+    "stir_fry_side": {"label":"반찬 볶음", "g":80, "sourceG":"대학급식소 1997 college Serving"},
+    "seasoned_side": {"label":"김치·무침·나물", "g":70, "sourceG":"대학급식소 1997 college Serving"},
+    "grilled_side": {"label":"구이", "g":96, "sourceG":"대학급식소 1997 college Serving"},
+    "pancake": {"label":"전·부침", "g":96, "sourceG":"대학급식소 구이값 재사용"},
+    "salad": {"label":"샐러드", "g":71, "sourceG":"대학급식소 1997 college Serving"},
+    "side_fallback": {"label":"일반 반찬", "g":72.2, "sourceG":"대학급식소 반찬 평균(부침 제외)"},
+    "protein_main": {"label":"메인 단백질·까스·함박·스테이크", "g":151, "sourceG":"대학급식소 pan broiled sole; 사용자 지정 메인 분류"},
+    "grilled_fish": {"label":"생선구이", "g":70, "sourceG":"KDRIs 생선 가식부"},
+    "mini_noodles": {"label":"미니 면류", "g":120, "sourceG":"백소정 미니우동; 사용자 지정"},
+    "pasta": {"label":"파스타·스파게티", "g":172, "sourceG":"메뉴젠 중앙값"},
+    "sauce": {"label":"소스·파우치·장류양념", "mL":9, "sourceML":"사용자 지정 9mL"},
+    "japchae": {"label":"잡채(개별 mL 기준)", "mL":150, "sourceML":"KNHANES"}
+  }
+}
