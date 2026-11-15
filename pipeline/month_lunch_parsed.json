@@ -636,6 +636,25 @@
  },
  {
   "date": "2026-08-31",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴**",
+  "main": "이화수육개장",
+  "sides": [
+   "콜라보",
+   "단호박찜",
+   "메추리알꽈리조림",
+   "시금치나물",
+   "오징어젓갈",
+   "잡곡밥",
+   "깍두기"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBVsRWhdWqfpr6YICFOAw/x.png",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-08-31",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -736,6 +755,25 @@
  },
  {
   "date": "2026-09-01",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴**",
+  "main": "이화수",
+  "sides": [
+   "육개장",
+   "메추리알꽈리조림",
+   "단호박찜",
+   "시금치나물",
+   "오징어젓갈",
+   "깍두기",
+   "잡곡밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBa0LMVcW-EuYo6pbjm6A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-01",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -822,6 +860,25 @@
   ],
   "price": "12,000원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBf4wvFclas2rOO3Ooy9A/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-02",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴**",
+  "main": "]이화수",
+  "sides": [
+   "육개장",
+   "메추리알꽈리조림",
+   "단호박찜",
+   "시금치나물",
+   "오징어젓갈",
+   "깍두기",
+   "잡곡밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBay7P1dkKCg01gQGOq0w/x.jpg",
   "cat_idx": 0
  },
  {
@@ -926,6 +983,25 @@
  },
  {
   "date": "2026-09-03",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴**",
+  "main": "이화수",
+  "sides": [
+   "육개장",
+   "메추리알꽈리조림",
+   "단호박찜",
+   "시금치나물",
+   "오징어젓갈",
+   "깍두기",
+   "잡곡밥"
+  ],
+  "price": "12,000원",
+  "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-03",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -1023,6 +1099,25 @@
   ],
   "price": "12,000원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqKZFPdVeeybOmLkVMVw/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-04",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "이화수",
+  "sides": [
+   "육개장",
+   "메추리알꽈리조림",
+   "단호박찜",
+   "시금치나물",
+   "오징어젓갈",
+   "깍두기",
+   "잡곡밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaBqPSYYdw20bhsm8gVNfg/x.png",
   "cat_idx": 0
  },
  {
@@ -1718,6 +1813,24 @@
  },
  {
   "date": "2026-09-14",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "북창동",
+  "sides": [
+   "순두부찌개",
+   "잡채",
+   "꽈리고추멸치볶음",
+   "단호박샐러드",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "menu_photos/bukchangdong_sundubu_user.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-14",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -1814,6 +1927,24 @@
   ],
   "price": "12,000원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCi5mLdeoSGGhycdcMtcg/400x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-15",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "북창동",
+  "sides": [
+   "순두부찌개",
+   "잡채",
+   "꽈리고추멸치볶음",
+   "단호박샐러드",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "menu_photos/bukchangdong_sundubu_user.jpg",
   "cat_idx": 0
  },
  {
@@ -1918,6 +2049,24 @@
  },
  {
   "date": "2026-09-16",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "북창동",
+  "sides": [
+   "순두부찌개",
+   "잡채",
+   "꽈리고추멸치볶음",
+   "단호박샐러드",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "menu_photos/bukchangdong_sundubu_user.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-16",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -2018,6 +2167,24 @@
  },
  {
   "date": "2026-09-17",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "북창동",
+  "sides": [
+   "순두부찌개",
+   "잡채",
+   "꽈리고추멸치볶음",
+   "단호박샐러드",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "menu_photos/bukchangdong_sundubu_user.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-17",
   "shop": "204",
   "shopName": "신소재공학관식당",
   "category": "정식",
@@ -2114,6 +2281,24 @@
   ],
   "price": "12,000원",
   "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCySyMifZe_PDPqEQZYYg/x.jpg",
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-09-18",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "북창동",
+  "sides": [
+   "순두부찌개",
+   "잡채",
+   "꽈리고추멸치볶음",
+   "단호박샐러드",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "menu_photos/bukchangdong_sundubu_user.jpg",
   "cat_idx": 0
  },
  {
@@ -3797,6 +3982,23 @@
   ],
   "price": "12,000원",
   "img": null,
+  "cat_idx": 0
+ },
+ {
+  "date": "2026-11-16",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "현대옥 콩나물국밥",
+  "sides": [
+   "돈육녹두전&양파간장",
+   "김구이",
+   "오징어젓무침",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSg03sfKeaPH-qcSxr9Q/400x.png",
   "cat_idx": 0
  },
  {

@@ -1485,26 +1485,26 @@
       }
     ]
   },
-  "menuCount": 490,
+  "menuCount": 501,
   "excludedByAllergen": {
-    "1": 252,
-    "2": 236,
+    "1": 262,
+    "2": 241,
     "3": 23,
     "4": 5,
-    "5": 335,
-    "6": 320,
+    "5": 346,
+    "6": 331,
     "7": 51,
-    "8": 94,
-    "9": 231,
-    "10": 204,
+    "8": 103,
+    "9": 242,
+    "10": 214,
     "11": 5,
-    "12": 152,
-    "13": 330,
+    "12": 157,
+    "13": 340,
     "14": 0,
     "15": 129,
-    "16": 198,
-    "17": 34,
-    "18": 243,
+    "16": 207,
+    "17": 45,
+    "18": 253,
     "19": 0
   },
   "suppressedEvidenceCount": 165,
@@ -7250,6 +7250,19 @@
     },
     {
       "key": [
+        "2026-08-31",
+        "401",
+        "**콜라보메뉴**",
+        "이화수육개장"
+      ],
+      "component": "시금치나물",
+      "reference": "시금치나물",
+      "labeledRecords": 2,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
         "2026-09-01",
         "105",
         "한식",
@@ -7285,6 +7298,32 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "401",
+        "**콜라보메뉴**",
+        "이화수"
+      ],
+      "component": "육개장",
+      "reference": "육개장",
+      "labeledRecords": 3,
+      "totalRecords": 16,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-01",
+        "401",
+        "**콜라보메뉴**",
+        "이화수"
+      ],
+      "component": "시금치나물",
+      "reference": "시금치나물",
+      "labeledRecords": 2,
+      "totalRecords": 9,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -7354,6 +7393,32 @@
     },
     {
       "key": [
+        "2026-09-02",
+        "401",
+        "**콜라보메뉴**",
+        "]이화수"
+      ],
+      "component": "육개장",
+      "reference": "육개장",
+      "labeledRecords": 3,
+      "totalRecords": 16,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-02",
+        "401",
+        "**콜라보메뉴**",
+        "]이화수"
+      ],
+      "component": "시금치나물",
+      "reference": "시금치나물",
+      "labeledRecords": 2,
+      "totalRecords": 9,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
         "2026-09-03",
         "204",
         "일품",
@@ -7376,6 +7441,32 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-03",
+        "401",
+        "**콜라보메뉴**",
+        "이화수"
+      ],
+      "component": "육개장",
+      "reference": "육개장",
+      "labeledRecords": 3,
+      "totalRecords": 16,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-03",
+        "401",
+        "**콜라보메뉴**",
+        "이화수"
+      ],
+      "component": "시금치나물",
+      "reference": "시금치나물",
+      "labeledRecords": 2,
+      "totalRecords": 9,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -7454,6 +7545,32 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "이화수"
+      ],
+      "component": "육개장",
+      "reference": "육개장",
+      "labeledRecords": 3,
+      "totalRecords": 16,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-04",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "이화수"
+      ],
+      "component": "시금치나물",
+      "reference": "시금치나물",
+      "labeledRecords": 2,
+      "totalRecords": 9,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -7770,6 +7887,19 @@
     },
     {
       "key": [
+        "2026-09-14",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "북창동"
+      ],
+      "component": "잡채",
+      "reference": "잡채",
+      "labeledRecords": 1,
+      "totalRecords": 7,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
         "2026-09-15",
         "204",
         "일품",
@@ -7792,6 +7922,19 @@
       "reference": "새송이볶음",
       "labeledRecords": 1,
       "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-15",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "북창동"
+      ],
+      "component": "잡채",
+      "reference": "잡채",
+      "labeledRecords": 1,
+      "totalRecords": 7,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -7850,6 +7993,19 @@
       "key": [
         "2026-09-16",
         "401",
+        "**콜라보메뉴** (한정)",
+        "북창동"
+      ],
+      "component": "잡채",
+      "reference": "잡채",
+      "labeledRecords": 1,
+      "totalRecords": 7,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-16",
+        "401",
         "중식 - Korean Dining",
         "돈코츠라멘"
       ],
@@ -7896,6 +8052,19 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-17",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "북창동"
+      ],
+      "component": "잡채",
+      "reference": "잡채",
+      "labeledRecords": 1,
+      "totalRecords": 7,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -7974,6 +8143,19 @@
       "reference": "배추김치",
       "labeledRecords": 1,
       "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-09-18",
+        "401",
+        "**콜라보메뉴** (한정)",
+        "북창동"
+      ],
+      "component": "잡채",
+      "reference": "잡채",
+      "labeledRecords": 1,
+      "totalRecords": 7,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
     },
     {
@@ -8934,15 +9116,15 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "263c78ba88ba726e68356f00ae263a9db1255163cea7c4d64d9a56988e5544e7",
-    "web\\menu_exchange_snapshot.json": "adee8f691e46753ec020b15fff01fd9888d1b372df97ab52bb76c083b39c1324",
+    "web\\site_data.json": "3766e64128605a3ffdf87aa169f42d89c1e11e000c01a7d2a953e5e57b10be54",
+    "web\\menu_exchange_snapshot.json": "c96aa66b0075bb0eb56f5ba05bfc47cc019289f53db0000ca1002a9cf054ce63",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\recommendation-view.js": "8d84ee14f6053d33d7106931fda4dffd4b9f727535cd99a3254c79940be9adce",
     "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "e9d507592c9f69d00337b438e085c927cbaee1c5f11fbf8e2f64b335c85a497e",
-    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "4f64126df0df1b5b3f028a500a18903d6de2097652ca2b934f95e112593b4f16",
-    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "d4a70bfeee4c0c0e77ec0efed7bd1e038a473f732742753b6aef8b59d24967a2"
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "5e8cac72f5f4cf1930964ad0f4a8ed5c35db868cb2070f5ba0c25b30aadb9f2c",
+    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "87e3427c1d3b20fbc235ea368666b4c7155570d008996a56bbd4988391db0e9a",
+    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "5c680dae57ce8e805e6bae32979a1ec1c56c018e4975f14989fdb6d0f76fb22f"
   }
 }

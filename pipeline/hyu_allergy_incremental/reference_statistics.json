@@ -60737,5 +60737,1002 @@
         ]
       }
     ]
+  },
+  "김구이": {
+    "normalized_menu_name": "김구이",
+    "original_names": [
+      "김구이",
+      "김구이*"
+    ],
+    "record_count": 5,
+    "school_count": 3,
+    "labeled_record_count": 1,
+    "unlabeled_record_count": 4,
+    "review_record_count": 0,
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      }
+    ],
+    "schools": [
+      {
+        "school_code": "7010065",
+        "school_name": "관악고등학교",
+        "record_count": 1,
+        "unlabeled_count": 1,
+        "labeled_variants": []
+      },
+      {
+        "school_code": "7010126",
+        "school_name": "경희고등학교",
+        "record_count": 3,
+        "unlabeled_count": 3,
+        "labeled_variants": []
+      },
+      {
+        "school_code": "7010563",
+        "school_name": "경인고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            2,
+            5,
+            6
+          ]
+        ]
+      }
+    ],
+    "labeled_variants": [
+      {
+        "numbers": [
+          2,
+          5,
+          6
+        ],
+        "names": [
+          "우유",
+          "대두",
+          "밀"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+        ]
+      }
+    ]
+  },
+  "단호박샐러드": {
+    "normalized_menu_name": "단호박샐러드",
+    "original_names": [
+      "단호박샐러드*"
+    ],
+    "record_count": 1,
+    "school_count": 1,
+    "labeled_record_count": 1,
+    "unlabeled_record_count": 0,
+    "review_record_count": 0,
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 1
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 1
+      }
+    ],
+    "schools": [
+      {
+        "school_code": "7010835",
+        "school_name": "경복비즈니스고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            1,
+            5,
+            13
+          ]
+        ]
+      }
+    ],
+    "labeled_variants": [
+      {
+        "numbers": [
+          1,
+          5,
+          13
+        ],
+        "names": [
+          "난류",
+          "대두",
+          "아황산류"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "3408925db68eaa639cfcbd8930616ec99cabf6c525d0fa48a11381aa8a78b399"
+        ]
+      }
+    ]
+  },
+  "순두부찌개": {
+    "normalized_menu_name": "순두부찌개",
+    "original_names": [
+      "순두부찌개"
+    ],
+    "record_count": 5,
+    "school_count": 4,
+    "labeled_record_count": 5,
+    "unlabeled_record_count": 0,
+    "review_record_count": 0,
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 3,
+        "labeled_record_count": 4,
+        "total_record_count": 5
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 5
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 2,
+        "labeled_record_count": 3,
+        "total_record_count": 5
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 5
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 5
+      }
+    ],
+    "schools": [
+      {
+        "school_code": "7010118",
+        "school_name": "강서고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            1,
+            5,
+            6,
+            9,
+            10,
+            13,
+            18
+          ]
+        ]
+      },
+      {
+        "school_code": "7010120",
+        "school_name": "경문고등학교",
+        "record_count": 2,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            1,
+            5,
+            6,
+            9,
+            10,
+            13,
+            17,
+            18
+          ]
+        ]
+      },
+      {
+        "school_code": "7010271",
+        "school_name": "경기기계공업고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            5,
+            6,
+            9,
+            10,
+            12,
+            13,
+            17,
+            18
+          ]
+        ]
+      },
+      {
+        "school_code": "7010589",
+        "school_name": "누원고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            1,
+            5,
+            6,
+            8,
+            9,
+            10,
+            13,
+            16,
+            18
+          ]
+        ]
+      }
+    ],
+    "labeled_variants": [
+      {
+        "numbers": [
+          1,
+          5,
+          6,
+          8,
+          9,
+          10,
+          13,
+          16,
+          18
+        ],
+        "names": [
+          "난류",
+          "대두",
+          "밀",
+          "게",
+          "새우",
+          "돼지고기",
+          "아황산류",
+          "쇠고기",
+          "조개류(굴·전복·홍합 포함)"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "b6b0b66f166740f89224455e2d19dab3adba5a838c4c57b7d1af23e4b27bd905"
+        ]
+      },
+      {
+        "numbers": [
+          1,
+          5,
+          6,
+          9,
+          10,
+          13,
+          17,
+          18
+        ],
+        "names": [
+          "난류",
+          "대두",
+          "밀",
+          "새우",
+          "돼지고기",
+          "아황산류",
+          "오징어",
+          "조개류(굴·전복·홍합 포함)"
+        ],
+        "record_count": 2,
+        "school_count": 1,
+        "record_ids": [
+          "a8b290fb1031fedb5ad803afcf9ec1a218d474c56d8556f5599ddaf803ac5f76",
+          "13f0a774185095c9ca152fe5f9a7e19628d2019a9088d92cf8382b9981a09076"
+        ]
+      },
+      {
+        "numbers": [
+          1,
+          5,
+          6,
+          9,
+          10,
+          13,
+          18
+        ],
+        "names": [
+          "난류",
+          "대두",
+          "밀",
+          "새우",
+          "돼지고기",
+          "아황산류",
+          "조개류(굴·전복·홍합 포함)"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "1f6e61b88d13e5ff79f148016ca50ccc17931a1be60d71ebb3d561778b7f9b2c"
+        ]
+      },
+      {
+        "numbers": [
+          5,
+          6,
+          9,
+          10,
+          12,
+          13,
+          17,
+          18
+        ],
+        "names": [
+          "대두",
+          "밀",
+          "새우",
+          "돼지고기",
+          "토마토",
+          "아황산류",
+          "오징어",
+          "조개류(굴·전복·홍합 포함)"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "98641cc451fc8ac221509095a6e5581bf02c40794065c2aac02085e49087dc44"
+        ]
+      }
+    ]
+  },
+  "잡채": {
+    "normalized_menu_name": "잡채",
+    "original_names": [
+      "*잡채",
+      "잡채"
+    ],
+    "record_count": 7,
+    "school_count": 5,
+    "labeled_record_count": 7,
+    "unlabeled_record_count": 0,
+    "review_record_count": 0,
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 7
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "labeled_school_count": 5,
+        "labeled_record_count": 7,
+        "total_record_count": 7
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "labeled_school_count": 5,
+        "labeled_record_count": 7,
+        "total_record_count": 7
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 7
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "labeled_school_count": 4,
+        "labeled_record_count": 5,
+        "total_record_count": 7
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "labeled_school_count": 5,
+        "labeled_record_count": 7,
+        "total_record_count": 7
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "labeled_school_count": 1,
+        "labeled_record_count": 2,
+        "total_record_count": 7
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "labeled_school_count": 1,
+        "labeled_record_count": 1,
+        "total_record_count": 7
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "labeled_school_count": 0,
+        "labeled_record_count": 0,
+        "total_record_count": 7
+      }
+    ],
+    "schools": [
+      {
+        "school_code": "1371663",
+        "school_name": "국립전통예술고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            5,
+            6,
+            10,
+            13
+          ]
+        ]
+      },
+      {
+        "school_code": "7010133",
+        "school_name": "광신고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            5,
+            6,
+            10,
+            13,
+            18
+          ]
+        ]
+      },
+      {
+        "school_code": "7010589",
+        "school_name": "누원고등학교",
+        "record_count": 2,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            5,
+            6,
+            10,
+            13
+          ]
+        ]
+      },
+      {
+        "school_code": "7010985",
+        "school_name": "삼각산고등학교",
+        "record_count": 2,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            1,
+            5,
+            6,
+            9,
+            13,
+            17
+          ]
+        ]
+      },
+      {
+        "school_code": "7011169",
+        "school_name": "가재울고등학교",
+        "record_count": 1,
+        "unlabeled_count": 0,
+        "labeled_variants": [
+          [
+            5,
+            6,
+            10,
+            13
+          ]
+        ]
+      }
+    ],
+    "labeled_variants": [
+      {
+        "numbers": [
+          1,
+          5,
+          6,
+          9,
+          13,
+          17
+        ],
+        "names": [
+          "난류",
+          "대두",
+          "밀",
+          "새우",
+          "아황산류",
+          "오징어"
+        ],
+        "record_count": 2,
+        "school_count": 1,
+        "record_ids": [
+          "c1d407d05989050467fb1326cb69c877e14b08453d081297c542ba09e461dab0",
+          "4cd77d0c22549906f54f9630e6a8474347f35f4a1196edf82c51a580f80f9082"
+        ]
+      },
+      {
+        "numbers": [
+          5,
+          6,
+          10,
+          13
+        ],
+        "names": [
+          "대두",
+          "밀",
+          "돼지고기",
+          "아황산류"
+        ],
+        "record_count": 4,
+        "school_count": 3,
+        "record_ids": [
+          "f7b212272582b99edd12bfa0c7cba10389bbb42f62c3e8b9a93e85aa21819b2e",
+          "71785c3d9b2c5aca19c2327021402665a2f3aba8f38973f865accdbd88f3cd14",
+          "75494d154de8c48c020a0383712d20e5d069dd90c6e376101dd4695c59613bd4",
+          "4ceaf7193eddc39b0af8e97c1a85fba3e4830e64a9dca92e416e848ecf655251"
+        ]
+      },
+      {
+        "numbers": [
+          5,
+          6,
+          10,
+          13,
+          18
+        ],
+        "names": [
+          "대두",
+          "밀",
+          "돼지고기",
+          "아황산류",
+          "조개류(굴·전복·홍합 포함)"
+        ],
+        "record_count": 1,
+        "school_count": 1,
+        "record_ids": [
+          "e61c952373749627cd09cba558248c9d9d8d97f737b19d258ecadf836f253ba1"
+        ]
+      }
+    ]
   }
 }

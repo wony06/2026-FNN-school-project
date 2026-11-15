@@ -1,27 +1,27 @@
 {
-  "meal_rows": 41,
-  "unique_main_names": 36,
+  "meal_rows": 52,
+  "unique_main_names": 41,
   "meal_main_match_counts": {
     "완전일치": 14,
     "표기동의어": 3,
-    "검토필요": 12,
-    "미매칭": 12
+    "검토필요": 14,
+    "미매칭": 21
   },
   "unique_main_match_counts": {
+    "검토필요": 14,
     "완전일치": 14,
-    "미매칭": 8,
-    "검토필요": 12,
-    "표기동의어": 2
+    "표기동의어": 2,
+    "미매칭": 11
   },
-  "source_supported_component_occurrences": 211,
+  "source_supported_component_occurrences": 292,
   "component_match_counts": {
-    "완전일치": 97,
-    "표기동의어": 3,
-    "검토필요": 70,
-    "미매칭": 41
+    "완전일치": 139,
+    "표기동의어": 13,
+    "검토필요": 84,
+    "미매칭": 56
   },
   "calculation_only_component_occurrences": 24,
-  "reference_evidence_records": 897,
+  "reference_evidence_records": 1037,
   "successful_examples": [
     {
       "meal_key": [
@@ -1365,39 +1365,25 @@
     },
     {
       "meal_key": [
-        "2026-11-10",
-        "105",
-        "양식",
-        "통살치킨까스"
+        "2026-08-31",
+        "401",
+        "**콜라보메뉴**",
+        "이화수육개장"
       ],
-      "shop_name": "학생식당",
+      "shop_name": "생활과학관식당",
       "result": {
-        "query": "통살치킨까스",
-        "normalized_query": "통살치킨가스",
+        "query": "이화수육개장",
+        "normalized_query": "이화수육개장",
         "match_type": "review",
         "reference_menu": null,
         "candidates": [
           {
-            "reference_menu": "치킨가스",
-            "similarity": 0.8,
-            "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
-          },
-          {
-            "reference_menu": "수제치킨가스",
+            "reference_menu": "육개장",
             "similarity": 0.6667,
             "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
           }
         ],
-        "name_explicit_ingredients": [
-          {
-            "number": 15,
-            "name": "닭고기",
-            "matched_terms": [
-              "치킨"
-            ],
-            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
-          }
-        ],
+        "name_explicit_ingredients": [],
         "neis_possible_ingredients": [],
         "unknown": {
           "unlabeled_record_count": null,
@@ -1409,9 +1395,9 @@
     }
   ],
   "input_sha256": {
-    "web\\site_data.json": "3178c56228bd10a9091f86d9ab84a10e02e030b03a30788585d98f8a9c15356f",
-    "hanyang_menu_month.json": "f5cccf1e8d9d2a6be612c56c40a56fbd359fe1c890e27b3fb06274cb84b66aa2",
-    "month_lunch_trays.json": "9c12880968b44c69832ea279ee4932c23543825a5babee70fd0c02972b17454e",
+    "web\\site_data.json": "3766e64128605a3ffdf87aa169f42d89c1e11e000c01a7d2a953e5e57b10be54",
+    "hanyang_menu_month.json": "053950a4347bc38bbf7553a3a8dca7abaa61fbf23656579d78f0d6809cf0a93e",
+    "month_lunch_trays.json": "e934774cdb89d0a727fe87f99e57a857b38c16e423ee2d2c36d16308a00fbab7",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
   },
   "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",

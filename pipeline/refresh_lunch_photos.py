@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 from lxml import html
 from PIL import Image, ImageOps
-from parse_month import parse_main_and_sides
+from parse_month import parse_main_and_sides, is_lunch_cat
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://fnb.hanyang.ac.kr'
@@ -36,7 +36,7 @@ def scrape(day):
             def text(cls): return li.xpath('string(.//*[contains(concat(" ",normalize-space(@class)," ")," '+cls+' ")])').strip()
             category=text('category'); name=text('title')
             if shop=='401':
-                if not category.startswith('중식'): continue
+                if not is_lunch_cat('s401', category): continue
             elif category not in CATEGORIES[shop]: continue
             if not name: continue
             styles=li.xpath('.//*[contains(@class,"thumb-img")]/@style')

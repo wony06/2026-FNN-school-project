@@ -12,7 +12,7 @@ def is_lunch_cat(skey, category):
     if skey == "s105":
         return category in ("양식", "한식", "즉석")
     if skey == "s401":
-        return category.startswith("중식")
+        return category.startswith("중식") or ("콜라보메뉴" in category and not any(t in category for t in ("조식", "석식")))
     if skey == "s204":
         return category in ("정식", "일품")
     return False
@@ -80,6 +80,7 @@ FIXED_SIDES_OVERRIDE = {
 # 2026-09-21: 메인명 자체가 공백 포함 다어절인데(예: "뼈없는 감자탕") desc가 없어서
 # fallback 토큰분리가 첫 단어(수식어)만 main으로 잘라내는 케이스. 새 사례 나오면 추가.
 MAIN_PREFIX_MERGE = {
+    ("현대옥", "콩나물국밥"): "현대옥 콩나물국밥",  # 공식 다어절 메뉴명 보존
     ("뼈없는", "감자탕"): "감자탕",
 }
 

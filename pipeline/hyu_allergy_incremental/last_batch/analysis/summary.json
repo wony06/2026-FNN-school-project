@@ -1,27 +1,27 @@
 {
-  "meal_count": 41,
+  "meal_count": 52,
   "excluded_calculation_component_occurrences": 24,
-  "source_supported_components_analyzed": 211,
+  "source_supported_components_analyzed": 292,
   "classification_counts": {
-    "neis_possible": 256,
-    "name_and_neis_possible": 32,
-    "unknown": 478,
-    "name_indicated": 13
+    "name_indicated": 21,
+    "unknown": 575,
+    "neis_possible": 350,
+    "name_and_neis_possible": 42
   },
-  "meals_with_name_evidence": 34,
-  "meals_with_neis_evidence": 35,
-  "meals_with_unknown_recipe": 41,
-  "source_evidence_records": 897,
+  "meals_with_name_evidence": 45,
+  "meals_with_neis_evidence": 46,
+  "meals_with_unknown_recipe": 52,
+  "source_evidence_records": 1037,
   "protected_sha256": {
-    "web\\site_data.json": "3178c56228bd10a9091f86d9ab84a10e02e030b03a30788585d98f8a9c15356f",
-    "month_lunch_trays.json": "9c12880968b44c69832ea279ee4932c23543825a5babee70fd0c02972b17454e",
-    "hanyang_menu_month.json": "f5cccf1e8d9d2a6be612c56c40a56fbd359fe1c890e27b3fb06274cb84b66aa2",
+    "web\\site_data.json": "3766e64128605a3ffdf87aa169f42d89c1e11e000c01a7d2a953e5e57b10be54",
+    "month_lunch_trays.json": "e934774cdb89d0a727fe87f99e57a857b38c16e423ee2d2c36d16308a00fbab7",
+    "hanyang_menu_month.json": "053950a4347bc38bbf7553a3a8dca7abaa61fbf23656579d78f0d6809cf0a93e",
     "web\\index.html": "5179a31f83a20bf12873b1ce7a68724deb6e4bb0f0087e744bbde77d971fe4db",
     "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
-    "pipeline\\hyu_allergy_incremental\\_build-2pgoprxg\\matching\\meal_matches.json": "67d736c4d35bb9744db40d5849f03aec4c0cd490a72918133883641e86a9c024"
+    "pipeline\\hyu_allergy_incremental\\_build-czfcig8v\\matching\\meal_matches.json": "17a00a5c35c1cebdef6633582c9e1a8768dc1a79559a707ae7ff208fb0a6ace4"
   },
   "choice_or_separator_integration_withheld_meals": 0
 }
