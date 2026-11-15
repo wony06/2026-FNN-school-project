@@ -363,6 +363,19 @@ def classify_side_weight(name, cache=None):
 # 예외적으로 실제 재료 단위로 쪼갠다. 메인/반찬 어느 쪽에서 나오든 같은 방식으로 적용됨.
 # 케이스별로만 등록 - 새 이름이 나오면 여기 추가.
 DECOMPOSE_OVERRIDES = {
+    # 2026-11-16 사용자 지정: 즉석 "된장찌개+전복미역국" 조합을 두 국으로 분해. 된장찌개는 메인
+    # 국/찌개 표준 283g, 전복미역국은 미니 사이드국 120g(미니 면류 사이드 기준 재사용)으로 재해석.
+    # 합 403g(두 국이 함께 제공되는 즉석 콤보). 전복미역국은 GENERAL_SYNONYMS로 조개 미역국 대체 매칭.
+    "고깃집된장찌개ㅁ전복미역국": [
+        ("된장찌개_소고기", 283, "사용자 지정: 메인 된장찌개 - 국·찌개류(병합) 표준 283g, food_db 된장찌개_소고기 매칭"),
+        ("전복미역국", 120, "사용자 지정: 미니 사이드 전복미역국 120g(미니 면류 사이드 기준 재사용), 조개 미역국으로 대체 매칭"),
+    ],
+    # 2026-11-16 사용자 지정: 참나물묵무침을 참나물무침+청포묵무침 50:50(각 35g)으로 분해. 기존
+    # 무침 70g 유지. 참나물무침은 GENERAL_SYNONYMS로 "참나물 무침_된장" 매칭, 청포묵무침은 직접 매칭.
+    "참나물묵무침": [
+        ("참나물무침", 35, "사용자 지정: 참나물묵무침 50:50 분해 - 참나물 무침_된장 35g"),
+        ("청포묵무침", 35, "사용자 지정: 참나물묵무침 50:50 분해 - 청포묵무침 35g"),
+    ],
     # 2026-11-11: "*" 균등분할로 돈가스 75.5g + 치즈 75.5g이 되던 것 교정. 돈가스는 메인 폴백 151g 그대로,
     # 눈꽃치즈는 토핑 소량(20g, 사진 미확인 임시값)으로 분리한다.
     "왕돈가스*눈꽃치즈": [
@@ -809,6 +822,14 @@ def expand_side(name, shop=None, category=None, cache=None, date=None):
         if "깍두기" in photo_names:
             note += "; 큼직한 무김치는 깍두기로 대체 추정"
         return [(part, total_weight / len(photo_names), note) for part in photo_names]
+    if str(shop) == "401" and name in ("2종김치", "김치2종"):
+        # 2026-11-16 사용자 지정: 사진 미확인 김치2종은 지금까지 함께 나온 조합 중 최다인
+        # 배추김치+열무김치(3회)로 기본 일괄 매칭. 위 TEMP/PHOTO 오버라이드가 있으면 그게 우선.
+        default_names = ("배추김치", "열무김치")
+        total_weight, _ = classify_shop_side_weight(name, shop, cache)
+        note = (f"김치2종: 사진 미확인으로 지금까지 최다 출현 조합 {' + '.join(default_names)}을 기본 적용(사용자 지정 일괄). "
+                f"기존 추정 총량 {total_weight:g}g을 균등 배분. 실측·사진 확인값 아니며, 사진 확인 시 재매칭. 원본 메뉴명 유지.")
+        return [(part, total_weight / len(default_names), note) for part in default_names]
     if name in DECOMPOSE_OVERRIDES:
         return DECOMPOSE_OVERRIDES[name]
     parts = expand_compound(name, lambda n: classify_shop_side_weight(n, shop, cache))
@@ -1317,7 +1338,8 @@ def compute_tray(lunch, cache):
     exchange_units = None
     # 2026-11-04: 204(신소재공학관)는 기존에 08-24~09-19 구간만 식품교환단위를 계산했음 -
     # 사용자 지시로 10/26~11/6까지 범위 확장.
-    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-13"):
+    # 2026-11-16: 11/16 메뉴 추가에 맞춰 컷오프를 11/16까지 확장(커밋된 site_data가 이미 11/16 교환을 포함).
+    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-16"):
         exchange_units = compute_tray_exchanges(items, main, shop, lunch["date"])
 
     return {

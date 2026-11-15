@@ -22,6 +22,8 @@ APPROVED_SIDE_NUTRITION = {
     '비엔나강정': '신소재_202611_검토확정_비엔나강정',
     '계란파국': '신소재_202611_검토확정_계란파국',
     '맛살마늘쫑볶음': '신소재_202611_검토확정_맛살마늘쫑볶음',
+    # 2026-11-16 사용자 지정: 크림치즈떡볶이 배합에서 떡→분모자당면 전량 대체한 custom recipe로 영양 계산.
+    '분모자크림떡볶이': '분모자크림떡볶이',
 }
 
 PRODUCT_FIELDS = {
@@ -206,6 +208,14 @@ def prepared_food_override(name, foods, products, nutrients, raw_map):
         return {'source':'db104_direct', 'name':record['식품명'],
                 'per100':{f:number(record.get(raw_map[f])) for f in nutrients}, 'unit':'g',
                 'nutrition_note':'샤브국수 조합의 삶은 칼국수면: 원재료DB 칼국수면, 생것, 삶은것을 임시200g 적용. 건면·생면 성분에 삶은 중량을 곱하지 않음. 샤브 부분297g과 합497g 내 배분, 실제 면 제품·수분·제공량 미확인.'}
+    if name == '참나물무침':
+        # 2026-11-16 사용자 지정: 참나물묵무침 50:50 분해 성분. food_db "참나물 무침_된장"은
+        # ml출처(초등학교급식 재료량 산출)라 무침류 g-출처 제한에 걸려 캐스케이드로는 못 잡음.
+        # 사용자가 지목한 매칭이므로 코드로 직접 연결(COOKED/적양배추와 동일 패턴). 중량은 decompose 35g 유지.
+        row = next(r for r in foods if r['code'] == 'D514-716450000-0001')
+        return {'source':'food_db', 'name':row['name'], 'origin':row['origin'], 'code':row['code'],
+                'per100':{f:row['n'].get(f) for f in nutrients}, 'unit':'g',
+                'nutrition_note':'참나물묵무침 분해 성분: food_db 참나물 무침_된장(D514-716450000-0001, 초등학교급식 재료량 산출, 100ml 기준)으로 사용자 지정 매칭. 무침류 g-분석 출처 제한을 우회. 밀도1 가정으로 100ml≈100g 적용, 실제 제공량·배합 미확인.'}
     if name == '적양배추':
         record = next(r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8')) if r['식품명']=='양배추, 적색, 생것')
         return {'source':'db104_direct', 'name':record['식품명'],

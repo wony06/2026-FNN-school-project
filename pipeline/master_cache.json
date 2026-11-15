@@ -2023,33 +2023,6 @@
   "prepared_proxy": true,
   "recipe_batch_g": 303.8
  },
- "청포묵무침": {
-  "source": "gagong_db",
-  "name": "청포묵무침",
-  "n_dup": 2,
-  "per100": {
-   "kcal": 79.5,
-   "protein": 2.42,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 0.3,
-   "sugar": 0.81,
-   "na": 320.0,
-   "fat": 3.44,
-   "carb": 10.07
-  },
-  "_codes": [
-   "P123-212020300-1654",
-   "P123-212020200-0465"
-  ],
-  "serving_weight_g": null,
-  "is_concentrate": false,
-  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
-  "unit": "g"
- },
  "치즈닭갈비덮밥": {
   "source": "gagong_db",
   "name": "치즈닭갈비덮밥",
@@ -10623,38 +10596,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "전복미역국": {
-  "source": "gagong_db",
-  "name": "전복미역국",
-  "n_dup": 7,
-  "per100": {
-   "kcal": 29.0,
-   "protein": 2.82,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 0.1,
-   "sugar": 0.4,
-   "na": 293.0,
-   "fat": 0.64,
-   "carb": 2.87
-  },
-  "_codes": [
-   "P123-207020300-4165",
-   "P123-207020300-4696",
-   "P123-207020300-3976",
-   "P123-207020300-3571",
-   "P123-207020300-2539",
-   "P123-207020300-2538",
-   "P123-207020300-4936"
-  ],
-  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
-  "serving_weight_g": 250.0,
-  "is_concentrate": false,
-  "unit": "g"
- },
  "제주고기국수": {
   "source": "recipe_decompose",
   "name": "제주고기국수(사용자 제공 국물 포함 레시피)",
@@ -13289,8 +13230,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "고깃집된장찌개ㅁ전복미역국": null,
- "분모자크림떡볶이": null,
  "왕만두": {
   "source": "gagong_db",
   "name": "왕만두(양배추)",
@@ -13324,8 +13263,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "참나물묵무침": null,
- "해물완자구이": null,
  "해물칼국수": {
   "source": "food_db",
   "name": "해물칼국수",
@@ -13347,5 +13284,149 @@
   "serving_weight_g": 1100.0,
   "basis": "100ml",
   "unit": "ml"
+ },
+ "분모자크림떡볶이": {
+  "source": "recipe_decompose",
+  "name": "분모자크림떡볶이",
+  "unit": "g",
+  "per100": {
+   "kcal": 151.32112128781569,
+   "protein": 4.119367194004996,
+   "fat": 7.677152373022481,
+   "carb": 16.50183458229253,
+   "sugar": 1.279300582847627,
+   "fiber": 0.16835970024979185,
+   "ca": 21.273105745212323,
+   "fe": 0.12195392728281987,
+   "vitA": 27.819594782126003,
+   "vitC": 0.027768526228143214,
+   "satFat": 4.822975298362475,
+   "na": 123.90507910074935
+  },
+  "partial_missing_fields": [
+   "ca",
+   "fe",
+   "fiber",
+   "vitA",
+   "vitC"
+  ],
+  "nutrition_note": "2026-11-16 사용자 지정: 크림치즈떡볶이(식약처 레시피) 배합에서 떡볶이떡100g을 분모자당면(원재료DB \"당면, 분모자, 삶은것\", 삶은 상태)으로 전량 대체해 영양성분 재계산. 재료별 100g당 성분은 가공식품DB/원재료DB 매칭값(펜네·치즈·육수 등 db104 미수록분 포함). 배치 360.3g 기준 per100 산출 후 표시용 사이드 중량에 적용. 실제 급식 배합·제품·제공량 미확인 대체 추정.",
+  "prepared_proxy": true,
+  "recipe_batch_g": 360.3
+ },
+ "전복미역국": {
+  "source": "food_db",
+  "name": "조개 미역국",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 11,
+   "protein": 1.5,
+   "fat": 0.24,
+   "carb": 0.97,
+   "sugar": 0.07,
+   "fiber": 0.6,
+   "ca": 23,
+   "fe": 0.45,
+   "vitA": 5,
+   "vitC": 0.56,
+   "satFat": 0.05,
+   "na": 241
+  },
+  "serving_weight_g": 300.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "청포묵무침": {
+  "source": "gagong_db",
+  "name": "청포묵무침",
+  "n_dup": 2,
+  "per100": {
+   "kcal": 79.5,
+   "protein": 2.42,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.3,
+   "sugar": 0.81,
+   "na": 320.0,
+   "fat": 3.44,
+   "carb": 10.07
+  },
+  "_codes": [
+   "P123-212020300-1654",
+   "P123-212020200-0465"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "된장찌개_소고기": {
+  "source": "food_db",
+  "name": "된장찌개_소고기",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 44,
+   "protein": 2.7,
+   "fat": 1.52,
+   "carb": 4.94,
+   "sugar": 1.14,
+   "fiber": 1.6,
+   "ca": 13,
+   "fe": 0.43,
+   "vitA": 5,
+   "vitC": 2.7,
+   "satFat": 0.41,
+   "na": 443
+  },
+  "serving_weight_g": 258.6,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "참나물무침": {
+  "source": "food_db",
+  "name": "참나물 무침_된장",
+  "origin": "초등학교급식(재료량 기반 산출 함량)",
+  "code": "D514-716450000-0001",
+  "per100": {
+   "kcal": 15,
+   "protein": 0.7,
+   "fat": 0.71,
+   "carb": 1.85,
+   "sugar": 0.14,
+   "fiber": 1,
+   "ca": 23,
+   "fe": 0.55,
+   "vitA": 52,
+   "vitC": 1.52,
+   "satFat": 0.11,
+   "na": 99
+  },
+  "unit": "g",
+  "nutrition_note": "참나물묵무침 분해 성분: food_db 참나물 무침_된장(D514-716450000-0001, 초등학교급식 재료량 산출, 100ml 기준)으로 사용자 지정 매칭. 무침류 g-분석 출처 제한을 우회. 밀도1 가정으로 100ml≈100g 적용, 실제 제공량·배합 미확인."
+ },
+ "해물완자구이": {
+  "source": "food_db",
+  "name": "완자전_해물",
+  "origin": "가정식(분석 함량)",
+  "per100": {
+   "kcal": 222,
+   "protein": 11.46,
+   "fat": 11.61,
+   "carb": 18.04,
+   "sugar": 3.41,
+   "fiber": 1.8,
+   "ca": 23,
+   "fe": 0.5,
+   "vitA": 15,
+   "vitC": 0,
+   "satFat": 3.43,
+   "na": 591
+  },
+  "serving_weight_g": 200.0,
+  "basis": "100g",
+  "unit": "g"
  }
 }

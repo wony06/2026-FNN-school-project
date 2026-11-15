@@ -3581,5 +3581,215 @@
   "source": "DB104 완성 감자튀김 + 사용자 위임 코다노 치즈시즈닝5g 추정",
   "created": "2026-11-11",
   "assumptions": "치즈맛감자: 사용자 확인 감자튀김+치즈시즈닝 구성을 유지하고 제품과 사용량을 계산자가 정하도록 위임받음. 11/12 신소재관 일품 사진이 없어 실제 제품·토핑 양을 확인한 결과가 아님. 계산 기준으로 조흥 코다노 치즈시즈닝5g을 선택. 동원몰 상품고시에서 코다노 치즈시즈닝10g 포장·조흥 제조·복합조미식품 유형을 확인했으며5g은 계산자가 선택한 추정량으로 제조사 권장량을 확인한 값이 아님. 제품 영양 기준은 프로젝트 가공식품DB P113-201020100-0750의100g당400kcal·탄수70g·단백질5g·지방10g·당류60g·나트륨2000mg. 5g당20kcal·탄수3.5g·단백질0.25g·지방0.5g·당류3g·나트륨100mg이며 최신 모든 포장 영양표의 검증값은 아님. 총72.2g에서 시즈닝5g을 빼고 완성 감자튀김67.2g으로 배분. 감자튀김72.2g 위에 시즈닝을 추가하지 않음. 감자튀김은 DB104 감자 튀김, 튀긴것 레코드로 대체. 이 레코드가 이미 튀긴 식품이므로 MenuGen D124001 원본의 추가 콩기름5g과 소금2g을 다시 넣지 않음. 현재 원재료 단일군 엔진에서는 튀긴 감자의 탄수화물만 곡류군에 계산하고 내재 지방은 별도 지방군에 분리되지 않음. 시즈닝은 순수 치즈가 아닌 복합조미식품으로 기록하며 원재료 배합 비율이 없어 우유군이나 치즈로 대체 환산하지 않음. 시즈닝 영양값은 별도 보조기록으로 저장하되 현 엔진6군 합계에 미반영. 따라서 제품·중량 선택 완료와 전체 교환단위 반영 완료는 다르며 지방군0도 실제 지방0이라는 의미가 아님. 사진 없는 추정, 실제 급식 제품·감자 모양·기름 흡수·조리수율 미확인. 온모밀 소고기 제외, 마약옥수수 토핑 추정, 팀원의 장조림·밥 교정 유지. 2026-11-11 웹사이트 적용, 기존 영양성분 유지."
+ },
+ {
+  "name": "분모자크림떡볶이",
+  "weight_g": 360.3,
+  "ingredients": [
+   {
+    "food_name": "분모자당면",
+    "weight_g": 100,
+    "nutrients_per100": {
+     "kcal": 143.0,
+     "protein": 0.07,
+     "fat": 0.1,
+     "carb": 35.23,
+     "sugar": 0.0,
+     "fiber": 0.6,
+     "ca": 12.0,
+     "fe": 0.42,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.02,
+     "na": 31.0
+    },
+    "match_source": "db104:당면, 분모자, 삶은것(떡 완전대체)",
+    "food_group": "감자류 및 전분류"
+   },
+   {
+    "food_name": "펜네",
+    "weight_g": 20,
+    "nutrients_per100": {
+     "kcal": 230.5,
+     "protein": 8.5,
+     "fat": 0.45,
+     "carb": 47.9,
+     "sugar": 1.05,
+     "fiber": null,
+     "ca": null,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 0.15,
+     "na": 0.0
+    },
+    "match_source": "gagong_db:펜네 [#33562]",
+    "food_group": "곡류 및 그 제품"
+   },
+   {
+    "food_name": "양파",
+    "weight_g": 20,
+    "nutrients_per100": {
+     "kcal": 43.0,
+     "protein": 0.0,
+     "fat": 0.0,
+     "carb": 11.43,
+     "sugar": 7.14,
+     "fiber": null,
+     "ca": null,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 0.0,
+     "na": 14.0
+    },
+    "match_source": "gagong_db:양파",
+    "food_group": "채소류"
+   },
+   {
+    "food_name": "버터",
+    "weight_g": 10,
+    "nutrients_per100": {
+     "kcal": 750.0,
+     "protein": 0.6,
+     "fat": 82.9,
+     "carb": 0.6,
+     "sugar": 0.6,
+     "fiber": 0.0,
+     "ca": 16.0,
+     "fe": 0.03,
+     "vitA": 524.0,
+     "vitC": 0.0,
+     "satFat": 55.0,
+     "na": 10.0
+    },
+    "match_source": "gagong_db:버터",
+    "food_group": "유지류"
+   },
+   {
+    "food_name": "밀가루",
+    "weight_g": 10,
+    "nutrients_per100": {
+     "kcal": 347.5,
+     "protein": 10.25,
+     "fat": 1.2,
+     "carb": 73.9,
+     "sugar": 2.4,
+     "fiber": null,
+     "ca": null,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 0.2,
+     "na": 1.0
+    },
+    "match_source": "gagong_db:밀가루(3등급)",
+    "food_group": "곡류 및 그 제품"
+   },
+   {
+    "food_name": "육수",
+    "weight_g": 100,
+    "nutrients_per100": {
+     "kcal": 45.0,
+     "protein": 2.88,
+     "fat": 3.47,
+     "carb": 0.55,
+     "sugar": 0.24,
+     "fiber": null,
+     "ca": null,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 1.89,
+     "na": 249.5
+    },
+    "match_source": "gagong_db:육수",
+    "food_group": "조미료류"
+   },
+   {
+    "food_name": "생크림",
+    "weight_g": 20,
+    "nutrients_per100": {
+     "kcal": 368.0,
+     "protein": 2.0,
+     "fat": 37.0,
+     "carb": 9.0,
+     "sugar": 0.0,
+     "fiber": 0.0,
+     "ca": 63.0,
+     "fe": 0.04,
+     "vitA": 238.0,
+     "vitC": 0.0,
+     "satFat": 23.0,
+     "na": 25.0
+    },
+    "match_source": "gagong_db:생크림",
+    "food_group": "우유 및 그 제품"
+   },
+   {
+    "food_name": "우유",
+    "weight_g": 50,
+    "nutrients_per100": {
+     "kcal": 60.0,
+     "protein": 3.0,
+     "fat": 3.6,
+     "carb": 4.5,
+     "sugar": 4.5,
+     "fiber": null,
+     "ca": 100.0,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 2.3,
+     "na": 50.0
+    },
+    "match_source": "gagong_db:우유",
+    "food_group": "우유 및 그 제품"
+   },
+   {
+    "food_name": "모짜렐라치즈",
+    "weight_g": 30,
+    "nutrients_per100": {
+     "kcal": 297.0,
+     "protein": 24.0,
+     "fat": 21.3,
+     "carb": 1.0,
+     "sugar": 0.6,
+     "fiber": null,
+     "ca": null,
+     "fe": null,
+     "vitA": null,
+     "vitC": null,
+     "satFat": 13.89,
+     "na": 440.0
+    },
+    "match_source": "gagong_db:모짜렐라치즈(U)",
+    "food_group": "우유 및 그 제품"
+   },
+   {
+    "food_name": "파슬리가루",
+    "weight_g": 0.3,
+    "nutrients_per100": {
+     "kcal": 20.0,
+     "protein": 2.36,
+     "fat": 0.26,
+     "carb": 3.37,
+     "sugar": 0.44,
+     "fiber": 2.2,
+     "ca": 149.0,
+     "fe": 2.8,
+     "vitA": 78.0,
+     "vitC": 33.35,
+     "satFat": 0.06,
+     "na": 10.0
+    },
+    "match_source": "db104_direct:파슬리, 생것",
+    "food_group": "채소류"
+   }
+  ],
+  "assumptions": "2026-11-16 사용자 지정: 크림치즈떡볶이(식약처 레시피) 배합에서 떡볶이떡100g을 분모자당면(원재료DB \"당면, 분모자, 삶은것\", 삶은 상태)으로 전량 대체해 영양성분 재계산. 재료별 100g당 성분은 가공식품DB/원재료DB 매칭값(펜네·치즈·육수 등 db104 미수록분 포함). 배치 360.3g 기준 per100 산출 후 표시용 사이드 중량에 적용. 실제 급식 배합·제품·제공량 미확인 대체 추정.",
+  "source": "식약처 조리식품 레시피 크림치즈떡볶이(seq463) 변형",
+  "created": "2026-11-16",
+  "batch_recipe": true
  }
 ]

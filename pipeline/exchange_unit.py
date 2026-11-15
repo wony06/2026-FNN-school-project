@@ -106,6 +106,11 @@ NO_BROTH_KALGUKSU_VARIANTS = {
 }
 KALGUKSU_SOLID_RATIO = 0.24
 
+# 2026-11-16 사용자 지정: 쌀국수도 MenuGen 레시피가 건면40g/완성141g(국물 거의 미반영)이라 그릇중량
+# 497g로 비례확대하면 건면이 3.5배로 부풀어 교환단위 곡류군이 과대(5.05)됐다. 칼국수류와 동일하게
+# 건더기 비율(24%)만 반영한다. 영양소(497g, ml매칭으로 국물 영양 포함)는 유지하고 교환단위만 보정.
+NO_BROTH_NOODLE_VARIANTS = {"쌀국수"}
+
 # 2026-11-10: MenuGen 밥 요리(비빔밥/덮밥/볶음밥 등) 레시피는 쌀을 "생것"(생쌀)으로 등록하고
 # 완성중량에 비례 스케일하는데, 생쌀은 익힌밥보다 탄수화물 밀도가 ~2.4배 높아(79 vs 33 g/100g)
 # 곡류군이 과대계산된다(예: 참치생야채비빔밥 곡류 8.65, 정상 ~3.6). 스케일된 생쌀 중량은 완성
@@ -209,7 +214,7 @@ def _from_menugen(name, target_weight_g):
     if no_meat or no_onion:
         ref_weight = sum(float(i.get("weight_g") or 0) for i in ingredients)
     effective_target = target_weight_g
-    if dish.get("name") in NO_BROTH_KALGUKSU_VARIANTS:
+    if dish.get("name") in NO_BROTH_KALGUKSU_VARIANTS or dish.get("name") in NO_BROTH_NOODLE_VARIANTS:
         effective_target = target_weight_g * KALGUKSU_SOLID_RATIO
     # 2026-11-10: 국/탕/미역국 메뉴젠 레시피 다수가 물·육수를 재료에 안 적어(건더기+양념만),
     # 국물 포함 그릇중량(국·찌개 283g 등)으로 비례 환산하면 건더기·기름이 몇 배로 부풀어 오른다
@@ -865,6 +870,14 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         result["recipe_note"] = f"뚝배기소불고기: 사용자 지정으로 MenuGen 불고기(소고기)를 기본 연결하고 2026-08-31 사진의 팽이버섯·양파를 원재료DB로 보완. 기존 추정 제공량 {weight_g:g}g 안에서 불고기 {100*scale:g}g, 팽이버섯 {20*scale:g}g, 양파 {15*scale:g}g, 국물 {15*scale:g}g으로 배분. 불고기는 DB 표준 레시피 비례 환산이며 팽이버섯과 양파는 데친것 성분으로 대체. 사진으로 양파 종류와 재료별 중량을 확정할 수 없어 모두 추정이고 국물의 교환단위는 미반영. 당면은 사진에서 확인되지 않아 추가하지 않음. 메뉴 표시명과 기존 영양성분은 유지하고 식품교환단위만 재계산."
         return result
     alias_note = None
+    # 2026-11-16 사용자 지정: 플라자(105) 포함 전 매장 공통 교환단위 대체 별칭(decompose로 생긴 메인 등).
+    universal_exchange_aliases = {
+        "된장찌개_소고기": "소고기된장찌개",  # 고깃집 분해 메인 - MenuGen 소고기된장찌개로 교환단위 매칭
+    }
+    if name in universal_exchange_aliases:
+        name = universal_exchange_aliases[name]
+        if original_name != name:
+            alias_note = f"{original_name} → {name}: 사용자 지정 교환단위 대체 매칭(MenuGen). 기존 추정 제공량 {weight_g:g}g 적용. 영양성분·메뉴 표시명 유지."
     if not use_plaza_servings:
         # Explicit equivalents; retain uncertainty when using a standard recipe.
         aliases = {
@@ -896,6 +909,8 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "마늘쫑": "마늘종",
             "고들뺴기무침": "고들빼기김치",
             "고들빼기무침": "고들빼기김치",
+            "소고기육개장": "육개장",  # 2026-11-16 사용자 지정 교환단위 대체 매칭
+            "해물완자구이": "두부해물완자",  # 2026-11-16 사용자 지정 교환단위 대체(해물완자, MenuGen/레시피DB)
         }
         name = aliases.get(name, name)
         if name not in MENUGEN_BY_NAME:
