@@ -1485,25 +1485,25 @@
       }
     ]
   },
-  "menuCount": 490,
+  "menuCount": 491,
   "excludedByAllergen": {
     "1": 252,
-    "2": 236,
+    "2": 237,
     "3": 23,
     "4": 5,
-    "5": 335,
-    "6": 320,
+    "5": 336,
+    "6": 321,
     "7": 51,
     "8": 94,
-    "9": 231,
-    "10": 204,
+    "9": 232,
+    "10": 205,
     "11": 5,
     "12": 152,
     "13": 330,
     "14": 0,
     "15": 129,
     "16": 198,
-    "17": 34,
+    "17": 35,
     "18": 243,
     "19": 0
   },
@@ -8934,15 +8934,15 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "2afa409bc6879b06234e095148f8e638271ca3ce666f6c7b8beb1b41315e94b7",
-    "web\\menu_exchange_snapshot.json": "5c2275d3b8e25a0acca4d3a3194c9f2511787491e607d4a2841972236ec9b1cd",
-    "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
-    "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
-    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
+    "web\\site_data.json": "88f7335c9c1824ac6e0dcc25cb04599c1f18ee2e075fb4fc6d26fcf1bc3f58b3",
+    "web\\menu_exchange_snapshot.json": "ce6aa9c67b0022d6120911fd77ccff7812ddb9774b5da92905121b2dec23b0ed",
+    "web\\personal-score.js": "230ea5365812377aa5eeb209d5150fad40ac0c5bfba0f6b7170c5f204be0dc01",
+    "web\\recommendation-view.js": "809834ff1f1c33d6338175a6f7f841b5e38674c7b45fe31300f717a98e7f8ac9",
+    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "e9d507592c9f69d00337b438e085c927cbaee1c5f11fbf8e2f64b335c85a497e",
-    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "4f64126df0df1b5b3f028a500a18903d6de2097652ca2b934f95e112593b4f16",
-    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "d4a70bfeee4c0c0e77ec0efed7bd1e038a473f732742753b6aef8b59d24967a2"
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "0f7c6159d7be67434913a3092cadead2fa21b7d66dc3aeaee4b3b8edf6520ef8",
+    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "561c4b0a17301eaad2bbe1674879b69af0e67dcd80ae142bd013459cb1ce6abe",
+    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "8e08a7ebe616ea28ddda5a835c2a0dd472b908fb07d2da1b53cd6df5ac1f0f60"
   }
 }

@@ -43009,5 +43009,844 @@
       ],
       "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
     }
+  },
+  {
+    "meal_key": [
+      "2026-11-16",
+      "401",
+      "**콜라보메뉴** (한정)",
+      "현대옥 콩나물국밥"
+    ],
+    "shop_name": "생활과학대학",
+    "source_menu_text": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥 샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "classification": "neis_possible",
+        "name_evidence": [],
+        "neis_evidence": [
+          {
+            "component_id": "component-2",
+            "component_name": "김구이",
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "supporting_source_record_ids": [
+          "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+        ],
+        "distinct_supporting_record_count": 1,
+        "distinct_supporting_school_count": 1,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "classification": "name_and_neis_possible",
+        "name_evidence": [
+          {
+            "component_id": "component-0",
+            "component_name": "현대옥 콩나물국밥",
+            "number": 5,
+            "name": "대두",
+            "matched_terms": [
+              "콩나물"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_evidence": [
+          {
+            "component_id": "component-2",
+            "component_name": "김구이",
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "supporting_source_record_ids": [
+          "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+        ],
+        "distinct_supporting_record_count": 1,
+        "distinct_supporting_school_count": 1,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "classification": "neis_possible",
+        "name_evidence": [],
+        "neis_evidence": [
+          {
+            "component_id": "component-2",
+            "component_name": "김구이",
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "supporting_source_record_ids": [
+          "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+        ],
+        "distinct_supporting_record_count": 1,
+        "distinct_supporting_school_count": 1,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "classification": "neis_possible",
+        "name_evidence": [],
+        "neis_evidence": [
+          {
+            "component_id": "component-4",
+            "component_name": "포기김치",
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 4,
+            "labeled_record_count": 83,
+            "total_record_count": 83,
+            "reference_menu": "포기김치",
+            "source_record_ids": [
+              "029493c942e69600ca3a5ad3929e68c231403fd18ed73e51e019edfaeadd7b3f",
+              "03fbeaf9f2df779dc7f8f2ac8a743a5a35b6354dbe4ff72ccf802a4870d67b2b",
+              "0e1d8b409235497df1c761532601c41894a6aa513842b8df270019b7b0d677b5",
+              "0ecd70e66312d54b302eaca919ce95f7b75da2499b7363c8257b1fb45b99c63f",
+              "0edd3de95c8e3757b8b6772bfa268ac9ea4c2ed4227aff3f9e469c3cae6acbbd",
+              "0fb6d6eee426b5de6c2eb1633cfd78a6cb9fa8d240ec81bd7577cc6ea850e3ad",
+              "11bd09ebc09d8d61a0743b35f7fadaab05321205ce446ebb7e780f101cc35474",
+              "13922bf476d7c27bea3ed75251866b252452d9eea23d6d2940d9b5f6e0d54741",
+              "14204dcfa5a226b53802ced32c5e8c13a8bc5bd541e0a4bf64d1ce7d1285fd29",
+              "14aacb33226611e511646e5da19277a27d767c81c0e7efb13143465138842ace",
+              "165527743e8b970b4fe6ab7781e8533394f7053a96f1a896235d50943a1072e0",
+              "1f51e0a1116c7a443d9665ad154264e68e08fc654e11dc31ffcb270993a18e70",
+              "277e2195a7b040349fef9963fad82268d1ca3fcb31d19b6b57488f124be9b473",
+              "27ef4483d7eef57c3997f9688cdfea32fc25432ddd3e05d0da16d9118316bf7b",
+              "2db193e07d313cba6d4fc8104479091a7f72a9d54fa2e84329efdc273a0535c6",
+              "33d34aef0a427d63c26e59a62ec8b56819871a2f9bde99d6616b790eab580d60",
+              "378d608660d628e87bae3b9b33888f56038ced365317363530ebd5de886ee874",
+              "3c23c9ec3a86aaf32885b151516d2b4d6ee43c95119060b74ec6d70bd2beb44d",
+              "3eea79fdf6832de94f4092df76521d96c9235e53b5f5880a2ad08da596449b51",
+              "4692bcb8e37c2f7520f9cdb620d05c8596502fc60335152d7d7e027c52c03ac9",
+              "490951280501ab9e0726a7f963e489cf8adbdff27e696461e9d858963ec1a996",
+              "50db475fa1d31280645cd022e7049708303fd01b370d48046f3894fcf9101ce7",
+              "5739c2f8834321ceac16d8c88d336b7e67757259a0663d2535134a4f3dc0d98a",
+              "5874be6cea543b662835b10b45d2e8575049e6c9f6941ba7f9cb2dc411b9dda3",
+              "59ec3d85180b87ef702e665d9bcabe384b8971d3331ce5389f04901b6e02e019",
+              "5b02c1b17d805a302352d00dd6c64c7bd2e9dc99758e90a72651546702d18990",
+              "5dce89a86190ccc29f8397fe71392d27da364e149026b49c2fa64caa3c2bc493",
+              "5df39f2acfc955801ace86d5f272aece7750f7d4cdde224946d39c633eb82364",
+              "635c4bdbe33bae5cfa0bc2e1a9b0b0633f70b9de26cba613d3a5aef1b0cec894",
+              "67ba676ee4f106613a27af8e36ea97f63dc45d40fe900ad23bf7d9a325daf4aa",
+              "7231d4ebabc101760e60b31c253bc55a821031409754ef5e8bed439a7ef14a1a",
+              "77260347d4ed0fad5aa4d6bdeb78b1a14e1e97b5b1242920c67cfd6eaf4c0008",
+              "7744756adc9d99f82f39cdabde55398dc0eebae2cdab6cf2869321dee8ae0886",
+              "7ba27ff548550ae1e8409f299ce6f0474492c1a9e2536a78319bcda538cc0dd3",
+              "7d762ce4cd99ca6286e6a2b2a0fe97e7273fa156cc50386bac167e7939ea5552",
+              "81cad6e57e828c7744fb527638f354c76560348a330239e6a96b4e769720e614",
+              "893c36711c01d626966074a09269daceb89363f2d92c6807df98e4e83906d263",
+              "900558a78339027b531b3a8befac2bdaafa6e31a5a4fc2e3607fc97ec5107c84",
+              "909ac4a9d07dea434e558ec5e5324bb2a99c0b6a14243ef889ff1e2acff92cf6",
+              "91c226670560b5c42e7ae58dc21e6f5f0a329b842fdab6632ecccfde61e6b8b2",
+              "933db119e725b2ddcedcc3ba587eb6012c469c3b7f7345e80e16a5e821f9e64f",
+              "9464549a959225c49aeefc18bb40199dbee73fe5ef65ebd38193a4fef163f140",
+              "99fdf5e664700d7efeecd4eac52bf373df55ae7bb0df4c2f8c481357bd4c166d",
+              "a3efcfaa3faeefa884d1ea0b67c5aafa631db5a3f4b3d96103a242aa2a437be2",
+              "a663506148fdd20b1110933d25f6b5cc1184f2a248f325d0a358a67802b04298",
+              "a764eebe0d9b38609050e9effeb020288a02f6f6b41e5c6a8c48549f1fc512cd",
+              "aa4af796d1074f87f377ca50958dc5281e36e8bda38bc3e12808646a26dd80ef",
+              "aa99389e65959dd1591517c664ad25ca996ed6deec1bb000a388decf99e1e7f2",
+              "aae521b43a83e4d340346f497eacb12d61cd3661f1d5d0ecee3d937e8c61ffd8",
+              "ae6fc8da013cb9ae8e3d8e689926292c447438f16d9ef2d014b691aac6de2894",
+              "aecd98f4f1b8799510181a89c546b8f5829dcd6b59e6f51ded36da1d81502805",
+              "af0dcdc0a1bfabceb9805d1dff030d629643226fd3482f6a938bd30ec24b4b55",
+              "b53e4df066894bbf5a5479610959e7bbc2a4c6793d6f0253538568f9b6f71278",
+              "bd4d4aeb7073ccece0d187bf5710f555dd5fca16f282f165773bb61ec2c96bbb",
+              "bf8981c4066b26c48401f1e7e5b2489aa320da57fecec11ac71613f919341ff1",
+              "c077a0008e1d69c02fe0bbdb403ff0823fcde5ba35b82fe409ecba9b60a85715",
+              "c32bade213deac934c4770c61f8704379387e1fe09cd3104e016e86945f6c973",
+              "c68172ee599761f28e04d2082ee1bf852f78931cb21c4822dfb46169597a7756",
+              "c785954be3c8b90c7da6bc798a8303dabb006545709d8421338c19be9673fb34",
+              "ca5d928f34a1aca2fa163fad609d6bc549e787cdbbe4bfc932269077e74798ff",
+              "cce77f4f1afeb90652e4c9b482c36b18bb0bfeff887dd843b0c4af79058a473c",
+              "cdf716d652060b8c1bf9306a2f54e70636600a199e695927dc5d4f628c877aef",
+              "cfa3fcf53593c5b8cc14ce38ff9882cac06d4390a7a764707ab34caf611813d0",
+              "d1358c57c649b1359ba3b111e988c9acec977a8224d1c5448201089d41c62b0a",
+              "d4921901c1ba7a73c14f8f52ca078053753676f841f345e110d79faac504f8d0",
+              "d538f21eec10f56abbd0de6f72bf010483ab0c563c5d26e210ad69c91caf1e82",
+              "d8b555808c3e06a1266b5e3d10325e7c5fdc96114d30dbcd42f0d2d1ed1afad2",
+              "dcb458ef4992b025749adfea9606e5b480d7624530b1b1639ff7a06e2a98cb91",
+              "dcc70df717861d7c696fd648cc73f5cdf34c5116bc970e6abc10344548f684e3",
+              "de31ff985cd6ec353e720ab523feb79047710f81cb3e8acb7bfbf6c20cfcd83e",
+              "e0cabda166010c062657f5fac061e6cfd07c30e4821d40264eb35d59ffdf3242",
+              "e170e08535e35e61d1a1c717f7b8be43515c53b1e90ae962a4683d7398367bd0",
+              "e95cb0b77d80269d67daddd5a7e5db330ea52154d282255b3b47d49e6c7cec13",
+              "eb7556c4d867c1b9e127fa810ef87cda0fb0a60f1df0e852f986ac546ace67ab",
+              "ebe2d6b6693048732257d5016b8a0cb7554652063defd614bb47d02ad9eb9121",
+              "ed4c60f8388461613267cd563c83796f73c655473a1340ffdb6c7b2c836a7759",
+              "ee161797bc13675762c4d81813e2cce6d707bd8ccb4de19781fe170de7eec17a",
+              "f31b984e3fd33b10e3165e3e8fe96e5f8a328e2361612d24bd7021ca42db2e4a",
+              "f3ba2a8cd1a23373ee0c8d5d473f4796c642bbf7034aede907fc1f17498c78d1",
+              "f3f9868223890427629f637e61a871d87083826882b4515a31f112cc4d18e33a",
+              "f5816e3f9fe216a3936c57fcec0a247263b04698ccf4c7069659397a19d59e05",
+              "f6dbb12345dd4a12f7f4482d232e5c6859eba10e06fb36854cd706f44d6a013c",
+              "f7ac49936c58e7fe333ad0fc62da4d7243a96af663f4cb5c3bb6a5d2ba0e507a"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "supporting_source_record_ids": [
+          "029493c942e69600ca3a5ad3929e68c231403fd18ed73e51e019edfaeadd7b3f",
+          "03fbeaf9f2df779dc7f8f2ac8a743a5a35b6354dbe4ff72ccf802a4870d67b2b",
+          "0e1d8b409235497df1c761532601c41894a6aa513842b8df270019b7b0d677b5",
+          "0ecd70e66312d54b302eaca919ce95f7b75da2499b7363c8257b1fb45b99c63f",
+          "0edd3de95c8e3757b8b6772bfa268ac9ea4c2ed4227aff3f9e469c3cae6acbbd",
+          "0fb6d6eee426b5de6c2eb1633cfd78a6cb9fa8d240ec81bd7577cc6ea850e3ad",
+          "11bd09ebc09d8d61a0743b35f7fadaab05321205ce446ebb7e780f101cc35474",
+          "13922bf476d7c27bea3ed75251866b252452d9eea23d6d2940d9b5f6e0d54741",
+          "14204dcfa5a226b53802ced32c5e8c13a8bc5bd541e0a4bf64d1ce7d1285fd29",
+          "14aacb33226611e511646e5da19277a27d767c81c0e7efb13143465138842ace",
+          "165527743e8b970b4fe6ab7781e8533394f7053a96f1a896235d50943a1072e0",
+          "1f51e0a1116c7a443d9665ad154264e68e08fc654e11dc31ffcb270993a18e70",
+          "277e2195a7b040349fef9963fad82268d1ca3fcb31d19b6b57488f124be9b473",
+          "27ef4483d7eef57c3997f9688cdfea32fc25432ddd3e05d0da16d9118316bf7b",
+          "2db193e07d313cba6d4fc8104479091a7f72a9d54fa2e84329efdc273a0535c6",
+          "33d34aef0a427d63c26e59a62ec8b56819871a2f9bde99d6616b790eab580d60",
+          "378d608660d628e87bae3b9b33888f56038ced365317363530ebd5de886ee874",
+          "3c23c9ec3a86aaf32885b151516d2b4d6ee43c95119060b74ec6d70bd2beb44d",
+          "3eea79fdf6832de94f4092df76521d96c9235e53b5f5880a2ad08da596449b51",
+          "4692bcb8e37c2f7520f9cdb620d05c8596502fc60335152d7d7e027c52c03ac9",
+          "490951280501ab9e0726a7f963e489cf8adbdff27e696461e9d858963ec1a996",
+          "50db475fa1d31280645cd022e7049708303fd01b370d48046f3894fcf9101ce7",
+          "5739c2f8834321ceac16d8c88d336b7e67757259a0663d2535134a4f3dc0d98a",
+          "5874be6cea543b662835b10b45d2e8575049e6c9f6941ba7f9cb2dc411b9dda3",
+          "59ec3d85180b87ef702e665d9bcabe384b8971d3331ce5389f04901b6e02e019",
+          "5b02c1b17d805a302352d00dd6c64c7bd2e9dc99758e90a72651546702d18990",
+          "5dce89a86190ccc29f8397fe71392d27da364e149026b49c2fa64caa3c2bc493",
+          "5df39f2acfc955801ace86d5f272aece7750f7d4cdde224946d39c633eb82364",
+          "635c4bdbe33bae5cfa0bc2e1a9b0b0633f70b9de26cba613d3a5aef1b0cec894",
+          "67ba676ee4f106613a27af8e36ea97f63dc45d40fe900ad23bf7d9a325daf4aa",
+          "7231d4ebabc101760e60b31c253bc55a821031409754ef5e8bed439a7ef14a1a",
+          "77260347d4ed0fad5aa4d6bdeb78b1a14e1e97b5b1242920c67cfd6eaf4c0008",
+          "7744756adc9d99f82f39cdabde55398dc0eebae2cdab6cf2869321dee8ae0886",
+          "7ba27ff548550ae1e8409f299ce6f0474492c1a9e2536a78319bcda538cc0dd3",
+          "7d762ce4cd99ca6286e6a2b2a0fe97e7273fa156cc50386bac167e7939ea5552",
+          "81cad6e57e828c7744fb527638f354c76560348a330239e6a96b4e769720e614",
+          "893c36711c01d626966074a09269daceb89363f2d92c6807df98e4e83906d263",
+          "900558a78339027b531b3a8befac2bdaafa6e31a5a4fc2e3607fc97ec5107c84",
+          "909ac4a9d07dea434e558ec5e5324bb2a99c0b6a14243ef889ff1e2acff92cf6",
+          "91c226670560b5c42e7ae58dc21e6f5f0a329b842fdab6632ecccfde61e6b8b2",
+          "933db119e725b2ddcedcc3ba587eb6012c469c3b7f7345e80e16a5e821f9e64f",
+          "9464549a959225c49aeefc18bb40199dbee73fe5ef65ebd38193a4fef163f140",
+          "99fdf5e664700d7efeecd4eac52bf373df55ae7bb0df4c2f8c481357bd4c166d",
+          "a3efcfaa3faeefa884d1ea0b67c5aafa631db5a3f4b3d96103a242aa2a437be2",
+          "a663506148fdd20b1110933d25f6b5cc1184f2a248f325d0a358a67802b04298",
+          "a764eebe0d9b38609050e9effeb020288a02f6f6b41e5c6a8c48549f1fc512cd",
+          "aa4af796d1074f87f377ca50958dc5281e36e8bda38bc3e12808646a26dd80ef",
+          "aa99389e65959dd1591517c664ad25ca996ed6deec1bb000a388decf99e1e7f2",
+          "aae521b43a83e4d340346f497eacb12d61cd3661f1d5d0ecee3d937e8c61ffd8",
+          "ae6fc8da013cb9ae8e3d8e689926292c447438f16d9ef2d014b691aac6de2894",
+          "aecd98f4f1b8799510181a89c546b8f5829dcd6b59e6f51ded36da1d81502805",
+          "af0dcdc0a1bfabceb9805d1dff030d629643226fd3482f6a938bd30ec24b4b55",
+          "b53e4df066894bbf5a5479610959e7bbc2a4c6793d6f0253538568f9b6f71278",
+          "bd4d4aeb7073ccece0d187bf5710f555dd5fca16f282f165773bb61ec2c96bbb",
+          "bf8981c4066b26c48401f1e7e5b2489aa320da57fecec11ac71613f919341ff1",
+          "c077a0008e1d69c02fe0bbdb403ff0823fcde5ba35b82fe409ecba9b60a85715",
+          "c32bade213deac934c4770c61f8704379387e1fe09cd3104e016e86945f6c973",
+          "c68172ee599761f28e04d2082ee1bf852f78931cb21c4822dfb46169597a7756",
+          "c785954be3c8b90c7da6bc798a8303dabb006545709d8421338c19be9673fb34",
+          "ca5d928f34a1aca2fa163fad609d6bc549e787cdbbe4bfc932269077e74798ff",
+          "cce77f4f1afeb90652e4c9b482c36b18bb0bfeff887dd843b0c4af79058a473c",
+          "cdf716d652060b8c1bf9306a2f54e70636600a199e695927dc5d4f628c877aef",
+          "cfa3fcf53593c5b8cc14ce38ff9882cac06d4390a7a764707ab34caf611813d0",
+          "d1358c57c649b1359ba3b111e988c9acec977a8224d1c5448201089d41c62b0a",
+          "d4921901c1ba7a73c14f8f52ca078053753676f841f345e110d79faac504f8d0",
+          "d538f21eec10f56abbd0de6f72bf010483ab0c563c5d26e210ad69c91caf1e82",
+          "d8b555808c3e06a1266b5e3d10325e7c5fdc96114d30dbcd42f0d2d1ed1afad2",
+          "dcb458ef4992b025749adfea9606e5b480d7624530b1b1639ff7a06e2a98cb91",
+          "dcc70df717861d7c696fd648cc73f5cdf34c5116bc970e6abc10344548f684e3",
+          "de31ff985cd6ec353e720ab523feb79047710f81cb3e8acb7bfbf6c20cfcd83e",
+          "e0cabda166010c062657f5fac061e6cfd07c30e4821d40264eb35d59ffdf3242",
+          "e170e08535e35e61d1a1c717f7b8be43515c53b1e90ae962a4683d7398367bd0",
+          "e95cb0b77d80269d67daddd5a7e5db330ea52154d282255b3b47d49e6c7cec13",
+          "eb7556c4d867c1b9e127fa810ef87cda0fb0a60f1df0e852f986ac546ace67ab",
+          "ebe2d6b6693048732257d5016b8a0cb7554652063defd614bb47d02ad9eb9121",
+          "ed4c60f8388461613267cd563c83796f73c655473a1340ffdb6c7b2c836a7759",
+          "ee161797bc13675762c4d81813e2cce6d707bd8ccb4de19781fe170de7eec17a",
+          "f31b984e3fd33b10e3165e3e8fe96e5f8a328e2361612d24bd7021ca42db2e4a",
+          "f3ba2a8cd1a23373ee0c8d5d473f4796c642bbf7034aede907fc1f17498c78d1",
+          "f3f9868223890427629f637e61a871d87083826882b4515a31f112cc4d18e33a",
+          "f5816e3f9fe216a3936c57fcec0a247263b04698ccf4c7069659397a19d59e05",
+          "f6dbb12345dd4a12f7f4482d232e5c6859eba10e06fb36854cd706f44d6a013c",
+          "f7ac49936c58e7fe333ad0fc62da4d7243a96af663f4cb5c3bb6a5d2ba0e507a"
+        ],
+        "distinct_supporting_record_count": 83,
+        "distinct_supporting_school_count": 4,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "classification": "name_indicated",
+        "name_evidence": [
+          {
+            "component_id": "component-1",
+            "component_name": "돈육녹두전&양파간장",
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "돈육"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "classification": "name_indicated",
+        "name_evidence": [
+          {
+            "component_id": "component-3",
+            "component_name": "오징어젓무침",
+            "number": 17,
+            "name": "오징어",
+            "matched_terms": [
+              "오징어"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      }
+    ],
+    "components": [
+      {
+        "component_id": "component-0",
+        "name": "현대옥 콩나물국밥",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [
+          {
+            "number": 5,
+            "name": "대두",
+            "matched_terms": [
+              "콩나물"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "콩나물국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        }
+      },
+      {
+        "component_id": "component-1",
+        "name": "돈육녹두전&양파간장",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "돈육"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "육전&양파간장",
+              "similarity": 0.8235,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        }
+      },
+      {
+        "component_id": "component-2",
+        "name": "김구이",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "exact",
+        "reference_menu": "김구이",
+        "name_indications": [],
+        "neis_possible": [
+          {
+            "number": 2,
+            "name": "우유",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 5,
+            "reference_menu": "김구이",
+            "source_record_ids": [
+              "9a9c0051f3f2df1ff6929433f7a701fdb1290eae5369956d60cccc8c128c69e2"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": 4,
+          "review_reference_records": 0,
+          "no_confirmed_reference_match": false,
+          "review_candidates_not_applied": []
+        }
+      },
+      {
+        "component_id": "component-3",
+        "name": "오징어젓무침",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [
+          {
+            "number": 17,
+            "name": "오징어",
+            "matched_terms": [
+              "오징어"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "오징어무침",
+              "similarity": 0.9091,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "오징어초무침",
+              "similarity": 0.8333,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "#오징어초무침",
+              "similarity": 0.7692,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "오징어초무침1",
+              "similarity": 0.7692,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "오징어무국",
+              "similarity": 0.7273,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        }
+      },
+      {
+        "component_id": "component-4",
+        "name": "포기김치",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "exact",
+        "reference_menu": "포기김치",
+        "name_indications": [],
+        "neis_possible": [
+          {
+            "number": 9,
+            "name": "새우",
+            "labeled_school_count": 4,
+            "labeled_record_count": 83,
+            "total_record_count": 83,
+            "reference_menu": "포기김치",
+            "source_record_ids": [
+              "029493c942e69600ca3a5ad3929e68c231403fd18ed73e51e019edfaeadd7b3f",
+              "03fbeaf9f2df779dc7f8f2ac8a743a5a35b6354dbe4ff72ccf802a4870d67b2b",
+              "0e1d8b409235497df1c761532601c41894a6aa513842b8df270019b7b0d677b5",
+              "0ecd70e66312d54b302eaca919ce95f7b75da2499b7363c8257b1fb45b99c63f",
+              "0edd3de95c8e3757b8b6772bfa268ac9ea4c2ed4227aff3f9e469c3cae6acbbd",
+              "0fb6d6eee426b5de6c2eb1633cfd78a6cb9fa8d240ec81bd7577cc6ea850e3ad",
+              "11bd09ebc09d8d61a0743b35f7fadaab05321205ce446ebb7e780f101cc35474",
+              "13922bf476d7c27bea3ed75251866b252452d9eea23d6d2940d9b5f6e0d54741",
+              "14204dcfa5a226b53802ced32c5e8c13a8bc5bd541e0a4bf64d1ce7d1285fd29",
+              "14aacb33226611e511646e5da19277a27d767c81c0e7efb13143465138842ace",
+              "165527743e8b970b4fe6ab7781e8533394f7053a96f1a896235d50943a1072e0",
+              "1f51e0a1116c7a443d9665ad154264e68e08fc654e11dc31ffcb270993a18e70",
+              "277e2195a7b040349fef9963fad82268d1ca3fcb31d19b6b57488f124be9b473",
+              "27ef4483d7eef57c3997f9688cdfea32fc25432ddd3e05d0da16d9118316bf7b",
+              "2db193e07d313cba6d4fc8104479091a7f72a9d54fa2e84329efdc273a0535c6",
+              "33d34aef0a427d63c26e59a62ec8b56819871a2f9bde99d6616b790eab580d60",
+              "378d608660d628e87bae3b9b33888f56038ced365317363530ebd5de886ee874",
+              "3c23c9ec3a86aaf32885b151516d2b4d6ee43c95119060b74ec6d70bd2beb44d",
+              "3eea79fdf6832de94f4092df76521d96c9235e53b5f5880a2ad08da596449b51",
+              "4692bcb8e37c2f7520f9cdb620d05c8596502fc60335152d7d7e027c52c03ac9",
+              "490951280501ab9e0726a7f963e489cf8adbdff27e696461e9d858963ec1a996",
+              "50db475fa1d31280645cd022e7049708303fd01b370d48046f3894fcf9101ce7",
+              "5739c2f8834321ceac16d8c88d336b7e67757259a0663d2535134a4f3dc0d98a",
+              "5874be6cea543b662835b10b45d2e8575049e6c9f6941ba7f9cb2dc411b9dda3",
+              "59ec3d85180b87ef702e665d9bcabe384b8971d3331ce5389f04901b6e02e019",
+              "5b02c1b17d805a302352d00dd6c64c7bd2e9dc99758e90a72651546702d18990",
+              "5dce89a86190ccc29f8397fe71392d27da364e149026b49c2fa64caa3c2bc493",
+              "5df39f2acfc955801ace86d5f272aece7750f7d4cdde224946d39c633eb82364",
+              "635c4bdbe33bae5cfa0bc2e1a9b0b0633f70b9de26cba613d3a5aef1b0cec894",
+              "67ba676ee4f106613a27af8e36ea97f63dc45d40fe900ad23bf7d9a325daf4aa",
+              "7231d4ebabc101760e60b31c253bc55a821031409754ef5e8bed439a7ef14a1a",
+              "77260347d4ed0fad5aa4d6bdeb78b1a14e1e97b5b1242920c67cfd6eaf4c0008",
+              "7744756adc9d99f82f39cdabde55398dc0eebae2cdab6cf2869321dee8ae0886",
+              "7ba27ff548550ae1e8409f299ce6f0474492c1a9e2536a78319bcda538cc0dd3",
+              "7d762ce4cd99ca6286e6a2b2a0fe97e7273fa156cc50386bac167e7939ea5552",
+              "81cad6e57e828c7744fb527638f354c76560348a330239e6a96b4e769720e614",
+              "893c36711c01d626966074a09269daceb89363f2d92c6807df98e4e83906d263",
+              "900558a78339027b531b3a8befac2bdaafa6e31a5a4fc2e3607fc97ec5107c84",
+              "909ac4a9d07dea434e558ec5e5324bb2a99c0b6a14243ef889ff1e2acff92cf6",
+              "91c226670560b5c42e7ae58dc21e6f5f0a329b842fdab6632ecccfde61e6b8b2",
+              "933db119e725b2ddcedcc3ba587eb6012c469c3b7f7345e80e16a5e821f9e64f",
+              "9464549a959225c49aeefc18bb40199dbee73fe5ef65ebd38193a4fef163f140",
+              "99fdf5e664700d7efeecd4eac52bf373df55ae7bb0df4c2f8c481357bd4c166d",
+              "a3efcfaa3faeefa884d1ea0b67c5aafa631db5a3f4b3d96103a242aa2a437be2",
+              "a663506148fdd20b1110933d25f6b5cc1184f2a248f325d0a358a67802b04298",
+              "a764eebe0d9b38609050e9effeb020288a02f6f6b41e5c6a8c48549f1fc512cd",
+              "aa4af796d1074f87f377ca50958dc5281e36e8bda38bc3e12808646a26dd80ef",
+              "aa99389e65959dd1591517c664ad25ca996ed6deec1bb000a388decf99e1e7f2",
+              "aae521b43a83e4d340346f497eacb12d61cd3661f1d5d0ecee3d937e8c61ffd8",
+              "ae6fc8da013cb9ae8e3d8e689926292c447438f16d9ef2d014b691aac6de2894",
+              "aecd98f4f1b8799510181a89c546b8f5829dcd6b59e6f51ded36da1d81502805",
+              "af0dcdc0a1bfabceb9805d1dff030d629643226fd3482f6a938bd30ec24b4b55",
+              "b53e4df066894bbf5a5479610959e7bbc2a4c6793d6f0253538568f9b6f71278",
+              "bd4d4aeb7073ccece0d187bf5710f555dd5fca16f282f165773bb61ec2c96bbb",
+              "bf8981c4066b26c48401f1e7e5b2489aa320da57fecec11ac71613f919341ff1",
+              "c077a0008e1d69c02fe0bbdb403ff0823fcde5ba35b82fe409ecba9b60a85715",
+              "c32bade213deac934c4770c61f8704379387e1fe09cd3104e016e86945f6c973",
+              "c68172ee599761f28e04d2082ee1bf852f78931cb21c4822dfb46169597a7756",
+              "c785954be3c8b90c7da6bc798a8303dabb006545709d8421338c19be9673fb34",
+              "ca5d928f34a1aca2fa163fad609d6bc549e787cdbbe4bfc932269077e74798ff",
+              "cce77f4f1afeb90652e4c9b482c36b18bb0bfeff887dd843b0c4af79058a473c",
+              "cdf716d652060b8c1bf9306a2f54e70636600a199e695927dc5d4f628c877aef",
+              "cfa3fcf53593c5b8cc14ce38ff9882cac06d4390a7a764707ab34caf611813d0",
+              "d1358c57c649b1359ba3b111e988c9acec977a8224d1c5448201089d41c62b0a",
+              "d4921901c1ba7a73c14f8f52ca078053753676f841f345e110d79faac504f8d0",
+              "d538f21eec10f56abbd0de6f72bf010483ab0c563c5d26e210ad69c91caf1e82",
+              "d8b555808c3e06a1266b5e3d10325e7c5fdc96114d30dbcd42f0d2d1ed1afad2",
+              "dcb458ef4992b025749adfea9606e5b480d7624530b1b1639ff7a06e2a98cb91",
+              "dcc70df717861d7c696fd648cc73f5cdf34c5116bc970e6abc10344548f684e3",
+              "de31ff985cd6ec353e720ab523feb79047710f81cb3e8acb7bfbf6c20cfcd83e",
+              "e0cabda166010c062657f5fac061e6cfd07c30e4821d40264eb35d59ffdf3242",
+              "e170e08535e35e61d1a1c717f7b8be43515c53b1e90ae962a4683d7398367bd0",
+              "e95cb0b77d80269d67daddd5a7e5db330ea52154d282255b3b47d49e6c7cec13",
+              "eb7556c4d867c1b9e127fa810ef87cda0fb0a60f1df0e852f986ac546ace67ab",
+              "ebe2d6b6693048732257d5016b8a0cb7554652063defd614bb47d02ad9eb9121",
+              "ed4c60f8388461613267cd563c83796f73c655473a1340ffdb6c7b2c836a7759",
+              "ee161797bc13675762c4d81813e2cce6d707bd8ccb4de19781fe170de7eec17a",
+              "f31b984e3fd33b10e3165e3e8fe96e5f8a328e2361612d24bd7021ca42db2e4a",
+              "f3ba2a8cd1a23373ee0c8d5d473f4796c642bbf7034aede907fc1f17498c78d1",
+              "f3f9868223890427629f637e61a871d87083826882b4515a31f112cc4d18e33a",
+              "f5816e3f9fe216a3936c57fcec0a247263b04698ccf4c7069659397a19d59e05",
+              "f6dbb12345dd4a12f7f4482d232e5c6859eba10e06fb36854cd706f44d6a013c",
+              "f7ac49936c58e7fe333ad0fc62da4d7243a96af663f4cb5c3bb6a5d2ba0e507a"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": 0,
+          "review_reference_records": 0,
+          "no_confirmed_reference_match": false,
+          "review_candidates_not_applied": []
+        }
+      },
+      {
+        "component_id": "component-5",
+        "name": "쌀밥",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "exact",
+        "reference_menu": "쌀밥",
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": 94,
+          "review_reference_records": 0,
+          "no_confirmed_reference_match": false,
+          "review_candidates_not_applied": []
+        }
+      }
+    ],
+    "excluded_calculation_components": [],
+    "unknowns": {
+      "actual_recipe_unknown": true,
+      "source_component_boundaries_need_review": true,
+      "choice_or_separator_integration_withheld": false,
+      "source_coverage_not_guaranteed": true,
+      "excluded_calculation_component_count": 0,
+      "components_without_reference_match": [
+        "현대옥 콩나물국밥",
+        "돈육녹두전&양파간장",
+        "오징어젓무침"
+      ],
+      "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
+    }
   }
 ]
