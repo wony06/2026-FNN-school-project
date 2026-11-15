@@ -60724,5 +60724,292 @@
    }
   ],
   "sourceMenuText": "쌀국수 추가밥 분모자크림떡볶이 김말이강정 단무지무침 배추김치 복숭아티"
+ },
+ {
+  "date": "2026-11-16",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "현대옥 콩나물국밥",
+  "calculationMain": "현대옥 콩나물국밥",
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSg03sfKeaPH-qcSxr9Q/400x.png",
+  "cat_idx": 0,
+  "구성요소_목록": [
+   "현대옥 콩나물국밥",
+   "돈육녹두전",
+   "양파간장",
+   "김구이",
+   "오징어젓무침",
+   "포기김치",
+   "쌀밥"
+  ],
+  "1인분_제공량_g": 823.0,
+  "kcal": 825.1,
+  "단백질_g": 31.9,
+  "지방_g": 9.9,
+  "탄수화물_g": 149.0,
+  "당류_g": 14.8,
+  "식이섬유_g": 4.1,
+  "칼슘_mg": 102.5,
+  "철_mg": 1.47,
+  "비타민A_ugRAE": 51.7,
+  "비타민C_mg": 3.7,
+  "포화지방_g": 2.6,
+  "나트륨_mg": 1920.2,
+  "NRF6.3": -0.5,
+  "역산검증_오차율": 1.5,
+  "역산검증_일치여부": true,
+  "신뢰도": "낮음",
+  "미매칭_항목": [
+   "김구이"
+  ],
+  "가공식품DB_출처_항목": [
+   "돈육녹두전",
+   "양파간장",
+   "오징어젓무침"
+  ],
+  "결측_필드": [
+   "돈육녹두전: fiber,ca,fe,vitA,vitC",
+   "양파간장: fiber,ca,fe,vitA,vitC",
+   "오징어젓무침: fiber,ca,fe,vitA,vitC",
+   "쌀밥: vitA"
+  ],
+  "영양_매칭DB": {
+   "food_db": [
+    "현대옥 콩나물국밥",
+    "포기김치",
+    "쌀밥"
+   ],
+   "recipe_decompose": [],
+   "gagong_db": [
+    "돈육녹두전",
+    "양파간장",
+    "오징어젓무침"
+   ]
+  },
+  "식품교환단위": {
+   "곡류군": 4.43,
+   "어육류군": 0.67,
+   "채소군": 9.42,
+   "지방군": 1.6,
+   "우유군": 0.0,
+   "과일군": 0.0,
+   "미매칭_항목": [
+    "돈육녹두전",
+    "오징어젓무침"
+   ],
+   "매칭DB": {
+    "menugen": [
+     "현대옥 콩나물국밥",
+     "김구이",
+     "포기김치",
+     "쌀밥"
+    ],
+    "recipe_db": [],
+    "db104_direct": []
+   },
+   "externalRecipes": [],
+   "recipeNotes": [
+    "양파간장: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지.",
+    "포기김치 → 배추김치: DB 표준 이름으로 연결. 해당 식당의 기존 추정 제공량 70g 적용. 표준 레시피의 실제 배합·조리수율 차이는 미보정."
+   ]
+  },
+  "item_detail": [
+   {
+    "display": "현대옥 콩나물국밥",
+    "matched": true,
+    "weight_g": 272,
+    "weight_note": "국·찌개류(병합) - KNHANES 2010 국·탕 39종+찌개 9종 종수가중 통합 272mL(ml 매칭); 현대옥 콩나물국밥은 일반 콩나물국밥 DB 대체 추정. 브랜드 실제 배합·실측 제공량 미확인.",
+    "contrib": {
+     "kcal": 163.2,
+     "protein": 7.072,
+     "fat": 1.9856,
+     "carb": 29.0768,
+     "sugar": 1.1423999999999999,
+     "fiber": 2.176,
+     "ca": 59.84,
+     "fe": 1.1696,
+     "vitA": 27.2,
+     "vitC": 0.8976000000000001,
+     "satFat": 0.544,
+     "na": 157.76
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "콩나물 국밥"
+   },
+   {
+    "display": "돈육녹두전",
+    "matched": true,
+    "weight_g": 96,
+    "weight_note": "전·부침류 - 사용자 지정으로 구이류 기준(96g) 재사용 (원본 표기 분리)",
+    "contrib": {
+     "kcal": 171.84,
+     "protein": 9.12,
+     "fat": 5.76,
+     "carb": 18.24,
+     "sugar": 0.96,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 1.5839999999999999,
+     "na": 255.36
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "녹두전"
+   },
+   {
+    "display": "양파간장",
+    "matched": true,
+    "weight_g": 9,
+    "weight_note": "소스/양념장 - 표준 9g(1회용 파우치)",
+    "contrib": {
+     "kcal": 0.81,
+     "protein": 0.12419999999999998,
+     "fat": 0.0009,
+     "carb": 0.0819,
+     "sugar": 0.0324,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.0,
+     "na": 86.76
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "간장"
+   },
+   {
+    "display": "김구이",
+    "matched": false,
+    "weight_g": 96,
+    "weight_note": "구이류 - 대학급식소(1997) 제공량 평균 96g",
+    "contrib": {
+     "kcal": 0,
+     "protein": 0,
+     "fat": 0,
+     "carb": 0,
+     "sugar": 0,
+     "fiber": 0,
+     "ca": 0,
+     "fe": 0,
+     "vitA": 0,
+     "vitC": 0,
+     "satFat": 0,
+     "na": 0
+    },
+    "missing": [
+     "kcal",
+     "protein",
+     "fat",
+     "carb",
+     "sugar",
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC",
+     "satFat",
+     "na"
+    ],
+    "source": null
+   },
+   {
+    "display": "오징어젓무침",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 114.1,
+     "protein": 7.175,
+     "fat": 1.19,
+     "carb": 18.655,
+     "sugar": 10.99,
+     "fiber": 0.0,
+     "ca": 0.0,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.0,
+     "satFat": 0.21,
+     "na": 1034.6
+    },
+    "missing": [
+     "fiber",
+     "ca",
+     "fe",
+     "vitA",
+     "vitC"
+    ],
+    "source": "gagong_db",
+    "db_name": "오징어젓무침"
+   },
+   {
+    "display": "포기김치",
+    "matched": true,
+    "weight_g": 70,
+    "weight_note": "김치·무침류 - 대학급식소(1997) 제공량 평균 70g",
+    "contrib": {
+     "kcal": 26.6,
+     "protein": 1.386,
+     "fat": 0.301,
+     "carb": 4.543,
+     "sugar": 1.68,
+     "fiber": 1.75,
+     "ca": 30.1,
+     "fe": 0.301,
+     "vitA": 24.5,
+     "vitC": 2.513,
+     "satFat": 0.049,
+     "na": 385.7
+    },
+    "missing": [],
+    "source": "food_db",
+    "db_name": "배추김치"
+   },
+   {
+    "display": "쌀밥",
+    "matched": true,
+    "weight_g": 210,
+    "weight_note": "일반 밥(공기밥 1공기) - 2020 한국인 영양소 섭취기준 1회 분량 210g",
+    "contrib": {
+     "kcal": 348.6,
+     "protein": 7.056,
+     "fat": 0.672,
+     "carb": 78.39299999999999,
+     "sugar": 0.042,
+     "fiber": 0.21,
+     "ca": 12.6,
+     "fe": 0.0,
+     "vitA": 0.0,
+     "vitC": 0.336,
+     "satFat": 0.21,
+     "na": 0.0
+    },
+    "missing": [
+     "vitA"
+    ],
+    "source": "food_db",
+    "db_name": "쌀밥"
+   }
+  ],
+  "sourceMenuText": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥"
  }
 ]
