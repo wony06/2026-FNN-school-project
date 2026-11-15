@@ -911,6 +911,8 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "고들빼기무침": "고들빼기김치",
             "소고기육개장": "육개장",  # 2026-11-16 사용자 지정 교환단위 대체 매칭
             "해물완자구이": "두부해물완자",  # 2026-11-16 사용자 지정 교환단위 대체(해물완자, MenuGen/레시피DB)
+            "돈육녹두전": "빈대떡(돼지고기)",  # 2026-11-16 사용자 지정: 녹두+돼지고기 전 = 빈대떡(돼지고기)
+            "오징어젓무침": "오징어젓(양념)",  # 2026-11-16 사용자 지정 교환단위 대체 매칭
         }
         name = aliases.get(name, name)
         if name not in MENUGEN_BY_NAME:

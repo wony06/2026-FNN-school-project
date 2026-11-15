@@ -322,6 +322,10 @@ def classify_side_weight(name, cache=None):
         return 30, "빼빼로 - 가공식품DB 1회 섭취참고량30g 적용(실제 포장 크기 미확인)"
     if name == "간장돼지불고기":
         return 80, "간장돼지불고기: 소스 오분류 수정. 반찬 볶음류 표준 추정량 80g 적용; 실측값 아님"
+    if name == "김구이":
+        # 2026-11-16 사용자 지정: 구이류 폴백 96g이 김에는 과대(건조 김 1장 2~3g). 급식 조미김 1회
+        # 제공량 기준으로 5g 적용(대한급식신문 '한 끼 급식 조미김 5장' 참고). 실측·포장 중량 미확인.
+        return 5, "조미김(구운김) 1인분 - 급식 기준 조미김 1회 제공량 5g(대한급식신문 '조미김 5장' 참고). 기존 구이류 96g 폴백 교정; 실측값 아님"
     if name in INDIVIDUAL_MATCH_WEIGHTS:
         return INDIVIDUAL_MATCH_WEIGHTS[name]
     if name in INDIVIDUAL_ML_ONLY and _unit(name, cache) == "ml":

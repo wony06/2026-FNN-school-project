@@ -13296,7 +13296,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "김구이": null,
  "오징어젓무침": {
   "source": "gagong_db",
   "name": "오징어젓무침",
@@ -13638,5 +13637,32 @@
   "basis": "100g",
   "unit": "g"
  },
- "]이화수": null
+ "]이화수": null,
+ "김구이": {
+  "source": "gagong_db",
+  "name": "조미김",
+  "n_dup": 2,
+  "per100": {
+   "kcal": 494.5,
+   "protein": 15.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 3.2,
+   "sugar": 0.1,
+   "na": 156.0,
+   "fat": 18.0,
+   "carb": 55.25
+  },
+  "_codes": [
+   "P120-401040000-1535",
+   "P120-401040000-1255"
+  ],
+  "serving_weight_g": 4.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ }
 }
