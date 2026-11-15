@@ -15,7 +15,8 @@ class AllergySynchronizationTest(unittest.TestCase):
         rows = json.loads((ROOT / 'web/site_data.json').read_text(encoding='utf-8'))
         export = json.loads((ROOT / 'web/allergy-data.json').read_text(encoding='utf-8'))
         validate_coverage(rows, export)
-        self.assertEqual(len(rows), 484)
+        self.assertEqual(sum(r['date'] <= '2026-11-13' for r in rows), 484)
+        self.assertEqual(sum(r['date'] == '2026-11-16' for r in rows), 6)
         self.assertEqual(sum('2026-11-09' <= m['key'][0] <= '2026-11-13' for m in export['meals']), 35)
         self.assertEqual(sum(m['state'] == 'choice_withheld' for m in export['meals']), 50)
 

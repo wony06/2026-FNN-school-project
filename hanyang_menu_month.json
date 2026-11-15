@@ -1379,7 +1379,7 @@
       "name": "[품절]보쌈정식 아욱된장국 비빔막국수 상추쌈,풋고추&쌈장 무말랭이&배추겉절이 쌀밥",
       "desc": "샐러드&토핑&드레싱 / (SELF)즉석꼬치어묵",
       "price": "12,000원",
-      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCi5mLdeoSGGhycdcMtcg/x.jpg"
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaCi5mLdeoSGGhycdcMtcg/400x.jpg"
      },
      {
       "category": "**콜라보메뉴** (한정)",
@@ -2546,21 +2546,21 @@
       "name": "소불고기덮밥",
       "desc": "볼어묵볶음 알마늘지 김치 무국",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNVHaGfjaRLUZLWWBpCA/400x.jpg"
      },
      {
       "category": "즉석",
       "name": "들깨오리탕",
       "desc": "볼어묵볶음 알마늘지 김치",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNVIwIeRi09TTKQ6EGaw/400x.jpg"
      },
      {
       "category": "양식",
       "name": "등심돈까스",
       "desc": "-",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNVKGCcg-36uiQl6iEsg/400x.jpg"
      }
     ]
    },
@@ -2573,7 +2573,7 @@
       "name": "육개장 닭강정 새송이버섯볶음 오이도라지무침 2종김치 쌀밥",
       "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&셀프토스트&버터,잼",
       "price": "12,000원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNjDFTcZGdv1kEev5fhA/400x.jpg"
      },
      {
       "category": "중식 - Korean Dining",
@@ -2593,14 +2593,14 @@
       "name": "닭볶음탕 흑미밥 계란파국 야채춘권*칠리소스 느타리버섯볶음 배추김치 석류차",
       "desc": "-",
       "price": "6,000원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNhx7odUKsEgrwCNovhg/400x.jpg"
      },
      {
       "category": "일품",
       "name": "장조림버터비빔밥 온모밀 마약옥수수 치즈맛감자 비트무피클 배추김치 석류차",
       "desc": "-",
       "price": "6,500원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHNh2vxde2ODF-kL3klUg/400x.jpg"
      }
     ]
    }
@@ -2616,21 +2616,21 @@
       "name": "치즈돈까스",
       "desc": "-",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSmjeCc_a9o8uxzsJpDg/400x.jpg"
      },
      {
       "category": "한식",
       "name": "갈릭쉬림프덮밥",
       "desc": "어니언링*케찹 비트무피클 김치 미소국",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSmmjpeki_qCSUygyCgw/400x.jpg"
      },
      {
       "category": "즉석",
       "name": "시금치치킨프리카세",
       "desc": "어니언링*케찹 비트무피클 김치",
       "price": "4,800원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSmo5Icfm1uLmsJGxrsA/400x.jpg"
      }
     ]
    },
@@ -2643,7 +2643,7 @@
       "name": "등뼈감자탕 계란말이 사각어묵볶음 알마늘장아찌 2종김치 쌀밥",
       "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면 & self계란후라이",
       "price": "12,000원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSqL52esGTCyiB6oON1A/400x.jpg"
      },
      {
       "category": "중식 - Korean Dining",
@@ -2663,11 +2663,74 @@
       "name": "차돌순두부찌개 흑미밥 오징어까스*타르소스 맛살마늘쫑볶음 오복지무침 배추김치 알새우칩",
       "desc": "-",
       "price": "6,000원",
-      "img": null
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSoRCxdy6_U2Be46npjw/400x.jpg"
      },
      {
       "category": "일품",
       "name": "새우튀김덮밥 짬뽕국물 카레고로케 마카로니샐러드 요구르트 배추김치 알새우칩",
+      "desc": "-",
+      "price": "6,500원",
+      "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSoWHScLafmqSy9tNavg/400x.jpg"
+     }
+    ]
+   }
+  },
+  {
+   "date": "2026-11-16",
+   "s105": {
+    "shop": "105",
+    "shopName": "학생식당",
+    "items": [
+     {
+      "category": "양식",
+      "name": "고구마치즈돈까스",
+      "desc": "-",
+      "price": "4,800원",
+      "img": null
+     },
+     {
+      "category": "한식",
+      "name": "스팸마요덮밥",
+      "desc": "왕만두 무말랭이 김치 우동국",
+      "price": "4,800원",
+      "img": null
+     },
+     {
+      "category": "즉석",
+      "name": "고깃집된장찌개ㅁ전복미역국",
+      "desc": "왕만두 무말랭이 김치",
+      "price": "4,800원",
+      "img": null
+     }
+    ]
+   },
+   "s401": {
+    "shop": "401",
+    "shopName": "생활과학관식당",
+    "items": [
+     {
+      "category": "중식 - Korean Dining",
+      "name": "해물칼국수 돼지고기육전 오이무침 참나물묵무침 김치2종 쌀밥",
+      "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+      "price": "12,000원",
+      "img": null
+     }
+    ]
+   },
+   "s204": {
+    "shop": "204",
+    "shopName": "신소재공학관식당",
+    "items": [
+     {
+      "category": "정식",
+      "name": "소고기육개장 흑미밥 해물완자구이*케찹 도시락김 오이무침 배추김치 복숭아티",
+      "desc": "-",
+      "price": "6,000원",
+      "img": null
+     },
+     {
+      "category": "일품",
+      "name": "쌀국수 추가밥 분모자크림떡볶이 김말이강정 단무지무침 배추김치 복숭아티",
       "desc": "-",
       "price": "6,500원",
       "img": null
@@ -2688,6 +2751,10 @@
   {
    "start": "2026-11-09",
    "end": "2026-11-13"
+  },
+  {
+   "start": "2026-11-16",
+   "end": "2026-11-16"
   }
  ]
 }

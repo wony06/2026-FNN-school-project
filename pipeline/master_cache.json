@@ -13288,5 +13288,64 @@
   "is_concentrate": false,
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
+ },
+ "고깃집된장찌개ㅁ전복미역국": null,
+ "분모자크림떡볶이": null,
+ "왕만두": {
+  "source": "gagong_db",
+  "name": "왕만두(양배추)",
+  "n_dup": 8,
+  "per100": {
+   "kcal": 182.5,
+   "protein": 6.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 2.0,
+   "sugar": 3.48,
+   "na": 372.0,
+   "fat": 7.4,
+   "carb": 18.37
+  },
+  "_codes": [
+   "P123-302030100-0926",
+   "P123-302030100-0925",
+   "P123-302030100-3486",
+   "P123-302030100-2513",
+   "P123-302030100-2122",
+   "P123-302030100-1552",
+   "P123-302030100-3073",
+   "P123-302030100-0492"
+  ],
+  "serving_weight_g": 150.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "참나물묵무침": null,
+ "해물완자구이": null,
+ "해물칼국수": {
+  "source": "food_db",
+  "name": "해물칼국수",
+  "origin": "외식(재료량 기반 산출함량)",
+  "per100": {
+   "kcal": 77,
+   "protein": 3.09,
+   "fat": 0.4,
+   "carb": 14.64,
+   "sugar": 0.22,
+   "fiber": 0.5,
+   "ca": 19,
+   "fe": 0.91,
+   "vitA": 4,
+   "vitC": 0.61,
+   "satFat": 0.1,
+   "na": 252
+  },
+  "serving_weight_g": 1100.0,
+  "basis": "100ml",
+  "unit": "ml"
  }
 }

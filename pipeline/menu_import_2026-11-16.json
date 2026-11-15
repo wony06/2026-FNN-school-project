@@ -1,0 +1,238 @@
+{
+  "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+  "date": "2026-11-16",
+  "newMenus": 6,
+  "byShop": {
+    "105": 3,
+    "204": 2,
+    "401": 1
+  },
+  "photosAdded": 15,
+  "photoChanges": [
+    {
+      "date": "2026-09-15",
+      "shop": "401",
+      "main": "보쌈정식",
+      "photo": "369fc39ccf703795a261d184.jpg"
+    },
+    {
+      "date": "2026-11-09",
+      "shop": "401",
+      "main": "참치김치찌개",
+      "photo": "51d00d3395713d67be1b140a.jpg"
+    },
+    {
+      "date": "2026-11-10",
+      "shop": "401",
+      "main": "산채비빔밥&계란후라이",
+      "photo": "a4e8adea3edfdf223ac48105.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "105",
+      "main": "등심돈까스",
+      "photo": "8976d39de5a7331bd4b2de08.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "105",
+      "main": "들깨오리탕",
+      "photo": "b39d861b9605e294f6ad7487.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "105",
+      "main": "소불고기덮밥",
+      "photo": "6cdcbe320471fcd26145c5a3.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "204",
+      "main": "장조림버터비빔밥",
+      "photo": "75c9f68fc2376516a35fcfdd.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "204",
+      "main": "닭볶음탕",
+      "photo": "89a28b15c1e3ae0a1ce6611b.jpg"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "401",
+      "main": "육개장",
+      "photo": "91d571e0376572fb545d518d.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "105",
+      "main": "치즈돈까스",
+      "photo": "42da82159e0ce8faa186ffa5.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "105",
+      "main": "시금치치킨프리카세",
+      "photo": "f568e9af0034c9ac9c41a604.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "105",
+      "main": "갈릭쉬림프덮밥",
+      "photo": "2561d86fd7cec39e5bdc9ba9.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "204",
+      "main": "새우튀김덮밥",
+      "photo": "300dd274e22826d03be70c54.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "204",
+      "main": "차돌순두부찌개",
+      "photo": "f6b9ac3f2514cb40a167d16c.jpg"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "401",
+      "main": "등뼈감자탕",
+      "photo": "684d1457c5c63adb007aa253.jpg"
+    }
+  ],
+  "oldMenusPreserved": 484,
+  "totalMenus": 490,
+  "oldAllergyRecordsChanged": 0,
+  "newMenusWithoutPhoto": 6,
+  "newUnmatchedMenus": 4,
+  "menus": [
+    {
+      "date": "2026-11-16",
+      "shop": "105",
+      "shopName": "학생식당",
+      "category": "양식",
+      "main": "고구마치즈돈까스",
+      "price": "4,800원",
+      "sourceMenuText": "고구마치즈돈까스",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": []
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "105",
+      "shopName": "학생식당",
+      "category": "즉석",
+      "main": "고깃집된장찌개ㅁ전복미역국",
+      "price": "4,800원",
+      "sourceMenuText": "고깃집된장찌개ㅁ전복미역국",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": [
+        "고깃집된장찌개ㅁ전복미역국"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "105",
+      "shopName": "학생식당",
+      "category": "한식",
+      "main": "스팸마요덮밥",
+      "price": "4,800원",
+      "sourceMenuText": "스팸마요덮밥",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": []
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "204",
+      "shopName": "신소재공학관식당",
+      "category": "일품",
+      "main": "쌀국수",
+      "price": "6,500원",
+      "sourceMenuText": "쌀국수 추가밥 분모자크림떡볶이 김말이강정 단무지무침 배추김치 복숭아티",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": [
+        "분모자크림떡볶이"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "204",
+      "shopName": "신소재공학관식당",
+      "category": "정식",
+      "main": "소고기육개장",
+      "price": "6,000원",
+      "sourceMenuText": "소고기육개장 흑미밥 해물완자구이*케찹 도시락김 오이무침 배추김치 복숭아티",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": [
+        "해물완자구이"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "401",
+      "shopName": "생활과학관식당",
+      "category": "중식 - Korean Dining",
+      "main": "해물칼국수",
+      "price": "12,000원",
+      "sourceMenuText": "해물칼국수 돼지고기육전 오이무침 참나물묵무침 김치2종 쌀밥",
+      "sourceUrl": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-16",
+      "unmatched": [
+        "참나물묵무침"
+      ]
+    }
+  ],
+  "sourceCompositionChangesNotApplied": [
+    {
+      "date": "2026-11-12",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "previousName": "육개장 닭강정 새송이버섯볶음 오이도라지무침 2종김치 쌀밥",
+      "currentName": "(품절) 육개장 닭강정 새송이버섯볶음 청포묵무침 2종김치 쌀밥",
+      "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "204",
+      "category": "정식",
+      "previousName": "닭볶음탕 흑미밥 계란파국 야채춘권*칠리소스 느타리버섯볶음 배추김치 석류차",
+      "currentName": "순살닭볶음탕 흑미밥 계란파국 야채춘권*칠리소스 느타리버섯볶음 배추김치 석류차",
+      "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+    },
+    {
+      "date": "2026-11-12",
+      "shop": "204",
+      "category": "일품",
+      "previousName": "장조림버터비빔밥 온모밀 마약옥수수 치즈맛감자 비트무피클 배추김치 석류차",
+      "currentName": "장조림버터비빔밥 온모밀 마약옥수수 허니버터감자 비트무피클 배추김치 석류차",
+      "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+    },
+    {
+      "date": "2026-11-13",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "previousName": "등뼈감자탕 계란말이 사각어묵볶음 알마늘장아찌 2종김치 쌀밥",
+      "currentName": "(품절) 등뼈감자탕 계란말이 사각어묵볶음 알마늘장아찌 2종김치 쌀밥",
+      "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+    }
+  ],
+  "approvedPhotoOnlyChange": {
+    "date": "2026-11-12",
+    "shop": "204",
+    "category": "정식",
+    "existingName": "닭볶음탕",
+    "postedName": "순살닭볶음탕",
+    "action": "사용자 확인에 따라 사진만 연결; 기존 메뉴명·영양값 유지"
+  },
+  "remainingWithoutPostedPhoto": 12,
+  "checks": {
+    "browserMenusAndPhotos": [
+      "11/16: 6 menus, no photos posted",
+      "11/12: 7 menus, all 7 photos loaded",
+      "11/13: 7 menus, all 7 photos loaded"
+    ],
+    "nodeTestsPassed": 24,
+    "pythonTestsPassed": 4,
+    "gitPushed": false,
+    "deployed": false
+  }
+}

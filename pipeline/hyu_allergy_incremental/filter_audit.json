@@ -1485,32 +1485,32 @@
       }
     ]
   },
-  "menuCount": 484,
+  "menuCount": 490,
   "excludedByAllergen": {
-    "1": 248,
-    "2": 232,
+    "1": 252,
+    "2": 236,
     "3": 23,
     "4": 5,
-    "5": 330,
-    "6": 315,
+    "5": 335,
+    "6": 320,
     "7": 51,
-    "8": 93,
-    "9": 229,
-    "10": 201,
-    "11": 3,
-    "12": 150,
-    "13": 325,
+    "8": 94,
+    "9": 231,
+    "10": 204,
+    "11": 5,
+    "12": 152,
+    "13": 330,
     "14": 0,
-    "15": 127,
-    "16": 194,
+    "15": 129,
+    "16": 198,
     "17": 34,
-    "18": 240,
+    "18": 243,
     "19": 0
   },
-  "suppressedEvidenceCount": 164,
-  "correctedMealCount": 98,
+  "suppressedEvidenceCount": 165,
+  "correctedMealCount": 99,
   "choiceWithheldMenus": 50,
-  "excludedCalculationOccurrences": 1148,
+  "excludedCalculationOccurrences": 1152,
   "corrections": [
     {
       "key": [
@@ -5221,6 +5221,28 @@
       "reviewedAt": "2026-11-04",
       "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
       "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "105",
+        "양식",
+        "고구마치즈돈까스"
+      ],
+      "code": 18,
+      "component": "고구마치즈돈까스",
+      "reference": "고구마치즈돈가스",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 2,
+      "recordIds": [
+        "eaa12bb317e6215744e136e3258f5394877fe2084aea4b97f3ef80e07f17778a"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     }
   ],
   "otherPartialShellfishEvidenceRetained": [
@@ -8844,17 +8866,82 @@
       "labeledRecords": 6,
       "totalRecords": 15,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "204",
+        "일품",
+        "쌀국수"
+      ],
+      "component": "쌀국수",
+      "reference": "쌀국수",
+      "labeledRecords": 4,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "204",
+        "일품",
+        "쌀국수"
+      ],
+      "component": "김말이강정",
+      "reference": "김말이강정",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "204",
+        "일품",
+        "쌀국수"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "소고기육개장",
+      "reference": "소고기육개장",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-16",
+        "204",
+        "정식",
+        "소고기육개장"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "cedef86a7f3926a0bc37e6f7f3d2475080ae0c4b20960b99e2d87294cdd08f74",
-    "web\\menu_exchange_snapshot.json": "74faed2ad6df63fdf0a8314527aabfe777b5b849748a25e8f8b26271937e2c0f",
+    "web\\site_data.json": "2afa409bc6879b06234e095148f8e638271ca3ce666f6c7b8beb1b41315e94b7",
+    "web\\menu_exchange_snapshot.json": "5c2275d3b8e25a0acca4d3a3194c9f2511787491e607d4a2841972236ec9b1cd",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
-    "web\\recommendation-view.js": "8d84ee14f6053d33d7106931fda4dffd4b9f727535cd99a3254c79940be9adce",
-    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
+    "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "b14350e6ceae8465dd1d1612a61dc26c80a01cc633513fa66cbf6bc3c4c7f6e6",
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "e9d507592c9f69d00337b438e085c927cbaee1c5f11fbf8e2f64b335c85a497e",
     "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "4f64126df0df1b5b3f028a500a18903d6de2097652ca2b934f95e112593b4f16",
     "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "d4a70bfeee4c0c0e77ec0efed7bd1e038a473f732742753b6aef8b59d24967a2"
   }

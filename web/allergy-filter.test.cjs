@@ -18,9 +18,10 @@ test('검토된 식단 키가 정확히 1:1 연결되고 중복 키는 거부한
 });
 test('우유·새우·밀·조개류 제외 수와 다중 선택 OR 동작',()=>{
   const historical=rows.filter(r=>r.date<='2026-11-06');
+  const beforeNov16=rows.filter(r=>r.date<='2026-11-13');
   for(const [code,oldCount,count] of [[2,212,232],[9,207,229],[6,285,315],[18,215,240]]){
     assert.equal(Filter.partition(historical,[code],index).excluded.length,oldCount);
-    assert.equal(Filter.partition(rows,[code],index).excluded.length,count);
+    assert.equal(Filter.partition(beforeNov16,[code],index).excluded.length,count);
   }
   const one=Filter.partition(rows,[2],index),two=Filter.partition(rows,[9],index);
   const union=new Set([...one.excluded,...two.excluded].map(key));
@@ -28,6 +29,13 @@ test('우유·새우·밀·조개류 제외 수와 다중 선택 OR 동작',()=>
   assert.equal(both.excluded.length,union.size);
   assert(both.excluded.every(r=>union.has(key(r))));
   assert.equal(both.kept.length+both.excluded.length,rows.length);
+});
+
+test('11월 16일 신규 6개 식단은 기존 근거 규칙으로 연결하고 이전 식단과 분리 집계한다',()=>{
+  const added=rows.filter(r=>r.date==='2026-11-16');
+  assert.equal(added.length,6);
+  assert(added.every(r=>index.has(key(r))));
+  for(const [code,count] of [[2,4],[9,2],[6,5],[18,3]])assert.equal(Filter.partition(added,[code],index).excluded.length,count);
 });
 test('고구마치즈돈까스 조개류 1/2 기록은 미확인으로 보존하고 자동 제외하지 않는다',()=>{
   const cutlets=rows.filter(r=>r.main==='고구마치즈돈까스'&&index.has(key(r)));

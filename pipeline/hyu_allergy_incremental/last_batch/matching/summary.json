@@ -1,27 +1,27 @@
 {
-  "meal_rows": 35,
-  "unique_main_names": 31,
+  "meal_rows": 41,
+  "unique_main_names": 36,
   "meal_main_match_counts": {
-    "완전일치": 11,
-    "표기동의어": 2,
-    "검토필요": 11,
-    "미매칭": 11
+    "완전일치": 14,
+    "표기동의어": 3,
+    "검토필요": 12,
+    "미매칭": 12
   },
   "unique_main_match_counts": {
-    "미매칭": 7,
-    "검토필요": 11,
-    "완전일치": 11,
+    "미매칭": 8,
+    "완전일치": 14,
+    "검토필요": 12,
     "표기동의어": 2
   },
-  "source_supported_component_occurrences": 181,
+  "source_supported_component_occurrences": 211,
   "component_match_counts": {
-    "완전일치": 82,
-    "표기동의어": 2,
-    "검토필요": 59,
-    "미매칭": 38
+    "완전일치": 97,
+    "표기동의어": 3,
+    "검토필요": 70,
+    "미매칭": 41
   },
-  "calculation_only_component_occurrences": 20,
-  "reference_evidence_records": 853,
+  "calculation_only_component_occurrences": 24,
+  "reference_evidence_records": 897,
   "successful_examples": [
     {
       "meal_key": [
@@ -766,99 +766,100 @@
     },
     {
       "meal_key": [
-        "2026-11-12",
-        "401",
-        "중식 - Korean Dining",
-        "육개장"
+        "2026-11-16",
+        "204",
+        "정식",
+        "소고기육개장"
       ],
-      "shop_name": "생활과학관식당",
+      "shop_name": "신소재공학관식당",
       "result": {
-        "query": "육개장",
-        "normalized_query": "육개장",
+        "query": "소고기육개장",
+        "normalized_query": "소고기육개장",
         "match_type": "exact",
-        "reference_menu": "육개장",
+        "reference_menu": "소고기육개장",
         "candidates": [],
-        "name_explicit_ingredients": [],
+        "name_explicit_ingredients": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "소고기"
+            ],
+            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
+          }
+        ],
         "neis_possible_ingredients": [
           {
             "number": 1,
             "name": "난류",
-            "labeled_school_count": 9,
-            "labeled_record_count": 13,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 2,
             "name": "우유",
             "labeled_school_count": 1,
             "labeled_record_count": 1,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 5,
             "name": "대두",
-            "labeled_school_count": 11,
-            "labeled_record_count": 15,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 6,
             "name": "밀",
-            "labeled_school_count": 11,
-            "labeled_record_count": 15,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 8,
             "name": "게",
-            "labeled_school_count": 2,
-            "labeled_record_count": 2,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 9,
             "name": "새우",
-            "labeled_school_count": 2,
-            "labeled_record_count": 2,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
-          },
-          {
-            "number": 10,
-            "name": "돼지고기",
             "labeled_school_count": 1,
             "labeled_record_count": 1,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 13,
             "name": "아황산류",
-            "labeled_school_count": 4,
-            "labeled_record_count": 5,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 16,
             "name": "쇠고기",
-            "labeled_school_count": 11,
-            "labeled_record_count": 16,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 2,
+            "labeled_record_count": 2,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           },
           {
             "number": 18,
             "name": "조개류(굴·전복·홍합 포함)",
-            "labeled_school_count": 3,
-            "labeled_record_count": 3,
-            "total_record_count": 16,
-            "evidence_reference_menu": "육개장"
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 2,
+            "evidence_reference_menu": "소고기육개장"
           }
         ],
         "unknown": {
@@ -871,84 +872,83 @@
     },
     {
       "meal_key": [
-        "2026-11-12",
-        "204",
-        "일품",
-        "장조림버터비빔밥"
+        "2026-11-16",
+        "105",
+        "한식",
+        "스팸마요덮밥"
       ],
-      "shop_name": "신소재공학관식당",
+      "shop_name": "학생식당",
       "result": {
-        "query": "장조림버터비빔밥",
-        "normalized_query": "장조림버터비빔밥",
+        "query": "스팸마요덮밥",
+        "normalized_query": "스팸마요덮밥",
         "match_type": "exact",
-        "reference_menu": "장조림버터비빔밥",
+        "reference_menu": "스팸마요덮밥",
         "candidates": [],
-        "name_explicit_ingredients": [
-          {
-            "number": 2,
-            "name": "우유",
-            "matched_terms": [
-              "버터"
-            ],
-            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
-          }
-        ],
+        "name_explicit_ingredients": [],
         "neis_possible_ingredients": [
           {
             "number": 1,
             "name": "난류",
             "labeled_school_count": 3,
             "labeled_record_count": 3,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
             "number": 2,
             "name": "우유",
-            "labeled_school_count": 4,
-            "labeled_record_count": 4,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
             "number": 5,
             "name": "대두",
-            "labeled_school_count": 4,
-            "labeled_record_count": 4,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
             "number": 6,
             "name": "밀",
-            "labeled_school_count": 4,
-            "labeled_record_count": 4,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
             "number": 10,
             "name": "돼지고기",
-            "labeled_school_count": 4,
-            "labeled_record_count": 4,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
             "number": 13,
             "name": "아황산류",
-            "labeled_school_count": 4,
-            "labeled_record_count": 4,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           },
           {
-            "number": 18,
-            "name": "조개류(굴·전복·홍합 포함)",
-            "labeled_school_count": 1,
-            "labeled_record_count": 1,
-            "total_record_count": 4,
-            "evidence_reference_menu": "장조림버터비빔밥"
+            "number": 15,
+            "name": "닭고기",
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
+          },
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "labeled_school_count": 3,
+            "labeled_record_count": 3,
+            "total_record_count": 3,
+            "evidence_reference_menu": "스팸마요덮밥"
           }
         ],
         "unknown": {
@@ -1409,9 +1409,9 @@
     }
   ],
   "input_sha256": {
-    "web\\site_data.json": "bd093cf6107484cac0dd7e3ac97104c993389d13062fc64dea115c71b049c6c6",
-    "hanyang_menu_month.json": "919cf7247cd4bbf2c22b7b5509ea08259c93e7539744fc64f3da2d67987c079a",
-    "month_lunch_trays.json": "c95dc37a7f89e3d07f2891a72f22e0c82c3bf0a68d4bdc8354ddd1afd569ef3c",
+    "web\\site_data.json": "2afa409bc6879b06234e095148f8e638271ca3ce666f6c7b8beb1b41315e94b7",
+    "hanyang_menu_month.json": "f5cccf1e8d9d2a6be612c56c40a56fbd359fe1c890e27b3fb06274cb84b66aa2",
+    "month_lunch_trays.json": "e526fda7386e531f9e1e586a88e8ac7570ab95379ccf0c25352df07708055214",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
   },
   "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",
