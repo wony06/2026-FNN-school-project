@@ -13347,5 +13347,85 @@
   "serving_weight_g": 1100.0,
   "basis": "100ml",
   "unit": "ml"
+ },
+ "현대옥 콩나물국밥": {
+  "source": "food_db",
+  "name": "콩나물 국밥",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 60,
+   "protein": 2.6,
+   "fat": 0.73,
+   "carb": 10.69,
+   "sugar": 0.42,
+   "fiber": 0.8,
+   "ca": 22,
+   "fe": 0.43,
+   "vitA": 10,
+   "vitC": 0.33,
+   "satFat": 0.2,
+   "na": 58
+  },
+  "serving_weight_g": 830.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "돈육녹두전": {
+  "source": "gagong_db",
+  "name": "녹두전",
+  "n_dup": 6,
+  "per100": {
+   "kcal": 179.0,
+   "protein": 9.5,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.65,
+   "sugar": 1.0,
+   "na": 266.0,
+   "fat": 6.0,
+   "carb": 19.0
+  },
+  "_codes": [
+   "P123-212020300-0061",
+   "P123-209020300-0068",
+   "P123-209020300-0341",
+   "P123-209020300-0326",
+   "P123-209020300-0166",
+   "P123-209020300-0199"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "김구이": null,
+ "오징어젓무침": {
+  "source": "gagong_db",
+  "name": "오징어젓무침",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 163.0,
+   "protein": 10.25,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.3,
+   "sugar": 15.7,
+   "na": 1478.0,
+   "fat": 1.7,
+   "carb": 26.65
+  },
+  "_codes": [
+   "P120-200020200-0240"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
  }
 }

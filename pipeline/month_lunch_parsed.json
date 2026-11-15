@@ -3834,5 +3834,22 @@
   "price": "6,500원",
   "img": null,
   "cat_idx": 0
+ },
+ {
+  "date": "2026-11-16",
+  "shop": "401",
+  "shopName": "생활과학관식당",
+  "category": "**콜라보메뉴** (한정)",
+  "main": "현대옥 콩나물국밥",
+  "sides": [
+   "돈육녹두전&양파간장",
+   "김구이",
+   "오징어젓무침",
+   "포기김치",
+   "쌀밥"
+  ],
+  "price": "12,000원",
+  "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSg03sfKeaPH-qcSxr9Q/400x.png",
+  "cat_idx": 0
  }
 ]
