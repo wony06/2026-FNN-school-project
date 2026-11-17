@@ -1,17 +1,17 @@
 {
-  "meal_count": 30,
-  "excluded_calculation_component_occurrences": 12,
-  "source_supported_components_analyzed": 148,
+  "meal_count": 80,
+  "excluded_calculation_component_occurrences": 36,
+  "source_supported_components_analyzed": 429,
   "classification_counts": {
-    "unknown": 385,
-    "neis_possible": 147,
-    "name_and_neis_possible": 19,
-    "name_indicated": 19
+    "name_indicated": 38,
+    "unknown": 934,
+    "neis_possible": 487,
+    "name_and_neis_possible": 61
   },
-  "meals_with_name_evidence": 23,
-  "meals_with_neis_evidence": 22,
-  "meals_with_unknown_recipe": 30,
-  "source_evidence_records": 683,
+  "meals_with_name_evidence": 66,
+  "meals_with_neis_evidence": 67,
+  "meals_with_unknown_recipe": 80,
+  "source_evidence_records": 1114,
   "protected_sha256": {
     "web\\site_data.json": "14466d0ce5a6c90c531dde911a3e6e750e84f25260add82b72456e34449c63ed",
     "month_lunch_trays.json": "9c8dacc9ce91ae3581027847433f78b7805b39611bb96724ad9b1aaec4c65842",
@@ -19,9 +19,9 @@
     "web\\index.html": "955ebeaca2731c7ff1bfef8b66b9610a21ccbc51f85a7c761f029d09f439829e",
     "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
-    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
-    "pipeline\\hyu_allergy_incremental\\_build-eej5t6gq\\matching\\meal_matches.json": "d5c07bc37c72bd8db8ebc4223527095740149e55e268a33a23a39c232cb9b829"
+    "pipeline\\hyu_allergy_incremental\\_build-kkefgbog\\matching\\meal_matches.json": "e89c759290e53749cab820cfabcc90df254647a652ccd7e09d5422c6a24fa0b5"
   },
   "choice_or_separator_integration_withheld_meals": 0
 }

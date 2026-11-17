@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyHash": "60cdeae387a5f3799e6305962e79ffc5399f4eae9fb3b36fece493f1ff5743a0",
+  "policyHash": "157cacfea2df007eb023578d107022f96c7b01d5d178f2d45957fc42b814b9b7",
   "sourceFingerprints": {
     "[\"2026-06-23\",\"105\",\"양식\",\"등심돈까스\"]": "63e5be221b5ef8cbecab2c2663faadb38d68644c7c6b71fe68498a9ae5eefa9a",
     "[\"2026-06-23\",\"105\",\"즉석\",\"목살김치찌개\"]": "438d863b0ec0b832743b8cf039814b09f09914a4831447d540890e74450a5dc8",
@@ -532,6 +532,6 @@
     "[\"2026-11-20\",\"401\",\"**콜라보메뉴** (한정)\",\"현대옥 콩나물국밥\"]": "c4b934400bd777a6a5d7908a7ff86a48c2a4eba82825921a75643f1fffb4d681",
     "[\"2026-11-20\",\"401\",\"중식 - Korean Dining\",\"쇠고기콩나물밥&양념장\"]": "892295720dfc0d3eae31b30935ed6037ed0dde761fe4558c26bfabfc58aaf039"
   },
-  "webSha256": "6644bbf14e85d3a903639ad3f8f3fc4e2b39d4a32bc196bb08e2720fe818f8ff",
+  "webSha256": "f38f0b6f81d620e10af938117e975e7622c031e8fca1c63387a335549b18c424",
   "sourceSiteSha256": "14466d0ce5a6c90c531dde911a3e6e750e84f25260add82b72456e34449c63ed"
 }

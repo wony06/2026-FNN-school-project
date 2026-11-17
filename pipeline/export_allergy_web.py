@@ -83,10 +83,14 @@ def run(estimates_source=None, output_path=None, audit_path=None, verbose=True, 
                             'totalRecords':e['total_record_count'],'decision':'근거 보존; 추가 보정 규칙 미적용'})
             if named or active:
                 allergens.append({'code':a['number'],'nameEvidence':named,'neisEvidence':active})
-        assert not held or not allergens
+        partial = held and bool(allergens)
+        assert not partial or all(components[e['component_id']].get('user_approved_partial_integration')
+            for a in m['allergens'] for e in a['name_evidence'] + a['neis_evidence'])
         raw_key=m['meal_key']
         meals.append({'key':raw_key,'mealId':hashlib.sha256(json.dumps(raw_key,ensure_ascii=False,separators=(',',':')).encode()).hexdigest(),
-            'state':'choice_withheld' if held else 'estimated_unverified','actualIngredientsConfirmed':False,
+            'state':'partial_estimate_unverified' if partial else 'choice_withheld' if held else 'estimated_unverified',
+            **({'withheldComponents':[c['name'] for c in m['components'] if not c['integration_applied']],
+                'remainingIntegrationWithheld':True} if partial else {}),'actualIngredientsConfirmed':False,
             'allergens':allergens,'suppressed':suppressed,
             'unknownComponents':m['unknowns']['components_without_reference_match'],
             'excludedCalculationCount':len(m['excluded_calculation_components']),
@@ -102,7 +106,8 @@ def run(estimates_source=None, output_path=None, audit_path=None, verbose=True, 
     counts={str(n):sum(any(a['code']==n for a in m['allergens']) for m in meals) for n in ALLERGENS}
     audit={'policyReview':policy_audit,'menuCount':len(meals),'excludedByAllergen':counts,'suppressedEvidenceCount':len(corrections),
         'correctedMealCount':len({tuple(e['key']) for e in corrections}),
-        'choiceWithheldMenus':sum(m['state']=='choice_withheld' for m in meals),
+        'choiceWithheldMenus':sum(m['state']=='choice_withheld' or m.get('remainingIntegrationWithheld',False) for m in meals),
+        'partiallyReviewedMeals':sum(m['state']=='partial_estimate_unverified' for m in meals),
         'excludedCalculationOccurrences':sum(m['excludedCalculationCount'] for m in meals),
         'corrections':corrections,'otherPartialShellfishEvidenceRetained':review,'protectedSha256':published_hashes}
     output_path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')),encoding='utf-8')

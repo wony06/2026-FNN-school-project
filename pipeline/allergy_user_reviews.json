@@ -267,6 +267,42 @@
           "resolution": "일반 매운탕 항목 부재로 사용자 승인한 동태매운탕을 참고. 실제 어종·배합 확인 아님"
         }
       ]
+    },
+    {
+      "mealKey": [
+        "2026-11-18",
+        "105",
+        "양식",
+        "⭐️특식⭐️한양돈까스"
+      ],
+      "sourceComponent": "⭐️특식⭐️한양돈까스",
+      "reviewedAt": "2026-11-17",
+      "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+      "parts": [
+        {
+          "query": "돈까스",
+          "referenceMenu": "등심돈가스",
+          "resolution": "사용자 승인한 대체 참고. 실제 부위·제품·소스 배합 일치 확인 아님"
+        }
+      ]
+    },
+    {
+      "mealKey": [
+        "2026-11-19",
+        "105",
+        "양식",
+        "🌶️🌶️죽는다돈까스🌶️🌶️"
+      ],
+      "sourceComponent": "🌶️🌶️죽는다돈까스🌶️🌶️",
+      "reviewedAt": "2026-11-17",
+      "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+      "parts": [
+        {
+          "query": "돈까스",
+          "referenceMenu": "등심돈가스",
+          "resolution": "사용자 승인한 대체 참고. 매운 양념·제품 원재료는 미확인"
+        }
+      ]
     }
   ],
   "simultaneousMenuParts": [
@@ -299,6 +335,21 @@
       ],
       "reviewedAt": "2026-11-11",
       "statement": "사용자 확인: 두 반찬이 함께 제공됨. 택일 메뉴가 아님."
+    }
+  ],
+  "confirmedSourceComponents": [
+    {
+      "mealKey": [
+        "2026-10-28",
+        "401",
+        "중식 - Korean Dining",
+        "치킨너겟버펄로볼"
+      ],
+      "sourceComponent": "치킨너겟버펄로볼 나초파이 양송이스프/맥앤치즈 브라운브레드&버터,잼 오이피클&할라피뇨 콜라 샐러드&토핑&드레싱",
+      "confirmedMenuName": "치킨너겟버펄로볼",
+      "interpretedMenuName": "치킨너겟",
+      "reviewedAt": "2026-11-17",
+      "statement": "사용자 승인: 치킨너겟으로 해석, 메뉴명 닭고기 단서만 적용. 특정 제품 킹용가리치킨너겟의 NEIS 성분은 미적용. 나머지 구성 통합 보류 유지."
     }
   ]
 }

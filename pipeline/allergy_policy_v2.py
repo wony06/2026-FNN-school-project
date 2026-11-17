@@ -120,6 +120,26 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
             still_held = bool(re.search(r'\bor\b|또는|선택|/',remaining,flags=re.I))
             meal['unknowns']['choice_or_separator_integration_withheld'] = still_held
             for c in meal['components']: c['integration_applied'] = not still_held
+        # A user may confirm just one source dish while the remaining slash-separated
+        # meal stays withheld. Never activate the unsplit source phrase or its sides.
+        for confirmation in USER_REVIEW.get('confirmedSourceComponents', []):
+            if tuple(confirmation['mealKey']) != tuple(meal['meal_key']): continue
+            sources = [c for c in meal['components'] if c['name'] == confirmation['sourceComponent']]
+            assert len(sources) == 1, confirmation['mealKey']
+            source = sources[0]
+            name = confirmation['confirmedMenuName']
+            assert source['name'].startswith(name + ' '), name
+            confirmed = deepcopy(source)
+            confirmed.update(component_id=source['component_id'] + '-user-confirmed-main',
+                             name=name, reference_menu=None, match_type='user_name_only',
+                             source_scope='사용자가 원문에서 확인한 메인 메뉴만; 나머지 통합 보류 유지',
+                             name_indications=revised_name_evidence(name), neis_possible=[],
+                             integration_applied=True, user_approved_partial_integration=True,
+                             userReviewNotes={**confirmation, 'evidenceType':'user_confirmed_name_only',
+                                              'actualIngredientsVerified':False})
+            confirmed['unresolved']['no_confirmed_reference_match'] = True
+            confirmed['unresolved']['review_candidates_not_applied'] = []
+            meal['components'].append(confirmed)
         held = meal['unknowns']['choice_or_separator_integration_withheld']
         for component in meal['components']:
             user_notes = next((r for r in USER_REVIEW.get('batch2', [])+USER_REVIEW.get('batch3', []) if r['subject']==component['name']), None)
@@ -184,7 +204,7 @@ def apply_reviewed_overlay(root, originals, refs, source_records):
             allergen['name_evidence'] = []
             allergen['neis_evidence'] = []
             for c in meal['components']:
-                if held or not c['integration_applied']: continue
+                if not c['integration_applied'] or (held and not c.get('user_approved_partial_integration')): continue
                 base = {'component_id': c['component_id'], 'component_name': c['name']}
                 allergen['name_evidence'].extend({**base, **e} for e in c['name_indications'] if e['number']==n)
                 allergen['neis_evidence'].extend({**base, **e} for e in c['neis_possible'] if e['number']==n)

@@ -18,7 +18,8 @@ class AllergySynchronizationTest(unittest.TestCase):
         self.assertEqual(sum(r['date'] <= '2026-11-13' and '콜라보메뉴' not in r['category'] for r in rows), 484)
         self.assertEqual(sum(r['date'] == '2026-11-16' for r in rows), 7)
         self.assertEqual(sum('2026-11-09' <= m['key'][0] <= '2026-11-13' and '콜라보메뉴' not in m['key'][2] for m in export['meals']), 35)
-        self.assertEqual(sum(m['state'] == 'choice_withheld' for m in export['meals']), 50)
+        self.assertEqual(sum(m['state'] == 'choice_withheld' for m in export['meals']), 49)
+        self.assertEqual(sum(m.get('remainingIntegrationWithheld', False) for m in export['meals']), 1)
 
     def test_missing_and_duplicate_exports_fail_instead_of_passing_silently(self):
         row = {'date': '2026-11-11', 'shop': '204', 'category': '일품', 'main': '왕돈까스'}

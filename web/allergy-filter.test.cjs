@@ -67,9 +67,12 @@ test('반찬에 명시된 조개류 근거와 다른 음식의 NEIS 조개류는
   const neis=data.meals.find(m=>m.allergens.some(a=>a.code===18&&a.neisEvidence.some(e=>!e.component.includes('돈까스')&&!e.component.includes('돈가스'))));
   assert(neis);
 });
-test('확인된 두 식단 외 50개 통합 보류와 신규 미연결 메뉴는 미확인으로 유지한다',()=>{
+test('확인된 메인 외 통합 보류와 신규 미연결 메뉴는 미확인으로 유지한다',()=>{
   const held=data.meals.filter(m=>m.state==='choice_withheld');
-  assert.equal(held.length,50);
+  assert.equal(held.length,49);
+  const partial=data.meals.filter(m=>m.remainingIntegrationWithheld);
+  assert.equal(partial.length,1);
+  assert.equal(held.length+partial.length,50);
   const selected=new Set(data.allergens.map(a=>a.code));
   for(const e of held){
     const r=rows.find(r=>key(r)===JSON.stringify(e.key));
@@ -211,7 +214,7 @@ test('사용자 지정 크림파스타+빵·어묵탕 참조는 대상 4식단�
       assert(!entry.allergens.some(a=>a.neisEvidence.some(e=>e.reference.includes('빵'))));
     }
   }
-  const reviewed=data.meals.filter(m=>m.allergens.some(a=>a.neisEvidence.some(e=>e.provenance?.type==='user_approved_reference')));
+  const reviewed=data.meals.filter(m=>m.key[0]<='2026-11-06'&&m.allergens.some(a=>a.neisEvidence.some(e=>e.provenance?.type==='user_approved_reference')));
   assert.equal(reviewed.length,4);
 });
 
@@ -230,5 +233,43 @@ test('10/27 사용자 확인한 두 반찬은 각각 매칭하고 두 식단만 
     assert(meal.unknownComponents.includes('물만두*초간장'));
   }
   const unreviewed=index.get(JSON.stringify(['2026-10-28','401','중식 - Korean Dining','치킨너겟버펄로볼']));
-  assert.equal(unreviewed.state,'choice_withheld');assert.equal(unreviewed.allergens.length,0);
+  assert.equal(unreviewed.state,'partial_estimate_unverified');
+  assert.equal(unreviewed.remainingIntegrationWithheld,true);
+  assert.deepEqual(unreviewed.allergens.map(a=>a.code),[15]);
+});
+
+
+test('사용자 승인 치킨너겟은 원문 메인 닭고기만 적용하고 미확인 반찬은 통합하지 않는다',()=>{
+  const row=rows.find(r=>r.date==='2026-10-28'&&r.shop==='401'&&r.main==='치킨너겟버펄로볼');
+  const meal=index.get(key(row));
+  assert.equal(meal.state,'partial_estimate_unverified');
+  assert.equal(meal.remainingIntegrationWithheld,true);
+  assert(meal.withheldComponents.some(s=>s.includes('양송이스프/맥앤치즈')));
+  assert.deepEqual(meal.allergens.map(a=>a.code),[15]);
+  assert.equal(meal.allergens[0].neisEvidence.length,0);
+  assert(meal.allergens[0].nameEvidence.every(e=>e.component==='치킨너겟버펄로볼'));
+  assert.equal(Filter.partition([row],[15],index).excluded.length,1);
+  assert.equal(Filter.partition([row],[2,5,6,16],index).excluded.length,0);
+  assert.equal(meal.actualIngredientsConfirmed,false);
+});
+
+test('두 돈까스는 승인된 등심돈가스만 참고하고 일부 기록의 조개류는 보류한다',()=>{
+  for(const [date,main] of [['2026-11-18','⭐️특식⭐️한양돈까스'],['2026-11-19','🌶️🌶️죽는다돈까스🌶️🌶️']]){
+    const row=rows.find(r=>r.date===date&&r.shop==='105'&&r.main===main);
+    const meal=index.get(key(row));
+    assert.deepEqual(meal.allergens.map(a=>a.code),[1,2,5,6,10,12,13,16]);
+    assert(meal.allergens.every(a=>a.neisEvidence.every(e=>e.reference==='등심돈가스'&&e.provenance.type==='user_approved_reference')));
+    assert.equal(Filter.partition([row],[2],index).excluded.length,1);
+    assert.equal(Filter.partition([row],[18],index).excluded.length,0);
+    assert(meal.suppressed.some(e=>e.code===18&&e.reference==='등심돈가스'&&e.recordIds.length));
+    assert.equal(meal.actualIngredientsConfirmed,false);
+  }
+});
+
+test('추어탕은 참고 자료가 없으면 임의 성분을 만들지 않는다',()=>{
+  const row=rows.find(r=>r.date==='2026-11-20'&&r.main==='추어탕');
+  const meal=index.get(key(row));
+  assert.deepEqual(meal.allergens,[]);
+  assert(meal.unknownComponents.includes('추어탕'));
+  assert.equal(meal.actualIngredientsConfirmed,false);
 });

@@ -98,6 +98,52 @@
           }
         ],
         "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-18",
+          "105",
+          "양식",
+          "⭐️특식⭐️한양돈까스"
+        ],
+        "component": "⭐️특식⭐️한양돈까스",
+        "integrationApplied": true,
+        "subject": "⭐️특식⭐️한양돈까스",
+        "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+        "reviewedAt": "2026-11-17",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "돈까스",
+            "referenceMenu": "등심돈가스",
+            "resolution": "사용자 승인한 대체 참고. 실제 부위·제품·소스 배합 일치 확인 아님"
+          }
+        ],
+        "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-19",
+          "105",
+          "양식",
+          "🌶️🌶️죽는다돈까스🌶️🌶️"
+        ],
+        "component": "🌶️🌶️죽는다돈까스🌶️🌶️",
+        "integrationApplied": true,
+        "subject": "🌶️🌶️죽는다돈까스🌶️🌶️",
+        "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+        "reviewedAt": "2026-11-17",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "돈까스",
+            "referenceMenu": "등심돈가스",
+            "resolution": "사용자 승인한 대체 참고. 매운 양념·제품 원재료는 미확인"
+          }
+        ],
+        "unknownParts": []
       }
     ],
     "aliasMatches": [
@@ -1433,6 +1479,42 @@
               "resolution": "일반 매운탕 항목 부재로 사용자 승인한 동태매운탕을 참고. 실제 어종·배합 확인 아님"
             }
           ]
+        },
+        {
+          "mealKey": [
+            "2026-11-18",
+            "105",
+            "양식",
+            "⭐️특식⭐️한양돈까스"
+          ],
+          "sourceComponent": "⭐️특식⭐️한양돈까스",
+          "reviewedAt": "2026-11-17",
+          "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+          "parts": [
+            {
+              "query": "돈까스",
+              "referenceMenu": "등심돈가스",
+              "resolution": "사용자 승인한 대체 참고. 실제 부위·제품·소스 배합 일치 확인 아님"
+            }
+          ]
+        },
+        {
+          "mealKey": [
+            "2026-11-19",
+            "105",
+            "양식",
+            "🌶️🌶️죽는다돈까스🌶️🌶️"
+          ],
+          "sourceComponent": "🌶️🌶️죽는다돈까스🌶️🌶️",
+          "reviewedAt": "2026-11-17",
+          "statement": "사용자 승인: 일반 돈까스로 해석하고 NEIS 등심돈가스 자료를 참고",
+          "parts": [
+            {
+              "query": "돈까스",
+              "referenceMenu": "등심돈가스",
+              "resolution": "사용자 승인한 대체 참고. 매운 양념·제품 원재료는 미확인"
+            }
+          ]
         }
       ],
       "simultaneousMenuParts": [
@@ -1466,6 +1548,21 @@
           "reviewedAt": "2026-11-11",
           "statement": "사용자 확인: 두 반찬이 함께 제공됨. 택일 메뉴가 아님."
         }
+      ],
+      "confirmedSourceComponents": [
+        {
+          "mealKey": [
+            "2026-10-28",
+            "401",
+            "중식 - Korean Dining",
+            "치킨너겟버펄로볼"
+          ],
+          "sourceComponent": "치킨너겟버펄로볼 나초파이 양송이스프/맥앤치즈 브라운브레드&버터,잼 오이피클&할라피뇨 콜라 샐러드&토핑&드레싱",
+          "confirmedMenuName": "치킨너겟버펄로볼",
+          "interpretedMenuName": "치킨너겟",
+          "reviewedAt": "2026-11-17",
+          "statement": "사용자 승인: 치킨너겟으로 해석, 메뉴명 닭고기 단서만 적용. 특정 제품 킹용가리치킨너겟의 NEIS 성분은 미적용. 나머지 구성 통합 보류 유지."
+        }
       ]
     },
     "mealKeyRenames": [
@@ -1487,29 +1584,30 @@
   },
   "menuCount": 529,
   "excludedByAllergen": {
-    "1": 276,
-    "2": 256,
+    "1": 278,
+    "2": 258,
     "3": 23,
     "4": 5,
-    "5": 367,
-    "6": 352,
+    "5": 369,
+    "6": 354,
     "7": 54,
     "8": 108,
     "9": 259,
-    "10": 230,
+    "10": 232,
     "11": 6,
-    "12": 162,
-    "13": 356,
+    "12": 164,
+    "13": 358,
     "14": 0,
-    "15": 135,
-    "16": 216,
+    "15": 136,
+    "16": 218,
     "17": 51,
     "18": 267,
     "19": 0
   },
-  "suppressedEvidenceCount": 175,
-  "correctedMealCount": 103,
+  "suppressedEvidenceCount": 177,
+  "correctedMealCount": 105,
   "choiceWithheldMenus": 50,
+  "partiallyReviewedMeals": 1,
   "excludedCalculationOccurrences": 1164,
   "corrections": [
     {
@@ -5397,6 +5495,64 @@
       "reviewedAt": "2026-11-04",
       "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
       "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-18",
+        "105",
+        "양식",
+        "⭐️특식⭐️한양돈까스"
+      ],
+      "code": 18,
+      "component": "⭐️특식⭐️한양돈까스",
+      "reference": "등심돈가스",
+      "provenance": {
+        "type": "user_approved_reference",
+        "reviewedAt": "2026-11-17",
+        "requestedQuery": "돈까스",
+        "resolution": "사용자 승인한 대체 참고. 실제 부위·제품·소스 배합 일치 확인 아님",
+        "actualIngredientsVerified": false
+      },
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "105",
+        "양식",
+        "🌶️🌶️죽는다돈까스🌶️🌶️"
+      ],
+      "code": 18,
+      "component": "🌶️🌶️죽는다돈까스🌶️🌶️",
+      "reference": "등심돈가스",
+      "provenance": {
+        "type": "user_approved_reference",
+        "reviewedAt": "2026-11-17",
+        "requestedQuery": "돈까스",
+        "resolution": "사용자 승인한 대체 참고. 매운 양념·제품 원재료는 미확인",
+        "actualIngredientsVerified": false
+      },
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -9560,8 +9716,8 @@
     "web\\site_data.json": "14466d0ce5a6c90c531dde911a3e6e750e84f25260add82b72456e34449c63ed",
     "web\\menu_exchange_snapshot.json": "83faa790e0cec52f09ba21840b0cd9d5e3ece71eb745f1cb5ad667929a3324e7",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
-    "web\\recommendation-view.js": "8d84ee14f6053d33d7106931fda4dffd4b9f727535cd99a3254c79940be9adce",
-    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
+    "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
     "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "656d46f2732f43fb9b600b5b6fb39e3844094942cdff4a39ead2e007fd8c8464",
