@@ -873,6 +873,28 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     # 2026-11-16 사용자 지정: 플라자(105) 포함 전 매장 공통 교환단위 대체 별칭(decompose로 생긴 메인 등).
     universal_exchange_aliases = {
         "된장찌개_소고기": "소고기된장찌개",  # 고깃집 분해 메인 - MenuGen 소고기된장찌개로 교환단위 매칭
+        # 2026-11-18 사용자 지정: 한플(105)·신소재(204) 11/16~20 교환단위 미매칭 후보 매칭.
+        "소고기쌀국수": "쌀국수",              # menugen 쌀국수
+        "매콤돈갈비찜": "갈비찜",               # menugen 갈비찜
+        "돼지김치찌개": "김치찌개(돼지고기)",      # menugen
+        "⭐️특식⭐️한양돈까스": "돈가스",         # menugen 돈가스(장식 제거)
+        "가쓰오계란말이": "계란말이",            # menugen 계란말이
+        "짜장덮밥": "돼지고기짜장덮밥",           # menugen
+        "콩나물불고기": "불고기(돼지고기)",        # menugen 불고기(콩나물은 미반영)
+        "맑은어묵국": "어묵국",                # menugen 어묵국
+        "돈가스나베": "돈가스",                # menugen 돈가스(추후 사진확인)
+        "동그랑땡구이": "완자전(돼지고기)",        # menugen 완자전(동그랑땡은 plaza에서만 해석돼 교체)
+        "고추잡채군만두": "고추잡채",            # recipe_db 고추잡채(군만두는 미반영)
+        "새우볼": "두부 새우볼",               # recipe_db 두부 새우볼
+        "다시마무채국": "무국",                # db104 무국
+        "해쉬브라운": "감자",                 # menugen 감자(조리)
+        "돼지불백덮밥": "불고기덮밥",            # recipe_db 불고기덮밥 통째 매칭(사용자 지정, 분해 대신)
+        "부타나베": "밀푀유나베",              # menugen 밀푀유나베(돼지 나베 최대 유사)
+        "오야꼬동": "닭고기덮밥",              # menugen 닭고기덮밥(닭+밥 덮밥 유사, 계란 미반영)
+        # DECOMPOSE 컴포넌트 교환 매칭(도리아·불닭새송이조림)
+        "모짜렐라치즈": "치즈(모짜렐라)",         # menugen
+        "새송이버섯": "느타리버섯",             # db104(새송이=큰느타리, 채소군)
+        "볶음밥": "쌀밥",                    # menugen 쌀밥(도리아 밥 베이스 곡류, 조리유 미반영)
     }
     if name in universal_exchange_aliases:
         name = universal_exchange_aliases[name]
@@ -1229,6 +1251,31 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         return {"matched": True, "units": units, "source": "menugen+db104_direct",
                 "matched_name": "닭갈비 + 쌀밥", "unresolved_ingredients": [],
                 "recipe_note": f"닭갈비볶음밥: 표준중량(210g) 중 MenuGen 닭갈비 {dakgalbi_w:g}g + 쌀밥 {rice_w:g}g으로 분해(볶음밥 조리유는 미반영)."}
+    if name == "옛날소세지":
+        # 2026-11-18 사용자 지정: 옛날소세지(구이)는 db104 돈육 비엔나소시지 원물로 교환단위 계산
+        # (영양성분 매칭과 동일 레코드). db104 직접매칭은 "소시지,말린것"으로 오매칭돼 명시 지정.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        rec = DB104_BY_NAME.get("소시지, 위너(비엔나)소시지")
+        if rec is None or not _add_ingredient(units, rec["식품군"], rec, weight_g):
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["소시지, 위너(비엔나)소시지"]}
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": "소시지, 위너(비엔나)소시지", "matched_ingredients": ["소시지, 위너(비엔나)소시지"],
+                "unresolved_ingredients": [],
+                "recipe_note": f"옛날소세지: 사용자 지정 - 돈육 비엔나소시지 원물(db104)로 제공량 {weight_g:g}g 환산(영양성분과 동일 레코드)."}
+    if name == "사리곰탕면":
+        # 2026-11-18 사용자 지정: 사리곰탕면 = 곰탕(국물, item 중량) + 사리면. 면은 밥 표준중량(210g)을
+        # 그대로 소면으로 매칭(곡류군). 곰탕은 food_db 단백질 간이환산(어육류군), 소면은 MenuGen.
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        r_broth = compute_exchange_units("곰탕", weight_g, use_plaza_servings=use_plaza_servings)
+        noodle = DB104_BY_NAME.get("국수, 소면, 말린것, 삶은것")
+        if not r_broth.get("matched") or noodle is None:
+            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["곰탕" if not r_broth.get("matched") else "소면"]}
+        for group in EXCHANGE_GROUPS:
+            units[group] += r_broth["units"].get(group, 0.0)
+        _add_ingredient(units, noodle["식품군"], noodle, 210.0)   # 사리면 = 삶은 소면 210g(밥 표준중량)
+        return {"matched": True, "units": units, "source": "db104_direct+food_db_estimate",
+                "matched_name": "곰탕 + 소면", "unresolved_ingredients": [],
+                "recipe_note": f"사리곰탕면: 사용자 지정 - 곰탕 국물(제공량 {weight_g:g}g, food_db 단백질 간이환산) + 사리면(삶은 소면 db104, 밥 표준중량 210g 적용)으로 분해."}
     result = _from_custom_recipe(name, weight_g)
     if result is None:
         result = _from_external_recipe(name, weight_g)

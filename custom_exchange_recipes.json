@@ -3791,5 +3791,49 @@
   "source": "식약처 조리식품 레시피 크림치즈떡볶이(seq463) 변형",
   "created": "2026-11-16",
   "batch_recipe": true
+ },
+ {
+  "name": "타코야끼",
+  "weight_g": 1550,
+  "batch_recipe": true,
+  "ingredients": [
+   {
+    "food_name": "밀, 중력밀가루",
+    "food_group": "곡류 및 그 제품",
+    "weight_g": 220
+   },
+   {
+    "food_name": "달걀, 생것",
+    "food_group": "난류",
+    "weight_g": 50
+   },
+   {
+    "food_name": "문어, 삶은것",
+    "food_group": "어패류 및 그 제품",
+    "weight_g": 200
+   },
+   {
+    "food_name": "버터, 가염",
+    "food_group": "유지류",
+    "weight_g": 100
+   },
+   {
+    "food_name": "부추, 재래종, 생것",
+    "food_group": "채소류",
+    "weight_g": 30
+   },
+   {
+    "food_name": "파, 대파, 생것",
+    "food_group": "채소류",
+    "weight_g": 200
+   },
+   {
+    "food_name": "다랑어, 가다랑어, 생것",
+    "food_group": "어패류 및 그 제품",
+    "weight_g": 10
+   }
+  ],
+  "calculation_source": "db104_direct",
+  "assumptions": "사용자 지정 레시피(배치) 기준 교환단위 계산 후 일반 반찬 72.2g로 비례 축소. 반죽물(밀가루220·물600·달걀50·베이킹소다·굴소스30)+문어200·버터100·부추30·파채200·가쓰오부시10 전체 배치 ~1550g 기준. 물·베이킹소다·타코야끼소스·마요네즈·모밀소스·굴소스는 교환군 없어 제외."
  }
 ]
