@@ -285,6 +285,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <link rel="stylesheet" href="modern.css?v=20261103-allergy-numbers-v3">
 <link rel="stylesheet" href="flow.css?v=20261111-mobile-v1">
 <link rel="stylesheet" href="meal-diary.css?v=20261112-horizontal-portions">
+<link rel="stylesheet" href="component-nutrition.css?v=20261117-inline-v2">
 
 <header class="flow-header">
 <a href="#step=0" id="guideHome" class="guide-brand"><span class="brand-mark" aria-hidden="true">H</span><span>HYU Menu Guide</span></a>
@@ -648,6 +649,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
 <script src="flow-ui.js?v=20261111-resume-visible-v3"></script>
 <script src="meal-serving.js?v=category-20261112"></script>
 <script src="meal-diary.js?v=category-20261112-horizontal-portions"></script>
+<script src="component-nutrition.js?v=20261117-inline-v2"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
 const SHOP_LABEL = {"105":"한양플라자","401":"생활과학대학","204":"신소재공학관"};
@@ -880,7 +882,6 @@ function srcGroup(label, names){
 }
 
 function nutriTabHtml(item){
-  const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
   const warnTags = (item.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
   const db = item.matchedDb || {};
   const srcHtml = srcGroup("조리식품DB", db.foodDb) + srcGroup("레시피 분해(원재료DB)", db.recipeDecompose) + srcGroup("가공식품DB", db.gagongDb);
@@ -920,14 +921,13 @@ function nutriTabHtml(item){
       <tr><td>비타민A</td><td>${item.vitA.toFixed(1)} ㎍RAE</td></tr>
       <tr><td>비타민C</td><td>${item.vitC.toFixed(1)} mg</td></tr>
     </table>
-    ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
+    ${ComponentNutrition.render(item)}
     ${warnTags ? `<div><div class="section-title">미매칭 구성요소</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 3개 영양DB(식약처 통합DB·가공식품DB·국가표준식품성분표) 어디에도 매칭되지 않아 전체 영양성분 합산에서 제외되었습니다. 실제 섭취 열량·영양소는 표시값보다 높을 수 있습니다.</div></div>` : ""}
   `;
 }
 
 function exchangeTabHtml(item){
   const eu = item.friendExchangeUnits;
-  const compTags = (item.components||[]).map(u=>`<span class="tag">${u}</span>`).join("");
   const warnTags = (eu.unmatched||[]).map(u=>`<span class="tag warn">${u}</span>`).join("");
   const db = eu.matchedDb || {};
   const srcHtml = srcGroup("MenuGen", db.menugen) + srcGroup("레시피DB", db.recipeDb) + srcGroup("원재료DB 직접매칭", db.db104);
@@ -940,7 +940,7 @@ function exchangeTabHtml(item){
       <tr><td>채소군</td><td>${eu.veg.toFixed(2)} 단위</td></tr>
       <tr><td>지방군</td><td>${eu.fat.toFixed(2)} 단위</td></tr>
     </table>
-    ${compTags ? `<div><div class="section-title">구성요소</div><div class="taglist">${compTags}</div></div>` : ""}
+    ${ComponentNutrition.render(item)}
     ${warnTags ? `<div><div class="section-title">미매칭 항목</div><div class="taglist">${warnTags}</div><div class="footnote">위 항목은 교환단위 계산용 DB(MenuGen·조리식품 레시피DB·원재료DB)에서 찾지 못해 교환단위 합산에서 제외되었습니다.</div></div>` : ""}
   `;
 }
@@ -953,6 +953,7 @@ let sheetRankScope = '전체';
 function renderSheetTab(){
   const panel = document.getElementById("sheetPanel");
   panel.innerHTML = sheetTab === "nutri" ? nutriTabHtml(sheetItem) : exchangeTabHtml(sheetItem);
+  ComponentNutrition.mount(panel,sheetItem);
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === sheetTab));
 }
 

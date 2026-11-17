@@ -17,8 +17,8 @@ test('검토된 식단 키가 정확히 1:1 연결되고 중복 키는 거부한
   assert.throws(()=>Filter.buildIndex({...data,meals:[...data.meals,data.meals[0]]}),/중복/);
 });
 test('우유·새우·밀·조개류 제외 수와 다중 선택 OR 동작',()=>{
-  const historical=rows.filter(r=>r.date<='2026-11-06');
-  const beforeNov16=rows.filter(r=>r.date<='2026-11-13');
+  const historical=rows.filter(r=>r.date<='2026-11-06'&&!r.category.includes('콜라보메뉴'));
+  const beforeNov16=rows.filter(r=>r.date<='2026-11-13'&&!r.category.includes('콜라보메뉴'));
   for(const [code,oldCount,count] of [[2,212,232],[9,207,229],[6,285,315],[18,215,240]]){
     assert.equal(Filter.partition(historical,[code],index).excluded.length,oldCount);
     assert.equal(Filter.partition(beforeNov16,[code],index).excluded.length,count);
@@ -32,10 +32,21 @@ test('우유·새우·밀·조개류 제외 수와 다중 선택 OR 동작',()=>
 });
 
 test('11월 16일 신규 6개 식단은 기존 근거 규칙으로 연결하고 이전 식단과 분리 집계한다',()=>{
-  const added=rows.filter(r=>r.date==='2026-11-16');
+  const added=rows.filter(r=>r.date==='2026-11-16'&&!r.category.includes('콜라보메뉴'));
   assert.equal(added.length,6);
   assert(added.every(r=>index.has(key(r))));
-  for(const [code,count] of [[2,4],[9,2],[6,5],[18,3]])assert.equal(Filter.partition(added,[code],index).excluded.length,count);
+  // 11/17 user-approved official name corrections: 전복미역국 / 소고기쌀국수.
+  assert(added.some(r=>r.shop==='105'&&r.category==='즉석'&&r.main==='전복미역국'));
+  assert(added.some(r=>r.shop==='204'&&r.category==='일품'&&r.main==='소고기쌀국수'));
+  for(const [code,count] of [[2,4],[9,3],[6,6],[18,3]])assert.equal(Filter.partition(added,[code],index).excluded.length,count);
+});
+
+test('11월 17~20일 중식은 콜라보 포함 하루 7개씩 정확한 알레르기 식단 키로 연결된다',()=>{
+  for(const date of ['2026-11-17','2026-11-18','2026-11-19','2026-11-20']){
+    const added=rows.filter(r=>r.date===date);
+    assert.equal(added.length,7,date);
+    assert(added.every(r=>index.has(key(r))),date);
+  }
 });
 test('고구마치즈돈까스 조개류 1/2 기록은 미확인으로 보존하고 자동 제외하지 않는다',()=>{
   const cutlets=rows.filter(r=>r.main==='고구마치즈돈까스'&&index.has(key(r)));

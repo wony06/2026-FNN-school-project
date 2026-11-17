@@ -1,0 +1,488 @@
+{
+  "remoteBase": "b496b6f8f79708372ed79e4c3ca604505587c4d2",
+  "latestMainMenus": 501,
+  "totalMenus": 529,
+  "newMenus": 28,
+  "ordinaryNewMenus": 24,
+  "collaborationNewMenus": 4,
+  "byDate": {
+    "2026-11-17": 7,
+    "2026-11-18": 7,
+    "2026-11-19": 7,
+    "2026-11-20": 7
+  },
+  "photosByDate": {
+    "2026-11-16": 7,
+    "2026-11-17": 7,
+    "2026-11-18": 1,
+    "2026-11-19": 1,
+    "2026-11-20": 1
+  },
+  "preservedOtherLatestMainMeals": 499,
+  "approvedCorrections": [
+    {
+      "date": "2026-11-16",
+      "shop": "105",
+      "category": "즉석",
+      "oldMain": "고깃집된장찌개ㅁ전복미역국",
+      "oldSource": {
+        "category": "즉석",
+        "name": "고깃집된장찌개ㅁ전복미역국",
+        "desc": "왕만두 무말랭이 김치",
+        "price": "4,800원",
+        "img": null
+      },
+      "newSource": {
+        "category": "즉석",
+        "name": "전복미역국",
+        "desc": "왕만두 무말랭이 김치",
+        "price": "4,800원",
+        "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHh57rcfkWLFnZ9k-MiiQ/400x.jpg"
+      },
+      "authorization": "2026-11-17 사용자 재확인: 공식 원문 정정 적용·최신 코드로 재계산",
+      "before": {
+        "main": "고깃집된장찌개ㅁ전복미역국",
+        "kcal": 773.2,
+        "nrf": -4.7,
+        "unmatched": [],
+        "exchangeUnits": {
+          "grain": 3.5,
+          "meat": 2.07,
+          "veg": 4.44,
+          "fat": 0.59,
+          "dairy": 0.0,
+          "fruit": 0.0,
+          "unmatched": [],
+          "externalRecipes": [],
+          "recipeNotes": [
+            "된장찌개_소고기 → 소고기된장찌개: 사용자 지정 교환단위 대체 매칭(MenuGen). 기존 추정 제공량 283g 적용. 영양성분·메뉴 표시명 유지.",
+            "무말랭이: 사용자 지정 교정. 건조 상태 '무말랭이, 말린것'을 완성 제공량에 그대로 적용해 채소군이 과대(약 15교환)되던 것을 실제 무친 반찬 기준(무말랭이무침 레시피)으로 교체. 영양성분·메뉴명 유지."
+          ],
+          "matchedDb": {
+            "menugen": [
+              "된장찌개_소고기",
+              "전복미역국",
+              "왕만두",
+              "쌀밥"
+            ],
+            "recipeDb": [],
+            "db104": [
+              "무, 조선무, 생것",
+              "김치"
+            ]
+          }
+        }
+      },
+      "after": {
+        "main": "전복미역국",
+        "kcal": 665.4,
+        "nrf": -3.8,
+        "unmatched": [],
+        "exchangeUnits": {
+          "grain": 3.5,
+          "meat": 0.98,
+          "veg": 3.41,
+          "fat": 0.59,
+          "dairy": 0.0,
+          "fruit": 0.0,
+          "unmatched": [],
+          "externalRecipes": [],
+          "recipeNotes": [
+            "무말랭이: 사용자 지정 교정. 건조 상태 '무말랭이, 말린것'을 완성 제공량에 그대로 적용해 채소군이 과대(약 15교환)되던 것을 실제 무친 반찬 기준(무말랭이무침 레시피)으로 교체. 영양성분·메뉴명 유지."
+          ],
+          "matchedDb": {
+            "menugen": [
+              "전복미역국",
+              "왕만두",
+              "쌀밥"
+            ],
+            "recipeDb": [],
+            "db104": [
+              "무, 조선무, 생것",
+              "김치"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "date": "2026-11-16",
+      "shop": "204",
+      "category": "일품",
+      "oldMain": "쌀국수",
+      "oldSource": {
+        "category": "일품",
+        "name": "쌀국수 추가밥 분모자크림떡볶이 김말이강정 단무지무침 배추김치 복숭아티",
+        "desc": "-",
+        "price": "6,500원",
+        "img": null
+      },
+      "newSource": {
+        "category": "일품",
+        "name": "소고기쌀국수 추가밥 분모자크림떡볶이 김말이강정 단무지무침 배추김치 복숭아티",
+        "desc": "-",
+        "price": "6,500원",
+        "img": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHiHD4Zd9G9s_HRCf97WQ/400x.jpg"
+      },
+      "authorization": "2026-11-17 사용자 재확인: 공식 원문 정정 적용·최신 코드로 재계산",
+      "before": {
+        "main": "쌀국수",
+        "kcal": 669.8,
+        "nrf": -15.3,
+        "unmatched": [],
+        "exchangeUnits": {
+          "grain": 4.01,
+          "meat": 0.31,
+          "veg": 3.09,
+          "fat": 0.33,
+          "dairy": 0.09,
+          "fruit": 0.0,
+          "unmatched": [],
+          "externalRecipes": [],
+          "recipeNotes": [
+            "2026-11-16 사용자 지정: 크림치즈떡볶이(식약처 레시피) 배합에서 떡볶이떡100g을 분모자당면(원재료DB \"당면, 분모자, 삶은것\", 삶은 상태)으로 전량 대체해 영양성분 재계산. 재료별 100g당 성분은 가공식품DB/원재료DB 매칭값(펜네·치즈·육수 등 db104 미수록분 포함). 배치 360.3g 기준 per100 산출 후 표시용 사이드 중량에 적용. 실제 급식 배합·제품·제공량 미확인 대체 추정.",
+            "김말이강정: 사용자 제공 레시피(당면 80g, 김밥용 김 2~3장≈5g, 간장 1T=15g, 튀김가루 100g, 소금 약간≈1g, 전분 1T≈8g) 기준. 차가운 물 90~100㎖는 영양 기여가 없어 제외. 레시피 총중량 209g을 기존 1인분 추정 제공량(86g, 일반 반찬 평균)에 비례 환산. db104 \"김말이튀김\"은 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어 계산 불가했던 것을 원재료 단위로 분해해 해결. 튀김 흡수유는 중량 미확인으로 미반영(샐러드돈가스 처리와 동일), 강정 양념소스도 원 레시피에 없어 미반영. 계량 환산 기준: 출처 레시피 사이트의 \"계량법 안내\"를 1순위로 적용 - 저울 실측 제시값(양파 1개 170g, 대파 1/2대 70g→1대 140g, 마늘·생강 1톨 5g, 돼지고기 1토막 100g, 생선 1토막 85g, 무 1토막 150g)과 부피 기준(1T=15㎖, 1t=5㎖, 1C=200㎖, 1g=1㎖)을 그대로 사용. 액체·유지류는 1㎖=1g으로 환산. 가루류·다진 재료는 자료가 그람수를 제시하지 않아(밥숟가락 비교만 있음) 일반 조리 환산값 사용(밀가루 9g/T, 설탕 12g/T, 전분 8g/T, 빵가루 5g/T, 깨소금 8g/T, 다진마늘 10g/T, 다진대파 6g/T, 소금 15g/T).",
+            "단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영.",
+            "복숭아티: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+          ],
+          "matchedDb": {
+            "menugen": [
+              "쌀국수",
+              "단무지무침",
+              "배추김치"
+            ],
+            "recipeDb": [],
+            "db104": []
+          }
+        }
+      },
+      "after": {
+        "main": "소고기쌀국수",
+        "kcal": 1042.6,
+        "nrf": -18.5,
+        "unmatched": [],
+        "exchangeUnits": {
+          "grain": 2.8,
+          "meat": 0.0,
+          "veg": 2.5,
+          "fat": 0.33,
+          "dairy": 0.09,
+          "fruit": 0.0,
+          "unmatched": [
+            "소고기쌀국수"
+          ],
+          "externalRecipes": [],
+          "recipeNotes": [
+            "2026-11-16 사용자 지정: 크림치즈떡볶이(식약처 레시피) 배합에서 떡볶이떡100g을 분모자당면(원재료DB \"당면, 분모자, 삶은것\", 삶은 상태)으로 전량 대체해 영양성분 재계산. 재료별 100g당 성분은 가공식품DB/원재료DB 매칭값(펜네·치즈·육수 등 db104 미수록분 포함). 배치 360.3g 기준 per100 산출 후 표시용 사이드 중량에 적용. 실제 급식 배합·제품·제공량 미확인 대체 추정.",
+            "김말이강정: 사용자 제공 레시피(당면 80g, 김밥용 김 2~3장≈5g, 간장 1T=15g, 튀김가루 100g, 소금 약간≈1g, 전분 1T≈8g) 기준. 차가운 물 90~100㎖는 영양 기여가 없어 제외. 레시피 총중량 209g을 기존 1인분 추정 제공량(86g, 일반 반찬 평균)에 비례 환산. db104 \"김말이튀김\"은 \"조리가공식품류\"로 분류돼 식품교환군 매핑이 없어 계산 불가했던 것을 원재료 단위로 분해해 해결. 튀김 흡수유는 중량 미확인으로 미반영(샐러드돈가스 처리와 동일), 강정 양념소스도 원 레시피에 없어 미반영. 계량 환산 기준: 출처 레시피 사이트의 \"계량법 안내\"를 1순위로 적용 - 저울 실측 제시값(양파 1개 170g, 대파 1/2대 70g→1대 140g, 마늘·생강 1톨 5g, 돼지고기 1토막 100g, 생선 1토막 85g, 무 1토막 150g)과 부피 기준(1T=15㎖, 1t=5㎖, 1C=200㎖, 1g=1㎖)을 그대로 사용. 액체·유지류는 1㎖=1g으로 환산. 가루류·다진 재료는 자료가 그람수를 제시하지 않아(밥숟가락 비교만 있음) 일반 조리 환산값 사용(밀가루 9g/T, 설탕 12g/T, 전분 8g/T, 빵가루 5g/T, 깨소금 8g/T, 다진마늘 10g/T, 다진대파 6g/T, 소금 15g/T).",
+            "단무지무침: MenuGen 단무지 기준 대체 계산. 추가 양념은 미반영.",
+            "복숭아티: 사용자 지정으로 식품교환단위 계산과 미매칭 목록에서 제외. 교환단위가 0이라는 의미가 아니며, 영양성분 계산과 메뉴 표시명은 유지."
+          ],
+          "matchedDb": {
+            "menugen": [
+              "단무지무침",
+              "배추김치"
+            ],
+            "recipeDb": [],
+            "db104": []
+          }
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "date": "2026-11-17",
+      "shop": "105",
+      "category": "양식",
+      "main": "치즈돈까스",
+      "photo": "7c212aed4511da0ce510d055.jpg",
+      "unmatched": [],
+      "sourceMenuText": "치즈돈까스"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "105",
+      "category": "즉석",
+      "main": "돼지김치찌개&라면사리",
+      "photo": "49a8663f5ce435ef849369f7.jpg",
+      "unmatched": [
+        "옛날소세지"
+      ],
+      "sourceMenuText": "돼지김치찌개&라면사리"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "105",
+      "category": "한식",
+      "main": "돼지불백덮밥",
+      "photo": "9027e1494a20cdc0d1c4a9e5.jpg",
+      "unmatched": [
+        "돼지불백덮밥",
+        "옛날소세지"
+      ],
+      "sourceMenuText": "돼지불백덮밥"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "204",
+      "category": "일품",
+      "main": "치즈함박스테이크",
+      "photo": "37a1187e97e42cd7cc43f0cc.jpg",
+      "unmatched": [],
+      "sourceMenuText": "치즈함박스테이크 미니우동 타코야끼 요구르트 오이피클 배추김치 식혜"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "204",
+      "category": "정식",
+      "main": "매콤돈갈비찜",
+      "photo": "1fb9d6083eac99b4eef799dc.jpg",
+      "unmatched": [
+        "매콤돈갈비찜",
+        "다시마무채국"
+      ],
+      "sourceMenuText": "매콤돈갈비찜 흑미밥 다시마무채국 탕수육 숙주나물 배추김치 식혜"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "401",
+      "category": "**콜라보메뉴** (한정)",
+      "main": "현대옥 콩나물국밥",
+      "photo": "780ab412b36e4c155b810023.jpg",
+      "unmatched": [],
+      "sourceMenuText": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥"
+    },
+    {
+      "date": "2026-11-17",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "main": "참치회덮밥",
+      "photo": "b545d0d070a5cbc6d1588124.jpg",
+      "unmatched": [
+        "참치회덮밥"
+      ],
+      "sourceMenuText": "참치회덮밥 유부장국 찐만두 마카로니샐러드 락교&포기김치"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "105",
+      "category": "양식",
+      "main": "⭐️특식⭐️한양돈까스",
+      "photo": null,
+      "unmatched": [
+        "⭐️특식⭐️한양돈까스"
+      ],
+      "sourceMenuText": "⭐️특식⭐️한양돈까스"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "105",
+      "category": "즉석",
+      "main": "부타나베",
+      "photo": null,
+      "unmatched": [
+        "부타나베"
+      ],
+      "sourceMenuText": "부타나베"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "105",
+      "category": "한식",
+      "main": "오야꼬동",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "오야꼬동"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "204",
+      "category": "일품",
+      "main": "깍두기볶음밥",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "깍두기볶음밥 잔치국수 해쉬브라운*케찹 참치펜네샐러드 요구르트 배추김치 그린샐러드"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "204",
+      "category": "정식",
+      "main": "순대국밥",
+      "photo": null,
+      "unmatched": [
+        "불닭새송이조림"
+      ],
+      "sourceMenuText": "순대국밥 흑미밥 야채춘권*칠리소스 불닭새송이조림 부추무침 배추김치 그린샐러드"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "401",
+      "category": "**콜라보메뉴** (한정)",
+      "main": "현대옥 콩나물국밥",
+      "photo": "5aa176bf1dd2fb2439fe574f.jpg",
+      "unmatched": [],
+      "sourceMenuText": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥"
+    },
+    {
+      "date": "2026-11-18",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "main": "불향제육볶음",
+      "photo": null,
+      "unmatched": [
+        "불향제육볶음"
+      ],
+      "sourceMenuText": "불향제육볶음 차돌된장찌개 한식잡채 콩나물무침 김치2종 쌀밥"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "105",
+      "category": "양식",
+      "main": "🌶️🌶️죽는다돈까스🌶️🌶️",
+      "photo": null,
+      "unmatched": [
+        "🌶️🌶️죽는다돈까스🌶️🌶️",
+        "🌶️(많이",
+        "매움)🌶️"
+      ],
+      "sourceMenuText": "🌶️🌶️죽는다돈까스🌶️🌶️"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "105",
+      "category": "즉석",
+      "main": "사리곰탕면",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "사리곰탕면"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "105",
+      "category": "한식",
+      "main": "새우튀김알밥",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "새우튀김알밥"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "204",
+      "category": "일품",
+      "main": "짜장덮밥",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "짜장덮밥 미니짬뽕 고추잡채군만두 마카로니샐러드 비트무피클 배추김치 석류차"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "204",
+      "category": "정식",
+      "main": "콩나물불고기",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "콩나물불고기 흑미밥 맑은어묵국 해물까스*타르소스 비엔나굴소스볶음 배추김치 석류차"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "401",
+      "category": "**콜라보메뉴** (한정)",
+      "main": "현대옥 콩나물국밥",
+      "photo": "70ff2456c34a4f856e5102cd.jpg",
+      "unmatched": [],
+      "sourceMenuText": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥"
+    },
+    {
+      "date": "2026-11-19",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "main": "새우튀김우동",
+      "photo": null,
+      "unmatched": [
+        "크리미양파타코야끼",
+        "참깨조미밥"
+      ],
+      "sourceMenuText": "새우튀김우동 크리미양파타코야끼 단무지&산고추 김치2종 참깨조미밥"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "105",
+      "category": "양식",
+      "main": "생선까스",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "<채식의날>생선까스"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "105",
+      "category": "즉석",
+      "main": "추어탕",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "<채식의날>추어탕"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "105",
+      "category": "한식",
+      "main": "꼬막비빔밥",
+      "photo": null,
+      "unmatched": [],
+      "sourceMenuText": "<채식의날>꼬막비빔밥"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "204",
+      "category": "일품",
+      "main": "김치치즈도리아",
+      "photo": null,
+      "unmatched": [
+        "김치치즈도리아"
+      ],
+      "sourceMenuText": "김치치즈도리아 우동국물 로제스파게티 새우볼*칠리소스 요구르트 배추김치 알새우칩"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "204",
+      "category": "정식",
+      "main": "돈가스나베",
+      "photo": null,
+      "unmatched": [
+        "돈가스나베",
+        "물만두국",
+        "동그랑땡구이"
+      ],
+      "sourceMenuText": "돈가스나베 흑미밥 물만두국 동그랑땡구이*케찹 오복지무침 배추김치 알새우칩"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "401",
+      "category": "**콜라보메뉴** (한정)",
+      "main": "현대옥 콩나물국밥",
+      "photo": "2b728dd0c95cfabb2bdde0de.jpg",
+      "unmatched": [],
+      "sourceMenuText": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥"
+    },
+    {
+      "date": "2026-11-20",
+      "shop": "401",
+      "category": "중식 - Korean Dining",
+      "main": "쇠고기콩나물밥&양념장",
+      "photo": null,
+      "unmatched": [
+        "쇠고기콩나물밥",
+        "야채묵무침"
+      ],
+      "sourceMenuText": "쇠고기콩나물밥&양념장 건새우시금치된장국 찜닭 김구이 야채묵무침 김치2종"
+    }
+  ],
+  "checks": {
+    "nodeTestsPassed": 32,
+    "pythonTestsPassed": 4,
+    "originalLatestCalculationFilesUnchanged": true
+  },
+  "pushed": false,
+  "deployed": false
+}

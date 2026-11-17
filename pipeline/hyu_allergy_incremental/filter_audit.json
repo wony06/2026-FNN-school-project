@@ -1485,32 +1485,32 @@
       }
     ]
   },
-  "menuCount": 501,
+  "menuCount": 529,
   "excludedByAllergen": {
-    "1": 262,
-    "2": 241,
+    "1": 276,
+    "2": 256,
     "3": 23,
     "4": 5,
-    "5": 346,
-    "6": 331,
-    "7": 51,
-    "8": 103,
-    "9": 242,
-    "10": 214,
-    "11": 5,
-    "12": 157,
-    "13": 340,
+    "5": 367,
+    "6": 352,
+    "7": 54,
+    "8": 108,
+    "9": 259,
+    "10": 230,
+    "11": 6,
+    "12": 162,
+    "13": 356,
     "14": 0,
-    "15": 129,
-    "16": 207,
-    "17": 45,
-    "18": 253,
+    "15": 135,
+    "16": 216,
+    "17": 51,
+    "18": 267,
     "19": 0
   },
-  "suppressedEvidenceCount": 165,
-  "correctedMealCount": 99,
+  "suppressedEvidenceCount": 175,
+  "correctedMealCount": 103,
   "choiceWithheldMenus": 50,
-  "excludedCalculationOccurrences": 1152,
+  "excludedCalculationOccurrences": 1164,
   "corrections": [
     {
       "key": [
@@ -5243,6 +5243,226 @@
       "reviewedAt": "2026-11-04",
       "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
       "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "일품",
+        "치즈함박스테이크"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "일품",
+        "치즈함박스테이크"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "정식",
+        "매콤돈갈비찜"
+      ],
+      "code": 11,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "정식",
+        "매콤돈갈비찜"
+      ],
+      "code": 12,
+      "component": "식혜",
+      "reference": "식혜",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 6,
+      "recordIds": [
+        "e90848a38a7cc8e194d67d5b680ef01656b6ad571846379ab306663f69773384"
+      ],
+      "state": "미확인",
+      "reviewSource": "사용자 제공 정보; 공식 원재료 확인 아님",
+      "reviewedAt": "2026-11-04",
+      "reason": "사용자 답변상 해당 재료 미사용. 외부 NEIS 근거는 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "401",
+        "중식 - Korean Dining",
+        "참치회덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "401",
+        "중식 - Korean Dining",
+        "참치회덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "401",
+        "중식 - Korean Dining",
+        "참치회덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "일품",
+        "짜장덮밥"
+      ],
+      "code": 4,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "일품",
+        "짜장덮밥"
+      ],
+      "code": 16,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "f45fffbd4c100dac11d27dd84a4efbcbf17ff3df46e6caf9e4b16630f437b322"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "일품",
+        "짜장덮밥"
+      ],
+      "code": 17,
+      "component": "마카로니샐러드",
+      "reference": "마카로니샐러드",
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 5,
+      "recordIds": [
+        "fbb8b9e45812d401c5a73bd3bca98d1e4db52f147bc41ae7b369d2737e4b630e"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
+      "policy": "reviewed-reference-hold-v2"
     }
   ],
   "otherPartialShellfishEvidenceRetained": [
@@ -9054,20 +9274,7 @@
         "2026-11-16",
         "204",
         "일품",
-        "쌀국수"
-      ],
-      "component": "쌀국수",
-      "reference": "쌀국수",
-      "labeledRecords": 4,
-      "totalRecords": 5,
-      "decision": "근거 보존; 추가 보정 규칙 미적용"
-    },
-    {
-      "key": [
-        "2026-11-16",
-        "204",
-        "일품",
-        "쌀국수"
+        "소고기쌀국수"
       ],
       "component": "김말이강정",
       "reference": "김말이강정",
@@ -9080,7 +9287,7 @@
         "2026-11-16",
         "204",
         "일품",
-        "쌀국수"
+        "소고기쌀국수"
       ],
       "component": "배추김치",
       "reference": "배추김치",
@@ -9113,18 +9320,252 @@
       "labeledRecords": 1,
       "totalRecords": 297,
       "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "일품",
+        "치즈함박스테이크"
+      ],
+      "component": "미니우동",
+      "reference": "미니우동",
+      "labeledRecords": 3,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "일품",
+        "치즈함박스테이크"
+      ],
+      "component": "타코야끼",
+      "reference": "타코야끼",
+      "labeledRecords": 5,
+      "totalRecords": 6,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "일품",
+        "치즈함박스테이크"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "정식",
+        "매콤돈갈비찜"
+      ],
+      "component": "다시마무채국",
+      "reference": "다시마무채국",
+      "labeledRecords": 2,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "정식",
+        "매콤돈갈비찜"
+      ],
+      "component": "탕수육",
+      "reference": "탕수육",
+      "labeledRecords": 2,
+      "totalRecords": 7,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-17",
+        "204",
+        "정식",
+        "매콤돈갈비찜"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-18",
+        "204",
+        "일품",
+        "깍두기볶음밥"
+      ],
+      "component": "잔치국수",
+      "reference": "잔치국수",
+      "labeledRecords": 4,
+      "totalRecords": 8,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-18",
+        "204",
+        "일품",
+        "깍두기볶음밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-18",
+        "204",
+        "정식",
+        "순대국밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "105",
+        "즉석",
+        "사리곰탕면"
+      ],
+      "component": "어묵볶음",
+      "reference": "어묵볶음",
+      "labeledRecords": 2,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "105",
+        "한식",
+        "새우튀김알밥"
+      ],
+      "component": "어묵볶음",
+      "reference": "어묵볶음",
+      "labeledRecords": 2,
+      "totalRecords": 4,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "일품",
+        "짜장덮밥"
+      ],
+      "component": "짜장덮밥",
+      "reference": "짜장덮밥",
+      "labeledRecords": 1,
+      "totalRecords": 2,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "일품",
+        "짜장덮밥"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "콩나물불고기",
+      "reference": "콩나물불고기",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-19",
+        "204",
+        "정식",
+        "콩나물불고기"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-20",
+        "204",
+        "일품",
+        "김치치즈도리아"
+      ],
+      "component": "로제스파게티",
+      "reference": "로제스파게티",
+      "labeledRecords": 1,
+      "totalRecords": 3,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-20",
+        "204",
+        "일품",
+        "김치치즈도리아"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-20",
+        "204",
+        "정식",
+        "돈가스나베"
+      ],
+      "component": "배추김치",
+      "reference": "배추김치",
+      "labeledRecords": 1,
+      "totalRecords": 297,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "3666628ad74bc71ae50df433d4c92909605ac6ad3750d36d28d83c02e21f6702",
-    "web\\menu_exchange_snapshot.json": "0092bebd84619c14335f7ab85659b46fd79b35d7082adc43b0e4e052b8cba6a5",
+    "web\\site_data.json": "14466d0ce5a6c90c531dde911a3e6e750e84f25260add82b72456e34449c63ed",
+    "web\\menu_exchange_snapshot.json": "83faa790e0cec52f09ba21840b0cd9d5e3ece71eb745f1cb5ad667929a3324e7",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\recommendation-view.js": "8d84ee14f6053d33d7106931fda4dffd4b9f727535cd99a3254c79940be9adce",
     "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "5e8cac72f5f4cf1930964ad0f4a8ed5c35db868cb2070f5ba0c25b30aadb9f2c",
-    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "87e3427c1d3b20fbc235ea368666b4c7155570d008996a56bbd4988391db0e9a",
-    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "5c680dae57ce8e805e6bae32979a1ec1c56c018e4975f14989fdb6d0f76fb22f"
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "656d46f2732f43fb9b600b5b6fb39e3844094942cdff4a39ead2e007fd8c8464",
+    "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "15874a12cee301e8ebf7dedf45b504fff4b0ab182bd59a6cf97e8df425b456c8",
+    "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "49371624bac2a041e5037aab6065401929bac540cede26de0f39408eab6f58b1"
   }
 }

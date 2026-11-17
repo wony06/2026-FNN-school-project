@@ -1,0 +1,12 @@
+.component-nutrition .component-buttons {gap: 7px}
+.component-nutrition .component-chip {font-family: inherit; font-weight: 400; line-height: 1.5; text-align: left; cursor: pointer; min-height: 34px}
+.component-nutrition .component-chip:hover,.component-nutrition .component-chip.is-active {background: var(--brand-wash,#edf3ff); color: var(--brand,#315bef)}
+.component-nutrition .component-chip:focus-visible {outline: 2px solid var(--brand,#315bef); outline-offset: 3px}
+.component-values {margin-top: 10px; padding: 12px 14px; border-radius: 10px; background: var(--canvas,#f5f7fa)}
+.component-values-inline {display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0; color: var(--text,#17263a); font-size: 13px; line-height: 1.6}
+.component-values-inline > div {display: flex; align-items: baseline; gap: 4px; white-space: nowrap}
+.component-values-inline > div + div::before {content: '·'; margin-right: 6px; color: var(--muted,#66758a)}
+.component-values-inline dt {color: var(--muted,#66758a)}
+.component-values-inline dd {margin: 0}
+.component-values-inline strong {font-weight: 600}
+@media(max-width:640px) {.component-nutrition .component-chip {min-height: 40px}.component-values {padding: 12px}}

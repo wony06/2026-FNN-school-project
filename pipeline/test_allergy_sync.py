@@ -15,9 +15,9 @@ class AllergySynchronizationTest(unittest.TestCase):
         rows = json.loads((ROOT / 'web/site_data.json').read_text(encoding='utf-8'))
         export = json.loads((ROOT / 'web/allergy-data.json').read_text(encoding='utf-8'))
         validate_coverage(rows, export)
-        self.assertEqual(sum(r['date'] <= '2026-11-13' for r in rows), 484)
-        self.assertEqual(sum(r['date'] == '2026-11-16' for r in rows), 6)
-        self.assertEqual(sum('2026-11-09' <= m['key'][0] <= '2026-11-13' for m in export['meals']), 35)
+        self.assertEqual(sum(r['date'] <= '2026-11-13' and '콜라보메뉴' not in r['category'] for r in rows), 484)
+        self.assertEqual(sum(r['date'] == '2026-11-16' for r in rows), 7)
+        self.assertEqual(sum('2026-11-09' <= m['key'][0] <= '2026-11-13' and '콜라보메뉴' not in m['key'][2] for m in export['meals']), 35)
         self.assertEqual(sum(m['state'] == 'choice_withheld' for m in export['meals']), 50)
 
     def test_missing_and_duplicate_exports_fail_instead_of_passing_silently(self):
