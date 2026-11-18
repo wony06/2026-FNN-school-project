@@ -136,6 +136,10 @@ _COOKING_OILS = ("콩기름", "식용유", "옥수수기름", "미강유", "쌀�
 # 완화한다(튀김·일반 볶음·구이는 8g 유지). 양념유(참기름 등) 상한 5g은 공통.
 _ABSORPTION_OIL_DISHES = ("불고기", "오징어덮밥")  # 불오징어덮밥은 '오징어덮밥(고추장)' 레시피로 해석됨
 
+# 2026-11-18: 돈까스(돈가스 레시피)는 튀김옷 전체가 기름을 머금어 흡수유가 볶음·구이보다 많다고 보아
+# 조리유 상한을 아예 적용하지 않고 제공량에 비례해 반영한다(사용자 지정). 해석된 레시피명 기준.
+_NO_OIL_CAP_DISHES = ("돈가스",)
+
 
 def _cap_oil_weight(food_name, w, cooking_cap=8.0):
     base = (food_name or "").split(",")[0].strip()
@@ -222,7 +226,12 @@ def _from_menugen(name, target_weight_g):
     # 건더기를 레시피 재료합(ref) 이상으로 환산하지 않도록 상한을 둔다(국물 제외, 칼국수 건더기비율
     # 방식의 일반화). 탕수육·국수·콩국수·쌀국수·수제비는 국물요리가 아니거나 국물이 영양성분이라 제외.
     _nm = dish.get("name", "")
-    _cooking_cap = 15.0 if any(k in _nm for k in _ABSORPTION_OIL_DISHES) else 8.0  # 해석된 레시피명 기준
+    if any(k in _nm for k in _NO_OIL_CAP_DISHES):
+        _cooking_cap = float("inf")  # 돈까스: 흡수유 상한 없이 중량비례
+    elif any(k in _nm for k in _ABSORPTION_OIL_DISHES):
+        _cooking_cap = 15.0  # 해석된 레시피명 기준
+    else:
+        _cooking_cap = 8.0
     _has_water = any((("물" == (i.get("food_name") or "").split(",")[0].strip()) or
                       ("육수" in (i.get("food_name") or ""))) and float(i.get("weight_g") or 0) >= 30
                      for i in ingredients)
