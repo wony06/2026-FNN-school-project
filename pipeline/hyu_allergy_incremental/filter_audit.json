@@ -9713,8 +9713,8 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "14466d0ce5a6c90c531dde911a3e6e750e84f25260add82b72456e34449c63ed",
-    "web\\menu_exchange_snapshot.json": "83faa790e0cec52f09ba21840b0cd9d5e3ece71eb745f1cb5ad667929a3324e7",
+    "web\\site_data.json": "6e7f0a1cb0213fe4cf1fe133f4e4f86900e742c43d5466f87a0e93ba15cab104",
+    "web\\menu_exchange_snapshot.json": "457143a0faa3c482105590b52b5d46a359aec4a5ebf554bb19e44eed5ae7b425",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",

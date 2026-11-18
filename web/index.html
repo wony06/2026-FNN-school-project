@@ -703,8 +703,10 @@ function defaultMenuDate(today=todayDate()){
 
 // Display boundary only: all historical data remains loaded and preserved.
 const FIRST_VISIBLE_MENU_DATE='2026-10-26';
+// Temporarily hidden until the user confirms the updated official menu. Data is retained.
+const PAUSED_MENU_DATES=new Set(['2026-11-20']);
 function menuDateChoices(){
-  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()].filter(date=>date>=FIRST_VISIBLE_MENU_DATE))].sort();
+  return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()].filter(date=>date>=FIRST_VISIBLE_MENU_DATE&&!PAUSED_MENU_DATES.has(date)))].sort();
 }
 
 function fmtDate(d){
@@ -721,7 +723,11 @@ function selectMenuDate(date, focusChip=false){
   if(focusChip) document.querySelector('#dateStrip .active')?.focus({preventScroll:true});
 }
 function renderDateStrip(){
-  if(activeDate<FIRST_VISIBLE_MENU_DATE) activeDate=menuDateChoices()[0]??null;
+  const visibleDates=menuDateChoices();
+  if(!visibleDates.includes(activeDate)){
+    const preferred=defaultMenuDate();
+    activeDate=visibleDates.includes(preferred)?preferred:(visibleDates.filter(d=>d<=preferred).at(-1)??visibleDates[0]??null);
+  }
   const strip=document.getElementById('dateStrip');
   strip.replaceChildren();
   menuDateChoices().forEach(date=>{

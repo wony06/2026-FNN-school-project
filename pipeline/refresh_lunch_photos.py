@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 from lxml import html
 from PIL import Image, ImageOps
-from parse_month import parse_main_and_sides, is_lunch_cat
+from parse_month import parse_main_and_sides, is_lunch_cat, MAIN_PREFIX_MERGE
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://fnb.hanyang.ac.kr'
@@ -45,6 +45,12 @@ def scrape(day):
                 'desc':text('desc'),'sourcePage':url,'imageUrl':urljoin(BASE,match.group(1)) if match else None})
     return result
 
+def source_main(name, desc):
+    """Use the existing parser's approved multiword titles for photo identity only."""
+    main, sides = parse_main_and_sides(name, desc)
+    return MAIN_PREFIX_MERGE.get((main, sides[0]), main) if sides else main
+
+
 def cached_rows(day,cache):
     result=[]
     for shop in ('105','401','204'):
@@ -72,15 +78,15 @@ def run(start,end,missing_only=False,source_file=None):
         for item in fetched:
             skey='s'+item['shop']
             old=[r for r in source_by_date.get(day,{}).get(skey,{}).get('items',[]) if r['category']==item['category']]
-            new_main=parse_main_and_sides(item['name'],item.get('desc',''))[0]
+            new_main=source_main(item['name'],item.get('desc',''))
             matches=[r for r in old if r['name']==item['name']]
             if not matches:
-                matches=[r for r in old if parse_main_and_sides(r['name'],r.get('desc',''))[0]==new_main
-                         or (day,item['shop'],item['category'],parse_main_and_sides(r['name'],r.get('desc',''))[0],new_main) in APPROVED_PHOTO_NAMES]
+                matches=[r for r in old if source_main(r['name'],r.get('desc',''))==new_main
+                         or (day,item['shop'],item['category'],source_main(r['name'],r.get('desc','')),new_main) in APPROVED_PHOTO_NAMES]
             if len(matches)!=1:
                 report['review'].append({'source':item,'reason':'기존 메뉴명으로 유일하게 연결할 수 없음'});continue
             previous=matches[0]
-            old_main=parse_main_and_sides(previous['name'],previous.get('desc',''))[0]
+            old_main=source_main(previous['name'],previous.get('desc',''))
             site_matches={path:[r for r in rows if r['date']==day and r['shop']==item['shop'] and r['category']==item['category']
                                and (r['main']==old_main or r.get('sourceMenuText')==previous['name'])] for path,rows in sites.items()}
             if not all(len(rows)==1 for rows in site_matches.values()):
