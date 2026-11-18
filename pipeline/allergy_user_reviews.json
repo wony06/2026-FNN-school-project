@@ -122,6 +122,12 @@
     ],
     "차돌김치찌개": [
       16
+    ],
+    "부타나베": [
+      10
+    ],
+    "오야꼬동": [
+      15
     ]
   },
   "batch3": [
@@ -188,6 +194,34 @@
         "패티 고기 종류·제품 원재료"
       ],
       "automaticCodeAddition": []
+    },
+    {
+      "subject": "부타나베",
+      "reviewedAt": "2026-11-18",
+      "confirmed": [
+        "돼지고기 알레르기 번호 추가 요청"
+      ],
+      "unknown": [
+        "실제 제품·양념·그 외 원재료 및 교차접촉"
+      ],
+      "automaticCodeAddition": [
+        10
+      ],
+      "source": "사용자 채팅 요청"
+    },
+    {
+      "subject": "오야꼬동",
+      "reviewedAt": "2026-11-18",
+      "confirmed": [
+        "닭고기 알레르기 번호 추가 요청"
+      ],
+      "unknown": [
+        "실제 제품·양념·그 외 원재료 및 교차접촉"
+      ],
+      "automaticCodeAddition": [
+        15
+      ],
+      "source": "사용자 채팅 요청"
     }
   ],
   "referenceMappings": [
@@ -351,5 +385,9 @@
       "reviewedAt": "2026-11-17",
       "statement": "사용자 승인: 치킨너겟으로 해석, 메뉴명 닭고기 단서만 적용. 특정 제품 킹용가리치킨너겟의 NEIS 성분은 미적용. 나머지 구성 통합 보류 유지."
     }
-  ]
+  ],
+  "userReportedAllergenDates": {
+    "부타나베": "2026-11-18",
+    "오야꼬동": "2026-11-18"
+  }
 }

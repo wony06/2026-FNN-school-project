@@ -51,7 +51,7 @@ def revised_name_evidence(name):
         entry = evidence.setdefault(number, {'number': number, 'name': ALLERGENS[number], 'matched_terms': []})
         entry['matched_terms'] = sorted(set(entry['matched_terms'] + [name]))
         entry['basis'] = '사용자 제공 원재료 단서: ' + ALLERGENS[number] + ' 사용. 공식 레시피·제품 라벨 미확인'
-        entry['provenance'] = {'type': 'user_report', 'reviewedAt': USER_REVIEW['reviewedAt'], 'actualIngredientsVerified': False}
+        entry['provenance'] = {'type': 'user_report', 'reviewedAt': USER_REVIEW.get('userReportedAllergenDates', {}).get(name, USER_REVIEW['reviewedAt']), 'actualIngredientsVerified': False}
     return [evidence[n] for n in sorted(evidence)]
 
 def apply_reviewed_overlay(root, originals, refs, source_records):
