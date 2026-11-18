@@ -1263,19 +1263,15 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                 "unresolved_ingredients": [],
                 "recipe_note": f"옛날소세지: 사용자 지정 - 돈육 비엔나소시지 원물(db104)로 제공량 {weight_g:g}g 환산(영양성분과 동일 레코드)."}
     if name == "사리곰탕면":
-        # 2026-11-18 사용자 지정: 사리곰탕면 = 곰탕(국물, item 중량) + 사리면. 면은 밥 표준중량(210g)을
-        # 그대로 소면으로 매칭(곡류군). 곰탕은 food_db 단백질 간이환산(어육류군), 소면은 MenuGen.
-        units = {g: 0.0 for g in EXCHANGE_GROUPS}
-        r_broth = compute_exchange_units("곰탕", weight_g, use_plaza_servings=use_plaza_servings)
-        noodle = DB104_BY_NAME.get("국수, 소면, 말린것, 삶은것")
-        if not r_broth.get("matched") or noodle is None:
-            return {"matched": False, "units": units, "source": None, "unresolved_ingredients": ["곰탕" if not r_broth.get("matched") else "소면"]}
-        for group in EXCHANGE_GROUPS:
-            units[group] += r_broth["units"].get(group, 0.0)
-        _add_ingredient(units, noodle["식품군"], noodle, 210.0)   # 사리면 = 삶은 소면 210g(밥 표준중량)
-        return {"matched": True, "units": units, "source": "db104_direct+food_db_estimate",
-                "matched_name": "곰탕 + 소면", "unresolved_ingredients": [],
-                "recipe_note": f"사리곰탕면: 사용자 지정 - 곰탕 국물(제공량 {weight_g:g}g, food_db 단백질 간이환산) + 사리면(삶은 소면 db104, 밥 표준중량 210g 적용)으로 분해."}
+        # 2026-11-18 사용자 지정: 사리곰탕면 교환단위는 곰탕(국물, food_db 단백질 간이환산)만 사용.
+        # 사리면은 별도 가산하지 않음(트레이에 쌀밥 210g이 있어 곡류군은 그걸로 커버). MenuGen
+        # 꼬리곰탕/설렁탕은 면을 포함하나 국물 희석 스케일로 교환값이 과소해 부적합.
+        r = compute_exchange_units("곰탕", weight_g, use_plaza_servings=use_plaza_servings)
+        if not r.get("matched"):
+            return {"matched": False, "units": {g: 0.0 for g in EXCHANGE_GROUPS}, "source": None, "unresolved_ingredients": ["곰탕"]}
+        return {"matched": True, "units": r["units"], "source": r.get("source"),
+                "matched_name": "곰탕", "unresolved_ingredients": [],
+                "recipe_note": f"사리곰탕면: 사용자 지정 - 곰탕 국물(제공량 {weight_g:g}g, food_db 단백질 간이환산)로만 계산. 사리면은 쌀밥이 곡류군을 커버하므로 교환단위 별도 가산 제외."}
     result = _from_custom_recipe(name, weight_g)
     if result is None:
         result = _from_external_recipe(name, weight_g)

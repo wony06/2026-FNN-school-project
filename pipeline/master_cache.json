@@ -14038,32 +14038,27 @@
  "불닭새송이조림": null,
  "불향제육볶음": null,
  "사리곰탕면": {
-  "source": "gagong_db",
-  "name": "사리곰탕면",
-  "n_dup": 3,
+  "source": "food_db",
+  "name": "꼬리곰탕_당면",
+  "origin": "외식(재료량 기반 산출함량)",
   "per100": {
-   "kcal": 445.0,
-   "protein": 10.91,
-   "fiber": null,
-   "ca": 135.0,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 7.27,
-   "sugar": 2.73,
-   "na": 1545.0,
-   "fat": 14.55,
-   "carb": 67.27
+   "kcal": 67,
+   "protein": 3.9,
+   "fat": 4.11,
+   "carb": 2.96,
+   "sugar": 0.21,
+   "fiber": 0.2,
+   "ca": 8,
+   "fe": 0.51,
+   "vitA": 2,
+   "vitC": 0.33,
+   "satFat": 1.17,
+   "na": 182
   },
-  "_codes": [
-   "P108-002000400-0012",
-   "P108-003000400-0109",
-   "P108-003000400-0917"
-  ],
-  "serving_weight_g": null,
-  "is_concentrate": false,
-  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
-  "unit": "g"
+  "serving_weight_g": 585.0,
+  "basis": "100ml",
+  "unit": "ml",
+  "note": "사용자지정: 사리곰탕면→꼬리곰탕_당면(곰탕+면, 조리 국물 기준). 기존 가공DB 사리곰탕면(445kcal/100, 건조·농축제품) 과대 교정."
  },
  "산고추": {
   "source": "gagong_db",

@@ -1,6 +1,6 @@
 {
  "source": "기존 한양플라자 스냅샷 유지; 2026-08-24~2026-09-19 생활과학대학·신소재공학관 동일 계산 확장",
- "sourceSha256": "8df982bbe5174d54fdc33dc6bd0c70bafa565cfbb886db31b524b664b8565d4a",
+ "sourceSha256": "5e25bd3aef7fb8ca5e8022c38e220202a75a68568b5a8ac972f9ce211e006bd5",
  "entries": [
   {
    "key": [
@@ -14321,8 +14321,8 @@
    ],
    "sourceMain": "사리곰탕면",
    "exchangeUnits": {
-    "grain": 5.43,
-    "meat": 3.19,
+    "grain": 3.11,
+    "meat": 3.09,
     "veg": 3.45,
     "fat": 0.56,
     "dairy": 0.0,
@@ -14330,7 +14330,7 @@
     "unmatched": [],
     "externalRecipes": [],
     "recipeNotes": [
-     "사리곰탕면: 사용자 지정 - 곰탕 국물(제공량 283g, food_db 단백질 간이환산) + 사리면(삶은 소면 db104, 밥 표준중량 210g 적용)으로 분해."
+     "사리곰탕면: 사용자 지정 - 곰탕 국물(제공량 272g, food_db 단백질 간이환산)로만 계산. 사리면은 쌀밥이 곡류군을 커버하므로 교환단위 별도 가산 제외."
     ],
     "matchedDb": {
      "menugen": [
