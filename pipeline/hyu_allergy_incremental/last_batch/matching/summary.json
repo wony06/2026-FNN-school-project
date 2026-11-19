@@ -1,30 +1,30 @@
 {
-  "meal_rows": 1,
-  "unique_main_names": 1,
+  "meal_rows": 2,
+  "unique_main_names": 2,
   "meal_main_match_counts": {
     "완전일치": 0,
     "표기동의어": 0,
     "검토필요": 0,
-    "미매칭": 1
+    "미매칭": 2
   },
   "unique_main_match_counts": {
-    "미매칭": 1
+    "미매칭": 2
   },
-  "source_supported_component_occurrences": 1,
+  "source_supported_component_occurrences": 2,
   "component_match_counts": {
     "완전일치": 0,
     "표기동의어": 0,
     "검토필요": 0,
-    "미매칭": 1
+    "미매칭": 2
   },
-  "calculation_only_component_occurrences": 2,
-  "reference_evidence_records": 297,
+  "calculation_only_component_occurrences": 8,
+  "reference_evidence_records": 397,
   "successful_examples": [],
   "ambiguous_examples": [],
   "input_sha256": {
-    "web\\site_data.json": "da6ae0a5c9b1a643a38248c476d0201fb75fefa2544c6091c97c85b243d3526a",
+    "web\\site_data.json": "888c58831b6254daea1132bbd089642e1f6fc1a3e5a8147e7f610fdc4f7be529",
     "hanyang_menu_month.json": "f3629be6112a93336aae758fca936bbc09c4e5e4541821e2740f0f0089f723f4",
-    "month_lunch_trays.json": "a2b05a7209bb86d13a014c1068ac7868597fd133b875505a47fa55ca7d9adbe9",
+    "month_lunch_trays.json": "d6d5cbfee783a7608bd6f4594f7adf7914fe754805d0c3445af7385d1d7519d3",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
   },
   "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",

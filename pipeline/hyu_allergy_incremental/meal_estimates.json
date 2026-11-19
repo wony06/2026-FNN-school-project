@@ -70894,7 +70894,7 @@
       },
       {
         "index": 4,
-        "name": "우동국",
+        "name": "크림스프",
         "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
       }
     ],
@@ -77584,11 +77584,21 @@
     "excluded_calculation_components": [
       {
         "index": 1,
-        "name": "배추김치",
+        "name": "쌀밥",
         "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
       },
       {
         "index": 2,
+        "name": "샐러드",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 3,
+        "name": "배추김치",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 4,
         "name": "우동국",
         "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
       }
@@ -77598,7 +77608,7 @@
       "source_component_boundaries_need_review": true,
       "choice_or_separator_integration_withheld": false,
       "source_coverage_not_guaranteed": true,
-      "excluded_calculation_component_count": 2,
+      "excluded_calculation_component_count": 4,
       "components_without_reference_match": [
         "🌶️🌶️죽는다돈까스🌶️🌶️"
       ],

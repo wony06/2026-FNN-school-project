@@ -1,6 +1,317 @@
 [
   {
     "meal_key": [
+      "2026-11-18",
+      "105",
+      "양식",
+      "⭐️특식⭐️한양돈까스"
+    ],
+    "shop_name": "한양플라자",
+    "source_menu_text": "⭐️특식⭐️한양돈까스 -",
+    "allergens": [
+      {
+        "number": 1,
+        "name": "난류",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 2,
+        "name": "우유",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 3,
+        "name": "메밀",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 4,
+        "name": "땅콩",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 5,
+        "name": "대두",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 6,
+        "name": "밀",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 7,
+        "name": "고등어",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 8,
+        "name": "게",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 9,
+        "name": "새우",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 10,
+        "name": "돼지고기",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 11,
+        "name": "복숭아",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 12,
+        "name": "토마토",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 13,
+        "name": "아황산류",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 14,
+        "name": "호두",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 15,
+        "name": "닭고기",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 16,
+        "name": "쇠고기",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 17,
+        "name": "오징어",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 18,
+        "name": "조개류(굴·전복·홍합 포함)",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      },
+      {
+        "number": 19,
+        "name": "잣",
+        "classification": "unknown",
+        "name_evidence": [],
+        "neis_evidence": [],
+        "supporting_source_record_ids": [],
+        "distinct_supporting_record_count": 0,
+        "distinct_supporting_school_count": 0,
+        "hyu_actual_presence": "확인불가",
+        "absence_confirmed": false,
+        "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
+      }
+    ],
+    "components": [
+      {
+        "component_id": "component-0",
+        "name": "⭐️특식⭐️한양돈까스",
+        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "unmatched",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": []
+        }
+      }
+    ],
+    "excluded_calculation_components": [
+      {
+        "index": 1,
+        "name": "쌀밥",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 2,
+        "name": "샐러드",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 3,
+        "name": "김치",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 4,
+        "name": "크림스프",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      }
+    ],
+    "unknowns": {
+      "actual_recipe_unknown": true,
+      "source_component_boundaries_need_review": true,
+      "choice_or_separator_integration_withheld": false,
+      "source_coverage_not_guaranteed": true,
+      "excluded_calculation_component_count": 4,
+      "components_without_reference_match": [
+        "⭐️특식⭐️한양돈까스"
+      ],
+      "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
+    }
+  },
+  {
+    "meal_key": [
       "2026-11-19",
       "105",
       "양식",
@@ -279,11 +590,21 @@
     "excluded_calculation_components": [
       {
         "index": 1,
-        "name": "배추김치",
+        "name": "쌀밥",
         "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
       },
       {
         "index": 2,
+        "name": "샐러드",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 3,
+        "name": "배추김치",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 4,
         "name": "우동국",
         "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
       }
@@ -293,7 +614,7 @@
       "source_component_boundaries_need_review": true,
       "choice_or_separator_integration_withheld": false,
       "source_coverage_not_guaranteed": true,
-      "excluded_calculation_component_count": 2,
+      "excluded_calculation_component_count": 4,
       "components_without_reference_match": [
         "🌶️🌶️죽는다돈까스🌶️🌶️"
       ],

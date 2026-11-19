@@ -1,12 +1,113 @@
 [
   {
     "meal_key": [
+      "2026-11-18",
+      "105",
+      "양식",
+      "⭐️특식⭐️한양돈까스"
+    ],
+    "row_index": 0,
+    "shop_name": "학생식당",
+    "main_result": {
+      "query": "⭐️특식⭐️한양돈까스",
+      "normalized_query": "⭐️특식⭐️한양돈가스",
+      "match_type": "unmatched",
+      "reference_menu": null,
+      "candidates": [],
+      "name_explicit_ingredients": [],
+      "neis_possible_ingredients": [],
+      "unknown": {
+        "unlabeled_record_count": null,
+        "review_record_count": null,
+        "actual_hyu_ingredients_verified": false,
+        "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+      }
+    },
+    "main_result_scope": "메인명만의 비교이며 한 끼 식단 전체의 알레르기가 아님",
+    "source_menu_text": "⭐️특식⭐️한양돈까스 -",
+    "parsed_source": {
+      "date": "2026-11-18",
+      "shop": "105",
+      "shopName": "학생식당",
+      "category": "양식",
+      "main": "⭐️특식⭐️한양돈까스",
+      "sides": [
+        "쌀밥",
+        "샐러드",
+        "김치",
+        "크림스프"
+      ],
+      "price": "6,000원",
+      "img": null,
+      "cat_idx": 0
+    },
+    "component_results": [
+      {
+        "component_index": 0,
+        "source_name_supported": true,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": {
+          "query": "⭐️특식⭐️한양돈까스",
+          "normalized_query": "⭐️특식⭐️한양돈가스",
+          "match_type": "unmatched",
+          "reference_menu": null,
+          "candidates": [],
+          "name_explicit_ingredients": [],
+          "neis_possible_ingredients": [],
+          "unknown": {
+            "unlabeled_record_count": null,
+            "review_record_count": null,
+            "actual_hyu_ingredients_verified": false,
+            "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
+          }
+        },
+        "calculation_only_query": null,
+        "review_reason": null
+      },
+      {
+        "component_index": 1,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "쌀밥",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      },
+      {
+        "component_index": 2,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "샐러드",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      },
+      {
+        "component_index": 3,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "김치",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      },
+      {
+        "component_index": 4,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "크림스프",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      }
+    ],
+    "meal_allergen_union": null,
+    "meal_allergen_union_reason": "구성 경계·실제 배합 미확인: 알레르기 코드 자동 합산 안함"
+  },
+  {
+    "meal_key": [
       "2026-11-19",
       "105",
       "양식",
       "🌶️🌶️죽는다돈까스🌶️🌶️"
     ],
-    "row_index": 0,
+    "row_index": 1,
     "shop_name": "학생식당",
     "main_result": {
       "query": "🌶️🌶️죽는다돈까스🌶️🌶️",
@@ -32,6 +133,8 @@
       "category": "양식",
       "main": "🌶️🌶️죽는다돈까스🌶️🌶️",
       "sides": [
+        "쌀밥",
+        "샐러드",
         "배추김치",
         "우동국"
       ],
@@ -67,11 +170,27 @@
         "source_name_supported": false,
         "source_origin": "existing_lunch_parser_checked_against_raw_menu",
         "result": null,
-        "calculation_only_query": "배추김치",
+        "calculation_only_query": "쌀밥",
         "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
       },
       {
         "component_index": 2,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "샐러드",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      },
+      {
+        "component_index": 3,
+        "source_name_supported": false,
+        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "result": null,
+        "calculation_only_query": "배추김치",
+        "review_reason": "계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음"
+      },
+      {
+        "component_index": 4,
         "source_name_supported": false,
         "source_origin": "existing_lunch_parser_checked_against_raw_menu",
         "result": null,
