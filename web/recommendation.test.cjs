@@ -36,7 +36,7 @@ test('감량 기본 750, 목표 적자 계산, 1000 상한과 반올림 전 메�
   assert.equal(fallback.mealEnergyLimit,(fallback.eer-750)/3);
   assert.equal(fallback.roundedEer,Math.floor((fallback.adjustedEer+50)/100)*100);
   assert.throws(()=>Score.createContext(profile,'weight_loss',normal,glycemic,-1));
-  assert.throws(()=>Score.createContext({...profile,weightKg:35},'weight_loss',normal,glycemic,10),/범위 밖/);
+  assert.throws(()=>Score.createContext({...profile,weightKg:25},'weight_loss',normal,glycemic,10),/범위 밖/);
   const boundary=rows.map((r,i)=>row(r.main,{...r,kcal:i===0?fallback.mealEnergyLimit:fallback.mealEnergyLimit+0.01}));
   const scored=Score.scoreMenus(boundary,snapshot,fallback);
   assert.equal(scored[0].recommendation.eligible,true);
@@ -113,4 +113,48 @@ test('식당 탭은 기존 거리값을 재사용하고 미평가 메뉴에는 �
   const all=View.rankVisibleMenus(scored,'all',Score.compareMenus),shop=View.rankVisibleMenus(scored,'105',Score.compareMenus);
   assert(shop.every(x=>x.item.shop==='105'));assert.equal(JSON.stringify(scored),original);
   for(const x of all.filter(x=>!x.item.recommendation.eligible))assert.equal(x.rank,null);
+});
+
+// Synthetic positive inputs isolate target-table lookup from normal user profiles.
+const atEnergy=(eer,mealCount=3)=>({sex:'female',age:80,heightCm:140,weightKg:(eer-(354-6.91*80+726*1.4))/9.36,activity:0,mealCount});
+
+test('첨부 표의 일반 1000·1100 및 혈당관리 양 끝 행을 정확히 보존한다',()=>{
+ assert.deepEqual(normal.dailyExchanges['1000'],[4,1,2,7,2,1,1]);
+ assert.deepEqual(normal.dailyExchanges['1100'],[4,1,3,6,2,1,2]);
+ assert.deepEqual(glycemic.dailyExchanges['1000'],[4,1,2,5,3,0,1,1]);
+ assert.deepEqual(glycemic.dailyExchanges['1100'],[5,1,2,5,3,0,1,1]);
+ assert.deepEqual(glycemic.dailyExchanges['4000'],[19,4,9,14,12,1,1,4]);
+ assert.equal(Object.keys(normal.dailyExchanges).length,31);
+ assert.equal(Object.keys(glycemic.dailyExchanges).length,31);
+ for(let kcal=1000;kcal<=4000;kcal+=100)assert.equal(glycemic.dailyExchanges[kcal].length,8);
+});
+
+test('확장 혈당관리 표를 2끼·3끼로 나누고 어육류만 합산한다',()=>{
+ for(const [kcal,daily] of [[1000,[4,3,5,3]],[1100,[5,3,5,3]],[2900,[13,10,11,8]],[3300,[15,11,13,10]],[4000,[19,13,14,12]]]){
+  for(const meals of [2,3]){
+   const context=Score.createContext(atEnergy(kcal,meals),'glycemic',normal,glycemic);
+   assert.equal(context.roundedEer,kcal);assert.deepEqual(context.dailyTarget,daily);
+   assert.deepEqual(context.mealTarget,daily.map(v=>v/meals));
+   assert.equal(Score.calculateDistance(context.mealTarget,context.mealTarget).distance,0);
+  }
+ }
+});
+
+test('일반표 앞부분은 라이프스타일·체중감량의 기존 배분 방식으로 적용된다',()=>{
+ for(const [kcal,daily] of [[1000,[4,3,7,2]],[1100,[4,4,6,2]]]){
+  for(const goal of ['lifestyle','weight_loss']){
+   const ctx=Score.createContext(atEnergy(kcal),'lifestyle',normal,glycemic);
+   const target=goal==='weight_loss'?Score.createContext(atEnergy(kcal+750),goal,normal,glycemic):ctx;
+   assert.equal(target.roundedEer,kcal);assert.deepEqual(target.dailyTarget,daily);
+   assert.deepEqual(target.mealTarget,daily.map(v=>v/3));
+  }
+ }
+});
+
+test('표 범위를 넘어서는 열량은 clamp·보간하지 않는다',()=>{
+ for(const kcal of [949,4051])assert.throws(()=>Score.createContext(atEnergy(kcal),'glycemic',normal,glycemic),/범위 밖/);
+ assert.equal(Score.createContext(atEnergy(951),'glycemic',normal,glycemic).roundedEer,1000);
+ assert.equal(Score.createContext(atEnergy(4049),'glycemic',normal,glycemic).roundedEer,4000);
+ assert.throws(()=>Score.createContext(atEnergy(4051),'lifestyle',normal,glycemic),/범위 밖/);
+ assert.throws(()=>Score.createContext(atEnergy(1749),'weight_loss',normal,glycemic),/범위 밖/);
 });
