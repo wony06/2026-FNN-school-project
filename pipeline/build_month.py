@@ -347,6 +347,11 @@ def classify_side_weight(name, cache=None):
     # 그릇 기준으로 본다. 전용 근거자료가 없어 병합 국물·찌개류(283g)를 축소 포션 표준으로 재사용.
     if is_mini and any(w in name for w in NOODLE_KEYWORDS):
         return 120, "미니 면류 - 사이드 미니우동 실측 수준 120g(백소정 미니우동 기준, 사용자 지정)"
+    # 2026-11-19 사용자 지정: 우동국(우동장국·우동국물)은 돈까스 등에 곁들여 나가는 미니우동
+    # 사이드이므로 283g 국물·찌개 표준이 아니라 미니 면류 120g(백소정 미니우동 기준)으로 잡는다.
+    # (국물·찌개류 283g 규칙보다 먼저 가로채야 함. 미소시루·유부장국 등 별도 대체맵은 영향 없음.)
+    if name in ("우동국", "우동장국", "우동국물"):
+        return 120, "미니우동 사이드 - 120g(백소정 미니우동 기준, 사용자 지정). 기존 국물·찌개 283g에서 교정"
     if name in RICE_WORDS or name.replace("/", "") in ("잡곡밥현미밥",):
         return _pick(name, cache, (210, "일반 밥(공기밥 1공기) - 2020 한국인 영양소 섭취기준 1회 분량 210g"), "밥")
     if any(w in name for w in JJIGAE_KEYWORDS) and "볶음" not in name and len(name) <= 8:

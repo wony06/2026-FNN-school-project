@@ -77,6 +77,14 @@ FIXED_SIDES_OVERRIDE = {
     ("s105", "양식"): ["쌀밥", "샐러드", "김치", "우동국"],  # 2026-09-21: "국"→"우동국"으로 특정(사용자 지정)
 }
 
+# 2026-11-19: 죽는다돈까스(105 양식 특식)는 메뉴명이 🌶️ 이모지뿐이라 desc 토큰이 반찬이 아닌
+# 매움표시("🌶️(많이", "매움)🌶️")로 잘려, FIXED_SIDES_OVERRIDE(sides가 빈 경우에만 적용)도 안 걸려
+# 밥·샐러드·김치·국이 통째로 빠져 있었다. 사진 확인상 배추김치·우동국이 함께 나가므로(사용자 지정)
+# 해당 (날짜, 메인)에 반찬을 지정한다. 이 특식엔 밥·샐러드는 없음.
+DATED_SIDES_OVERRIDE = {
+    ("2026-11-19", "🌶️🌶️죽는다돈까스🌶️🌶️"): ["배추김치", "우동국"],
+}
+
 # 2026-09-21: 메인명 자체가 공백 포함 다어절인데(예: "뼈없는 감자탕") desc가 없어서
 # fallback 토큰분리가 첫 단어(수식어)만 main으로 잘라내는 케이스. 새 사례 나오면 추가.
 MAIN_PREFIX_MERGE = {
@@ -118,6 +126,8 @@ def parse_month_lunches(hanyang_menu_month_path=None):
                 if sides and (main, sides[0]) in MAIN_PREFIX_MERGE:
                     main = MAIN_PREFIX_MERGE[(main, sides[0])]
                     sides = sides[1:]
+                if (date, main) in DATED_SIDES_OVERRIDE:
+                    sides = list(DATED_SIDES_OVERRIDE[(date, main)])
                 lunches.append({
                     "date": date, "shop": shopnum, "shopName": shop["shopName"],
                     "category": item["category"], "main": main, "sides": sides,
