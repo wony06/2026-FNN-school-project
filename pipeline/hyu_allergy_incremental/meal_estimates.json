@@ -77579,53 +77579,28 @@
           "no_confirmed_reference_match": true,
           "review_candidates_not_applied": []
         }
-      },
-      {
-        "component_id": "component-1",
-        "name": "🌶️(많이",
-        "source_scope": "원문에 등장하는 구성 메뉴명",
-        "integration_applied": true,
-        "match_type": "unmatched",
-        "reference_menu": null,
-        "name_indications": [],
-        "neis_possible": [],
-        "unresolved": {
-          "actual_recipe_unknown": true,
-          "unlabeled_reference_records": null,
-          "review_reference_records": null,
-          "no_confirmed_reference_match": true,
-          "review_candidates_not_applied": []
-        }
-      },
-      {
-        "component_id": "component-2",
-        "name": "매움)🌶️",
-        "source_scope": "원문에 등장하는 구성 메뉴명",
-        "integration_applied": true,
-        "match_type": "unmatched",
-        "reference_menu": null,
-        "name_indications": [],
-        "neis_possible": [],
-        "unresolved": {
-          "actual_recipe_unknown": true,
-          "unlabeled_reference_records": null,
-          "review_reference_records": null,
-          "no_confirmed_reference_match": true,
-          "review_candidates_not_applied": []
-        }
       }
     ],
-    "excluded_calculation_components": [],
+    "excluded_calculation_components": [
+      {
+        "index": 1,
+        "name": "배추김치",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      },
+      {
+        "index": 2,
+        "name": "우동국",
+        "reason": "계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외"
+      }
+    ],
     "unknowns": {
       "actual_recipe_unknown": true,
       "source_component_boundaries_need_review": true,
       "choice_or_separator_integration_withheld": false,
       "source_coverage_not_guaranteed": true,
-      "excluded_calculation_component_count": 0,
+      "excluded_calculation_component_count": 2,
       "components_without_reference_match": [
-        "🌶️🌶️죽는다돈까스🌶️🌶️",
-        "🌶️(많이",
-        "매움)🌶️"
+        "🌶️🌶️죽는다돈까스🌶️🌶️"
       ],
       "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
     }

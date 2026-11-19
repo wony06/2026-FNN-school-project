@@ -1696,7 +1696,7 @@
   "correctedMealCount": 105,
   "choiceWithheldMenus": 50,
   "partiallyReviewedMeals": 1,
-  "excludedCalculationOccurrences": 1164,
+  "excludedCalculationOccurrences": 1166,
   "corrections": [
     {
       "key": [
@@ -9801,14 +9801,14 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "6e7f0a1cb0213fe4cf1fe133f4e4f86900e742c43d5466f87a0e93ba15cab104",
-    "web\\menu_exchange_snapshot.json": "457143a0faa3c482105590b52b5d46a359aec4a5ebf554bb19e44eed5ae7b425",
+    "web\\site_data.json": "da6ae0a5c9b1a643a38248c476d0201fb75fefa2544c6091c97c85b243d3526a",
+    "web\\menu_exchange_snapshot.json": "b26e6b06705c30238cc7c2defe612b64b425b0a1139751690b63e5e85174b64c",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "656d46f2732f43fb9b600b5b6fb39e3844094942cdff4a39ead2e007fd8c8464",
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "806fb1b04d058b889d519cd126d2266763faa538357e18dd3c42bb5edecb6169",
     "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "15874a12cee301e8ebf7dedf45b504fff4b0ab182bd59a6cf97e8df425b456c8",
     "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "49371624bac2a041e5037aab6065401929bac540cede26de0f39408eab6f58b1"
   }

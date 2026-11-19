@@ -1,27 +1,24 @@
 {
-  "meal_count": 80,
-  "excluded_calculation_component_occurrences": 36,
-  "source_supported_components_analyzed": 429,
+  "meal_count": 1,
+  "excluded_calculation_component_occurrences": 2,
+  "source_supported_components_analyzed": 1,
   "classification_counts": {
-    "name_indicated": 38,
-    "unknown": 934,
-    "neis_possible": 487,
-    "name_and_neis_possible": 61
+    "unknown": 19
   },
-  "meals_with_name_evidence": 66,
-  "meals_with_neis_evidence": 67,
-  "meals_with_unknown_recipe": 80,
-  "source_evidence_records": 1114,
+  "meals_with_name_evidence": 0,
+  "meals_with_neis_evidence": 0,
+  "meals_with_unknown_recipe": 1,
+  "source_evidence_records": 297,
   "protected_sha256": {
-    "web\\site_data.json": "6e7f0a1cb0213fe4cf1fe133f4e4f86900e742c43d5466f87a0e93ba15cab104",
-    "month_lunch_trays.json": "ab863c18c7fe2d8ac42a84bbdff9506c5eb41cc07ee82113502deee04765b029",
-    "hanyang_menu_month.json": "33e5dcaa7dcc9e64041281debf11c9723fc534b9503e4a5bfcbc254c37e89307",
+    "web\\site_data.json": "da6ae0a5c9b1a643a38248c476d0201fb75fefa2544c6091c97c85b243d3526a",
+    "month_lunch_trays.json": "a2b05a7209bb86d13a014c1068ac7868597fd133b875505a47fa55ca7d9adbe9",
+    "hanyang_menu_month.json": "f3629be6112a93336aae758fca936bbc09c4e5e4541821e2740f0f0089f723f4",
     "web\\index.html": "bd27307f5adabf7c9448a6b1cc6b5af9ebb59b2b30cbe4edf8f56df89bb6c2aa",
     "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
-    "pipeline\\hyu_allergy_incremental\\_build-tw7t8zf0\\matching\\meal_matches.json": "e89c759290e53749cab820cfabcc90df254647a652ccd7e09d5422c6a24fa0b5"
+    "pipeline\\hyu_allergy_incremental\\_build-_p6cg90x\\matching\\meal_matches.json": "0ad284253bc1083a4784ef774676737eff0c533817a50cbf8abfa2643bacc0da"
   },
   "choice_or_separator_integration_withheld_meals": 0
 }
