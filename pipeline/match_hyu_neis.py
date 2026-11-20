@@ -113,11 +113,20 @@ def run(meals=None, out_dir=None, verbose=True):
         else:
             parts=[(name,contains_source(raw,name),'existing_components_checked_against_source_text')
                    for name in meal.get('components',[])]
+        confirmations = load(ROOT/'pipeline/allergy_user_reviews.json').get('confirmedAccompaniments', [])
+        confirmation = next((c for c in confirmations if tuple(c['mealKey']) == menu_key(meal)), None)
+        if confirmation:
+            approved = set(confirmation['names'])
+            parts = [(name, True, 'user_confirmed_served_component') if name in approved else (name, verified, origin)
+                     for name, verified, origin in parts]
+            present = {name for name, _, _ in parts}
+            parts.extend((name, True, 'user_confirmed_served_component') for name in confirmation['names'] if name not in present)
         component_results=[]
         for component_index,(name,verified,origin) in enumerate(parts):
             result=match(name)
             component_results.append({'component_index':component_index,'source_name_supported':verified,
                 'source_origin':origin,'result':result if verified else None,
+                **({'user_confirmation':confirmation} if origin=='user_confirmed_served_component' else {}),
                 'calculation_only_query':name if not verified else None,
                 'review_reason':None if verified else '계산용 대체/분해/추가 항목일 수 있어 실제 메뉴로 확정하지 않음'})
         output.append({'meal_key':list(menu_key(meal)),'row_index':index,'shop_name':meal['shopName'],

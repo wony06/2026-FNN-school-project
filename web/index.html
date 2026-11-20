@@ -703,8 +703,8 @@ function defaultMenuDate(today=todayDate()){
 
 // Display boundary only: all historical data remains loaded and preserved.
 const FIRST_VISIBLE_MENU_DATE='2026-10-26';
-// Temporarily hidden until the user confirms the updated official menu. Data is retained.
-const PAUSED_MENU_DATES=new Set(['2026-11-20']);
+// Display-only date holds; 11/20 was restored after the user confirmed its menu.
+const PAUSED_MENU_DATES=new Set();
 function menuDateChoices(){
   return [...new Set([...dates.filter(date=>![0,6].includes(new Date(`${date}T12:00:00Z`).getUTCDay())),defaultMenuDate()].filter(date=>date>=FIRST_VISIBLE_MENU_DATE&&!PAUSED_MENU_DATES.has(date)))].sort();
 }

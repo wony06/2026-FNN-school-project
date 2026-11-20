@@ -4408,7 +4408,12 @@
   "shopName": "학생식당",
   "category": "한식",
   "main": "꼬막비빔밥",
-  "sides": [],
+  "sides": [
+   "만두",
+   "김치",
+   "오그락지",
+   "장국"
+  ],
   "price": "4,800원",
   "img": null,
   "cat_idx": 0
@@ -4419,7 +4424,12 @@
   "shopName": "학생식당",
   "category": "즉석",
   "main": "추어탕",
-  "sides": [],
+  "sides": [
+   "만두",
+   "김치",
+   "오그락지",
+   "장국"
+  ],
   "price": "4,800원",
   "img": null,
   "cat_idx": 0

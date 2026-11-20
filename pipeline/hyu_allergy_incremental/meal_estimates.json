@@ -84761,6 +84761,219 @@
           "no_confirmed_reference_match": true,
           "review_candidates_not_applied": []
         }
+      },
+      {
+        "component_id": "component-1",
+        "name": "만두",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "군만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "물만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "찐만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "갈비만두",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "달걀만두",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "즉석",
+            "추어탕"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-2",
+        "name": "김치",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "갓김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "김치전",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "백김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "파김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "#김치전",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "즉석",
+            "추어탕"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-3",
+        "name": "오그락지",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "unmatched",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": []
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "즉석",
+            "추어탕"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-4",
+        "name": "장국",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "미소장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "우동장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "유부장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "팽이장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "즉석",
+            "추어탕"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
       }
     ],
     "excluded_calculation_components": [],
@@ -84771,7 +84984,11 @@
       "source_coverage_not_guaranteed": true,
       "excluded_calculation_component_count": 0,
       "components_without_reference_match": [
-        "추어탕"
+        "추어탕",
+        "만두",
+        "김치",
+        "오그락지",
+        "장국"
       ],
       "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
     }
@@ -85188,6 +85405,219 @@
           "no_confirmed_reference_match": false,
           "review_candidates_not_applied": []
         }
+      },
+      {
+        "component_id": "component-1",
+        "name": "만두",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "군만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "물만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "찐만두",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "갈비만두",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "달걀만두",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "한식",
+            "꼬막비빔밥"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-2",
+        "name": "김치",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "갓김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "김치전",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "백김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "파김치",
+              "similarity": 0.8,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "#김치전",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "한식",
+            "꼬막비빔밥"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-3",
+        "name": "오그락지",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "unmatched",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": []
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "한식",
+            "꼬막비빔밥"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
+      },
+      {
+        "component_id": "component-4",
+        "name": "장국",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
+        "integration_applied": true,
+        "match_type": "review",
+        "reference_menu": null,
+        "name_indications": [],
+        "neis_possible": [],
+        "unresolved": {
+          "actual_recipe_unknown": true,
+          "unlabeled_reference_records": null,
+          "review_reference_records": null,
+          "no_confirmed_reference_match": true,
+          "review_candidates_not_applied": [
+            {
+              "reference_menu": "미소장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "우동장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "유부장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "팽이장국",
+              "similarity": 0.6667,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            }
+          ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-20",
+            "105",
+            "한식",
+            "꼬막비빔밥"
+          ],
+          "names": [
+            "만두",
+            "김치",
+            "오그락지",
+            "장국"
+          ],
+          "reviewedAt": "2026-11-20",
+          "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
+        }
       }
     ],
     "excluded_calculation_components": [],
@@ -85197,7 +85627,12 @@
       "choice_or_separator_integration_withheld": false,
       "source_coverage_not_guaranteed": true,
       "excluded_calculation_component_count": 0,
-      "components_without_reference_match": [],
+      "components_without_reference_match": [
+        "만두",
+        "김치",
+        "오그락지",
+        "장국"
+      ],
       "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
     }
   },

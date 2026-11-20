@@ -1372,6 +1372,14 @@ def compute_tray(lunch, cache):
     for p, w, note in expand_main(main, shop, category, cache):
         items.append(build_item(p, w, note, cache))
     for s in sides:
+        if (lunch["date"] == "2026-11-20" and shop == "105"
+                and lunch["main"] in ("추어탕", "꼬막비빔밥") and s == "장국"):
+            item = build_item("우동국", 120, "사용자 승인(2026-11-20): 장국을 기존 우동국 120g 기준으로 대체 계산; 실제 배합·제공량 미확인", cache)
+            item["display"] = "우동국"
+            item["calculationName"] = "우동국"
+            item["exchange_excluded_reason"] = "장국: 사용자 승인 우동국 120g 대체. 기존 우동국 교환단위 제외 규칙을 동일하게 적용하며 영양성분 계산은 유지."
+            items.append(item)
+            continue
         for p, w, note in expand_side(s, shop, category, cache, date=lunch["date"]):
             items.append(build_item(p, w, note, cache))
     if extra_rice:

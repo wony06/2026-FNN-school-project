@@ -54,7 +54,8 @@ def run(input_dir=None, out_dir=None, verbose=True):
                     'reason':'계산용 가정·대체·분해 또는 원문 미확인: 알레르기 근거에서 완전히 제외'})
                 continue
             components.append({'component_id':f"component-{part['component_index']}",
-                'source_scope':'원문에 등장하는 구성 메뉴명','match':part['result']})
+                'source_scope':('사용자가 함께 제공됨을 확인한 구성 메뉴명' if part.get('user_confirmation') else '원문에 등장하는 구성 메뉴명'),
+                'user_confirmation':part.get('user_confirmation'),'match':part['result']})
         excluded_total+=len(excluded)
         main=meal['main_result']
         if (contains_source(meal.get('source_menu_text') or '',main['query'])
@@ -81,7 +82,8 @@ def run(input_dir=None, out_dir=None, verbose=True):
                 'unresolved':{'actual_recipe_unknown':True,'unlabeled_reference_records':aggregates[ref]['unlabeled_record_count'] if ref else None,
                     'review_reference_records':aggregates[ref]['review_record_count'] if ref else None,
                     'no_confirmed_reference_match':not accepted,
-                    'review_candidates_not_applied':m['candidates'] if not accepted else []}})
+                    'review_candidates_not_applied':m['candidates'] if not accepted else []},
+                **({'userReviewNotes':{**c['user_confirmation'],'evidenceType':'user_confirmed_served_component','actualIngredientsVerified':False}} if c.get('user_confirmation') else {})})
         statuses=[]
         for number,food in ALLERGENS.items():
             named=[];neis=[]
