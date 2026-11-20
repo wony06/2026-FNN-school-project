@@ -10,6 +10,18 @@ from build_month import build_item, classify_side_weight, expand_side
 
 class PreparedNutritionTest(unittest.TestCase):
 
+    def test_donggeurang_grilled_uses_cooked_gram_database(self):
+        matched = auto_match('동그랑땡구이')
+        self.assertEqual(matched['code'], 'D309-437070000-0001')
+        self.assertEqual(matched['basis'].lower(), '100g')
+        self.assertEqual(matched['unit'], 'g')
+        self.assertEqual(matched['per100']['kcal'], 206)
+        weight, note = classify_side_weight('동그랑땡구이', {'동그랑땡구이': matched})
+        self.assertEqual(weight, 96)
+        item = build_item('동그랑땡구이', weight, note, {'동그랑땡구이': matched})
+        self.assertAlmostEqual(item['contrib']['kcal'], 197.76)
+        self.assertIn('실제 급식 제품', item['weight_note'])
+
     def test_fern_is_not_extra_noodles(self):
 
         cache = {'고사리나물': auto_match('고사리나물')}
