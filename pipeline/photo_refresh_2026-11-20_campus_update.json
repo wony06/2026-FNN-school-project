@@ -1,0 +1,103 @@
+{
+ "start": "2026-11-20",
+ "end": "2026-11-20",
+ "collected": [
+  {
+   "date": "2026-11-20",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "쇠고기콩나물밥&양념장 건새우시금치된장국 찜닭 김구이 야채묵무침 김치2종",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2ubhEffqHwYum2pVizQ/400x.jpg",
+   "localPhoto": "25c7d0aad7fd279b178881ad.jpg",
+   "sha256": "a828d2a73cffb5d68287ab793a0b9b7f6a5893f978fedce5347affeadd2c020e"
+  },
+  {
+   "date": "2026-11-20",
+   "shop": "204",
+   "category": "정식",
+   "name": "돈가스나베 흑미밥 물만두국 동그랑땡구이*케찹 유자청비타민무침 배추김치 알새우칩",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2t5U9c3aptoHSAjMx_A/400x.jpg",
+   "localPhoto": "23a70659c8da5a4d153904ea.jpg",
+   "sha256": "e1d33f0dcae0ec978bf580cfb1cdd9c4453929a391f45374ad233d882dcebee0"
+  },
+  {
+   "date": "2026-11-20",
+   "shop": "204",
+   "category": "일품",
+   "name": "김치치즈도리아 우동국물 로제스파게티 새우볼*칠리소스 요구르트 배추김치 알새우칩",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2t_ENfwiV6nFA8CxbWQ/400x.jpg",
+   "localPhoto": "cca8f3e9b4068cef3aca6281.jpg",
+   "sha256": "8999f3db7c2a210e6f49647b0213caf262011f6d70c2a8abb6aa503187f1c4c7"
+  }
+ ],
+ "missing": [],
+ "existing": [
+  {
+   "date": "2026-11-20",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSdHDgcfWRTizEK5YAWw/400x.png"
+  }
+ ],
+ "review": [
+  {
+   "date": "2026-11-20",
+   "shop": "204",
+   "category": "정식",
+   "previousName": "돈가스나베 흑미밥 물만두국 동그랑땡구이*케찹 오복지무침 배추김치 알새우칩",
+   "currentName": "돈가스나베 흑미밥 물만두국 동그랑땡구이*케찹 유자청비타민무침 배추김치 알새우칩",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  }
+ ],
+ "sourceRows": [
+  {
+   "date": "2026-11-20",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "쇠고기콩나물밥&양념장 건새우시금치된장국 찜닭 김구이 야채묵무침 김치2종",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2ubhEffqHwYum2pVizQ/400x.jpg"
+  },
+  {
+   "date": "2026-11-20",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "현대옥 콩나물국밥 돈육녹두전&양파간장 김구이 오징어젓무침 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHSdHDgcfWRTizEK5YAWw/400x.png"
+  },
+  {
+   "date": "2026-11-20",
+   "shop": "204",
+   "category": "정식",
+   "name": "돈가스나베 흑미밥 물만두국 동그랑땡구이*케찹 유자청비타민무침 배추김치 알새우칩",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2t5U9c3aptoHSAjMx_A/400x.jpg"
+  },
+  {
+   "date": "2026-11-20",
+   "shop": "204",
+   "category": "일품",
+   "name": "김치치즈도리아 우동국물 로제스파게티 새우볼*칠리소스 요구르트 배추김치 알새우칩",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-20",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaH2t_ENfwiV6nFA8CxbWQ/400x.jpg"
+  }
+ ],
+ "preservedMenuCounts": {
+  "site_data.json": 529,
+  "web/site_data.json": 529
+ }
+}

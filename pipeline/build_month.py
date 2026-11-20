@@ -176,7 +176,7 @@ MEAT_MAIN_USE_GUK_JJIGAE = {
 }
 # 2026-11-03 추가: 밥 베이스인데 기존 덮밥류 키워드에 안 걸리던 메뉴 - 사용자 지시로 전부 덮밥류 적용.
 RICE_MAIN_USE_DUPBAP = {
-    "비프하이라이스", "소고기콩나물밥", "짜장밥", "불고기오븐도리아", "차돌분모자크림떡볶이",
+    "비프하이라이스", "소고기콩나물밥", "쇠고기콩나물밥", "짜장밥", "불고기오븐도리아", "차돌분모자크림떡볶이",
     # 2026-11-07: 짬뽕밥류는 '면'이 아니라 밥+토핑 한그릇이므로 덮밥류로 매칭(면 497 대신 덮밥 418/417).
     "차돌짬뽕밥",
 }
@@ -286,7 +286,8 @@ def classify_main_weight(name, cache=None):
         return _pick(name, cache, (418, "덮밥류 - 대학급식소(1997) 비빔밥+오므라이스 평균 418g"), "덮밥")
     # 2026-11-09: 생선구이 70g 특례 삭제(사용자 지시). 구이·까스·스테이크 등 모든 메인단백질은
     # 표12 "일반 구이류 메인 151g"(대학급식소 pan broiled sole)으로 통일 - 아래 MAIN_FALLBACK으로 흐름.
-    if "탕수육" not in name and (any(w in name for w in GUK_TANG_KEYWORDS) or (name.endswith("국") and len(name) <= 8)):
+    # 재료명이 길어도 된장국은 기존 국·찌개 제공량을 적용한다.
+    if "탕수육" not in name and (name.endswith("된장국") or any(w in name for w in GUK_TANG_KEYWORDS) or (name.endswith("국") and len(name) <= 8)):
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
     return MAIN_FALLBACK
 
@@ -356,7 +357,7 @@ def classify_side_weight(name, cache=None):
         return _pick(name, cache, (210, "일반 밥(공기밥 1공기) - 2020 한국인 영양소 섭취기준 1회 분량 210g"), "밥")
     if any(w in name for w in JJIGAE_KEYWORDS) and "볶음" not in name and len(name) <= 8:
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
-    if "탕수육" not in name and (any(w in name for w in GUK_TANG_KEYWORDS) or name.endswith("국") or name.endswith("국물")) and len(name) <= 8:
+    if "탕수육" not in name and (name.endswith("된장국") or ((any(w in name for w in GUK_TANG_KEYWORDS) or name.endswith("국") or name.endswith("국물")) and len(name) <= 8)):
         return _pick(name, cache, GUK_JJIGAE_WEIGHT, "국찌개")
     if "조림" in name or "젓갈" in name:
         return 44, "조림류 - 대학급식소(1997) 제공량 평균 44g"

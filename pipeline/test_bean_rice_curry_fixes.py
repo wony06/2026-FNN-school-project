@@ -1,10 +1,27 @@
 import unittest,json
 from pathlib import Path
 from auto_match import auto_match
-from build_month import classify_main_weight,expand_side,build_item
+from build_month import classify_main_weight,classify_side_weight,expand_main,expand_side,build_item
 from exchange_unit import compute_exchange_units
 
 class BeanRiceCurryFixTest(unittest.TestCase):
+    def test_beef_rice_spelling_uses_same_volume_serving(self):
+        matched = auto_match('쇠고기콩나물밥')
+        cache = {'쇠고기콩나물밥': matched}
+        self.assertEqual(matched['code'], 'D701-047280000-0001')
+        self.assertEqual(matched['unit'], 'ml')
+        parts = expand_main('쇠고기콩나물밥&양념장', '401', '중식 - Korean Dining', cache)
+        self.assertEqual([(n, w) for n, w, _ in parts], [('쇠고기콩나물밥', 417), ('양념장', 9)])
+        name, amount, note = parts[0]
+        self.assertIn('417mL', note)
+        self.assertAlmostEqual(build_item(name, amount, note, cache)['contrib']['kcal'], 546.27)
+
+    def test_long_soybean_soup_name_uses_soup_not_side_serving(self):
+        for unit, expected in [('g', 283), ('ml', 272)]:
+            cache = {'건새우시금치된장국': {'unit': unit}}
+            self.assertEqual(classify_main_weight('건새우시금치된장국', cache)[0], expected)
+            self.assertEqual(classify_side_weight('건새우시금치된장국', cache)[0], expected)
+
     def test_complete_beef_rice_database_and_units(self):
         m=auto_match('소고기콩나물밥')
         self.assertEqual(m['code'],'D701-047280000-0001')
