@@ -1,27 +1,27 @@
 {
-  "meal_count": 80,
-  "excluded_calculation_component_occurrences": 40,
-  "source_supported_components_analyzed": 435,
+  "meal_count": 35,
+  "excluded_calculation_component_occurrences": 20,
+  "source_supported_components_analyzed": 180,
   "classification_counts": {
-    "name_indicated": 38,
-    "unknown": 934,
-    "neis_possible": 487,
-    "name_and_neis_possible": 61
+    "unknown": 395,
+    "neis_possible": 237,
+    "name_and_neis_possible": 23,
+    "name_indicated": 10
   },
-  "meals_with_name_evidence": 66,
-  "meals_with_neis_evidence": 67,
-  "meals_with_unknown_recipe": 80,
-  "source_evidence_records": 1114,
+  "meals_with_name_evidence": 25,
+  "meals_with_neis_evidence": 29,
+  "meals_with_unknown_recipe": 35,
+  "source_evidence_records": 917,
   "protected_sha256": {
-    "web\\site_data.json": "20aa02323b60e64f5625cf3bfc49471bfda170083158b84ee30b86a8d0f5ac98",
-    "month_lunch_trays.json": "c94c7be6affdf2856febc2013603d181d116ce824f1714f127ff9cba10518d45",
-    "hanyang_menu_month.json": "f3629be6112a93336aae758fca936bbc09c4e5e4541821e2740f0f0089f723f4",
+    "web\\site_data.json": "df8f392b2d4d3edd66a3a927183cdf54d3fc702b7a94d1519bb9c3ed5ee03d5d",
+    "month_lunch_trays.json": "afbe605c01bd5c45e444e53df72ffccfbe4291bfe1e922669c0a13d0ae6463ab",
+    "hanyang_menu_month.json": "7affbd2b0753516cd603f58a05b7b28040118809a3a3200f6bb4b803dfadc673",
     "web\\index.html": "0512e5ba21baeed0d152b7fc198550fc6349aa1b10181b657ff8a54683700cee",
     "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
     "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
-    "pipeline\\hyu_allergy_incremental\\_build-k802w18y\\matching\\meal_matches.json": "bed2890cdee0e0883e14aa02c302197d72123cf15d336530b9a2b93a67eca161"
+    "pipeline\\hyu_allergy_incremental\\_build-c_jkzckh\\matching\\meal_matches.json": "7488e1e01aa83f2652d08d21a3f07286749f47f957203c8a1d4f5dd0757f4520"
   },
   "choice_or_separator_integration_withheld_meals": 0
 }
