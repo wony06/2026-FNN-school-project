@@ -1,4 +1,5 @@
 (function(root){
+  const Score=typeof module!=='undefined'&&module.exports?require('./personal-score.js'):root.PersonalScore;
   const KEY='hyu-menu-guide.profile.v1';
   const goals=['lifestyle','weight_loss','glycemic','balanced','high_protein','low_sugar','low_sodium'];
   const fields=['sex','age','heightCm','weightKg','activity','mealCount','goal','monthlyLossKg'];
@@ -31,6 +32,7 @@
       !['0','1','2','3'].includes(value.activity)||!['2','3'].includes(value.mealCount))return 1;
     if(!Object.hasOwn(value,'allergies'))return 2;
     if(!goals.includes(value.goal))return 3;
+    if(value.goal==='weight_loss'&&!Score.weightLossEligibility({heightCm:number('heightCm'),weightKg:number('weightKg')}).allowed)return 3;
     if(value.goal==='weight_loss'&&value.monthlyLossKg!==undefined&&value.monthlyLossKg.trim()!==''&&
       (!Number.isFinite(number('monthlyLossKg'))||number('monthlyLossKg')<0))return 3;
     return 4;

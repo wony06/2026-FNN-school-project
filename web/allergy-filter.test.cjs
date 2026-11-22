@@ -94,7 +94,7 @@ test('미선택은 원래 행을 그대로 반환하며 7가지 추천 결과가
   const normal=read('eer_exchange_targets.json'),glycemic=read('glycemic_exchange_targets.json');
   const profile={sex:'male',age:22,heightCm:170,weightKg:65,activity:1,mealCount:3};
   for(const goal of ['lifestyle','weight_loss','glycemic','balanced','high_protein','low_sugar','low_sodium']){
-    const ctx=Score.createContext(profile,goal,normal,glycemic);
+    const ctx=Score.createContext(goal==='weight_loss'?{...profile,weightKg:70}:profile,goal,normal,glycemic);
     const baseline=Score.scoreMenus(original,snapshot,ctx);
     const noFilter=Score.scoreMenus(Filter.partition(original,[],index).kept,snapshot,ctx);
     assert.deepEqual(noFilter,baseline);

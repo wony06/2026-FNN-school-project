@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const Store=require('./profile-storage.js');
-const profile={sex:'female',age:'22',heightCm:'165',weightKg:'60',activity:'1',mealCount:'3',goal:'weight_loss',monthlyLossKg:'1.5',allergies:[2,9]};
+const profile={sex:'female',age:'22',heightCm:'165',weightKg:'70',activity:'1',mealCount:'3',goal:'weight_loss',monthlyLossKg:'1.5',allergies:[2,9]};
 function memory(){const items=new Map();return {items,getItem:k=>items.get(k)??null,setItem:(k,v)=>items.set(k,v),removeItem:k=>items.delete(k)};}
 test('명시 동의가 있을 때만 정해진 정보와 동의를 저장한다',()=>{
   const storage=memory();
@@ -31,7 +31,7 @@ test('부분 저장정보를 보존하고 처음 비어 있는 단계로 연결�
  const storage=memory();
  for(const [missing,step] of [['age',1],['activity',1],['allergies',2],['goal',3]]){
   const partial={...profile};delete partial[missing];Store.writeSaved(storage,partial,true);
-  const restored=Store.readSaved(storage);assert(restored);assert.equal(restored.weightKg,'60');assert.equal(Store.resumeStep(restored),step);assert(!Object.hasOwn(restored,missing));
+  const restored=Store.readSaved(storage);assert(restored);assert.equal(restored.weightKg,'70');assert.equal(Store.resumeStep(restored),step);assert(!Object.hasOwn(restored,missing));
  }
  assert.equal(Store.resumeStep({...profile,age:'19'}),1);
  assert.equal(Store.resumeStep({...profile,monthlyLossKg:'-1'}),3);

@@ -328,7 +328,7 @@
         </div>
         ${goal ? bar(energy, 0, goal, false) : ""}
         <p class="meal-energy-note ${noteClass}">${energyNote}</p>
-        ${targets?.weightLoss ? '<p class="meal-muted">기존 체중감량 설정의 조정 열량입니다. 낮은 목표 열량은 적절한지 확인해주세요.</p>' : ""}`;
+        ${targets?.weightLoss ? '<p class="meal-muted">감량 목표를 반영한 하루 섭취 목표 열량이에요.</p>' : ""}`;
       const cards = Object.entries(MACROS).map(([key, macro]) =>
         renderMacroCard(key, macro, total[key], targets?.ranges[key], energy));
       el("mealMacroSummary").innerHTML = `${renderMacroBreakdown(total)}<div class="meal-macro-grid">${cards.join("")}</div>`;

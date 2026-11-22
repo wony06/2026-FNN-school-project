@@ -8,6 +8,7 @@ const read=name=>JSON.parse(fs.readFileSync(path.join(__dirname,name),'utf8'));
 const normal=read('eer_exchange_targets.json');
 const glycemic=read('glycemic_exchange_targets.json');
 const profile={sex:'male',age:22,heightCm:170,weightKg:65,activity:1,mealCount:3};
+const lossProfile={...profile,weightKg:70}; // BMI 23 이상·25 미만: 감량 계산 자체의 회귀 검증
 const row=(main,properties={})=>({date:'2026-09-09',shop:'105',category:'한식',main,unmatched:[],
   kcal:450,protein:30,sugar:12,na:700,nrf:5,...properties});
 const rows=[row('A',{protein:40,sugar:20,na:700,nrf:10,kcal:450}),
@@ -27,16 +28,16 @@ test('EER 식은 유지하고 2끼와 3끼의 한 끼 교환단위만 달라진�
 });
 
 test('감량 기본 750, 목표 적자 계산, 1000 상한과 반올림 전 메뉴 열량 제한',()=>{
-  const fallback=Score.createContext(profile,'weight_loss',normal,glycemic);
-  const mild=Score.createContext(profile,'weight_loss',normal,glycemic,1);
-  const capped=Score.createContext(profile,'weight_loss',normal,glycemic,10);
+  const fallback=Score.createContext(lossProfile,'weight_loss',normal,glycemic);
+  const mild=Score.createContext(lossProfile,'weight_loss',normal,glycemic,1);
+  const capped=Score.createContext(lossProfile,'weight_loss',normal,glycemic,10);
   assert.equal(fallback.deficit,750);
   assert.equal(mild.deficit,7000/30);
   assert.equal(capped.deficit,1000);
   assert.equal(fallback.mealEnergyLimit,(fallback.eer-750)/3);
   assert.equal(fallback.roundedEer,Math.floor((fallback.adjustedEer+50)/100)*100);
-  assert.throws(()=>Score.createContext(profile,'weight_loss',normal,glycemic,-1));
-  assert.throws(()=>Score.createContext({...profile,weightKg:25},'weight_loss',normal,glycemic,10),/범위 밖/);
+  assert.throws(()=>Score.createContext(lossProfile,'weight_loss',normal,glycemic,-1));
+  assert.throws(()=>Score.createContext({...lossProfile,sex:'female',age:80,heightCm:160,weightKg:60},'weight_loss',normal,glycemic,10),/범위 밖/);
   const boundary=rows.map((r,i)=>row(r.main,{...r,kcal:i===0?fallback.mealEnergyLimit:fallback.mealEnergyLimit+0.01}));
   const scored=Score.scoreMenus(boundary,snapshot,fallback);
   assert.equal(scored[0].recommendation.eligible,true);
@@ -81,7 +82,7 @@ test('메뉴 교환단위 미매칭은 적합도 목표에서만 제외하고 �
 
 test('거리 1 이상도 구분하며 세 교환단위 모드 모두 D 오름차순이다',()=>{
   for(const goal of ['lifestyle','weight_loss','glycemic']){
-    const ctx=Score.createContext(profile,goal,normal,glycemic);
+    const ctx=Score.createContext(goal==='weight_loss'?lossProfile:profile,goal,normal,glycemic);
     const input=[row('가까움',{kcal:100}),row('중간',{kcal:100}),row('멀음',{kcal:100})];
     const exchanges={entries:input.map((r,i)=>({key:[r.date,r.shop,r.category,r.main],exchangeUnits:{
       ...Object.fromEntries(['grain','meat','veg','fat'].map((f,j)=>[f,ctx.mealTarget[j]*(2.1+i*.5)])),unmatched:[]}}))};
@@ -116,7 +117,10 @@ test('식당 탭은 기존 거리값을 재사용하고 미평가 메뉴에는 �
 });
 
 // Synthetic positive inputs isolate target-table lookup from normal user profiles.
-const atEnergy=(eer,mealCount=3)=>({sex:'female',age:80,heightCm:140,weightKg:(eer-(354-6.91*80+726*1.4))/9.36,activity:0,mealCount});
+const atEnergy=(eer,mealCount=3)=>{
+ const h=1.4,usedWeight=(eer-(354-6.91*80+726*h))/9.36,ideal=21*h*h;
+ return {sex:'female',age:80,heightCm:140,weightKg:usedWeight/(h*h)>=25?ideal+4*(usedWeight-ideal):usedWeight,activity:0,mealCount};
+};
 
 test('첨부 표의 일반 1000·1100 및 혈당관리 양 끝 행을 정확히 보존한다',()=>{
  assert.deepEqual(normal.dailyExchanges['1000'],[4,1,2,7,2,1,1]);

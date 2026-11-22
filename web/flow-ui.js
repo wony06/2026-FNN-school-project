@@ -1,5 +1,5 @@
 (function(root){
-  function mount({form,validateGoal,onLeave=()=>{}}){
+  function mount({form,validateGoal,goalRestrictionMessage=()=>'',onLeave=()=>{}}){
     const pages=[...document.querySelectorAll('[data-step]')],status=document.getElementById('flowStatus');
     const submit=document.getElementById('personalSubmit');
     let current=0,ready=false,hasResults=false,restoring=false;
@@ -7,6 +7,7 @@
     function clearError(){status.hidden=true;status.textContent='';document.getElementById('guideResumeStatus').hidden=true;}
     function show(step,historyMode='push'){
       if(!Number.isInteger(step)||step<0||step>4)return;
+      if(step===4&&!validateForResults())return;
       onLeave();current=step;
       document.getElementById('resultSettingsMenu').open=false;
       pages.forEach(p=>p.hidden=Number(p.dataset.step)!==step);
@@ -23,6 +24,7 @@
       const headings=document.querySelectorAll(`[data-step="${step}"] :is(h1,h2)[tabindex="-1"]`);
       const heading=Array.from(headings).find(node=>!node.closest('[hidden]'));
       heading?.focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'});
+      if(step===3&&goalRestrictionMessage()){status.textContent=goalRestrictionMessage();status.hidden=false;}
     }
     function showError(message,step){
       if(step!==undefined)show(step,restoring?'replace':'push');
@@ -130,7 +132,7 @@
       show(step===4?0:step,'none');
     });
     setReady(false);show(0,'replace');
-    return {get step(){return current;},get restoringResults(){return restoring;},next,validateForResults,showError,showResults,setReady,updateAllergyButton};
+    return {get step(){return current;},get restoringResults(){return restoring;},next,validateForResults,showError,showResults,setReady,updateAllergyButton,clearError};
   }
   root.GuideFlow={mount};
 })(globalThis);

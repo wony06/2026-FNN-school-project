@@ -341,18 +341,32 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
           </section>
           <section aria-labelledby="eerSourceHeading">
             <h3 id="eerSourceHeading">② 산출 근거</h3>
-            <p>본 서비스는 2025 한국인 영양소 섭취기준의 성인(만 20세 이상) 추정에너지필요량 산출식을 적용합니다.</p>
+            <p>본 서비스는 「2025 한국인 영양소 섭취기준」의 성인(만 20세 이상) EER 산출식을 적용합니다. 단, BMI 25 이상인 경우 에너지 필요량의 과대 추정 가능성을 고려하여 Krenitsky(2005)를 참고한 조정체중 보정 방식을 적용합니다.</p>
+          </section>
+          <section aria-labelledby="eerWeightHeading">
+            <h3 id="eerWeightHeading">③ BMI에 따른 체중 적용 기준</h3>
+            <p><strong>BMI = 실제체중(kg) ÷ [신장(m)]²</strong></p>
+            <ul>
+              <li><strong>BMI 25 미만:</strong> 실제체중 적용</li>
+              <li><strong>BMI 25 이상:</strong> 조정체중 적용</li>
+            </ul>
+            <dl class="eer-formulas">
+              <div><dt>이상체중(Ideal Body Weight, IBW)</dt><dd>남성: 22 × [신장(m)]²<br>여성: 21 × [신장(m)]²</dd></div>
+              <div><dt>조정체중(Adjusted Body Weight, AdjBW)</dt><dd>조정체중 = 이상체중 + (실제체중 − 이상체중) ÷ 4</dd></div>
+            </dl>
+            <p>산출된 적용체중을 EER 계산식에 대입하며, 이후 기존 식품교환표 기반 평가방법을 적용합니다.</p>
           </section>
           <section aria-labelledby="eerFormulaHeading">
-            <h3 id="eerFormulaHeading">③ EER 계산식</h3>
+            <h3 id="eerFormulaHeading">④ EER 계산식</h3>
             <dl class="eer-formulas">
-              <div><dt>여성</dt><dd>EER = 354 − (6.91 × 나이) + PA × [9.36 × 체중(kg) + 726 × 신장(m)]</dd></div>
-              <div><dt>남성</dt><dd>EER = 662 − (9.53 × 나이) + PA × [15.91 × 체중(kg) + 539.6 × 신장(m)]</dd></div>
+              <div><dt>여성</dt><dd>EER = 354 − (6.91 × 나이) + PA × [9.36 × 적용체중(kg) + 726 × 신장(m)]</dd></div>
+              <div><dt>남성</dt><dd>EER = 662 − (9.53 × 나이) + PA × [15.91 × 적용체중(kg) + 539.6 × 신장(m)]</dd></div>
             </dl>
+            <p>여기서 <strong>적용체중</strong>은 BMI 25 미만에서는 실제체중, BMI 25 이상에서는 조정체중을 의미합니다.</p>
             <p class="eer-pa-note">PA는 신체활동 수준에 따라 적용되는 활동계수입니다.</p>
           </section>
           <section aria-labelledby="eerPaHeading">
-            <h3 id="eerPaHeading">④ 활동수준별 신체활동계수(PA)</h3>
+            <h3 id="eerPaHeading">⑤ 활동수준별 신체활동계수(PA)</h3>
             <table class="eer-pa-table" aria-labelledby="eerPaHeading">
               <thead><tr><th scope="col">활동 수준</th><th scope="col">여성</th><th scope="col">남성</th></tr></thead>
               <tbody>
@@ -639,16 +653,16 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   </form>
 </dialog>
 <script src="instant-rice.js"></script>
-<script src="personal-score.js?v=20261105-distance-v1"></script>
+<script src="personal-score.js?v=20261122-bmi-v1"></script>
 <script src="recommendation-view.js?v=20261105-distance-v1"></script>
 <script src="menu-review.js?v=20261108-v1"></script>
 <script src="personal-goal-view.js?v=20261108-v1"></script>
 <script src="allergy-filter.js?v=1"></script>
 <script src="allergy-ui.js?v=reviewed-policy-v2"></script>
-<script src="profile-storage.js?v=20261111-resume-v1"></script>
-<script src="flow-ui.js?v=20261111-resume-visible-v3"></script>
+<script src="profile-storage.js?v=20261122-bmi-v1"></script>
+<script src="flow-ui.js?v=20261122-bmi-v1"></script>
 <script src="meal-serving.js?v=category-20261112"></script>
-<script src="meal-diary.js?v=category-20261112-horizontal-portions"></script>
+<script src="meal-diary.js?v=20261122-target-copy"></script>
 <script src="component-nutrition.js?v=20261117-inline-v2"></script>
 <script>
 const SHOP_ORDER = ["105","401","204"];
@@ -1016,6 +1030,21 @@ document.getElementById("sheetClose").onclick = closeSheet;
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeSheet(); });
 
 const personalForm=document.getElementById('personalForm');
+let weightLossRestrictionMessage='';
+function syncWeightLossSelection(notify=false){
+  const selected=personalForm.querySelector('input[name="goal"]:checked');
+  const previousMessage=weightLossRestrictionMessage;
+  if(selected&&selected.value!=='weight_loss')weightLossRestrictionMessage='';
+  else if(selected||weightLossRestrictionMessage){
+    let eligibility;
+    try{eligibility=PersonalScore.weightLossEligibility({heightCm:Number(personalForm.elements.heightCm.value),weightKg:Number(personalForm.elements.weightKg.value)});}
+    catch(error){eligibility={allowed:false,message:error.message};}
+    weightLossRestrictionMessage=eligibility.allowed?'':eligibility.message;
+    if(!eligibility.allowed&&selected){selected.checked=false;document.getElementById('personalStatus').textContent='';}
+  }
+  if(previousMessage&&!weightLossRestrictionMessage)GUIDE_FLOW?.clearError();
+  if(notify&&weightLossRestrictionMessage&&GUIDE_FLOW?.step===3)GUIDE_FLOW.showError(weightLossRestrictionMessage,3);
+}
 function updateSelectionDescription(name,id){
   const selected=personalForm.querySelector(`input[name="${name}"]:checked`);
   const description=document.getElementById(id);
@@ -1023,20 +1052,25 @@ function updateSelectionDescription(name,id){
   description.hidden=!selected;
 }
 function updateWeightLossField(){
-  const selected=personalForm.querySelector('input[name="goal"]:checked').value==='weight_loss';
+  const selected=personalForm.querySelector('input[name="goal"]:checked')?.value==='weight_loss';
   document.getElementById('weightLossField').hidden=!selected;
   personalForm.elements.monthlyLossKg.disabled=!selected;
 }
-function updateGoalDisplay(){
+function updateGoalDisplay(notify=false){
+  syncWeightLossSelection(notify);
   updateWeightLossField();
   updateSelectionDescription('goal','goalDescription');
 }
 personalForm.querySelectorAll('input[name="activity"]').forEach(input=>input.addEventListener('change',()=>updateSelectionDescription('activity','activityDescription')));
-personalForm.querySelectorAll('input[name="goal"]').forEach(input=>input.addEventListener('change',updateGoalDisplay));
+personalForm.querySelectorAll('input[name="goal"]').forEach(input=>input.addEventListener('change',()=>updateGoalDisplay(true)));
+for(const event of ['input','change'])personalForm.addEventListener(event,e=>{
+  if(['heightCm','weightKg'].includes(e.target.name))updateGoalDisplay(true);
+});
 updateSelectionDescription('activity','activityDescription');
 updateGoalDisplay();
 function contextFromForm(){
   const form=new FormData(personalForm),goal=form.get('goal');
+  if(!goal&&weightLossRestrictionMessage)throw Error(weightLossRestrictionMessage);
   const monthlyText=form.get('monthlyLossKg');
   const monthlyLossKg=goal==='weight_loss' && monthlyText!==null && monthlyText.trim()!=='' ? Number(monthlyText) : null;
   return PersonalScore.createContext({sex:form.get('sex'),age:Number(form.get('age')),heightCm:Number(form.get('heightCm')),
@@ -1060,7 +1094,7 @@ personalForm.addEventListener('submit', e=>{
   GUIDE_FLOW.showResults(context);
 });
 const MEAL_DIARY=MealDiary.mount();
-GUIDE_FLOW=GuideFlow.mount({form:personalForm,validateGoal:contextFromForm,onLeave:()=>{
+GUIDE_FLOW=GuideFlow.mount({form:personalForm,validateGoal:contextFromForm,goalRestrictionMessage:()=>weightLossRestrictionMessage,onLeave:()=>{
   closeSheet();
   MEAL_DIARY.closeEditor();
 }});

@@ -11,23 +11,61 @@
     return [Math.min(...ks),Math.max(...ks)];
   }
 
+  function calculateBmi(p){
+    if(!p || !Number.isFinite(p.heightCm) || p.heightCm<=0 || !Number.isFinite(p.weightKg) || p.weightKg<=0)
+      throw Error('양수 키·체중을 입력해주세요.');
+    const heightM=p.heightCm/100,bmi=p.weightKg/(heightM*heightM);
+    if(!Number.isFinite(bmi) || bmi<=0) throw Error('키·체중 입력값을 확인해주세요.');
+    return bmi;
+  }
+
+  function weightLossEligibility(p){
+    const bmi=calculateBmi(p);
+    const category=!bmiAtLeast(bmi,18.5)?'underweight':!bmiAtLeast(bmi,23)?'normal':!bmiAtLeast(bmi,25)?'pre_obesity':'obesity';
+    const message=category==='underweight'
+      ? '현재 BMI가 저체중 범위에 해당하여 체중감량 목표를 이용할 수 없습니다. 다른 영양목표를 선택해 주세요.'
+      : category==='normal'
+        ? '현재 BMI가 정상범위에 해당하여 체중감량 목표를 이용할 수 없습니다. 다른 영양목표를 선택해 주세요.' : '';
+    return {bmi,category,allowed:bmiAtLeast(bmi,23),message};
+  }
+
+  function bmiAtLeast(bmi,threshold){
+    // Only absorb binary arithmetic noise (e.g. 64 / 1.6²); never use display rounding.
+    return bmi>=threshold || threshold-bmi<=4*Number.EPSILON*Math.max(1,Math.abs(bmi),threshold);
+  }
+
+  function calculateWeightBasis(p){
+    const bmi=calculateBmi(p);
+    if(!PA[p.sex]) throw Error('성별을 선택해주세요.');
+    const heightM=p.heightCm/100;
+    const useAdjusted=bmiAtLeast(bmi,25);
+    const idealWeightKg=useAdjusted?(p.sex==='male'?22:21)*heightM*heightM:null;
+    const adjustedWeightKg=useAdjusted?idealWeightKg+(p.weightKg-idealWeightKg)/4:null;
+    const eerWeightKg=adjustedWeightKg??p.weightKg;
+    if(!Number.isFinite(eerWeightKg) || eerWeightKg<=0) throw Error('EER 계산용 체중을 확인해주세요.');
+    return {bmi,actualWeightKg:p.weightKg,idealWeightKg,adjustedWeightKg,eerWeightKg};
+  }
+
   function calculateEer(p){
     if(!p || !PA[p.sex] || !Number.isInteger(p.age) || p.age<20 ||
       !Number.isFinite(p.heightCm) || p.heightCm<=0 || !Number.isFinite(p.weightKg) || p.weightKg<=0 ||
       !Number.isInteger(p.activity) || p.activity<0 || p.activity>3 ||
       ![2,3].includes(p.mealCount)) throw Error('성별, 만 20세 이상 나이, 양수 키·체중, 활동수준, 하루 2~3끼를 확인해주세요.');
-    const h=p.heightCm/100, pa=PA[p.sex][p.activity];
-    const eer=p.sex==='male' ? 662-9.53*p.age+pa*(15.91*p.weightKg+539.6*h) :
-      354-6.91*p.age+pa*(9.36*p.weightKg+726*h);
+    const basis=calculateWeightBasis(p);
+    const h=p.heightCm/100, pa=PA[p.sex][p.activity],weight=basis.eerWeightKg;
+    const eer=p.sex==='male' ? 662-9.53*p.age+pa*(15.91*weight+539.6*h) :
+      354-6.91*p.age+pa*(9.36*weight+726*h);
     if(!Number.isFinite(eer) || eer<=0) throw Error('계산된 EER이 양수가 아닙니다. 입력을 확인해주세요.');
-    return {eer,pa};
+    return {eer,pa,...basis};
   }
 
   function createContext(p,goal,table,glycemicTable,monthlyLossKg=null){
     if(!goals.has(goal)) throw Error('추천 기준을 선택해주세요.');
-    const {eer,pa}=calculateEer(p);
+    const {eer,pa,...weightBasis}=calculateEer(p);
     let deficit=null,adjustedEer=eer,roundedEer=null,dailyTarget=null,mealTarget=null;
     if(goal==='weight_loss'){
+      const eligibility=weightLossEligibility(p);
+      if(!eligibility.allowed) throw Error(eligibility.message);
       if(monthlyLossKg!==null){
         if(!Number.isFinite(monthlyLossKg) || monthlyLossKg<0) throw Error('한 달 목표 감량 체중은 0 이상의 숫자로 입력해주세요.');
         deficit=Math.min(1000,monthlyLossKg*7000/30);
@@ -48,7 +86,7 @@
       if(!dailyTarget.some(v=>v>0)) throw Error('목표 교환단위 자료 오류');
       mealTarget=dailyTarget.map(v=>v/p.mealCount);
     }
-    return {goal,eer,pa,mealCount:p.mealCount,weightKg:p.weightKg,monthlyLossKg,
+    return {goal,eer,pa,...weightBasis,mealCount:p.mealCount,weightKg:p.weightKg,monthlyLossKg,
       deficit,adjustedEer,roundedEer,dailyTarget,mealTarget,
       mealEnergyLimit:goal==='weight_loss'?adjustedEer/p.mealCount:null,
       proteinThreshold:goal==='high_protein'?p.weightKg*.4:null};
@@ -121,6 +159,6 @@
     // Eight machine epsilons absorb arithmetic roundoff, never display rounding.
     return Math.abs(x.distance-y.distance)<=8*Number.EPSILON*Math.max(1,Math.abs(x.distance),Math.abs(y.distance));
   }
-  const api={calculateEer,createContext,calculateDistance,scoreMenus,compareMenus,sameRankMetric};
+  const api={calculateBmi,calculateWeightBasis,weightLossEligibility,calculateEer,createContext,calculateDistance,scoreMenus,compareMenus,sameRankMetric};
   if(typeof module!=='undefined'&&module.exports) module.exports=api; else root.PersonalScore=api;
 })(globalThis);
