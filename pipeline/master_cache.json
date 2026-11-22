@@ -522,28 +522,6 @@
   "basis": "100ml",
   "unit": "ml"
  },
- "단무지무침": {
-  "source": "food_db",
-  "name": "단무지무침",
-  "origin": "외식(분석함량)",
-  "per100": {
-   "kcal": 40,
-   "protein": 1,
-   "fat": 1.6,
-   "carb": 5.6,
-   "sugar": 1.4,
-   "fiber": 3.2,
-   "ca": 30,
-   "fe": 0,
-   "vitA": 19,
-   "vitC": 0.52,
-   "satFat": 0.2,
-   "na": 858
-  },
-  "serving_weight_g": 50.0,
-  "basis": "100g",
-  "unit": "g"
- },
  "등심돈까스": {
   "source": "food_db",
   "name": "등심돈가스",
@@ -1093,28 +1071,6 @@
   "basis": "100ml",
   "unit": "ml"
  },
- "무말랭이무침": {
-  "source": "food_db",
-  "name": "무말랭이무침",
-  "origin": "외식(분석함량)",
-  "per100": {
-   "kcal": 131,
-   "protein": 3.08,
-   "fat": 0.87,
-   "carb": 27.77,
-   "sugar": 14.46,
-   "fiber": 6.4,
-   "ca": 103,
-   "fe": 1.55,
-   "vitA": null,
-   "vitC": 0.2,
-   "satFat": 0.18,
-   "na": 1137
-  },
-  "serving_weight_g": 100.0,
-  "basis": "100g",
-  "unit": "g"
- },
  "소고기육개장": {
   "source": "food_db",
   "name": "소고기육개장",
@@ -1403,33 +1359,6 @@
   },
   "note": "가공식품DB 중앙값(지방/탄수화물 컬럼은 NRF6.3 추출본에 없어 결측 처리됨 - 필요시 원본에서 보강 필요)",
   "serving_weight_g": null,
-  "is_concentrate": false,
-  "unit": "g"
- },
- "계란국": {
-  "source": "gagong_db",
-  "name": "계란국(가공식품DB 4종 중 즉석조리 농축믹스 2종 제외, 정상 즉석섭취 2종 중앙값)",
-  "n_dup": 2,
-  "per100": {
-   "kcal": 30.0,
-   "protein": 3.25,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 0.265,
-   "sugar": 0.315,
-   "na": 176.5,
-   "fat": 1.44,
-   "carb": 1.44
-  },
-  "_codes": [
-   "P123-207020300-2294",
-   "P123-207020300-0069"
-  ],
-  "note": "2026-09-27: gagong_db \"계란국\" 4종 중 2종(370/371kcal, 나트륨 4700/5551mg)은 물에 타는 즉석조리 농축믹스라 기존 중앙값 계산에 섞이면 나트륨이 실제보다 20배 이상 부풀려짐(짜장밥 트레이에서 발견). 정상 즉석섭취 2종(30kcal, 나트륨 127/226mg)만으로 재계산.",
-  "serving_weight_g": 250.0,
   "is_concentrate": false,
   "unit": "g"
  },
@@ -2046,35 +1975,6 @@
    "na": 387
   },
   "serving_weight_g": 50.0,
-  "basis": "100g",
-  "unit": "g"
- },
- "크림스프": {
-  "source": "gagong_db",
-  "name": "크림스프",
-  "per100": {
-   "kcal": 60.0,
-   "protein": 0.69,
-   "fat": 2.08,
-   "carb": 9.68,
-   "sugar": 3.46,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 1.24,
-   "na": 346.0
-  },
-  "_codes": [
-   "P123-206020200-0010"
-  ],
-  "n_dup": 1,
-  "is_concentrate": false,
-  "serving_weight_g": 150,
-  "serving_weight_note": "크림스프: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
-  "nutrition_note": "크림스프: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
-  "prepared_proxy": true,
   "basis": "100g",
   "unit": "g"
  },
@@ -4675,29 +4575,6 @@
   "basis": "100ml",
   "unit": "ml"
  },
- "새우튀김": {
-  "source": "food_db",
-  "name": "새우튀김",
-  "origin": "외식(재료량 기반 산출함량)",
-  "per100": {
-   "kcal": 145,
-   "protein": 7.1,
-   "fat": 5.52,
-   "carb": 16.54,
-   "sugar": 2.22,
-   "fiber": 1,
-   "ca": 30,
-   "fe": 1.03,
-   "vitA": 3,
-   "vitC": 1.45,
-   "satFat": 0.84,
-   "na": 322
-  },
-  "serving_weight_g": 117.6,
-  "basis": "100ml",
-  "unit": "ml",
-  "note": "사용자지정: 새우튀김→food_db 외식(g원칙 예외, 가공 대신 식품db 우선)"
- },
  "칠리소스": {
   "source": "gagong_db",
   "name": "칠리소스(소포장)",
@@ -4993,28 +4870,6 @@
   "is_concentrate": false,
   "unit": "g"
  },
- "쌈장": {
-  "source": "food_db",
-  "name": "쌈장",
-  "origin": "외식(재료량 기반 산출함량)",
-  "per100": {
-   "kcal": 142,
-   "protein": 6.5,
-   "fat": 4.55,
-   "carb": 20.13,
-   "sugar": 8.46,
-   "fiber": 5.2,
-   "ca": 54,
-   "fe": 1.31,
-   "vitA": 57,
-   "vitC": 2.06,
-   "satFat": 0.75,
-   "na": 2335
-  },
-  "serving_weight_g": 22.1,
-  "basis": "100ml",
-  "unit": "ml"
- },
  "모닝빵": {
   "source": "food_db",
   "name": "모닝빵",
@@ -5289,29 +5144,6 @@
   "is_concentrate": false,
   "unit": "g"
  },
- "돈까스": {
-  "source": "food_db",
-  "name": "돈가스",
-  "origin": "외식(분석함량)",
-  "per100": {
-   "kcal": 280,
-   "protein": 13.85,
-   "fat": 17.94,
-   "carb": 15.89,
-   "sugar": 4.99,
-   "fiber": 0.3,
-   "ca": 34,
-   "fe": 0.96,
-   "vitA": null,
-   "vitC": 1.2,
-   "satFat": 3.16,
-   "na": 343
-  },
-  "serving_weight_g": 100.0,
-  "basis": "100g",
-  "unit": "g",
-  "used_synonym": "돈가스"
- },
  "무말랭이": {
   "source": "gagong_db",
   "name": "무말랭이",
@@ -5405,39 +5237,6 @@
   "unit": "g"
  },
  "뿌링클가루": null,
- "탕수육": {
-  "source": "gagong_db",
-  "name": "탕수육",
-  "n_dup": 8,
-  "per100": {
-   "kcal": 219.0,
-   "protein": 11.0,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 4.36,
-   "sugar": 4.02,
-   "na": 296.0,
-   "fat": 8.97,
-   "carb": 23.59
-  },
-  "_codes": [
-   "P117-502050200-0759",
-   "P117-800080000-0989",
-   "P117-501050200-0961",
-   "P117-800080000-0134",
-   "P117-800050200-1115",
-   "P117-800050200-0485",
-   "P117-800050200-0486",
-   "P123-215020300-0218"
-  ],
-  "serving_weight_g": 75.0,
-  "is_concentrate": false,
-  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
-  "unit": "g"
- },
  "곤약조림": {
   "source": "gagong_db",
   "name": "곤약조림",
@@ -6354,28 +6153,6 @@
   ],
   "note": "가공식품DB 중앙값(지방/탄수화물 컬럼은 NRF6.3 추출본에 없어 결측 처리됨 - 필요시 원본에서 보강 필요)",
   "unit": "g"
- },
- "군만두": {
-  "source": "food_db",
-  "name": "군만두",
-  "origin": "산업체급식(재료량 기반 산출 함량)",
-  "per100": {
-   "kcal": 219,
-   "protein": 8.5,
-   "fat": 9.25,
-   "carb": 25.22,
-   "sugar": 0.44,
-   "fiber": 5.3,
-   "ca": 59,
-   "fe": 2.81,
-   "vitA": 9,
-   "vitC": 0,
-   "satFat": 2.67,
-   "na": 237
-  },
-  "serving_weight_g": 257.3,
-  "basis": "100ml",
-  "unit": "ml"
  },
  "팽이미역줄기볶음": {
   "source": "food_db",
@@ -8097,25 +7874,6 @@
   "basis": "100g",
   "unit": "g"
  },
- "다시마": {
-  "source": "db104_direct",
-  "name": "다시마, 생것",
-  "per100": {
-   "kcal": 12.0,
-   "protein": 1.1,
-   "fat": 0.2,
-   "carb": 4.2,
-   "sugar": null,
-   "fiber": null,
-   "ca": 103.0,
-   "fe": 2.4,
-   "vitA": 65.0,
-   "vitC": 14.0,
-   "satFat": null,
-   "na": 75.0
-  },
-  "unit": "g"
- },
  "몽글순두부찌개": {
   "source": "food_db",
   "name": "순두부찌개_해물",
@@ -8817,49 +8575,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "닭갈비": {
-  "source": "gagong_db",
-  "name": "닭갈비(보통맛)",
-  "n_dup": 18,
-  "per100": {
-   "kcal": 163.5,
-   "protein": 12.22,
-   "fiber": null,
-   "ca": null,
-   "fe": null,
-   "vitA": null,
-   "vitC": null,
-   "satFat": 2.08,
-   "sugar": 5.37,
-   "na": 439.0,
-   "fat": 7.21,
-   "carb": 11.12
-  },
-  "_codes": [
-   "P117-501050100-2873",
-   "P117-501050100-2872",
-   "P117-501050100-0715",
-   "P117-501050100-1833",
-   "P117-501050100-1832",
-   "P117-501050100-0714",
-   "P117-501050100-2425",
-   "P123-203020200-1946",
-   "P117-501050100-1191",
-   "P117-501050100-1834",
-   "P117-501050100-7482",
-   "P117-501050100-6242",
-   "P123-212020400-0067",
-   "P123-212020200-0605",
-   "P117-501050100-4127",
-   "P123-212020300-1884",
-   "P117-501080000-0004",
-   "P114-300030000-1259"
-  ],
-  "serving_weight_g": 100.0,
-  "is_concentrate": false,
-  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
-  "unit": "g"
- },
  "로제소스": {
   "source": "gagong_db",
   "name": "로제소스",
@@ -9027,28 +8742,6 @@
    "na": 888
   },
   "serving_weight_g": null,
-  "basis": "100g",
-  "unit": "g"
- },
- "떡갈비": {
-  "source": "food_db",
-  "name": "떡갈비",
-  "origin": "가정식(분석 함량)",
-  "per100": {
-   "kcal": 202,
-   "protein": 21.38,
-   "fat": 11.82,
-   "carb": 2.46,
-   "sugar": 0.4,
-   "fiber": 1.1,
-   "ca": 22,
-   "fe": 2.9,
-   "vitA": 6,
-   "vitC": 0.77,
-   "satFat": 4.29,
-   "na": 404
-  },
-  "serving_weight_g": 200.0,
   "basis": "100g",
   "unit": "g"
  },
@@ -9985,28 +9678,6 @@
   "unit": "g"
  },
  "미나리곰탕": null,
- "미소된장국": {
-  "source": "food_db",
-  "name": "미소된장국",
-  "origin": "산업체급식(재료량 기반 산출 함량)",
-  "per100": {
-   "kcal": 21,
-   "protein": 1.58,
-   "fat": 0.83,
-   "carb": 2.04,
-   "sugar": 0.36,
-   "fiber": 1.1,
-   "ca": 17,
-   "fe": 0.27,
-   "vitA": 1,
-   "vitC": 0.29,
-   "satFat": 0.13,
-   "na": 302
-  },
-  "serving_weight_g": 230.0,
-  "basis": "100ml",
-  "unit": "ml"
- },
  "미역초무침": {
   "source": "food_db",
   "name": "미역초무침",
@@ -14850,9 +14521,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "게살계란탕": null,
- "고구마무스돈까스": null,
- "고들빼기무말랭이무침": null,
  "고추간장": null,
  "궁채절임": {
   "source": "gagong_db",
@@ -14886,8 +14554,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "깍둑단무지무침": null,
- "꼬치어묵우동": null,
  "너비아니": {
   "source": "gagong_db",
   "name": "너비아니",
@@ -14919,7 +14585,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "단호박마카로니샐러드": null,
  "닭칼국수": {
   "source": "gagong_db",
   "name": "닭칼국수",
@@ -14949,7 +14614,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "로제돈까스": null,
  "마늘쫑고추장무침": {
   "source": "gagong_db",
   "name": "마늘쫑 고추장 무침",
@@ -15024,7 +14688,6 @@
   "basis": "100g",
   "unit": "g"
  },
- "만두강정": null,
  "매콤어묵볶음": {
   "source": "gagong_db",
   "name": "매콤어묵볶음(W)",
@@ -15053,10 +14716,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "물닭갈비": null,
- "미나리오징어돈불고기": null,
- "바지락살아욱국": null,
- "버터장조림비빔밥": null,
  "북창동 순두부찌개": {
   "source": "gagong_db",
   "name": "북창동순두부찌개",
@@ -15110,12 +14769,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "삼겹살콩비지찌개": null,
- "삼선짜장면": null,
- "새우튀김카레덮밥": null,
- "순살안동찜닭덮밥": null,
- "쌈다시마": null,
- "아삭이쌈장무침": null,
  "얼갈이겉절이": {
   "source": "gagong_db",
   "name": "얼갈이겉절이",
@@ -15144,7 +14797,6 @@
   "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
   "unit": "g"
  },
- "연두부찜": null,
  "열무나물": {
   "source": "food_db",
   "name": "열무나물",
@@ -15215,14 +14867,1059 @@
   "basis": "100ml",
   "unit": "ml"
  },
- "인절미맛탕수육": null,
- "짜사이채": null,
- "차돌야채비빔밥": null,
- "참치푸실리샐러드": null,
- "추가쌀밥": null,
- "카레돈까스": null,
- "팽이미소장국": null,
- "플라워떡갈비비빔밥": null,
- "홋카이도크림스튜": null,
- "훈제오리김치찜": null
+ "장국": null,
+ "꼬치어묵우동": {
+  "source": "food_db",
+  "name": "어묵 우동",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 61,
+   "protein": 1.9,
+   "fat": 0.72,
+   "carb": 11.22,
+   "sugar": 0.15,
+   "fiber": 0.6,
+   "ca": 11,
+   "fe": 0.16,
+   "vitA": 4,
+   "vitC": 0.14,
+   "satFat": 0.16,
+   "na": 246
+  },
+  "serving_weight_g": 630.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "버터장조림비빔밥": {
+  "source": "gagong_db",
+  "name": "버터장조림밥",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 153.0,
+   "protein": 5.27,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.87,
+   "sugar": 3.32,
+   "na": 406.0,
+   "fat": 3.74,
+   "carb": 24.64
+  },
+  "_codes": [
+   "P123-201020300-5306"
+  ],
+  "serving_weight_g": 210.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "단무지무침": {
+  "source": "food_db",
+  "name": "단무지무침",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 40,
+   "protein": 1,
+   "fat": 1.6,
+   "carb": 5.6,
+   "sugar": 1.4,
+   "fiber": 3.2,
+   "ca": 30,
+   "fe": 0,
+   "vitA": 19,
+   "vitC": 0.52,
+   "satFat": 0.2,
+   "na": 858
+  },
+  "serving_weight_g": 50.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "차돌": {
+  "source": "db104_direct",
+  "name": "소고기, 한우, 양지, 생것",
+  "per100": {
+   "kcal": 253.0,
+   "protein": 18.58,
+   "fat": 18.59,
+   "carb": 0.0,
+   "sugar": 0.0,
+   "fiber": 0.0,
+   "ca": 5.0,
+   "fe": 1.92,
+   "vitA": 12.0,
+   "vitC": 0.93,
+   "satFat": 5.76,
+   "na": 55.0
+  },
+  "used_synonym": "소고기, 한우(1등급), 양지(차돌박이), 생것",
+  "unit": "g"
+ },
+ "팽이미소장국": {
+  "source": "food_db",
+  "name": "미소된장국",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 21,
+   "protein": 1.58,
+   "fat": 0.83,
+   "carb": 2.04,
+   "sugar": 0.36,
+   "fiber": 1.1,
+   "ca": 17,
+   "fe": 0.27,
+   "vitA": 1,
+   "vitC": 0.29,
+   "satFat": 0.13,
+   "na": 302
+  },
+  "serving_weight_g": 230.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "만두강정": {
+  "source": "food_db",
+  "name": "군만두",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 219,
+   "protein": 8.5,
+   "fat": 9.25,
+   "carb": 25.22,
+   "sugar": 0.44,
+   "fiber": 5.3,
+   "ca": 59,
+   "fe": 2.81,
+   "vitA": 9,
+   "vitC": 0,
+   "satFat": 2.67,
+   "na": 237
+  },
+  "serving_weight_g": 257.3,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "닭찜_안동찜닭": {
+  "source": "food_db",
+  "name": "닭찜_안동찜닭",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 91,
+   "protein": 7.61,
+   "fat": 2.59,
+   "carb": 9.3,
+   "sugar": 4.45,
+   "fiber": 2,
+   "ca": 35,
+   "fe": 0,
+   "vitA": 20,
+   "vitC": 0,
+   "satFat": 0.69,
+   "na": 364
+  },
+  "serving_weight_g": 1500.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "삼겹살콩비지찌개": {
+  "source": "food_db",
+  "name": "콩비지찌개",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 41,
+   "protein": 2.7,
+   "fat": 1.15,
+   "carb": 5.17,
+   "sugar": 0.66,
+   "fiber": 3.3,
+   "ca": 33,
+   "fe": 0.95,
+   "vitA": 7,
+   "vitC": 1.09,
+   "satFat": 0.27,
+   "na": 238
+  },
+  "serving_weight_g": 240.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "단호박 샐러드": {
+  "source": "gagong_db",
+  "name": "단호박샐러드(A)",
+  "n_dup": 21,
+  "per100": {
+   "kcal": 140.0,
+   "protein": 1.45,
+   "fiber": 3.0,
+   "ca": 10.0,
+   "fe": 0.3,
+   "vitA": 0.0,
+   "vitC": 0.0,
+   "satFat": 1.3,
+   "sugar": 7.9,
+   "na": 145.0,
+   "fat": 8.17,
+   "carb": 16.25
+  },
+  "_codes": [
+   "P123-226020200-2090",
+   "P123-226020200-2091",
+   "P123-226020200-1827",
+   "P123-226020200-2089",
+   "P123-226020200-1476",
+   "P123-226020100-0273",
+   "P114-300030000-1990",
+   "P123-226020200-0152",
+   "P123-226020200-0153",
+   "P123-224020200-0665",
+   "P123-226020200-1157",
+   "P123-226020200-1158",
+   "P123-226020200-0147",
+   "P123-226020200-0148",
+   "P123-226020200-0149",
+   "P123-226020200-0150",
+   "P123-226020200-0151",
+   "P123-226020200-1598",
+   "P123-226020100-0293",
+   "P123-226020200-0984",
+   "P123-226020200-1321"
+  ],
+  "serving_weight_g": 150.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "크림스프": {
+  "source": "gagong_db",
+  "name": "크림스프",
+  "per100": {
+   "kcal": 60.0,
+   "protein": 0.69,
+   "fat": 2.08,
+   "carb": 9.68,
+   "sugar": 3.46,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.24,
+   "na": 346.0
+  },
+  "_codes": [
+   "P123-206020200-0010"
+  ],
+  "n_dup": 1,
+  "is_concentrate": false,
+  "serving_weight_g": 150,
+  "serving_weight_note": "크림스프: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "nutrition_note": "크림스프: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "prepared_proxy": true,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "카레돈까스": {
+  "source": "gagong_db",
+  "name": "핵이득 카레돈까스덮밥",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 183.0,
+   "protein": 5.58,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.75,
+   "sugar": 1.46,
+   "na": 272.0,
+   "fat": 7.39,
+   "carb": 23.64
+  },
+  "_codes": [
+   "P123-201020300-6257"
+  ],
+  "serving_weight_g": 210.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "고구마무스돈까스": {
+  "source": "gagong_db",
+  "name": "고구마돈까스",
+  "n_dup": 3,
+  "per100": {
+   "kcal": 168.0,
+   "protein": 10.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.4,
+   "sugar": 1.0,
+   "na": 460.0,
+   "fat": 3.6,
+   "carb": 24.0
+  },
+  "_codes": [
+   "P117-502050200-1104",
+   "P117-800080000-0917",
+   "P117-800050200-0250"
+  ],
+  "serving_weight_g": 50.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "미소된장국": {
+  "source": "food_db",
+  "name": "미소된장국",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 21,
+   "protein": 1.58,
+   "fat": 0.83,
+   "carb": 2.04,
+   "sugar": 0.36,
+   "fiber": 1.1,
+   "ca": 17,
+   "fe": 0.27,
+   "vitA": 1,
+   "vitC": 0.29,
+   "satFat": 0.13,
+   "na": 302
+  },
+  "serving_weight_g": 230.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "군만두": {
+  "source": "food_db",
+  "name": "군만두",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 219,
+   "protein": 8.5,
+   "fat": 9.25,
+   "carb": 25.22,
+   "sugar": 0.44,
+   "fiber": 5.3,
+   "ca": 59,
+   "fe": 2.81,
+   "vitA": 9,
+   "vitC": 0,
+   "satFat": 2.67,
+   "na": 237
+  },
+  "serving_weight_g": 257.3,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "마카로니 샐러드": {
+  "source": "gagong_db",
+  "name": "마카로니샐러드",
+  "n_dup": 3,
+  "per100": {
+   "kcal": 207.0,
+   "protein": 2.99,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.76,
+   "sugar": 3.2,
+   "na": 353.0,
+   "fat": 11.89,
+   "carb": 19.33
+  },
+  "_codes": [
+   "P123-226020200-0239",
+   "P123-226020200-2053",
+   "P123-226020200-1503"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "깍둑단무지무침": {
+  "source": "food_db",
+  "name": "단무지무침",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 40,
+   "protein": 1,
+   "fat": 1.6,
+   "carb": 5.6,
+   "sugar": 1.4,
+   "fiber": 3.2,
+   "ca": 30,
+   "fe": 0,
+   "vitA": 19,
+   "vitC": 0.52,
+   "satFat": 0.2,
+   "na": 858
+  },
+  "serving_weight_g": 50.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "훈제오리김치찜": {
+  "source": "gagong_db",
+  "name": "오리김치찜",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 45.0,
+   "protein": 2.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.0,
+   "sugar": 1.0,
+   "na": 50.0,
+   "fat": 2.0,
+   "carb": 5.0
+  },
+  "_codes": [
+   "P123-210020300-0677"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "쌈다시마": {
+  "source": "db104_direct",
+  "name": "다시마, 생것",
+  "per100": {
+   "kcal": 12.0,
+   "protein": 1.1,
+   "fat": 0.2,
+   "carb": 4.2,
+   "sugar": null,
+   "fiber": null,
+   "ca": 103.0,
+   "fe": 2.4,
+   "vitA": 65.0,
+   "vitC": 14.0,
+   "satFat": null,
+   "na": 75.0
+  },
+  "unit": "g"
+ },
+ "짜사이채": {
+  "source": "gagong_db",
+  "name": "짜사이무침",
+  "n_dup": 1,
+  "per100": {
+   "kcal": 120.0,
+   "protein": 2.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.2,
+   "sugar": 4.0,
+   "na": 950.0,
+   "fat": 7.0,
+   "carb": 10.0
+  },
+  "_codes": [
+   "P114-400020100-3239"
+  ],
+  "serving_weight_g": 25.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "떡갈비": {
+  "source": "food_db",
+  "name": "떡갈비",
+  "origin": "가정식(분석 함량)",
+  "per100": {
+   "kcal": 202,
+   "protein": 21.38,
+   "fat": 11.82,
+   "carb": 2.46,
+   "sugar": 0.4,
+   "fiber": 1.1,
+   "ca": 22,
+   "fe": 2.9,
+   "vitA": 6,
+   "vitC": 0.77,
+   "satFat": 4.29,
+   "na": 404
+  },
+  "serving_weight_g": 200.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "쌈장": {
+  "source": "food_db",
+  "name": "쌈장",
+  "origin": "외식(재료량 기반 산출함량)",
+  "per100": {
+   "kcal": 142,
+   "protein": 6.5,
+   "fat": 4.55,
+   "carb": 20.13,
+   "sugar": 8.46,
+   "fiber": 5.2,
+   "ca": 54,
+   "fe": 1.31,
+   "vitA": 57,
+   "vitC": 2.06,
+   "satFat": 0.75,
+   "na": 2335
+  },
+  "serving_weight_g": 22.1,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "새우튀김": {
+  "source": "gagong_db",
+  "name": "새우튀김(흰다리새우 29% 함유)",
+  "n_dup": 7,
+  "per100": {
+   "kcal": 160.0,
+   "protein": 10.0,
+   "fiber": 1.9,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.0,
+   "sugar": 1.0,
+   "na": 300.0,
+   "fat": 1.5,
+   "carb": 25.0
+  },
+  "_codes": [
+   "P120-600060000-4021",
+   "P120-600060000-1388",
+   "P123-215020300-0330",
+   "P120-600060000-1387",
+   "P123-215020300-0235",
+   "P120-600060000-1783",
+   "P120-600060000-2582"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "바지락살아욱국": {
+  "source": "food_db",
+  "name": "바지락국",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 17,
+   "protein": 2.2,
+   "fat": 0.51,
+   "carb": 0.74,
+   "sugar": 0.11,
+   "fiber": 0.3,
+   "ca": 14,
+   "fe": 0.45,
+   "vitA": 0,
+   "vitC": 0.27,
+   "satFat": 0.09,
+   "na": 222
+  },
+  "serving_weight_g": 320.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "무말랭이무침": {
+  "source": "food_db",
+  "name": "무말랭이무침",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 131,
+   "protein": 3.08,
+   "fat": 0.87,
+   "carb": 27.77,
+   "sugar": 14.46,
+   "fiber": 6.4,
+   "ca": 103,
+   "fe": 1.55,
+   "vitA": null,
+   "vitC": 0.2,
+   "satFat": 0.18,
+   "na": 1137
+  },
+  "serving_weight_g": 100.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "물닭갈비": {
+  "source": "gagong_db",
+  "name": "닭갈비(보통맛)",
+  "n_dup": 18,
+  "per100": {
+   "kcal": 163.5,
+   "protein": 12.22,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 2.08,
+   "sugar": 5.37,
+   "na": 439.0,
+   "fat": 7.21,
+   "carb": 11.12
+  },
+  "_codes": [
+   "P117-501050100-2873",
+   "P117-501050100-2872",
+   "P117-501050100-0715",
+   "P117-501050100-1833",
+   "P117-501050100-1832",
+   "P117-501050100-0714",
+   "P117-501050100-2425",
+   "P123-203020200-1946",
+   "P117-501050100-1191",
+   "P117-501050100-1834",
+   "P117-501050100-7482",
+   "P117-501050100-6242",
+   "P123-212020400-0067",
+   "P123-212020200-0605",
+   "P117-501050100-4127",
+   "P123-212020300-1884",
+   "P117-501080000-0004",
+   "P114-300030000-1259"
+  ],
+  "serving_weight_g": 100.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "카레덮밥": {
+  "source": "gagong_db",
+  "name": "카레덮밥",
+  "n_dup": 6,
+  "per100": {
+   "kcal": 146.0,
+   "protein": 3.27,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.73,
+   "sugar": 1.52,
+   "na": 319.0,
+   "fat": 4.33,
+   "carb": 25.54
+  },
+  "_codes": [
+   "P123-201020300-2607",
+   "P123-201020200-0500",
+   "P123-201020300-4397",
+   "P123-201020300-5640",
+   "P123-201020200-0789",
+   "P123-201020300-5435"
+  ],
+  "serving_weight_g": 210.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "로제돈까스": {
+  "source": "food_db",
+  "name": "돈가스",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 280,
+   "protein": 13.85,
+   "fat": 17.94,
+   "carb": 15.89,
+   "sugar": 4.99,
+   "fiber": 0.3,
+   "ca": 34,
+   "fe": 0.96,
+   "vitA": null,
+   "vitC": 1.2,
+   "satFat": 3.16,
+   "na": 343
+  },
+  "serving_weight_g": 100.0,
+  "basis": "100g",
+  "unit": "g",
+  "used_synonym": "돈가스"
+ },
+ "아삭이쌈장무침": {
+  "source": "food_db",
+  "name": "쌈장",
+  "origin": "외식(재료량 기반 산출함량)",
+  "per100": {
+   "kcal": 142,
+   "protein": 6.5,
+   "fat": 4.55,
+   "carb": 20.13,
+   "sugar": 8.46,
+   "fiber": 5.2,
+   "ca": 54,
+   "fe": 1.31,
+   "vitA": 57,
+   "vitC": 2.06,
+   "satFat": 0.75,
+   "na": 2335
+  },
+  "serving_weight_g": 22.1,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "계란국": {
+  "source": "gagong_db",
+  "name": "계란국",
+  "n_dup": 4,
+  "per100": {
+   "kcal": 200.0,
+   "protein": 8.94,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.12,
+   "sugar": 0.32,
+   "na": 2463.0,
+   "fat": 4.28,
+   "carb": 26.0
+  },
+  "_codes": [
+   "P123-207020300-2294",
+   "P123-207020300-0070",
+   "P123-207020300-0069",
+   "P123-207020300-4021"
+  ],
+  "serving_weight_g": 250.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "인절미맛탕수육": {
+  "source": "gagong_db",
+  "name": "탕수육",
+  "n_dup": 8,
+  "per100": {
+   "kcal": 219.0,
+   "protein": 11.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 4.36,
+   "sugar": 4.02,
+   "na": 296.0,
+   "fat": 8.97,
+   "carb": 23.59
+  },
+  "_codes": [
+   "P117-502050200-0759",
+   "P117-800080000-0989",
+   "P117-501050200-0961",
+   "P117-800080000-0134",
+   "P117-800050200-1115",
+   "P117-800050200-0485",
+   "P117-800050200-0486",
+   "P123-215020300-0218"
+  ],
+  "serving_weight_g": 75.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "고들빼기무말랭이무침": {
+  "source": "food_db",
+  "name": "무말랭이무침",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 131,
+   "protein": 3.08,
+   "fat": 0.87,
+   "carb": 27.77,
+   "sugar": 14.46,
+   "fiber": 6.4,
+   "ca": 103,
+   "fe": 1.55,
+   "vitA": null,
+   "vitC": 0.2,
+   "satFat": 0.18,
+   "na": 1137
+  },
+  "serving_weight_g": 100.0,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "미나리오징어돈불고기": {
+  "source": "gagong_db",
+  "name": "오징어불고기(S)",
+  "n_dup": 3,
+  "per100": {
+   "kcal": 135.0,
+   "protein": 11.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.72,
+   "sugar": 6.0,
+   "na": 450.0,
+   "fat": 3.0,
+   "carb": 14.28
+  },
+  "_codes": [
+   "P117-800080000-0117",
+   "P123-212020300-1474",
+   "P117-800080000-0407"
+  ],
+  "serving_weight_g": null,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "연두부찜": {
+  "source": "food_db",
+  "name": "연두부찜",
+  "origin": "중고등학교급식(재료량 기반 산출함량)",
+  "code": "D607-371000000-0001",
+  "per100": {
+   "kcal": 76,
+   "protein": 4.6,
+   "fat": 3.58,
+   "carb": 6.35,
+   "sugar": 1.17,
+   "fiber": 1.2,
+   "ca": 43,
+   "fe": 1.32,
+   "vitA": 11,
+   "vitC": 0,
+   "satFat": 0.25,
+   "na": 155
+  },
+  "serving_weight_g": 108,
+  "serving_weight_note": "연두부찜: 면·수제비 제품 자체 대신 국물을 포함한 조리음식 연두부찜(D607-371000000-0001) 성분을 최신 단위별 국물 제공량에 적용. 실제 건더기·국물 비율과 배합 미확인. 100mL 기준 자료는 밀도1로 환산.",
+  "nutrition_note": "연두부찜: 면·수제비 제품 자체 대신 국물을 포함한 조리음식 연두부찜(D607-371000000-0001) 성분을 최신 단위별 국물 제공량에 적용. 실제 건더기·국물 비율과 배합 미확인. 100mL 기준 자료는 밀도1로 환산.",
+  "prepared_proxy": true,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "홋카이도크림스튜": {
+  "source": "gagong_db",
+  "name": "크림스프",
+  "per100": {
+   "kcal": 60.0,
+   "protein": 0.69,
+   "fat": 2.08,
+   "carb": 9.68,
+   "sugar": 3.46,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 1.24,
+   "na": 346.0
+  },
+  "_codes": [
+   "P123-206020200-0010"
+  ],
+  "n_dup": 1,
+  "is_concentrate": false,
+  "serving_weight_g": 150,
+  "serving_weight_note": "홋카이도크림스튜: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "nutrition_note": "홋카이도크림스튜: 분말·농축 제품과 혼합하지 않고 즉석섭취식품 제품 크림스프(P123-206020200-0010) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "prepared_proxy": true,
+  "basis": "100g",
+  "unit": "g"
+ },
+ "돈까스": {
+  "source": "food_db",
+  "name": "돈가스",
+  "origin": "외식(분석함량)",
+  "per100": {
+   "kcal": 280,
+   "protein": 13.85,
+   "fat": 17.94,
+   "carb": 15.89,
+   "sugar": 4.99,
+   "fiber": 0.3,
+   "ca": 34,
+   "fe": 0.96,
+   "vitA": null,
+   "vitC": 1.2,
+   "satFat": 3.16,
+   "na": 343
+  },
+  "serving_weight_g": 100.0,
+  "basis": "100g",
+  "unit": "g",
+  "used_synonym": "돈가스"
+ },
+ "탕수육": {
+  "source": "gagong_db",
+  "name": "탕수육",
+  "n_dup": 8,
+  "per100": {
+   "kcal": 219.0,
+   "protein": 11.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 4.36,
+   "sugar": 4.02,
+   "na": 296.0,
+   "fat": 8.97,
+   "carb": 23.59
+  },
+  "_codes": [
+   "P117-502050200-0759",
+   "P117-800080000-0989",
+   "P117-501050200-0961",
+   "P117-800080000-0134",
+   "P117-800050200-1115",
+   "P117-800050200-0485",
+   "P117-800050200-0486",
+   "P123-215020300-0218"
+  ],
+  "serving_weight_g": 75.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "닭갈비": {
+  "source": "gagong_db",
+  "name": "닭갈비(보통맛)",
+  "n_dup": 18,
+  "per100": {
+   "kcal": 163.5,
+   "protein": 12.22,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 2.08,
+   "sugar": 5.37,
+   "na": 439.0,
+   "fat": 7.21,
+   "carb": 11.12
+  },
+  "_codes": [
+   "P117-501050100-2873",
+   "P117-501050100-2872",
+   "P117-501050100-0715",
+   "P117-501050100-1833",
+   "P117-501050100-1832",
+   "P117-501050100-0714",
+   "P117-501050100-2425",
+   "P123-203020200-1946",
+   "P117-501050100-1191",
+   "P117-501050100-1834",
+   "P117-501050100-7482",
+   "P117-501050100-6242",
+   "P123-212020400-0067",
+   "P123-212020200-0605",
+   "P117-501050100-4127",
+   "P123-212020300-1884",
+   "P117-501080000-0004",
+   "P114-300030000-1259"
+  ],
+  "serving_weight_g": 100.0,
+  "is_concentrate": false,
+  "note": "가공식품DB 중앙값(지방/탄수화물 포함, 원본 엑셀에서 합쳐넣은 CSV 기준)",
+  "unit": "g"
+ },
+ "삼선짜장면": {
+  "source": "food_db",
+  "name": "짜장면",
+  "origin": "산업체급식(재료량 기반 산출 함량)",
+  "per100": {
+   "kcal": 117,
+   "protein": 4,
+   "fat": 2.06,
+   "carb": 22.06,
+   "sugar": 1.9,
+   "fiber": 2.4,
+   "ca": 15,
+   "fe": 0.32,
+   "vitA": 7,
+   "vitC": 2.94,
+   "satFat": 0.41,
+   "na": 371
+  },
+  "serving_weight_g": 550.0,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "참치푸실리샐러드": {
+  "source": "food_db",
+  "name": "참치 샐러드",
+  "origin": "외식(재료량 기반 산출함량)",
+  "code": "D414-717000000-0001",
+  "per100": {
+   "kcal": 200,
+   "protein": 10.8,
+   "fat": 16.18,
+   "carb": 2.96,
+   "sugar": 1.96,
+   "fiber": 0.8,
+   "ca": 11,
+   "fe": 0.55,
+   "vitA": 60,
+   "vitC": 1.5,
+   "satFat": 2.03,
+   "na": 151
+  },
+  "serving_weight_g": 71,
+  "serving_weight_note": "참치푸실리샐러드: 면·수제비 제품 자체 대신 국물을 포함한 조리음식 참치 샐러드(D414-717000000-0001) 성분을 최신 단위별 국물 제공량에 적용. 실제 건더기·국물 비율과 배합 미확인. 100mL 기준 자료는 밀도1로 환산.",
+  "nutrition_note": "참치푸실리샐러드: 면·수제비 제품 자체 대신 국물을 포함한 조리음식 참치 샐러드(D414-717000000-0001) 성분을 최신 단위별 국물 제공량에 적용. 실제 건더기·국물 비율과 배합 미확인. 100mL 기준 자료는 밀도1로 환산.",
+  "prepared_proxy": true,
+  "basis": "100ml",
+  "unit": "ml"
+ },
+ "게살계란탕": {
+  "source": "gagong_db",
+  "name": "계란국",
+  "per100": {
+   "kcal": 30.0,
+   "protein": 3.0,
+   "fat": 1.5,
+   "carb": 2.0,
+   "sugar": 0.0,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
+   "satFat": 0.0,
+   "na": 127.0
+  },
+  "_codes": [
+   "P123-207020300-2294"
+  ],
+  "n_dup": 1,
+  "is_concentrate": false,
+  "serving_weight_g": 283,
+  "serving_weight_note": "게살계란탕: 분말·농축 제품과 혼합하지 않고 즉석조리식품 제품 계란국(P123-207020300-2294) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "nutrition_note": "게살계란탕: 분말·농축 제품과 혼합하지 않고 즉석조리식품 제품 계란국(P123-207020300-2294) 성분으로 대체 추정. 실제 급식 제품·희석비 미확인. 최신 반찬 제공량에 즉석섭취식품 성분 적용.",
+  "prepared_proxy": true,
+  "basis": "100g",
+  "unit": "g"
+ }
 }

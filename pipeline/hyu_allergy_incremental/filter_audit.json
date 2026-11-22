@@ -1744,15 +1744,15 @@
     "5": 398,
     "6": 382,
     "7": 59,
-    "8": 117,
+    "8": 112,
     "9": 282,
     "10": 256,
     "11": 6,
-    "12": 173,
+    "12": 168,
     "13": 386,
     "14": 0,
     "15": 152,
-    "16": 233,
+    "16": 228,
     "17": 63,
     "18": 294,
     "19": 0
@@ -8530,7 +8530,7 @@
         "2026-09-14",
         "401",
         "**콜라보메뉴** (한정)",
-        "북창동"
+        "북창동 순두부찌개"
       ],
       "component": "잡채",
       "reference": "잡채",
@@ -8569,7 +8569,7 @@
         "2026-09-15",
         "401",
         "**콜라보메뉴** (한정)",
-        "북창동"
+        "북창동 순두부찌개"
       ],
       "component": "잡채",
       "reference": "잡채",
@@ -8634,7 +8634,7 @@
         "2026-09-16",
         "401",
         "**콜라보메뉴** (한정)",
-        "북창동"
+        "북창동 순두부찌개"
       ],
       "component": "잡채",
       "reference": "잡채",
@@ -8699,7 +8699,7 @@
         "2026-09-17",
         "401",
         "**콜라보메뉴** (한정)",
-        "북창동"
+        "북창동 순두부찌개"
       ],
       "component": "잡채",
       "reference": "잡채",
@@ -8790,7 +8790,7 @@
         "2026-09-18",
         "401",
         "**콜라보메뉴** (한정)",
-        "북창동"
+        "북창동 순두부찌개"
       ],
       "component": "잡채",
       "reference": "잡채",
@@ -10315,14 +10315,14 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "df8f392b2d4d3edd66a3a927183cdf54d3fc702b7a94d1519bb9c3ed5ee03d5d",
-    "web\\menu_exchange_snapshot.json": "0ea191e0b33b2e2a39d161bfb25cc29ddb8ae079be90186a3b88c1546d35c7d1",
-    "web\\personal-score.js": "9f31e1a8dfd8fdf459f36f9c9fa6b4156f7ac52a9c9633ef8434f724c809b5a0",
-    "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
-    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
+    "web\\site_data.json": "be756e3512b796d9503c6c265a8f3968fe6092f32ce5a2ba6438b2f082cf7771",
+    "web\\menu_exchange_snapshot.json": "f29e931af2430ca99856c8de9d950ed2701d45c07d54a9ee3eacf3648e89be0c",
+    "web\\personal-score.js": "7e1d8c2f37cbdc36083a5f8453df2d7a12b5211b762f559b0c27cea9bfa43c81",
+    "web\\recommendation-view.js": "8d84ee14f6053d33d7106931fda4dffd4b9f727535cd99a3254c79940be9adce",
+    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "988c0d90773de0c8b2fb812e6030ef502ac06b52c7b8d31eaca19b73a1ac5e8e",
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "4e4cc1465f2b8905f4d57d660d7e0dc5f59c5948288c4bc0ffdb9752cbbdf46a",
     "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "5bf57d7974c021db0e90df3eb242302c08b39492e6c8e4bc70a2b19baa4a143b",
     "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "3679503861a3634865f1e781de36d63727d22e63858635567dc9a5a37e293a04"
   }
