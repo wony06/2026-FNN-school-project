@@ -3835,5 +3835,132 @@
   ],
   "calculation_source": "db104_direct",
   "assumptions": "사용자 지정 레시피(배치) 기준 교환단위 계산 후 일반 반찬 72.2g로 비례 축소. 반죽물(밀가루220·물600·달걀50·베이킹소다·굴소스30)+문어200·버터100·부추30·파채200·가쓰오부시10 전체 배치 ~1550g 기준. 물·베이킹소다·타코야끼소스·마요네즈·모밀소스·굴소스는 교환군 없어 제외."
+ },
+ {
+  "name": "고구마무스돈까스",
+  "weight_g": 130.0,
+  "ingredients": [
+   {
+    "food_code": "F01614",
+    "food_name": "돼지고기, 등심, 구운것(팬)",
+    "food_eng_name": "Pork meat, Loin(Deungsim), Pan-broiled",
+    "food_group": "육류",
+    "origin": "농진청",
+    "weight_g": 50.45871559633027,
+    "allergy": "돼지고기"
+   },
+   {
+    "food_code": "F00108",
+    "food_name": "밀, 중력밀가루",
+    "food_eng_name": "Wheat flour, White, All-purpose",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 17.155963302752294,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F01882",
+    "food_name": "달걀, 부침(달걀프라이)",
+    "food_eng_name": "Egg, Whole, Pan-fried",
+    "food_group": "난류",
+    "origin": "농진청",
+    "weight_g": 14.128440366972477,
+    "allergy": "난류,밀"
+   },
+   {
+    "food_code": "F00106",
+    "food_name": "밀, 빵가루",
+    "food_eng_name": "Wheat, Bread crumb",
+    "food_group": "곡류 및 그 제품",
+    "origin": "농진청",
+    "weight_g": 14.128440366972477,
+    "allergy": "밀"
+   },
+   {
+    "food_code": "F02712",
+    "food_name": "콩기름",
+    "food_eng_name": "Soybean oil",
+    "food_group": "유지류",
+    "origin": "농진청",
+    "weight_g": 10.091743119266056,
+    "allergy": "대두(콩)"
+   },
+   {
+    "food_code": "F02876",
+    "food_name": "소금, 천일염, 가는소금",
+    "food_eng_name": "Salt(Sogeum), Sun-dried salt, Fine salt",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 2.018348623853211,
+    "allergy": null
+   },
+   {
+    "food_code": "F00739",
+    "food_name": "마늘, 생것",
+    "food_eng_name": "Garlic(Maneul), Raw",
+    "food_group": "채소류",
+    "origin": "농진청",
+    "weight_g": 1.0091743119266054,
+    "allergy": null
+   },
+   {
+    "food_code": "F02927",
+    "food_name": "후추, 검은색, 가루",
+    "food_eng_name": "Pepper, Black, Powder",
+    "food_group": "조미료류",
+    "origin": "농진청",
+    "weight_g": 1.0091743119266054,
+    "allergy": null
+   },
+   {
+    "food_name": "고구마, 찐것",
+    "food_group": "감자류 및 전분류",
+    "weight_g": 20
+   }
+  ],
+  "assumptions": "고구마치즈돈까스 레시피에서 치즈(모차렐라 20g)만 제거한 버전(사용자 지정, 2026-11-23). 실제 메뉴는 고구마무스돈까스로 치즈 없음. 고구마(찐것) 20g을 고구마무스 대용으로 유지. 교환단위 계산 전용이며 영양성분은 기존 gagong 고구마돈까스 매칭을 유지함.",
+  "source": "고구마치즈돈까스 − 치즈 (사용자 지정 파생)",
+  "created": "2026-11-23"
+ },
+ {
+  "name": "훈제오리김치찜",
+  "weight_g": 568,
+  "scale_to_target": true,
+  "batch_recipe": true,
+  "ingredients": [
+   {
+    "food_name": "김치, 배추 김치",
+    "food_group": "채소류",
+    "weight_g": 250
+   },
+   {
+    "food_name": "오리고기, 조미훈제",
+    "food_group": "육류 및 그 제품",
+    "weight_g": 200
+   },
+   {
+    "food_name": "파, 대파, 생것",
+    "food_group": "채소류",
+    "weight_g": 35
+   },
+   {
+    "food_name": "참기름",
+    "food_group": "유지류",
+    "weight_g": 26
+   },
+   {
+    "food_name": "설탕, 백설탕",
+    "food_group": "당류",
+    "weight_g": 12
+   },
+   {
+    "food_name": "맛술",
+    "food_group": "조미료류",
+    "weight_g": 45
+   }
+  ],
+  "assumptions": "만개의레시피 돼지고기 김치찜 레시피에서 돼지고기 200g을 오리고기(조미훈제) 200g으로 전량 대체(사용자 지정, 2026-11-23). 김치 1/4포기=250g(1포기≈1kg), 대파 1/2줄기=35g(1줄기≈70g), 참기름 2T=26g, 설탕 1T=12g, 맛술 3T=45g으로 표준 계량 환산(실측 아님). 레시피 배합 총 568g을 트레이 제공량에 scale_to_target으로 비례 환산. 설탕(당류)·맛술(조미료)은 교환 자유식품으로 0 기여. 영양성분 계산(기존 gagong 오리김치찜)은 유지.",
+  "source": "만개의레시피 돼지고기김치찜 → 오리고기 조미훈제 대체(사용자 지정)",
+  "created": "2026-11-23"
  }
 ]
