@@ -990,7 +990,6 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
             "단호박샐러드": "단호박견과류샐러드",        # 레시피DB 단호박견과류샐러드
             "핫도그": "소시지빵",                 # menugen 소시지빵 근사 - 콘도그≈소시지+튀김빵
             "연두부찜": "두부찜",                 # menugen 두부찜
-            "고들빼기무말랭이무침": "무말랭이 무침",      # menugen 무말랭이 무침(고들빼기 소량 미반영)
             "마늘쫑지무침": "마늘종무침",            # menugen 마늘종무침
             "매콤어묵볶음": "어묵볶음",             # menugen 어묵볶음
             "게살계란탕": "게살달걀국",             # menugen 게살달걀국(계란탕≈달걀국)
