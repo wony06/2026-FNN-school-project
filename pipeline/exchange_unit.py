@@ -193,7 +193,7 @@ def _lookup_menugen(name):
     return None
 
 
-def _from_menugen(name, target_weight_g):
+def _from_menugen(name, target_weight_g, *, excluded_ingredients=()):
     spam_mayo = name == "스팸마요덮밥"
     no_meat = name == "청포묵무침"
     no_onion = name == "피쉬볼볶음"
@@ -259,6 +259,9 @@ def _from_menugen(name, target_weight_g):
     _is_rice_dominant = any(k in _nm for k in ("알밥", "비빔밥"))  # 밥 위주 - 토핑 자연량 유지(비례 확대 안 함)
     _rice_names = set(RAW_RICE_TO_COOKED) | set(RAW_RICE_TO_COOKED.values())  # 생쌀·조리밥 모두(큰 레시피 과소도 교정)
     _rice_raw = sum(float(i.get("weight_g") or 0) for i in ingredients if i.get("food_name") in _rice_names)
+    # User-confirmed omissions do not redistribute the removed weight.
+    if excluded_ingredients:
+        ingredients = [i for i in ingredients if i.get("food_name") not in excluded_ingredients]
     if _is_bapbase and _rice_raw > 0 and target_weight_g > 210 and ref_weight > _rice_raw:
         topping_scale = 1.0 if _is_rice_dominant else (target_weight_g - 210.0) / (ref_weight - _rice_raw)
         units = {g: 0.0 for g in EXCHANGE_GROUPS}
@@ -521,6 +524,24 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "안동찜닭_단호박제외":
+        result = _from_menugen("단호박닭찜 ", weight_g, excluded_ingredients=("호박, 단호박, 생것",))
+        if result is None:
+            raise ValueError("단호박 제외 안동찜닭의 MenuGen 참고 레시피를 확인해야 합니다.")
+        return {**result, "matched": True, "recipe_note":
+                "11/26 순살안동찜닭덮밥: 토핑의 MenuGen 단호박닭찜 배합에서 단호박만 사용자 지정 제외. "
+                "기존 참조 중량으로 환산한 나머지 재료와 별도 단호박 샐러드는 유지. "
+                "안동찜닭의 실제 배합은 미확인."}
+    if name == "북창동순두부찌개_고추제외":
+        result = _from_menugen(
+            "순두부찌개", weight_g,
+            excluded_ingredients=("고추, 풋고추, 생것", "고추, 빨간색, 생것"),
+        )
+        if result is None:
+            raise ValueError("고추 제외 순두부찌개의 MenuGen 참고 레시피를 확인해야 합니다.")
+        return {**result, "matched": True, "recipe_note":
+                "11/23~27 생활과학대학 북창동 순두부찌개: MenuGen 참고 배합에서 풋고추와 붉은 고추만 사용자 지정 제외. "
+                "기존 참조 중량으로 환산한 나머지 재료와 별도 반찬은 유지. 실제 배합은 미확인."}
     if name == "삶은닭고기":
         record = DB104_BY_NAME["닭고기, 살코기, 삶은것"]
         units = {g: 0.0 for g in EXCHANGE_GROUPS}

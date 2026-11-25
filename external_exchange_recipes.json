@@ -553,6 +553,56 @@
     ]
   },
   {
+    "name": "신소재_20261125_돈코츠라멘",
+    "source_url": "https://www.10000recipe.com/recipe/6883707",
+    "accessed": "2026-10-06",
+    "weight_g": 373,
+    "ingredients": [
+      {
+        "food_name": "중식면, 생것, 삶은것",
+        "food_group": "곡류 및 그 제품",
+        "weight_g": 250,
+        "ingredient_label": "라멘 생면을 삶은 면 대체"
+      },
+      {
+        "food_name": "돼지고기, 삼겹살, 구운것(팬)",
+        "food_group": "육류 및 그 제품",
+        "weight_g": 50
+      },
+      {
+        "food_name": "달걀, 삶은것",
+        "food_group": "난류",
+        "weight_g": 25
+      },
+      {
+        "food_name": "숙주나물, 데친것",
+        "food_group": "채소류",
+        "weight_g": 40
+      },
+      {
+        "food_name": "파, 쪽파, 생것",
+        "food_group": "채소류",
+        "weight_g": 5
+      },
+      {
+        "food_name": "콩기름",
+        "food_group": "유지류",
+        "weight_g": 3
+      }
+    ],
+    "excluded_ingredients": [
+      "물",
+      "라면 스프",
+      "국물",
+      "고기 양념 잔존량 미상",
+      "육수용 양파 170g"
+    ],
+    "assumptions": "11/25 신소재공학관 돈코츠라멘: 기존 참고 레시피에서 육수용 양파 170g만 사용자 지정으로 교환단위에서 제외. 면·삼겹살·달걀·숙주·쪽파·콩기름의 참고 중량은 유지하고, 국물을 제외한 나머지 재료 373g을 추가 배율 없이 계산. 영양성분에는 기존 국물 포함 외식 분석값과 497g 제공량을 사용. 실제 배합과 중량은 미확인.",
+    "direct_db_additions": [
+      "중식면, 생것, 삶은것"
+    ]
+  },
+  {
     "name": "돼지고기육전",
     "batch_recipe": true,
     "source_url": "https://www.10000recipe.com/recipe/6881942",

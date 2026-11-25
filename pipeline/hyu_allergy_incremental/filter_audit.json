@@ -10648,8 +10648,8 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "30f4e3c1d00e58c6398e90e4bb572ac0843c7b27c825fdc79d002a8e92e0ce24",
-    "web\\menu_exchange_snapshot.json": "8a35ed04af6fe50a3d0783d3efbc479e62495f97f77e4866a6edd7f6c1f20344",
+    "web\\site_data.json": "29f5ed6c8b669248ba051284227c62e0c123975b6b0b67ca8f453091c9f879a7",
+    "web\\menu_exchange_snapshot.json": "0bc14764ea91941ff3f344561e866b0c8206cba1eb43daf4bb8589214e17ca63",
     "web\\personal-score.js": "7e1d8c2f37cbdc36083a5f8453df2d7a12b5211b762f559b0c27cea9bfa43c81",
     "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",

@@ -1152,7 +1152,16 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
             continue
         exchange_weight = (9.0 if "마요덮밥" in main else 12.0) if shop == "105" and it["display"] == "마요네즈" else it.get("exchange_weight_g", it["weight_g"])
         r = compute_kimchi_pair(date, exchange_weight) if shop == "401" and it["display"] == "김치2종" else None
-        if (date, shop, it["display"]) == ("2026-11-04", "401", "된장찌개"):
+        if (date, shop, it["display"]) == ("2026-11-25", "204", "돈코츠라멘"):
+            r = compute_exchange_units("신소재_20261125_돈코츠라멘", exchange_weight, use_plaza_servings=False)
+            r["external_recipe"]["name"] = it["display"]
+        elif (date, shop, main, it["display"]) == (
+                "2026-11-26", "105", "순살안동찜닭덮밥", "닭찜_안동찜닭"):
+            r = compute_exchange_units("안동찜닭_단호박제외", exchange_weight)
+        elif (date is not None and "2026-11-23" <= date <= "2026-11-27"
+              and (shop, main, it["display"]) == ("401", "북창동 순두부찌개", "북창동 순두부찌개")):
+            r = compute_exchange_units("북창동순두부찌개_고추제외", exchange_weight, use_plaza_servings=False)
+        elif (date, shop, it["display"]) == ("2026-11-04", "401", "된장찌개"):
             r = compute_exchange_units("애호박된장찌개", exchange_weight, use_plaza_servings=False)
             r["recipe_note"] = (f"된장찌개: 11/4 사용자 제공 사진의 두부·호박·고추를 참고해 MenuGen "
                                 f"애호박된장찌개에 대체 매칭. 기존 추정 제공량 {exchange_weight:g}g 적용. "
