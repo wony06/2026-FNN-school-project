@@ -10,20 +10,20 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - name: Check out main
         uses: actions/checkout@v6
@@ -62,9 +62,49 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload web folder without rebuilding data
+        id: upload
         uses: actions/upload-pages-artifact@v4
         with:
           path: web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Wait for the uploaded Pages artifact to be listed
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_ID: ${{ needs.build.outputs.artifact_id }}
+        run: |
+          if [ -z "$PAGES_ARTIFACT_ID" ]; then
+            echo "::error::The upload job did not return a Pages artifact ID."
+            exit 1
+          fi
+
+          endpoint="repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages"
+          attempt=1
+          while [ "$attempt" -le 12 ]; do
+            if visible_id=$(gh api "$endpoint" --jq '.artifacts[] | select(.expired == false) | .id') &&
+               [ "$visible_id" = "$PAGES_ARTIFACT_ID" ]; then
+              echo "Pages artifact $visible_id is available."
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then
+              sleep 5
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          echo "::error::Pages artifact $PAGES_ARTIFACT_ID is not available after polling."
+          exit 1
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
