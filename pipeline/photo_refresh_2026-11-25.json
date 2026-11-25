@@ -1,0 +1,496 @@
+{
+ "start": "2026-11-23",
+ "end": "2026-11-25",
+ "collected": [
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "양식",
+   "name": "고구마무스돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_ScafCKCSh1u5SpDXg/400x.jpg",
+   "localPhoto": "d0962789978f1058a5f703ed.jpg",
+   "sha256": "2e175bc852b92c3aa6c4fcc81ae9b0aff17b73f0c10e081a6616b651b0f472d6"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "한식",
+   "name": "차돌야채비빔밥&고추간장",
+   "desc": "피쉬볼볶음 마늘쫑고추장무침 김치 팽이미소장국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_TnVcDiNG9Rkx2svvg/400x.jpg",
+   "localPhoto": "69363d4e70f014d2ec6eee6c.jpg",
+   "sha256": "97cf47fdf8403ddf018c276d62a27f542fb66c58610db7cde5fdba72c885de7b"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "즉석",
+   "name": "삼겹살콩비지찌개",
+   "desc": "피쉬볼볶음 마늘쫑고추장무침 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_VE_cOStY_fVM9MEew/400x.jpg",
+   "localPhoto": "5b86708ef62333dc5ff6b84d.jpg",
+   "sha256": "408b7437e497d25df7ae1399cfb7c2753884ae690d38e2cefe0e0939fc7ec174"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "미나리오징어돈불고기 된장찌개 쌈다시마&초장 얼갈이겉절이 김치2종 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMEVVfgqB2DCxhHAi1A/400x.jpg",
+   "localPhoto": "e5cbf1e3eaffc98d90bedb5f.jpg",
+   "sha256": "e02ab3ca490ce17a84f47f52dd5dcd048fa8baf88f03f8072e93a82c6ba3c8dd"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "정식",
+   "name": "마라탕 흑미밥 생선까스*타르소스 느타리버섯볶음 오복지무침 배추김치 매실차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMAALcpKjHBhWK1p_bQ/400x.jpg",
+   "localPhoto": "59d4a58e9285d321005a101d.jpg",
+   "sha256": "88a31517bb3bd773f70cc366ca25232e688975591e7f337603720146657df744"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "일품",
+   "name": "(품절)새우튀김카레덮밥 미니우동 마약옥수수 요구르트 단무지무침 배추김치 매실차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMEf9eSykraw9k1Fv0g/400x.jpg",
+   "localPhoto": "80cda296886943e201b098b7.jpg",
+   "sha256": "c7f7e76b73d7b691309565ce6da8f2ace0a9293c2e703eb3d6abaf3e8c94a139"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "양식",
+   "name": "치즈돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKs5hcEuLBnbKdG2PPQ/400x.jpg",
+   "localPhoto": "00378e8994f75bdc688dd1b6.jpg",
+   "sha256": "70e23e71afa59b27d4a1f0e7743e83ddc707f979be574ae02bdeb780169ba8dd"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "한식",
+   "name": "오삼불고기덮밥",
+   "desc": "너비아니 궁채절임 김치 우동국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKuAeegCY5e9IRApwRQ/400x.jpg",
+   "localPhoto": "bf18c20cdd21e0139aaf9feb.jpg",
+   "sha256": "afbf40989800fd10651dc7ed59346aba69e95e010ce75a923c2c0f352929e866"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "즉석",
+   "name": "소고기미역국",
+   "desc": "너비아니 궁채절임 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKvhFdSGiCq1K4GYwhw/400x.jpg",
+   "localPhoto": "999fd2637283aea01cb648fc.jpg",
+   "sha256": "6fee5060a35ba94c3524416945658072194f17adca71f750ee5d50dd0ae342ab"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "플라워떡갈비비빔밥 바지락살아욱국 연두부찜&양념장 고들빼기무말랭이무침 열무나물 김치2종",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석꼬치어묵",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILV5nRdiivpwfL3ad6-A/400x.jpg",
+   "localPhoto": "3ca968b0f1448077cbebd24d.jpg",
+   "sha256": "74250111ffa9d4ff95a1748bb7f566a4e4eb3103c0ae20e125fe14488da93fd2"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "양식",
+   "name": "카레돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUY0Iekif6GgCC6H2VA/400x.jpg",
+   "localPhoto": "b1b87dc8c493292eeb2d01d8.jpg",
+   "sha256": "fea1e8f4ac62ad5ae014bccfee32a18923ff726a24563f20c1e1d64c171132a8"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "한식",
+   "name": "부타동",
+   "desc": "타코야끼 해초샐러드 김치 미소국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUaHteia2ZoXeVJNuIA/400x.jpg",
+   "localPhoto": "70bab5d8a86f8c3e54d0c961.jpg",
+   "sha256": "49a0a3e7bbadc97bbf46aeab1dbea20e6022c9db3742a18368f8bd75fc8a31e0"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "즉석",
+   "name": "홋카이도크림스튜",
+   "desc": "타코야끼 해초샐러드 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUb2sfJq2QZz7aiCRqA/400x.jpg",
+   "localPhoto": "ead7d918e949e47d1ad2b37f.jpg",
+   "sha256": "914c573c610e6ee23de77985d6ca7df70eb89458e1de63c1c268b0097041aa71"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "물닭갈비 콩나물국 매콤어묵볶음 아삭이쌈장무침 김치2종 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQgAG2fVW6PWvunnxUrg/400x.jpg",
+   "localPhoto": "93041e4dde43d7e3c357fb2c.jpg",
+   "sha256": "cb30154881d4427357b6d1b44f6243dd7ba6b71a6dfdc57860179402dd1f7026"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "204",
+   "category": "정식",
+   "name": "참치김치찌개 흑미밥 오징어까스*타르소스 감자채볶음 마늘쫑지무침 깍두기 그린샐러드",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQbMZadhGrqP9a3sSZng/400x.jpg",
+   "localPhoto": "7f6eec211631a4bb8995a271.jpg",
+   "sha256": "225f4fa507b3722ac6cbf8c3f6f9d8bec10412730edd49dfbb7a2d130f71b672"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "204",
+   "category": "일품",
+   "name": "돈코츠라멘 추가밥 닭강정 비트무피클 요구르트 배추김치 그린샐러드",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQeI30fA-DKalPMz_8-w/400x.jpg",
+   "localPhoto": "4b1f6ca0725c1e5bccd4bf63.jpg",
+   "sha256": "094c4254fe88dae28c8e05150bfd5c94ed3ba9fa31566d0fdf72e9b377f2f90f"
+  }
+ ],
+ "missing": [
+  {
+   "date": "2026-11-24",
+   "shop": "204",
+   "category": "정식",
+   "name": "떡만두국 흑미밥 떡갈비구이*케찹 고추장멸치볶음 콩나물무침 배추김치 유자차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": null
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "204",
+   "category": "일품",
+   "name": "지코바치킨덮밥 미니칼국수 핫도그*케찹 마카로니샐러드 오이피클 배추김치 유자차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": null
+  }
+ ],
+ "existing": [
+  {
+   "date": "2026-11-23",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHyeOSZd8eoEhBT91DG6Q/400x.png"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석꼬치어묵",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHyeoHjfYqR8hEGJNPgCA/400x.png"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHye5H2eFeNCyvDjQM_WQ/400x.png"
+  }
+ ],
+ "review": [
+  {
+   "date": "2026-11-23",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "previousName": "북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "currentName": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "정식",
+   "previousName": "마라탕 흑미밥 오징어까스*타르소스 느타리버섯볶음 오복지무침 배추김치 매실차",
+   "currentName": "마라탕 흑미밥 생선까스*타르소스 느타리버섯볶음 오복지무침 배추김치 매실차",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "일품",
+   "previousName": "새우튀김카레덮밥 미니우동 마약옥수수 요구르트 단무지무침 배추김치 매실차",
+   "currentName": "(품절)새우튀김카레덮밥 미니우동 마약옥수수 요구르트 단무지무침 배추김치 매실차",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "previousName": "북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "currentName": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "previousName": "북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "currentName": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "204",
+   "category": "정식",
+   "previousName": "참치김치찌개 흑미밥 생선까스*타르소스 감자채볶음 마늘쫑지무침 깍두기 그린샐러드",
+   "currentName": "참치김치찌개 흑미밥 오징어까스*타르소스 감자채볶음 마늘쫑지무침 깍두기 그린샐러드",
+   "reason": "구성 메뉴 변경; 영양값·구성 메뉴 수정 안 함"
+  }
+ ],
+ "sourceRows": [
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "양식",
+   "name": "고구마무스돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_ScafCKCSh1u5SpDXg/400x.jpg"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "한식",
+   "name": "차돌야채비빔밥&고추간장",
+   "desc": "피쉬볼볶음 마늘쫑고추장무침 김치 팽이미소장국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_TnVcDiNG9Rkx2svvg/400x.jpg"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "105",
+   "category": "즉석",
+   "name": "삼겹살콩비지찌개",
+   "desc": "피쉬볼볶음 마늘쫑고추장무침 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIF_VE_cOStY_fVM9MEew/400x.jpg"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "미나리오징어돈불고기 된장찌개 쌈다시마&초장 얼갈이겉절이 김치2종 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMEVVfgqB2DCxhHAi1A/400x.jpg"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHyeOSZd8eoEhBT91DG6Q/400x.png"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "정식",
+   "name": "마라탕 흑미밥 생선까스*타르소스 느타리버섯볶음 오복지무침 배추김치 매실차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMAALcpKjHBhWK1p_bQ/400x.jpg"
+  },
+  {
+   "date": "2026-11-23",
+   "shop": "204",
+   "category": "일품",
+   "name": "(품절)새우튀김카레덮밥 미니우동 마약옥수수 요구르트 단무지무침 배추김치 매실차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-23",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIGMEf9eSykraw9k1Fv0g/400x.jpg"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "양식",
+   "name": "치즈돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKs5hcEuLBnbKdG2PPQ/400x.jpg"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "한식",
+   "name": "오삼불고기덮밥",
+   "desc": "너비아니 궁채절임 김치 우동국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKuAeegCY5e9IRApwRQ/400x.jpg"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "105",
+   "category": "즉석",
+   "name": "소고기미역국",
+   "desc": "너비아니 궁채절임 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILKvhFdSGiCq1K4GYwhw/400x.jpg"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "플라워떡갈비비빔밥 바지락살아욱국 연두부찜&양념장 고들빼기무말랭이무침 열무나물 김치2종",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석꼬치어묵",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaILV5nRdiivpwfL3ad6-A/400x.jpg"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석꼬치어묵",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHyeoHjfYqR8hEGJNPgCA/400x.png"
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "204",
+   "category": "정식",
+   "name": "떡만두국 흑미밥 떡갈비구이*케찹 고추장멸치볶음 콩나물무침 배추김치 유자차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": null
+  },
+  {
+   "date": "2026-11-24",
+   "shop": "204",
+   "category": "일품",
+   "name": "지코바치킨덮밥 미니칼국수 핫도그*케찹 마카로니샐러드 오이피클 배추김치 유자차",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-24",
+   "imageUrl": null
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "양식",
+   "name": "카레돈까스",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUY0Iekif6GgCC6H2VA/400x.jpg"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "한식",
+   "name": "부타동",
+   "desc": "타코야끼 해초샐러드 김치 미소국",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUaHteia2ZoXeVJNuIA/400x.jpg"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "105",
+   "category": "즉석",
+   "name": "홋카이도크림스튜",
+   "desc": "타코야끼 해초샐러드 김치",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQUb2sfJq2QZz7aiCRqA/400x.jpg"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "401",
+   "category": "중식 - Korean Dining",
+   "name": "물닭갈비 콩나물국 매콤어묵볶음 아삭이쌈장무침 김치2종 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQgAG2fVW6PWvunnxUrg/400x.jpg"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "401",
+   "category": "**콜라보메뉴** (한정)",
+   "name": "(품절) 북창동 순두부찌개 잡채 꽈리고추멸치볶음 단호박샐러드 포기김치 쌀밥",
+   "desc": "샐러드&토핑&드레싱 / (SELF)즉석라면&self계란후라이",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaHye5H2eFeNCyvDjQM_WQ/400x.png"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "204",
+   "category": "정식",
+   "name": "참치김치찌개 흑미밥 오징어까스*타르소스 감자채볶음 마늘쫑지무침 깍두기 그린샐러드",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQbMZadhGrqP9a3sSZng/400x.jpg"
+  },
+  {
+   "date": "2026-11-25",
+   "shop": "204",
+   "category": "일품",
+   "name": "돈코츠라멘 추가밥 닭강정 비트무피클 요구르트 배추김치 그린샐러드",
+   "desc": "-",
+   "sourcePage": "https://fnb.hanyang.ac.kr/front/fnbmMdMenu?date=2026-11-25",
+   "imageUrl": "https://fnb.hanyang.ac.kr/b/file/thumb/AaIQeI30fA-DKalPMz_8-w/400x.jpg"
+  }
+ ],
+ "preservedMenuCounts": {
+  "site_data.json": 564,
+  "web/site_data.json": 564
+ },
+ "userDecision": {
+  "scope": "photos_only",
+  "answer": "이번에는 사진만 연결하고 기존 계산값 유지",
+  "heldSourceCorrections": [
+   {
+    "date": "2026-11-23",
+    "shop": "204",
+    "main": "마라탕",
+    "previousSide": "오징어까스",
+    "officialSide": "생선까스"
+   },
+   {
+    "date": "2026-11-25",
+    "shop": "204",
+    "main": "참치김치찌개",
+    "previousSide": "생선까스",
+    "officialSide": "오징어까스"
+   }
+  ]
+ }
+}

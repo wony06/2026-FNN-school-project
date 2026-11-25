@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyHash": "fdad3e1eff9644176368ca2bdeef39f0f3fe175617d4e6089056c1e948bfef35",
+  "policyHash": "65b91a9abf75f4b18003bb15085bcbd799b0f5252b1a846d9e43f766b35c0036",
   "sourceFingerprints": {
     "[\"2026-06-23\",\"105\",\"양식\",\"등심돈까스\"]": "63e5be221b5ef8cbecab2c2663faadb38d68644c7c6b71fe68498a9ae5eefa9a",
     "[\"2026-06-23\",\"105\",\"즉석\",\"목살김치찌개\"]": "438d863b0ec0b832743b8cf039814b09f09914a4831447d540890e74450a5dc8",
@@ -567,6 +567,6 @@
     "[\"2026-11-27\",\"401\",\"**콜라보메뉴** (한정)\",\"북창동 순두부찌개\"]": "8523891c9c4a7e00ed28e4216e942c500ec544bb982cebfad770d990ba1fb71c",
     "[\"2026-11-27\",\"401\",\"중식 - Korean Dining\",\"불고기낙지전골\"]": "2cbdd4ca4a40172f3f0d8581dfb0a820b9f3520c6b4b5e27b65a8ca6837bffb9"
   },
-  "webSha256": "696fc5c85d5c952940c93f8ab6284bf7d6cf1643d4885718792f03e64f31c771",
-  "sourceSiteSha256": "bd9d6e33b970f4c1a913a5350e4024f63d62e595fe3a776a0d1e18e965331e07"
+  "webSha256": "5a4905d76bf9ac230926b459210c04ecfb534c062e6c2dbfb35c3d6fd2295576",
+  "sourceSiteSha256": "97ace76c4b8875647f7e4f0a8dcfae6f3b4e23af14b826b9f987f45c3f9af6c0"
 }
