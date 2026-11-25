@@ -1,0 +1,119 @@
+{
+  "reviewedAt": "2026-11-25",
+  "changedMeals": [
+    {
+      "key": [
+        "2026-11-23",
+        "105",
+        "양식",
+        "고구마무스돈까스"
+      ],
+      "codes": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        12,
+        13,
+        16
+      ],
+      "suppressed": [
+        {
+          "code": 18,
+          "reference": "등심돈가스",
+          "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+        }
+      ],
+      "unknownComponents": [
+        "고구마무스돈까스"
+      ]
+    },
+    {
+      "key": [
+        "2026-11-23",
+        "105",
+        "즉석",
+        "삼겹살콩비지찌개"
+      ],
+      "codes": [
+        5,
+        6,
+        9,
+        10,
+        13
+      ],
+      "suppressed": [],
+      "unknownComponents": [
+        "삼겹살콩비지찌개",
+        "피쉬볼볶음",
+        "마늘쫑고추장무침",
+        "김치"
+      ]
+    },
+    {
+      "key": [
+        "2026-11-23",
+        "105",
+        "한식",
+        "차돌야채비빔밥&고추간장"
+      ],
+      "codes": [
+        5,
+        16
+      ],
+      "suppressed": [],
+      "unknownComponents": [
+        "차돌야채비빔밥&고추간장",
+        "피쉬볼볶음",
+        "마늘쫑고추장무침",
+        "김치",
+        "팽이미소장국"
+      ]
+    },
+    {
+      "key": [
+        "2026-11-25",
+        "105",
+        "양식",
+        "카레돈까스"
+      ],
+      "codes": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        12,
+        13,
+        16,
+        18
+      ],
+      "suppressed": [
+        {
+          "code": 18,
+          "reference": "등심돈가스",
+          "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외."
+        }
+      ],
+      "unknownComponents": [
+        "카레돈까스"
+      ]
+    }
+  ],
+  "remainingVisibleAllergyInformationUnconfirmed": [
+    [
+      "2026-11-20",
+      "105",
+      "즉석",
+      "추어탕"
+    ]
+  ],
+  "verification": {
+    "other560MealsUnchanged": true,
+    "allNutritionAndExchangeValuesUnchanged": true,
+    "originalNeisDatabaseUnchanged": true,
+    "noActualIngredientSafetyClaim": true
+  },
+  "note": "카레소스 조개류 참고 근거는 돈까스의 일부 기록 보류와 구분하여 유지. 참고 자료의 표시 기록일 뿐 실제 함유 확정 아님."
+}

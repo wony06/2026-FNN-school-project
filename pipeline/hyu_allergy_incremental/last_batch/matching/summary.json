@@ -8,9 +8,9 @@
     "미매칭": 27
   },
   "unique_main_match_counts": {
-    "완전일치": 24,
-    "미매칭": 21,
     "검토필요": 42,
+    "미매칭": 21,
+    "완전일치": 24,
     "표기동의어": 2
   },
   "source_supported_component_occurrences": 610,
@@ -1347,9 +1347,9 @@
     }
   ],
   "input_sha256": {
-    "web\\site_data.json": "570d8f442b8da036f8f278a7b5f6a3c636d5f8ccc9e677ac80e521c9d92fe7e9",
-    "hanyang_menu_month.json": "7affbd2b0753516cd603f58a05b7b28040118809a3a3200f6bb4b803dfadc673",
-    "month_lunch_trays.json": "80533fb488666ca80d2a99962ccab3e2d06bd665439fc6f2ac0d19aa799bf24b",
+    "web\\site_data.json": "06c416a937cce71bee61df79e3e45cd8586fbb12901a840469486c4b3e318593",
+    "hanyang_menu_month.json": "40c59e0fe30a55cb651add6f6575a517eb4876837c86a8d59c0a337583d0f25d",
+    "month_lunch_trays.json": "0e34345ceb0d9cbe2518acd67ac8aebd705db35600ec59da7b0ce8ce5205fd15",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790"
   },
   "count_scope": "식단 행 수 기준 메인명 비교; 구성 메뉴의 매칭은 별도 집계",

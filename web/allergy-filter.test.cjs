@@ -273,3 +273,46 @@ test('추어탕은 참고 자료가 없으면 임의 성분을 만들지 않는�
   assert(meal.unknownComponents.includes('추어탕'));
   assert.equal(meal.actualIngredientsConfirmed,false);
 });
+
+
+test('11/23~25 사용자 지정 네 메뉴는 출처별 참고 성분과 메뉴명 단서를 구분한다',()=>{
+  const cases=[
+    ['2026-11-23','고구마무스돈까스',[1,2,5,6,10,12,13,16]],
+    ['2026-11-23','삼겹살콩비지찌개',[5,6,9,10,13]],
+    ['2026-11-23','차돌야채비빔밥&고추간장',[5,16]],
+    ['2026-11-25','카레돈까스',[1,2,5,6,10,12,13,16,18]]
+  ];
+  for(const [date,main,codes] of cases){
+    const row=rows.find(r=>r.date===date&&r.shop==='105'&&r.main===main);
+    assert(row);const meal=index.get(key(row));
+    assert.deepEqual(meal.allergens.map(a=>a.code),codes);
+    assert.equal(meal.actualIngredientsConfirmed,false);
+    assert(meal.userReviewNotes.some(n=>n.evidenceType==='user_approved_reference_recipe_unverified'));
+    for(const a of meal.allergens)for(const e of a.neisEvidence){
+      assert(data.references[e.reference]);
+      assert.equal(e.provenance.type,'user_approved_reference');
+      assert.equal(e.provenance.actualIngredientsVerified,false);
+    }
+    assert.equal(Filter.partition([row],[],index).kept[0],row);
+    assert.equal(Filter.partition([row],[codes[0]],index).excluded.length,1);
+  }
+  const pork=index.get(key(rows.find(r=>r.main==='삼겹살콩비지찌개'&&r.date==='2026-11-23')));
+  assert(pork.allergens.find(a=>a.code===10).nameEvidence.length>0);
+  const beef=index.get(key(rows.find(r=>r.main==='차돌야채비빔밥&고추간장'&&r.date==='2026-11-23')));
+  assert(beef.allergens.find(a=>a.code===16).nameEvidence.length>0);
+  assert(!beef.allergens.some(a=>a.code===1)); // Do not import an unconfirmed fried egg.
+});
+
+test('복합 카레돈까스의 카레소스 근거는 돈까스 일부 조개류 보류에 섞이지 않는다',()=>{
+  const curry=rows.find(r=>r.date==='2026-11-25'&&r.main==='카레돈까스');
+  const meal=index.get(key(curry));
+  const shellfish=meal.allergens.find(a=>a.code===18);
+  assert(shellfish);
+  assert(shellfish.neisEvidence.length>0);
+  assert(shellfish.neisEvidence.every(e=>e.reference==='카레소스'&&e.provenance.requestedQuery==='카레'));
+  assert(meal.suppressed.some(e=>e.code===18&&e.reference==='등심돈가스'));
+  assert(!meal.suppressed.some(e=>e.code===18&&e.reference==='카레소스'));
+  assert.equal(Filter.partition([curry],[18],index).excluded.length,1);
+  const sweet=rows.find(r=>r.date==='2026-11-23'&&r.main==='고구마무스돈까스');
+  assert.equal(Filter.partition([sweet],[18],index).excluded.length,0);
+});

@@ -99744,19 +99744,8 @@
       {
         "number": 1,
         "name": "난류",
-        "classification": "name_indicated",
-        "name_evidence": [
-          {
-            "component_id": "component-4",
-            "component_name": "계란국",
-            "number": 1,
-            "name": "난류",
-            "matched_terms": [
-              "계란"
-            ],
-            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
-          }
-        ],
+        "classification": "unknown",
+        "name_evidence": [],
         "neis_evidence": [],
         "supporting_source_record_ids": [],
         "distinct_supporting_record_count": 0,
@@ -100411,21 +100400,12 @@
       },
       {
         "component_id": "component-4",
-        "name": "계란국",
-        "source_scope": "원문에 등장하는 구성 메뉴명",
+        "name": "우동국",
+        "source_scope": "사용자가 함께 제공됨을 확인한 구성 메뉴명",
         "integration_applied": true,
         "match_type": "review",
         "reference_menu": null,
-        "name_indications": [
-          {
-            "number": 1,
-            "name": "난류",
-            "matched_terms": [
-              "계란"
-            ],
-            "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
-          }
-        ],
+        "name_indications": [],
         "neis_possible": [],
         "unresolved": {
           "actual_recipe_unknown": true,
@@ -100434,31 +100414,46 @@
           "no_confirmed_reference_match": true,
           "review_candidates_not_applied": [
             {
-              "reference_menu": "계란파국",
+              "reference_menu": "우동국물",
               "similarity": 0.8571,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "계란실파국",
+              "reference_menu": "우동장국",
+              "similarity": 0.8571,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "#우동장국",
               "similarity": 0.75,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "황태계란국",
+              "reference_menu": "맑은우동국",
               "similarity": 0.75,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "#계란실파국",
-              "similarity": 0.6667,
-              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
-            },
-            {
-              "reference_menu": "계란찜",
+              "reference_menu": "쑥갓우동장국",
               "similarity": 0.6667,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             }
           ]
+        },
+        "userReviewNotes": {
+          "mealKey": [
+            "2026-11-24",
+            "105",
+            "한식",
+            "오삼불고기덮밥"
+          ],
+          "names": [
+            "우동국"
+          ],
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 정정: 계란국이 아닌 우동국 제공. 실제 육수 제품·배합·교차접촉은 미확인. 영양 계산용 표준 희석 가정은 알레르기 판단 근거로 사용하지 않음.",
+          "evidenceType": "user_confirmed_served_component",
+          "actualIngredientsVerified": false
         }
       }
     ],
@@ -100472,7 +100467,7 @@
       "components_without_reference_match": [
         "오삼불고기덮밥",
         "김치",
-        "계란국"
+        "우동국"
       ],
       "meaning": "통합은 포함 가능 근거의 합집합이며 실제 식단의 확정 성분표가 아님. 숨은 재료·미확인 구성은 남아 있음."
     }

@@ -521,6 +521,14 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name == "삶은닭고기":
+        record = DB104_BY_NAME["닭고기, 살코기, 삶은것"]
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        if not _add_ingredient(units, record["식품군"], record, weight_g):
+            raise ValueError("삶은 닭고기 교환단위 원자료 확인 필요")
+        return {"matched": True, "units": units, "source": "db104_direct",
+                "matched_name": record["식품명"], "unresolved_ingredients": [],
+                "recipe_note": '2026-11-25 사용자 지정: 홋카이도크림스튜에 닭고기 100g 추가. 부위·껍질·조리 전후 중량 미확인으로 원재료DB 닭고기, 살코기, 삶은것의 100g 기준을 대체 적용. 100g을 제공 상태 중량으로 간주한 계산 가정이며 실제 부위·조리 상태가 확인됐다는 의미가 아님. 영양성분과 교환단위 모두 동일한 추가 중량 사용; 별도 양념·기름은 미확인으로 추가하지 않음.'}
     if name == "빼빼로":
         # 사용자 승인: 기존 영양성분과 동일한 가공식품DB 중앙값으로 간이 환산.
         product = try_gagong_db(name)

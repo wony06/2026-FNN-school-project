@@ -20,6 +20,13 @@ def suppress_partial_cutlet_shellfish(number,evidence,component):
     cutlet=bool(re.search(r'돈까스|돈가스',component['name'])) and not component['name'].endswith('소스')
     named=any(n['number']==18 for n in component['name_indications'])
     partial=0<evidence['labeled_record_count']<evidence['total_record_count']
+    # A compound name may contain cutlet plus another explicitly reviewed dish.
+    # Keep shellfish evidence from that other part (e.g. curry sauce) separate.
+    provenance=evidence.get('provenance', {})
+    if provenance.get('type') == 'user_approved_reference':
+        query=provenance.get('requestedQuery', '')
+        if query and not re.search(r'돈까스|돈가스', query):
+            cutlet=False
     return number==18 and cutlet and partial and not named
 
 

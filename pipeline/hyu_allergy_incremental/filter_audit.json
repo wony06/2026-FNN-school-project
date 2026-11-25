@@ -144,6 +144,103 @@
           }
         ],
         "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-23",
+          "105",
+          "양식",
+          "고구마무스돈까스"
+        ],
+        "component": "고구마무스돈까스",
+        "integrationApplied": true,
+        "subject": "고구마무스돈까스",
+        "statement": "사용자 지정: 고구마돈까스 또는 일반 돈까스의 알레르기 자료 참고. NEIS에 고구마돈까스·돈까스 단독 항목이 없어 기존 승인된 일반 돈까스 참고명 등심돈가스를 사용. 치즈돈까스 자료를 임의 적용하지 않음. 무스·튀김옷·제품 배합과 실제 부위 미확인.",
+        "reviewedAt": "2026-11-25",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "돈까스",
+            "referenceMenu": "등심돈가스",
+            "resolution": "고구마돈까스 단독 항목 부재로 사용자가 허용한 일반 돈까스 대안 사용; 실제 등심 사용 확인 아님"
+          }
+        ],
+        "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-23",
+          "105",
+          "즉석",
+          "삼겹살콩비지찌개"
+        ],
+        "component": "삼겹살콩비지찌개",
+        "integrationApplied": true,
+        "subject": "삼겹살콩비지찌개",
+        "statement": "사용자 지정: 비지찌개 + 삼겹살(돼지고기). 비지찌개의 NEIS 가능 성분과 돼지고기 사용자 단서를 구분. 실제 육수·양념·배합은 미확인.",
+        "reviewedAt": "2026-11-25",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "비지찌개",
+            "referenceMenu": "비지찌개",
+            "resolution": "동일 명칭 NEIS 자료를 사용자 지정 참고; 실제 학교별 배합 차이 미확인"
+          }
+        ],
+        "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-23",
+          "105",
+          "한식",
+          "차돌야채비빔밥&고추간장"
+        ],
+        "component": "차돌야채비빔밥&고추간장",
+        "integrationApplied": true,
+        "subject": "차돌야채비빔밥&고추간장",
+        "statement": "사용자 지정: 야채비빔밥 또는 비빔밥 알레르기 자료 참고. NEIS 일반 단독 항목이 없어 별도 계란·육류·고추장 표기가 없는 삼색나물비빔밥을 기본 식품군 참고로 사용. 차돌(쇠고기) 메뉴명 단서는 별도 보존. 고추간장 제품·나물 종류·실제 배합 확인 아님.",
+        "reviewedAt": "2026-11-25",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "야채비빔밥/비빔밥",
+            "referenceMenu": "삼색나물비빔밥",
+            "resolution": "일반 비빔밥 계열의 참고 자료; 실제 동일 재료·조리법 확인 아님"
+          }
+        ],
+        "unknownParts": []
+      },
+      {
+        "key": [
+          "2026-11-25",
+          "105",
+          "양식",
+          "카레돈까스"
+        ],
+        "component": "카레돈까스",
+        "integrationApplied": true,
+        "subject": "카레돈까스",
+        "statement": "사용자 지정: 카레 + 돈까스 알레르기 자료를 각각 참고. 카레소스와 기존 일반 돈까스 참고명 등심돈가스를 사용하며 성분별 원출처는 각각 보존. 실제 카레 제품·육류·소스 배합 확인 아님.",
+        "reviewedAt": "2026-11-25",
+        "evidenceType": "user_approved_reference_recipe_unverified",
+        "actualIngredientsVerified": false,
+        "referenceParts": [
+          {
+            "query": "카레",
+            "referenceMenu": "카레소스",
+            "resolution": "카레 소스의 NEIS 자료 참고; 카레라이스의 밥·고명을 추가하지 않음"
+          },
+          {
+            "query": "돈까스",
+            "referenceMenu": "등심돈가스",
+            "resolution": "사용자가 지정한 일반 돈까스 참고. 실제 부위·제품 확인 아님"
+          }
+        ],
+        "unknownParts": []
       }
     ],
     "aliasMatches": [
@@ -1272,6 +1369,56 @@
       },
       {
         "key": [
+          "2026-11-23",
+          "105",
+          "즉석",
+          "삼겹살콩비지찌개"
+        ],
+        "component": "삼겹살콩비지찌개",
+        "before": [],
+        "after": [
+          {
+            "number": 10,
+            "name": "돼지고기",
+            "matched_terms": [
+              "삼겹살콩비지찌개"
+            ],
+            "basis": "사용자 제공 원재료 단서: 돼지고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-25",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
+          "2026-11-23",
+          "105",
+          "한식",
+          "차돌야채비빔밥&고추간장"
+        ],
+        "component": "차돌야채비빔밥&고추간장",
+        "before": [],
+        "after": [
+          {
+            "number": 16,
+            "name": "쇠고기",
+            "matched_terms": [
+              "차돌야채비빔밥&고추간장"
+            ],
+            "basis": "사용자 제공 원재료 단서: 쇠고기 사용. 공식 레시피·제품 라벨 미확인",
+            "provenance": {
+              "type": "user_report",
+              "reviewedAt": "2026-11-25",
+              "actualIngredientsVerified": false
+            }
+          }
+        ]
+      },
+      {
+        "key": [
           "2026-11-25",
           "105",
           "한식",
@@ -1323,6 +1470,16 @@
         {
           "subject": "콘샐러드",
           "statement": "맛살 및 다른 게 관련 재료 사용하지 않음"
+        },
+        {
+          "subject": "삼겹살콩비지찌개",
+          "statement": "사용자가 삼겹살은 돼지고기로 명시. 양념·육수·제품 원재료 미확인.",
+          "reviewedAt": "2026-11-25"
+        },
+        {
+          "subject": "차돌야채비빔밥&고추간장",
+          "statement": "사용자가 지정한 메뉴명의 차돌을 쇠고기 단서로 별도 보존. 비빔밥 참고 기록에 쇠고기가 없더라도 차돌 단서를 제거하지 않음. 실제 제품·배합은 미확인.",
+          "reviewedAt": "2026-11-25"
         }
       ],
       "holdReferenceCodes": [
@@ -1421,6 +1578,12 @@
         ],
         "오야꼬동": [
           15
+        ],
+        "삼겹살콩비지찌개": [
+          10
+        ],
+        "차돌야채비빔밥&고추간장": [
+          16
         ]
       },
       "batch3": [
@@ -1630,6 +1793,83 @@
               "resolution": "사용자 승인한 대체 참고. 매운 양념·제품 원재료는 미확인"
             }
           ]
+        },
+        {
+          "mealKey": [
+            "2026-11-23",
+            "105",
+            "양식",
+            "고구마무스돈까스"
+          ],
+          "sourceComponent": "고구마무스돈까스",
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 지정: 고구마돈까스 또는 일반 돈까스의 알레르기 자료 참고. NEIS에 고구마돈까스·돈까스 단독 항목이 없어 기존 승인된 일반 돈까스 참고명 등심돈가스를 사용. 치즈돈까스 자료를 임의 적용하지 않음. 무스·튀김옷·제품 배합과 실제 부위 미확인.",
+          "parts": [
+            {
+              "query": "돈까스",
+              "referenceMenu": "등심돈가스",
+              "resolution": "고구마돈까스 단독 항목 부재로 사용자가 허용한 일반 돈까스 대안 사용; 실제 등심 사용 확인 아님"
+            }
+          ]
+        },
+        {
+          "mealKey": [
+            "2026-11-23",
+            "105",
+            "즉석",
+            "삼겹살콩비지찌개"
+          ],
+          "sourceComponent": "삼겹살콩비지찌개",
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 지정: 비지찌개 + 삼겹살(돼지고기). 비지찌개의 NEIS 가능 성분과 돼지고기 사용자 단서를 구분. 실제 육수·양념·배합은 미확인.",
+          "parts": [
+            {
+              "query": "비지찌개",
+              "referenceMenu": "비지찌개",
+              "resolution": "동일 명칭 NEIS 자료를 사용자 지정 참고; 실제 학교별 배합 차이 미확인"
+            }
+          ]
+        },
+        {
+          "mealKey": [
+            "2026-11-23",
+            "105",
+            "한식",
+            "차돌야채비빔밥&고추간장"
+          ],
+          "sourceComponent": "차돌야채비빔밥&고추간장",
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 지정: 야채비빔밥 또는 비빔밥 알레르기 자료 참고. NEIS 일반 단독 항목이 없어 별도 계란·육류·고추장 표기가 없는 삼색나물비빔밥을 기본 식품군 참고로 사용. 차돌(쇠고기) 메뉴명 단서는 별도 보존. 고추간장 제품·나물 종류·실제 배합 확인 아님.",
+          "parts": [
+            {
+              "query": "야채비빔밥/비빔밥",
+              "referenceMenu": "삼색나물비빔밥",
+              "resolution": "일반 비빔밥 계열의 참고 자료; 실제 동일 재료·조리법 확인 아님"
+            }
+          ]
+        },
+        {
+          "mealKey": [
+            "2026-11-25",
+            "105",
+            "양식",
+            "카레돈까스"
+          ],
+          "sourceComponent": "카레돈까스",
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 지정: 카레 + 돈까스 알레르기 자료를 각각 참고. 카레소스와 기존 일반 돈까스 참고명 등심돈가스를 사용하며 성분별 원출처는 각각 보존. 실제 카레 제품·육류·소스 배합 확인 아님.",
+          "parts": [
+            {
+              "query": "카레",
+              "referenceMenu": "카레소스",
+              "resolution": "카레 소스의 NEIS 자료 참고; 카레라이스의 밥·고명을 추가하지 않음"
+            },
+            {
+              "query": "돈까스",
+              "referenceMenu": "등심돈가스",
+              "resolution": "사용자가 지정한 일반 돈까스 참고. 실제 부위·제품 확인 아님"
+            }
+          ]
         }
       ],
       "simultaneousMenuParts": [
@@ -1681,7 +1921,9 @@
       ],
       "userReportedAllergenDates": {
         "부타나베": "2026-11-18",
-        "오야꼬동": "2026-11-18"
+        "오야꼬동": "2026-11-18",
+        "삼겹살콩비지찌개": "2026-11-25",
+        "차돌야채비빔밥&고추간장": "2026-11-25"
       },
       "confirmedAccompaniments": [
         {
@@ -1715,6 +1957,19 @@
           ],
           "reviewedAt": "2026-11-20",
           "statement": "사용자가 함께 제공되는 반찬 4개를 확인. 실제 제품·조리법·교차접촉은 미확인. 우동국 대체는 영양 계산용이며 알레르기 근거로 사용하지 않음."
+        },
+        {
+          "mealKey": [
+            "2026-11-24",
+            "105",
+            "한식",
+            "오삼불고기덮밥"
+          ],
+          "names": [
+            "우동국"
+          ],
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 정정: 계란국이 아닌 우동국 제공. 실제 육수 제품·배합·교차접촉은 미확인. 영양 계산용 표준 희석 가정은 알레르기 판단 근거로 사용하지 않음."
         }
       ]
     },
@@ -1737,28 +1992,28 @@
   },
   "menuCount": 564,
   "excludedByAllergen": {
-    "1": 306,
-    "2": 274,
+    "1": 307,
+    "2": 276,
     "3": 24,
     "4": 7,
-    "5": 398,
-    "6": 382,
+    "5": 402,
+    "6": 385,
     "7": 59,
     "8": 112,
-    "9": 282,
-    "10": 256,
+    "9": 283,
+    "10": 259,
     "11": 6,
-    "12": 168,
-    "13": 386,
+    "12": 170,
+    "13": 389,
     "14": 0,
     "15": 152,
-    "16": 228,
+    "16": 231,
     "17": 63,
-    "18": 294,
+    "18": 295,
     "19": 0
   },
-  "suppressedEvidenceCount": 182,
-  "correctedMealCount": 108,
+  "suppressedEvidenceCount": 184,
+  "correctedMealCount": 110,
   "choiceWithheldMenus": 50,
   "partiallyReviewedMeals": 1,
   "excludedCalculationOccurrences": 1188,
@@ -5775,6 +6030,35 @@
     },
     {
       "key": [
+        "2026-11-23",
+        "105",
+        "양식",
+        "고구마무스돈까스"
+      ],
+      "code": 18,
+      "component": "고구마무스돈까스",
+      "reference": "등심돈가스",
+      "provenance": {
+        "type": "user_approved_reference",
+        "reviewedAt": "2026-11-25",
+        "requestedQuery": "돈까스",
+        "resolution": "고구마돈까스 단독 항목 부재로 사용자가 허용한 일반 돈까스 대안 사용; 실제 등심 사용 확인 아님",
+        "actualIngredientsVerified": false
+      },
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
+    },
+    {
+      "key": [
         "2026-11-24",
         "204",
         "일품",
@@ -5838,6 +6122,35 @@
       "reviewedAt": "2026-11-04",
       "reason": "학교별 부재료·제품 배합 차이: 한양대 적용 근거 미확인. 자동 적용 보류·원재료 확인 필요.",
       "policy": "reviewed-reference-hold-v2"
+    },
+    {
+      "key": [
+        "2026-11-25",
+        "105",
+        "양식",
+        "카레돈까스"
+      ],
+      "code": 18,
+      "component": "카레돈까스",
+      "reference": "등심돈가스",
+      "provenance": {
+        "type": "user_approved_reference",
+        "reviewedAt": "2026-11-25",
+        "requestedQuery": "돈까스",
+        "resolution": "사용자가 지정한 일반 돈까스 참고. 실제 부위·제품 확인 아님",
+        "actualIngredientsVerified": false
+      },
+      "labeledRecords": 1,
+      "labeledSchools": 1,
+      "totalRecords": 3,
+      "recordIds": [
+        "e9b7762d0bbfcc4a11385f792c71e4bad514a0e4fdbbf06dd19b94a6c70c91f9"
+      ],
+      "state": "미확인",
+      "reviewSource": "NEIS 근거 적합성 검토",
+      "reviewedAt": "2026-11-04",
+      "reason": "돈까스류의 일부 NEIS 기록에만 조개류 표시. 메뉴명·확인 원재료 단서가 없어 자동 적용 제외.",
+      "policy": "partial-cutlet-shellfish-v1"
     },
     {
       "key": [
@@ -10096,6 +10409,26 @@
       "key": [
         "2026-11-25",
         "105",
+        "양식",
+        "카레돈까스"
+      ],
+      "component": "카레돈까스",
+      "reference": "카레소스",
+      "provenance": {
+        "type": "user_approved_reference",
+        "reviewedAt": "2026-11-25",
+        "requestedQuery": "카레",
+        "resolution": "카레 소스의 NEIS 자료 참고; 카레라이스의 밥·고명을 추가하지 않음",
+        "actualIngredientsVerified": false
+      },
+      "labeledRecords": 4,
+      "totalRecords": 5,
+      "decision": "근거 보존; 추가 보정 규칙 미적용"
+    },
+    {
+      "key": [
+        "2026-11-25",
+        "105",
         "즉석",
         "홋카이도크림스튜"
       ],
@@ -10315,14 +10648,14 @@
     }
   ],
   "protectedSha256": {
-    "web\\site_data.json": "97ace76c4b8875647f7e4f0a8dcfae6f3b4e23af14b826b9f987f45c3f9af6c0",
-    "web\\menu_exchange_snapshot.json": "290169ae7bd076c387f064af50460badc59e082f5fb104647ff2149cfaa0be79",
+    "web\\site_data.json": "30f4e3c1d00e58c6398e90e4bb572ac0843c7b27c825fdc79d002a8e92e0ce24",
+    "web\\menu_exchange_snapshot.json": "8a35ed04af6fe50a3d0783d3efbc479e62495f97f77e4866a6edd7f6c1f20344",
     "web\\personal-score.js": "7e1d8c2f37cbdc36083a5f8453df2d7a12b5211b762f559b0c27cea9bfa43c81",
     "web\\recommendation-view.js": "b68c49135d9f538b6e63ec63f48e71758dc2b183f92785fd3fc6377d3400dee9",
     "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
     "pipeline\\hyu_allergy_estimates\\meal_estimates.json": "138d0b9d19d9e69813cfee0fea10fbcf40d9d11d7efd09f58f5a3ccfb7239f1b",
-    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "4e4cc1465f2b8905f4d57d660d7e0dc5f59c5948288c4bc0ffdb9752cbbdf46a",
+    "pipeline\\hyu_allergy_incremental\\meal_estimates.json": "7fa03b9f9b71243a639596726329a09984329c04e5a166d2dcddae71bdd4bf7e",
     "pipeline\\hyu_allergy_incremental\\reference_statistics.json": "5bf57d7974c021db0e90df3eb242302c08b39492e6c8e4bc70a2b19baa4a143b",
     "pipeline\\hyu_allergy_incremental\\source_records.jsonl": "3679503861a3634865f1e781de36d63727d22e63858635567dc9a5a37e293a04"
   }

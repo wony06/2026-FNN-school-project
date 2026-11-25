@@ -78,6 +78,26 @@ def recipe_match(alias):
 def apply_approved_nutrition(items, lunch):
     from build_month import build_item
     for item in items:
+        if (lunch['date'], str(lunch['shop']), lunch['main'], item['display']) == (
+            '2026-11-25', '204', '돈코츠라멘', '돈코츠라멘'
+        ):
+            from auto_match import FOOD_DB
+
+            row = next(r for r in FOOD_DB if r['code'] == 'D303-147110000-0001')
+            if row['basis'] != '100g':
+                raise ValueError('돈코츠라멘 외식 분석값의 100g 기준을 확인해야 합니다.')
+            match = {
+                'source': 'food_db',
+                'name': row['name'],
+                'per100': row['n'],
+                'nutrition_note': (
+                    '가공식품 돈코츠라멘 2종의 중앙값 대신 식약처 외식 분석함량 라멘_돈코츠라멘'
+                    '(D303-147110000-0001, 100g당 98kcal)를 국물 포함 표준 497g에 적용. '
+                    '실제 급식 배합과 국물·건더기 비율은 미확인.'
+                ),
+            }
+            item.update(build_item(item['display'], item['weight_g'], item['weight_note'], {item['display']: match}))
+            continue
         alias = TARGETS.get((lunch['date'], str(lunch['shop']), item['display']))
         if alias is None:
             continue

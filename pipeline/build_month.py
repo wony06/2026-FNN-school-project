@@ -383,6 +383,11 @@ def classify_side_weight(name, cache=None):
 # 예외적으로 실제 재료 단위로 쪼갠다. 메인/반찬 어느 쪽에서 나오든 같은 방식으로 적용됨.
 # 케이스별로만 등록 - 새 이름이 나오면 여기 추가.
 DECOMPOSE_OVERRIDES = {
+    # 사용자 지정: 기존 스프 베이스 151g을 유지하고 닭고기 100g을 별도로 추가한다.
+    "홋카이도크림스튜": [
+        ("홋카이도크림스튜", 151, "기존 크림스프 베이스 151g 유지; 별도 추가 닭고기는 이 중량에 미포함"),
+        ("삶은닭고기", 100, "사용자 지정 닭고기 추가량 100g; 조리 상태·부위 미확인, 삶은 살코기 DB 대체 추정"),
+    ],
     # 2026-11-18 사용자 지정: 김치치즈도리아를 제공 레시피(메뉴젠형)로 분해. 레시피가 2인분이라
     # 밥은 표준 볶음밥 210g(1공기=1인분)으로 고정하고 나머지 토핑은 모두 절반으로 나눠 1인분화.
     # 원 레시피(2인분) g환산: 소고기80·양파50·김치100·버터33(재료1.5큰술20+화이트1큰술13)·치즈70·
@@ -1397,6 +1402,10 @@ def compute_tray(lunch, cache):
     main = lunch.get("calculationMain", lunch["main"])
     shop, category = lunch["shop"], lunch["category"]
     sides = [s for s in lunch["sides"] if not is_self_or_junk(s)]
+    # 2026-11-25 사용자 정정: 해당 식단의 실제 국은 계란국이 아닌 우동국.
+    # 원본 수집 자료는 보존하고 재계산 시에도 같은 정정을 적용한다.
+    if (lunch["date"], shop, lunch["main"]) == ("2026-11-24", "105", "오삼불고기덮밥"):
+        sides = ["우동국" if s == "계란국" else s for s in sides]
     # 2026-11-10 사용자 지정: 돈까스나베는 분해 시 쌀밥을 포함하므로, 중복되는 밥 사이드를 제거해
     # 밥을 쌀밥 하나로 통일한다(곡류군 중복 합산 방지).
     if lunch["main"] == "돈까스나베":
@@ -1438,11 +1447,9 @@ def compute_tray(lunch, cache):
     total, tw, nrf, diff_ratio, reverse_ok, confidence, unmatched_list, gagong_list, missing_list, nutri_source = summarize_nutrition(items)
 
     exchange_units = None
-    # 2026-11-04: 204(신소재공학관)는 기존에 08-24~09-19 구간만 식품교환단위를 계산했음 -
-    # 사용자 지시로 10/26~11/6까지 범위 확장.
-    # 2026-11-16: 11/16 메뉴 추가에 맞춰 컷오프를 11/16까지 확장(커밋된 site_data가 이미 11/16 교환을 포함).
-    # 2026-11-18: 사용자 지시로 11/17~20 신소재(204) 교환단위 미매칭 매칭 작업에 맞춰 컷오프를 11/20까지 확장.
-    if shop == "105" or (shop in ("401", "204") and "2026-08-24" <= lunch["date"] <= "2026-11-20"):
+    # 2026-11-25: 등록된 3개 식당 모두 날짜 상한 없이 기존 교환단위 계산을 적용한다.
+    # 신규 날짜를 추가해도 401/204만 null로 남지 않도록 한다. 미매칭은 그대로 보존한다.
+    if shop in ("105", "401", "204"):
         exchange_units = compute_tray_exchanges(items, main, shop, lunch["date"])
 
     return {

@@ -231,6 +231,12 @@ def prepared_food_override(name, foods, products, nutrients, raw_map):
 
                 'unit':'ml' if 'ml' in row['basis'].lower() else 'g'}
 
+    if name == '삶은닭고기':
+        record = next(r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8'))
+                      if r['식품명'] == '닭고기, 살코기, 삶은것')
+        return {'source':'db104_direct', 'name':record['식품명'],
+                'per100':{f:number(record.get(raw_map[f])) for f in nutrients},
+                'unit':'g', 'basis':'100g', 'nutrition_note':'2026-11-25 사용자 지정: 홋카이도크림스튜에 닭고기 100g 추가. 부위·껍질·조리 전후 중량 미확인으로 원재료DB 닭고기, 살코기, 삶은것의 100g 기준을 대체 적용. 100g을 제공 상태 중량으로 간주한 계산 가정이며 실제 부위·조리 상태가 확인됐다는 의미가 아님. 영양성분과 교환단위 모두 동일한 추가 중량 사용; 별도 양념·기름은 미확인으로 추가하지 않음.'}
     if name == '칼국수면':
         record = next(r for r in json.loads((ROOT/'db104_raw_ingredients.json').read_text(encoding='utf-8')) if r['식품명']=='칼국수면, 생것, 삶은것')
         return {'source':'db104_direct', 'name':record['식품명'],

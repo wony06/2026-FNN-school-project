@@ -4642,11 +4642,12 @@
    "너비아니",
    "궁채절임",
    "김치",
-   "계란국"
+   "우동국"
   ],
   "price": "4,800원",
   "img": null,
-  "cat_idx": 0
+  "cat_idx": 0,
+  "userCorrectionNote": "2026-11-25 사용자 정정: 계란국→우동국. 공식 수집 원본은 hanyang_menu_month.json에 보존."
  },
  {
   "date": "2026-11-24",

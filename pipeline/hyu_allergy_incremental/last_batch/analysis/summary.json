@@ -3,25 +3,25 @@
   "excluded_calculation_component_occurrences": 60,
   "source_supported_components_analyzed": 610,
   "classification_counts": {
-    "name_indicated": 48,
-    "unknown": 1344,
+    "name_indicated": 47,
+    "unknown": 1345,
     "neis_possible": 709,
     "name_and_neis_possible": 84
   },
-  "meals_with_name_evidence": 91,
+  "meals_with_name_evidence": 90,
   "meals_with_neis_evidence": 96,
   "meals_with_unknown_recipe": 115,
   "source_evidence_records": 1170,
   "protected_sha256": {
-    "web\\site_data.json": "570d8f442b8da036f8f278a7b5f6a3c636d5f8ccc9e677ac80e521c9d92fe7e9",
-    "month_lunch_trays.json": "80533fb488666ca80d2a99962ccab3e2d06bd665439fc6f2ac0d19aa799bf24b",
-    "hanyang_menu_month.json": "7affbd2b0753516cd603f58a05b7b28040118809a3a3200f6bb4b803dfadc673",
+    "web\\site_data.json": "06c416a937cce71bee61df79e3e45cd8586fbb12901a840469486c4b3e318593",
+    "month_lunch_trays.json": "0e34345ceb0d9cbe2518acd67ac8aebd705db35600ec59da7b0ce8ce5205fd15",
+    "hanyang_menu_month.json": "40c59e0fe30a55cb651add6f6575a517eb4876837c86a8d59c0a337583d0f25d",
     "web\\index.html": "bb34e0cae944d7a9ccf7efd42f6c592e4c9684601599dfffbad8a8f28c9d0ea2",
     "web\\modern.css": "0cbca3830a45dbf356a2aa22f11240c6d4266f46d760dd2fdd6e25022c244e8a",
     "web\\personal-score.js": "7e1d8c2f37cbdc36083a5f8453df2d7a12b5211b762f559b0c27cea9bfa43c81",
-    "web\\instant-rice.js": "2d2e530f827bec40da3e23483b57b23ddca8449b94a6c707382debd1c7b240b8",
+    "web\\instant-rice.js": "cb2e7233c8fbf229490605d3bab4547aaa2058c77a40fafaab846fefd974d394",
     "pipeline\\neis_reference\\reference.sqlite3": "a0f7d6c069a21781dd96416f492ad56cdc28ed8997cd0d6008d213b5bb5f3790",
-    "pipeline\\hyu_allergy_incremental\\_build-xliv04j2\\matching\\meal_matches.json": "7b385c1aef50e13f1e70f3f9b6ec6ba198b40ff73442bca5e41e546dc15d52f2"
+    "pipeline\\hyu_allergy_incremental\\_build-3e_xz6fk\\matching\\meal_matches.json": "2fae88615b831a21f4fd15aad31e48a7cd91127d87818604a2d89116c03900b2"
   },
   "choice_or_separator_integration_withheld_meals": 0
 }

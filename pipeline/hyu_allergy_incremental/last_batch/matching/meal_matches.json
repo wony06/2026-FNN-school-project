@@ -29297,11 +29297,12 @@
         "너비아니",
         "궁채절임",
         "김치",
-        "계란국"
+        "우동국"
       ],
       "price": "4,800원",
       "img": null,
-      "cat_idx": 0
+      "cat_idx": 0,
+      "userCorrectionNote": "2026-11-25 사용자 정정: 계란국→우동국. 공식 수집 원본은 hanyang_menu_month.json에 보존."
     },
     "component_results": [
       {
@@ -29529,49 +29530,40 @@
       {
         "component_index": 4,
         "source_name_supported": true,
-        "source_origin": "existing_lunch_parser_checked_against_raw_menu",
+        "source_origin": "user_confirmed_served_component",
         "result": {
-          "query": "계란국",
-          "normalized_query": "계란국",
+          "query": "우동국",
+          "normalized_query": "우동국",
           "match_type": "review",
           "reference_menu": null,
           "candidates": [
             {
-              "reference_menu": "계란파국",
+              "reference_menu": "우동국물",
               "similarity": 0.8571,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "계란실파국",
+              "reference_menu": "우동장국",
+              "similarity": 0.8571,
+              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
+            },
+            {
+              "reference_menu": "#우동장국",
               "similarity": 0.75,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "황태계란국",
+              "reference_menu": "맑은우동국",
               "similarity": 0.75,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             },
             {
-              "reference_menu": "#계란실파국",
-              "similarity": 0.6667,
-              "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
-            },
-            {
-              "reference_menu": "계란찜",
+              "reference_menu": "쑥갓우동장국",
               "similarity": 0.6667,
               "reason": "문자열 유사도 후보; 재료·조리법 일치 미확인, 알레르기 코드 미적용"
             }
           ],
-          "name_explicit_ingredients": [
-            {
-              "number": 1,
-              "name": "난류",
-              "matched_terms": [
-                "계란"
-              ],
-              "basis": "메뉴명 명시 단서; 실제 원재료/제품 확인 아님"
-            }
-          ],
+          "name_explicit_ingredients": [],
           "neis_possible_ingredients": [],
           "unknown": {
             "unlabeled_record_count": null,
@@ -29579,6 +29571,19 @@
             "actual_hyu_ingredients_verified": false,
             "meaning": "미표기·특정 번호의 비표시는 부재 근거가 아님. 실제 한양대 배합·제품은 확인 불가."
           }
+        },
+        "user_confirmation": {
+          "mealKey": [
+            "2026-11-24",
+            "105",
+            "한식",
+            "오삼불고기덮밥"
+          ],
+          "names": [
+            "우동국"
+          ],
+          "reviewedAt": "2026-11-25",
+          "statement": "사용자 정정: 계란국이 아닌 우동국 제공. 실제 육수 제품·배합·교차접촉은 미확인. 영양 계산용 표준 희석 가정은 알레르기 판단 근거로 사용하지 않음."
         },
         "calculation_only_query": null,
         "review_reason": null
