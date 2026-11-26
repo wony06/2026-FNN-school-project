@@ -4,7 +4,7 @@ import json
 import unittest
 from pathlib import Path
 
-from exchange_unit import _recipe_scale, compute_exchange_units
+from exchange_unit import _recipe_scale, compute_exchange_units, DB104_BY_NAME, _add_ingredient, EXCHANGE_GROUPS
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -24,7 +24,7 @@ class BatchRecipeScalingTest(unittest.TestCase):
                 self.assertAlmostEqual(_recipe_scale(self.recipes[name], portion), portion / batch)
 
     def test_ingredient_units_follow_portion_instead_of_batch(self):
-        for name in ['마카로니샐러드', '푸실리샐러드', '통살치킨까스', '메밀전병', '돼지고기육전']:
+        for name in ['마카로니샐러드', '푸실리샐러드', '메밀전병', '돼지고기육전']:
             with self.subTest(recipe=name):
                 small = compute_exchange_units(name, 40, use_plaza_servings=False)
                 large = compute_exchange_units(name, 80, use_plaza_servings=False)
@@ -32,6 +32,23 @@ class BatchRecipeScalingTest(unittest.TestCase):
                 self.assertGreater(sum(small['units'].values()), 0)
                 for group, value in small['units'].items():
                     self.assertAlmostEqual(large['units'][group], value * 2)
+
+    def test_cutlet_absorption_oil_is_fixed_within_serving(self):
+        oil_units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        oil = DB104_BY_NAME['콩기름']
+        _add_ingredient(oil_units, oil['식품군'], oil, 10)
+        for name in ['통살치킨까스', '새우까스']:
+            with self.subTest(recipe=name):
+                small = compute_exchange_units(name, 40, use_plaza_servings=False)
+                large = compute_exchange_units(name, 80, use_plaza_servings=False)
+                # Both servings contain fixed10g oil: base portions30g and70g.
+                for group in EXCHANGE_GROUPS:
+                    expected = (small['units'][group] - oil_units[group]) * (70 / 30) + oil_units[group]
+                    self.assertAlmostEqual(large['units'][group], expected)
+                zero = compute_exchange_units(name, 0, use_plaza_servings=False)
+                self.assertTrue(all(v == 0 for v in zero['units'].values()))
+                tiny = compute_exchange_units(name, 5, use_plaza_servings=False)
+                self.assertTrue(all(v >= 0 for v in tiny['units'].values()))
 
     def test_onion_and_spring_roll_follow_displayed_serving(self):
         customs = {r['name']: r for r in json.loads(

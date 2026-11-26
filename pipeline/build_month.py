@@ -325,7 +325,7 @@ def classify_side_weight(name, cache=None):
     if name == "식혜":
         # 2026-11-11: 음료인데 일반 반찬 72.2g 폴백을 받던 것 교정. 영양성분DB(외식 식혜) 자체 1회 제공량 150g 적용.
         return 150, "식혜 1잔 - 영양성분DB(외식) 1회 제공량 150g 적용(일반 반찬 72.2g 오분류 교정, 실측·컵 용량 미확인)"
-    if name in ("석류차", "매실차", "레몬홍차"):
+    if name in ("석류차", "매실차", "레몬홍차", "유자차", "망고주스"):
         return 200, "차 음료 - 1잔200mL 추정(일반 반찬 중량 제외, 실제 제공량·희석비 미확인)"
     if name == "버터":
         return 5, "버터 - 가공식품DB 1회 참고량5g으로 소량 추정; 레시피별 사용자 지정량 우선"
@@ -1157,10 +1157,10 @@ def compute_tray_exchanges(items, main, shop="105", date=None):
             r["external_recipe"]["name"] = it["display"]
         elif (date, shop, main, it["display"]) == (
                 "2026-11-26", "105", "순살안동찜닭덮밥", "닭찜_안동찜닭"):
-            r = compute_exchange_units("안동찜닭_단호박제외", exchange_weight)
+            r = compute_exchange_units(it.get("calculationName", "안동찜닭_단호박제외"), exchange_weight)
         elif (date is not None and "2026-11-23" <= date <= "2026-11-27"
               and (shop, main, it["display"]) == ("401", "북창동 순두부찌개", "북창동 순두부찌개")):
-            r = compute_exchange_units("북창동순두부찌개_고추제외", exchange_weight, use_plaza_servings=False)
+            r = compute_exchange_units(it.get("calculationName", "북창동순두부찌개_고추제외"), exchange_weight, use_plaza_servings=False)
         elif (date, shop, it["display"]) == ("2026-11-04", "401", "된장찌개"):
             r = compute_exchange_units("애호박된장찌개", exchange_weight, use_plaza_servings=False)
             r["recipe_note"] = (f"된장찌개: 11/4 사용자 제공 사진의 두부·호박·고추를 참고해 MenuGen "
@@ -1453,6 +1453,12 @@ def compute_tray(lunch, cache):
     include_nov5_fishcake_photo_sides(items, lunch, cache)
     from approved_nov_nutrition import apply_approved_nutrition
     apply_approved_nutrition(items, lunch)
+    from reviewed_nov27_meals import apply_reviewed_nov27
+    apply_reviewed_nov27(items, lunch)
+    from reviewed_nov26_photo_meals import apply_reviewed_nov26_photos
+    apply_reviewed_nov26_photos(items, lunch)
+    from cutlet_sauce_review import apply_cutlet_sauce
+    apply_cutlet_sauce(items, lunch)
     total, tw, nrf, diff_ratio, reverse_ok, confidence, unmatched_list, gagong_list, missing_list, nutri_source = summarize_nutrition(items)
 
     exchange_units = None

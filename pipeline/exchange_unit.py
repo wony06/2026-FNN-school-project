@@ -256,7 +256,9 @@ def _from_menugen(name, target_weight_g, *, excluded_ingredients=()):
     # 알밥·비빔밥은 밥 위주라 토핑이 적어 비례 확대하면 과대(날치알밥 채소 3.6)되므로 레시피 자연량 그대로 둔다.
     # 볶음밥은 서빙 자체가 밥 통합중량(210g)이라 제외; 쌀이 '밥'으로 등록된 레시피(_rice_raw=0)도 무영향.
     _is_bapbase = (any(k in _nm for k in ("덮밥", "알밥", "비빔밥")) and "볶음밥" not in _nm and not spam_mayo)
-    _is_rice_dominant = any(k in _nm for k in ("알밥", "비빔밥"))  # 밥 위주 - 토핑 자연량 유지(비례 확대 안 함)
+    # 2026-11-26 사용자 승인: 장조림버터비빔밥은 밥210g+잔여 토핑을 원본 비율로 배분.
+    _is_rice_dominant = (any(k in _nm for k in ("알밥", "비빔밥"))
+                         and _nm != "한우장조림버터비빔밥")
     _rice_names = set(RAW_RICE_TO_COOKED) | set(RAW_RICE_TO_COOKED.values())  # 생쌀·조리밥 모두(큰 레시피 과소도 교정)
     _rice_raw = sum(float(i.get("weight_g") or 0) for i in ingredients if i.get("food_name") in _rice_names)
     # User-confirmed omissions do not redistribute the removed weight.
@@ -427,7 +429,10 @@ def _from_external_recipe(name, target_weight_g):
     if dish is None:
         return None
     units = {g: 0.0 for g in EXCHANGE_GROUPS}
-    scale = _recipe_scale(dish, target_weight_g)
+    # Approved per-serving oil is part of, not additional to, finished weight.
+    oil_g = min(max(float(target_weight_g), 0.0), float(dish.get("absorption_oil_g", 0)))
+    body_g = max(float(target_weight_g) - oil_g, 0.0)
+    scale = _recipe_scale(dish, body_g)
     for ing in dish["ingredients"]:
         record = DB104_BY_NAME.get(ing["food_name"])
         if 'nutrients_per100' in ing:
@@ -435,8 +440,15 @@ def _from_external_recipe(name, target_weight_g):
         if record is None and FOOD_GROUP_MAP.get(ing['food_group']) is not None:
             raise ValueError(f"External recipe ingredient missing: {ing['food_name']}")
         _add_ingredient(units, ing["food_group"], record, ing["weight_g"] * scale)
+    note = dish["assumptions"]
+    if oil_g:
+        oil_name = dish["absorption_oil_food"]
+        oil_record = DB104_BY_NAME[oil_name]
+        if not _add_ingredient(units, oil_record["식품군"], oil_record, oil_g):
+            raise ValueError("흡수유 원재료DB 연결 실패: " + oil_name)
+        note += f" 현재 제공량{target_weight_g:g}g = 기본배합{body_g:g}g + 흡수유{oil_g:g}g."
     return {"units": units, "source": "external_recipe", "matched_name": name, "unresolved_ingredients": [],
-            "external_recipe": {"name": name, "url": dish["source_url"], "note": dish["assumptions"]},
+            "external_recipe": {"name": name, "url": dish["source_url"], "note": note},
             "additional_direct_matches": dish.get("direct_db_additions", [])}
 
 
@@ -524,6 +536,36 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
     """메뉴 항목 하나(원자 단위 이름) + 이미 산정된 중량(g)으로 6개 식품군 교환단위 계산.
     MenuGen -> recipe_db -> db104 직접매칭 순으로 시도. 다 실패하면 승인된 수식어 접두어를
     떼고 기본요리명으로 한 번 더 시도. 그래도 실패하면 matched=False."""
+    if name in ("버터장조림비빔밥", "한우장조림버터비빔밥"):
+        result = _from_menugen("한우장조림버터비빔밥", weight_g)
+        if result is None:
+            raise ValueError("장조림버터비빔밥 대체 배합 D014109 누락")
+        result.update(matched=True)
+        result["recipe_note"] = (
+            "버터장조림비빔밥: 사용자 승인 임시 중량 배분. MenuGen 한우장조림버터비빔밥 D014109 "
+            "원본81.5g 중 생쌀·찹쌀45g은 조리밥210g으로 환산하고, 토핑36.5g은 나머지 중량에 비례 확대. "
+            "418g 기준 밥210g+토핑208g; 고기56.986g·달걀85.479g·채소45.589g·버터5.699g·기타양념/기름14.247g. "
+            "원본 배합 비율 유지; 소금·설탕·소스 등 조미료는 중량에 포함하되 교환단위에서는 제외. "
+            "실제 사진·조리수율·제품 배합 미확인인 대체 추정; 메뉴명·기존 영양성분·제공량 유지.")
+        return result
+    if name == "검토_20261126_불닭고로케_제품간이환산":
+        from gagong_search import load_db
+        product = next(r for r in load_db() if r["식품코드"] == "P117-501050200-0839")
+        if product["영양성분함량기준량"] != "100g":
+            raise ValueError("불닭고로케 제품 함량 기준 확인 필요")
+        units = {g: 0.0 for g in EXCHANGE_GROUPS}
+        for group, column, basis in (("곡류군", "탄수화물(g)", 23),
+                                      ("어육류군", "단백질(g)", 8),
+                                      ("지방군", "지방(g)", 5)):
+            units[group] = float(product[column]) * max(float(weight_g), 0.0) / 100 / basis
+        return {"matched": True, "units": units, "source": "gagong_db_estimate",
+                "matched_name": product["식품명"], "unresolved_ingredients": [],
+                "recipe_note": (f"불닭고로케: 사용자 승인 임시 간이 환산. 전용 가공식품DB P117-501050200-0839 "
+                    f"(농업회사법인(주)씨엔푸드유연, 100g당 탄수화물15g·단백질13g·지방10g)에 제공량{weight_g:g}g 적용. "
+                    "탄수화물/23은 곡류군, 단백질/8은 어육류군, 지방/5는 지방군. 기존 채소크로켓 대체의 일부 재료 미반영을 교체. "
+                    "피·속재료의 영양소와 제품 지방의 유래를 분리하지 못하는 영양소 기반 근사로 표준 교환표 확정값 아님. "
+                    "실제 제품·튀김 전후 상태 미확인; 제품 지방을 이미 환산하므로 별도 흡수유는 중복 추가하지 않음. "
+                    "기존 영양성분·메뉴명·제공량 유지.")}
     if name == "안동찜닭_단호박제외":
         result = _from_menugen("단호박닭찜 ", weight_g, excluded_ingredients=("호박, 단호박, 생것",))
         if result is None:
@@ -592,7 +634,25 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
                     f"엉뚱한 반찬(무말랭이무침/감자샐러드)으로 매칭됐음. 제공량 {weight_g:g}g 전체를 해조류(미역 "
                     "생것)로 간주해 채소군 환산하고 드레싱·양념은 조미료 제외규칙 적용. 실제 해조 종류·중량 "
                     "실측값 아님. 영양성분·메뉴명 유지.")}
-    if name in ("군만두", "군만두(초간장포함)", "만두강정"):  # 2026-11-23 사용자 지정: 만두강정도 군만두 흡수유 추정 처리
+    if name == "만두강정":
+        # 2026-11-26 사용자 승인: 만두 본체 누락 보완. 완성 제공량 안에서 본체와 흡수유를 배분.
+        portion_g = max(float(weight_g), 0.0)
+        oil_g = portion_g * 4.0 / 70.0
+        body_g = portion_g - oil_g
+        result = _from_menugen("만두", body_g)
+        if result is None:
+            raise ValueError("만두강정 대체 배합(MenuGen 만두 D032017) 누락")
+        _add_ingredient(result["units"], "유지류", DB104_BY_NAME["콩기름"], oil_g)
+        result.update(matched=True, matched_name="만두강정(메뉴젠 만두 배합+흡수유 추정)")
+        result["recipe_note"] = (
+            f"만두강정: 사용자 승인 대체 배합. MenuGen 만두 D032017(기준759g)의 밀가루·당면은 곡류군, "
+            f"돼지고기·두부는 어육류군, 김치·마늘·대파는 채소군, 참기름은 지방군으로 환산. "
+            f"기존 제공량{portion_g:g}g 안에서 만두 본체{body_g:.3f}g과 흡수유(콩기름){oil_g:.3f}g으로 배분. "
+            "흡수유는 기존70g당4g 기준 유지; 군만두 레시피의 팬 기름을 별도 추가하지 않음. "
+            "소금·후추·강정 소스는 교환단위 조미료 제외. 김치를 포함한 표준 만두 배합으로 대체하며 "
+            "실제 만두 제품·피/소 비율·조리수분·소스량은 미확인인 임시 추정. 영양성분·메뉴명·제공량 유지.")
+        return result
+    if name in ("군만두", "군만두(초간장포함)"):
         # 2026-11-10: 군만두 교환단위는 만두 피·소(조리가공식품류)가 식품군 미매핑이라 사실상
         # 콩기름(튀김유)만 반영되는데, MenuGen 레시피의 콩기름 7g(ref 19g의 37%=튀김팬 기름 전량)이
         # 흡수유로 전량 계산돼 지방군이 과대(72g에서 기름 26.6g→5.3교환)였다. 사용자 지정: 튀김
@@ -1186,7 +1246,7 @@ def compute_exchange_units(name, weight_g, use_plaza_servings=True):
         name = "어니언링"
     if name == "새우가스":
         name = "새우까스"
-        alias_note = "새우가스: 사용자 지정 새우까스 외부 레시피(6971013)로 교환단위 대체 계산. 재료량 가정과 흡수유 제외는 외부 레시피 설명 참조. 영양성분은 기존 가공식품DB 계산 유지."
+        alias_note = "새우가스: 사용자 지정 새우까스 외부 레시피(6971013)로 교환단위 대체 계산. 재료량 가정과 승인 흡수유10g 임시 반영은 외부 레시피 설명 참조. 영양성분은 기존 가공식품DB 계산 유지."
     # 2026-11-04: 한양플라자(학생식당) 10/26~11/6 미매칭 확정 정리 - DB 표준 이름/대체 레시피 연결
     if name == "떡갈비":
         name = "퓨전떡갈비"

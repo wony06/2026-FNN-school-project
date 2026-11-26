@@ -18,6 +18,20 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # User-approved nutrition reuse of the already approved exchange recipes.
 APPROVED_SIDE_NUTRITION = {
+    '검토_20261126_안동찜닭_떡치즈제외': '검토_20261126_안동찜닭_떡치즈제외',
+    '검토_20261126_깍두기': '검토_20261126_깍두기',
+    '검토_20261126_잎채소샐러드드레싱': '검토_20261126_잎채소샐러드드레싱',
+    '검토_20261126_푸실리반찬': '검토_20261126_푸실리반찬',
+    '검토_20261126_추가두부': '검토_20261126_추가두부',
+
+    '검토_20261127_북창동순두부_달걀1개': '검토_20261127_북창동순두부_달걀1개',
+    '검토_20261127_로제소스': '검토_20261127_로제소스',
+    '검토_20261127_참치푸실리샐러드': '검토_20261127_참치푸실리샐러드',
+    '검토_20261127_돈육순두부찌개': '검토_20261127_돈육순두부찌개',
+    '검토_20261127_불고기': '검토_20261127_불고기',
+    '검토_20261127_낙지전골_소고기제외': '검토_20261127_낙지전골_소고기제외',
+
+    '아삭이쌈장무침': '아삭이쌈장무침',  # 고추60g + 쌈장10g 승인 배합
     '베이컨감자채전': '신소재_202611_검토확정_베이컨감자채전',
     '비엔나강정': '신소재_202611_검토확정_비엔나강정',
     '계란파국': '신소재_202611_검토확정_계란파국',
@@ -69,7 +83,6 @@ COOKED = {
     '쇠고기콩나물밥': ('D701-047280000-0001', 417),
     '동그랑땡구이': ('D309-437070000-0001', 96),
 
-    '석류차': ('D220-719000000-0146', 200),
     '감자수제비국': ('D603-160520000-0001', 283),
 
     '유부우동국': ('D605-244000000-0001', 272),
@@ -105,6 +118,46 @@ def number(value):
 
 
 def prepared_food_override(name, foods, products, nutrients, raw_map):
+
+    if name == '석류차':
+        # User-approved preserve20g + water180g; use gram-based data, no density conversion.
+        code = 'P109-102010200-2879'
+        row = next(r for r in products if r['식품코드'] == code)
+        if str(row.get('영양성분함량기준량')).lower() != '100g' or row.get('식품소분류명') != '액상차':
+            raise ValueError('석류청 대체자료 기준량/유형 변경: ' + code)
+        note = ('2026-11-26 사용자 승인 임시 배합: 석류청20g + 물180g = 완성음료200g. '
+                '석류청 대체자료로 가공식품DB 석류차(녹차원(주), P109-102010200-2879, '
+                '100g당265kcal·탄수화물62g·당류58g)를 지정하고 원액20g만 반영. '
+                '100g 기준 자료로 밀도1 가정 없이 계산하며 per100은 이미 희석한 완성음료 기준. '
+                '물은 열량·영양소를 추가하지 않음. 이전 완성음료DB의 탄수화물 결측0합산을 대체하며 '
+                '당류를 탄수화물에 중복 가산하지 않음. 실제 급식 제품·제조방식·희석비·컵 용량은 미확인 추정. '
+                '메뉴명 석류차 유지; 식품교환단위는 기존 사용자 지정 음료 제외 유지.')
+        return {'source':'gagong_db','name':'석류차(석류청20g+물180g 대체 추정)',
+                'per100':{f:(number(row.get(PRODUCT_FIELDS[f])) * .1
+                             if number(row.get(PRODUCT_FIELDS[f])) is not None else None) for f in nutrients},
+                '_codes':[code],'n_dup':1,'is_concentrate':False,'unit':'g',
+                'serving_weight_g':200,'nutrition_note':note,'prepared_proxy':True,
+                'dilution':{'preserve_g':20,'water_g':180,'finished_g':200,'product_basis':'100g'}}
+
+    if name == '유자차':
+        # User-approved dilution. Pin a gram-based yuja preserve record; do not mix
+        # ready-to-drink tea, automatic-vending powder and preserves in a median.
+        code = 'P109-102010200-0353'
+        row = next(r for r in products if r['식품코드'] == code)
+        if str(row.get('영양성분함량기준량')).lower() != '100g':
+            raise ValueError('유자청 영양성분 기준량 변경: ' + code)
+        note = ('2026-11-26 사용자 승인 임시 배합: 유자청20g + 물180g = 완성음료200g. '
+                '가공식품DB 유자차(㈜대동식품, P109-102010200-0353, 100g당269kcal) 원액 대체 자료를 '
+                '20g만 반영. 기존10개 제품 중앙값은 완성음료·분말·청이 혼재하여 사용 중단. '
+                '물은 열량·영양소를 추가하지 않으며 per100은 이미 희석한 완성음료 기준. '
+                '제품 형태 확인 참고: https://ownerclan.com/V2/product/view.php?selfcode=WFPACAS . '
+                '실제 급식 제품·유자청 사용량·컵 용량은 미확인 추정. 메뉴명 유지, 교환단위는 기존 사용자 제외 원칙 유지.')
+        return {'source':'gagong_db', 'name':'유자차(유자청20g+물180g 대체 추정)',
+                'per100':{f:(number(row.get(PRODUCT_FIELDS[f])) * .1
+                             if number(row.get(PRODUCT_FIELDS[f])) is not None else None) for f in nutrients},
+                '_codes':[code], 'n_dup':1, 'is_concentrate':False, 'unit':'g',
+                'serving_weight_g':200, 'nutrition_note':note, 'prepared_proxy':True,
+                'dilution':{'preserve_g':20,'water_g':180,'finished_g':200,'product_basis':'100g'}}
 
     if name in ('묵은지참치비빔밥', '갈릭쉬림프덮밥', '시금치치킨프리카세', '참치마요덮밥') or name in APPROVED_SIDE_NUTRITION:
         recipe_file = 'external_exchange_recipes.json' if name == '시금치치킨프리카세' else 'custom_exchange_recipes.json'

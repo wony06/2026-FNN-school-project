@@ -3248,30 +3248,37 @@
   "unit": "g"
  },
  "석류차": {
-  "source": "food_db",
-  "name": "기타차_석류 오리지널 핫(HOT)",
-  "origin": "외식(프랜차이즈 등 업체 제공 영양정보)",
-  "code": "D220-719000000-0146",
+  "source": "gagong_db",
+  "name": "석류차(석류청20g+물180g 대체 추정)",
   "per100": {
-   "kcal": 55,
-   "protein": 0,
-   "fat": null,
-   "carb": null,
-   "sugar": 10.94,
+   "kcal": 26.5,
+   "protein": 0.0,
+   "fat": 0.17,
+   "carb": 6.2,
+   "sugar": 5.800000000000001,
    "fiber": null,
    "ca": null,
    "fe": null,
    "vitA": null,
    "vitC": null,
-   "satFat": 0.03,
-   "na": 1
+   "satFat": 0.0,
+   "na": 2.0
   },
+  "_codes": [
+   "P109-102010200-2879"
+  ],
+  "n_dup": 1,
+  "is_concentrate": false,
+  "unit": "g",
   "serving_weight_g": 200,
-  "serving_weight_note": "석류차: 농축 차 제품 대신 완성 음료 기타차_석류 오리지널 핫(HOT)(D220-719000000-0146)로 대체. 한 잔200mL 추정량에 100mL당 성분 적용. 실제 급식 제품·당도·희석비·제공량 미확인. 에이드나 무가당차가 아닌 석류향 차 음료를 대체 자료로 사용.",
-  "nutrition_note": "석류차: 농축 차 제품 대신 완성 음료 기타차_석류 오리지널 핫(HOT)(D220-719000000-0146)로 대체. 한 잔200mL 추정량에 100mL당 성분 적용. 실제 급식 제품·당도·희석비·제공량 미확인. 에이드나 무가당차가 아닌 석류향 차 음료를 대체 자료로 사용.",
+  "nutrition_note": "2026-11-26 사용자 승인 임시 배합: 석류청20g + 물180g = 완성음료200g. 석류청 대체자료로 가공식품DB 석류차(녹차원(주), P109-102010200-2879, 100g당265kcal·탄수화물62g·당류58g)를 지정하고 원액20g만 반영. 100g 기준 자료로 밀도1 가정 없이 계산하며 per100은 이미 희석한 완성음료 기준. 물은 열량·영양소를 추가하지 않음. 이전 완성음료DB의 탄수화물 결측0합산을 대체하며 당류를 탄수화물에 중복 가산하지 않음. 실제 급식 제품·제조방식·희석비·컵 용량은 미확인 추정. 메뉴명 석류차 유지; 식품교환단위는 기존 사용자 지정 음료 제외 유지.",
   "prepared_proxy": true,
-  "basis": "100ml",
-  "unit": "ml"
+  "dilution": {
+   "preserve_g": 20,
+   "water_g": 180,
+   "finished_g": 200,
+   "product_basis": "100g"
+  }
  },
  "새송이볶음": {
   "source": "gagong_db",
@@ -3716,26 +3723,36 @@
  "핫도그*케찹": null,
  "유자차": {
   "source": "gagong_db",
-  "name": "유자차 (Yuja tea)",
-  "n_dup": 10,
+  "name": "유자차(유자청20g+물180g 대체 추정)",
   "per100": {
-   "kcal": 263.0,
-   "protein": 0.12,
-   "fiber": 1.2,
-   "ca": 3.5,
-   "fe": 0.02,
-   "vitA": 0.0,
-   "vitC": 29.07,
+   "kcal": 26.900000000000002,
+   "protein": 0.033,
+   "fat": 0.0,
+   "carb": 6.686,
+   "sugar": 5.939,
+   "fiber": null,
+   "ca": null,
+   "fe": null,
+   "vitA": null,
+   "vitC": null,
    "satFat": 0.0,
-   "sugar": 54.49,
-   "na": 15.0,
-   "fat": 0.01,
-   "carb": 64.34
+   "na": 3.5
   },
-  "note": "가공식품DB 중앙값(지방/탄수화물 컬럼은 NRF6.3 추출본에 없어 결측 처리됨 - 필요시 원본에서 보강 필요)",
-  "serving_weight_g": 200.0,
+  "_codes": [
+   "P109-102010200-0353"
+  ],
+  "n_dup": 1,
   "is_concentrate": false,
-  "unit": "g"
+  "unit": "g",
+  "serving_weight_g": 200,
+  "nutrition_note": "2026-11-26 사용자 승인 임시 배합: 유자청20g + 물180g = 완성음료200g. 가공식품DB 유자차(㈜대동식품, P109-102010200-0353, 100g당269kcal) 원액 대체 자료를 20g만 반영. 기존10개 제품 중앙값은 완성음료·분말·청이 혼재하여 사용 중단. 물은 열량·영양소를 추가하지 않으며 per100은 이미 희석한 완성음료 기준. 제품 형태 확인 참고: https://ownerclan.com/V2/product/view.php?selfcode=WFPACAS . 실제 급식 제품·유자청 사용량·컵 용량은 미확인 추정. 메뉴명 유지, 교환단위는 기존 사용자 제외 원칙 유지.",
+  "prepared_proxy": true,
+  "dilution": {
+   "preserve_g": 20,
+   "water_g": 180,
+   "finished_g": 200,
+   "product_basis": "100g"
+  }
  },
  "레몬홍차": {
   "source": "gagong_db",
@@ -15489,26 +15506,27 @@
   "used_synonym": "돈가스"
  },
  "아삭이쌈장무침": {
-  "source": "food_db",
-  "name": "쌈장",
-  "origin": "외식(재료량 기반 산출함량)",
+  "source": "recipe_decompose",
+  "name": "아삭이쌈장무침",
+  "unit": "g",
   "per100": {
-   "kcal": 142,
-   "protein": 6.5,
-   "fat": 4.55,
-   "carb": 20.13,
-   "sugar": 8.46,
-   "fiber": 5.2,
-   "ca": 54,
-   "fe": 1.31,
-   "vitA": 57,
-   "vitC": 2.06,
-   "satFat": 0.75,
-   "na": 2335
+   "kcal": 59.142857142857146,
+   "protein": 2.8771428571428577,
+   "fat": 0.85,
+   "carb": 11.1,
+   "sugar": 4.554285714285713,
+   "fiber": 5.157142857142858,
+   "ca": 21.714285714285715,
+   "fe": 0.6799999999999999,
+   "vitA": 39.857142857142854,
+   "vitC": 37.67142857142857,
+   "satFat": 0.1385714285714286,
+   "na": 375.0
   },
-  "serving_weight_g": 22.1,
-  "basis": "100ml",
-  "unit": "ml"
+  "partial_missing_fields": [],
+  "nutrition_note": "2026-11-26 사용자 승인 임시 배합: 아삭이고추를 풋고추 생것60g + 쌈장10g으로 대체해 반찬 총량70g 유지. 실제 배합·품종·제품·실측 제공량 미확인. 영양성분은 국가표준식품성분표 원재료DB의 두 재료를 모두 합산하고, 식품교환단위는 풋고추60g만 채소군으로 환산하며 쌈장은 조미료로 제외(실제 영양성분이0이라는 의미 아님). 원본 메뉴 표시명 유지.",
+  "prepared_proxy": true,
+  "recipe_batch_g": 70
  },
  "계란국": {
   "source": "gagong_db",
