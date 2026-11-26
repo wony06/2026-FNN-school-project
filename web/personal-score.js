@@ -83,7 +83,7 @@
       if(!row) throw Error(`${roundedEer} kcal에 해당하는 ${goal==='glycemic'?'혈당관리용':'일반'} 식품교환단위 표가 없습니다.`);
       if(row.length<(goal==='glycemic'?8:7) || !row.every(v=>Number.isFinite(v)&&v>=0)) throw Error('해당 열량의 식품교환단위 자료 오류');
       dailyTarget=[row[0],row[1]+row[2],row[3],row[4]];
-      if(!dailyTarget.some(v=>v>0)) throw Error('목표 교환단위 자료 오류');
+      if(!dailyTarget.every(v=>Number.isFinite(v)&&v>0)) throw Error('목표 교환단위는 식품군마다 0보다 커야 합니다.');
       mealTarget=dailyTarget.map(v=>v/p.mealCount);
     }
     return {goal,eer,pa,...weightBasis,mealCount:p.mealCount,weightKg:p.weightKg,monthlyLossKg,
@@ -94,9 +94,8 @@
 
   function calculateDistance(actual,target){
     if(actual.length!==4 || target.length!==4 || ![...actual,...target].every(v=>Number.isFinite(v)&&v>=0)) throw Error('교환단위 자료 오류');
-    const denominator=Math.hypot(...target);
-    if(!denominator) throw Error('목표 벡터가 0입니다.');
-    const distance=Math.hypot(...actual.map((v,i)=>v-target[i]))/denominator;
+    if(target.some(v=>v===0)) throw Error('목표 교환단위는 식품군마다 0보다 커야 합니다.');
+    const distance=Math.hypot(...actual.map((v,i)=>(v-target[i])/target[i]));
     return {distance};
   }
 

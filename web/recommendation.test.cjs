@@ -80,6 +80,21 @@ test('메뉴 교환단위 미매칭은 적합도 목표에서만 제외하고 �
 });
 
 
+test('같은 비율의 편차를 동일하게 반영하고 모든 목표값은 양수여야 한다',()=>{
+  const target=[4,2,3,2];
+  assert.equal(Score.calculateDistance([5,2,3,2],target).distance,0.25);
+  assert.equal(Score.calculateDistance([4,2,3,3],target).distance,0.5);
+  assert.equal(Score.calculateDistance([4,1.5,3,2],target).distance,0.25);
+  assert.equal(Score.calculateDistance([5,1.5,3,2],target).distance,Math.hypot(0.25,0.25));
+  assert.throws(()=>Score.calculateDistance([4,2,3,0],[4,2,3,0]),/0보다 커야/);
+
+  const context=Score.createContext(profile,'lifestyle',normal,glycemic);
+  const targetRow=normal.dailyExchanges[context.roundedEer].slice();
+  targetRow[4]=0;
+  const table={...normal,dailyExchanges:{...normal.dailyExchanges,[context.roundedEer]:targetRow}};
+  assert.throws(()=>Score.createContext(profile,'lifestyle',table,glycemic),/0보다 커야/);
+});
+
 test('거리 1 이상도 구분하며 세 교환단위 모드 모두 D 오름차순이다',()=>{
   for(const goal of ['lifestyle','weight_loss','glycemic']){
     const ctx=Score.createContext(goal==='weight_loss'?lossProfile:profile,goal,normal,glycemic);

@@ -465,9 +465,9 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
                 <li data-goal-basis="glycemic"><strong>혈당관리:</strong> 혈당관리를 위한 별도의 식품교환표를 적용하여 식품군 구성을 평가합니다.</li>
               </ul>
               <div id="distanceBasis">
-                <p>메뉴와 목표 교환단위의 차이는 <strong>정규화 유클리드 거리(D)</strong>로 계산하며, D가 작을수록 우선 추천합니다.</p>
-                <p class="goal-distance-formula">D = √[Σ(Mᵢ − Tᵢ)²] / √[ΣTᵢ²]</p>
-                <p>Mᵢ는 메뉴의 교환단위, Tᵢ는 한 끼 목표 교환단위를 의미합니다.</p>
+                <p>곡류군·어육류군·채소군·지방군 각각의 차이를 해당 식품군의 한 끼 목표 교환단위로 나눈 뒤, <strong>상대편차의 유클리드 거리(D)</strong>를 계산합니다. D가 작을수록 우선 추천합니다.</p>
+                <p class="goal-distance-formula">D = √[Σᵢ₌₁⁴ ((Mᵢ − Tᵢ) / Tᵢ)²]</p>
+                <p>Mᵢ는 해당 식품군의 메뉴 교환단위, Tᵢ는 해당 식품군의 한 끼 목표 교환단위입니다.</p>
               </div>
             </div>
             <div class="goal-criterion-group">
@@ -657,7 +657,7 @@ main{max-width:1180px; margin:0 auto; padding:22px 20px 60px;}
   </form>
 </dialog>
 <script src="instant-rice.js"></script>
-<script src="personal-score.js?v=20261122-bmi-v1"></script>
+<script src="personal-score.js?v=20261126-relative-distance"></script>
 <script src="recommendation-view.js?v=20261105-distance-v1"></script>
 <script src="menu-review.js?v=20261108-v1"></script>
 <script src="personal-goal-view.js?v=20261108-v1"></script>
