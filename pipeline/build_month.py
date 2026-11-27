@@ -898,6 +898,9 @@ def classify_shop_side_weight(name, shop=None, cache=None):
 
 
 def expand_side(name, shop=None, category=None, cache=None, date=None):
+    if (date, shop, category, name) == ("2026-11-27", "204", "정식", "멸치볶음"):
+        return [(name, 28, "MenuGen 멸치볶음(D101007) 조리 배합 1인분 28g을 소량 반찬 참고 제공량으로 적용. "
+                  "실제 배식 중량 미확인. 완성 음식의 g 기준 영양값과 교환단위에 동일 중량 적용.")]
     if str(shop) == "401" and name in ("2종김치", "김치2종") and date in TEMP_KIMCHI_REFERENCES:
         reference, names = TEMP_KIMCHI_REFERENCES[date]
         total_weight, _ = classify_shop_side_weight(name, shop, cache)

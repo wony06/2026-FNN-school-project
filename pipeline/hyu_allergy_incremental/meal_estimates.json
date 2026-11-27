@@ -126659,7 +126659,7 @@
       "돈육순두부찌개"
     ],
     "shop_name": "신소재공학관",
-    "source_menu_text": "돈육순두부찌개 흑미밥 치킨너겟*머스타드 맛살어묵볶음 숙주나물 배추김치 석류차 -",
+    "source_menu_text": "돈육순두부찌개 흑미밥 치킨너겟*머스타드 맛살어묵볶음 멸치볶음 배추김치 석류차 -",
     "allergens": [
       {
         "number": 1,
@@ -126760,13 +126760,28 @@
               "ef57ebce8487b35e9d8622357024b0758e94068b624ad39e97eae41da7a6919e"
             ],
             "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "component_id": "component-4",
+            "component_name": "멸치볶음",
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
           }
         ],
         "supporting_source_record_ids": [
+          "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17",
           "ef57ebce8487b35e9d8622357024b0758e94068b624ad39e97eae41da7a6919e"
         ],
-        "distinct_supporting_record_count": 1,
-        "distinct_supporting_school_count": 1,
+        "distinct_supporting_record_count": 2,
+        "distinct_supporting_school_count": 2,
         "hyu_actual_presence": "확인불가",
         "absence_confirmed": false,
         "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
@@ -126790,13 +126805,28 @@
               "ef57ebce8487b35e9d8622357024b0758e94068b624ad39e97eae41da7a6919e"
             ],
             "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "component_id": "component-4",
+            "component_name": "멸치볶음",
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
           }
         ],
         "supporting_source_record_ids": [
+          "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17",
           "ef57ebce8487b35e9d8622357024b0758e94068b624ad39e97eae41da7a6919e"
         ],
-        "distinct_supporting_record_count": 1,
-        "distinct_supporting_school_count": 1,
+        "distinct_supporting_record_count": 2,
+        "distinct_supporting_school_count": 2,
         "hyu_actual_presence": "확인불가",
         "absence_confirmed": false,
         "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
@@ -127552,6 +127582,20 @@
             "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
           },
           {
+            "component_id": "component-4",
+            "component_name": "멸치볶음",
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
             "component_id": "component-5",
             "component_name": "배추김치",
             "number": 13,
@@ -127591,6 +127635,7 @@
           "436a92424ffa1422d01a616732199339830200a0a341829a7842b8d3e39effc8",
           "568ae7d0fcc23c4d94aa232bb9791068f5b128c1f1ed7dc9afbc3800853d62f8",
           "63a845c4666ee407e927fd50132f612f1b536a6fce671668a7c628453afc0cc1",
+          "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17",
           "943124033f5cc537a6130748bc9d355f957bbf5686bd57070153c5e5936dcc8a",
           "9710f1dffd487377dba08e97ad87c835d7ca9a7953e0d44505616757832fbed5",
           "a0035b807e42158e1ce8dc9625993b2cfa2146365340148c80e4961517fc12c6",
@@ -127600,8 +127645,8 @@
           "eaf967a5a836cf8de4dfb4f485743ccaa90e94aa11ce0b9715b5b2ab94448213",
           "ef57ebce8487b35e9d8622357024b0758e94068b624ad39e97eae41da7a6919e"
         ],
-        "distinct_supporting_record_count": 17,
-        "distinct_supporting_school_count": 3,
+        "distinct_supporting_record_count": 18,
+        "distinct_supporting_school_count": 4,
         "hyu_actual_presence": "확인불가",
         "absence_confirmed": false,
         "unknown_reason": "실제 한양대 원재료·제품·조리배합 미확인. 번호 비표시는 부재 또는 안전 근거가 아님."
@@ -127965,16 +128010,53 @@
       },
       {
         "component_id": "component-4",
-        "name": "숙주나물",
+        "name": "멸치볶음",
         "source_scope": "원문에 등장하는 구성 메뉴명",
         "integration_applied": true,
         "match_type": "exact",
-        "reference_menu": "숙주나물",
+        "reference_menu": "멸치볶음",
         "name_indications": [],
-        "neis_possible": [],
+        "neis_possible": [
+          {
+            "number": 5,
+            "name": "대두",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "number": 6,
+            "name": "밀",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          },
+          {
+            "number": 13,
+            "name": "아황산류",
+            "labeled_school_count": 1,
+            "labeled_record_count": 1,
+            "total_record_count": 1,
+            "reference_menu": "멸치볶음",
+            "source_record_ids": [
+              "7c1d60aced3478719b4e6ca837a2b65f0632aac381da4288c92e90a7d7b60a17"
+            ],
+            "meaning": "다른 학교 동일 명칭의 표시 근거; 한양대 실제 성분 미확인"
+          }
+        ],
         "unresolved": {
           "actual_recipe_unknown": true,
-          "unlabeled_reference_records": 1,
+          "unlabeled_reference_records": 0,
           "review_reference_records": 0,
           "no_confirmed_reference_match": false,
           "review_candidates_not_applied": []
